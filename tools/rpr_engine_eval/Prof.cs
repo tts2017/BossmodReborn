@@ -43,3 +43,41 @@ public static class Prof
         return 0;
     }
 }
+
+public static class Prof2
+{
+    public static int Run()
+    {
+        var job = RprDefinition.Build(2.48f);
+        var w = RprDefinition.DefaultWeights();
+        w.BudgetMs = 1000;
+        w.HorizonGcds = int.Parse(Environment.GetEnvironmentVariable("DEPTH") ?? "3");
+        var engine = new RotationEngine(job, w);
+        var s = EngineState.Create(job);
+        s.Gauges[job.GaugeIndex("Soul")] = 60;
+        s.Gauges[job.GaugeIndex("Shroud")] = 40;
+        s.StatusLeft[job.StatusIndex("DeathsDesign")] = 25;
+        s.StatusStacks[job.StatusIndex("DeathsDesign")] = 1;
+        s.ComboSkill = (byte)job.SkillIndex("Slice"); s.ComboLeft = 20;
+        var tl = EngineTimeline.Open(); tl.FightEndIn = 400; tl.AddBuff(30, 50, 1.05f); tl.AddBuff(150, 170, 1.05f);
+        foreach (var replan in new[] { false, true })
+        {
+            var times = new List<double>(); var nodes = 0L;
+            for (var i = 0; i < 400; ++i)
+            {
+                engine.InvalidateCache();
+                tl.Version = replan ? i : 0;
+                var st = s; st.ComboLeft -= (i % 50) * 0.1f;
+                var sw = System.Diagnostics.Stopwatch.StartNew();
+                var d = engine.Decide(st, tl, replan ? 0 : i * 0.001f);
+                times.Add(sw.Elapsed.TotalMilliseconds * 1000);
+                nodes += d.Nodes;
+                if (i == 0) times.Clear();
+            }
+            times.Sort();
+
+            Console.WriteLine($"replan={replan} depth={w.HorizonGcds}: mean {times.Average():f0} us p50 {times[times.Count / 2]:f0} p99 {times[(int)(times.Count * 0.99)]:f0} nodes {nodes / 400.0:f0}");
+        }
+        return 0;
+    }
+}

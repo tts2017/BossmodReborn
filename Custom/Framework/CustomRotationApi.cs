@@ -39,6 +39,7 @@ public static class CustomRotationApi
     }
     private static readonly ConditionalWeakTable<RotationModuleManager, LastRequest> _lastRequests = new();
     private static readonly ConditionalWeakTable<PlanExecution, List<PlanExecution.StateData>> _statesByEnterTime = new();
+    [ThreadStatic] private static List<PlanExecution.EntryData>? _windowScratch;
 
     extension(PlanExecution plan)
     {
@@ -67,7 +68,7 @@ public static class CustomRotationApi
             var now = plan.GetVirtualTime(current);
             var end = now + horizon;
             var states = _statesByEnterTime.GetValue(plan, static p => [.. PlanStates(p).Values.OrderBy(s => s.EnterTime)]);
-            List<PlanExecution.EntryData> scratch = [];
+            var scratch = _windowScratch ??= [];
             foreach (var s in states)
             {
                 if (!IntersectBranchRange(current.BranchID, current.NumBranches, s.BranchID, s.NumBranches))
@@ -97,6 +98,22 @@ public static class CustomRotationApi
             var now = RaidWorld(cds).CurrentTime;
             foreach (var cd in RaidDamageCooldowns(cds))
                 result.Add(new(cd.Action, Math.Max(0, (float)(cd.AvailableAt - now).TotalSeconds)));
+        }
+
+        // allocation-free variant: windows written into the caller's list (cleared first)
+        public void DamageBuffWindows(Actor player, Actor? target, List<DamageBuffWindowSnapshot> windows)
+        {
+            windows.Clear();
+            var now = RaidWorld(cds).CurrentTime;
+            foreach (var status in player.Statuses)
+                if (DamageBuffAction(status.ID) is var action && action)
+                    AddDamageBuffWindow(windows, action, 0, (float)(status.ExpireAt - now).TotalSeconds);
+            if (target is { } t)
+                foreach (var status in t.Statuses)
+                    if (DamageDebuffAction(status.ID) is var action && action)
+                        AddDamageBuffWindow(windows, action, 0, (float)(status.ExpireAt - now).TotalSeconds);
+            foreach (var cooldown in RaidDamageCooldowns(cds))
+                AddDamageBuffWindow(windows, cooldown.Action, (float)(cooldown.AvailableAt - now).TotalSeconds, cooldown.Action.ID == (uint)AST.AID.Divination ? 15 : 20);
         }
 
         public DamageBuffWindowSnapshot[] DamageBuffWindows(Actor player, Actor? target)

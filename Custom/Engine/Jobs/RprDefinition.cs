@@ -101,7 +101,7 @@ public static class RprDefinition
             .Gcd("GrimReaping", 0, 24397).Aoe(220, 3).RequiresTargets(3).Recast(1.5f).ComboNeutral().RequiresStatus(Enshrouded).RequiresGauge(Lemure, 2)
                 .GainGauge(Lemure, -1).GainGauge(Void, 1)
                 .IfGaugeAtMost(Lemure, 0).RemoveStatus(Enshrouded).IfGaugeAtMost(Lemure, 0).GainGauge(Void, -5).IfGaugeAtMost(Lemure, 0).RemoveStatus(Oblatio).IfGaugeAtMost(Lemure, 0).ApplyStatus(EnshroudEnding, 1.2f)
-            .Gcd("Communio", 1100, 24398).Cast(1.3f).ComboNeutral().RequiresStatus(Enshrouded).RequiresGauge(Lemure, 1)
+            .Gcd("Communio", 1100, 24398).Cast(1.3f).ComboNeutral().RequiresStatus(Enshrouded).RequiresGauge(Lemure, 1).RequiresGaugeAtMost(Lemure, 1)
                 .GainGauge(Lemure, -5).GainGauge(Void, -5).RemoveStatuses(Enshrouded, Oblatio).ApplyStatus(EnshroudEnding, 1.2f)
                 .IfStatus(PerfectioOcculta).ApplyStatus(PerfectioParata, 30).RemoveStatus(PerfectioOcculta)
             .Gcd("Perfectio", 1300, 36973).ComboNeutral().ConsumeStacks(PerfectioParata).ForbidStatuses(ReaverStatuses)

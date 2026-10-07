@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 namespace BossMod.Autorotation.Engine;
 
@@ -15,6 +16,7 @@ public sealed class EvalContext
 // The shared game mechanics: legality, time advance and skill execution. All methods are allocation-free.
 public static class Simulator
 {
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static float GcdRecast(JobDefinition job, in EngineState s, SkillDef skill)
     {
         var recast = skill.Recast > 0 ? skill.Recast : job.BaseGcd;
@@ -30,6 +32,7 @@ public static class Simulator
         return recast;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static float CastTime(JobDefinition job, in EngineState s, SkillDef skill)
     {
         if (skill.CastTime <= 0)
@@ -41,6 +44,7 @@ public static class Simulator
         return cast;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static bool Check(in EngineState s, in Condition c) => c.Kind switch
     {
         ConditionKind.None => true,
@@ -57,6 +61,7 @@ public static class Simulator
     };
 
     // whether `skill` can be used at s.Time (the caller advances the state to the execution time first)
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static bool IsLegal(JobDefinition job, in EngineState s, in EngineTimeline tl, SkillDef skill)
     {
         if (skill.Cooldown >= 0 && s.Charges[skill.Cooldown] == 0)
@@ -77,6 +82,7 @@ public static class Simulator
     }
 
     // Advances timers by dt; returns the waste accumulated (cooldowns sitting at max charges, MustNotExpire statuses running out).
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static float Advance(JobDefinition job, ref EngineState s, float dt, EvalContext ctx)
     {
         if (dt <= 0)
@@ -127,6 +133,7 @@ public static class Simulator
         return waste;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static float Potency(JobDefinition job, in EngineState s, SkillDef skill)
     {
         var p = skill.Potency;
@@ -143,6 +150,7 @@ public static class Simulator
         return p;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static float DamageMultiplier(JobDefinition job, in EngineState s, in EngineTimeline tl)
     {
         var m = tl.BuffMultiplier(s.Time);
@@ -153,6 +161,7 @@ public static class Simulator
     }
 
     // Executes a legal skill at s.Time; returns its immediate value (potency x multipliers + party value - waste).
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static float Execute(JobDefinition job, ref EngineState s, in EngineTimeline tl, SkillDef skill, EvalContext ctx)
     {
         var t = s.Time;
@@ -247,6 +256,7 @@ public static class Simulator
         return value;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     private static void ReduceCooldown(JobDefinition job, ref EngineState s, int index, float seconds)
     {
         var cd = job.Cooldowns[index];

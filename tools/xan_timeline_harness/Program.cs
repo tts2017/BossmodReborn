@@ -73,6 +73,8 @@ internal static partial class Program
         new("sam", Class.SAM, XanSAM.Definition, static (manager, player) => new XanSAM(manager, player)),
         new("vpr", Class.VPR, XanVPR.Definition, static (manager, player) => new XanVPR(manager, player)),
         new("rpr", Class.RPR, XanRPR.Definition, static (manager, player) => new XanRPR(manager, player)),
+        // RPR on the rotation engine (Custom/Engine), same simulation and scorer as "rpr"
+        new("rpr-engine", Class.RPR, BossMod.Autorotation.RprEngineModule.Definition, static (manager, player) => new BossMod.Autorotation.RprEngineModule(manager, player)),
         new("nin", Class.NIN, XanNIN.Definition, static (manager, player) => new XanNIN(manager, player)),
         // the only akechi module in the matrix: AkechiGNB.cs is the production GNB rotation and has no other harness
         new("gnb", Class.GNB, AkechiGNB.Definition, static (manager, player) => new AkechiGNB(manager, player)),
@@ -88,6 +90,18 @@ internal static partial class Program
     {
         try
         {
+            if (Environment.GetEnvironmentVariable("ENGINE_DEPTH") is { Length: > 0 } engineDepth)
+            {
+                var ew = BossMod.Autorotation.Engine.Jobs.RprDefinition.DefaultWeights();
+                ew.HorizonGcds = int.Parse(engineDepth);
+                if (Environment.GetEnvironmentVariable("ENGINE_BUDGET_MS") is { Length: > 0 } eb)
+                    ew.BudgetMs = float.Parse(eb, System.Globalization.CultureInfo.InvariantCulture);
+                BossMod.Autorotation.RprEngineModule.WeightsOverride = ew;
+            }
+            if (Environment.GetEnvironmentVariable("ENGINE_WEIGHTS") is { Length: > 0 } weightsPath)
+                BossMod.Autorotation.RprEngineModule.WeightsOverride = BossMod.Autorotation.Engine.EngineWeights.Load(weightsPath);
+            if (Environment.GetEnvironmentVariable("ENGINE_TRACE") == "1")
+                BossMod.Autorotation.EngineRotationModule.DebugTrace = Console.WriteLine;
             var command = args.Length > 0 ? args[0] : "event-timeline";
             // takes replay files or directories instead of harness options
             if (command == "nin-replay-scan")
@@ -354,6 +368,9 @@ internal static partial class Program
             BurstControl.Print(Console.Out, job.Name);
         }
 
+        if (ContinuousTimelineRunner.ActionCounts is { } eventCounts)
+            foreach (var (action, count) in eventCounts.OrderByDescending(kv => kv.Value))
+                Console.WriteLine(FormattableString.Invariant($"action_count action={(action.Type == ActionType.Spell ? Service.LuminaRow<Lumina.Excel.Sheets.Action>(action.ID)?.Name.ToString() ?? "?" : action.ToString()).Replace(' ', '_')}({action.ID}) count={count}"));
         ExecProfile.Print(Console.Out); // XAN_HARNESS_EXEC_PROFILE=1: per-call Execute cost and allocations of these runs
         Console.WriteLine($"failures={failures.Count}");
         foreach (var failure in failures)

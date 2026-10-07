@@ -20,6 +20,8 @@ public sealed class JobAnalysis
     public readonly float[] CdUnitValueBase;     // from the definition alone; CdUnitValue = base + weights.CooldownValue
     public readonly float[] StatusValuePerSecond; // damage-multiplier statuses: (m-1) x filler rate
     public readonly float MaxSkillValue;        // upper bound of one skill's immediate value (single target, unbuffed)
+    public readonly float[] ComboChainValue;    // per skill: value of having it as the last combo step = sum over the remaining chain of (combo potency - filler per GCD)
+    public readonly float MaxComboChainValue;
 
     public JobAnalysis(JobDefinition job)
     {
@@ -79,6 +81,11 @@ public sealed class JobAnalysis
         }
         for (var g = 0; g < job.Gauges.Length; ++g)
             GaugeUnitValue[g] = perPoint[g] * GaugeUnit[g];
+        ComboChainValue = new float[job.Skills.Length];
+        for (var i = 0; i < job.Skills.Length; ++i)
+            ComboChainValue[i] = ChainValue(job, i, 0);
+        foreach (var v in ComboChainValue)
+            MaxComboChainValue = MathF.Max(MaxComboChainValue, v);
         GaugeUnitValueBase = [.. GaugeUnitValue];
         CdUnitValueBase = [.. CdUnitValue];
     }
@@ -155,6 +162,19 @@ public sealed class JobAnalysis
         for (var g = 0; g < gaugeGain.Length; ++g)
             gaugeGain[g] /= time;
         return (total / time, gcds > 0 ? total / gcds : 0, gaugeGain);
+    }
+
+    // best continuation from `skill` as the open combo step (a phase-neutral value: a full cycle sums to about zero)
+    private float ChainValue(JobDefinition job, int skill, int depth)
+    {
+        if (depth > 8)
+            return 0;
+        var best = float.MinValue;
+        foreach (var next in job.Skills)
+            foreach (var p in next.PotencyIf)
+                if (p.If.Kind == ConditionKind.ComboIs && p.If.Index == skill)
+                    best = MathF.Max(best, p.Potency - FillerPerGcd + (next.Combo == ComboMode.Continue ? ChainValue(job, next.Index, depth + 1) : 0));
+        return best == float.MinValue ? 0 : best;
     }
 
     private static float GaugeGainValue(SkillDef s, float[] perPoint)

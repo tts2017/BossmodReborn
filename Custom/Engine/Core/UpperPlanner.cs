@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 namespace BossMod.Autorotation.Engine;
 
@@ -44,8 +45,8 @@ public sealed class UpperPlanner
     }
 
     // leaf lambda cache: [resource][time bucket][holding bucket], valid for the current plan generation
-    private const int TimeBuckets = 256;      // 0.25 s each: 64 s ahead of the plan time
-    private const float TimeBucketSize = 0.25f;
+    private const int TimeBuckets = 64;       // 1 s each: 64 s ahead of the plan time
+    private const float TimeBucketSize = 1.0f;
     private const int HoldBuckets = 33;
     private readonly float[] _lambdaCache = new float[MaxResources * TimeBuckets * HoldBuckets];
     private readonly int[] _lambdaStamp = new int[MaxResources * TimeBuckets * HoldBuckets];
@@ -98,6 +99,7 @@ public sealed class UpperPlanner
     }
 
     // Shadow price (value per raw point / charge) of holding `holdingRaw` of a resource at time t.
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public float LeafLambda(int r, float t, float holdingRaw)
     {
         ref readonly var p = ref _params[r];
@@ -125,6 +127,7 @@ public sealed class UpperPlanner
         return p.Active ? p.UnitValue * p.Cap * MathF.Max(1, 1 + (maxMultiplier - 1) * _burstBias) : 0;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     private float ComputeLambda(int r, in ResourceParams p, float t, float holdingRaw)
     {
         var i = SegmentAt(t);
@@ -142,6 +145,7 @@ public sealed class UpperPlanner
     }
 
     // best value of holding k units with `remaining` seconds of segment i left: spend some now-ish, carry the rest into V_{i+1}
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     private float ValueFrom(int r, in ResourceParams p, int i, float remaining, float k, float mult)
     {
         var gain = (p.GainsDuringDowntime || _segCanSpend[i]) ? p.GainPerSec * remaining : 0;
@@ -149,10 +153,12 @@ public sealed class UpperPlanner
         var have = k + gain;
         var spendCap = MathF.Min(have, MathF.Floor(maxSpend + 1e-4f));
         var best = float.MinValue;
-        var steps = Math.Max(1, Math.Min(SpendSteps, (int)MathF.Ceiling(spendCap * 4)));
+        // whole units, plus the fractional remainder (keeps the slope smooth in the holding); at most a handful of candidates
+        var whole = Math.Min(SpendSteps, (int)spendCap);
+        var steps = whole + (spendCap > whole + 1e-4f ? 1 : 0);
         for (var si = 0; si <= steps; ++si)
         {
-            var spend = spendCap * si / steps;
+            var spend = si <= whole ? si : spendCap;
             var left = MathF.Min(have - spend, p.Cap);
             var val = spend * p.UnitValue * mult + SameSegmentDiscount * Interp(r, p, i + 1, left);
             if (val > best)
@@ -239,6 +245,7 @@ public sealed class UpperPlanner
     }
 
     // whole units spent within segment i (overflow above the cap is lost)
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     private float BestSpend(int r, in ResourceParams p, int i, float have, float maxSpend, out float bestLeft)
     {
         var spendCap = MathF.Min(MathF.Floor(have + 1e-4f), MathF.Floor(maxSpend + 1e-4f));
@@ -259,6 +266,7 @@ public sealed class UpperPlanner
         return best;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     private float Interp(int r, in ResourceParams p, int segment, float holding)
     {
         var baseIdx = r * (MaxSegments + 1) * Levels + segment * Levels;

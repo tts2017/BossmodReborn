@@ -56,9 +56,11 @@ public struct EngineState
     public readonly bool HasStatus(int index) => StatusLeft[index] > 0;
 
     // FNV-1a over the decision-relevant fields, times quantized to 0.05 s (relative to Time where it matters).
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public readonly ulong Hash(JobDefinition job) => Hash(job, 0.05f);
 
     // quantum: timer resolution in seconds (0.05 for the transposition table, coarser for "has anything changed" reuse checks)
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public readonly ulong Hash(JobDefinition job, float quantum)
     {
         var inv = 1 / quantum;
@@ -122,6 +124,7 @@ public struct EngineTimeline
     public void AddBuff(float start, float end, float multiplier) { if (NumBuffs < EngineLimits.MaxWindows) Buffs[NumBuffs++] = new() { Start = start, End = end, Multiplier = multiplier }; }
     public void AddNoCast(float start, float end) { if (NumNoCast < EngineLimits.MaxWindows) NoCast[NumNoCast++] = new() { Start = start, End = end }; }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public readonly bool InDowntime(float t)
     {
         for (var i = 0; i < NumDowntime; ++i)
@@ -130,6 +133,7 @@ public struct EngineTimeline
         return false;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public readonly bool OverlapsDowntime(float start, float end)
     {
         for (var i = 0; i < NumDowntime; ++i)
@@ -138,6 +142,7 @@ public struct EngineTimeline
         return false;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public readonly bool OverlapsNoCast(float start, float end)
     {
         for (var i = 0; i < NumNoCast; ++i)
@@ -147,6 +152,7 @@ public struct EngineTimeline
     }
 
     // end of the downtime containing t (t itself if not in downtime)
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public readonly float DowntimeEnd(float t)
     {
         for (var i = 0; i < NumDowntime; ++i)
@@ -155,6 +161,7 @@ public struct EngineTimeline
         return t;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public readonly float BuffMultiplier(float t)
     {
         var m = 1f;
@@ -173,6 +180,7 @@ public struct EngineTimeline
     }
 
     // average raid multiplier over [start, end)
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public readonly float AverageBuffMultiplier(float start, float end)
     {
         if (end <= start)

@@ -12,6 +12,8 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
     protected readonly RotationEngine Engine = engine;
     protected JobDefinition Job => Engine.Job;
     public EngineDecision LastDecision { get; private set; }
+    // diagnostics (harnesses): called for every decision that ran a search
+    public static Action<string>? DebugTrace;
 
     // raid-buff window multiplier used when only the party's buff timings are known
     protected virtual float RaidBuffMultiplier => 1.05f;
@@ -40,6 +42,8 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         var now = (float)(World.CurrentTime - _epoch).TotalSeconds; // small numbers: float keeps millisecond precision
         var d = Engine.Decide(s, tl, now);
         LastDecision = d;
+        if (DebugTrace != null && !d.Reused)
+            DebugTrace(FormattableString.Invariant($"[engine {Job.Name}] t={now:f2} gcd={GCD:f2} skill={(d.Skill >= 0 ? Job.Skills[d.Skill].Name : "wait")} nextGcd={(d.NextGcd >= 0 ? Job.Skills[d.NextGcd].Name : "wait")} at={d.ExecuteAt:f2} depth={d.Depth} nodes={d.Nodes} hyst={d.Hysteresis} combo={(s.ComboSkill != EngineLimits.NoCombo ? Job.Skills[s.ComboSkill].Name : "-")}/{World.Client.ComboState.Action}:{World.Client.ComboState.Remaining:f1} targets={s.Targets} legalGcds={string.Join(",", LegalGcds(s, tl))}"));
 
         if (d.NextGcd >= 0)
         {
@@ -53,7 +57,17 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         }
     }
 
+    private IEnumerable<string> LegalGcds(EngineState s, EngineTimeline tl)
+    {
+        var at = s;
+        foreach (var sk in Job.Skills)
+            if (sk.IsGcd && Simulator.IsLegal(Job, at, tl, sk))
+                yield return sk.Name;
+    }
+
     private DateTime _epoch;
+    private readonly List<TargetableWindow> _windowScratch = [];
+    private readonly List<DamageBuffWindowSnapshot> _buffScratch = [];
     private int _timelineHash;
     private int _timelineVersion;
 
@@ -71,7 +85,8 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
             tl.AddDowntime(dis.TargetLossIn, dis.TargetReturnIn);
         if (Manager.Planner is { } plan)
         {
-            foreach (var w in plan.EstimateTargetableWindows(60))
+            plan.EstimateTargetableWindows(60, _windowScratch);
+            foreach (var w in _windowScratch)
                 if (!w.Targetable && w.EndIn - w.StartIn >= TransientLossThreshold)
                     tl.AddDowntime(w.StartIn, w.EndIn);
         }
@@ -81,10 +96,11 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
             tl.AddNoCast(0, 0.5f);
 
         // raid buffs: active / upcoming party buffs, else the 2-minute cycle from combat start
-        var windows = Bossmods.RaidCooldowns.DamageBuffWindows(Player, null);
+        Bossmods.RaidCooldowns.DamageBuffWindows(Player, null, _buffScratch);
+        var windows = _buffScratch;
         foreach (var w in windows)
             tl.AddBuff(w.StartsIn, w.StartsIn + w.Duration, 1 + (RaidBuffMultiplier - 1) * w.Weight);
-        if (windows.Length == 0 && Manager.CombatStart != default)
+        if (windows.Count == 0 && Manager.CombatStart != default)
         {
             var elapsed = (float)(World.CurrentTime - Manager.CombatStart).TotalSeconds;
             for (var t = RaidBuffFirst; t < elapsed + 360 && tl.NumBuffs < EngineLimits.MaxWindows; t += RaidBuffInterval)

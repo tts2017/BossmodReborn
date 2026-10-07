@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -37,7 +38,8 @@ public sealed class RotationEngine
     private int _prevChoice = EngineDecision.Wait;
 
     public float ReplanInterval = 2.0f;
-    public float ReuseQuantum = 1.0f; // timer resolution of the "nothing changed, reuse the last result" check
+    public float MaxReuseAge = 1.0f; // seconds a result is reused while only timers change
+    private float _lastSearchNow = float.NegativeInfinity;
 
     // forget the cached result (the next Decide searches even if the state is unchanged)
     public void InvalidateCache() => _hasLast = false;
@@ -100,8 +102,10 @@ public sealed class RotationEngine
     // `now`: absolute clock (any monotonic seconds); used to decide when the upper tier is stale.
     public EngineDecision Decide(in EngineState state, in EngineTimeline timeline, float now)
     {
-        var key = state.Hash(Job, ReuseQuantum) ^ ((ulong)(uint)timeline.Version * 0x9E3779B97F4A7C15UL);
-        if (_hasLast && key == _lastKey)
+        // reuse while nothing discrete changed (gauges, charges, which statuses are up, combo, targets) and the last search is recent:
+        // timers ticking down alone do not trigger a new search more often than every MaxReuseAge seconds
+        var key = state.Hash(Job, 1000) ^ ((ulong)(uint)timeline.Version * 0x9E3779B97F4A7C15UL);
+        if (_hasLast && key == _lastKey && now - _lastSearchNow < MaxReuseAge && now >= _lastSearchNow)
         {
             var d = _last;
             d.Reused = true;
@@ -116,6 +120,7 @@ public sealed class RotationEngine
         }
 
         var decision = _search.Run(state, timeline, now - _lastPlanTime, _prevChoice);
+        _lastSearchNow = now;
         _prevChoice = decision.Skill;
         _last = decision;
         _lastKey = key;
@@ -152,6 +157,10 @@ internal sealed class LowerSearch
     private readonly float[] _imm = new float[MaxPly * MoveSlots];
     private readonly int[] _nextGcds = new int[MaxPly * MoveSlots];
     private readonly byte[] _perm = new byte[MaxPly * MoveSlots];
+    private readonly byte[] _pv = new byte[MaxPly * MaxPly]; // triangular principal-variation table
+    private readonly int[] _pvLen = new int[MaxPly];
+    private readonly byte[] _rootPv = new byte[MaxPly];
+    private int _rootPvLen;
     private readonly float[] _rootValues = new float[MoveSlots];
     private readonly bool[] _rootSeen = new bool[MoveSlots];
     private readonly Stopwatch _clock = new();
@@ -211,6 +220,7 @@ internal sealed class LowerSearch
 
     public float RootValue(int skill) => _rootSeen[skill] ? _rootValues[skill] : float.NaN;
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public EngineDecision Run(in EngineState root, in EngineTimeline tl, float planOffset, int prevChoice)
     {
         _tl = tl;
@@ -218,9 +228,7 @@ internal sealed class LowerSearch
         var w = _engine.Weights;
         _horizon = MathF.Max(root.GcdReadyAt, root.AnimLockAt) + w.HorizonGcds * _job.BaseGcd;
         _maxSlotValue = (MaxImmediate(true, root.Targets) + MaxDeepOgcds * MaxImmediate(false, root.Targets)) * tl.MaxBuffMultiplier() * MaxStatusMultiplier();
-        _maxComboBonus = 0;
-        foreach (var sk in _job.Skills)
-            _maxComboBonus = MathF.Max(_maxComboBonus, sk.ComboBonus);
+        _maxComboBonus = MathF.Max(0, _engine.Analysis.MaxComboChainValue);
         var maxMult = tl.MaxBuffMultiplier();
         var maxRes = 0f;
         for (var r = 0; r < UpperPlanner.MaxResources; ++r)
@@ -247,6 +255,8 @@ internal sealed class LowerSearch
             best.Skill = move == WaitMove ? EngineDecision.Wait : move;
             best.Value = value;
             best.Depth = depth;
+            _rootPvLen = _pvLen[0];
+            Array.Copy(_pv, 0, _rootPv, 0, _rootPvLen);
             if (_aborted)
                 break;
         }
@@ -259,7 +269,10 @@ internal sealed class LowerSearch
             best.Hysteresis = true;
         }
 
-        FillPrincipalVariation(root, ref best);
+        if (!best.Hysteresis && _rootPvLen > 0 && _rootPv[0] == best.Skill)
+            PrincipalVariationFromTable(root, ref best);
+        else
+            FillPrincipalVariation(root, ref best);
         best.Nodes = _nodes;
         return best;
     }
@@ -285,6 +298,24 @@ internal sealed class LowerSearch
         foreach (var s in _job.Statuses)
             m *= MathF.Max(1, s.DamageMultiplier);
         return m;
+    }
+
+    private void PrincipalVariationFromTable(in EngineState root, ref EngineDecision d)
+    {
+        var skill = _job.Skills[d.Skill];
+        d.ExecuteAt = MathF.Max(0, (skill.IsGcd ? MathF.Max(root.GcdReadyAt, root.AnimLockAt) : root.AnimLockAt) - root.Time);
+        d.NextGcd = EngineDecision.Wait;
+        for (var i = 0; i < _rootPvLen; ++i)
+        {
+            var m = _rootPv[i];
+            if (m == WaitMove)
+                return;
+            if (_job.Skills[m].IsGcd)
+            {
+                d.NextGcd = m;
+                return;
+            }
+        }
     }
 
     private void FillPrincipalVariation(in EngineState root, ref EngineDecision d)
@@ -336,9 +367,11 @@ internal sealed class LowerSearch
     }
 
     // returns the best future value from s with `gcdsLeft` GCD slots to go
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     private float Search(ref EngineState s, int gcdsLeft, int ply, float acc, int prevOgcd, out byte bestMove)
     {
         bestMove = WaitMove;
+        _pvLen[ply] = 0;
         if (gcdsLeft <= 0 || ply >= MaxPly - 1)
         {
             var leaf = Leaf(s);
@@ -346,7 +379,7 @@ internal sealed class LowerSearch
                 _rootBest = acc + leaf;
             return leaf;
         }
-        if ((++_nodes & 255) == 0 && _clock.ElapsedTicks > _budgetTicks)
+        if ((++_nodes & 31) == 0 && _clock.ElapsedTicks > _budgetTicks)
             _aborted = true;
         if (_aborted)
             return Leaf(s);
@@ -461,6 +494,11 @@ internal sealed class LowerSearch
             {
                 best = f;
                 bestMove = move;
+                var row = ply * MaxPly;
+                _pv[row] = move;
+                var childLen = Math.Min(_pvLen[ply + 1], MaxPly - 1 - ply);
+                Array.Copy(_pv, (ply + 1) * MaxPly, _pv, row + 1, childLen);
+                _pvLen[ply] = 1 + childLen;
             }
             if (_aborted)
                 break;
@@ -486,6 +524,7 @@ internal sealed class LowerSearch
     }
 
     // optimistic bound on the future value: every remaining slot at the best skill value plus the best leaf
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     private float UpperBound(in EngineState s, int gcdsLeft)
     {
         var w = _engine.Weights;
@@ -493,6 +532,7 @@ internal sealed class LowerSearch
         return gcdsLeft * _maxSlotValue + fill + _maxLeafExtra;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     private float Leaf(in EngineState s)
     {
         var w = _engine.Weights;
@@ -501,7 +541,7 @@ internal sealed class LowerSearch
         value += LeafResources(s) * w.LambdaScale;
         value += LeafStatuses(s);
         if (s.ComboSkill != EngineLimits.NoCombo && s.ComboLeft > 0)
-            value += w.Combo * _job.Skills[s.ComboSkill].ComboBonus;
+            value += w.Combo * _engine.Analysis.ComboChainValue[s.ComboSkill];
         if (w.TargetPull != 0)
         {
             var seg = _engine.Planner.SegmentAt(tEff + _planOffset);
@@ -511,6 +551,7 @@ internal sealed class LowerSearch
         return value;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     private float LeafResources(in EngineState s)
     {
         var planner = _engine.Planner;
@@ -530,6 +571,7 @@ internal sealed class LowerSearch
     }
 
     // remaining value of active statuses: damage multipliers keep paying out after the horizon
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     private float LeafStatuses(in EngineState s)
     {
         var w = _engine.Weights;

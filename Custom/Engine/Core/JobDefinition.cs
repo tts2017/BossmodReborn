@@ -106,18 +106,13 @@ public sealed class JobDefinition
     public CooldownDef[] Cooldowns = [];
     public SkillDef[] Skills = [];
 
-    public int GaugeIndex(string name) => Find(Gauges, g => g.Name == name, "gauge", name);
-    public int StatusIndex(string name) => Find(Statuses, g => g.Name == name, "status", name);
-    public int CooldownIndex(string name) => Find(Cooldowns, g => g.Name == name, "cooldown", name);
-    public int SkillIndex(string name) => Find(Skills, g => g.Name == name, "skill", name);
+    // plain loops (no delegates): called every frame by the state readers, must not allocate
+    public int GaugeIndex(string name) { for (var i = 0; i < Gauges.Length; ++i) if (Gauges[i].Name == name) return i; throw Unknown("gauge", name); }
+    public int StatusIndex(string name) { for (var i = 0; i < Statuses.Length; ++i) if (Statuses[i].Name == name) return i; throw Unknown("status", name); }
+    public int CooldownIndex(string name) { for (var i = 0; i < Cooldowns.Length; ++i) if (Cooldowns[i].Name == name) return i; throw Unknown("cooldown", name); }
+    public int SkillIndex(string name) { for (var i = 0; i < Skills.Length; ++i) if (Skills[i].Name == name) return i; throw Unknown("skill", name); }
 
-    private static int Find<T>(T[] items, Func<T, bool> pred, string kind, string name)
-    {
-        for (var i = 0; i < items.Length; ++i)
-            if (pred(items[i]))
-                return i;
-        throw new ArgumentException($"unknown {kind} '{name}'");
-    }
+    private static ArgumentException Unknown(string kind, string name) => new($"unknown {kind} '{name}'");
 }
 
 // Fluent builder: skills refer to gauges / statuses / cooldowns / other skills by name; references are resolved and

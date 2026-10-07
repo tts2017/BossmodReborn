@@ -35,6 +35,7 @@ public static class Program
             "explain" => Explain(args),
             "prof" => Prof.Run(),
             "plancheck" => PlanCheck.Run(),
+            "prof2" => Prof2.Run(),
             "diagnose" => DiagnoseAll(args),
             _ => throw new ArgumentException("usage: compare|tune [options]")
         };
@@ -175,7 +176,8 @@ public static class Program
         Console.WriteLine($"tuning RPR weights on {scenarios.Count} covered scenarios (of {pool.Count}), depth {baseWeights.HorizonGcds}, {generations} generations");
 
         static double Fitness(ScenarioResult r) => r.Score / r.Scenario.KillTime - 50.0 * r.HardFails.Count;
-        var best = Tuning.Tune(baseWeights, Tuning.DefaultParameters, scenarios, (w, sc) => Fitness(RunEngine(sc, w)), generations, seed, log: Console.WriteLine);
+        TunedParameter[] parameters = [.. Tuning.DefaultParameters, new("CooldownValue.GluttonyCD", 0, 1200), new("StatusValue.DeathsDesign", 0, 60), new("GaugeValue.Shroud", -500, 1500)];
+        var best = Tuning.Tune(baseWeights, parameters, scenarios, (w, sc) => Fitness(RunEngine(sc, w)), generations, seed, log: Console.WriteLine);
 
         var tuned = best.weights.Clone();
         tuned.BudgetMs = 0.5f;
