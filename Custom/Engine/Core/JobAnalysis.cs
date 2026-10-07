@@ -1,0 +1,148 @@
+using System;
+
+namespace BossMod.Autorotation.Engine;
+
+// Per-job constants derived once from the definition: filler damage rate, natural gauge generation and the
+// potency-equivalent value of one unit of each resource. Feeds the upper tier and the leaf evaluation.
+public sealed class JobAnalysis
+{
+    public readonly JobDefinition Job;
+    public readonly float FillerPps;
+    public readonly float FillerPerGcd;
+    public readonly float[] GaugeGainPerSecond;
+    public readonly float[] GaugeUnit;          // smallest spend (0 = gauge has no spender)
+    public readonly float[] GaugeUnitValue;     // value of one unit spent, net of the displaced filler
+    public readonly bool[] GaugeSpentByGcd;
+    public readonly float[] CdUnitValue;        // value of one charge spent
+    public readonly bool[] CdSpentByGcd;
+    public readonly float[] CdValueDuration;   // >0 when the charge's value is a timed damage buff: its payoff spans this many seconds
+    public readonly float[] StatusValuePerSecond; // damage-multiplier statuses: (m-1) x filler rate
+    public readonly float MaxSkillValue;        // upper bound of one skill's immediate value (single target, unbuffed)
+
+    public JobAnalysis(JobDefinition job)
+    {
+        Job = job;
+        (FillerPps, FillerPerGcd, GaugeGainPerSecond) = MeasureFiller(job);
+
+        StatusValuePerSecond = new float[job.Statuses.Length];
+        for (var i = 0; i < job.Statuses.Length; ++i)
+            StatusValuePerSecond[i] = MathF.Max(0, job.Statuses[i].DamageMultiplier - 1) * FillerPps;
+
+        GaugeUnit = new float[job.Gauges.Length];
+        GaugeUnitValue = new float[job.Gauges.Length];
+        GaugeSpentByGcd = new bool[job.Gauges.Length];
+        CdUnitValue = new float[job.Cooldowns.Length];
+        CdSpentByGcd = new bool[job.Cooldowns.Length];
+        CdValueDuration = new float[job.Cooldowns.Length];
+        foreach (var s in job.Skills)
+        {
+            var value = SkillValue(s);
+            MaxSkillValue = MathF.Max(MaxSkillValue, value);
+            var net = value - (s.IsGcd ? FillerPerGcd : 0);
+            foreach (var e in s.Effects)
+            {
+                if (e.Kind != EffectKind.GaugeAdd || e.Value >= 0)
+                    continue;
+                var cost = -e.Value;
+                if (GaugeUnit[e.Index] == 0 || cost < GaugeUnit[e.Index])
+                    GaugeUnit[e.Index] = cost;
+                if (net / cost * GaugeUnit[e.Index] > GaugeUnitValue[e.Index])
+                {
+                    GaugeUnitValue[e.Index] = net / cost * GaugeUnit[e.Index];
+                    GaugeSpentByGcd[e.Index] = s.IsGcd;
+                }
+            }
+            if (s.Cooldown >= 0 && net > CdUnitValue[s.Cooldown])
+            {
+                CdUnitValue[s.Cooldown] = net;
+                CdSpentByGcd[s.Cooldown] = s.IsGcd;
+                CdValueDuration[s.Cooldown] = BuffDuration(s);
+            }
+        }
+    }
+
+    // duration of the damage-multiplier status a skill applies, if that status is where most of its value comes from
+    private float BuffDuration(SkillDef s)
+    {
+        var buff = 0f;
+        var duration = 0f;
+        foreach (var e in s.Effects)
+        {
+            if (e.Kind != EffectKind.StatusApply)
+                continue;
+            var v = MathF.Max(0, Job.Statuses[e.Index].DamageMultiplier - 1) * FillerPps * e.Value;
+            if (v > buff)
+            {
+                buff = v;
+                duration = e.Value;
+            }
+        }
+        return buff > s.Potency + s.PartyValue ? duration : 0;
+    }
+
+    // immediate potency plus the expected value of the damage-multiplier statuses the skill applies
+    public float SkillValue(SkillDef s)
+    {
+        var p = s.Potency;
+        foreach (var c in s.PotencyIf)
+            p = MathF.Max(p, c.Potency);
+        var v = p + s.PartyValue;
+        foreach (var e in s.Effects)
+            if (e.Kind == EffectKind.StatusApply)
+                v += MathF.Max(0, Job.Statuses[e.Index].DamageMultiplier - 1) * FillerPps * e.Value;
+        return v;
+    }
+
+    // Plays only "free" GCDs (no cost, no cooldown, no required status) greedily for 60 s to measure the filler rate and
+    // how fast each gauge fills on its own.
+    private static (float pps, float perGcd, float[] gain) MeasureFiller(JobDefinition job)
+    {
+        var ctx = new EvalContext();
+        var tl = EngineTimeline.Open();
+        var s = EngineState.Create(job);
+        var total = 0f;
+        var gcds = 0;
+        var gaugeGain = new float[job.Gauges.Length];
+        while (s.Time < 60)
+        {
+            SkillDef? best = null;
+            var bestPotency = -1f;
+            foreach (var skill in job.Skills)
+            {
+                if (!skill.IsGcd || skill.Cooldown >= 0 || !IsFree(skill) || !Simulator.IsLegal(job, s, tl, skill))
+                    continue;
+                var p = Simulator.Potency(job, s, skill);
+                if (p > bestPotency)
+                {
+                    bestPotency = p;
+                    best = skill;
+                }
+            }
+            if (best == null)
+                break;
+            var before = s;
+            total += Simulator.Execute(job, ref s, tl, best, ctx);
+            for (var g = 0; g < job.Gauges.Length; ++g)
+                gaugeGain[g] += s.Gauges[g] - before.Gauges[g];
+            for (var g = 0; g < job.Gauges.Length; ++g)
+                s.Gauges[g] = 0; // measure gain without hitting the cap
+            ++gcds;
+            Simulator.Advance(job, ref s, s.GcdReadyAt - s.Time, ctx);
+        }
+        var time = MathF.Max(s.Time, 1);
+        for (var g = 0; g < gaugeGain.Length; ++g)
+            gaugeGain[g] /= time;
+        return (total / time, gcds > 0 ? total / gcds : 0, gaugeGain);
+    }
+
+    private static bool IsFree(SkillDef s)
+    {
+        foreach (var c in s.Conditions)
+            if (c.Kind is not (ConditionKind.ComboIs or ConditionKind.TargetsAtLeast or ConditionKind.TargetsAtMost))
+                return false;
+        foreach (var e in s.Effects)
+            if (e.Kind == EffectKind.GaugeAdd && e.Value < 0 || e.Kind == EffectKind.StatusConsumeStacks)
+                return false;
+        return true;
+    }
+}

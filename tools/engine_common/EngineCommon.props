@@ -1,0 +1,13 @@
+<Project>
+  <!-- Shared by the engine tools: compile the engine core from Custom/Engine/Core (no BossMod/Dalamud dependency) plus the common helpers. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)..\..\Custom\Engine\Core\**\*.cs" Link="EngineCore\%(RecursiveDir)%(Filename)%(Extension)" />
+    <Compile Include="$(MSBuildThisFileDirectory)*.cs" Link="Common\%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>
