@@ -29,6 +29,7 @@ public sealed class EngineWeights
     public float BudgetMs { get; set; } = 0.5f;
     public int MinNodes { get; set; }  // the total budget does not stop a search before this many nodes (0: time only)
     public int SliceNodes { get; set; } // >0: a frame slice ends after this many nodes instead of after the frame budget (with MinNodes: play depends on the work done only)
+    public int BoundOgcdsPerSlot { get; set; } = 2; // oGCDs per GCD slot counted by the lower search's pruning bound
 
     private static readonly JsonSerializerOptions _json = new() { WriteIndented = true, PropertyNameCaseInsensitive = true };
 

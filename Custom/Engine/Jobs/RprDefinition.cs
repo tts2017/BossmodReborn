@@ -147,7 +147,7 @@ public static class RprDefinition
       "FillerScale": 0.9681626, "BurstBias": 1.7269272, "StatusRemainder": 0.30177203, "CycleScale": 1, "CooldownLambdaScale": -1,
       "ForecastSelfBuffs": 0, "UnlockScale": 0,
       "StatusValue": { "DeathsDesign": 0 }, "CooldownValue": { "GluttonyCD": 0 }, "GaugeValue": { "Shroud": -222.96074 },
-      "HorizonGcds": 4, "BudgetMs": 0.5
+      "HorizonGcds": 4, "BudgetMs": 0.5, "BoundOgcdsPerSlot": 1
     }
     """;
 }

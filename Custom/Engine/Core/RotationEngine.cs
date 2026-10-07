@@ -340,7 +340,7 @@ internal sealed class LowerSearch
         _planOffset = planOffset;
         var w = _engine.Weights;
         _horizon = MathF.Max(root.GcdReadyAt, root.AnimLockAt) + w.HorizonGcds * _job.BaseGcd;
-        _maxSlotValue = (MaxImmediate(true, root.Targets) + 2 * MaxImmediate(false, root.Targets)) * tl.MaxBuffMultiplier() * MaxStatusMultiplier();
+        _maxSlotValue = (MaxImmediate(true, root.Targets) + w.BoundOgcdsPerSlot * MaxImmediate(false, root.Targets)) * tl.MaxBuffMultiplier() * MaxStatusMultiplier();
         _maxComboBonus = MathF.Max(0, _engine.Analysis.MaxComboChainValue);
         var maxMult = tl.MaxBuffMultiplier();
         var maxRes = 0f;
