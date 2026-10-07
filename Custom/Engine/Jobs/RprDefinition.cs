@@ -139,14 +139,14 @@ public static class RprDefinition
 
     public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
 
-    // CMA-ES result, second run with widened ranges (tools/rpr_engine_eval tune --real 300 --limit 80 --generations 10 --seed 2 --depth 4,
-    // started from the first run; harness fitness 435.8 -> 462.7). LambdaScale and FillerScale settle at their lower bound (0.05): the
-    // shadow prices and horizon filler matter little once the definition carries the RPR rules; kept small rather than removed.
+    // CMA-ES on the xan timeline harness (9 fights with --party-buffs 7.8, deterministic search; tools/blm_engine_eval tuned/weights-RPR-v3.json,
+    // two runs from the rpr_engine_eval weights: 682,501 -> 689,570 -> 689,683), BudgetMs for live play
     public const string DefaultWeightsJson = """
     {
-      "OverCap": 2.0607274, "Combo": 1.0372564, "LambdaScale": 0.05, "TargetPull": 0, "SwitchMargin": 33.370934,
-      "FillerScale": 0.05, "BurstBias": 2.5960407, "StatusRemainder": 1.0677418,
-      "StatusValue": { "DeathsDesign": 0 }, "CooldownValue": { "GluttonyCD": 727.738 }, "GaugeValue": { "Shroud": -188.75427 },
+      "OverCap": 4, "Combo": 0.60711783, "LambdaScale": 0.77821386, "TargetPull": 0, "SwitchMargin": 23.335081,
+      "FillerScale": 0.9681626, "BurstBias": 1.7269272, "StatusRemainder": 0.30177203, "CycleScale": 1, "CooldownLambdaScale": -1,
+      "ForecastSelfBuffs": 0, "UnlockScale": 0,
+      "StatusValue": { "DeathsDesign": 0 }, "CooldownValue": { "GluttonyCD": 0 }, "GaugeValue": { "Shroud": -222.96074 },
       "HorizonGcds": 4, "BudgetMs": 0.5
     }
     """;
