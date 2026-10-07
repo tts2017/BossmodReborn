@@ -1,0 +1,130 @@
+// Generated development skeleton from ala_mhigo.txt (TerritoryType 1146).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 8 static/dynamic trigger definitions from ui/raidboss/data/04-sb/dungeon/ala_mhigo.ts.
+
+private void Phase_1_loop(uint id)
+{
+    Timeout(id + 0x0, 5.3f, "Order to Fire"); // t=1065.6
+    Timeout(id + 0x10, 3.6f, "Aetherochemical Grenado"); // t=1069.2
+    Timeout(id + 0x20, 4.5f, "Integrated Aetheromodulator"); // t=1073.7
+    Timeout(id + 0x30, 20.0f, "Mana Burst"); // t=1093.7; cactbot StartsUsing 204F [Ala Mhigo Mana Burst]
+    Timeout(id + 0x40, 6.1f, "Order to Charge"); // t=1099.8
+    Condition(id + 0x50, 400.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2050), "", 5f, 395.2f); // t=1500.0; StartsUsing 2050 from Aulus Mal Asina
+    Timeout(id + 0x60, 3.0f, "Magitek Disruptor"); // t=1503.0; Ability 2050 from Aulus mal Asina
+    Timeout(id + 0x70, 5.0f, "Mindjack"); // t=1508.0; Ability 204E from Aulus mal Asina
+    Timeout(id + 0x80, 9.8f, "Magitek Ray"); // t=1517.8; Ability 2054 from Prototype Bit
+    Timeout(id + 0x90, 4.4f, "Magitek Ray"); // t=1522.2; Ability 2054 from Prototype Bit
+    Timeout(id + 0xA0, 6.1f, "Magitek Ray"); // t=1528.3
+    Timeout(id + 0xB0, 6.0f, "Magitek Ray"); // t=1534.3
+    Timeout(id + 0xC0, 6.0f, "Magitek Ray"); // t=1540.3
+    Timeout(id + 0xD0, 6.0f, "Magitek Ray"); // t=1546.3
+}
+
+private void Phase_2(uint id)
+{
+    Timeout(id + 0x0, 15.0f, "Mana Burst").SetHint(StateMachine.StateHint.Raidwide); // t=1615.0; Ability 204F from Aulus mal Asina; cactbot StartsUsing 204F [Ala Mhigo Mana Burst]
+    Timeout(id + 0x10, 6.1f, "Order to Charge"); // t=1621.1; Ability 2057 from Aulus mal Asina
+    Timeout(id + 0x20, 6.2f, "Order to Fire"); // t=1627.3; Ability 2058 from Aulus mal Asina
+    Timeout(id + 0x30, 3.0f, "Integrated Aetheromodulator"); // t=1630.3; Ability 205B from Prototype Bit
+    Timeout(id + 0x40, 0.4f, "Aetherochemical Grenado"); // t=1630.7; Ability 205A from Prototype Bit
+    Timeout(id + 0x50, 4.5f, "Integrated Aetheromodulator / Demimagicks"); // t=1635.2; Ability 205B from Prototype Bit | Ability 205D from Aulus mal Asina; cactbot StartsUsing 205D [Ala Mhigo Demimagicks]
+    Timeout(id + 0x60, 10.1f, "Mana Burst").SetHint(StateMachine.StateHint.Raidwide); // t=1645.3; Ability 204F from Aulus mal Asina; cactbot StartsUsing 204F [Ala Mhigo Mana Burst]
+    Timeout(id + 0x70, 13.2f, "Mana Burst").SetHint(StateMachine.StateHint.Raidwide); // t=1658.5; Ability 204F from Aulus mal Asina; cactbot StartsUsing 204F [Ala Mhigo Mana Burst]
+    Timeout(id + 0x80, 6.1f, "Order to Charge"); // t=1664.6; Ability 2057 from Aulus mal Asina
+}
+
+private void Phase_2_loop(uint id)
+{
+    Timeout(id + 0x0, 5.3f, "Order to Fire"); // t=1670.8
+    Timeout(id + 0x10, 3.0f, "Integrated Aetheromodulator"); // t=1673.8
+    Timeout(id + 0x20, 0.6f, "Aetherochemical Grenado"); // t=1674.4
+    Timeout(id + 0x30, 4.4f, "Integrated Aetheromodulator / Demimagicks"); // t=1678.8
+    Timeout(id + 0x40, 10.1f, "Mana Burst"); // t=1688.9; cactbot StartsUsing 204F [Ala Mhigo Mana Burst]
+    Timeout(id + 0x50, 13.2f, "Mana Burst"); // t=1702.1; cactbot StartsUsing 204F [Ala Mhigo Mana Burst]
+    Timeout(id + 0x60, 6.1f, "Order to Charge"); // t=1708.2
+    Timeout(id + 0x70, 291.8f, "--Start--"); // t=2000.0
+    Timeout(id + 0x80, 23.4f, "Storm?/Swell?"); // t=2023.4
+    Timeout(id + 0x90, 9.4f, "Unmoving Troika"); // t=2032.8; Ability 2060 from Zenos Yae Galvus
+    Timeout(id + 0xA0, 17.8f, "Storm?/Swell?"); // t=2050.6
+    Timeout(id + 0xB0, 8.7f, "Art of the Sword"); // t=2059.3; Ability 2068 from Zenos Yae Galvus; cactbot StartsUsing 2068/2588 [Ala Mhigo Sword]
+    Timeout(id + 0xC0, 9.2f, "Unmoving Troika"); // t=2068.5; Ability 2060 from Zenos Yae Galvus
+    Timeout(id + 0xD0, 19.9f, "Storm?/Swell?"); // t=2088.4
+    Timeout(id + 0xE0, 8.7f, "Art of the Sword"); // t=2097.1; Ability 2068 from Zenos Yae Galvus; cactbot StartsUsing 2068/2588 [Ala Mhigo Sword]
+    Timeout(id + 0xF0, 9.3f, "Unmoving Troika"); // t=2106.4; Ability 2060 from Zenos Yae Galvus
+    Timeout(id + 0x100, 19.8f, "Storm?/Swell?"); // t=2126.2
+    Timeout(id + 0x110, 8.7f, "Art of the Sword"); // t=2134.9; Ability 2068 from Zenos Yae Galvus; cactbot StartsUsing 2068/2588 [Ala Mhigo Sword]
+    Timeout(id + 0x120, 9.3f, "Unmoving Troika"); // t=2144.2; Ability 2060 from Zenos Yae Galvus
+    Timeout(id + 0x130, 19.8f, "Storm?/Swell?"); // t=2164.0
+    Timeout(id + 0x140, 8.7f, "Art of the Sword"); // t=2172.7
+    Timeout(id + 0x150, 9.3f, "Unmoving Troika"); // t=2182.0
+    Timeout(id + 0x160, 19.8f, "Storm?/Swell?"); // t=2201.8
+    Timeout(id + 0x170, 8.7f, "Art of the Sword"); // t=2210.5
+    Timeout(id + 0x180, 9.3f, "Unmoving Troika"); // t=2219.8
+}
+
+private void Phase_2_at____65__HP(uint id)
+{
+    Timeout(id + 0x0, 7.5f, "Vein Splitter"); // t=2307.5; Ability 24B6 from Zenos Yae Galvus
+    Timeout(id + 0x10, 2.6f, "Vein Splitter"); // t=2310.1; Ability 206C from Zenos Yae Galvus
+    Timeout(id + 0x20, 13.2f, "Lightless Spark"); // t=2323.3; Ability 206B from Zenos Yae Galvus; cactbot Tether 29 [Ala Mhigo Lightless Spark]
+    Timeout(id + 0x30, 8.3f, "Unmoving Troika"); // t=2331.6; Ability 2060 from Zenos Yae Galvus
+    Timeout(id + 0x40, 10.1f, "Concentrativity").SetHint(StateMachine.StateHint.Raidwide); // t=2341.7; Ability 206D from Zenos Yae Galvus; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x50, 12.7f, "Storm?/Swell?/Sword?"); // t=2354.4
+    Timeout(id + 0x60, 12.1f, "Concentrativity").SetHint(StateMachine.StateHint.Raidwide); // t=2366.5; Ability 206D from Zenos Yae Galvus; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x70, 12.8f, "Art of the Swell? / Art of the Storm?").SetHint(StateMachine.StateHint.Knockback); // t=2379.3; Ability 2065 from Zenos Yae Galvus | Ability 2066 from Zenos Yae Galvus; cactbot StartsUsing 2066/2587 [Ala Mhigo Storm] | StartsUsing 2065/2586 [Ala Mhigo Swell]
+    Timeout(id + 0x80, 2.5f, "Vein Splitter"); // t=2381.8
+    Timeout(id + 0x90, 3.5f, "Lightless Spark?"); // t=2385.3; cactbot Tether 29 [Ala Mhigo Lightless Spark]
+    Timeout(id + 0xA0, 2.7f, "Art of the Sword"); // t=2388.0
+    Timeout(id + 0xB0, 8.3f, "Unmoving Troika"); // t=2396.3
+    Timeout(id + 0xC0, 10.0f, "Concentrativity"); // t=2406.3; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0xD0, 93.7f, "Art of the Storm"); // t=2500.0; Ability 2066 from Zenos Yae Galvus; cactbot StartsUsing 2066/2587 [Ala Mhigo Storm]
+    Timeout(id + 0xE0, 2.5f, "Vein Splitter"); // t=2502.5; Ability 206C from Zenos Yae Galvus
+    Timeout(id + 0xF0, 6.2f, "Art of the Sword"); // t=2508.7; Ability 2068 from Zenos Yae Galvus; cactbot StartsUsing 2068/2588 [Ala Mhigo Sword]
+    Timeout(id + 0x100, 8.3f, "Unmoving Troika"); // t=2517.0; Ability 2060 from Zenos Yae Galvus
+    Timeout(id + 0x110, 10.0f, "Concentrativity").SetHint(StateMachine.StateHint.Raidwide); // t=2527.0; Ability 206D from Zenos Yae Galvus; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x120, 12.3f, "Storm?/Swell?/Sword?"); // t=2539.3
+    Timeout(id + 0x130, 12.1f, "Concentrativity").SetHint(StateMachine.StateHint.Raidwide); // t=2551.4; Ability 206D from Zenos Yae Galvus; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x140, 12.6f, "Art of the Swell? / Art of the Storm?").SetHint(StateMachine.StateHint.Knockback); // t=2564.0; Ability 2065 from Zenos Yae Galvus | Ability 2066 from Zenos Yae Galvus; cactbot StartsUsing 2066/2587 [Ala Mhigo Storm] | StartsUsing 2065/2586 [Ala Mhigo Swell]
+    Timeout(id + 0x150, 2.5f, "Vein Splitter"); // t=2566.5
+    Timeout(id + 0x160, 3.5f, "Lightless Spark?"); // t=2570.0; cactbot Tether 29 [Ala Mhigo Lightless Spark]
+    Timeout(id + 0x170, 2.7f, "Art of the Sword"); // t=2572.7
+    Timeout(id + 0x180, 8.3f, "Unmoving Troika"); // t=2581.0
+    Timeout(id + 0x190, 10.0f, "Concentrativity"); // t=2591.0; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x1A0, 9.0f, "Art of the Swell").SetHint(StateMachine.StateHint.Knockback); // t=2600.0; Ability 2065 from Zenos Yae Galvus; cactbot StartsUsing 2065/2586 [Ala Mhigo Swell]
+    Timeout(id + 0x1B0, 2.5f, "Vein Splitter"); // t=2602.5; Ability 206C from Zenos Yae Galvus
+    Timeout(id + 0x1C0, 3.5f, "Lightless Spark"); // t=2606.0; Ability 206B from Zenos Yae Galvus; cactbot Tether 29 [Ala Mhigo Lightless Spark]
+    Timeout(id + 0x1D0, 2.7f, "Art of the Sword"); // t=2608.7; Ability 2068 from Zenos Yae Galvus; cactbot StartsUsing 2068/2588 [Ala Mhigo Sword]
+    Timeout(id + 0x1E0, 8.3f, "Unmoving Troika"); // t=2617.0; Ability 2060 from Zenos Yae Galvus
+    Timeout(id + 0x1F0, 10.0f, "Concentrativity").SetHint(StateMachine.StateHint.Raidwide); // t=2627.0; Ability 206D from Zenos Yae Galvus; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x200, 12.8f, "Storm?/Swell?/Sword?"); // t=2639.8
+    Timeout(id + 0x210, 12.0f, "Concentrativity").SetHint(StateMachine.StateHint.Raidwide); // t=2651.8; Ability 206D from Zenos Yae Galvus; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x220, 12.6f, "Art of the Storm? / Art of the Swell?").SetHint(StateMachine.StateHint.Knockback); // t=2664.4; Ability 2066 from Zenos Yae Galvus | Ability 2065 from Zenos Yae Galvus; cactbot StartsUsing 2066/2587 [Ala Mhigo Storm] | StartsUsing 2065/2586 [Ala Mhigo Swell]
+    Timeout(id + 0x230, 2.5f, "Vein Splitter"); // t=2666.9
+    Timeout(id + 0x240, 3.5f, "Lightless Spark?"); // t=2670.4; cactbot Tether 29 [Ala Mhigo Lightless Spark]
+    Timeout(id + 0x250, 2.7f, "Art of the Sword"); // t=2673.1
+    Timeout(id + 0x260, 8.3f, "Unmoving Troika"); // t=2681.4
+    Timeout(id + 0x270, 10.0f, "Concentrativity"); // t=2691.4; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x280, 21.3f, "Swell/Sword"); // t=2712.7
+    Timeout(id + 0x290, 2.4f, "Art of the Storm"); // t=2715.1; Ability 2587 from Zenos Yae Galvus; cactbot StartsUsing 2066/2587 [Ala Mhigo Storm]
+    Timeout(id + 0x2A0, 24.0f, "Swell/Sword"); // t=2739.1
+    Timeout(id + 0x2B0, 2.0f, "Art of the Storm"); // t=2741.1; Ability 2587 from Zenos Yae Galvus; cactbot StartsUsing 2066/2587 [Ala Mhigo Storm]
+    Timeout(id + 0x2C0, 28.5f, "Swell/Sword"); // t=2769.6
+    Timeout(id + 0x2D0, 2.4f, "Art of the Storm"); // t=2772.0; Ability 2587 from Zenos Yae Galvus; cactbot StartsUsing 2066/2587 [Ala Mhigo Storm]
+    Timeout(id + 0x2E0, 24.0f, "Swell/Sword"); // t=2796.0
+    Timeout(id + 0x2F0, 2.0f, "Art of the Storm"); // t=2798.0; Ability 2587 from Zenos Yae Galvus; cactbot StartsUsing 2066/2587 [Ala Mhigo Storm]
+    Timeout(id + 0x300, 24.0f, "Swell/Sword"); // t=2822.0
+    Timeout(id + 0x310, 2.0f, "Art of the Storm"); // t=2824.0; Ability 2587 from Zenos Yae Galvus; cactbot StartsUsing 2066/2587 [Ala Mhigo Storm]
+    Timeout(id + 0x320, 12.1f, "Storm, Swell, Sword"); // t=2836.1; Ability 206F from Zenos Yae Galvus
+    Timeout(id + 0x330, 7.0f, "Storm, Swell, Sword"); // t=2843.1; Ability 2070 from Zenos Yae Galvus
+    Timeout(id + 0x340, 12.8f, "Concentrativity").SetHint(StateMachine.StateHint.Raidwide); // t=2855.9; Ability 206D from Zenos Yae Galvus; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x350, 10.2f, "Concentrativity").SetHint(StateMachine.StateHint.Raidwide); // t=2866.1; Ability 206D from Zenos Yae Galvus; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x360, 10.2f, "Concentrativity").SetHint(StateMachine.StateHint.Raidwide); // t=2876.3; Ability 206D from Zenos Yae Galvus; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x370, 10.2f, "Concentrativity").SetHint(StateMachine.StateHint.Raidwide); // t=2886.5; Ability 206D from Zenos Yae Galvus; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x380, 10.2f, "Concentrativity"); // t=2896.7; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x390, 10.2f, "Concentrativity"); // t=2906.9; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x3A0, 10.2f, "Concentrativity"); // t=2917.1; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x3B0, 10.2f, "Concentrativity"); // t=2927.3; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+    Timeout(id + 0x3C0, 10.2f, "Concentrativity"); // t=2937.5; cactbot StartsUsing 206D [Ala Mhigo Concentrativity]
+}
+

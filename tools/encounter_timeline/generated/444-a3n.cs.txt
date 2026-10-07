@@ -1,0 +1,66 @@
+// Generated development skeleton from a3n.txt (TerritoryType 444).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 11 static/dynamic trigger definitions from ui/raidboss/data/03-hw/raid/a3n.ts.
+
+private void A3N(uint id)
+{
+    Timeout(id + 0x0, 7.5f, "Fluid Swing"); // t=7.5; Ability 12EE from Living Liquid
+    Timeout(id + 0x10, 4.1f, "Splash x3"); // t=11.6
+    Timeout(id + 0x20, 8.3f, "Protean Wave"); // t=19.9; Ability 12F0 from Living Liquid
+    Timeout(id + 0x30, 3.6f, "Fluid Swing"); // t=23.5; Ability 12EE from Living Liquid
+    Timeout(id + 0x40, 4.1f, "Splash x3"); // t=27.6
+    Timeout(id + 0x50, 5.3f, "Fluid Swing"); // t=32.9; Ability 12EE from Living Liquid
+    Timeout(id + 0x60, 6.1f, "Sluice"); // t=39.0; Ability 12F2 from Living Liquid; cactbot HeadMarker 1A [A3N Sluice]
+    Timeout(id + 0x70, 8.2f, "Fluid Swing"); // t=47.2; Ability 12EE from Living Liquid
+    Timeout(id + 0x80, 6.1f, "Splash x3"); // t=53.3
+    Targetable(id + 0x90, false, 4.2f, "--untargetable--"); // t=57.5
+    Timeout(id + 0xA0, 3.5f, "Hydromorph"); // t=61.0; Ability F29 from Hydrate Core
+    Targetable(id + 0xB0, true, 3.5f, "--targetable--"); // t=64.5
+    Timeout(id + 0xC0, 6.1f, "Fluid Strike"); // t=70.6; Ability 12FD from Living Liquid; cactbot Ability 12FF [A3N Fluid Strike 2] | AddedCombatant [A3N Fluid Strike 3]
+    Timeout(id + 0xD0, 7.1f, "Wash Away"); // t=77.7; Ability 12FF from Living Liquid; cactbot StartsUsing 12FF [A3N Wash Away] | Ability 12FF [A3N Fluid Strike 2]
+    Timeout(id + 0xE0, 10.2f, "Fluid Strike"); // t=87.9; cactbot Ability 12FF [A3N Fluid Strike 2] | AddedCombatant [A3N Fluid Strike 3]
+    Timeout(id + 0xF0, 3.1f, "Fluid Strike"); // t=91.0; cactbot Ability 12FF [A3N Fluid Strike 2] | AddedCombatant [A3N Fluid Strike 3]
+    Timeout(id + 0x100, 3.1f, "Fluid Strike"); // t=94.1; cactbot Ability 12FF [A3N Fluid Strike 2] | AddedCombatant [A3N Fluid Strike 3]
+    Timeout(id + 0x110, 4.0f, "--Liquid Limb spawns--"); // t=98.1
+    Timeout(id + 0x120, 6.1f, "Fluid Strike"); // t=104.2; cactbot Ability 12FF [A3N Fluid Strike 2] | AddedCombatant [A3N Fluid Strike 3]
+    Timeout(id + 0x130, 5.1f, "Fluid Strike"); // t=109.3; cactbot Ability 12FF [A3N Fluid Strike 2] | AddedCombatant [A3N Fluid Strike 3]
+    Timeout(id + 0x140, 2.1f, "Fluid Strike"); // t=111.4; cactbot Ability 12FF [A3N Fluid Strike 2] | AddedCombatant [A3N Fluid Strike 3]
+    Timeout(id + 0x150, 5.1f, "Fluid Strike"); // t=116.5; cactbot Ability 12FF [A3N Fluid Strike 2] | AddedCombatant [A3N Fluid Strike 3]
+    Timeout(id + 0x160, 2.1f, "Fluid Strike"); // t=118.6; cactbot Ability 12FF [A3N Fluid Strike 2] | AddedCombatant [A3N Fluid Strike 3]
+    Timeout(id + 0x170, 5.1f, "Fluid Strike"); // t=123.7; cactbot Ability 12FF [A3N Fluid Strike 2] | AddedCombatant [A3N Fluid Strike 3]
+    Timeout(id + 0x180, 2.1f, "Fluid Strike"); // t=125.8; cactbot Ability 12FF [A3N Fluid Strike 2] | AddedCombatant [A3N Fluid Strike 3]
+    Targetable(id + 0x190, false, 3.0f, "--untargetable--"); // t=128.8
+    Timeout(id + 0x1A0, 4.8f, "Hydromorph"); // t=133.6; Ability F29 from Hydrate Core
+    Timeout(id + 0x1B0, 24.3f, "Drainage"); // t=157.9; Ability 1304 from Living Liquid; cactbot Tether 5 [A3N Drainage You] | Tether 5 [A3N Drainage Tank]
+    Timeout(id + 0x1C0, 20.7f, "Drainage"); // t=178.6; Ability 1304 from Living Liquid; cactbot Tether 5 [A3N Drainage You] | Tether 5 [A3N Drainage Tank]
+    Timeout(id + 0x1D0, 23.1f, "Hydromorph"); // t=201.7; Ability F29 from Hydrate Core
+    Targetable(id + 0x1E0, true, 3.5f, "--targetable--"); // t=205.2
+    Timeout(id + 0x1F0, 6.1f, "Fluid Swing"); // t=211.3; Ability 12EE from Living Liquid
+    Timeout(id + 0x200, 4.1f, "Splash x3"); // t=215.4
+    Timeout(id + 0x210, 8.3f, "Protean Wave"); // t=223.7
+    Timeout(id + 0x220, 3.6f, "Fluid Swing"); // t=227.3
+    Timeout(id + 0x230, 4.1f, "Splash x3"); // t=231.4
+    Timeout(id + 0x240, 5.3f, "Fluid Swing"); // t=236.7
+    Timeout(id + 0x250, 63.3f, "Valve"); // t=300.0; Ability 12F6 from Living Liquid
+    Timeout(id + 0x260, 10.1f, "Cascade").SetHint(StateMachine.StateHint.Raidwide); // t=310.1; Ability 12F7 from Living Liquid; cactbot StartsUsing 12F7 [A3N Cascade]
+    Timeout(id + 0x270, 6.2f, "Fluid Swing"); // t=316.3; Ability 12F5 from Living Liquid
+    Timeout(id + 0x280, 3.2f, "Fluid Swing"); // t=319.5; Ability 12F5 from Living Liquid
+    Timeout(id + 0x290, 7.1f, "Sluice"); // t=326.6; Ability 12F2 from Living Liquid; cactbot HeadMarker 1A [A3N Sluice]
+    Timeout(id + 0x2A0, 9.3f, "Magnetism/Repel"); // t=335.9; Ability 1307/1309 from Living Liquid
+    Timeout(id + 0x2B0, 8.1f, "Fluid Swing"); // t=344.0; Ability 12F5 from Living Liquid
+    Timeout(id + 0x2C0, 2.1f, "Splash x4"); // t=346.1
+    Timeout(id + 0x2D0, 4.4f, "Fluid Swing"); // t=350.5; Ability 12F5 from Living Liquid
+    Timeout(id + 0x2E0, 9.3f, "Magnetism/Repel"); // t=359.8; Ability 1307/1309 from Living Liquid
+    Timeout(id + 0x2F0, 6.1f, "Fluid Swing"); // t=365.9; Ability 12F5 from Living Liquid
+    Timeout(id + 0x300, 6.1f, "Sluice"); // t=372.0; Ability 12F2 from Living Liquid; cactbot HeadMarker 1A [A3N Sluice]
+    Timeout(id + 0x310, 6.7f, "Protean Wave"); // t=378.7; Ability 12F0 from Living Liquid
+    Timeout(id + 0x320, 2.7f, "Fluid Swing"); // t=381.4; Ability 12F5 from Living Liquid
+    Timeout(id + 0x330, 6.1f, "Cascade").SetHint(StateMachine.StateHint.Raidwide); // t=387.5; Ability 12F7 from Living Liquid; cactbot StartsUsing 12F7 [A3N Cascade]
+    Timeout(id + 0x340, 6.2f, "Fluid Swing"); // t=393.7
+    Timeout(id + 0x350, 3.2f, "Fluid Swing"); // t=396.9
+    Timeout(id + 0x360, 7.1f, "Sluice"); // t=404.0; cactbot HeadMarker 1A [A3N Sluice]
+    Timeout(id + 0x370, 9.3f, "Magnetism/Repel"); // t=413.3
+    Timeout(id + 0x380, 8.1f, "Fluid Swing"); // t=421.4
+}
+

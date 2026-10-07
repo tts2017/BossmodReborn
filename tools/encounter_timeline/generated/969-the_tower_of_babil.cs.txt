@@ -1,0 +1,127 @@
+// Generated development skeleton from the_tower_of_babil.txt (TerritoryType 969).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 17 static/dynamic trigger definitions from ui/raidboss/data/06-ew/dungeon/the_tower_of_babil.ts.
+
+private void Timeline(uint id)
+{
+    Condition(id + 0x0, 5.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6247), "", 5f, 0.7f); // t=5.7; StartsUsing 6247 from Barnabas; cactbot StartsUsing 6247/62EA [Tower Of Babil Ground And Pound]
+    Timeout(id + 0x10, 3.2f, "Ground and Pound"); // t=8.9; Ability 6247 from Barnabas; cactbot StartsUsing 6247/62EA [Tower Of Babil Ground And Pound]
+    Timeout(id + 0x20, 18.4f, "Ground and Pound"); // t=27.3; Ability 62EA from Barnabas; cactbot StartsUsing 6247/62EA [Tower Of Babil Ground And Pound]
+    Condition(id + 0x30, 6.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x6246 or 0x62F0), "", 5f, 1.5f); // t=33.8; StartsUsing 6246/62F0 from Barnabas; cactbot StartsUsing 6246/62F0 [Tower Of Babil Dynamic Scrapline]
+    Condition(id + 0x40, 2.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x6245 or 0x62EE), "", 5f, 0.0f); // t=36.4; StartsUsing 6245/62EE from Barnabas; cactbot StartsUsing 6245/62EE [Tower Of Babil Dynamic Pound Collect] | StartsUsing 6245/62EE [Tower Of Babil Dynamic Pound]
+    Timeout(id + 0x50, 4.1f, "Dynamic Scrapline?"); // t=40.5; cactbot HeadMarker 122/123 [Tower Of Babil Dynamic Scrapline Barnabas Collect] | StartsUsing 6246/62F0 [Tower Of Babil Dynamic Scrapline]
+    Timeout(id + 0x60, 2.5f, "Electromagnetic Release?"); // t=43.0
+    Timeout(id + 0x70, 0.1f, "Dynamic Pound?"); // t=43.1; cactbot StartsUsing 6245/62EE [Tower Of Babil Dynamic Pound Collect] | StartsUsing 6245/62EE [Tower Of Babil Dynamic Pound]
+    Timeout(id + 0x80, 2.5f, "Electromagnetic Release?"); // t=45.6
+    Timeout(id + 0x90, 9.6f, "Shocking Force"); // t=55.2; cactbot HeadMarker 3E [Tower Of Babil Shocking Force]
+    Condition(id + 0xA0, 138.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x6246 or 0x62F0), "", 5f, 133.1f); // t=193.3; StartsUsing 6246/62F0 from Barnabas; cactbot StartsUsing 6246/62F0 [Tower Of Babil Dynamic Scrapline]
+    Timeout(id + 0xB0, 6.7f, "Dynamic Scrapline"); // t=200.0; Ability 6246/62F0 from Barnabas; cactbot StartsUsing 6246/62F0 [Tower Of Babil Dynamic Scrapline]
+    Timeout(id + 0xC0, 2.5f, "Electromagnetic Release"); // t=202.5; Ability 62F1 from Barnabas
+    Timeout(id + 0xD0, 12.2f, "Shocking Force"); // t=214.7; Ability 62EC from Barnabas; cactbot HeadMarker 3E [Tower Of Babil Shocking Force]
+    Timeout(id + 0xE0, 17.0f, "Dynamic Pound"); // t=231.7; Ability 6245/62EE from Barnabas; cactbot StartsUsing 6245/62EE [Tower Of Babil Dynamic Pound Collect] | StartsUsing 6245/62EE [Tower Of Babil Dynamic Pound]
+    Timeout(id + 0xF0, 2.5f, "Electromagnetic Release"); // t=234.2; Ability 62EF from Barnabas
+    Timeout(id + 0x100, 10.6f, "Thundercall"); // t=244.8; Ability 62ED from Barnabas
+    Timeout(id + 0x110, 6.5f, "Rolling Scrapline"); // t=251.3; cactbot StartsUsing 62EB [Tower Of Babil Rolling Scrapline]
+    Timeout(id + 0x120, 0.3f, "Shock"); // t=251.6
+    Timeout(id + 0x130, 10.2f, "Shocking Force"); // t=261.8; cactbot HeadMarker 3E [Tower Of Babil Shocking Force]
+    Timeout(id + 0x140, 8.6f, "Ground and Pound 1"); // t=270.4
+    Timeout(id + 0x150, 6.0f, "Ground and Pound 2"); // t=276.4
+    Condition(id + 0x160, 16.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x6245 or 0x62EE), "", 5f, 11.9f); // t=293.3; StartsUsing 6245/62EE from Barnabas; cactbot StartsUsing 6245/62EE [Tower Of Babil Dynamic Pound Collect] | StartsUsing 6245/62EE [Tower Of Babil Dynamic Pound]
+    Timeout(id + 0x170, 6.7f, "Dynamic Pound"); // t=300.0; Ability 6245/62EE from Barnabas; cactbot StartsUsing 6245/62EE [Tower Of Babil Dynamic Pound Collect] | StartsUsing 6245/62EE [Tower Of Babil Dynamic Pound]
+    Timeout(id + 0x180, 2.5f, "Electromagnetic Release"); // t=302.5; Ability 62EF from Barnabas
+    Timeout(id + 0x190, 12.2f, "Shocking Force"); // t=314.7; Ability 62EC from Barnabas; cactbot HeadMarker 3E [Tower Of Babil Shocking Force]
+    Timeout(id + 0x1A0, 15.2f, "Dynamic Scrapline"); // t=329.9; Ability 6246/62F0 from Barnabas; cactbot StartsUsing 6246/62F0 [Tower Of Babil Dynamic Scrapline]
+    Timeout(id + 0x1B0, 2.5f, "Electromagnetic Release"); // t=332.4; Ability 62F1 from Barnabas
+    Timeout(id + 0x1C0, 10.3f, "Thundercall"); // t=342.7; Ability 62ED from Barnabas
+    Timeout(id + 0x1D0, 6.5f, "Rolling Scrapline"); // t=349.2; cactbot StartsUsing 62EB [Tower Of Babil Rolling Scrapline]
+    Timeout(id + 0x1E0, 0.3f, "Shock"); // t=349.5
+    Timeout(id + 0x1F0, 10.3f, "Shocking Force"); // t=359.8; cactbot HeadMarker 3E [Tower Of Babil Shocking Force]
+    Timeout(id + 0x200, 8.6f, "Ground and Pound 1"); // t=368.4
+    Timeout(id + 0x210, 6.0f, "Ground and Pound 2"); // t=374.4
+    Timeout(id + 0x220, 25.6f, "Thundercall"); // t=400.0; Ability 62ED from Barnabas
+    Timeout(id + 0x230, 6.5f, "Rolling Scrapline"); // t=406.5; Ability 62EB from Barnabas; cactbot StartsUsing 62EB [Tower Of Babil Rolling Scrapline]
+    Timeout(id + 0x240, 0.3f, "Shock"); // t=406.8; Ability 62F2 from Thunderball
+    Timeout(id + 0x250, 10.2f, "Shocking Force"); // t=417.0; Ability 62EC from Barnabas; cactbot HeadMarker 3E [Tower Of Babil Shocking Force]
+    Timeout(id + 0x260, 8.6f, "Ground and Pound 1"); // t=425.6; Ability 62EA from Barnabas; cactbot StartsUsing 6247/62EA [Tower Of Babil Ground And Pound]
+    Timeout(id + 0x270, 6.0f, "Ground and Pound 2"); // t=431.6; Ability 62EA from Barnabas; cactbot StartsUsing 6247/62EA [Tower Of Babil Ground And Pound]
+    Timeout(id + 0x280, 6.0f, "Ground and Pound 3"); // t=437.6; Ability 62EA from Barnabas; cactbot StartsUsing 6247/62EA [Tower Of Babil Ground And Pound]
+    Condition(id + 0x290, 8.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x6246 or 0x62F0), "", 5f, 3.9f); // t=446.5; StartsUsing 6246/62F0 from Barnabas; cactbot StartsUsing 6246/62F0 [Tower Of Babil Dynamic Scrapline]
+    Condition(id + 0x2A0, 2.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x6245 or 0x62EE), "", 5f, 0.0f); // t=449.1; StartsUsing 6245/62EE from Barnabas; cactbot StartsUsing 6245/62EE [Tower Of Babil Dynamic Pound Collect] | StartsUsing 6245/62EE [Tower Of Babil Dynamic Pound]
+    Timeout(id + 0x2B0, 4.1f, "Dynamic Scrapline?"); // t=453.2; cactbot HeadMarker 122/123 [Tower Of Babil Dynamic Scrapline Barnabas Collect] | StartsUsing 6246/62F0 [Tower Of Babil Dynamic Scrapline]
+    Timeout(id + 0x2C0, 2.5f, "Electromagnetic Release?"); // t=455.7
+    Timeout(id + 0x2D0, 0.1f, "Dynamic Pound?"); // t=455.8; cactbot StartsUsing 6245/62EE [Tower Of Babil Dynamic Pound Collect] | StartsUsing 6245/62EE [Tower Of Babil Dynamic Pound]
+    Timeout(id + 0x2E0, 2.5f, "Electromagnetic Release?"); // t=458.3
+    Timeout(id + 0x2F0, 551.4f, "Thermal Suppression").SetHint(StateMachine.StateHint.Raidwide); // t=1009.7; Ability 62FA from Lugae; cactbot StartsUsing 62FA [Tower Of Babil Thermal Suppression]
+    Timeout(id + 0x300, 8.5f, "Magitek Missile"); // t=1018.2; Ability 62F6 from Lugae
+    Timeout(id + 0x310, 4.3f, "Surface Missile"); // t=1022.5; Ability 62F7 from Lugae
+    Timeout(id + 0x320, 6.3f, "Magitek Ray"); // t=1028.8; Ability 62FC from Lugae
+    Timeout(id + 0x330, 11.0f, "Magitek Chakram?"); // t=1039.8; Ability 62F3 from Lugae; cactbot Ability 62F3 [Tower Of Babil Magitek Chakram]
+    Timeout(id + 0x340, 0.5f, "Downpour?"); // t=1040.3; Ability 62F5 from Lugae; cactbot Ability 62F5 [Tower Of Babil Downpour]
+    Timeout(id + 0x350, 7.5f, "Magitek Missile?"); // t=1047.8
+    Timeout(id + 0x360, 0.5f, "Magitek Chakram?"); // t=1048.3; cactbot Ability 62F3 [Tower Of Babil Magitek Chakram]
+    Timeout(id + 0x370, 2.5f, "Mighty Blow?"); // t=1050.8
+    Timeout(id + 0x380, 1.3f, "Surface Missile?"); // t=1052.1
+    Timeout(id + 0x390, 1.2f, "Magitek Missile?"); // t=1053.3
+    Timeout(id + 0x3A0, 4.3f, "Surface Missile?"); // t=1057.6
+    Timeout(id + 0x3B0, 1.2f, "Magitek Missile?"); // t=1058.8
+    Timeout(id + 0x3C0, 0.5f, "Mighty Blow?"); // t=1059.3
+    Timeout(id + 0x3D0, 140.7f, "Magitek Chakram"); // t=1200.0; Ability 62F3 from Lugae; cactbot Ability 62F3 [Tower Of Babil Magitek Chakram]
+    Timeout(id + 0x3E0, 8.5f, "Magitek Chakram"); // t=1208.5; Ability 62F3 from Lugae; cactbot Ability 62F3 [Tower Of Babil Magitek Chakram]
+    Timeout(id + 0x3F0, 2.5f, "Mighty Blow"); // t=1211.0; Ability 62F4 from Magitek Chakram
+    Timeout(id + 0x400, 8.5f, "Mighty Blow"); // t=1219.5; Ability 62F4 from Magitek Chakram
+    Timeout(id + 0x410, 7.5f, "Thermal Suppression").SetHint(StateMachine.StateHint.Raidwide); // t=1227.0; Ability 62FA from Lugae; cactbot StartsUsing 62FA [Tower Of Babil Thermal Suppression]
+    Timeout(id + 0x420, 5.6f, "Magitek Ray"); // t=1232.6; Ability 62FC from Lugae
+    Timeout(id + 0x430, 11.5f, "Magitek Explosive"); // t=1244.1; Ability 62F8 from Lugae; cactbot Ability 62F8 [Tower Of Babil Magitek Explosive]
+    Timeout(id + 0x440, 11.0f, "Explosion"); // t=1255.1; Ability 62F9 from Magitek Explosive
+    Timeout(id + 0x450, 11.8f, "Downpour"); // t=1266.9; Ability 62F5 from Lugae; cactbot Ability 62F5 [Tower Of Babil Downpour]
+    Timeout(id + 0x460, 7.5f, "Magitek Missile"); // t=1274.4; Ability 62F6 from Lugae
+    Timeout(id + 0x470, 4.3f, "Surface Missile"); // t=1278.7; Ability 62F7 from Lugae
+    Timeout(id + 0x480, 1.2f, "Magitek Missile"); // t=1279.9; Ability 62F6 from Lugae
+    Timeout(id + 0x490, 4.3f, "Surface Missile"); // t=1284.2; Ability 62F7 from Lugae
+    Timeout(id + 0x4A0, 1.2f, "Magitek Missile"); // t=1285.4; Ability 62F6 from Lugae
+    Timeout(id + 0x4B0, 4.3f, "Surface Missile"); // t=1289.7; Ability 62F7 from Lugae
+    Timeout(id + 0x4C0, 5.2f, "Thermal Suppression").SetHint(StateMachine.StateHint.Raidwide); // t=1294.9; Ability 62FA from Lugae; cactbot StartsUsing 62FA [Tower Of Babil Thermal Suppression]
+    Timeout(id + 0x4D0, 5.5f, "Magitek Ray"); // t=1300.4; Ability 62FC from Lugae
+    Timeout(id + 0x4E0, 11.6f, "Magitek Explosive"); // t=1312.0; Ability 62F8 from Lugae; cactbot Ability 62F8 [Tower Of Babil Magitek Explosive]
+    Timeout(id + 0x4F0, 11.0f, "Explosion"); // t=1323.0; Ability 62F9 from Magitek Explosive
+    Timeout(id + 0x500, 12.3f, "Magitek Chakram"); // t=1335.3; Ability 62F3 from Lugae; cactbot Ability 62F3 [Tower Of Babil Magitek Chakram]
+    Timeout(id + 0x510, 8.5f, "Magitek Chakram"); // t=1343.8; cactbot Ability 62F3 [Tower Of Babil Magitek Chakram]
+    Timeout(id + 0x520, 2.5f, "Mighty Blow"); // t=1346.3
+    Timeout(id + 0x530, 8.6f, "Mighty Blow"); // t=1354.9
+    Timeout(id + 0x540, 7.5f, "Thermal Suppression"); // t=1362.4; cactbot StartsUsing 62FA [Tower Of Babil Thermal Suppression]
+    Timeout(id + 0x550, 5.6f, "Magitek Ray"); // t=1368.0
+    Timeout(id + 0x560, 641.8f, "Lunar Nail"); // t=2009.8; Ability 62FE from Anima; cactbot Ability 62FE [Tower Of Babil Lunar Nail Warning]
+    Timeout(id + 0x570, 10.9f, "Phantom Pain"); // t=2020.7; Ability 62FF from Anima
+    Timeout(id + 0x580, 9.1f, "Mega Graviton").SetHint(StateMachine.StateHint.Raidwide); // t=2029.8; Ability 6300 from Anima; cactbot StartsUsing 6300 [Tower Of Babil Mega Graviton]
+    Timeout(id + 0x590, 8.0f, "Pater Patriae"); // t=2037.8; Ability 6306 from Anima
+    Timeout(id + 0x5A0, 5.9f, "Aetherial Pull"); // t=2043.7; Ability 6301 from Mega-graviton; cactbot StartsUsing 6301 [Tower Of Babil Aetherial Pull]
+    Timeout(id + 0x5B0, 2.1f, "Graviton Spark"); // t=2045.8; Ability 6302 from Mega-graviton
+    Timeout(id + 0x5C0, 12.6f, "Boundless Pain"); // t=2058.4; Ability 6303 from Anima; cactbot Ability 6303 [Tower Of Babil Boundless Pain]
+    Timeout(id + 0x5D0, 1.2f, "Boundless Pain"); // t=2059.6; Ability 6304 from Anima; cactbot Ability 6303 [Tower Of Babil Boundless Pain]
+    Timeout(id + 0x5E0, 22.9f, "Imperatum"); // t=2082.5; Ability 6309 from Anima
+    Targetable(id + 0x5F0, false, 0.8f, "--untargetable--"); // t=2083.3
+    Targetable(id + 0x600, true, 18.2f, "--targetable--"); // t=2101.5
+    Timeout(id + 0x610, 42.1f, "Obliviating Claw"); // t=2143.6; Ability 630A from Anima
+    Timeout(id + 0x620, 5.5f, "Coffin Scratch x5"); // t=2149.1; Ability 630E from Anima
+    Targetable(id + 0x630, false, 43.8f, "--untargetable--"); // t=2192.9
+    Timeout(id + 0x640, 6.2f, "Oblivion"); // t=2199.1; Ability 630F from Anima
+    Targetable(id + 0x650, true, 17.1f, "--targetable--"); // t=2216.2
+    Timeout(id + 0x660, 14.4f, "Boundless Pain"); // t=2230.6; Ability 6304 from Anima; cactbot Ability 6303 [Tower Of Babil Boundless Pain]
+    Timeout(id + 0x670, 19.2f, "Pater Patriae"); // t=2249.8; Ability 6306 from Anima
+    Timeout(id + 0x680, 8.5f, "Lunar Nail"); // t=2258.3; Ability 62FE from Anima; cactbot Ability 62FE [Tower Of Babil Lunar Nail Warning]
+    Timeout(id + 0x690, 10.9f, "Phantom Pain"); // t=2269.2; Ability 62FF from Anima
+    Timeout(id + 0x6A0, 20.0f, "Erupting Pain"); // t=2289.2; Ability 6308 from Anima
+    Timeout(id + 0x6B0, 12.9f, "Mega Graviton").SetHint(StateMachine.StateHint.Raidwide); // t=2302.1; Ability 6300 from Anima; cactbot StartsUsing 6300 [Tower Of Babil Mega Graviton]
+    Timeout(id + 0x6C0, 8.0f, "Pater Patriae"); // t=2310.1; Ability 6306 from Anima
+    Timeout(id + 0x6D0, 5.9f, "Aetherial Pull"); // t=2316.0; Ability 6301 from Mega-graviton; cactbot StartsUsing 6301 [Tower Of Babil Aetherial Pull]
+    Timeout(id + 0x6E0, 11.6f, "Erupting Pain"); // t=2327.6; Ability 6308 from Anima
+    Timeout(id + 0x6F0, 21.8f, "Boundless Pain"); // t=2349.4; Ability 6304 from Anima; cactbot Ability 6303 [Tower Of Babil Boundless Pain]
+    Timeout(id + 0x700, 19.2f, "Pater Patriae"); // t=2368.6; Ability 6306 from Anima
+    Timeout(id + 0x710, 8.5f, "Lunar Nail"); // t=2377.1; cactbot Ability 62FE [Tower Of Babil Lunar Nail Warning]
+    Timeout(id + 0x720, 10.9f, "Phantom Pain"); // t=2388.0
+    Timeout(id + 0x730, 20.0f, "Erupting Pain"); // t=2408.0
+    Timeout(id + 0x740, 12.9f, "Mega Graviton"); // t=2420.9; cactbot StartsUsing 6300 [Tower Of Babil Mega Graviton]
+    Timeout(id + 0x750, 8.0f, "Pater Patriae"); // t=2428.9
+}
+

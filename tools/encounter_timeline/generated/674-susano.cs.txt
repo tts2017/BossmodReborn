@@ -1,0 +1,87 @@
+// Generated development skeleton from susano.txt (TerritoryType 674).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 4 static/dynamic trigger definitions from ui/raidboss/data/04-sb/trial/susano.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 8.5f, "Assail"); // t=8.5; Ability 201C from Susano
+    Timeout(id + 0x10, 11.1f, "Rasen Kaikyo"); // t=19.6; Ability 201D from Susano
+    Timeout(id + 0x20, 13.2f, "Yata-No-Kagami"); // t=32.8; Ability 201F from Susano
+    Timeout(id + 0x30, 6.1f, "Brightstorm"); // t=38.9; Ability 2020 from Susano; cactbot HeadMarker 3E [Susano Brightstorm]
+    Timeout(id + 0x40, 8.2f, "Assail"); // t=47.1; Ability 201C from Susano
+    Timeout(id + 0x50, 7.2f, "Yasakani-No-Magatama"); // t=54.3; Ability 25A1 from Susano
+    Timeout(id + 0x60, 8.7f, "The Parting Clouds"); // t=63.0; Ability 259F from Dark Cloud
+    Timeout(id + 0x70, 10.5f, "Yata-No-Kagami"); // t=73.5; Ability 201F from Susano
+    Timeout(id + 0x80, 4.3f, "Seasplitter"); // t=77.8; Ability 25BD from Susano; cactbot HeadMarker 17 [Susano Seasplitter]
+    Timeout(id + 0x90, 4.8f, "Rasen Kaikyo"); // t=82.6; Ability 201D from Susano
+    Timeout(id + 0xA0, 7.2f, "Brightstorm"); // t=89.8; Ability 2020 from Susano; cactbot HeadMarker 3E [Susano Brightstorm]
+    Timeout(id + 0xB0, 9.1f, "Assail"); // t=98.9; Ability 201C from Susano
+    Timeout(id + 0xC0, 13.2f, "Yata-No-Kagami"); // t=112.1; Ability 201F from Susano
+    Timeout(id + 0xD0, 4.3f, "Seasplitter"); // t=116.4; Ability 25BD from Susano; cactbot HeadMarker 17 [Susano Seasplitter]
+    Timeout(id + 0xE0, 1.8f, "Brightstorm"); // t=118.2; Ability 2020 from Susano; cactbot HeadMarker 3E [Susano Brightstorm]
+    Timeout(id + 0xF0, 7.2f, "Yasakani-No-Magatama"); // t=125.4; Ability 25A1 from Susano
+    Timeout(id + 0x100, 8.7f, "The Parting Clouds"); // t=134.1; Ability 259F from Dark Cloud
+    Timeout(id + 0x110, 4.4f, "The Parting Clouds"); // t=138.5; Ability 259F from Dark Cloud
+    Timeout(id + 0x120, 4.4f, "The Parting Clouds"); // t=142.9; Ability 259F from Dark Cloud
+    Timeout(id + 0x130, 4.6f, "Assail"); // t=147.5; Ability 201C from Susano
+    Timeout(id + 0x140, 13.2f, "Yata-No-Kagami"); // t=160.7; Ability 201F from Susano
+    Timeout(id + 0x150, 4.3f, "Seasplitter"); // t=165.0; Ability 25BD from Susano; cactbot HeadMarker 17 [Susano Seasplitter]
+    Timeout(id + 0x160, 1.8f, "Brightstorm"); // t=166.8; Ability 2020 from Susano; cactbot HeadMarker 3E [Susano Brightstorm]
+    Targetable(id + 0x170, false, 7.8f, "--untargetable--"); // t=174.6
+}
+
+private void Phase_2__hp_push_at________time_push(uint id)
+{
+    Targetable(id + 0x0, true, 5.2f, "--targetable--"); // t=305.2
+    Timeout(id + 0x10, 0.0f, "--Dark Levin--"); // t=305.2
+    Timeout(id + 0x20, 3.0f, "--Dark Levin--"); // t=308.2
+    Timeout(id + 0x30, 4.0f, "--Dark Levin--"); // t=312.2
+}
+
+private void Phase_3(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Ame-No-Murakumo"); // t=400.0; Ability 2022 from Susano
+    Timeout(id + 0x10, 4.0f, "Ame-No-Murakumo"); // t=404.0; Ability 218C from Susano
+    Targetable(id + 0x20, true, 9.6f, "--targetable--"); // t=413.6
+    Timeout(id + 0x30, 12.3f, "Stormsplitter"); // t=425.9; Ability 2023 from Susano; cactbot StartsUsing 2023 [Susano Stormsplitter]
+    Timeout(id + 0x40, 5.2f, "The Hidden Gate"); // t=431.1; Ability 2024 from Susano
+    Timeout(id + 0x50, 25.5f, "The Sealed Gate"); // t=456.6; Ability 2025 from Ama-No-Iwato
+    Timeout(id + 0x60, 2.1f, "Rasen Kaikyo"); // t=458.7; Ability 201D from Susano
+    Timeout(id + 0x70, 8.1f, "Ukehi").SetHint(StateMachine.StateHint.Raidwide); // t=466.8; Ability 2026 from Susano; cactbot StartsUsing 2026 [Susano Ukehi]
+    Timeout(id + 0x80, 11.3f, "Stormsplitter"); // t=478.1; Ability 2023 from Susano; cactbot StartsUsing 2023 [Susano Stormsplitter]
+    Timeout(id + 0x90, 10.2f, "Yata-No-Kagami"); // t=488.3; Ability 201F from Susano
+    Timeout(id + 0xA0, 4.3f, "Seasplitter"); // t=492.6; Ability 25BD from Susano; cactbot HeadMarker 17 [Susano Seasplitter]
+    Timeout(id + 0xB0, 1.8f, "Brightstorm"); // t=494.4; Ability 2020 from Susano; cactbot HeadMarker 3E [Susano Brightstorm]
+    Timeout(id + 0xC0, 5.1f, "Rasen Kaikyo"); // t=499.5; Ability 201D from Susano
+    Timeout(id + 0xD0, 8.1f, "Ukehi").SetHint(StateMachine.StateHint.Raidwide); // t=507.6; Ability 2026 from Susano; cactbot StartsUsing 2026 [Susano Ukehi]
+    Timeout(id + 0xE0, 7.3f, "Yasakani-No-Magatama"); // t=514.9; Ability 25A1 from Susano
+    Timeout(id + 0xF0, 8.7f, "The Parting Clouds"); // t=523.6; Ability 259F from Dark Cloud
+    Timeout(id + 0x100, 4.4f, "The Parting Clouds"); // t=528.0; Ability 259F from Dark Cloud
+    Timeout(id + 0x110, 4.4f, "The Parting Clouds"); // t=532.4; Ability 259F from Dark Cloud
+    Timeout(id + 0x120, 7.7f, "Stormsplitter"); // t=540.1; Ability 2023 from Susano; cactbot StartsUsing 2023 [Susano Stormsplitter]
+    Timeout(id + 0x130, 8.2f, "Rasen Kaikyo"); // t=548.3; Ability 201D from Susano
+    Timeout(id + 0x140, 4.1f, "Brightstorm"); // t=552.4; Ability 2020 from Susano; cactbot HeadMarker 3E [Susano Brightstorm]
+    Timeout(id + 0x150, 2.1f, "The Hidden Gate"); // t=554.5; Ability 2024 from Susano
+    Timeout(id + 0x160, 18.6f, "Ukehi").SetHint(StateMachine.StateHint.Raidwide); // t=573.1; Ability 2026 from Susano; cactbot StartsUsing 2026 [Susano Ukehi]
+    Timeout(id + 0x170, 6.9f, "The Sealed Gate"); // t=580.0; Ability 2025 from Ama-No-Iwato
+    Timeout(id + 0x180, 8.4f, "Stormsplitter"); // t=588.4; Ability 2023 from Susano; cactbot StartsUsing 2023 [Susano Stormsplitter]
+    Timeout(id + 0x190, 5.1f, "Rasen Kaikyo"); // t=593.5; Ability 201D from Susano
+    Timeout(id + 0x1A0, 2.3f, "Yata-No-Kagami"); // t=595.8; Ability 201F from Susano
+    Timeout(id + 0x1B0, 4.3f, "Seasplitter"); // t=600.1; Ability 25BD from Susano; cactbot HeadMarker 17 [Susano Seasplitter]
+    Timeout(id + 0x1C0, 1.8f, "Brightstorm"); // t=601.9; Ability 2020 from Susano; cactbot HeadMarker 3E [Susano Brightstorm]
+    Timeout(id + 0x1D0, 3.2f, "Yasakani-No-Magatama"); // t=605.1; Ability 25A1 from Susano
+    Timeout(id + 0x1E0, 8.7f, "The Parting Clouds"); // t=613.8; Ability 259F from Dark Cloud
+    Timeout(id + 0x1F0, 4.4f, "The Parting Clouds"); // t=618.2; Ability 259F from Dark Cloud
+    Timeout(id + 0x200, 4.4f, "The Parting Clouds"); // t=622.6; Ability 259F from Dark Cloud
+    Timeout(id + 0x210, 1.6f, "Rasen Kaikyo"); // t=624.2; Ability 201D from Susano
+    Timeout(id + 0x220, 9.1f, "Ukehi").SetHint(StateMachine.StateHint.Raidwide); // t=633.3; Ability 2026 from Susano; cactbot StartsUsing 2026 [Susano Ukehi]
+    Timeout(id + 0x230, 13.3f, "Stormsplitter"); // t=646.6; Ability 2023 from Susano; cactbot StartsUsing 2023 [Susano Stormsplitter]
+    Timeout(id + 0x240, 10.2f, "Yata-No-Kagami"); // t=656.8
+    Timeout(id + 0x250, 4.3f, "Seasplitter"); // t=661.1; cactbot HeadMarker 17 [Susano Seasplitter]
+    Timeout(id + 0x260, 1.8f, "Brightstorm"); // t=662.9; cactbot HeadMarker 3E [Susano Brightstorm]
+    Timeout(id + 0x270, 5.1f, "Rasen Kaikyo"); // t=668.0
+    Timeout(id + 0x280, 8.1f, "Ukehi"); // t=676.1
+    Timeout(id + 0x290, 7.3f, "Yasakani-No-Magatama"); // t=683.4
+}
+

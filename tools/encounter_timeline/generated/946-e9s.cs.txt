@@ -1,0 +1,58 @@
+// Generated development skeleton from e9s.txt (TerritoryType 946).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 33 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e9s.ts.
+
+private void Eden_9__Savage(uint id)
+{
+    Timeout(id + 0x0, 16.9f, "Ground-Razing Particle Beam").SetHint(StateMachine.StateHint.Raidwide); // t=16.9; Ability 5625 from Cloud Of Darkness; cactbot StartsUsing 5625 [E9S Ground-Razing Particle Beam]
+    Timeout(id + 0x10, 10.2f, "The Art Of Darkness"); // t=27.1
+    Timeout(id + 0x20, 9.7f, "The Art Of Darkness"); // t=36.8
+    Timeout(id + 0x30, 10.7f, "Devouring Dark"); // t=47.5; Ability 5623 from Cloud Of Darkness; cactbot StartsUsing 5623 [E9S Zero-Form Devouring Dark]
+    Timeout(id + 0x40, 15.6f, "Obscure Woods").SetHint(StateMachine.StateHint.Raidwide); // t=63.1; Ability 55EE from Cloud Of Darkness; cactbot StartsUsing 55EE [E9S Obscure Woods]
+    Timeout(id + 0x50, 11.2f, "Flood Of Obscurity"); // t=74.3; Ability 5907 from Cloud Of Darkness; cactbot StartsUsing 5907 [E9S Flood Of Obscurity]
+    Timeout(id + 0x60, 7.5f, "Rejuvenating Balm"); // t=81.8; Ability 5618 from Cloud Of Darkness; cactbot StartsUsing 5618 [E9S Rejuvenating Balm]
+    Timeout(id + 0x70, 19.8f, "Phaser Unlimited 1"); // t=101.6
+    Timeout(id + 0x80, 2.1f, "--1--"); // t=103.7
+    Timeout(id + 0x90, 2.0f, "--2--"); // t=105.7
+    Timeout(id + 0xA0, 3.3f, "--3--"); // t=109.0
+    Timeout(id + 0xB0, 17.2f, "Ground-Razing Particle Beam").SetHint(StateMachine.StateHint.Raidwide); // t=126.2; Ability 5625 from Cloud Of Darkness; cactbot StartsUsing 5625 [E9S Ground-Razing Particle Beam]
+    Timeout(id + 0xC0, 18.2f, "The Second Art Of Darkness"); // t=144.4
+    Timeout(id + 0xD0, 15.1f, "Phaser Unlimited 2"); // t=159.5; cactbot StartsUsing [E9S Anti-Air Phaser Unlimited 2] | StartsUsing [E9S Wide-Angle Phaser Unlimited 2]
+    Timeout(id + 0xE0, 2.1f, "--1--"); // t=161.6
+    Timeout(id + 0xF0, 2.0f, "--2--"); // t=163.6
+    Timeout(id + 0x100, 3.3f, "--3--"); // t=166.9
+    Timeout(id + 0x110, 15.2f, "Devouring Dark"); // t=182.1; Ability 5623 from Cloud Of Darkness; cactbot StartsUsing 5623 [E9S Zero-Form Devouring Dark]
+    Timeout(id + 0x120, 15.6f, "Empty Plane").SetHint(StateMachine.StateHint.Raidwide); // t=197.7; Ability 55EF from Cloud Of Darkness; cactbot StartsUsing 55EF [E9S Empty Plane]
+    Timeout(id + 0x130, 11.2f, "Flood Of Emptiness"); // t=208.9; Ability 55F0 from Cloud Of Darkness; cactbot StartsUsing 55F0 [E9S Flood Of Emptiness]
+    Timeout(id + 0x140, 7.1f, "Hypercharged Condensation"); // t=216.0; Ability 560C from Cloud Of Darkness; cactbot StartsUsing 560C [E9S Hypercharged Condensation]
+    Timeout(id + 0x150, 15.2f, "Full-Perimeter Particle Beam"); // t=231.2; Ability 5629 from Cloud Of Darkness; cactbot StartsUsing 5629 [E9S Full-Perimeter Particle Beam]
+    Timeout(id + 0x160, 17.3f, "The Art Of Darkness (L/R)"); // t=248.5
+    Timeout(id + 0x170, 15.8f, "The Art Of Darkness"); // t=264.3
+    Timeout(id + 0x180, 14.7f, "Deluge Of Darkness").SetHint(StateMachine.StateHint.Raidwide); // t=279.0; Ability 55F1 from Cloud Of Darkness; cactbot StartsUsing 55F1 [E9S Deluge Of Darkness]
+    Timeout(id + 0x190, 6.9f, "Summon"); // t=285.9; Ability 5019 from Cloud Of Darkness; cactbot Ability 5019 [E9S Summon]
+    Timeout(id + 0x1A0, 15.3f, "The Art Of Darkness (L/R)"); // t=301.2
+    Timeout(id + 0x1B0, 13.6f, "Devouring Dark"); // t=314.8; Ability 5623 from Cloud Of Darkness; cactbot StartsUsing 5623 [E9S Zero-Form Devouring Dark]
+    Timeout(id + 0x1C0, 22.6f, "The Third Art Of Darkness"); // t=337.4
+    Timeout(id + 0x1D0, 20.6f, "Obscure Woods").SetHint(StateMachine.StateHint.Raidwide); // t=358.0; Ability 55EE from Cloud Of Darkness; cactbot StartsUsing 55EE [E9S Obscure Woods]
+    Timeout(id + 0x1E0, 11.2f, "Flood Of Obscurity"); // t=369.2; Ability 5907 from Cloud Of Darkness; cactbot StartsUsing 5907 [E9S Flood Of Obscurity]
+    Timeout(id + 0x1F0, 8.1f, "Particle Concentration"); // t=377.3; Ability 5620 from Cloud Of Darkness; cactbot StartsUsing 5620 [E9S Particle Concentration]
+    Timeout(id + 0x200, 20.0f, "Phaser Unlimited 3"); // t=397.3; cactbot StartsUsing [E9S Anti-Air Phaser Unlimited 3] | StartsUsing [E9S Wide-Angle Phaser Unlimited 3]
+    Timeout(id + 0x210, 2.1f, "--1--"); // t=399.4
+    Timeout(id + 0x220, 2.0f, "--2--"); // t=401.4
+    Timeout(id + 0x230, 3.3f, "--3--"); // t=404.7
+    Timeout(id + 0x240, 14.2f, "Ground-Razing Particle Beam").SetHint(StateMachine.StateHint.Raidwide); // t=418.9; Ability 5625 from Cloud Of Darkness; cactbot StartsUsing 5625 [E9S Ground-Razing Particle Beam]
+    Timeout(id + 0x250, 14.1f, "Rejuvenating Balm"); // t=433.0; Ability 5618 from Cloud Of Darkness; cactbot StartsUsing 5618 [E9S Rejuvenating Balm]
+    Timeout(id + 0x260, 11.6f, "The Second Art Of Darkness"); // t=444.6
+    Timeout(id + 0x270, 16.7f, "Devouring Dark"); // t=461.3; Ability 5623 from Cloud Of Darkness; cactbot StartsUsing 5623 [E9S Zero-Form Devouring Dark]
+    Timeout(id + 0x280, 15.4f, "Empty Plane").SetHint(StateMachine.StateHint.Raidwide); // t=476.7; Ability 55EF from Cloud Of Darkness; cactbot StartsUsing 55EF [E9S Empty Plane]
+    Timeout(id + 0x290, 11.2f, "Flood Of Emptiness"); // t=487.9; Ability 55F0 from Cloud Of Darkness; cactbot StartsUsing 55F0 [E9S Flood Of Emptiness]
+    Timeout(id + 0x2A0, 7.1f, "Hypercharged Condensation"); // t=495.0; Ability 560C from Cloud Of Darkness; cactbot StartsUsing 560C [E9S Hypercharged Condensation]
+    Timeout(id + 0x2B0, 15.2f, "Full-Perimeter Particle Beam"); // t=510.2; Ability 5629 from Cloud Of Darkness; cactbot StartsUsing 5629 [E9S Full-Perimeter Particle Beam]
+    Timeout(id + 0x2C0, 17.3f, "The Art Of Darkness (L/R)"); // t=527.5
+    Timeout(id + 0x2D0, 15.8f, "The Art Of Darkness"); // t=543.3
+    Timeout(id + 0x2E0, 20.9f, "The Art Of Darkness (L/R)"); // t=564.2
+    Timeout(id + 0x2F0, 15.8f, "The Art Of Darkness"); // t=580.0
+    Timeout(id + 0x300, 17.1f, "Enrage"); // t=597.1; Ability 562A from Cloud Of Darkness
+}
+

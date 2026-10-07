@@ -1,0 +1,247 @@
+// Generated development skeleton from a8s.txt (TerritoryType 532).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 45 static/dynamic trigger definitions from ui/raidboss/data/03-hw/raid/a8s.ts.
+
+private void Phase_1__Onslaughter__Execution_and_Legislation(uint id)
+{
+    Timeout(id + 0x0, 6.7f, "Hydrothermal Missile"); // t=6.7; Ability 162A from Onslaughter
+    Timeout(id + 0x10, 9.2f, "Seed Of The Sky"); // t=15.9; Ability 162D from Onslaughter
+    Timeout(id + 0x20, 2.0f, "Mega Beam"); // t=17.9; Ability 162E from Onslaughter; cactbot StartsUsing 162E [A8S Megabeam Onslaughter]
+    Timeout(id + 0x30, 4.2f, "Hydrothermal Missile"); // t=22.1; Ability 162A from Onslaughter
+    Timeout(id + 0x40, 7.2f, "Execution"); // t=29.3; Ability 1632 from Onslaughter; cactbot Ability 1632 [A8S Execution]
+    Targetable(id + 0x50, true, 2.2f, "--targetable--"); // t=31.5
+    Timeout(id + 0x60, 0.0f, "Hydrothermal Missile"); // t=31.5; Ability 162A from Onslaughter
+    Timeout(id + 0x70, 7.2f, "Seed Of The Sky"); // t=38.7; Ability 162D from Onslaughter
+    Timeout(id + 0x80, 2.0f, "Mega Beam"); // t=40.7; Ability 162E from Onslaughter; cactbot StartsUsing 162E [A8S Megabeam Onslaughter]
+    Timeout(id + 0x90, 7.2f, "Perpetual Ray").SetHint(StateMachine.StateHint.Tankbuster); // t=47.9; Ability 162B from Onslaughter; cactbot StartsUsing 162B [A8S Perpetual Ray]
+    Timeout(id + 0xA0, 3.6f, "--regulator check--"); // t=51.5
+    Timeout(id + 0xB0, 3.2f, "Hydrothermal Missile"); // t=54.7; Ability 162A from Onslaughter
+    Timeout(id + 0xC0, 7.1f, "Mega Beam"); // t=61.8; Ability 162E from Onslaughter; cactbot StartsUsing 162E [A8S Megabeam Onslaughter]
+    Timeout(id + 0xD0, 4.2f, "Hydrothermal Missile"); // t=66.0; Ability 162A from Onslaughter
+    Timeout(id + 0xE0, 7.2f, "Legislation"); // t=73.2; Ability 1631 from Onslaughter
+    Timeout(id + 0xF0, 5.1f, "Discoid"); // t=78.3; Ability 162F from Onslaughter; cactbot HeadMarker 23 [A8S Discoid]
+    Timeout(id + 0x100, 1.6f, "--orbs--"); // t=79.9
+    Timeout(id + 0x110, 0.6f, "Hydrothermal Missile"); // t=80.5; Ability 162A from Onslaughter
+    Timeout(id + 0x120, 10.2f, "Seed Of The Sky"); // t=90.7; Ability 162D from Onslaughter
+    Timeout(id + 0x130, 2.3f, "Mega Beam"); // t=93.0; Ability 162E from Onslaughter; cactbot StartsUsing 162E [A8S Megabeam Onslaughter]
+    Timeout(id + 0x140, 2.4f, "Hydrothermal Missile"); // t=95.4; Ability 162A from Onslaughter
+    Timeout(id + 0x150, 7.1f, "Perpetual Ray").SetHint(StateMachine.StateHint.Tankbuster); // t=102.5; Ability 162B from Onslaughter; cactbot StartsUsing 162B [A8S Perpetual Ray]
+    Timeout(id + 0x160, 4.4f, "Hydrothermal Missile"); // t=106.9; Ability 162A from Onslaughter
+    Timeout(id + 0x170, 10.2f, "Hydrothermal Missile"); // t=117.1; Ability 162A from Onslaughter
+    Timeout(id + 0x180, 9.2f, "Seed Of The Sky"); // t=126.3; Ability 162D from Onslaughter
+    Timeout(id + 0x190, 1.1f, "Mega Beam"); // t=127.4; Ability 162E from Onslaughter; cactbot StartsUsing 162E [A8S Megabeam Onslaughter]
+    Timeout(id + 0x1A0, 5.2f, "Hydrothermal Missile"); // t=132.6; Ability 162A from Onslaughter
+    Timeout(id + 0x1B0, 6.1f, "Hydrothermal Missile"); // t=138.7; Ability 162A from Onslaughter
+    Timeout(id + 0x1C0, 7.1f, "Perpetual Ray").SetHint(StateMachine.StateHint.Tankbuster); // t=145.8; Ability 162B from Onslaughter; cactbot StartsUsing 162B [A8S Perpetual Ray]
+    Timeout(id + 0x1D0, 4.4f, "Hydrothermal Missile"); // t=150.2; Ability 162A from Onslaughter
+    Timeout(id + 0x1E0, 5.1f, "Hydrothermal Missile"); // t=155.3; Ability 162A from Onslaughter
+    Timeout(id + 0x1F0, 9.2f, "Seed Of The Sky"); // t=164.5; Ability 162D from Onslaughter
+    Timeout(id + 0x200, 1.1f, "Mega Beam"); // t=165.6; Ability 162E from Onslaughter; cactbot StartsUsing 162E [A8S Megabeam Onslaughter]
+    Timeout(id + 0x210, 5.2f, "Hydrothermal Missile"); // t=170.8; Ability 162A from Onslaughter
+    Timeout(id + 0x220, 6.1f, "Hydrothermal Missile"); // t=176.9; Ability 162A from Onslaughter
+    Timeout(id + 0x230, 7.1f, "Perpetual Ray").SetHint(StateMachine.StateHint.Tankbuster); // t=184.0; Ability 162B from Onslaughter; cactbot StartsUsing 162B [A8S Perpetual Ray]
+    Timeout(id + 0x240, 4.4f, "Hydrothermal Missile"); // t=188.4
+    Timeout(id + 0x250, 5.1f, "Hydrothermal Missile"); // t=193.5
+    Timeout(id + 0x260, 9.2f, "Seed Of The Sky"); // t=202.7
+    Timeout(id + 0x270, 1.1f, "Mega Beam"); // t=203.8
+    Timeout(id + 0x280, 5.2f, "Hydrothermal Missile"); // t=209.0
+    Timeout(id + 0x290, 6.1f, "Hydrothermal Missile"); // t=215.1
+}
+
+private void Phase_2__Robots(uint id)
+{
+    Timeout(id + 0x0, 3.0f, ""); // t=303.0
+    Timeout(id + 0x10, 1.0f, "Blaster (north) / Brawler (middle)"); // t=304.0
+    Targetable(id + 0x20, true, 2.2f, "--targetable--"); // t=306.2
+    Timeout(id + 0x30, 7.3f, "Magicked Mark"); // t=313.5; Ability 163B from Brawler
+    Timeout(id + 0x40, 1.0f, "Brute Force"); // t=314.5; Ability 1638 from Blaster
+    Timeout(id + 0x50, 2.1f, "Auxiliary Power"); // t=316.6; Ability 164B from Brawler
+    Timeout(id + 0x60, 3.2f, "Attachment"); // t=319.8; Ability 163C from Brawler
+    Timeout(id + 0x70, 2.6f, "Mind Blast?"); // t=322.4; cactbot StartsUsing 1639 [A8S Mind Blast]
+    Timeout(id + 0x80, 2.1f, "Brute Force"); // t=324.5
+    Timeout(id + 0x90, 1.1f, "Brute Force"); // t=325.6; Ability 1638 from Blaster
+    Timeout(id + 0xA0, 0.4f, "Brawler Mechanic"); // t=326.0; Ability 163D/163E/163F/1640 from Brawler
+    Timeout(id + 0xB0, 3.4f, "Swindler (east)"); // t=329.4
+    Timeout(id + 0xC0, 0.7f, "Auxiliary Power"); // t=330.1; Ability 164B from Brawler
+    Timeout(id + 0xD0, 3.6f, "Brute Force"); // t=333.7; Ability 1638 from Blaster
+    Timeout(id + 0xE0, 0.5f, "Magicked Mark"); // t=334.2; Ability 163B from Brawler
+    Timeout(id + 0xF0, 0.4f, "Brute Force"); // t=334.6
+    Timeout(id + 0x100, 2.9f, "Magicked Mark"); // t=337.5; Ability 1646 from Swindler
+    Timeout(id + 0x110, 4.2f, "Brute Force"); // t=341.7; Ability 1638 from Blaster
+    Timeout(id + 0x120, 1.5f, "Magicked Mark"); // t=343.2; Ability 163B from Brawler
+    Timeout(id + 0x130, 3.1f, "Auxiliary Power"); // t=346.3; Ability 164B from Brawler
+    Timeout(id + 0x140, 2.2f, "Height"); // t=348.5; Ability 1647 from Swindler
+    Timeout(id + 0x150, 0.9f, "Attachment"); // t=349.4; Ability 163C from Brawler
+    Timeout(id + 0x160, 3.0f, "Vortexer (south)"); // t=352.4
+    Timeout(id + 0x170, 2.2f, "Magicked Mark"); // t=354.6; Ability 1646 from Swindler
+    Timeout(id + 0x180, 0.9f, "Brawler Mechanic"); // t=355.5; Ability 163D/163E/163F/1640 from Brawler
+    Timeout(id + 0x190, 4.1f, "Auxiliary Power"); // t=359.6; Ability 164B from Brawler
+    Timeout(id + 0x1A0, 0.8f, "Brute Force"); // t=360.4; Ability 164D from Vortexer
+    Timeout(id + 0x1B0, 3.3f, "Magicked Mark"); // t=363.7; Ability 163B from Brawler
+    Timeout(id + 0x1C0, 6.7f, "Brute Force"); // t=370.4; Ability 164D from Vortexer
+    Timeout(id + 0x1D0, 2.4f, "Magicked Mark"); // t=372.8; Ability 163B from Brawler
+    Timeout(id + 0x1E0, 3.1f, "Auxiliary Power"); // t=375.9; Ability 164B from Brawler
+    Timeout(id + 0x1F0, 3.1f, "Attachment"); // t=379.0; Ability 163C from Brawler
+    Timeout(id + 0x200, 1.5f, "Brute Force"); // t=380.5; Ability 164D from Vortexer
+    Timeout(id + 0x210, 4.5f, "Brawler Mechanic"); // t=385.0; Ability 163D/163E/163F/1640 from Brawler
+    Timeout(id + 0x220, 5.2f, "Auxiliary Power"); // t=390.2; Ability 164B from Brawler
+    Timeout(id + 0x230, 0.4f, "Brute Force"); // t=390.6; Ability 164D from Vortexer
+    Timeout(id + 0x240, 2.8f, "Attachment"); // t=393.4; Ability 163C from Brawler
+    Timeout(id + 0x250, 6.1f, "Brawler Mechanic"); // t=399.5; Ability 163D/163E/163F/1640 from Brawler
+    Timeout(id + 0x260, 1.2f, "Brute Force"); // t=400.7; Ability 164D from Vortexer
+    Timeout(id + 0x270, 2.9f, "Auxiliary Power"); // t=403.6; Ability 164B from Brawler
+    Timeout(id + 0x280, 4.1f, "Magicked Mark"); // t=407.7; Ability 163B from Brawler
+    Condition(id + 0x290, 192.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1657), "", 5f, 187.3f); // t=600.0; StartsUsing 1657 from Vortexer; cactbot StartsUsing 1657 [A8S Super Cyclone]
+    Timeout(id + 0x2A0, 3.0f, "Super Cyclone").SetHint(StateMachine.StateHint.Knockback); // t=603.0; Ability 1657 from Vortexer; cactbot StartsUsing 1657 [A8S Super Cyclone]
+    Timeout(id + 0x2B0, 5.1f, "Elemental Jammer"); // t=608.1; Ability 167E from Vortexer
+    Timeout(id + 0x2C0, 7.3f, "Ballistic Missile"); // t=615.4; Ability 1650 from Vortexer
+    Timeout(id + 0x2D0, 6.0f, "Earth Missile"); // t=621.4; Ability 1651 from Vortexer
+    Timeout(id + 0x2E0, 24.4f, "Ballistic Missile"); // t=645.8; Ability 1650 from Vortexer
+    Timeout(id + 0x2F0, 4.2f, "Crashing Thunder"); // t=650.0; Ability 164E from Vortexer
+    Timeout(id + 0x300, 1.7f, "Earth Missile"); // t=651.7; Ability 1651 from Vortexer
+    Timeout(id + 0x310, 19.9f, "Crashing Thunder"); // t=671.6; Ability 164E from Vortexer
+    Timeout(id + 0x320, 4.5f, "Ballistic Missile"); // t=676.1; Ability 1650 from Vortexer
+    Timeout(id + 0x330, 6.0f, "Earth Missile"); // t=682.1; Ability 1651 from Vortexer
+}
+
+private void Phase_3__Brute_Justice(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Transform"); // t=800.0; Ability 167C from Brute Justice
+    Targetable(id + 0x10, true, 2.7f, "--targetable--"); // t=802.7
+    Timeout(id + 0x20, 8.2f, "Flarethrower"); // t=810.9; Ability 1662 from Brute Justice
+    Timeout(id + 0x30, 7.1f, "Double Rocket Punch"); // t=818.0; Ability 1663 from Brute Justice; cactbot StartsUsing 1663 [A8S Double Rocket Punch]
+    Timeout(id + 0x40, 3.2f, "Missile Command").SetHint(StateMachine.StateHint.Raidwide); // t=821.2; Ability 1668 from Brute Justice; cactbot Ability 1668 [A8S Short Needle]
+    Timeout(id + 0x50, 3.0f, "Short Needle").SetHint(StateMachine.StateHint.Raidwide); // t=824.2; Ability 1669 from Brute Justice; cactbot Ability 1668 [A8S Short Needle]
+    Timeout(id + 0x60, 1.1f, "Flarethrower"); // t=825.3; Ability 1662 from Brute Justice
+    Timeout(id + 0x70, 2.9f, "Long Needle"); // t=828.2; Ability 166C from Brute Justice; cactbot HeadMarker 3E [A8S Long Needle Stack Collect] | HeadMarker 1E [A8S Long Needle Prey Collect] | StartsUsing 166A [A8S Long Needle]
+    Timeout(id + 0x80, 2.9f, "Short Needle").SetHint(StateMachine.StateHint.Raidwide); // t=831.1; Ability 1669 from Brute Justice; cactbot Ability 1668 [A8S Short Needle]
+    Timeout(id + 0x90, 0.5f, "Mega Beam"); // t=831.6; Ability 1664 from Brute Justice; cactbot StartsUsing 1664 [A8S Megabeam Brute Justice]
+    Timeout(id + 0xA0, 5.4f, "Super Jump"); // t=837.0; Ability 1665 from Brute Justice; cactbot StartsUsing 1665 [A8S Super Jump]
+    Timeout(id + 0xB0, 4.6f, "Apocalyptic Ray"); // t=841.6; Ability 1666 from Brute Justice
+    Timeout(id + 0xC0, 9.3f, "Flarethrower"); // t=850.9; Ability 1662 from Brute Justice
+    Timeout(id + 0xD0, 6.1f, "Double Rocket Punch"); // t=857.0; Ability 1663 from Brute Justice; cactbot StartsUsing 1663 [A8S Double Rocket Punch]
+    Timeout(id + 0xE0, 2.1f, "Flarethrower"); // t=859.1; Ability 1662 from Brute Justice
+    Timeout(id + 0xF0, 3.1f, "Missile Command").SetHint(StateMachine.StateHint.Raidwide); // t=862.2; Ability 1668 from Brute Justice; cactbot Ability 1668 [A8S Short Needle]
+    Timeout(id + 0x100, 3.0f, "Short Needle").SetHint(StateMachine.StateHint.Raidwide); // t=865.2; Ability 1669 from Brute Justice; cactbot Ability 1668 [A8S Short Needle]
+    Timeout(id + 0x110, 1.1f, "Flarethrower"); // t=866.3; Ability 1662 from Brute Justice
+    Timeout(id + 0x120, 2.9f, "Long Needle"); // t=869.2; Ability 166C from Brute Justice; cactbot HeadMarker 3E [A8S Long Needle Stack Collect] | HeadMarker 1E [A8S Long Needle Prey Collect] | StartsUsing 166A [A8S Long Needle]
+    Timeout(id + 0x130, 3.0f, "Short Needle").SetHint(StateMachine.StateHint.Raidwide); // t=872.2; Ability 1669 from Brute Justice; cactbot Ability 1668 [A8S Short Needle]
+    Timeout(id + 0x140, 0.7f, "Mega Beam"); // t=872.9; Ability 1664 from Brute Justice; cactbot StartsUsing 1664 [A8S Megabeam Brute Justice]
+    Timeout(id + 0x150, 5.2f, "Super Jump"); // t=878.1; Ability 1665 from Brute Justice; cactbot StartsUsing 1665 [A8S Super Jump]
+    Targetable(id + 0x160, false, 3.1f, "--untargetable--"); // t=881.2
+}
+
+private void Phase_4__First_Intermission(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "J Kick"); // t=884.4; Ability 166D from Brute Justice
+    Timeout(id + 0x10, 9.5f, "100-Megatonze Shock"); // t=893.9; Ability 1635 from Onslaughter
+    Timeout(id + 0x20, 0.8f, "Mirage"); // t=894.7; Ability 1658 from Blaster Mirage; cactbot AddedCombatant [A8S Blaster Mirage] | HeadMarker 8 [A8S Mirage Marker]
+    Timeout(id + 0x30, 1.0f, "Attachment"); // t=895.7; Ability 163C from Brawler
+    Timeout(id + 0x40, 4.0f, "Supercharge"); // t=899.7
+    Timeout(id + 0x50, 2.2f, "Double Buster"); // t=901.9; Ability 163E from Brawler
+    Timeout(id + 0x60, 4.3f, "Mega Beam"); // t=906.2; Ability 162E from Onslaughter; cactbot StartsUsing 162E [A8S Megabeam Onslaughter]
+    Timeout(id + 0x70, 0.3f, "Eye Of The Chakram"); // t=906.5; Ability 1654 from Steam Chakram
+    Timeout(id + 0x80, 7.5f, "Attachment"); // t=914.0; Ability 163C from Brawler
+    Timeout(id + 0x90, 1.5f, "Height"); // t=915.5; Ability 1647 from Swindler
+    Timeout(id + 0xA0, 0.1f, "Ice Missile"); // t=915.6; cactbot HeadMarker 43 [A8S Ice Missile Marker]
+    Timeout(id + 0xB0, 0.8f, "Earth Missile"); // t=916.4; Ability 1651 from Vortexer
+    Timeout(id + 0xC0, 3.1f, "Mega Beam"); // t=919.5; Ability 162E from Onslaughter; cactbot StartsUsing 162E [A8S Megabeam Onslaughter]
+    Timeout(id + 0xD0, 1.1f, "Single Buster"); // t=920.6; Ability 163D from Brawler
+}
+
+private void Phase_5__Round_2__Fighto(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=933.1
+    Timeout(id + 0x10, 3.1f, "Flarethrower"); // t=936.2; Ability 1662 from Brute Justice
+    Timeout(id + 0x20, 7.1f, "Double Rocket Punch"); // t=943.3; Ability 1663 from Brute Justice; cactbot StartsUsing 1663 [A8S Double Rocket Punch]
+    Timeout(id + 0x30, 3.2f, "Missile Command").SetHint(StateMachine.StateHint.Raidwide); // t=946.5; Ability 1668 from Brute Justice; cactbot Ability 1668 [A8S Short Needle]
+    Timeout(id + 0x40, 3.0f, "Short Needle").SetHint(StateMachine.StateHint.Raidwide); // t=949.5; Ability 1669 from Brute Justice; cactbot Ability 1668 [A8S Short Needle]
+    Timeout(id + 0x50, 1.1f, "Flarethrower"); // t=950.6; Ability 1662 from Brute Justice
+    Timeout(id + 0x60, 2.9f, "Long Needle"); // t=953.5; Ability 166C from Brute Justice; cactbot HeadMarker 3E [A8S Long Needle Stack Collect] | HeadMarker 1E [A8S Long Needle Prey Collect] | StartsUsing 166A [A8S Long Needle]
+    Timeout(id + 0x70, 2.9f, "Short Needle").SetHint(StateMachine.StateHint.Raidwide); // t=956.4; Ability 1669 from Brute Justice; cactbot Ability 1668 [A8S Short Needle]
+    Timeout(id + 0x80, 0.5f, "Mega Beam"); // t=956.9; Ability 1664 from Brute Justice; cactbot StartsUsing 1664 [A8S Megabeam Brute Justice]
+    Timeout(id + 0x90, 5.4f, "Super Jump"); // t=962.3; Ability 1665 from Brute Justice; cactbot StartsUsing 1665 [A8S Super Jump]
+    Timeout(id + 0xA0, 4.6f, "Apocalyptic Ray"); // t=966.9; Ability 1666 from Brute Justice
+    Timeout(id + 0xB0, 9.3f, "Flarethrower"); // t=976.2; Ability 1662 from Brute Justice
+    Timeout(id + 0xC0, 6.1f, "Double Rocket Punch"); // t=982.3; Ability 1663 from Brute Justice; cactbot StartsUsing 1663 [A8S Double Rocket Punch]
+    Timeout(id + 0xD0, 2.1f, "Flarethrower"); // t=984.4; Ability 1662 from Brute Justice
+    Timeout(id + 0xE0, 3.1f, "Missile Command").SetHint(StateMachine.StateHint.Raidwide); // t=987.5; Ability 1668 from Brute Justice; cactbot Ability 1668 [A8S Short Needle]
+    Timeout(id + 0xF0, 3.0f, "Short Needle").SetHint(StateMachine.StateHint.Raidwide); // t=990.5; Ability 1669 from Brute Justice; cactbot Ability 1668 [A8S Short Needle]
+    Timeout(id + 0x100, 1.1f, "Flarethrower"); // t=991.6; Ability 1662 from Brute Justice
+    Timeout(id + 0x110, 2.9f, "Long Needle"); // t=994.5; Ability 166C from Brute Justice; cactbot HeadMarker 3E [A8S Long Needle Stack Collect] | HeadMarker 1E [A8S Long Needle Prey Collect] | StartsUsing 166A [A8S Long Needle]
+    Timeout(id + 0x120, 3.0f, "Short Needle").SetHint(StateMachine.StateHint.Raidwide); // t=997.5; Ability 1669 from Brute Justice; cactbot Ability 1668 [A8S Short Needle]
+    Timeout(id + 0x130, 0.7f, "Mega Beam"); // t=998.2; Ability 1664 from Brute Justice; cactbot StartsUsing 1664 [A8S Megabeam Brute Justice]
+    Timeout(id + 0x140, 5.2f, "Super Jump"); // t=1003.4; Ability 1665 from Brute Justice; cactbot StartsUsing 1665 [A8S Super Jump]
+    Targetable(id + 0x150, false, 3.1f, "--untargetable--"); // t=1006.5
+    Timeout(id + 0x160, 3.2f, "J Kick"); // t=1009.7; Ability 166D from Brute Justice
+    Targetable(id + 0x170, true, 2.3f, "--targetable--"); // t=1012.0
+}
+
+private void Phase_6__Second_Intermission(uint id)
+{
+    Targetable(id + 0x0, false, 0.0f, "--untargetable--"); // t=1200.0
+    Timeout(id + 0x10, 3.2f, "J Kick"); // t=1203.2; Ability 166D from Brute Justice
+    Timeout(id + 0x20, 8.3f, "Attachment"); // t=1211.5; Ability 163C from Brawler
+    Timeout(id + 0x30, 1.1f, "100-Megatonze Shock"); // t=1212.6; Ability 1635 from Onslaughter
+    Timeout(id + 0x40, 4.9f, "Hidden Minefield"); // t=1217.5; Ability 165E from Hidden Mine; cactbot Ability 165E [A8S Hidden Minefield Intermission]
+    Timeout(id + 0x50, 0.1f, "Double Drill Crush"); // t=1217.6; Ability 1640 from Brawler
+    Timeout(id + 0x60, 1.0f, "Drill Drive"); // t=1218.6; Ability 1641 from Brawler
+    Timeout(id + 0x70, 3.5f, "Mega Beam"); // t=1222.1; Ability 162E from Onslaughter; cactbot StartsUsing 162E [A8S Megabeam Onslaughter]
+    Timeout(id + 0x80, 1.6f, "Attachment"); // t=1223.7; Ability 163C from Brawler
+    Timeout(id + 0x90, 4.8f, "Mirage"); // t=1228.5; Ability 1658 from Blaster Mirage; cactbot AddedCombatant [A8S Blaster Mirage] | HeadMarker 8 [A8S Mirage Marker]
+    Timeout(id + 0xA0, 1.3f, "Rocket Drill"); // t=1229.8; Ability 163F from Brawler
+    Timeout(id + 0xB0, 2.8f, "Mega Beam / Eye Of The Chakram"); // t=1232.6; Ability 162E from Onslaughter | Ability 1654 from Steam Chakram; cactbot StartsUsing 162E [A8S Megabeam Onslaughter]
+    Timeout(id + 0xC0, 1.0f, "Power Tackle / Blinder"); // t=1233.6
+    Timeout(id + 0xD0, 7.8f, "Enumeration / Ultra Flash"); // t=1241.4; Ability 1649 from Swindler | Ability 1656 from Vortexer
+}
+
+private void Phase_7__Gavel(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x166E), "--targetable--", 5f, 0.0f); // t=1252.1; StartsUsing 166E from Brute Justice
+    Timeout(id + 0x10, 5.0f, "Justice"); // t=1257.1; Ability 166E from Brute Justice; cactbot StartsUsing 1664 [A8S Megabeam Brute Justice]
+    Timeout(id + 0x20, 7.1f, "Verdict"); // t=1264.2; Ability 166F from Brute Justice; cactbot GainsEffect 408 [A8S Verdict Min HP] | GainsEffect 408 [A8S Verdict Min HP Collect] | GainsEffect 408 [A8S Verdict Min HP Tornado] | GainsEffect 407 [A8S Verdict Max HP Collect] | GainsEffect 407 [A8S Verdict Max HP] | LosesEffect 403 [A8S Verdict Max HP Provoke] | GainsEffect 407 [A8S Verdict Max HP Blu Devour] | GainsEffect 409 [A8S Verdict Penalty 1] | GainsEffect 40A [A8S Verdict Penalty 2] | GainsEffect 40B [A8S Verdict Penalty 3] | GainsEffect 40B [A8S Verdict Penalty 3 Orb] | GainsEffect 40C [A8S Verdict Nisi A] | GainsEffect 40D [A8S Verdict Nisi B]
+    Timeout(id + 0x30, 32.1f, "Gavel"); // t=1296.3; Ability 1670 from Brute Justice
+    Targetable(id + 0x40, false, 8.1f, "--untargetable--"); // t=1304.4
+}
+
+private void Phase_8__Final_Justice(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "J Kick"); // t=1307.6; Ability 166D from Brute Justice
+    Targetable(id + 0x10, true, 3.0f, "--targetable--"); // t=1310.6
+    Timeout(id + 0x20, 3.1f, "Link-Up"); // t=1313.7; Ability 1673 from Brute Justice; cactbot Ability 1673 [A8S Link Up]
+    Timeout(id + 0x30, 11.1f, "Final Punch").SetHint(StateMachine.StateHint.Tankbuster); // t=1324.8; Ability 170C from Brute Justice; cactbot StartsUsing 170C [A8S Final Punch]
+    Timeout(id + 0x40, 1.2f, "Final Apocalypse"); // t=1326.0; Ability 1716 from Brute Justice; cactbot Ability 1716 [A8S Final Beam]
+    Timeout(id + 0x50, 6.1f, "Final Beam"); // t=1332.1; Ability 1725 from Brute Justice; cactbot Ability 1716 [A8S Final Beam]
+    Timeout(id + 0x60, 3.1f, "Missile Command").SetHint(StateMachine.StateHint.Raidwide); // t=1335.2; Ability 1668 from Brute Justice; cactbot Ability 1668 [A8S Short Needle]
+    Timeout(id + 0x70, 4.0f, "Hidden Minefield"); // t=1339.2; Ability 165E from Hidden Mine; cactbot Ability 165E [A8S Hidden Minefield Intermission]
+    Timeout(id + 0x80, 1.1f, "Flarethrower"); // t=1340.3; Ability 1662 from Brute Justice
+    Timeout(id + 0x90, 1.1f, "Long Needle"); // t=1341.4; Ability 166C from Brute Justice; cactbot HeadMarker 3E [A8S Long Needle Stack Collect] | HeadMarker 1E [A8S Long Needle Prey Collect] | StartsUsing 166A [A8S Long Needle]
+    Timeout(id + 0xA0, 12.2f, "Eye Of The Chakram"); // t=1353.6; Ability 1654 from Steam Chakram
+    Timeout(id + 0xB0, 1.0f, "Enumeration"); // t=1354.6; Ability 1649 from Brute Justice; cactbot HeadMarker 40/41/42 [A8S Enumeration]
+    Timeout(id + 0xC0, 5.4f, "Mega Beam"); // t=1360.0; Ability 1664 from Brute Justice; cactbot StartsUsing 1664 [A8S Megabeam Brute Justice]
+    Timeout(id + 0xD0, 5.1f, "Super Jump"); // t=1365.1; Ability 1665 from Brute Justice; cactbot StartsUsing 1665 [A8S Super Jump]
+    Timeout(id + 0xE0, 6.2f, "Flarethrower"); // t=1371.3; Ability 1662 from Brute Justice
+    Timeout(id + 0xF0, 5.1f, "Missile Command").SetHint(StateMachine.StateHint.Raidwide); // t=1376.4; Ability 1668 from Brute Justice; cactbot Ability 1668 [A8S Short Needle]
+    Timeout(id + 0x100, 7.1f, "Final Punch").SetHint(StateMachine.StateHint.Tankbuster); // t=1383.5; Ability 170C from Brute Justice; cactbot StartsUsing 170C [A8S Final Punch]
+    Timeout(id + 0x110, 1.5f, "Final Apocalypse"); // t=1385.0; Ability 1716 from Brute Justice; cactbot Ability 1716 [A8S Final Beam]
+    Timeout(id + 0x120, 6.1f, "Final Beam"); // t=1391.1; Ability 1725 from Brute Justice; cactbot Ability 1716 [A8S Final Beam]
+    Targetable(id + 0x130, false, 7.1f, "--untargetable--"); // t=1398.2
+}
+
+private void Phase_9__J_Storm(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "J Storm"); // t=1401.4; Ability 1674 from Brute Justice
+    Targetable(id + 0x10, true, 2.0f, "--targetable--"); // t=1403.4
+    Timeout(id + 0x20, 4.1f, "J Wave"); // t=1407.5; Ability 1675 from Brute Justice
+    Timeout(id + 0x30, 5.0f, "J Wave"); // t=1412.5; Ability 1675 from Brute Justice
+    Timeout(id + 0x40, 5.0f, "J Wave"); // t=1417.5; Ability 1675 from Brute Justice
+    Timeout(id + 0x50, 5.0f, "J Wave"); // t=1422.5; Ability 1675 from Brute Justice
+    Timeout(id + 0x60, 5.0f, "J Wave"); // t=1427.5; Ability 1675 from Brute Justice
+    Timeout(id + 0x70, 5.0f, "J Wave"); // t=1432.5; Ability 1675 from Brute Justice
+    Timeout(id + 0x80, 5.0f, "J Wave"); // t=1437.5; Ability 1675 from Brute Justice
+    Timeout(id + 0x90, 5.0f, "J Wave"); // t=1442.5; Ability 1675 from Brute Justice
+    Timeout(id + 0xA0, 5.0f, "J Wave"); // t=1447.5; Ability 1675 from Brute Justice
+    Timeout(id + 0xB0, 5.0f, "J Wave"); // t=1452.5; Ability 1675 from Brute Justice
+}
+

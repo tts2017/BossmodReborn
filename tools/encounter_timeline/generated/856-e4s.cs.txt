@@ -1,0 +1,132 @@
+// Generated development skeleton from e4s.txt (TerritoryType 856).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 32 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e4s.ts.
+
+private void Warmup(uint id)
+{
+    Condition(id + 0x0, 11.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4116), "", 5f, 6.0f); // t=11.0; StartsUsing 4116 from Titan; cactbot StartsUsing 4116 [E4S Stonecrusher]
+    Timeout(id + 0x10, 5.0f, "Stonecrusher 1").SetHint(StateMachine.StateHint.Tankbuster); // t=16.0; Ability 4116 from Titan; cactbot StartsUsing 4116 [E4S Stonecrusher]
+    Timeout(id + 0x20, 3.1f, "Stonecrusher 2"); // t=19.1
+    Timeout(id + 0x30, 3.0f, "Stonecrusher 3"); // t=22.1
+    Timeout(id + 0x40, 12.1f, "Weight of the Land"); // t=34.2; Ability 4108 from Titan
+    Timeout(id + 0x50, 3.0f, "Pulse of the Land"); // t=37.2; Ability 4106 from Titan; cactbot HeadMarker B9 [E4S Pulse of the Land]
+    Timeout(id + 0x60, 2.3f, "Evil Earth"); // t=39.5; Ability 410B from Titan; cactbot StartsUsing 410C [E4S Evil Earth]
+    Timeout(id + 0x70, 8.9f, "Force of the Land"); // t=48.4; Ability 4107 from Titan; cactbot HeadMarker BA [E4S Force of the Land]
+    Timeout(id + 0x80, 6.2f, "Voice of the Land").SetHint(StateMachine.StateHint.Raidwide); // t=54.6; Ability 4114 from Titan; cactbot StartsUsing 4114 [E4S Voice of the Land]
+    Timeout(id + 0x90, 12.2f, "Geocrush").SetHint(StateMachine.StateHint.Knockback); // t=66.8; Ability 4113 from Titan; cactbot StartsUsing 4113 [E4S Geocrush]
+    Timeout(id + 0xA0, 3.7f, "Earthen Wheels/Gauntlets?"); // t=70.5
+}
+
+private void Wheels_Path(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Earthen Wheels"); // t=270.5; Ability 40E8 from Titan; cactbot Ability 40E8 [E4S Fault Line - Sides]
+    Timeout(id + 0x10, 7.2f, "Pulse of the Land / Force of the Land"); // t=277.7; Ability 4106 from Titan | Ability 4107 from Titan
+    Timeout(id + 0x20, 8.3f, "Magnitude 5.0"); // t=286.0; Ability 4121 from Titan; cactbot StartsUsing 4121 [E4S Magnitude 5.0]
+    Timeout(id + 0x30, 3.1f, "Earthen Armor"); // t=289.1; Ability 40E9 from Titan; cactbot Ability 40E7/40E9 [E4S Earthen Armor]
+    Timeout(id + 0x40, 1.9f, "Pulse of the Land"); // t=291.0; Ability 4106 from Titan; cactbot HeadMarker B9 [E4S Pulse of the Land]
+    Timeout(id + 0x50, 16.2f, "Crumbling Down"); // t=307.2; Ability 410E from Titan; cactbot HeadMarker 17 [E4S Crumbling Down]
+    Timeout(id + 0x60, 8.1f, "Bomb Boulders"); // t=315.3; Ability 4109 from Titan
+    Timeout(id + 0x70, 12.1f, "Seismic Wave"); // t=327.4; Ability 4110 from Titan
+    Timeout(id + 0x80, 13.3f, "Voice of the Land").SetHint(StateMachine.StateHint.Raidwide); // t=340.7; Ability 4114 from Titan; cactbot StartsUsing 4114 [E4S Voice of the Land]
+    Timeout(id + 0x90, 9.3f, "Stonecrusher 1").SetHint(StateMachine.StateHint.Tankbuster); // t=350.0; Ability 4116 from Titan; cactbot StartsUsing 4116 [E4S Stonecrusher]
+    Timeout(id + 0xA0, 3.1f, "Stonecrusher 2"); // t=353.1
+    Timeout(id + 0xB0, 3.0f, "Stonecrusher 3"); // t=356.1
+    Timeout(id + 0xC0, 16.3f, "Geocrush").SetHint(StateMachine.StateHint.Knockback); // t=372.4; Ability 4113 from Titan; cactbot StartsUsing 4113 [E4S Geocrush]
+    Timeout(id + 0xD0, 3.8f, "Earthen Gauntlets"); // t=376.2; Ability 40E6 from Titan; cactbot Ability 40E6 [E4S Earthen Gauntlets] | Ability 40E6 [E4S Massive Landslide - Front]
+    Timeout(id + 0xE0, 6.4f, "Pulse of the Land / Force of the Land"); // t=382.6; Ability 4106 from Titan | Ability 4107 from Titan
+    Timeout(id + 0xF0, 14.1f, "Voice of the Land").SetHint(StateMachine.StateHint.Raidwide); // t=396.7; Ability 4114 from Titan; cactbot StartsUsing 4114 [E4S Voice of the Land]
+    Timeout(id + 0x100, 10.8f, "Landslide"); // t=407.5; Ability 411A from Titan; cactbot StartsUsing 411A [E4S Landslide]
+    Timeout(id + 0x110, 6.0f, "Right/Left Landslide"); // t=413.5
+    Timeout(id + 0x120, 7.2f, "Earthen Armor"); // t=420.7; Ability 40E7 from Titan; cactbot Ability 40E7/40E9 [E4S Earthen Armor]
+    Targetable(id + 0x130, false, 5.0f, "--untargetable--"); // t=425.7
+    Timeout(id + 0x140, 5.4f, "Orogenesis"); // t=431.1
+}
+
+private void Gauntlets_path(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Earthen Gauntlets"); // t=570.5; Ability 40E6 from Titan; cactbot Ability 40E6 [E4S Earthen Gauntlets] | Ability 40E6 [E4S Massive Landslide - Front]
+    Timeout(id + 0x10, 6.3f, "Force of the Land / Pulse of the Land"); // t=576.8; Ability 4107 from Titan | Ability 4106 from Titan
+    Timeout(id + 0x20, 14.0f, "Voice of the Land").SetHint(StateMachine.StateHint.Raidwide); // t=590.8; Ability 4114 from Titan; cactbot StartsUsing 4114 [E4S Voice of the Land]
+    Timeout(id + 0x30, 10.7f, "Landslide"); // t=601.5; Ability 411A from Titan; cactbot StartsUsing 411A [E4S Landslide]
+    Timeout(id + 0x40, 6.0f, "Right/Left Landslide"); // t=607.5
+    Timeout(id + 0x50, 7.2f, "Earthen Armor"); // t=614.7; Ability 40E7 from Titan; cactbot Ability 40E7/40E9 [E4S Earthen Armor]
+    Timeout(id + 0x60, 18.2f, "Crumbling Down"); // t=632.9; Ability 410E from Titan; cactbot HeadMarker 17 [E4S Crumbling Down]
+    Timeout(id + 0x70, 8.2f, "Bomb Boulders"); // t=641.1; Ability 4109 from Titan
+    Timeout(id + 0x80, 12.0f, "Seismic Wave"); // t=653.1; Ability 4110 from Titan
+    Timeout(id + 0x90, 13.3f, "Voice of the Land").SetHint(StateMachine.StateHint.Raidwide); // t=666.4; Ability 4114 from Titan; cactbot StartsUsing 4114 [E4S Voice of the Land]
+    Timeout(id + 0xA0, 9.2f, "Stonecrusher 1").SetHint(StateMachine.StateHint.Tankbuster); // t=675.6; Ability 4116 from Titan; cactbot StartsUsing 4116 [E4S Stonecrusher]
+    Timeout(id + 0xB0, 3.1f, "Stonecrusher 2"); // t=678.7
+    Timeout(id + 0xC0, 3.1f, "Stonecrusher 3"); // t=681.8
+    Timeout(id + 0xD0, 16.3f, "Geocrush").SetHint(StateMachine.StateHint.Knockback); // t=698.1; Ability 4113 from Titan; cactbot StartsUsing 4113 [E4S Geocrush]
+    Timeout(id + 0xE0, 3.9f, "Earthen Wheels"); // t=702.0; Ability 40E8 from Titan; cactbot Ability 40E8 [E4S Fault Line - Sides]
+    Timeout(id + 0xF0, 7.0f, "Pulse of the Land / Force of the Land"); // t=709.0; Ability 4106 from Titan | Ability 4107 from Titan
+    Timeout(id + 0x100, 8.6f, "Magnitude 5.0"); // t=717.6; Ability 4121 from Titan; cactbot StartsUsing 4121 [E4S Magnitude 5.0]
+    Timeout(id + 0x110, 3.1f, "Earthen Armor"); // t=720.7; Ability 40E9 from Titan; cactbot Ability 40E7/40E9 [E4S Earthen Armor]
+    Timeout(id + 0x120, 1.9f, "Pulse of the Land"); // t=722.6; Ability 4106 from Titan; cactbot HeadMarker B9 [E4S Pulse of the Land]
+    Targetable(id + 0x130, false, 3.2f, "--untargetable--"); // t=725.8
+    Timeout(id + 0x140, 4.7f, "Orogenesis"); // t=730.5
+}
+
+private void Transition(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Orogenesis"); // t=1000.0; Ability 4371 from Titan
+    Targetable(id + 0x10, true, 26.3f, "--targetable--"); // t=1026.3
+    Timeout(id + 0x20, 6.8f, "Earthen Fury").SetHint(StateMachine.StateHint.Raidwide); // t=1033.1; Ability 4124 from Titan Maximum; cactbot StartsUsing 4124 [E4S Earthen Fury]
+    Timeout(id + 0x30, 15.2f, "Earthen Fist"); // t=1048.3; Ability 4130/4131/4132/412F from Titan Maximum; cactbot StartsUsing 412F [E4S Earthen Fist - Left/Right] | StartsUsing 4130 [E4S Earthen Fist - Right/Left] | StartsUsing 4131 [E4S Earthen Fist - 2x Left] | StartsUsing 4132 [E4S Earthen Fist - 2x Right]
+    Timeout(id + 0x40, 4.9f, "Weight of the Land"); // t=1053.2; Ability 4108 from Titan
+    Timeout(id + 0x50, 8.7f, "Dual Earthen Fists").SetHint(StateMachine.StateHint.Knockback); // t=1061.9; Ability 4135 from Titan Maximum; cactbot StartsUsing 4135 [E4S Dual Earthen Fists]
+    Timeout(id + 0x60, 4.0f, "Earthen Anguish"); // t=1065.9; Ability 4137 from Titan
+    Timeout(id + 0x70, 5.9f, "Megalith"); // t=1071.8; Ability 4138 from Titan Maximum; cactbot HeadMarker 5D [E4S Megalith]
+    Timeout(id + 0x80, 16.2f, "Tectonic Uplift"); // t=1088.0; Ability 4122 from Titan Maximum
+    Timeout(id + 0x90, 12.1f, "Force of the Land / Pulse of the Land"); // t=1100.1; Ability 4107 from Titan | Ability 4106 from Titan
+    Timeout(id + 0xA0, 8.1f, "Earthen Fury").SetHint(StateMachine.StateHint.Raidwide); // t=1108.2; Ability 4124 from Titan Maximum; cactbot StartsUsing 4124 [E4S Earthen Fury]
+    Timeout(id + 0xB0, 14.1f, "Rock Throw"); // t=1122.3; Ability 412D from Titan Maximum
+    Timeout(id + 0xC0, 12.8f, "Plate Fracture 1"); // t=1135.1; Ability 43EA from Titan
+    Timeout(id + 0xD0, 14.1f, "Plate Fracture 2"); // t=1149.2; Ability 43EA from Titan
+    Timeout(id + 0xE0, 13.2f, "Plate Fracture 3"); // t=1162.4; Ability 43EA from Titan
+    Timeout(id + 0xF0, 9.5f, "Earthen Fury").SetHint(StateMachine.StateHint.Raidwide); // t=1171.9; Ability 4124 from Titan Maximum; cactbot StartsUsing 4124 [E4S Earthen Fury]
+    Timeout(id + 0x100, 8.8f, "Tumult x5").SetHint(StateMachine.StateHint.Raidwide); // t=1180.7; Ability 412A from Titan Maximum; cactbot StartsUsing 412A [E4S Tumult]
+    Timeout(id + 0x110, 16.7f, "Dual Earthen Fists").SetHint(StateMachine.StateHint.Knockback); // t=1197.4; Ability 4135 from Titan Maximum; cactbot StartsUsing 4135 [E4S Dual Earthen Fists]
+    Timeout(id + 0x120, 4.0f, "Earthen Anguish"); // t=1201.4; Ability 4137 from Titan
+    Timeout(id + 0x130, 6.9f, "Earthen Fist"); // t=1208.3; Ability 4130/4131/4132/412F from Titan Maximum; cactbot StartsUsing 412F [E4S Earthen Fist - Left/Right] | StartsUsing 4130 [E4S Earthen Fist - Right/Left] | StartsUsing 4131 [E4S Earthen Fist - 2x Left] | StartsUsing 4132 [E4S Earthen Fist - 2x Right]
+    Timeout(id + 0x140, 17.4f, "Tectonic Uplift"); // t=1225.7; Ability 4122 from Titan Maximum
+    Timeout(id + 0x150, 0.9f, "Force of the Land"); // t=1226.6; Ability 4107 from Titan; cactbot HeadMarker BA [E4S Force of the Land]
+    Timeout(id + 0x160, 22.4f, "Pulse of the Land"); // t=1249.0; Ability 4106 from Titan; cactbot HeadMarker B9 [E4S Pulse of the Land]
+    Timeout(id + 0x170, 14.2f, "Weight of the World"); // t=1263.2; Ability 442B from Titan Maximum; cactbot HeadMarker BB [E4S Weight of the World]
+    Timeout(id + 0x180, 11.9f, "Force of the Land"); // t=1275.1; Ability 4107 from Titan; cactbot HeadMarker BA [E4S Force of the Land]
+    Timeout(id + 0x190, 8.3f, "Earthen Fury").SetHint(StateMachine.StateHint.Raidwide); // t=1283.4; Ability 4124 from Titan Maximum; cactbot StartsUsing 4124 [E4S Earthen Fury]
+    Timeout(id + 0x1A0, 8.8f, "Tumult x5").SetHint(StateMachine.StateHint.Raidwide); // t=1292.2; Ability 412A from Titan Maximum; cactbot StartsUsing 412A [E4S Tumult]
+    Timeout(id + 0x1B0, 22.2f, "Plate Fracture 1"); // t=1314.4; Ability 43EA from Titan
+    Timeout(id + 0x1C0, 9.6f, "Megalith"); // t=1324.0; Ability 4138 from Titan Maximum; cactbot HeadMarker 5D [E4S Megalith]
+    Timeout(id + 0x1D0, 13.7f, "Plate Fracture 2"); // t=1337.7; Ability 43EA from Titan
+    Timeout(id + 0x1E0, 3.0f, "Pulse of the Land / Force of the Land"); // t=1340.7; Ability 4106 from Titan | Ability 4107 from Titan
+    Timeout(id + 0x1F0, 8.4f, "Earthen Fury").SetHint(StateMachine.StateHint.Raidwide); // t=1349.1; Ability 4124 from Titan Maximum; cactbot StartsUsing 4124 [E4S Earthen Fury]
+    Targetable(id + 0x200, false, 10.2f, "--untargetable--"); // t=1359.3
+    Timeout(id + 0x210, 0.0f, "Orogenesis"); // t=1359.3; Ability 4372 from Titan Maximum
+    Targetable(id + 0x220, true, 5.0f, "--targetable--"); // t=1364.3
+    Timeout(id + 0x230, 9.0f, "Earthen Fury"); // t=1373.3; Ability 413A from Titan Maximum; cactbot StartsUsing 413A [E4S Earthen Fury with Bleed]
+    Timeout(id + 0x240, 19.3f, "Force of the Land / Pulse of the Land"); // t=1392.6; Ability 4107 from Titan | Ability 4106 from Titan
+    Timeout(id + 0x250, 9.3f, "Dual Earthen Fists").SetHint(StateMachine.StateHint.Knockback); // t=1401.9; Ability 4135 from Titan Maximum; cactbot StartsUsing 4135 [E4S Dual Earthen Fists]
+    Timeout(id + 0x260, 4.1f, "Earthen Anguish"); // t=1406.0; Ability 4137 from Titan
+    Timeout(id + 0x270, 8.6f, "Voice of the Land").SetHint(StateMachine.StateHint.Raidwide); // t=1414.6; Ability 4114 from Titan; cactbot StartsUsing 4114 [E4S Voice of the Land]
+    Timeout(id + 0x280, 2.8f, "Tumult x5").SetHint(StateMachine.StateHint.Raidwide); // t=1417.4; Ability 412A from Titan Maximum; cactbot StartsUsing 412A [E4S Tumult]
+    Timeout(id + 0x290, 9.5f, "Voice of the Land").SetHint(StateMachine.StateHint.Raidwide); // t=1426.9; Ability 4114 from Titan; cactbot StartsUsing 4114 [E4S Voice of the Land]
+    Timeout(id + 0x2A0, 11.2f, "Earthen Fury"); // t=1438.1; Ability 413A from Titan Maximum; cactbot StartsUsing 413A [E4S Earthen Fury with Bleed]
+    Timeout(id + 0x2B0, 19.2f, "Pulse of the Land / Force of the Land"); // t=1457.3; Ability 4106 from Titan | Ability 4107 from Titan
+    Timeout(id + 0x2C0, 11.1f, "Earthen Fist"); // t=1468.4; Ability 4130/4131/4132/412F from Titan Maximum; cactbot StartsUsing 412F [E4S Earthen Fist - Left/Right] | StartsUsing 4130 [E4S Earthen Fist - Right/Left] | StartsUsing 4131 [E4S Earthen Fist - 2x Left] | StartsUsing 4132 [E4S Earthen Fist - 2x Right]
+    Timeout(id + 0x2D0, 11.1f, "Stonecrusher 1").SetHint(StateMachine.StateHint.Tankbuster); // t=1479.5; Ability 4116 from Titan; cactbot StartsUsing 4116 [E4S Stonecrusher]
+    Timeout(id + 0x2E0, 3.1f, "Stonecrusher 2"); // t=1482.6
+    Timeout(id + 0x2F0, 3.1f, "Stonecrusher 3"); // t=1485.7
+    Timeout(id + 0x300, 6.1f, "Megalith"); // t=1491.8; Ability 4138 from Titan Maximum; cactbot HeadMarker 5D [E4S Megalith]
+    Timeout(id + 0x310, 12.3f, "Earthen Fury"); // t=1504.1; Ability 413A from Titan Maximum; cactbot StartsUsing 413A [E4S Earthen Fury with Bleed]
+    Timeout(id + 0x320, 19.3f, "Pulse of the Land / Force of the Land"); // t=1523.4; Ability 4106 from Titan | Ability 4107 from Titan
+    Timeout(id + 0x330, 10.9f, "Earthen Fist"); // t=1534.3; Ability 4130/4131/4132/412F from Titan Maximum; cactbot StartsUsing 412F [E4S Earthen Fist - Left/Right] | StartsUsing 4130 [E4S Earthen Fist - Right/Left] | StartsUsing 4131 [E4S Earthen Fist - 2x Left] | StartsUsing 4132 [E4S Earthen Fist - 2x Right]
+    Timeout(id + 0x340, 9.1f, "Voice of the Land").SetHint(StateMachine.StateHint.Raidwide); // t=1543.4; Ability 4114 from Titan; cactbot StartsUsing 4114 [E4S Voice of the Land]
+    Timeout(id + 0x350, 2.8f, "Tumult x5").SetHint(StateMachine.StateHint.Raidwide); // t=1546.2; Ability 412A from Titan Maximum; cactbot StartsUsing 412A [E4S Tumult]
+    Timeout(id + 0x360, 9.4f, "Voice of the Land").SetHint(StateMachine.StateHint.Raidwide); // t=1555.6; Ability 4114 from Titan; cactbot StartsUsing 4114 [E4S Voice of the Land]
+    Timeout(id + 0x370, 2.8f, "Tumult x5").SetHint(StateMachine.StateHint.Raidwide); // t=1558.4; Ability 412A from Titan Maximum; cactbot StartsUsing 412A [E4S Tumult]
+    Timeout(id + 0x380, 9.5f, "Voice of the Land").SetHint(StateMachine.StateHint.Raidwide); // t=1567.9; Ability 4114 from Titan; cactbot StartsUsing 4114 [E4S Voice of the Land]
+    Timeout(id + 0x390, 13.2f, "Earthen Fury Enrage"); // t=1581.1; Ability 4140 from Titan Maximum
+}
+

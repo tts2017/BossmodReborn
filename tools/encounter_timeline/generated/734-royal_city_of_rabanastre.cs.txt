@@ -1,0 +1,330 @@
+// Generated development skeleton from royal_city_of_rabanastre.txt (TerritoryType 734).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 23 static/dynamic trigger definitions from ui/raidboss/data/04-sb/alliance/royal_city_of_rabanastre.ts.
+
+private void Mateus__The_Corrupt(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "--start--"); // t=0.0
+    Condition(id + 0x10, 22.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2633), "", 5f, 17.6f); // t=22.6; StartsUsing 2633 from Mateus, The Corrupt; cactbot StartsUsing 2633 [Rab Mateus Aqua Sphere]
+    Timeout(id + 0x20, 5.0f, "Unbind"); // t=27.6; Ability 2633 from Mateus, The Corrupt; cactbot StartsUsing 2633 [Rab Mateus Aqua Sphere]
+    Timeout(id + 0x30, 6.7f, "--Aqua Sphere Adds--"); // t=34.3
+    Timeout(id + 0x40, 23.2f, "Flash-Freeze"); // t=57.5; Ability 2647 from Mateus, The Corrupt
+    Timeout(id + 0x50, 17.1f, "Flash-Freeze"); // t=74.6; Ability 2647 from Mateus, The Corrupt
+    Timeout(id + 0x60, 17.2f, "Flash-Freeze"); // t=91.8; Ability 2647 from Mateus, The Corrupt
+    Timeout(id + 0x70, 22.3f, "Rebind"); // t=114.1; Ability 2635 from Mateus, The Corrupt
+    Timeout(id + 0x80, 10.4f, "Dualcast"); // t=124.5; Ability 263C from Mateus, The Corrupt
+    Timeout(id + 0x90, 15.4f, "Blizzard IV"); // t=139.9; Ability 263D from Mateus, The Corrupt; cactbot StartsUsing 263D [Rab Mateus Blizzard IV]
+    Timeout(id + 0xA0, 12.2f, "Flash-Freeze"); // t=152.1; Ability 2647 from Mateus, The Corrupt
+    Timeout(id + 0xB0, 13.3f, "--Flume Toad Adds--"); // t=165.4
+    Timeout(id + 0xC0, 27.1f, "Snowpierce 1"); // t=192.5; Ability 2640 from Icicle
+    Timeout(id + 0xD0, 22.1f, "Snowpierce 2"); // t=214.6; Ability 2640 from Icicle
+    Timeout(id + 0xE0, 11.0f, "Dendrite"); // t=225.6; Ability 2645 from Mateus, The Corrupt
+    Timeout(id + 0xF0, 1.9f, "--Blizzard Sphere Adds--"); // t=227.5
+    Targetable(id + 0x100, false, 31.7f, "--untargetable--"); // t=259.2
+    Timeout(id + 0x110, 3.7f, "--Azure Guard Adds--"); // t=262.9
+    Timeout(id + 0x120, 70.3f, "--enrage--"); // t=333.2
+    Timeout(id + 0x130, 166.8f, "Frostwave"); // t=500.0; Ability 2641 from Mateus, The Corrupt
+    Timeout(id + 0x140, 24.3f, "Unbind"); // t=524.3; Ability 2633 from Mateus, The Corrupt; cactbot StartsUsing 2633 [Rab Mateus Aqua Sphere]
+    Timeout(id + 0x150, 6.7f, "--Aqua Sphere Adds--"); // t=531.0
+    Timeout(id + 0x160, 23.2f, "Flash-Freeze"); // t=554.2
+    Timeout(id + 0x170, 17.1f, "Flash-Freeze"); // t=571.3
+    Timeout(id + 0x180, 17.2f, "Flash-Freeze"); // t=588.5
+}
+
+private void Hashmal__Bringer_of_Order(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "--start--"); // t=1000.0
+    Condition(id + 0x10, 11.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x25D8), "", 5f, 6.0f); // t=1011.0; StartsUsing 25D8 from Hashmal, Bringer of Order; cactbot StartsUsing 25D8 [Rab Hashmal Quake IV]
+    Timeout(id + 0x20, 4.0f, "Quake IV").SetHint(StateMachine.StateHint.Raidwide); // t=1015.0; Ability 25D8 from Hashmal, Bringer of Order; cactbot StartsUsing 25D8 [Rab Hashmal Quake IV]
+    Timeout(id + 0x30, 5.4f, "Jagged Edge 1"); // t=1020.4
+    Timeout(id + 0x40, 2.1f, "Jagged Edge 2"); // t=1022.5
+    Timeout(id + 0x50, 2.1f, "Jagged Edge 3"); // t=1024.6
+    Timeout(id + 0x60, 4.0f, "Control Tower x1"); // t=1028.6; Ability 25C1 from Hashmal, Bringer of Order
+    Timeout(id + 0x70, 3.2f, "Sanction"); // t=1031.8; Ability 25C3 from Hashmal, Bringer of Order
+    Targetable(id + 0x80, false, 6.3f, "--untargetable--"); // t=1038.1
+    Timeout(id + 0x90, 1.3f, "Towerfall"); // t=1039.4; Ability 25C4 from Control Tower
+    Timeout(id + 0xA0, 6.8f, "Extreme Edge"); // t=1046.2; Ability 25CE/25D0 from Hashmal, Bringer of Order; cactbot StartsUsing 25D0 [Rab Hashmal Extreme Edge Left] | StartsUsing 25CE [Rab Hashmal Extreme Edge Right]
+    Targetable(id + 0xB0, true, 3.9f, "--targetable--"); // t=1050.1
+    Timeout(id + 0xC0, 6.0f, "Earth Hammer"); // t=1056.1; Ability 25CB from Hashmal, Bringer of Order; cactbot StartsUsing 25CB [Rab Hashmal Earth Hammer]
+    Timeout(id + 0xD0, 8.2f, "Hammerfall"); // t=1064.3; Ability 25CC from Hashmal, Bringer of Order
+    Timeout(id + 0xE0, 9.0f, "Quake IV").SetHint(StateMachine.StateHint.Raidwide); // t=1073.3; Ability 25D8 from Hashmal, Bringer of Order; cactbot StartsUsing 25D8 [Rab Hashmal Quake IV]
+    Timeout(id + 0xF0, 9.3f, "Rock Cutter"); // t=1082.6; Ability 25D7 from Hashmal, Bringer of Order; cactbot StartsUsing 25D7 [Rab Hashmal Rock Cutter]
+    Condition(id + 0x100, 4.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x25BC), "", 5f, 0.0f); // t=1087.0; StartsUsing 25BC from Hashmal, Bringer of Order
+    Timeout(id + 0x110, 3.0f, "Command Tower"); // t=1090.0; Ability 25BC from Hashmal, Bringer of Order
+    Timeout(id + 0x120, 11.3f, "Earth Shaker"); // t=1101.3; Ability 25C8 from Command Tower
+    Timeout(id + 0x130, 4.9f, "Earth Shaker"); // t=1106.2; Ability 25C8 from Command Tower
+    Timeout(id + 0x140, 0.4f, "Jagged Edge 1"); // t=1106.6
+    Timeout(id + 0x150, 1.8f, "Impact"); // t=1108.4; Ability 25C7 from Command Tower
+    Timeout(id + 0x160, 0.3f, "Jagged Edge 2"); // t=1108.7
+    Timeout(id + 0x170, 2.0f, "Jagged Edge 3"); // t=1110.7
+    Timeout(id + 0x180, 2.5f, "--Sand Sphere Adds--"); // t=1113.2
+    Timeout(id + 0x190, 15.3f, "Falling Boulder"); // t=1128.5; Ability 25D2 from Hashmal, Bringer of Order; cactbot StartsUsing 25D2 [Rab Hashmal Falling Boulder]
+    Timeout(id + 0x1A0, 7.3f, "Impact"); // t=1135.8; Ability 25C7 from Command Tower
+    Timeout(id + 0x1B0, 9.9f, "Earth Shaker"); // t=1145.7
+    Timeout(id + 0x1C0, 2.1f, "Earth Shaker"); // t=1147.8
+    Timeout(id + 0x1D0, 2.0f, "Falling Rock"); // t=1149.8; Ability 25D3 from Hashmal, Bringer of Order; cactbot StartsUsing 25D3 [Rab Hashmal Falling Rock]
+    Condition(id + 0x1E0, 150.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x25C5), "", 5f, 145.2f); // t=1300.0; StartsUsing 25C5 from Hashmal, Bringer of Order
+    Timeout(id + 0x1F0, 5.0f, "Landwaster"); // t=1305.0; Ability 25C5 from Hashmal, Bringer of Order
+    Timeout(id + 0x200, 9.4f, "Control Tower x2"); // t=1314.4; Ability 25C1 from Hashmal, Bringer of Order
+    Timeout(id + 0x210, 3.2f, "Sanction"); // t=1317.6; Ability 25C3 from Hashmal, Bringer of Order
+    Timeout(id + 0x220, 7.5f, "Towerfall"); // t=1325.1; Ability 25C4 from Control Tower
+    Timeout(id + 0x230, 0.9f, "Jagged Edge 1"); // t=1326.0
+    Timeout(id + 0x240, 2.1f, "Jagged Edge 2"); // t=1328.1
+    Timeout(id + 0x250, 2.1f, "Jagged Edge 3"); // t=1330.2
+    Timeout(id + 0x260, 0.7f, "Control Tower x2"); // t=1330.9; Ability 25C1 from Hashmal, Bringer of Order
+    Timeout(id + 0x270, 3.2f, "Sanction"); // t=1334.1; Ability 25C3 from Hashmal, Bringer of Order
+    Timeout(id + 0x280, 7.6f, "Towerfall"); // t=1341.7; Ability 25C4 from Control Tower
+    Targetable(id + 0x290, false, 2.2f, "--untargetable--"); // t=1343.9
+    Timeout(id + 0x2A0, 4.3f, "Jagged Edge 1"); // t=1348.2
+    Timeout(id + 0x2B0, 0.3f, "Extreme Edge"); // t=1348.5; Ability 25CE/25D0 from Hashmal, Bringer of Order; cactbot StartsUsing 25D0 [Rab Hashmal Extreme Edge Left] | StartsUsing 25CE [Rab Hashmal Extreme Edge Right]
+    Timeout(id + 0x2C0, 1.8f, "Jagged Edge 2"); // t=1350.3
+    Timeout(id + 0x2D0, 2.0f, "Jagged Edge 3"); // t=1352.3
+    Targetable(id + 0x2E0, true, 3.1f, "--targetable--"); // t=1355.4
+    Timeout(id + 0x2F0, 4.9f, "Quake IV").SetHint(StateMachine.StateHint.Raidwide); // t=1360.3; Ability 25D8 from Hashmal, Bringer of Order; cactbot StartsUsing 25D8 [Rab Hashmal Quake IV]
+    Timeout(id + 0x300, 9.2f, "Quake IV").SetHint(StateMachine.StateHint.Raidwide); // t=1369.5; Ability 25D8 from Hashmal, Bringer of Order; cactbot StartsUsing 25D8 [Rab Hashmal Quake IV]
+    Timeout(id + 0x310, 9.4f, "Rock Cutter"); // t=1378.9; Ability 25D7 from Hashmal, Bringer of Order; cactbot StartsUsing 25D7 [Rab Hashmal Rock Cutter]
+    Timeout(id + 0x320, 8.2f, "Earth Hammer"); // t=1387.1; Ability 25CB from Hashmal, Bringer of Order; cactbot StartsUsing 25CB [Rab Hashmal Earth Hammer]
+    Timeout(id + 0x330, 8.2f, "Hammerfall x3"); // t=1395.3; Ability 25CC from Hashmal, Bringer of Order
+    Timeout(id + 0x340, 3.0f, "Summon"); // t=1398.3; Ability 25D4 from Hashmal, Bringer of Order; cactbot StartsUsing 25D4 [Rab Hashmal Golems]
+    Timeout(id + 0x350, 0.3f, "Jagged Edge 1"); // t=1398.6
+    Timeout(id + 0x360, 0.5f, "--Golem Adds--"); // t=1399.1
+    Timeout(id + 0x370, 1.6f, "Jagged Edge 2"); // t=1400.7
+    Timeout(id + 0x380, 2.1f, "Jagged Edge 3"); // t=1402.8
+    Timeout(id + 0x390, 8.5f, "Demolish"); // t=1411.3; Ability 25D6 from Pennantstone Golem
+    Timeout(id + 0x3A0, 3.2f, "Might"); // t=1414.5; Ability 25D5 from Pennantstone Golem
+    Timeout(id + 0x3B0, 1.3f, "Rock Cutter"); // t=1415.8; Ability 25D7 from Hashmal, Bringer of Order; cactbot StartsUsing 25D7 [Rab Hashmal Rock Cutter]
+    Timeout(id + 0x3C0, 12.4f, "Rock Cutter"); // t=1428.2; Ability 25D7 from Hashmal, Bringer of Order; cactbot StartsUsing 25D7 [Rab Hashmal Rock Cutter]
+    Timeout(id + 0x3D0, 9.1f, "Quake IV").SetHint(StateMachine.StateHint.Raidwide); // t=1437.3; Ability 25D8 from Hashmal, Bringer of Order; cactbot StartsUsing 25D8 [Rab Hashmal Quake IV]
+    Timeout(id + 0x3E0, 10.5f, "Submission Tower"); // t=1447.8; Ability 266D from Hashmal, Bringer of Order
+    Timeout(id + 0x3F0, 3.2f, "Sanction"); // t=1451.0; Ability 2703 from Hashmal, Bringer of Order
+    Timeout(id + 0x400, 3.1f, "--Sand Sphere Adds--"); // t=1454.1
+    Timeout(id + 0x410, 6.8f, "Towerfall"); // t=1460.9; Ability 25CA from Submission Tower
+    Timeout(id + 0x420, 8.8f, "Falling Boulder"); // t=1469.7; Ability 25D2 from Hashmal, Bringer of Order; cactbot StartsUsing 25D2 [Rab Hashmal Falling Boulder]
+    Condition(id + 0x430, 10.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x25CE or 0x25D0), "", 5f, 5.9f); // t=1480.6; StartsUsing 25CE/25D0 from Hashmal, Bringer of Order; cactbot StartsUsing 25D0 [Rab Hashmal Extreme Edge Left] | StartsUsing 25CE [Rab Hashmal Extreme Edge Right]
+    Timeout(id + 0x440, 6.0f, "Extreme Edge"); // t=1486.6; Ability 25CE/25D0 from Hashmal, Bringer of Order; cactbot StartsUsing 25D0 [Rab Hashmal Extreme Edge Left] | StartsUsing 25CE [Rab Hashmal Extreme Edge Right]
+    Timeout(id + 0x450, 2.5f, "Falling Rock"); // t=1489.1; Ability 25D3 from Hashmal, Bringer of Order; cactbot StartsUsing 25D3 [Rab Hashmal Falling Rock]
+    Timeout(id + 0x460, 10.2f, "Quake IV").SetHint(StateMachine.StateHint.Raidwide); // t=1499.3; Ability 25D8 from Hashmal, Bringer of Order; cactbot StartsUsing 25D8 [Rab Hashmal Quake IV]
+    Timeout(id + 0x470, 9.2f, "Rock Cutter"); // t=1508.5; Ability 25D7 from Hashmal, Bringer of Order; cactbot StartsUsing 25D7 [Rab Hashmal Rock Cutter]
+    Timeout(id + 0x480, 7.3f, "Control Tower x2"); // t=1515.8; Ability 25C1 from Hashmal, Bringer of Order
+    Timeout(id + 0x490, 3.2f, "Sanction"); // t=1519.0
+    Timeout(id + 0x4A0, 7.5f, "Towerfall"); // t=1526.5
+    Timeout(id + 0x4B0, 0.9f, "Jagged Edge 1"); // t=1527.4
+    Timeout(id + 0x4C0, 2.1f, "Jagged Edge 2"); // t=1529.5
+    Timeout(id + 0x4D0, 2.1f, "Jagged Edge 3"); // t=1531.6
+    Timeout(id + 0x4E0, 0.7f, "Control Tower x2"); // t=1532.3
+    Timeout(id + 0x4F0, 3.2f, "Sanction"); // t=1535.5
+    Timeout(id + 0x500, 7.6f, "Towerfall"); // t=1543.1
+    Targetable(id + 0x510, false, 2.2f, "--untargetable--"); // t=1545.3
+    Timeout(id + 0x520, 4.3f, "Jagged Edge 1"); // t=1549.6
+    Timeout(id + 0x530, 0.3f, "Extreme Edge"); // t=1549.9
+    Timeout(id + 0x540, 1.8f, "Jagged Edge 2"); // t=1551.7
+    Timeout(id + 0x550, 2.0f, "Jagged Edge 3"); // t=1553.7
+    Targetable(id + 0x560, true, 3.1f, "--targetable--"); // t=1556.8
+}
+
+private void Rofocale(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "--start--"); // t=2000.0
+    Condition(id + 0x10, 12.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2680), "", 5f, 7.8f); // t=2012.8; StartsUsing 2680 from Rofocale
+    Timeout(id + 0x20, 3.0f, "Crush Helm").SetHint(StateMachine.StateHint.Tankbuster); // t=2015.8; Ability 2680 from Rofocale; cactbot Ability 2681 [Rab Rofocale Crush Helm]
+    Timeout(id + 0x30, 19.7f, "Chariot"); // t=2035.5; Ability 2674 from Rofocale; cactbot HeadMarker 17 [Rab Rofocale Chariot]
+    Timeout(id + 0x40, 5.3f, "Cry Of Victory"); // t=2040.8; Ability 2675 from Rofocale
+    Timeout(id + 0x50, 11.7f, "Crush Weapon x3"); // t=2052.5; Ability 2683 from Rofocale
+    Timeout(id + 0x60, 20.9f, "Trample"); // t=2073.4; Ability 2676 from Rofocale; cactbot StartsUsing 2676 [Rab Rofocale Trample]
+    Timeout(id + 0x70, 20.5f, "Maverick"); // t=2093.9; Ability 2689 from Rofocale
+    Timeout(id + 0x80, 10.9f, "Crush Helm").SetHint(StateMachine.StateHint.Tankbuster); // t=2104.8; Ability 2680 from Rofocale; cactbot Ability 2681 [Rab Rofocale Crush Helm]
+    Timeout(id + 0x90, 12.9f, "Crush Weapon x3"); // t=2117.7; Ability 2683 from Rofocale
+    Timeout(id + 0xA0, 6.8f, "Trample"); // t=2124.5; Ability 2676 from Rofocale; cactbot StartsUsing 2676 [Rab Rofocale Trample]
+    Timeout(id + 0xB0, 18.0f, "Chariot"); // t=2142.5; Ability 2674 from Rofocale; cactbot HeadMarker 17 [Rab Rofocale Chariot]
+    Timeout(id + 0xC0, 5.3f, "Cry Of Victory"); // t=2147.8; Ability 2675 from Rofocale
+    Timeout(id + 0xD0, 6.8f, "Trample"); // t=2154.6; Ability 2676 from Rofocale; cactbot StartsUsing 2676 [Rab Rofocale Trample]
+    Timeout(id + 0xE0, 11.2f, "Crush Weapon x3"); // t=2165.8; Ability 2683 from Rofocale
+    Timeout(id + 0xF0, 12.7f, "Maverick"); // t=2178.5; Ability 2689 from Rofocale
+    Timeout(id + 0x100, 10.9f, "Crush Helm").SetHint(StateMachine.StateHint.Tankbuster); // t=2189.4; Ability 2680 from Rofocale; cactbot Ability 2681 [Rab Rofocale Crush Helm]
+    Timeout(id + 0x110, 9.9f, "--invulnerable--"); // t=2199.3
+    Timeout(id + 0x120, 2.0f, "Archaeodemon Adds"); // t=2201.3
+    Timeout(id + 0x130, 7.0f, "--lock out--"); // t=2208.3
+    Condition(id + 0x140, 209.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x268A), "", 5f, 204.3f); // t=2417.6; StartsUsing 268A from Rofocale
+    Timeout(id + 0x150, 3.5f, "Heavenly Subjugation"); // t=2421.1
+    Timeout(id + 0x160, 12.4f, "Embrace"); // t=2433.5; Ability 2685 from Rofocale
+    Timeout(id + 0x170, 17.3f, "Chariot"); // t=2450.8; Ability 2674 from Rofocale; cactbot HeadMarker 17 [Rab Rofocale Chariot]
+    Timeout(id + 0x180, 5.2f, "Cry Of Victory"); // t=2456.0; Ability 2675 from Rofocale
+    Timeout(id + 0x190, 10.7f, "Trample"); // t=2466.7; Ability 2676 from Rofocale; cactbot StartsUsing 2676 [Rab Rofocale Trample]
+    Timeout(id + 0x1A0, 6.8f, "Cry Of Victory"); // t=2473.5; Ability 274C from Rofocale
+    Timeout(id + 0x1B0, 11.1f, "Pomp And Circumstance"); // t=2484.6; Ability 268D from Rofocale
+    Timeout(id + 0x1C0, 8.2f, "Embrace"); // t=2492.8; Ability 2685 from Rofocale
+    Timeout(id + 0x1D0, 7.6f, "Crush Weapon x4"); // t=2500.4; Ability 2683 from Rofocale
+    Timeout(id + 0x1E0, 12.2f, "Maverick"); // t=2512.6; Ability 2689 from Rofocale
+    Timeout(id + 0x1F0, 7.0f, "Crush Helm").SetHint(StateMachine.StateHint.Tankbuster); // t=2519.6; Ability 2680 from Rofocale; cactbot Ability 2681 [Rab Rofocale Crush Helm]
+    Timeout(id + 0x200, 11.4f, "Embrace"); // t=2531.0; Ability 2685 from Rofocale
+    Timeout(id + 0x210, 8.2f, "Pomp And Circumstance"); // t=2539.2; Ability 268D from Rofocale
+    Timeout(id + 0x220, 6.2f, "Dark Geas"); // t=2545.4; Ability 2688 from Rofocale
+    Condition(id + 0x230, 154.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x2726 or 0x2734), "", 5f, 149.6f); // t=2700.0; StartsUsing 2734/2726 from Rofocale
+    Timeout(id + 0x240, 6.0f, "Maverick"); // t=2706.0; Ability 2734/2726 from Rofocale
+    Timeout(id + 0x250, 10.9f, "Crush Helm").SetHint(StateMachine.StateHint.Tankbuster); // t=2716.9; Ability 2680 from Rofocale; cactbot Ability 2681 [Rab Rofocale Crush Helm]
+    Timeout(id + 0x260, 9.4f, "Embrace"); // t=2726.3; Ability 2685 from Rofocale
+    Timeout(id + 0x270, 9.2f, "Maverick"); // t=2735.5; Ability 2689 from Rofocale
+    Timeout(id + 0x280, 1.0f, "Chariot"); // t=2736.5; Ability 2674 from Rofocale; cactbot HeadMarker 17 [Rab Rofocale Chariot]
+    Timeout(id + 0x290, 5.2f, "Cry Of Victory"); // t=2741.7; Ability 2675 from Rofocale
+    Timeout(id + 0x2A0, 9.3f, "Maverick"); // t=2751.0; Ability 2689 from Rofocale
+    Timeout(id + 0x2B0, 2.5f, "Trample"); // t=2753.5; Ability 2676 from Rofocale; cactbot StartsUsing 2676 [Rab Rofocale Trample]
+    Timeout(id + 0x2C0, 6.8f, "Cry Of Victory"); // t=2760.3; Ability 274C from Rofocale
+    Timeout(id + 0x2D0, 13.7f, "Crush Weapon x4"); // t=2774.0; Ability 2683 from Rofocale
+    Timeout(id + 0x2E0, 5.1f, "Dark Geas"); // t=2779.1; Ability 2688 from Rofocale
+    Condition(id + 0x2F0, 120.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x2726 or 0x2734), "", 5f, 115.9f); // t=2900.0; StartsUsing 2734/2726 from Rofocale
+    Timeout(id + 0x300, 6.0f, "Maverick"); // t=2906.0; Ability 2734/2726 from Rofocale
+    Timeout(id + 0x310, 11.3f, "Crush Weapon x4"); // t=2917.3; Ability 2683 from Rofocale
+    Timeout(id + 0x320, 6.9f, "Trample"); // t=2924.2; Ability 2676 from Rofocale; cactbot StartsUsing 2676 [Rab Rofocale Trample]
+    Timeout(id + 0x330, 6.8f, "Cry Of Victory"); // t=2931.0; Ability 274C from Rofocale
+    Timeout(id + 0x340, 6.2f, "Crush Helm").SetHint(StateMachine.StateHint.Tankbuster); // t=2937.2; Ability 2680 from Rofocale; cactbot Ability 2681 [Rab Rofocale Crush Helm]
+    Timeout(id + 0x350, 11.4f, "Embrace"); // t=2948.6; Ability 2685 from Rofocale
+    Timeout(id + 0x360, 10.3f, "Chariot"); // t=2958.9; Ability 2674 from Rofocale; cactbot HeadMarker 17 [Rab Rofocale Chariot]
+    Timeout(id + 0x370, 5.4f, "Cry Of Victory"); // t=2964.3; Ability 2675 from Rofocale
+    Timeout(id + 0x380, 7.1f, "Pomp And Circumstance"); // t=2971.4; Ability 268D from Rofocale
+    Timeout(id + 0x390, 11.6f, "Crush Weapon x4"); // t=2983.0; Ability 2683 from Rofocale
+    Timeout(id + 0x3A0, 7.1f, "Pomp And Circumstance"); // t=2990.1; Ability 268D from Rofocale
+    Timeout(id + 0x3B0, 16.2f, "Crush Helm").SetHint(StateMachine.StateHint.Tankbuster); // t=3006.3; Ability 2680 from Rofocale; cactbot Ability 2681 [Rab Rofocale Crush Helm]
+    Timeout(id + 0x3C0, 9.5f, "Embrace"); // t=3015.8; Ability 2685 from Rofocale
+    Timeout(id + 0x3D0, 6.9f, "Trample"); // t=3022.7; Ability 2676 from Rofocale; cactbot StartsUsing 2676 [Rab Rofocale Trample]
+    Timeout(id + 0x3E0, 6.8f, "Cry Of Victory"); // t=3029.5; Ability 274C from Rofocale
+    Timeout(id + 0x3F0, 6.9f, "Trample"); // t=3036.4; Ability 2676 from Rofocale; cactbot StartsUsing 2676 [Rab Rofocale Trample]
+    Timeout(id + 0x400, 6.7f, "Cry Of Victory"); // t=3043.1; Ability 274C from Rofocale
+    Timeout(id + 0x410, 13.7f, "Crush Weapon x3"); // t=3056.8; Ability 2683 from Rofocale
+    Timeout(id + 0x420, 11.2f, "Maverick"); // t=3068.0; Ability 2689 from Rofocale
+    Timeout(id + 0x430, 1.2f, "Chariot"); // t=3069.2; Ability 2674 from Rofocale; cactbot HeadMarker 17 [Rab Rofocale Chariot]
+    Timeout(id + 0x440, 5.3f, "Cry of Victory"); // t=3074.5; Ability 2675 from Rofocale
+    Timeout(id + 0x450, 9.1f, "Crush Helm").SetHint(StateMachine.StateHint.Tankbuster); // t=3083.6; Ability 2680 from Rofocale; cactbot Ability 2681 [Rab Rofocale Crush Helm]
+    Timeout(id + 0x460, 11.2f, "Embrace"); // t=3094.8; Ability 2685 from Rofocale
+    Timeout(id + 0x470, 8.0f, "Pomp and Circumstance"); // t=3102.8; Ability 268D from Rofocale
+    Timeout(id + 0x480, 2.0f, "Maverick"); // t=3104.8; Ability 2689 from Rofocale
+    Timeout(id + 0x490, 14.5f, "Crush Weapon"); // t=3119.3; Ability 2683 from Rofocale
+    Timeout(id + 0x4A0, 7.0f, "Pomp and Circumstance"); // t=3126.3; Ability 268D from Rofocale
+    Timeout(id + 0x4B0, 16.0f, "Crush Helm").SetHint(StateMachine.StateHint.Tankbuster); // t=3142.3; Ability 2680 from Rofocale; cactbot Ability 2681 [Rab Rofocale Crush Helm]
+    Timeout(id + 0x4C0, 7.2f, "Embrace"); // t=3149.5; Ability 2685 from Rofocale
+    Timeout(id + 0x4D0, 6.6f, "Trample"); // t=3156.1; Ability 2676 from Rofocale; cactbot StartsUsing 2676 [Rab Rofocale Trample]
+    Timeout(id + 0x4E0, 6.8f, "Cry of Victory"); // t=3162.9; Ability 274C from Rofocale
+    Timeout(id + 0x4F0, 6.7f, "Trample"); // t=3169.6; Ability 2676 from Rofocale; cactbot StartsUsing 2676 [Rab Rofocale Trample]
+    Timeout(id + 0x500, 6.8f, "Cry of Victory"); // t=3176.4; Ability 274C from Rofocale
+    Timeout(id + 0x510, 13.5f, "Crush Weapon"); // t=3189.9; Ability 2683 from Rofocale
+    Timeout(id + 0x520, 11.0f, "Maverick"); // t=3200.9; Ability 2689 from Rofocale
+    Timeout(id + 0x530, 1.2f, "Chariot"); // t=3202.1; cactbot HeadMarker 17 [Rab Rofocale Chariot]
+    Timeout(id + 0x540, 5.3f, "Cry of Victory"); // t=3207.4
+    Timeout(id + 0x550, 9.1f, "Crush Helm"); // t=3216.5; cactbot Ability 2681 [Rab Rofocale Crush Helm]
+    Timeout(id + 0x560, 11.2f, "Embrace"); // t=3227.7
+}
+
+private void Phase_1____Phase_2__72___adds_____Phase_3__45_____________________Phase_3__loop(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "--start--"); // t=4000.0
+    Condition(id + 0x10, 6.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x262D), "", 5f, 1.7f); // t=4006.7; StartsUsing 262D from Argath Thadalfus; cactbot StartsUsing 262D [Rab Argath Crippling Blow]
+    Timeout(id + 0x20, 3.0f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=4009.7; Ability 262D from Argath Thadalfus; cactbot StartsUsing 262D [Rab Argath Crippling Blow]
+    Timeout(id + 0x30, 8.2f, "Crush Weapon x3"); // t=4017.9; Ability 2628 from Argath Thadalfus
+    Timeout(id + 0x40, 6.0f, "Soulfix"); // t=4023.9; Ability 262A from Argath Thadalfus
+    Timeout(id + 0x50, 6.1f, "Mask Of Truth"); // t=4030.0; Ability 261A from Argath Thadalfus; cactbot Ability 261A [Rab Argath Mask of Truth]
+    Timeout(id + 0x60, 8.0f, "The Word"); // t=4038.0; Ability 24A0 from Argath Thadalfus
+    Timeout(id + 0x70, 11.8f, "Fire IV").SetHint(StateMachine.StateHint.Raidwide); // t=4049.8; Ability 262E from Argath Thadalfus; cactbot StartsUsing 262E [Rab Argath Fire IV]
+    Timeout(id + 0x80, 8.3f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=4058.1; Ability 262D from Argath Thadalfus; cactbot StartsUsing 262D [Rab Argath Crippling Blow]
+    Condition(id + 0x90, 6.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2622), "", 5f, 1.2f); // t=4064.3; StartsUsing 2622 from Argath Thadalfus; cactbot Ability 2622 [Rab Argath Trepidation]
+    Timeout(id + 0xA0, 3.0f, "Trepidation"); // t=4067.3; Ability 2622 from Argath Thadalfus; cactbot Ability 2622 [Rab Argath Trepidation]
+    Timeout(id + 0xB0, 8.5f, "Unrelenting"); // t=4075.8; Ability 262B from Argath Thadalfus
+    Timeout(id + 0xC0, 1.5f, "Rail Of The Rat 1"); // t=4077.3; Ability 2624 from Argath Thadalfus
+    Timeout(id + 0xD0, 3.0f, "Rail Of The Rat 2"); // t=4080.3; Ability 2624 from Argath Thadalfus
+    Timeout(id + 0xE0, 3.2f, "Rail Of The Rat 3"); // t=4083.5; Ability 2624 from Argath Thadalfus
+    Timeout(id + 0xF0, 0.6f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=4084.1; Ability 262D from Argath Thadalfus; cactbot StartsUsing 262D [Rab Argath Crippling Blow]
+    Timeout(id + 0x100, 2.7f, "Mask Of Truth"); // t=4086.8; Ability 261A from Argath Thadalfus; cactbot Ability 261A [Rab Argath Mask of Truth]
+    Timeout(id + 0x110, 8.1f, "The Word"); // t=4094.9; Ability 24A0 from Argath Thadalfus
+    Condition(id + 0x120, 4.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2629), "", 5f, 0.0f); // t=4099.0; StartsUsing 2629 from Argath Thadalfus
+    Timeout(id + 0x130, 3.0f, "Judgment Blade"); // t=4102.0; Ability 2629 from Argath Thadalfus
+    Timeout(id + 0x140, 6.3f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=4108.3; Ability 262D from Argath Thadalfus; cactbot StartsUsing 262D [Rab Argath Crippling Blow]
+    Timeout(id + 0x150, 9.4f, "Heartless"); // t=4117.7; Ability 2632 from Heartless
+    Timeout(id + 0x160, 2.7f, "Coldblood"); // t=4120.4; Ability 2627 from Argath Thadalfus
+    Timeout(id + 0x170, 8.8f, "Royal Blood"); // t=4129.2
+    Condition(id + 0x180, 370.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x261E), "", 5f, 365.8f); // t=4500.0; StartsUsing 261E from Argath Thadalfus
+    Timeout(id + 0x190, 5.0f, "Royal Blood"); // t=4505.0; Ability 261E from Argath Thadalfus
+    Timeout(id + 0x1A0, 0.3f, "--Shade Adds--"); // t=4505.3
+    Timeout(id + 0x1B0, 9.9f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=4515.2; Ability 262D from Argath Thadalfus; cactbot StartsUsing 262D [Rab Argath Crippling Blow]
+    Timeout(id + 0x1C0, 10.2f, "Unrelenting"); // t=4525.4; Ability 262B from Argath Thadalfus
+    Condition(id + 0x1D0, 74.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x261F), "", 5f, 69.6f); // t=4600.0; StartsUsing 261F from Argath Thadalfus
+    Timeout(id + 0x1E0, 5.0f, "Empty Soul"); // t=4605.0; Ability 261F from Argath Thadalfus
+    Timeout(id + 0x1F0, 0.9f, "--Shard Adds--"); // t=4605.9
+    Condition(id + 0x200, 94.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2620), "", 5f, 89.1f); // t=4700.0; StartsUsing 2620 from Argath Thadalfus
+    Timeout(id + 0x210, 2.5f, "Dark Ultima"); // t=4702.5; Ability 2620 from Argath Thadalfus
+    Timeout(id + 0x220, 12.9f, "Mask Of Lies"); // t=4715.4; Ability 2619 from Argath Thadalfus; cactbot Ability 2619 [Rab Argath Mask of Lies]
+    Timeout(id + 0x230, 8.0f, "The Word"); // t=4723.4; Ability 24A0 from Argath Thadalfus
+    Timeout(id + 0x240, 9.1f, "Gnawing Dread"); // t=4732.5; Ability 2621 from Argath Thadalfus
+    Timeout(id + 0x250, 8.2f, "Soulfix"); // t=4740.7; Ability 262A from Argath Thadalfus
+    Timeout(id + 0x260, 5.9f, "Unrelenting"); // t=4746.6; Ability 262B from Argath Thadalfus
+    Timeout(id + 0x270, 9.9f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=4756.5; Ability 262D from Argath Thadalfus; cactbot StartsUsing 262D [Rab Argath Crippling Blow]
+    Timeout(id + 0x280, 6.2f, "Soulfix"); // t=4762.7; Ability 262A from Argath Thadalfus
+    Timeout(id + 0x290, 9.2f, "Crush Weapon"); // t=4771.9; Ability 2628 from Argath Thadalfus
+    Timeout(id + 0x2A0, 5.3f, "Unrelenting"); // t=4777.2; Ability 262B from Argath Thadalfus
+    Timeout(id + 0x2B0, 9.2f, "Fire IV").SetHint(StateMachine.StateHint.Raidwide); // t=4786.4; Ability 262E from Argath Thadalfus; cactbot StartsUsing 262E [Rab Argath Fire IV]
+    Timeout(id + 0x2C0, 8.6f, "Mask Of Truth/Mask Of Lies"); // t=4795.0; Ability 2619/261A from Argath Thadalfus; cactbot Ability 261A [Rab Argath Mask of Truth] | Ability 2619 [Rab Argath Mask of Lies]
+    Timeout(id + 0x2D0, 8.0f, "The Word"); // t=4803.0; Ability 24A0 from Argath Thadalfus
+    Timeout(id + 0x2E0, 10.6f, "Mask Of Truth/Mask Of Lies"); // t=4813.6; Ability 2619/261A from Argath Thadalfus; cactbot Ability 261A [Rab Argath Mask of Truth] | Ability 2619 [Rab Argath Mask of Lies]
+    Timeout(id + 0x2F0, 8.2f, "The Word"); // t=4821.8; Ability 24A0 from Argath Thadalfus
+    Timeout(id + 0x300, 7.0f, "Judgment Blade?"); // t=4828.8; Ability 2629 from Argath Thadalfus
+    Timeout(id + 0x310, 1.9f, "Gnawing Dread?"); // t=4830.7; Ability 2621 from Argath Thadalfus
+    Timeout(id + 0x320, 169.3f, "Judgment Blade"); // t=5000.0; Ability 2629 from Argath Thadalfus
+    Timeout(id + 0x330, 6.1f, "Unrelenting"); // t=5006.1; Ability 262B from Argath Thadalfus
+    Timeout(id + 0x340, 9.8f, "Heartless"); // t=5015.9; Ability 2632 from Heartless
+    Timeout(id + 0x350, 2.3f, "Coldblood"); // t=5018.2; Ability 2627 from Argath Thadalfus
+    Timeout(id + 0x360, 14.0f, "Fire IV").SetHint(StateMachine.StateHint.Raidwide); // t=5032.2; Ability 262E from Argath Thadalfus; cactbot StartsUsing 262E [Rab Argath Fire IV]
+    Timeout(id + 0x370, 8.2f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=5040.4; Ability 262D from Argath Thadalfus; cactbot StartsUsing 262D [Rab Argath Crippling Blow]
+    Timeout(id + 0x380, 5.1f, "Trepidation"); // t=5045.5; Ability 2622 from Argath Thadalfus; cactbot Ability 2622 [Rab Argath Trepidation]
+    Timeout(id + 0x390, 5.1f, "Crush Weapon"); // t=5050.6; Ability 2628 from Argath Thadalfus
+    Timeout(id + 0x3A0, 5.0f, "Rail Of The Rat 1"); // t=5055.6; Ability 2624 from Argath Thadalfus
+    Timeout(id + 0x3B0, 3.0f, "Rail Of The Rat 2"); // t=5058.6; Ability 2624 from Argath Thadalfus
+    Timeout(id + 0x3C0, 3.0f, "Rail Of The Rat 3"); // t=5061.6; Ability 2624 from Argath Thadalfus
+    Timeout(id + 0x3D0, 4.2f, "Soulfix"); // t=5065.8; Ability 262A from Argath Thadalfus
+    Timeout(id + 0x3E0, 10.6f, "Mask Of Truth/Mask Of Lies"); // t=5076.4; Ability 2619/261A from Argath Thadalfus; cactbot Ability 261A [Rab Argath Mask of Truth] | Ability 2619 [Rab Argath Mask of Lies]
+    Timeout(id + 0x3F0, 8.1f, "The Word"); // t=5084.5; Ability 24A0 from Argath Thadalfus
+    Timeout(id + 0x400, 10.5f, "Mask Of Truth/Mask Of Lies"); // t=5095.0; Ability 2619/261A from Argath Thadalfus; cactbot Ability 261A [Rab Argath Mask of Truth] | Ability 2619 [Rab Argath Mask of Lies]
+    Timeout(id + 0x410, 8.1f, "The Word"); // t=5103.1; Ability 24A0 from Argath Thadalfus
+    Timeout(id + 0x420, 8.9f, "Gnawing Dread"); // t=5112.0; Ability 2621 from Argath Thadalfus
+    Timeout(id + 0x430, 16.1f, "Coldblood (Hole In One)"); // t=5128.1; Ability 2626 from Argath Thadalfus
+    Timeout(id + 0x440, 7.2f, "Soulfix"); // t=5135.3; Ability 262A from Argath Thadalfus
+    Timeout(id + 0x450, 12.9f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=5148.2; Ability 262D from Argath Thadalfus; cactbot StartsUsing 262D [Rab Argath Crippling Blow]
+    Timeout(id + 0x460, 11.3f, "Gnawing Dread"); // t=5159.5; Ability 2621 from Argath Thadalfus
+    Timeout(id + 0x470, 9.2f, "Crush Weapon"); // t=5168.7; Ability 2628 from Argath Thadalfus
+    Timeout(id + 0x480, 5.2f, "Unrelenting"); // t=5173.9; Ability 262B from Argath Thadalfus
+    Timeout(id + 0x490, 6.1f, "Fire IV").SetHint(StateMachine.StateHint.Raidwide); // t=5180.0; Ability 262E from Argath Thadalfus; cactbot StartsUsing 262E [Rab Argath Fire IV]
+    Timeout(id + 0x4A0, 9.1f, "Fire IV").SetHint(StateMachine.StateHint.Raidwide); // t=5189.1; Ability 262E from Argath Thadalfus; cactbot StartsUsing 262E [Rab Argath Fire IV]
+    Timeout(id + 0x4B0, 8.0f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=5197.1; Ability 262D from Argath Thadalfus; cactbot StartsUsing 262D [Rab Argath Crippling Blow]
+    Timeout(id + 0x4C0, 10.1f, "Mask Of Truth/Mask Of Lies"); // t=5207.2; Ability 2619/261A from Argath Thadalfus; cactbot Ability 261A [Rab Argath Mask of Truth] | Ability 2619 [Rab Argath Mask of Lies]
+    Timeout(id + 0x4D0, 8.1f, "The Word"); // t=5215.3
+    Timeout(id + 0x4E0, 10.3f, "Mask Of Truth/Mask Of Lies"); // t=5225.6
+    Timeout(id + 0x4F0, 8.1f, "The Word"); // t=5233.7
+    Timeout(id + 0x500, 66.3f, "Gnawing Dread"); // t=5300.0; Ability 2621 from Argath Thadalfus
+    Timeout(id + 0x510, 16.0f, "Coldblood (Hole In One)"); // t=5316.0; Ability 2626 from Argath Thadalfus
+    Timeout(id + 0x520, 7.2f, "Soulfix"); // t=5323.2; Ability 262A from Argath Thadalfus
+    Timeout(id + 0x530, 14.0f, "Fire IV").SetHint(StateMachine.StateHint.Raidwide); // t=5337.2; Ability 262E from Argath Thadalfus; cactbot StartsUsing 262E [Rab Argath Fire IV]
+    Timeout(id + 0x540, 8.3f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=5345.5; Ability 262D from Argath Thadalfus; cactbot StartsUsing 262D [Rab Argath Crippling Blow]
+    Timeout(id + 0x550, 5.2f, "Trepidation"); // t=5350.7; Ability 2622 from Argath Thadalfus; cactbot Ability 2622 [Rab Argath Trepidation]
+    Timeout(id + 0x560, 5.1f, "Crush Weapon"); // t=5355.8; Ability 2628 from Argath Thadalfus
+    Timeout(id + 0x570, 5.0f, "Rail Of The Rat 1"); // t=5360.8; Ability 2624 from Argath Thadalfus
+    Timeout(id + 0x580, 3.0f, "Rail Of The Rat 2"); // t=5363.8; Ability 2624 from Argath Thadalfus
+    Timeout(id + 0x590, 3.1f, "Rail Of The Rat 3"); // t=5366.9; Ability 2624 from Argath Thadalfus
+    Timeout(id + 0x5A0, 4.2f, "Soulfix"); // t=5371.1; Ability 262A from Argath Thadalfus
+    Timeout(id + 0x5B0, 13.2f, "Mask Of Truth/Mask Of Lies"); // t=5384.3; Ability 2619/261A from Argath Thadalfus; cactbot Ability 261A [Rab Argath Mask of Truth] | Ability 2619 [Rab Argath Mask of Lies]
+    Timeout(id + 0x5C0, 8.0f, "The Word"); // t=5392.3; Ability 24A0 from Argath Thadalfus
+    Timeout(id + 0x5D0, 10.6f, "Mask Of Truth/Mask Of Lies"); // t=5402.9; Ability 2619/261A from Argath Thadalfus; cactbot Ability 261A [Rab Argath Mask of Truth] | Ability 2619 [Rab Argath Mask of Lies]
+    Timeout(id + 0x5E0, 8.2f, "The Word"); // t=5411.1; Ability 24A0 from Argath Thadalfus
+    Timeout(id + 0x5F0, 6.9f, "Judgment Blade"); // t=5418.0; Ability 2629 from Argath Thadalfus
+    Timeout(id + 0x600, 6.4f, "Unrelenting"); // t=5424.4; Ability 262B from Argath Thadalfus
+    Timeout(id + 0x610, 9.5f, "Heartless"); // t=5433.9; Ability 2632 from Heartless
+    Timeout(id + 0x620, 2.7f, "Coldblood"); // t=5436.6; Ability 2627 from Argath Thadalfus
+    Timeout(id + 0x630, 12.9f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=5449.5; Ability 262D from Argath Thadalfus; cactbot StartsUsing 262D [Rab Argath Crippling Blow]
+    Timeout(id + 0x640, 11.2f, "Gnawing Dread"); // t=5460.7; Ability 2621 from Argath Thadalfus
+    Timeout(id + 0x650, 9.2f, "Crush Weapon"); // t=5469.9; Ability 2628 from Argath Thadalfus
+    Timeout(id + 0x660, 5.2f, "Unrelenting"); // t=5475.1; Ability 262B from Argath Thadalfus
+    Timeout(id + 0x670, 6.1f, "Fire IV").SetHint(StateMachine.StateHint.Raidwide); // t=5481.2; Ability 262E from Argath Thadalfus; cactbot StartsUsing 262E [Rab Argath Fire IV]
+    Timeout(id + 0x680, 9.1f, "Fire IV").SetHint(StateMachine.StateHint.Raidwide); // t=5490.3; Ability 262E from Argath Thadalfus; cactbot StartsUsing 262E [Rab Argath Fire IV]
+    Timeout(id + 0x690, 8.0f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=5498.3; Ability 262D from Argath Thadalfus; cactbot StartsUsing 262D [Rab Argath Crippling Blow]
+    Timeout(id + 0x6A0, 10.1f, "Mask Of Truth/Mask Of Lies"); // t=5508.4; Ability 2619/261A from Argath Thadalfus; cactbot Ability 261A [Rab Argath Mask of Truth] | Ability 2619 [Rab Argath Mask of Lies]
+    Timeout(id + 0x6B0, 8.1f, "The Word"); // t=5516.5
+    Timeout(id + 0x6C0, 10.3f, "Mask Of Truth/Mask Of Lies"); // t=5526.8
+    Timeout(id + 0x6D0, 8.1f, "The Word"); // t=5534.9
+}
+

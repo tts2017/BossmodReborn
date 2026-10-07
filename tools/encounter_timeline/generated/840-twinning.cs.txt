@@ -1,0 +1,78 @@
+// Generated development skeleton from twinning.txt (TerritoryType 840).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 14 static/dynamic trigger definitions from ui/raidboss/data/05-shb/dungeon/twinning.ts.
+
+private void Alpha_Zaghnal(uint id)
+{
+    Timeout(id + 0x0, 8.5f, "Augurium"); // t=108.5; Ability 3D65 from Alpha Zaghnal; cactbot StartsUsing 3D65 [Twinning Augurium]
+    Timeout(id + 0x10, 9.1f, "Beastly Roar").SetHint(StateMachine.StateHint.Raidwide); // t=117.6; Ability 3D64 from Alpha Zaghnal; cactbot StartsUsing 3D64 [Twinning Beastly Roar]
+    Timeout(id + 0x20, 5.3f, "Beast Rampant"); // t=122.9; Ability 3D60 from Alpha Zaghnal
+    Timeout(id + 0x30, 13.5f, "Forlorn Impact x4"); // t=136.4; Ability 3D61 from Alpha Zaghnal
+    Timeout(id + 0x40, 4.9f, "Beast Passant"); // t=141.3; Ability 3D62 from Alpha Zaghnal
+    Timeout(id + 0x50, 8.0f, "Beastly Roar").SetHint(StateMachine.StateHint.Raidwide); // t=149.3; Ability 3D64 from Alpha Zaghnal; cactbot StartsUsing 3D64 [Twinning Beastly Roar]
+    Timeout(id + 0x60, 9.0f, "Pounce Errant x4"); // t=158.3; Ability 3D5F from Alpha Zaghnal
+    Timeout(id + 0x70, 12.2f, "Augurium"); // t=170.5; Ability 3D65 from Alpha Zaghnal; cactbot StartsUsing 3D65 [Twinning Augurium]
+    Timeout(id + 0x80, 8.3f, "Charge Eradicated"); // t=178.8; Ability 3D63 from Alpha Zaghnal; cactbot HeadMarker 5D [Twinning Charge Eradicated]
+    Timeout(id + 0x90, 7.1f, "Charge Eradicated"); // t=185.9; Ability 3D63 from Alpha Zaghnal; cactbot HeadMarker 5D [Twinning Charge Eradicated]
+    Timeout(id + 0xA0, 9.3f, "Beast Rampant"); // t=195.2; Ability 3D60 from Alpha Zaghnal
+    Timeout(id + 0xB0, 13.4f, "Forlorn Impact x4"); // t=208.6; Ability 3D61 from Alpha Zaghnal
+    Timeout(id + 0xC0, 4.9f, "Beast Passant"); // t=213.5
+    Timeout(id + 0xD0, 8.0f, "Beastly Roar"); // t=221.5; cactbot StartsUsing 3D64 [Twinning Beastly Roar]
+    Timeout(id + 0xE0, 9.0f, "Pounce Errant x4"); // t=230.5
+    Timeout(id + 0xF0, 12.2f, "Augurium"); // t=242.7; cactbot StartsUsing 3D65 [Twinning Augurium]
+    Timeout(id + 0x100, 8.3f, "Charge Eradicated"); // t=251.0; cactbot HeadMarker 5D [Twinning Charge Eradicated]
+    Timeout(id + 0x110, 7.1f, "Charge Eradicated"); // t=258.1; cactbot HeadMarker 5D [Twinning Charge Eradicated]
+    Timeout(id + 0x120, 9.3f, "Beast Rampant"); // t=267.4
+}
+
+private void Mithridates(uint id)
+{
+    Timeout(id + 0x0, 12.0f, "Thunder Beam").SetHint(StateMachine.StateHint.Tankbuster); // t=512.0; Ability 3DED from Mithridates; cactbot StartsUsing 3DED [Twinning Thunder Beam]
+    Timeout(id + 0x10, 10.2f, "Electric Discharge"); // t=522.2; Ability 3DF0 from Mithridates
+    Timeout(id + 0x20, 8.9f, "Shock"); // t=531.1; Ability 3DF1 from Levinball
+    Timeout(id + 0x30, 12.7f, "Laserblade"); // t=543.8; Ability 3DEB from Mithridates
+    Timeout(id + 0x40, 12.1f, "Thunder Beam").SetHint(StateMachine.StateHint.Tankbuster); // t=555.9; Ability 3DED from Mithridates; cactbot StartsUsing 3DED [Twinning Thunder Beam]
+    Timeout(id + 0x50, 13.6f, "Allagan Thunder"); // t=569.5; Ability 3DEE from Mithridates; cactbot StartsUsing 3DEF [Twinning Allagan Thunder]
+    Timeout(id + 0x60, 12.6f, "Electric Discharge"); // t=582.1; Ability 3DF0 from Mithridates
+    Timeout(id + 0x70, 8.1f, "Laserblade"); // t=590.2; Ability 3DEB from Mithridates
+    Timeout(id + 0x80, 0.8f, "Shock"); // t=591.0; Ability 3DF1 from Levinball
+    Timeout(id + 0x90, 11.4f, "Thunder Beam").SetHint(StateMachine.StateHint.Tankbuster); // t=602.4; Ability 3DED from Mithridates; cactbot StartsUsing 3DED [Twinning Thunder Beam]
+    Timeout(id + 0xA0, 15.1f, "Electric Discharge"); // t=617.5; Ability 3DF0 from Mithridates
+    Timeout(id + 0xB0, 8.1f, "Laserblade"); // t=625.6
+    Timeout(id + 0xC0, 0.8f, "Shock"); // t=626.4
+    Timeout(id + 0xD0, 11.4f, "Thunder Beam"); // t=637.8; cactbot StartsUsing 3DED [Twinning Thunder Beam]
+    Timeout(id + 0xE0, 15.1f, "Electric Discharge"); // t=652.9
+    Timeout(id + 0xF0, 8.2f, "Laserblade"); // t=661.1
+    Timeout(id + 0x100, 0.7f, "Shock"); // t=661.8
+    Timeout(id + 0x110, 11.4f, "Thunder Beam"); // t=673.2; cactbot StartsUsing 3DED [Twinning Thunder Beam]
+}
+
+private void The_Tycoon(uint id)
+{
+    Timeout(id + 0x0, 13.8f, "Magitek Crossray"); // t=1013.8; Ability 3DF8 from The Tycoon; cactbot StartsUsing 3DF8 [Twinning Magitek Crossray]
+    Timeout(id + 0x10, 2.4f, "Temporal Paradox"); // t=1016.2; Ability 3DF7 from The Tycoon
+    Timeout(id + 0x20, 6.9f, "Temporal Flow"); // t=1023.1; Ability 3DF5 from The Tycoon
+    Timeout(id + 0x30, 1.3f, "Magitek Ray"); // t=1024.4; Ability 3DF3 from The Tycoon
+    Timeout(id + 0x40, 9.8f, "Defensive Array"); // t=1034.2; Ability 3DF2 from The Tycoon; cactbot StartsUsing 3DF2 [Twinning Defensive Array]
+    Timeout(id + 0x50, 8.1f, "Temporal Flow"); // t=1042.3; Ability 3DF5 from The Tycoon
+    Timeout(id + 0x60, 1.1f, "Magitek Ray"); // t=1043.4; Ability 3DF3 from The Tycoon
+    Timeout(id + 0x70, 6.2f, "Artificial Gravity"); // t=1049.6; Ability 3DF9 from The Tycoon
+    Timeout(id + 0x80, 6.7f, "High Gravity"); // t=1056.3; Ability 3DFA from The Tycoon
+    Timeout(id + 0x90, 9.6f, "Rail Cannon").SetHint(StateMachine.StateHint.Tankbuster); // t=1065.9; Ability 3DFB from The Tycoon; cactbot StartsUsing 3DFB [Twinning Rail Cannon]
+    Timeout(id + 0xA0, 13.2f, "Defensive Array"); // t=1079.1; Ability 3DF2 from The Tycoon; cactbot StartsUsing 3DF2 [Twinning Defensive Array]
+    Timeout(id + 0xB0, 7.2f, "Magicrystal"); // t=1086.3; Ability 3E0C from The Tycoon; cactbot StartsUsing 3E0C [Twinning Magicrystal]
+    Timeout(id + 0xC0, 6.7f, "Shattered Crystal"); // t=1093.0; Ability 439A from The Tycoon
+    Timeout(id + 0xD0, 0.6f, "Temporal Flow"); // t=1093.6; Ability 3DF5 from The Tycoon
+    Timeout(id + 0xE0, 1.3f, "Magitek Ray"); // t=1094.9; Ability 3DF3 from The Tycoon
+    Timeout(id + 0xF0, 11.0f, "High-Tension Discharger").SetHint(StateMachine.StateHint.Raidwide); // t=1105.9; Ability 3DFC from The Tycoon; cactbot StartsUsing 3DFC [Twinning Discharger]
+    Timeout(id + 0x100, 13.3f, "Magitek Crossray"); // t=1119.2; Ability 3DF8 from The Tycoon; cactbot StartsUsing 3DF8 [Twinning Magitek Crossray]
+    Timeout(id + 0x110, 10.1f, "Artificial Gravity"); // t=1129.3; Ability 3DF9 from The Tycoon
+    Timeout(id + 0x120, 6.2f, "Temporal Flow"); // t=1135.5; Ability 3DF5 from The Tycoon
+    Timeout(id + 0x130, 0.5f, "High Gravity"); // t=1136.0; Ability 3DFA from The Tycoon
+    Timeout(id + 0x140, 0.6f, "Magitek Ray"); // t=1136.6; Ability 3DF3 from The Tycoon
+    Timeout(id + 0x150, 11.1f, "Rail Cannon").SetHint(StateMachine.StateHint.Tankbuster); // t=1147.7; Ability 3DFB from The Tycoon; cactbot StartsUsing 3DFB [Twinning Rail Cannon]
+    Timeout(id + 0x160, 13.5f, "Defensive Array"); // t=1161.2; Ability 3DF2 from The Tycoon; cactbot StartsUsing 3DF2 [Twinning Defensive Array]
+    Timeout(id + 0x170, 6.1f, "Gravity/Crossray??"); // t=1167.3
+}
+

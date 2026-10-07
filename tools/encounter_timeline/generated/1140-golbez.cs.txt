@@ -1,0 +1,76 @@
+// Generated development skeleton from golbez.txt (TerritoryType 1140).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 9 static/dynamic trigger definitions from ui/raidboss/data/06-ew/trial/golbez.ts.
+
+private void The_Voidcast_Dais(uint id)
+{
+    Timeout(id + 0x0, 11.0f, "--middle--"); // t=11.0; Ability 84B8 from Golbez
+    Timeout(id + 0x10, 14.2f, "Terrastorm"); // t=25.2; Ability 8465 from Golbez; cactbot Ability 8463 [Golbez Terrastorm]
+    Timeout(id + 0x20, 5.1f, "Crescent Blade"); // t=30.3; Ability 846B from Golbez; cactbot StartsUsing 846B [Golbez Crescent Blade]
+    Timeout(id + 0x30, 6.7f, "--middle--"); // t=37.0; Ability 84B8 from Golbez
+    Timeout(id + 0x40, 5.1f, "Arctic Assault"); // t=42.1; Ability 845E from Golbez
+    Timeout(id + 0x50, 8.2f, "Crescent Blade"); // t=50.3; Ability 846B from Golbez; cactbot StartsUsing 846B [Golbez Crescent Blade]
+    Timeout(id + 0x60, 10.6f, "Void Meteor").SetHint(StateMachine.StateHint.Tankbuster); // t=60.9; Ability 84AC from Golbez; cactbot StartsUsing 84AC [Golbez Void Meteor]
+    Timeout(id + 0x70, 8.2f, "--middle--"); // t=69.1; Ability 84B8 from Golbez
+    Timeout(id + 0x80, 5.1f, "Lingering Spark"); // t=74.2; Ability 8467 from Golbez
+    Timeout(id + 0x90, 12.3f, "Crescent Blade"); // t=86.5; Ability 846B from Golbez; cactbot StartsUsing 846B [Golbez Crescent Blade]
+    Timeout(id + 0xA0, 10.6f, "Binding Cold"); // t=97.1; Ability 84B2 from Golbez; cactbot StartsUsing 84B2 [Golbez Binding Cold]
+    Timeout(id + 0xB0, 9.2f, "--middle--"); // t=106.3; Ability 84B8 from Golbez
+    Timeout(id + 0xC0, 7.3f, "Azdaja's Shadow"); // t=113.6; Ability 86FE from Golbez
+    Targetable(id + 0xD0, false, 0.0f, "--untargetable--"); // t=113.6
+    Targetable(id + 0xE0, true, 15.0f, "--targetable--"); // t=128.6
+    Timeout(id + 0xF0, 4.0f, "Black Fang").SetHint(StateMachine.StateHint.Raidwide); // t=132.6; Ability 8471 from Golbez; cactbot StartsUsing 8471 [Golbez Black Fang]
+    Timeout(id + 0x100, 18.2f, "--middle--"); // t=150.8; Ability 84B8 from Golbez
+    Timeout(id + 0x110, 6.0f, "Azdaja's Shadow"); // t=156.8; Ability 8476 from Golbez
+    Timeout(id + 0x120, 10.3f, "Shadow Crescent"); // t=167.1; Ability 8487 from Golbez; cactbot StartsUsing 8487 [Golbez Shadow Crescent]
+    Timeout(id + 0x130, 2.3f, "Rising Beacon"); // t=169.4; Ability 848F from Golbez
+    Timeout(id + 0x140, 2.8f, "Burning Shade"); // t=172.2; Ability 8493 from Golbez
+    Timeout(id + 0x150, 0.6f, "--middle--"); // t=172.8; Ability 84B8 from Golbez
+    Timeout(id + 0x160, 13.9f, "Explosion"); // t=186.7; Ability 8499 from Golbez
+    Timeout(id + 0x170, 4.4f, "Double Meteor"); // t=191.1; Ability 84B4 from Golbez
+    Timeout(id + 0x180, 9.2f, "--middle--"); // t=200.3; Ability 84B8 from Golbez
+    Timeout(id + 0x190, 5.3f, "Gale Sphere"); // t=205.6; Ability 844D from Golbez; cactbot Ability [Golbez Gale Sphere Directions]
+    Timeout(id + 0x1A0, 28.7f, "Void Stardust (preview)"); // t=234.3; Ability 84A3 from Golbez
+    Timeout(id + 0x1B0, 3.9f, "Void Stardust"); // t=238.2; Ability 84A5 from Golbez
+    Timeout(id + 0x1C0, 10.3f, "Void Meteor").SetHint(StateMachine.StateHint.Tankbuster); // t=248.5; Ability 84AC from Golbez; cactbot StartsUsing 84AC [Golbez Void Meteor]
+    Timeout(id + 0x1D0, 11.2f, "--middle--"); // t=259.7; Ability 84B8 from Golbez
+    Timeout(id + 0x1E0, 6.0f, "Azdaja's Shadow"); // t=265.7; Ability 8476 from Golbez
+    Timeout(id + 0x1F0, 8.3f, "Lingering Spark"); // t=274.0; Ability 8467 from Golbez
+    Timeout(id + 0x200, 11.2f, "Eventide Fall"); // t=285.2; Ability 8482 from Golbez; cactbot StartsUsing 8482 [Golbez Eventide Fall]
+    Timeout(id + 0x210, 13.3f, "Gale Sphere"); // t=298.5; Ability 844D from Golbez; cactbot Ability [Golbez Gale Sphere Directions]
+    Timeout(id + 0x220, 27.0f, "Shadow Crescent"); // t=325.5; Ability 8487 from Golbez; cactbot StartsUsing 8487 [Golbez Shadow Crescent]
+    Timeout(id + 0x230, 2.3f, "Rising Beacon"); // t=327.8; Ability 848F from Golbez
+    Timeout(id + 0x240, 3.6f, "Immolating Shade"); // t=331.4; Ability 8495 from Golbez; cactbot StartsUsing 8495 [Golbez Immolating Shade]
+    Timeout(id + 0x250, 8.7f, "Binding Cold"); // t=340.1; Ability 84B2 from Golbez; cactbot StartsUsing 84B2 [Golbez Binding Cold]
+    Timeout(id + 0x260, 6.2f, "--middle--"); // t=346.3; Ability 84B8 from Golbez
+    Timeout(id + 0x270, 6.0f, "Azdaja's Shadow"); // t=352.3; Ability 8476 from Golbez
+    Timeout(id + 0x280, 8.2f, "Void Stardust (preview)"); // t=360.5; Ability 84A3 from Golbez
+    Timeout(id + 0x290, 3.9f, "Void Stardust"); // t=364.4; Ability 84A5 from Golbez
+    Timeout(id + 0x2A0, 6.3f, "Arctic Assault"); // t=370.7; Ability 845E from Golbez
+    Timeout(id + 0x2B0, 16.2f, "Terrastorm"); // t=386.9; Ability 8465 from Golbez; cactbot Ability 8463 [Golbez Terrastorm]
+    Timeout(id + 0x2C0, 4.3f, "Shadow Crescent"); // t=391.2; Ability 8487 from Golbez; cactbot StartsUsing 8487 [Golbez Shadow Crescent]
+    Timeout(id + 0x2D0, 2.3f, "Rising Beacon"); // t=393.5; Ability 848F from Golbez
+    Timeout(id + 0x2E0, 2.8f, "Burning Shade"); // t=396.3; Ability 8493 from Golbez
+    Timeout(id + 0x2F0, 0.6f, "--middle--"); // t=396.9; Ability 84B8 from Golbez
+    Timeout(id + 0x300, 14.0f, "Explosion"); // t=410.9; Ability 849A from Golbez
+    Timeout(id + 0x310, 4.4f, "Double Meteor"); // t=415.3; Ability 84B4 from Golbez
+    Timeout(id + 0x320, 16.2f, "Void Meteor").SetHint(StateMachine.StateHint.Tankbuster); // t=431.5; Ability 84AC from Golbez; cactbot StartsUsing 84AC [Golbez Void Meteor]
+    Timeout(id + 0x330, 10.2f, "--middle--"); // t=441.7; Ability 84B8 from Golbez
+    Timeout(id + 0x340, 6.0f, "Azdaja's Shadow"); // t=447.7; Ability 8476 from Golbez
+    Timeout(id + 0x350, 8.4f, "Lingering Spark"); // t=456.1; Ability 8467 from Golbez
+    Timeout(id + 0x360, 11.2f, "Eventide Fall"); // t=467.3; Ability 8482 from Golbez; cactbot StartsUsing 8482 [Golbez Eventide Fall]
+    Timeout(id + 0x370, 13.1f, "Gale Sphere"); // t=480.4; Ability 844D from Golbez; cactbot Ability [Golbez Gale Sphere Directions]
+    Timeout(id + 0x380, 27.0f, "Shadow Crescent"); // t=507.4; Ability 8487 from Golbez; cactbot StartsUsing 8487 [Golbez Shadow Crescent]
+    Timeout(id + 0x390, 2.3f, "Rising Beacon"); // t=509.7; Ability 848F from Golbez
+    Timeout(id + 0x3A0, 12.3f, "Binding Cold"); // t=522.0; Ability 84B2 from Golbez; cactbot StartsUsing 84B2 [Golbez Binding Cold]
+    Timeout(id + 0x3B0, 6.2f, "--middle--"); // t=528.2; Ability 84B8 from Golbez
+    Timeout(id + 0x3C0, 6.0f, "Azdaja's Shadow"); // t=534.2; Ability 8476 from Golbez
+    Timeout(id + 0x3D0, 8.2f, "Void Stardust (preview)"); // t=542.4; Ability 84A3 from Golbez
+    Timeout(id + 0x3E0, 3.9f, "Void Stardust"); // t=546.3; Ability 84A5 from Golbez
+    Timeout(id + 0x3F0, 6.3f, "Arctic Assault"); // t=552.6; Ability 845E from Golbez
+    Timeout(id + 0x400, 16.2f, "Terrastorm"); // t=568.8; Ability 8465 from Golbez; cactbot Ability 8463 [Golbez Terrastorm]
+    Timeout(id + 0x410, 4.1f, "Shadow Crescent"); // t=572.9; Ability 8487 from Golbez; cactbot StartsUsing 8487 [Golbez Shadow Crescent]
+    Timeout(id + 0x420, 2.3f, "Rising Beacon"); // t=575.2; Ability 848F from Golbez
+}
+

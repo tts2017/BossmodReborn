@@ -1,0 +1,100 @@
+// Generated development skeleton from worqor-zormor.txt (TerritoryType 1193).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 18 static/dynamic trigger definitions from ui/raidboss/data/07-dt/dungeon/worqor-zormor.ts.
+
+private void WORQOR_ZORMOR(uint id)
+{
+    Condition(id + 0x0, 1009.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8DB8), "", 5f, 1004.1f); // t=1009.1; StartsUsing 8DB8 from Ryoqor Terteh; cactbot StartsUsing 8DB8 [WorqorZormor Ryoqor Frosting Fracas]
+    Timeout(id + 0x10, 5.0f, "Frosting Fracas").SetHint(StateMachine.StateHint.Raidwide); // t=1014.1; Ability 8DB8 from Ryoqor Terteh; cactbot StartsUsing 8DB8 [WorqorZormor Ryoqor Frosting Fracas]
+    Timeout(id + 0x20, 6.4f, "Fluffle Up"); // t=1020.5; Ability 8DA9 from Ryoqor Terteh; cactbot StartsUsing 8DA9 [WorqorZormor Ryoqor Fluffle Up Counter]
+    Timeout(id + 0x30, 14.0f, "Cold Feat"); // t=1034.5; Ability 8DAA from Ryoqor Terteh; cactbot StartsUsing 8DAA [WorqorZormor Ryoqor Cold Feat Initial] | StartsUsing 8DAA [WorqorZormor Ryoqor Cold Feat Followup]
+    Timeout(id + 0x40, 5.9f, "Ice Scream (first)"); // t=1040.4; Ability 8DAE from Rorrloh Teh; cactbot StartsUsing 8DAE [WorqorZormor Ryoqor Ice Scream Collect]
+    Timeout(id + 0x50, 5.0f, "Ice Scream (second)"); // t=1045.4; Ability 8DAE from Rorrloh Teh; cactbot StartsUsing 8DAE [WorqorZormor Ryoqor Ice Scream Collect]
+    Timeout(id + 0x60, 8.9f, "Fluffle Up"); // t=1054.3; Ability 8DA9 from Ryoqor Terteh; cactbot StartsUsing 8DA9 [WorqorZormor Ryoqor Fluffle Up Counter]
+    Timeout(id + 0x70, 14.0f, "Cold Feat"); // t=1068.3; Ability 8DAA from Ryoqor Terteh; cactbot StartsUsing 8DAA [WorqorZormor Ryoqor Cold Feat Initial] | StartsUsing 8DAA [WorqorZormor Ryoqor Cold Feat Followup]
+    Timeout(id + 0x80, 5.9f, "Frozen Swirl (first)"); // t=1074.2; Ability 8DAF from Qorrloh Teh; cactbot StartsUsing 8DAF [WorqorZormor Ryoqor Frozen Swirl Collect]
+    Timeout(id + 0x90, 5.0f, "Frozen Swirl (second)"); // t=1079.2; Ability 8DAF from Qorrloh Teh; cactbot StartsUsing 8DAF [WorqorZormor Ryoqor Frozen Swirl Collect]
+    Timeout(id + 0xA0, 8.0f, "Snowscoop"); // t=1087.2; Ability 8DB3 from Ryoqor Terteh
+    Timeout(id + 0xB0, 9.9f, "Snow Boulder (first)"); // t=1097.1
+    Timeout(id + 0xC0, 2.0f, "Snow Boulder (second)"); // t=1099.1
+    Timeout(id + 0xD0, 1.8f, "Sparkling Sprinkling"); // t=1100.9; Ability 8DB9 from Ryoqor Terteh; cactbot StartsUsing 8F69 [WorqorZormor Ryoqor Sparkling Sprinkling]
+    Timeout(id + 0xE0, 10.0f, "Fluffle Up"); // t=1110.9; Ability 8DA9 from Ryoqor Terteh; cactbot StartsUsing 8DA9 [WorqorZormor Ryoqor Fluffle Up Counter]
+    Timeout(id + 0xF0, 14.0f, "Cold Feat"); // t=1124.9; Ability 8DAA from Ryoqor Terteh; cactbot StartsUsing 8DAA [WorqorZormor Ryoqor Cold Feat Initial] | StartsUsing 8DAA [WorqorZormor Ryoqor Cold Feat Followup]
+    Timeout(id + 0x100, 5.9f, "Frozen Swirl / Ice Scream"); // t=1130.8; Ability 8DAF from Qorrloh Teh | Ability 8DAE from Rorrloh Teh; cactbot StartsUsing 8DAE [WorqorZormor Ryoqor Ice Scream Collect] | StartsUsing 8DAF [WorqorZormor Ryoqor Frozen Swirl Collect]
+    Timeout(id + 0x110, 5.0f, "Frozen Swirl / Ice Scream"); // t=1135.8; Ability 8DAF from Qorrloh Teh | Ability 8DAE from Rorrloh Teh; cactbot StartsUsing 8DAE [WorqorZormor Ryoqor Ice Scream Collect] | StartsUsing 8DAF [WorqorZormor Ryoqor Frozen Swirl Collect]
+    Timeout(id + 0x120, 9.7f, "Frosting Fracas").SetHint(StateMachine.StateHint.Raidwide); // t=1145.5; Ability 8DB8 from Ryoqor Terteh; cactbot StartsUsing 8DB8 [WorqorZormor Ryoqor Frosting Fracas]
+    Timeout(id + 0x130, 12.7f, "Snowscoop"); // t=1158.2; Ability 8DB3 from Ryoqor Terteh
+    Timeout(id + 0x140, 9.9f, "Snow Boulder"); // t=1168.1
+    Timeout(id + 0x150, 2.0f, "Snow Boulder"); // t=1170.1
+    Timeout(id + 0x160, 1.8f, "Sparkling Sprinkling"); // t=1171.9; Ability 8DB9 from Ryoqor Terteh; cactbot StartsUsing 8F69 [WorqorZormor Ryoqor Sparkling Sprinkling]
+    Timeout(id + 0x170, 15.4f, "Frosting Fracas").SetHint(StateMachine.StateHint.Raidwide); // t=1187.3; Ability 8DB8 from Ryoqor Terteh; cactbot StartsUsing 8DB8 [WorqorZormor Ryoqor Frosting Fracas]
+    Timeout(id + 0x180, 10.6f, "Frosting Fracas").SetHint(StateMachine.StateHint.Raidwide); // t=1197.9; Ability 8DB8 from Ryoqor Terteh; cactbot StartsUsing 8DB8 [WorqorZormor Ryoqor Frosting Fracas]
+    Timeout(id + 0x190, 13.1f, "Fluffle Up"); // t=1211.0; Ability 8DA9 from Ryoqor Terteh; cactbot StartsUsing 8DA9 [WorqorZormor Ryoqor Fluffle Up Counter]
+    Condition(id + 0x1A0, 793.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8DBA), "", 5f, 788.1f); // t=2004.1; StartsUsing 8DBA from Kahderyor; cactbot StartsUsing 8DBA [WorqorZormor Kahderyor Wind Unbound]
+    Timeout(id + 0x1B0, 5.0f, "Wind Unbound").SetHint(StateMachine.StateHint.Raidwide); // t=2009.1; Ability 8DBA from Kahderyor; cactbot StartsUsing 8DBA [WorqorZormor Kahderyor Wind Unbound]
+    Timeout(id + 0x1C0, 12.5f, "Crystalline Crush"); // t=2021.6; Ability 8D39 from Kahderyor
+    Timeout(id + 0x1D0, 11.1f, "Wind Shot"); // t=2032.7; Ability 8DBC from Kahderyor; cactbot StartsUsing 8DBC [WorqorZormor Kahderyor Wind Shot]
+    Timeout(id + 0x1E0, 9.1f, "Earthen Shot"); // t=2041.8; Ability 8DBB from Kahderyor; cactbot StartsUsing 8DBB [WorqorZormor Kahderyor Earthen Shot]
+    Timeout(id + 0x1F0, 9.9f, "Crystalline Storm"); // t=2051.7; Ability 8DBE from Kahderyor; cactbot StartsUsing 8DBE [WorqorZormor Kahderyor Crystalline Storm]
+    Timeout(id + 0x200, 11.3f, "Earthen Shot"); // t=2063.0; Ability 8DBB from Kahderyor; cactbot StartsUsing 8DBB [WorqorZormor Kahderyor Earthen Shot]
+    Timeout(id + 0x210, 11.1f, "Wind Shot"); // t=2074.1; Ability 8DBC from Kahderyor; cactbot StartsUsing 8DBC [WorqorZormor Kahderyor Wind Shot]
+    Timeout(id + 0x220, 10.5f, "Wind Unbound").SetHint(StateMachine.StateHint.Raidwide); // t=2084.6; Ability 8DBA from Kahderyor; cactbot StartsUsing 8DBA [WorqorZormor Kahderyor Wind Unbound]
+    Timeout(id + 0x230, 8.9f, "Seed Crystals"); // t=2093.5; Ability 8DC3 from Kahderyor; cactbot StartsUsing 8DC3 [WorqorZormor Kahderyor Seed Crystals]
+    Timeout(id + 0x240, 13.1f, "Sharpened Sights"); // t=2106.6; Ability 8DBF from Kahderyor
+    Timeout(id + 0x250, 7.0f, "Eye of the Fierce / Stalagmite Circle/Cyclonic Ring"); // t=2113.6; Ability 8DC9 from Kahderyor | Ability 8DC5/8DC6 from Kahderyor; cactbot StartsUsing 8DC5/8DC6 [WorqorZormor Kahderyor Eye of the Fierce]
+    Timeout(id + 0x260, 7.0f, "Eye of the Fierce / Stalagmite Circle/Cyclonic Ring"); // t=2120.6; Ability 8DC9 from Kahderyor | Ability 8DC5/8DC6 from Kahderyor; cactbot StartsUsing 8DC5/8DC6 [WorqorZormor Kahderyor Eye of the Fierce]
+    Timeout(id + 0x270, 10.0f, "Wind Unbound").SetHint(StateMachine.StateHint.Raidwide); // t=2130.6; Ability 8DBA from Kahderyor; cactbot StartsUsing 8DBA [WorqorZormor Kahderyor Wind Unbound]
+    Timeout(id + 0x280, 9.1f, "Wind Unbound").SetHint(StateMachine.StateHint.Raidwide); // t=2139.7; Ability 8DBA from Kahderyor; cactbot StartsUsing 8DBA [WorqorZormor Kahderyor Wind Unbound]
+    Timeout(id + 0x290, 7.3f, "Crystalline Storm"); // t=2147.0; Ability 8DBE from Kahderyor; cactbot StartsUsing 8DBE [WorqorZormor Kahderyor Crystalline Storm]
+    Timeout(id + 0x2A0, 11.3f, "Earthen Shot"); // t=2158.3; Ability 8DBB from Kahderyor; cactbot StartsUsing 8DBB [WorqorZormor Kahderyor Earthen Shot]
+    Timeout(id + 0x2B0, 11.1f, "Wind Shot"); // t=2169.4; Ability 8DBC from Kahderyor; cactbot StartsUsing 8DBC [WorqorZormor Kahderyor Wind Shot]
+    Timeout(id + 0x2C0, 10.5f, "Wind Unbound").SetHint(StateMachine.StateHint.Raidwide); // t=2179.9; Ability 8DBA from Kahderyor; cactbot StartsUsing 8DBA [WorqorZormor Kahderyor Wind Unbound]
+    Timeout(id + 0x2D0, 8.9f, "Seed Crystals"); // t=2188.8; Ability 8DC3 from Kahderyor; cactbot StartsUsing 8DC3 [WorqorZormor Kahderyor Seed Crystals]
+    Timeout(id + 0x2E0, 13.3f, "Sharpened Sights"); // t=2202.1; Ability 8DBF from Kahderyor
+    Timeout(id + 0x2F0, 7.0f, "Eye of the Fierce / Stalagmite Circle/Cyclonic Ring"); // t=2209.1; Ability 8DC9 from Kahderyor | Ability 8DC5/8DC6 from Kahderyor; cactbot StartsUsing 8DC5/8DC6 [WorqorZormor Kahderyor Eye of the Fierce]
+    Timeout(id + 0x300, 7.0f, "Eye of the Fierce / Stalagmite Circle/Cyclonic Ring"); // t=2216.1; Ability 8DC9 from Kahderyor | Ability 8DC5/8DC6 from Kahderyor; cactbot StartsUsing 8DC5/8DC6 [WorqorZormor Kahderyor Eye of the Fierce]
+    Timeout(id + 0x310, 10.1f, "Wind Unbound").SetHint(StateMachine.StateHint.Raidwide); // t=2226.2; Ability 8DBA from Kahderyor; cactbot StartsUsing 8DBA [WorqorZormor Kahderyor Wind Unbound]
+    Condition(id + 0x320, 778.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8DAD), "", 5f, 773.9f); // t=3005.1; StartsUsing 8DAD from Gurfurlur; cactbot StartsUsing 8DAD [WorqorZormor Gurfurlur Heaving Haymaker]
+    Timeout(id + 0x330, 5.0f, "Heaving Haymaker").SetHint(StateMachine.StateHint.Raidwide); // t=3010.1; Ability 8DAD from Gurfurlur; cactbot StartsUsing 8DAD [WorqorZormor Gurfurlur Heaving Haymaker]
+    Timeout(id + 0x340, 6.7f, "Stonework"); // t=3016.8; Ability 8DCD from Gurfurlur
+    Timeout(id + 0x350, 3.9f, "Lithic Impact"); // t=3020.7
+    Timeout(id + 0x360, 9.1f, "Allfire / Great Flood?"); // t=3029.8
+    Timeout(id + 0x370, 6.3f, "Volcanic Drop?"); // t=3036.1
+    Timeout(id + 0x380, 7.3f, "Stonework"); // t=3043.4
+    Timeout(id + 0x390, 3.8f, "Lithic Impact"); // t=3047.2
+    Timeout(id + 0x3A0, 73.5f, "Lithic Impact"); // t=3120.7; Ability 8DCE from Gurfurlur
+    Timeout(id + 0x3B0, 9.1f, "Allfire (close)"); // t=3129.8; Ability 8DCF from Gurfurlur
+    Timeout(id + 0x3C0, 1.6f, "Allfire (mid)"); // t=3131.4; Ability 8DD0 from Gurfurlur
+    Timeout(id + 0x3D0, 1.6f, "Allfire (far)"); // t=3133.0; Ability 8DD1 from Gurfurlur
+    Timeout(id + 0x3E0, 3.1f, "Volcanic Drop"); // t=3136.1; Ability 8DD2 from Gurfurlur
+    Timeout(id + 0x3F0, 7.3f, "Stonework"); // t=3143.4; Ability 8DCD from Gurfurlur
+    Timeout(id + 0x400, 3.8f, "Lithic Impact"); // t=3147.2; Ability 8DCE from Gurfurlur
+    Timeout(id + 0x410, 9.1f, "Great Flood"); // t=3156.3; Ability 8DD3 from Gurfurlur
+    Timeout(id + 0x420, 64.4f, "Lithic Impact"); // t=3220.7; Ability 8DCE from Gurfurlur
+    Timeout(id + 0x430, 9.0f, "Great Flood"); // t=3229.7; Ability 8DD3 from Gurfurlur
+    Timeout(id + 0x440, 10.6f, "Stonework"); // t=3240.3; Ability 8DCD from Gurfurlur
+    Timeout(id + 0x450, 3.8f, "Lithic Impact"); // t=3244.1; Ability 8DCE from Gurfurlur
+    Timeout(id + 0x460, 9.1f, "Allfire (close)"); // t=3253.2; Ability 8DCF from Gurfurlur
+    Timeout(id + 0x470, 1.6f, "Allfire (mid)"); // t=3254.8; Ability 8DD0 from Gurfurlur
+    Timeout(id + 0x480, 1.4f, "Allfire (fire)"); // t=3256.2; Ability 8DD1 from Gurfurlur
+    Timeout(id + 0x490, 3.1f, "Volcanic Drop"); // t=3259.3; Ability 8DD2 from Gurfurlur
+    Timeout(id + 0x4A0, 245.7f, "Sledgehammer x3"); // t=3505.0; Ability 8DD9 from Gurfurlur; cactbot StartsUsing 8DD9 [WorqorZormor Gurfurlur Sledgehammer]
+    Timeout(id + 0x4B0, 11.7f, "Arcane Stomp"); // t=3516.7; Ability 8DDF from Gurfurlur; cactbot Ability 8DDF [WorqorZormor Arcane Stomp]
+    Timeout(id + 0x4C0, 34.0f, "Enduring Glory").SetHint(StateMachine.StateHint.Raidwide); // t=3550.7; Ability 8DE0 from Gurfurlur; cactbot StartsUsing 8DE0 [WorqorZormor Gurfurlur Enduring Glory]
+    Timeout(id + 0x4D0, 14.7f, "Stonework"); // t=3565.4; Ability 8DCD from Gurfurlur
+    Timeout(id + 0x4E0, 3.9f, "Lithic Impact"); // t=3569.3; Ability 8DCE from Gurfurlur
+    Timeout(id + 0x4F0, 9.1f, "Windswrath"); // t=3578.4; Ability 8DD6 from Gurfurlur
+    Timeout(id + 0x500, 15.9f, "Windswrath"); // t=3594.3; Ability 98A2 from Gurfurlur
+    Timeout(id + 0x510, 16.4f, "Stonework"); // t=3610.7; Ability 8DCD from Gurfurlur
+    Timeout(id + 0x520, 3.8f, "Lithic Impact"); // t=3614.5; Ability 8DCE from Gurfurlur
+    Timeout(id + 0x530, 9.1f, "Great Flood / Allfire (close)"); // t=3623.6; Ability 8DD3 from Gurfurlur | Ability 8DCF from Gurfurlur
+    Timeout(id + 0x540, 1.6f, "Allfire (mid)"); // t=3625.2; Ability 8DD0 from Gurfurlur
+    Timeout(id + 0x550, 1.4f, "Allfire (far)"); // t=3626.6; Ability 8DD1 from Gurfurlur
+    Timeout(id + 0x560, 3.1f, "Volcanic Drop"); // t=3629.7; Ability 8DD2 from Gurfurlur
+    Timeout(id + 0x570, 11.1f, "Heaving Haymaker").SetHint(StateMachine.StateHint.Raidwide); // t=3640.8; Ability 8DAD from Gurfurlur; cactbot StartsUsing 8DAD [WorqorZormor Gurfurlur Heaving Haymaker]
+    Timeout(id + 0x580, 13.2f, "Sledgehammer"); // t=3654.0; Ability 8DD9 from Gurfurlur; cactbot StartsUsing 8DD9 [WorqorZormor Gurfurlur Sledgehammer]
+    Timeout(id + 0x590, 14.2f, "Heaving Haymaker").SetHint(StateMachine.StateHint.Raidwide); // t=3668.2; Ability 8DAD from Gurfurlur; cactbot StartsUsing 8DAD [WorqorZormor Gurfurlur Heaving Haymaker]
+    Timeout(id + 0x5A0, 15.1f, "Stonework"); // t=3683.3; Ability 8DCD from Gurfurlur
+}
+

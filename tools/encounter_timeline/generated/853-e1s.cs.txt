@@ -1,0 +1,88 @@
+// Generated development skeleton from e1s.txt (TerritoryType 853).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 26 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e1s.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 12.0f, "Eden's Gravity").SetHint(StateMachine.StateHint.Raidwide); // t=12.0; Ability 3D70 from Eden Prime; cactbot StartsUsing 3D70 [E1S Initial] | StartsUsing 3D70 [E1S Eden\]
+    Timeout(id + 0x20, 13.6f, "Vice And Virtue (D)"); // t=25.6; Ability 44EF from Eden Prime; cactbot StartsUsing 44EF/3D7A/44EE/3D78/44F0/3D7D [E1S Vice and Virtue Tracker]
+    Timeout(id + 0x30, 6.4f, "Eden's Flare"); // t=32.0; Ability 3D73 from Eden Prime; cactbot StartsUsing 3D73 [E1S Eden\]
+    Timeout(id + 0x40, 18.5f, "Vice And Virtue (T)"); // t=50.5; Ability 44EE from Eden Prime; cactbot StartsUsing 44EF/3D7A/44EE/3D78/44F0/3D7D [E1S Vice and Virtue Tracker] | StartsUsing 44EE [E1S Vice and Virtue Tank 1]
+    Timeout(id + 0x50, 7.5f, "Spear Of Paradise").SetHint(StateMachine.StateHint.Tankbuster); // t=58.0; Ability 3D88 from Eden Prime; cactbot StartsUsing 3D88 [E1S Spear Of Paradise]
+    Timeout(id + 0x60, 1.5f, "Heavensunder"); // t=59.5; Ability 3D89 from Eden Prime
+    Timeout(id + 0x70, 9.9f, "Vice And Virtue (H)"); // t=69.4; Ability 44F0 from Eden Prime; cactbot StartsUsing 44EF/3D7A/44EE/3D78/44F0/3D7D [E1S Vice and Virtue Tracker] | StartsUsing 44F0 [E1S Vice and Virtue Healer 1]
+    Timeout(id + 0x80, 2.3f, "--corner--"); // t=71.7; Ability 4683 from Eden Prime
+    Timeout(id + 0x90, 8.7f, "Pure Light"); // t=80.4; Ability 3D8A from Eden Prime; cactbot StartsUsing 3D8A [E1S Pure Light]
+    Timeout(id + 0xA0, 2.8f, "--center--"); // t=83.2; Ability 4683 from Eden Prime
+    Timeout(id + 0xB0, 10.1f, "Delta Attack (Cross)"); // t=93.3; Ability 44F4 from Eden Prime; cactbot StartsUsing 44F4 [E1S Delta Attack 1]
+    Timeout(id + 0xC0, 12.2f, "Dimensional Shift").SetHint(StateMachine.StateHint.Raidwide); // t=105.5; Ability 3D7F from Eden Prime; cactbot StartsUsing 3D7F [E1S Dimensional Shift]
+    Timeout(id + 0xD0, 6.5f, "Paradise Lost"); // t=112.0; Ability 3D86 from Eden Prime
+    Timeout(id + 0xE0, 10.5f, "Pure Beam"); // t=122.5; Ability 3D80 from Eden Prime; cactbot StartsUsing 3D80 [E1S Pure Beam 1]
+    Timeout(id + 0xF0, 2.5f, "--corner--"); // t=125.0; Ability 4683 from Eden Prime
+    Timeout(id + 0x100, 8.7f, "Pure Light"); // t=133.7; Ability 3D8A from Eden Prime; cactbot StartsUsing 3D8A [E1S Pure Light]
+    Timeout(id + 0x110, 2.8f, "--center--"); // t=136.5; Ability 4683 from Eden Prime
+    Timeout(id + 0x120, 6.6f, "Dimensional Shift").SetHint(StateMachine.StateHint.Raidwide); // t=143.1; Ability 3D7F from Eden Prime; cactbot StartsUsing 3D7F [E1S Dimensional Shift]
+    Timeout(id + 0x130, 10.6f, "Fragor Maximus").SetHint(StateMachine.StateHint.Raidwide); // t=153.7; Ability 3D8B from Eden Prime; cactbot StartsUsing 3D8B [E1S Fragor Maximus]
+    Targetable(id + 0x140, false, 0.6f, "--untargetable--"); // t=154.3
+}
+
+private void Phase_2___Adds(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=169.9
+    Timeout(id + 0x10, 0.0f, "Paradisal Dive"); // t=169.9; Ability 3D91 from Guardian of Paradise
+    Timeout(id + 0x20, 15.3f, "Mana Slice"); // t=185.2; Ability 3D8E from Guardian of Paradise
+    Timeout(id + 0x30, 9.1f, "Mana Burst"); // t=194.3; Ability 3D8F from Guardian of Paradise
+    Timeout(id + 0x40, 5.1f, "Mana Slice"); // t=199.4; Ability 3D8E from Guardian of Paradise
+    Timeout(id + 0x50, 9.2f, "Mana Burst"); // t=208.6; Ability 3D8F from Guardian of Paradise
+    Timeout(id + 0x60, 5.1f, "Mana Slice"); // t=213.7; Ability 3D8E from Guardian of Paradise
+}
+
+private void Phase_3(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Eternal Breath"); // t=500.0; Ability 3D8C from Eden Prime
+    Targetable(id + 0x10, true, 10.0f, "--targetable--"); // t=510.0
+    Timeout(id + 0x20, 8.4f, "Paradise Regained"); // t=518.4; Ability 44FC from Eden Prime; cactbot GainsEffect 7B6 [E1S Paradise Regained] | LosesEffect 7B6 [E1S Paradise Regained But Lost]
+    Timeout(id + 0x30, 10.4f, "Vice And Virtue! (T)"); // t=528.8; Ability 3D78 from Eden Prime; cactbot StartsUsing 44EF/3D7A/44EE/3D78/44F0/3D7D [E1S Vice and Virtue Tracker] | StartsUsing 3D78 [E1S Vice and Virtue Tank 2] | StartsUsing 3D78 [E1S Vice and Virtue Tank Stack]
+    Timeout(id + 0x40, 13.7f, "Vice And Virtue! (D)"); // t=542.5; Ability 3D7A from Eden Prime; cactbot StartsUsing 44EF/3D7A/44EE/3D78/44F0/3D7D [E1S Vice and Virtue Tracker] | StartsUsing 3D7A [E1S Vice and Virtue DPS 2 Tracker] | StartsUsing 3D7A [E1S Vice and Virtue DPS 2]
+    Timeout(id + 0x50, 12.5f, "Delta Attack (Donut)"); // t=555.0; Ability 44F8 from Eden Prime; cactbot StartsUsing 44F8 [E1S Delta Attack 2]
+    Timeout(id + 0x60, 13.8f, "Vice And Virtue! (H)"); // t=568.8; Ability 3D7D from Eden Prime; cactbot StartsUsing 44EF/3D7A/44EE/3D78/44F0/3D7D [E1S Vice and Virtue Tracker] | StartsUsing 3D7D [E1S Vice and Virtue Healer 2]
+    Timeout(id + 0x70, 7.3f, "Spear Of Paradise").SetHint(StateMachine.StateHint.Tankbuster); // t=576.1; Ability 3D88 from Eden Prime; cactbot StartsUsing 3D88 [E1S Spear Of Paradise]
+    Timeout(id + 0x80, 1.6f, "Heavensunder"); // t=577.7; Ability 3D89 from Eden Prime
+    Timeout(id + 0x90, 11.4f, "Dimensional Shift").SetHint(StateMachine.StateHint.Raidwide); // t=589.1; Ability 3D7F from Eden Prime; cactbot StartsUsing 3D7F [E1S Dimensional Shift]
+    Timeout(id + 0xA0, 10.4f, "Pure Beam!"); // t=599.5; Ability 3D82 from Eden Prime; cactbot StartsUsing 3D82 [E1S Pure Beam 2]
+    Timeout(id + 0xB0, 11.7f, "--corner--"); // t=611.2; Ability 4683 from Eden Prime
+    Timeout(id + 0xC0, 8.7f, "Pure Light"); // t=619.9; Ability 3D8A from Eden Prime; cactbot StartsUsing 3D8A [E1S Pure Light]
+    Timeout(id + 0xD0, 2.9f, "--center--"); // t=622.8; Ability 4683 from Eden Prime
+    Timeout(id + 0xE0, 6.5f, "Dimensional Shift").SetHint(StateMachine.StateHint.Raidwide); // t=629.3; Ability 3D7F from Eden Prime; cactbot StartsUsing 3D7F [E1S Dimensional Shift]
+    Timeout(id + 0xF0, 12.8f, "Eden's Gravity").SetHint(StateMachine.StateHint.Raidwide); // t=642.1; Ability 3D70 from Eden Prime; cactbot StartsUsing 3D70 [E1S Initial] | StartsUsing 3D70 [E1S Eden\]
+    Timeout(id + 0x100, 11.5f, "Eden's Flare"); // t=653.6; Ability 3D73 from Eden Prime; cactbot StartsUsing 3D73 [E1S Eden\]
+    Timeout(id + 0x110, 15.6f, "Vice And Virtue (T)"); // t=669.2; Ability 44EE from Eden Prime; cactbot StartsUsing 44EF/3D7A/44EE/3D78/44F0/3D7D [E1S Vice and Virtue Tracker] | StartsUsing 44EE [E1S Vice and Virtue Tank 1]
+    Timeout(id + 0x120, 7.6f, "Spear Of Paradise").SetHint(StateMachine.StateHint.Tankbuster); // t=676.8; Ability 3D88 from Eden Prime; cactbot StartsUsing 3D88 [E1S Spear Of Paradise]
+    Timeout(id + 0x130, 1.5f, "Heavensunder"); // t=678.3; Ability 3D89 from Eden Prime
+    Timeout(id + 0x140, 9.7f, "Vice And Virtue (D)"); // t=688.0; Ability 44EF from Eden Prime; cactbot StartsUsing 44EF/3D7A/44EE/3D78/44F0/3D7D [E1S Vice and Virtue Tracker]
+    Timeout(id + 0x150, 12.6f, "Delta Attack (Cross)"); // t=700.6; Ability 44F4 from Eden Prime; cactbot StartsUsing 44F4 [E1S Delta Attack 1]
+    Timeout(id + 0x160, 13.5f, "Vice And Virtue (H)"); // t=714.1; Ability 44F0 from Eden Prime; cactbot StartsUsing 44EF/3D7A/44EE/3D78/44F0/3D7D [E1S Vice and Virtue Tracker] | StartsUsing 44F0 [E1S Vice and Virtue Healer 1]
+    Timeout(id + 0x170, 12.3f, "Dimensional Shift").SetHint(StateMachine.StateHint.Raidwide); // t=726.4; Ability 3D7F from Eden Prime; cactbot StartsUsing 3D7F [E1S Dimensional Shift]
+    Timeout(id + 0x180, 10.5f, "Pure Beam!"); // t=736.9; Ability 3D82 from Eden Prime; cactbot StartsUsing 3D82 [E1S Pure Beam 2]
+    Timeout(id + 0x190, 11.4f, "--corner--"); // t=748.3; Ability 4683 from Eden Prime
+    Timeout(id + 0x1A0, 8.8f, "Pure Light"); // t=757.1; Ability 3D8A from Eden Prime; cactbot StartsUsing 3D8A [E1S Pure Light]
+    Timeout(id + 0x1B0, 2.9f, "--center--"); // t=760.0; Ability 4683 from Eden Prime
+    Timeout(id + 0x1C0, 6.5f, "Dimensional Shift").SetHint(StateMachine.StateHint.Raidwide); // t=766.5; Ability 3D7F from Eden Prime; cactbot StartsUsing 3D7F [E1S Dimensional Shift]
+    Timeout(id + 0x1D0, 12.7f, "Eden's Gravity").SetHint(StateMachine.StateHint.Raidwide); // t=779.2; Ability 3D70 from Eden Prime; cactbot StartsUsing 3D70 [E1S Initial] | StartsUsing 3D70 [E1S Eden\]
+    Timeout(id + 0x1E0, 11.5f, "Eden's Flare"); // t=790.7; Ability 3D73 from Eden Prime; cactbot StartsUsing 3D73 [E1S Eden\]
+    Timeout(id + 0x1F0, 10.5f, "Paradise Regained"); // t=801.2; Ability 44FC from Eden Prime; cactbot GainsEffect 7B6 [E1S Paradise Regained] | LosesEffect 7B6 [E1S Paradise Regained But Lost]
+    Timeout(id + 0x200, 10.4f, "Vice And Virtue! (T)"); // t=811.6; cactbot HeadMarker AE [E1S Vice and Virtue Tank Mark]
+    Timeout(id + 0x210, 13.7f, "Vice And Virtue! (D)"); // t=825.3; cactbot StartsUsing 3D7A [E1S Vice and Virtue DPS 2 Tracker] | HeadMarker AE [E1S Vice and Virtue DPS 1] | StartsUsing 3D7A [E1S Vice and Virtue DPS 2]
+    Timeout(id + 0x220, 12.5f, "Delta Attack (Donut)"); // t=837.8
+    Timeout(id + 0x230, 13.8f, "Vice And Virtue! (H)"); // t=851.6; cactbot GainsEffect 840 [E1S Vice and Virtue Healer Mark YOU] | GainsEffect 840 [E1S Vice and Virtue Healer Mark Not You]
+    Timeout(id + 0x240, 7.3f, "Spear Of Paradise"); // t=858.9; cactbot StartsUsing 3D88 [E1S Spear Of Paradise]
+    Timeout(id + 0x250, 1.6f, "Heavensunder"); // t=860.5
+}
+
+private void Enrage(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x45E4), "Fragor Maximus (Enrage)", 5f, 0.0f); // t=900.0; StartsUsing 45E4 from Eden Prime
+}
+

@@ -1,0 +1,80 @@
+// Generated development skeleton from p9n.txt (TerritoryType 1147).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 16 static/dynamic trigger definitions from ui/raidboss/data/06-ew/raid/p9n.ts.
+
+private void P9N__Anabaseios__The_Ninth_Circle(uint id)
+{
+    Timeout(id + 0x0, 18.2f, "Gluttony's Augur").SetHint(StateMachine.StateHint.Raidwide); // t=18.2; Ability 8116 from Kokytos; cactbot StartsUsing 8116 [P9N Gluttony\]
+    Timeout(id + 0x10, 8.2f, "Ravening (Mage)"); // t=26.4; Ability 8118 from Kokytos
+    Timeout(id + 0x20, 22.0f, "Fire III (cast)"); // t=48.4; Ability 814E from Kokytos
+    Timeout(id + 0x30, 7.9f, "Fire III (resolve)"); // t=56.3; Ability 8120 from Kokytos
+    Timeout(id + 0x40, 11.8f, "Blizzard III (cast)"); // t=68.1; Ability 814F from Kokytos
+    Timeout(id + 0x50, 7.9f, "Blizzard III (resolve)"); // t=76.0; Ability 8121 from Kokytos
+    Timeout(id + 0x60, 6.6f, "Dualspell"); // t=82.6; Ability 811D from Kokytos
+    Timeout(id + 0x70, 7.7f, "Fire III / Blizzard III"); // t=90.3; Ability 8120/811E from Kokytos | Ability 811F/8121 from Kokytos
+    Timeout(id + 0x80, 9.5f, "Global Spell"); // t=99.8; Ability 8141 from Kokytos; cactbot StartsUsing 8141 [P9N Global Spell]
+    Timeout(id + 0x90, 3.2f, "Disgorge"); // t=103.0; Ability 8124 from Kokytos
+    Timeout(id + 0xA0, 12.2f, "Ravening (Fighter)"); // t=115.2; Ability 8119 from Kokytos
+    Timeout(id + 0xB0, 21.4f, "Archaic Rockbreaker").SetHint(StateMachine.StateHint.Knockback); // t=136.6; Ability 8128 from Kokytos; cactbot StartsUsing 8128 [P9N Archaic Rockbreaker]
+    Timeout(id + 0xC0, 1.6f, "Shockwave"); // t=138.2; Ability 8129 from Kokytos
+    Timeout(id + 0xD0, 6.9f, "Archaic Rockbreaker 1"); // t=145.1; Ability 812A from Kokytos
+    Timeout(id + 0xE0, 5.0f, "Archaic Rockbreaker 2"); // t=150.1; Ability 812A from Kokytos
+    Timeout(id + 0xF0, 6.6f, "Archaic Demolish"); // t=156.7; Ability 812F from Kokytos; cactbot StartsUsing 812F [P9N Archaic Demolish]
+    Timeout(id + 0x100, 7.1f, "Gluttony's Augur").SetHint(StateMachine.StateHint.Raidwide); // t=163.8; Ability 8116 from Kokytos; cactbot StartsUsing 8116 [P9N Gluttony\]
+    Timeout(id + 0x110, 7.1f, "Ascendant Fist").SetHint(StateMachine.StateHint.Tankbuster); // t=170.9; Ability 8131 from Kokytos; cactbot StartsUsing 8131 [P9N Ascendant Fist]
+    Timeout(id + 0x120, 12.3f, "Front Combination/Rear Combination"); // t=183.2
+    Timeout(id + 0x130, 0.2f, "Outside Roundhouse"); // t=183.4; Ability 812C from Kokytos
+    Timeout(id + 0x140, 3.0f, "Swinging Kick"); // t=186.4
+    Timeout(id + 0x150, 4.1f, "Disgorge"); // t=190.5; Ability 8125 from Kokytos
+    Timeout(id + 0x160, 13.0f, "Ravening (Behemoth)"); // t=203.5; Ability 811A from Kokytos
+    Timeout(id + 0x170, 17.3f, "Charybdis"); // t=220.8; Ability 8132 from Kokytos; cactbot StartsUsing 8133 [P9N Charybdis]
+    Timeout(id + 0x180, 6.1f, "Beastly Roar").SetHint(StateMachine.StateHint.Knockback); // t=226.9; Ability 8138 from Kokytos; cactbot StartsUsing 8138 [P9N Beastly Roar]
+    Timeout(id + 0x190, 2.1f, "Beastly Bile"); // t=229.0; Ability 813D from Kokytos
+    Timeout(id + 0x1A0, 9.1f, "Pulverizing Pounce"); // t=238.1; Ability 813F from Kokytos; cactbot HeadMarker A1 [P9N Pulverizing Pounce]
+    Timeout(id + 0x1B0, 15.3f, "Gluttonous Rampage"); // t=253.4; Ability 8139 from Kokytos; cactbot HeadMarker 13A [P9N Gluttonous Rampage]
+    Timeout(id + 0x1C0, 0.2f, "Ravenous Bite 1"); // t=253.6
+    Timeout(id + 0x1D0, 2.1f, "Ravenous Bite 2"); // t=255.7
+    Timeout(id + 0x1E0, 2.2f, "Touchdown"); // t=257.9; Ability 8137 from Kokytos
+    Timeout(id + 0x1F0, 10.9f, "Comet"); // t=268.8; Ability 8134 from Kokytos
+    Timeout(id + 0x200, 11.0f, "Ecliptic Meteor"); // t=279.8; Ability 8188 from Kokytos; cactbot StartsUsing 813B [P9N Ecliptic Meteor]
+    Timeout(id + 0x210, 6.1f, "Burst"); // t=285.9; Ability 8136 from Comet; cactbot StartsUsing 8136 [P9N Burst]
+    Timeout(id + 0x220, 0.1f, "Pulverizing Pounce"); // t=286.0; Ability 813F from Kokytos; cactbot HeadMarker A1 [P9N Pulverizing Pounce]
+    Timeout(id + 0x230, 2.8f, "Disgorge"); // t=288.8; Ability 8126 from Kokytos
+    Timeout(id + 0x240, 15.5f, "Ravening (Mage)"); // t=304.3; Ability 8118 from Kokytos
+    Timeout(id + 0x250, 20.9f, "Iceflame Summoning"); // t=325.2; Ability 86E1 from Kokytos
+    Timeout(id + 0x260, 10.9f, "Sphere Shatter / Explosion"); // t=336.1
+    Timeout(id + 0x270, 4.6f, "Iceflame Summoning"); // t=340.7; Ability 86E1 from Kokytos
+    Timeout(id + 0x280, 10.9f, "Sphere Shatter / Explosion"); // t=351.6
+    Timeout(id + 0x290, 4.4f, "Dualspell"); // t=356.0; Ability 811D from Kokytos
+    Timeout(id + 0x2A0, 7.8f, "Blizzard III / Fire III"); // t=363.8; Ability 811F/8121 from Kokytos | Ability 811E/8120 from Kokytos
+    Timeout(id + 0x2B0, 6.7f, "Global Spell"); // t=370.5; Ability 8141 from Kokytos; cactbot StartsUsing 8141 [P9N Global Spell]
+    Timeout(id + 0x2C0, 2.2f, "Disgorge"); // t=372.7; Ability 8124 from Kokytos
+    Timeout(id + 0x2D0, 12.3f, "Ravening (Fighter)"); // t=385.0; Ability 8119 from Kokytos
+    Timeout(id + 0x2E0, 18.2f, "Archaic Rockbreaker").SetHint(StateMachine.StateHint.Knockback); // t=403.2; Ability 8128 from Kokytos; cactbot StartsUsing 8128 [P9N Archaic Rockbreaker]
+    Timeout(id + 0x2F0, 1.6f, "Shockwave"); // t=404.8; Ability 8129 from Kokytos
+    Timeout(id + 0x300, 6.9f, "Archaic Rockbreaker 1"); // t=411.7; Ability 812A from Kokytos
+    Timeout(id + 0x310, 5.0f, "Archaic Rockbreaker 2"); // t=416.7; Ability 812A from Kokytos
+    Timeout(id + 0x320, 5.1f, "Front Combination/Rear Combination"); // t=421.8
+    Timeout(id + 0x330, 0.2f, "Inside Roundhouse/Outside Roundhouse"); // t=422.0
+    Timeout(id + 0x340, 3.0f, "Swinging Kick"); // t=425.0
+    Timeout(id + 0x350, 8.1f, "Gluttony's Augur").SetHint(StateMachine.StateHint.Raidwide); // t=433.1; Ability 8116 from Kokytos; cactbot StartsUsing 8116 [P9N Gluttony\]
+    Timeout(id + 0x360, 12.3f, "Ascendant Fist").SetHint(StateMachine.StateHint.Tankbuster); // t=445.4; Ability 8131 from Kokytos; cactbot StartsUsing 8131 [P9N Ascendant Fist]
+    Timeout(id + 0x370, 2.1f, "Disgorge"); // t=447.5; Ability 8125 from Kokytos
+    Timeout(id + 0x380, 15.0f, "Ravening (Behemoth)"); // t=462.5; Ability 811A from Kokytos
+    Timeout(id + 0x390, 23.6f, "Comet"); // t=486.1; Ability 8134 from Kokytos
+    Timeout(id + 0x3A0, 11.0f, "Ecliptic Meteor"); // t=497.1; Ability 8188 from Kokytos; cactbot StartsUsing 813B [P9N Ecliptic Meteor]
+    Timeout(id + 0x3B0, 4.1f, "Beastly Bile"); // t=501.2; Ability 813D from Kokytos
+    Timeout(id + 0x3C0, 1.9f, "Burst"); // t=503.1; Ability 8136 from Comet; cactbot StartsUsing 8136 [P9N Burst]
+    Timeout(id + 0x3D0, 7.2f, "Pulverizing Pounce"); // t=510.3; Ability 813F from Kokytos; cactbot HeadMarker A1 [P9N Pulverizing Pounce]
+    Timeout(id + 0x3E0, 13.4f, "Gluttonous Rampage"); // t=523.7; Ability 8139 from Kokytos; cactbot HeadMarker 13A [P9N Gluttonous Rampage]
+    Timeout(id + 0x3F0, 0.2f, "Ravenous Bite 1"); // t=523.9
+    Timeout(id + 0x400, 2.2f, "Ravenous Bite 2"); // t=526.1
+    Timeout(id + 0x410, 2.0f, "Touchdown"); // t=528.1; Ability 8137 from Kokytos
+    Timeout(id + 0x420, 3.2f, "Disgorge"); // t=531.3; Ability 8126 from Kokytos
+    Timeout(id + 0x430, 18.5f, "Ravening (Mage)"); // t=549.8; Ability 8118 from Kokytos
+    Timeout(id + 0x440, 20.9f, "Iceflame Summoning"); // t=570.7
+    Timeout(id + 0x450, 10.9f, "Sphere Shatter / Explosion"); // t=581.6
+    Timeout(id + 0x460, 4.6f, "Iceflame Summoning"); // t=586.2
+}
+

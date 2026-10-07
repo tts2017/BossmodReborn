@@ -1,0 +1,156 @@
+// Generated development skeleton from thordan-un.txt (TerritoryType 1175).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+
+private void Phase_1__Pushes_at_70__HP(uint id)
+{
+    Timeout(id + 0x0, 5.0f, "Ascalon's Might"); // t=5.0; Ability 89BD from King Thordan
+    Timeout(id + 0x10, 9.8f, "Meteorain"); // t=14.8; Ability 89C2 from King Thordan
+    Timeout(id + 0x20, 5.2f, "Ascalon's Mercy"); // t=20.0; Ability 89BF from King Thordan
+    Timeout(id + 0x30, 2.1f, "Ascalon's Might"); // t=22.1; Ability 89BD from King Thordan
+    Timeout(id + 0x40, 5.1f, "the Dragon's Eye"); // t=27.2; Ability 89C7 from King Thordan
+    Timeout(id + 0x50, 10.1f, "the Dragon's Gaze"); // t=37.3; Ability 89C8 from King Thordan
+    Timeout(id + 0x60, 5.1f, "Ascalon's Might"); // t=42.4; Ability 89BD from King Thordan
+    Timeout(id + 0x70, 8.7f, "Lightning Storm"); // t=51.1; Ability 89C0 from King Thordan
+    Timeout(id + 0x80, 7.1f, "the Dragon's Rage"); // t=58.2; Ability 89CA from King Thordan
+    Timeout(id + 0x90, 5.1f, "Ancient Quaga"); // t=63.3; Ability 89C4 from King Thordan
+    Timeout(id + 0xA0, 6.1f, "Ascalon's Might"); // t=69.4; Ability 89BD from King Thordan
+    Timeout(id + 0xB0, 6.0f, "Heavenly Heel"); // t=75.4; Ability 89C6 from King Thordan
+    Timeout(id + 0xC0, 2.1f, "Ascalon's Might"); // t=77.5; Ability 89BD from King Thordan
+    Targetable(id + 0xD0, false, 2.1f, "--untargetable--"); // t=79.6
+}
+
+private void Phase_2(uint id)
+{
+    Timeout(id + 0x0, 13.3f, "--chains appear--"); // t=95.7
+    Timeout(id + 0x10, 2.7f, "Heavensflame 1"); // t=98.4
+    Timeout(id + 0x20, 1.0f, "Heavensflame 2 / --towers spawn--"); // t=99.4
+    Timeout(id + 0x30, 1.0f, "Heavensflame 3"); // t=100.4
+    Timeout(id + 0x40, 1.0f, "Heavensflame 4"); // t=101.4
+    Timeout(id + 0x50, 2.9f, "Conviction"); // t=104.3; Ability 89DC from Ser Hermenost
+    Condition(id + 0x60, 3.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x89CF), "Sacred Cross", 5f, 0.0f); // t=107.4; StartsUsing 89CF from Ser Zephirin
+    Timeout(id + 0x70, 25.7f, "Spiral Thrust"); // t=133.1; Ability 89E5 from Ser Ignasse/Ser Paulecrain/Ser Vellguine
+    Targetable(id + 0x80, true, 7.1f, "--targetable--"); // t=140.2
+    Timeout(id + 0x90, 10.0f, "Divine Right"); // t=150.2; Ability 89D2 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0xA0, 9.1f, "Holy Bladedance"); // t=159.3; Ability 89D5 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0xB0, 16.0f, "Skyward Leap 1"); // t=175.3; Ability 89E8 from Ser Vellguine
+    Timeout(id + 0xC0, 2.0f, "Divine Right"); // t=177.3; Ability 89D2 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0xD0, 1.0f, "Skyward Leap 2"); // t=178.3; Ability 89E8 from Ser Paulecrain
+    Timeout(id + 0xE0, 1.1f, "Heavenly Slash"); // t=179.4; Ability 89D3 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0xF0, 1.9f, "Skyward Leap 3"); // t=181.3; Ability 89E8 from Ser Ignasse
+    Timeout(id + 0x100, 11.1f, "Holiest Of Holy"); // t=192.4; Ability 89D4 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0x110, 6.1f, "Holy Bladedance"); // t=198.5; Ability 89D5 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0x120, 7.1f, "Divine Right"); // t=205.6; Ability 89D2 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0x130, 7.1f, "Holiest Of Holy"); // t=212.7; Ability 89D4 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0x140, 4.1f, "Heavenly Slash"); // t=216.8; Ability 89D3 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0x150, 16.1f, "Divine Right"); // t=232.9; Ability 89D2 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0x160, 9.1f, "Holy Bladedance"); // t=242.0; Ability 89D5 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0x170, 18.0f, "Divine Right"); // t=260.0; Ability 89D2 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0x180, 2.1f, "Heavenly Slash"); // t=262.1; Ability 89D3 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0x190, 13.1f, "Holiest Of Holy"); // t=275.2; Ability 89D4 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0x1A0, 6.1f, "Holy Bladedance"); // t=281.3; Ability 89D5 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0x1B0, 7.0f, "Divine Right"); // t=288.3; Ability 89D2 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0x1C0, 7.1f, "Holiest Of Holy"); // t=295.4; Ability 89D4 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0x1D0, 4.1f, "Heavenly Slash"); // t=299.5; Ability 89D3 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0x1E0, 60.1f, "Hiemal Storm"); // t=359.6; Ability 89ED from Ser Haumeric
+    Timeout(id + 0x1F0, 0.6f, "Spiral Pierce"); // t=360.2; Ability 89E6 from Ser Ignasse/Ser Paulecrain/Ser Vellguine
+    Timeout(id + 0x200, 1.3f, "Dimensional Collapse"); // t=361.5; Ability 89D8 from Ser Grinnaux
+    Timeout(id + 0x210, 3.5f, "Faith Unmoving"); // t=365.0; Ability 89DA from Ser Grinnaux
+    Timeout(id + 0x220, 1.0f, "Holy Meteor"); // t=366.0; Ability 89EF from Ser Noudenet
+    Timeout(id + 0x230, 8.6f, "Heavy Impact Set 1"); // t=374.6; Ability 89DE from Ser Guerrique
+    Timeout(id + 0x240, 1.4f, "Comet x4"); // t=376.0
+    Timeout(id + 0x250, 3.9f, "Heavy Impact Set 2"); // t=379.9; Ability 89DE from Ser Guerrique
+    Timeout(id + 0x260, 3.9f, "Comet x4"); // t=383.8
+    Timeout(id + 0x270, 14.3f, "Comet Impact"); // t=398.1; Ability 89F2 from Comet Circle
+    Timeout(id + 0x280, 22.6f, "Meteor Impact Enrage"); // t=420.7; Ability 89F3 from Meteor Circle
+    Timeout(id + 0x290, 17.0f, "The Light Of Ascalon 1"); // t=437.7
+    Timeout(id + 0x2A0, 1.4f, "The Light Of Ascalon 2"); // t=439.1
+    Timeout(id + 0x2B0, 1.4f, "The Light Of Ascalon 3"); // t=440.5
+    Timeout(id + 0x2C0, 1.4f, "The Light Of Ascalon 4"); // t=441.9
+    Timeout(id + 0x2D0, 1.4f, "The Light Of Ascalon 5"); // t=443.3
+    Timeout(id + 0x2E0, 1.4f, "The Light Of Ascalon 6"); // t=444.7
+    Timeout(id + 0x2F0, 1.4f, "The Light Of Ascalon 7"); // t=446.1
+    Timeout(id + 0x300, 9.7f, "Ultimate End"); // t=455.8; Ability 89CD from King Thordan
+    Targetable(id + 0x310, true, 4.5f, "--targetable--"); // t=460.3
+}
+
+private void Phase_3(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "the Dragon's Eye"); // t=466.4; Ability 89C7 from King Thordan
+    Timeout(id + 0x10, 10.2f, "Knights Of the Round"); // t=476.6; Ability 89CB from King Thordan
+    Timeout(id + 0x20, 5.1f, "Ascalon's Might"); // t=481.7; Ability 89BD from King Thordan
+    Timeout(id + 0x30, 6.4f, "Holy Shield Bash"); // t=488.1; Ability 89D6 from Ser Adelphel/Ser Janlenoux
+    Timeout(id + 0x40, 9.0f, "Spear Of the Fury"); // t=497.1; Ability 89D1 from Ser Zephirin
+    Timeout(id + 0x50, 2.4f, "Heavenly Heel"); // t=499.5; Ability 89C6 from King Thordan
+    Timeout(id + 0x60, 5.1f, "The Dragon's Gaze/The Dragon's Glory"); // t=504.6; Ability 89C8/89C9 from King Thordan
+    Timeout(id + 0x70, 12.0f, "Ancient Quaga"); // t=516.6; Ability 89C4 from King Thordan
+    Timeout(id + 0x80, 5.2f, "the Dragon's Eye"); // t=521.8; Ability 89C7 from King Thordan
+    Timeout(id + 0x90, 10.2f, "Knights Of the Round"); // t=532.0; Ability 89CB from King Thordan
+    Timeout(id + 0xA0, 11.1f, "The Dragon's Gaze/The Dragon's Glory"); // t=543.1; Ability 89C8/89C9 from King Thordan
+    Timeout(id + 0xB0, 0.1f, "Conviction"); // t=543.2; Ability 89DB from Ser Hermenost
+    Timeout(id + 0xC0, 0.9f, "Heavy Impact 1"); // t=544.1; Ability 89DF from Ser Guerrique
+    Timeout(id + 0xD0, 1.9f, "Conviction / Heavy Impact 2"); // t=546.0; Ability 89DC from Ser Hermenost | Ability 89E0 from Ser Guerrique
+    Timeout(id + 0xE0, 2.0f, "Heavy Impact 3"); // t=548.0; Ability 89E1 from Ser Guerrique
+    Timeout(id + 0xF0, 2.0f, "Heavy Impact 4"); // t=550.0; Ability 89E2 from Ser Guerrique
+    Timeout(id + 0x100, 2.4f, "Dimensional Collapse"); // t=552.4; Ability 89D8 from Ser Grinnaux
+    Timeout(id + 0x110, 3.5f, "Faith Unmoving"); // t=555.9; Ability 89DA from Ser Grinnaux
+    Timeout(id + 0x120, 2.0f, "the Dragon's Rage"); // t=557.9; Ability 89CA from King Thordan
+    Timeout(id + 0x130, 5.1f, "Ascalon's Might"); // t=563.0; Ability 89BD from King Thordan
+}
+
+private void Phase_5(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "the Dragon's Eye"); // t=572.1; Ability 89C7 from King Thordan
+    Timeout(id + 0x10, 10.1f, "Knights Of the Round"); // t=582.2; Ability 89CB from King Thordan
+    Timeout(id + 0x20, 6.7f, "Lightning Storm"); // t=588.9; Ability 89C0 from King Thordan
+    Timeout(id + 0x30, 8.4f, "Spiral Thrust / Spiral Pierce"); // t=597.3; Ability 89E5 from Ser Vellguine | Ability 89E6 from Ser Paulecrain
+    Timeout(id + 0x40, 0.2f, "Skyward Leap"); // t=597.5; Ability 89E8 from Ser Ignasse
+    Timeout(id + 0x50, 1.4f, "the Dragon's Rage"); // t=598.9; Ability 89CA from King Thordan
+    Timeout(id + 0x60, 11.0f, "Heavenly Heel"); // t=609.9; Ability 89C6 from King Thordan
+    Timeout(id + 0x70, 2.1f, "Ascalon's Might"); // t=612.0; Ability 89BD from King Thordan
+}
+
+private void Phase_6(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "the Dragon's Eye"); // t=622.1; Ability 89C7 from King Thordan
+    Timeout(id + 0x10, 10.2f, "Knights Of the Round"); // t=632.3; Ability 89CB from King Thordan
+    Timeout(id + 0x20, 6.1f, "Ascalon's Might"); // t=638.4; Ability 89BD from King Thordan
+    Timeout(id + 0x30, 3.1f, "--chains appear--"); // t=641.5
+    Timeout(id + 0x40, 0.9f, "Holy Meteor"); // t=642.4; Ability 89EF from Ser Noudenet
+    Timeout(id + 0x50, 1.1f, "Comet x4 / The Dragon's Gaze/The Dragon's Glory"); // t=643.5; Ability 89C8/89C9 from King Thordan
+    Timeout(id + 0x60, 0.7f, "Heavensflame 1"); // t=644.2
+    Timeout(id + 0x70, 1.1f, "Heavensflame 2"); // t=645.3
+    Timeout(id + 0x80, 1.1f, "Heavensflame 3"); // t=646.4
+    Timeout(id + 0x90, 0.4f, "Hiemal Storm"); // t=646.8; Ability 89ED from Ser Haumeric
+    Timeout(id + 0xA0, 1.9f, "Ascalon's Mercy"); // t=648.7; Ability 89BE from King Thordan
+    Timeout(id + 0xB0, 8.1f, "Ancient Quaga"); // t=656.8; Ability 89C4 from King Thordan
+    Timeout(id + 0xC0, 6.1f, "Heavenly Heel"); // t=662.9; Ability 89C6 from King Thordan
+    Timeout(id + 0xD0, 5.1f, "Ancient Quaga"); // t=668.0; Ability 89C4 from King Thordan
+}
+
+private void Phase_7____zomg_SO_MUCH_AOE_DAMAGE(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "the Dragon's Eye"); // t=673.1; Ability 89C7 from King Thordan
+    Timeout(id + 0x10, 10.2f, "Knights Of the Round"); // t=683.3; Ability 89CB from King Thordan
+    Timeout(id + 0x20, 5.1f, "Ascalon's Might"); // t=688.4; Ability 89BD from King Thordan
+    Timeout(id + 0x30, 5.0f, "Holiest Of Holy"); // t=693.4; Ability 89D4 from Ser Janlenoux
+    Timeout(id + 0x40, 5.1f, "Ascalon's Might"); // t=698.5; Ability 89BD from King Thordan
+    Timeout(id + 0x50, 6.1f, "Heavensward Leap 1"); // t=704.6; Ability 89E9 from Ser Vellguine
+    Timeout(id + 0x60, 3.0f, "Heavensward Leap 2"); // t=707.6; Ability 89E9 from Ser Paulecrain
+    Timeout(id + 0x70, 3.0f, "Heavensward Leap 3"); // t=710.6; Ability 89E9 from Ser Ignasse
+    Condition(id + 0x80, 8.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x89D0), "Sacred Cross", 5f, 3.1f); // t=718.7; StartsUsing 89D0 from Ser Zephirin
+    Timeout(id + 0x90, 5.9f, "Pure Of Soul"); // t=724.6; Ability 89F0/89F1 from Ser Charibert/Ser Noudenet/Ser Haumeric
+    Timeout(id + 0xA0, 8.0f, "Absolute Conviction 1"); // t=732.6; Ability 89E3 from Ser Guerrique
+    Timeout(id + 0xB0, 2.9f, "Absolute Conviction 2"); // t=735.5; Ability 89E4 from Ser Hermenost
+    Timeout(id + 0xC0, 5.1f, "The Dragon's Gaze/The Dragon's Glory"); // t=740.6; Ability 89C8/89C9 from King Thordan
+    Timeout(id + 0xD0, 10.1f, "Ancient Quaga"); // t=750.7; Ability 89C4 from King Thordan
+    Timeout(id + 0xE0, 9.1f, "Heavenly Heel"); // t=759.8; Ability 89C6 from King Thordan
+    Timeout(id + 0xF0, 2.1f, "Ascalon's Might 1"); // t=761.9; Ability 89BD from King Thordan
+    Timeout(id + 0x100, 5.1f, "Ascalon's Might 2"); // t=767.0; Ability 89BD from King Thordan
+    Timeout(id + 0x110, 3.1f, "Ascalon's Might 3"); // t=770.1; Ability 89BD from King Thordan
+    Timeout(id + 0x120, 3.1f, "Ascalon's Might 4"); // t=773.2; Ability 89BD from King Thordan
+    Timeout(id + 0x130, 3.1f, "Ascalon's Might 5"); // t=776.3; Ability 89BD from King Thordan
+    Timeout(id + 0x140, 3.1f, "Ascalon's Might 6"); // t=779.4; Ability 89BD from King Thordan
+    Timeout(id + 0x150, 12.0f, "Ancient Quaga"); // t=791.4; Ability 89C5 from King Thordan
+}
+

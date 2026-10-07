@@ -1,0 +1,178 @@
+// Generated development skeleton from a11s.txt (TerritoryType 586).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 19 static/dynamic trigger definitions from ui/raidboss/data/03-hw/raid/a11s.ts.
+
+private void A11S(uint id)
+{
+    Timeout(id + 0x0, 9.2f, "Left/Right Laser Sword"); // t=9.2
+    Timeout(id + 0x10, 8.1f, "Optical Sight (clock/out)"); // t=17.3
+    Timeout(id + 0x20, 16.1f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=33.4; Ability 1A84 from Cruise Chaser; cactbot StartsUsing 1A84 [A11S Whirlwind]
+    Timeout(id + 0x30, 7.2f, "Spin Crusher"); // t=40.6; Ability 1A85 from Cruise Chaser; cactbot StartsUsing 1A85 [A11S Spin Crusher]
+    Timeout(id + 0x40, 5.2f, "E.D.D. Add"); // t=45.8; cactbot AddedCombatant [A11S EDD Add]
+    Timeout(id + 0x50, 9.0f, "Left/Right Laser Sword"); // t=54.8
+    Timeout(id + 0x60, 1.0f, "E.D.D. Armored Pauldron"); // t=55.8
+    Timeout(id + 0x70, 8.2f, "Spin Crusher"); // t=64.0; Ability 1A85 from Cruise Chaser; cactbot StartsUsing 1A85 [A11S Spin Crusher]
+    Timeout(id + 0x80, 17.2f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=81.2; Ability 1A84 from Cruise Chaser; cactbot StartsUsing 1A84 [A11S Whirlwind]
+    Timeout(id + 0x90, 7.1f, "Left/Right Laser Sword"); // t=88.3
+    Timeout(id + 0xA0, 13.3f, "GA-100?"); // t=101.6; Ability 1A76 from Cruise Chaser
+    Condition(id + 0xB0, 11.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1A6E), "", 5f, 6.1f); // t=112.7; StartsUsing 1A6E from Cruise Chaser; cactbot StartsUsing 1A6E [A11S Optical Sight Bait]
+    Timeout(id + 0xC0, 2.0f, "Optical Sight (bait)"); // t=114.7; Ability 1A6E from Cruise Chaser; cactbot StartsUsing 1A6E [A11S Optical Sight Bait]
+    Timeout(id + 0xD0, 5.2f, "Hawk Blaster"); // t=119.9; Ability 1A6F from Cruise Chaser; cactbot HeadMarker 5A [A11S Super Hawk Blaster]
+    Timeout(id + 0xE0, 9.9f, "Optical Sight (clock/out)"); // t=129.8
+    Timeout(id + 0xF0, 8.1f, "Super Hawk Blaster"); // t=137.9; Ability 1A71 from Cruise Chaser; cactbot HeadMarker 5A [A11S Super Hawk Blaster]
+    Timeout(id + 0x100, 6.0f, "Optical Sight (out/clock)"); // t=143.9
+    Timeout(id + 0x110, 7.0f, "Super Hawk Blaster"); // t=150.9; Ability 1A71 from Cruise Chaser; cactbot HeadMarker 5A [A11S Super Hawk Blaster]
+    Timeout(id + 0x120, 9.0f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=159.9; Ability 1A84 from Cruise Chaser; cactbot StartsUsing 1A84 [A11S Whirlwind]
+    Timeout(id + 0x130, 8.2f, "Left/Right Laser Sword"); // t=168.1
+}
+
+private void Limit_Cut_Numbers(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1A80), "", 5f, 0.0f); // t=177.3; StartsUsing 1A80 from Cruise Chaser; cactbot Ability 1A80 [A11S Limit Cut Cleanup]
+    Timeout(id + 0x10, 2.0f, "Limit Cut (numbers)"); // t=179.3; Ability 1A80 from Cruise Chaser; cactbot Ability 1A80 [A11S Limit Cut Cleanup]
+    Timeout(id + 0x20, 0.6f, "--invincible--"); // t=179.9
+    Timeout(id + 0x30, 3.6f, "Markers"); // t=183.5
+    Timeout(id + 0x40, 8.6f, "Sword 1"); // t=192.1; Ability 1A81 from Cruise Chaser
+    Timeout(id + 0x50, 1.1f, "Charge 2"); // t=193.2; Ability 1A82 from Cruise Chaser
+    Timeout(id + 0x60, 2.2f, "Sword 3"); // t=195.4; Ability 1A81 from Cruise Chaser
+    Timeout(id + 0x70, 1.1f, "Charge 4"); // t=196.5; Ability 1A82 from Cruise Chaser
+    Timeout(id + 0x80, 2.2f, "Sword 5"); // t=198.7; Ability 1A81 from Cruise Chaser
+    Timeout(id + 0x90, 1.1f, "Charge 6"); // t=199.8; Ability 1A82 from Cruise Chaser
+    Timeout(id + 0xA0, 2.2f, "Sword 7"); // t=202.0; Ability 1A81 from Cruise Chaser
+    Timeout(id + 0xB0, 1.1f, "Charge 8"); // t=203.1; Ability 1A82 from Cruise Chaser
+    Targetable(id + 0xC0, true, 2.1f, "--targetable--"); // t=205.2
+    Timeout(id + 0xD0, 10.1f, "Photon"); // t=215.3; Ability 1A73 from Cruise Chaser
+    Timeout(id + 0xE0, 7.1f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=222.4; Ability 1A84 from Cruise Chaser; cactbot StartsUsing 1A84 [A11S Whirlwind]
+    Timeout(id + 0xF0, 7.2f, "Left/Right Laser Sword"); // t=229.6
+    Timeout(id + 0x100, 7.5f, "Blastoff"); // t=237.1; Ability 1A66 from Cruise Chaser
+    Targetable(id + 0x110, false, 0.8f, "--untargetable--"); // t=237.9
+}
+
+private void Cutscene(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Transform"); // t=240.2; Ability 1A49 from Cruise Chaser
+    Timeout(id + 0x10, 12.6f, "Blassty Blaster"); // t=252.8; Ability 1A69 from Cruise Chaser
+    Timeout(id + 0x20, 6.0f, "Transform"); // t=258.8; Ability 1A4E from Cruise Chaser
+    Timeout(id + 0x30, 6.0f, "Perfect Landing"); // t=264.8; Ability 1A6B from Cruise Chaser
+}
+
+private void ORBS(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=268.0
+    Timeout(id + 0x10, 2.1f, "Limit Cut (orbs)"); // t=270.1; Ability 1A80 from Cruise Chaser; cactbot Ability 1A80 [A11S Limit Cut Cleanup]
+    Timeout(id + 0x20, 0.6f, "--invincible--"); // t=270.7
+    Timeout(id + 0x30, 2.5f, "Lapis Lazuli x4"); // t=273.2
+    Timeout(id + 0x40, 3.6f, "Plasmasphere x1"); // t=276.8
+    Timeout(id + 0x50, 6.6f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=283.4; Ability 1A84 from Cruise Chaser; cactbot StartsUsing 1A84 [A11S Whirlwind]
+    Timeout(id + 0x60, 13.0f, "Plasmasphere x2"); // t=296.4
+    Timeout(id + 0x70, 1.0f, "Assault Cannon"); // t=297.4
+    Timeout(id + 0x80, 10.6f, "Laser X Sword"); // t=308.0; Ability 1A7F from Cruise Chaser; cactbot StartsUsing 1A7F [A11S Laser X Sword] | StartsUsing 1A7F [A11S Propeller Wind]
+    Timeout(id + 0x90, 5.7f, "Assault Cannon"); // t=313.7
+    Timeout(id + 0xA0, 2.0f, "Plasmasphere x2"); // t=315.7
+    Timeout(id + 0xB0, 6.0f, "Assault Cannon"); // t=321.7
+    Timeout(id + 0xC0, 4.5f, "Left/Right Laser Sword"); // t=326.2
+    Timeout(id + 0xD0, 12.1f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=338.3; Ability 1A84 from Cruise Chaser; cactbot StartsUsing 1A84 [A11S Whirlwind]
+}
+
+private void Eternal_Darkness(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=344.4
+    Condition(id + 0x10, 0.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1A19), "", 5f, 0.0f); // t=344.5; StartsUsing 1A19 from Cruise Chaser
+    Timeout(id + 0x20, 8.0f, "Eternal Darkness"); // t=352.5; Ability 1A19 from Cruise Chaser
+    Timeout(id + 0x30, 9.2f, "Left/Right Laser Sword"); // t=361.7
+    Timeout(id + 0x40, 9.1f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=370.8; Ability 1A84 from Cruise Chaser; cactbot StartsUsing 1A84 [A11S Whirlwind]
+    Timeout(id + 0x50, 8.1f, "Spin Crusher"); // t=378.9; Ability 1A85 from Cruise Chaser; cactbot StartsUsing 1A85 [A11S Spin Crusher]
+    Timeout(id + 0x60, 7.1f, "Optical Sight (bait)"); // t=386.0; Ability 1A6E from Cruise Chaser; cactbot StartsUsing 1A6E [A11S Optical Sight Bait]
+    Timeout(id + 0x70, 5.2f, "Hawk Blaster"); // t=391.2; Ability 1A6F from Cruise Chaser; cactbot HeadMarker 5A [A11S Super Hawk Blaster]
+    Timeout(id + 0x80, 4.9f, "Super Hawk Blaster"); // t=396.1; Ability 1A71 from Cruise Chaser; cactbot HeadMarker 5A [A11S Super Hawk Blaster]
+    Condition(id + 0x90, 3.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1A80), "", 5f, 0.0f); // t=399.2; StartsUsing 1A80 from Cruise Chaser; cactbot Ability 1A80 [A11S Limit Cut Cleanup]
+    Timeout(id + 0xA0, 2.0f, "Limit Cut (shield)"); // t=401.2; Ability 1A80 from Cruise Chaser; cactbot Ability 1A80 [A11S Limit Cut Cleanup]
+    Timeout(id + 0xB0, 0.6f, "--invincible--"); // t=401.8
+    Timeout(id + 0xC0, 4.8f, "Plasma Shield"); // t=406.6; cactbot AddedCombatant [A11S Plasma Shield]
+    Timeout(id + 0xD0, 24.6f, "Plasma Shield Enrage"); // t=431.2
+    Condition(id + 0xE0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1A83), "", 5f, 0.0f); // t=431.2; StartsUsing 1A83 from Cruise Chaser; cactbot StartsUsing 1A83 [A11S Blassty Charge]
+    Timeout(id + 0xF0, 4.0f, "Blassty Charge"); // t=435.2; Ability 1A83 from Cruise Chaser; cactbot StartsUsing 1A83 [A11S Blassty Charge]
+    Targetable(id + 0x100, true, 2.1f, "--targetable--"); // t=437.3
+    Condition(id + 0x110, 2.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1A73), "", 5f, 0.0f); // t=439.5; StartsUsing 1A73 from Cruise Chaser
+    Timeout(id + 0x120, 3.0f, "Photon (offtank)"); // t=442.5; Ability 1A73 from Cruise Chaser
+    Timeout(id + 0x130, 8.4f, "Laser X Sword"); // t=450.9; Ability 1A7F from Cruise Chaser; cactbot StartsUsing 1A7F [A11S Laser X Sword] | StartsUsing 1A7F [A11S Propeller Wind]
+    Timeout(id + 0x140, 7.8f, "E.D.D. Add"); // t=458.7; cactbot AddedCombatant [A11S EDD Add]
+    Timeout(id + 0x150, 3.3f, "Photon (dps)"); // t=462.0; Ability 1A73 from Cruise Chaser
+    Timeout(id + 0x160, 8.2f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=470.2; Ability 1A84 from Cruise Chaser; cactbot StartsUsing 1A84 [A11S Whirlwind]
+    Timeout(id + 0x170, 11.2f, "Left/Right Laser Sword"); // t=481.4
+    Timeout(id + 0x180, 6.1f, "Photon (healer)"); // t=487.5; Ability 1A73 from Cruise Chaser
+    Timeout(id + 0x190, 8.1f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=495.6; Ability 1A84 from Cruise Chaser; cactbot StartsUsing 1A84 [A11S Whirlwind]
+    Timeout(id + 0x1A0, 6.5f, "Blastoff"); // t=502.1; Ability 1A66 from Cruise Chaser
+    Targetable(id + 0x1B0, false, 0.8f, "--untargetable--"); // t=502.9
+}
+
+private void Cutscene_2(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Transform"); // t=505.2; Ability 1A49 from Cruise Chaser
+    Timeout(id + 0x10, 12.6f, "Blassty Blaster"); // t=517.8; Ability 1A69 from Cruise Chaser
+    Timeout(id + 0x20, 3.0f, "Multifield x3"); // t=520.8
+    Timeout(id + 0x30, 3.1f, "Transform"); // t=523.9; Ability 1A4E from Cruise Chaser
+    Timeout(id + 0x40, 6.0f, "Perfect Landing"); // t=529.9; Ability 1A6B from Cruise Chaser
+}
+
+private void Final_phase(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=532.7
+    Timeout(id + 0x10, 18.6f, "GA-100"); // t=551.3; Ability 1A76 from Cruise Chaser
+    Timeout(id + 0x20, 7.1f, "Optical Sight (clock/out)"); // t=558.4
+    Timeout(id + 0x30, 7.1f, "Super Hawk Blaster"); // t=565.5; Ability 1A71 from Cruise Chaser; cactbot HeadMarker 5A [A11S Super Hawk Blaster]
+    Timeout(id + 0x40, 8.1f, "Optical Sight (out/clock)"); // t=573.6
+    Timeout(id + 0x50, 8.1f, "Super Hawk Blaster"); // t=581.7; Ability 1A71 from Cruise Chaser; cactbot HeadMarker 5A [A11S Super Hawk Blaster]
+    Timeout(id + 0x60, 5.0f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=586.7; Ability 1A84 from Cruise Chaser; cactbot StartsUsing 1A84 [A11S Whirlwind]
+    Timeout(id + 0x70, 9.2f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=595.9; Ability 1A84 from Cruise Chaser; cactbot StartsUsing 1A84 [A11S Whirlwind]
+    Timeout(id + 0x80, 9.2f, "Laser X Sword"); // t=605.1; Ability 1A7F from Cruise Chaser; cactbot StartsUsing 1A7F [A11S Laser X Sword] | StartsUsing 1A7F [A11S Propeller Wind]
+    Timeout(id + 0x90, 7.1f, "Optical Sight (bait)"); // t=612.2; Ability 1A6E from Cruise Chaser; cactbot StartsUsing 1A6E [A11S Optical Sight Bait]
+    Timeout(id + 0xA0, 5.2f, "Hawk Blaster"); // t=617.4; Ability 1A6F from Cruise Chaser; cactbot HeadMarker 5A [A11S Super Hawk Blaster]
+    Timeout(id + 0xB0, 4.9f, "Super Hawk Blaster"); // t=622.3; Ability 1A71 from Cruise Chaser; cactbot HeadMarker 5A [A11S Super Hawk Blaster]
+    Timeout(id + 0xC0, 6.3f, "Photon (everyone)"); // t=628.6; Ability 1A73 from Cruise Chaser
+    Timeout(id + 0xD0, 4.5f, "Assault Cannon"); // t=633.1
+    Timeout(id + 0xE0, 2.7f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=635.8; Ability 1A84 from Cruise Chaser; cactbot StartsUsing 1A84 [A11S Whirlwind]
+    Timeout(id + 0xF0, 4.5f, "Assault Cannon"); // t=640.3
+    Timeout(id + 0x100, 7.1f, "Assault Cannon"); // t=647.4
+    Timeout(id + 0x110, 4.4f, "Propeller Wind"); // t=651.8; Ability 1A75 from Cruise Chaser; cactbot StartsUsing 1A7F [A11S Propeller Wind]
+    Condition(id + 0x120, 3.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1A80), "", 5f, 0.0f); // t=655.0; StartsUsing 1A80 from Cruise Chaser; cactbot Ability 1A80 [A11S Limit Cut Cleanup]
+    Timeout(id + 0x130, 2.0f, "Limit Cut (numbers)"); // t=657.0; Ability 1A80 from Cruise Chaser; cactbot Ability 1A80 [A11S Limit Cut Cleanup]
+    Timeout(id + 0x140, 0.6f, "--invincible--"); // t=657.6
+    Timeout(id + 0x150, 3.6f, "Markers"); // t=661.2
+    Timeout(id + 0x160, 8.7f, "Sword 1"); // t=669.9; Ability 1A81 from Cruise Chaser
+    Timeout(id + 0x170, 1.1f, "Charge 2"); // t=671.0; Ability 1A82 from Cruise Chaser
+    Timeout(id + 0x180, 2.2f, "Sword 3"); // t=673.2; Ability 1A81 from Cruise Chaser
+    Timeout(id + 0x190, 1.1f, "Charge 4"); // t=674.3; Ability 1A82 from Cruise Chaser
+    Timeout(id + 0x1A0, 2.2f, "Sword 5"); // t=676.5; Ability 1A81 from Cruise Chaser
+    Timeout(id + 0x1B0, 1.1f, "Charge 6"); // t=677.6; Ability 1A82 from Cruise Chaser
+    Timeout(id + 0x1C0, 2.2f, "Sword 7"); // t=679.8; Ability 1A81 from Cruise Chaser
+    Timeout(id + 0x1D0, 1.1f, "Charge 8"); // t=680.9; Ability 1A82 from Cruise Chaser
+    Targetable(id + 0x1E0, true, 2.1f, "--targetable--"); // t=683.0
+    Timeout(id + 0x1F0, 10.2f, "Laser X Sword"); // t=693.2; Ability 1A7F from Cruise Chaser; cactbot StartsUsing 1A7F [A11S Laser X Sword] | StartsUsing 1A7F [A11S Propeller Wind]
+    Timeout(id + 0x200, 4.0f, "E.D.D. Add"); // t=697.2; cactbot AddedCombatant [A11S EDD Add]
+    Timeout(id + 0x210, 8.2f, "Photon (dps)"); // t=705.4; Ability 1A73 from Cruise Chaser
+    Timeout(id + 0x220, 9.2f, "Left/Right Laser Sword"); // t=714.6
+    Timeout(id + 0x230, 8.1f, "Photon (healer)"); // t=722.7; Ability 1A73 from Cruise Chaser
+    Timeout(id + 0x240, 8.1f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=730.8; Ability 1A84 from Cruise Chaser; cactbot StartsUsing 1A84 [A11S Whirlwind]
+    Condition(id + 0x250, 2.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1A80), "", 5f, 0.0f); // t=733.7; StartsUsing 1A80 from Cruise Chaser; cactbot Ability 1A80 [A11S Limit Cut Cleanup]
+    Timeout(id + 0x260, 2.0f, "Limit Cut (shield)"); // t=735.7; Ability 1A80 from Cruise Chaser; cactbot Ability 1A80 [A11S Limit Cut Cleanup]
+    Timeout(id + 0x270, 0.6f, "--invincible--"); // t=736.3
+    Timeout(id + 0x280, 4.8f, "Plasma Shield"); // t=741.1; cactbot AddedCombatant [A11S Plasma Shield]
+    Timeout(id + 0x290, 24.6f, "Plasma Shield Enrage"); // t=765.7
+    Condition(id + 0x2A0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1A83), "", 5f, 0.0f); // t=765.7; StartsUsing 1A83 from Cruise Chaser; cactbot StartsUsing 1A83 [A11S Blassty Charge]
+    Timeout(id + 0x2B0, 4.0f, "Blassty Charge"); // t=769.7; Ability 1A83 from Cruise Chaser; cactbot StartsUsing 1A83 [A11S Blassty Charge]
+    Targetable(id + 0x2C0, true, 2.1f, "--targetable--"); // t=771.8
+    Timeout(id + 0x2D0, 7.9f, "Spin Crusher"); // t=779.7; Ability 1A85 from Cruise Chaser; cactbot StartsUsing 1A85 [A11S Spin Crusher]
+    Timeout(id + 0x2E0, 10.0f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=789.7; Ability 1A84 from Cruise Chaser; cactbot StartsUsing 1A84 [A11S Whirlwind]
+    Timeout(id + 0x2F0, 16.7f, "Laser X Sword"); // t=806.4; Ability 1A7F from Cruise Chaser; cactbot StartsUsing 1A7F [A11S Laser X Sword] | StartsUsing 1A7F [A11S Propeller Wind]
+    Timeout(id + 0x300, 23.0f, "GA-100"); // t=829.4; Ability 1A76 from Cruise Chaser
+    Timeout(id + 0x310, 7.1f, "Optical Sight (clock/out)"); // t=836.5
+    Timeout(id + 0x320, 7.1f, "Super Hawk Blaster"); // t=843.6; cactbot HeadMarker 5A [A11S Super Hawk Blaster]
+    Timeout(id + 0x330, 8.1f, "Optical Sight (out/clock)"); // t=851.7
+    Timeout(id + 0x340, 8.1f, "Super Hawk Blaster"); // t=859.8; cactbot HeadMarker 5A [A11S Super Hawk Blaster]
+    Timeout(id + 0x350, 5.0f, "Whirlwind"); // t=864.8; cactbot StartsUsing 1A84 [A11S Whirlwind]
+    Timeout(id + 0x360, 9.2f, "Whirlwind"); // t=874.0; cactbot StartsUsing 1A84 [A11S Whirlwind]
+    Timeout(id + 0x370, 9.2f, "Laser X Sword"); // t=883.2; cactbot StartsUsing 1A7F [A11S Laser X Sword]
+}
+

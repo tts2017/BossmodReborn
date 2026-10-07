@@ -1,0 +1,93 @@
+// Generated development skeleton from wol.txt (TerritoryType 922).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 21 static/dynamic trigger definitions from ui/raidboss/data/05-shb/trial/wol.ts.
+
+private void Phase_1__100___50(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Condition(id + 0x10, 6.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4F27), "", 5f, 1.3f); // t=6.3; StartsUsing 4F27 from Warrior Of Light; cactbot Ability 4F27 [WOL Terror Unleashed]
+    Timeout(id + 0x20, 3.0f, "Terror Unleashed"); // t=9.3; Ability 4F27 from Warrior Of Light; cactbot Ability 4F27 [WOL Terror Unleashed]
+    Timeout(id + 0x30, 15.8f, "Solemn Confiteor"); // t=25.1; Ability 4F2A from Warrior Of Light
+    Timeout(id + 0x40, 6.5f, "Coruscant Saber (In)"); // t=31.6; Ability 4F11 from Warrior Of Light; cactbot StartsUsing 4F11 [WOL Coruscant Saber In]
+    Timeout(id + 0x50, 11.1f, "Coruscant Saber (Out)"); // t=42.7; Ability 4F10 from Warrior Of Light; cactbot StartsUsing 4F10 [WOL Coruscant Saber Out]
+    Timeout(id + 0x60, 9.2f, "Absolute Fire III"); // t=51.9; Ability 4F2E from Warrior Of Light; cactbot StartsUsing 4F2E [WOL Absolute Fire III]
+    Timeout(id + 0x70, 13.3f, "Absolute Blizzard III"); // t=65.2; Ability 4F2D from Warrior Of Light; cactbot StartsUsing 4F2D [WOL Absolute Blizzard III]
+    Timeout(id + 0x80, 11.3f, "Imbued Fire/Blizzard"); // t=76.5
+    Timeout(id + 0x90, 13.1f, "Imbued Coruscance"); // t=89.6
+    Timeout(id + 0xA0, 12.3f, "Sword Of Light"); // t=101.9; Ability 4F42 from Warrior Of Light; cactbot StartsUsing 4F42 [WOL Sword Of Light]
+    Timeout(id + 0xB0, 13.3f, "Summon Wyrm"); // t=115.2; Ability 4F41 from Warrior Of Light; cactbot StartsUsing 4F41 [WOL Summon Wyrm]
+    Timeout(id + 0xC0, 4.9f, "Shining Wave"); // t=120.1; Ability 4F26 from Warrior Of Light
+    Timeout(id + 0xD0, 5.3f, "Cauterize"); // t=125.4; Ability 4F25 from Wyrm Of Light
+    Timeout(id + 0xE0, 6.0f, "The Bitter End").SetHint(StateMachine.StateHint.Tankbuster); // t=131.4; Ability 4F28 from Warrior Of Light; cactbot StartsUsing 4F28 [WOL Bitter End]
+    Timeout(id + 0xF0, 8.1f, "Elddragon Dive").SetHint(StateMachine.StateHint.Raidwide); // t=139.5; Ability 4F29 from Warrior Of Light; cactbot StartsUsing 4F29 [WOL Elddragon Dive]
+    Timeout(id + 0x100, 13.6f, "Imbued Fire/Blizzard"); // t=153.1
+    Timeout(id + 0x110, 13.1f, "Imbued Coruscance"); // t=166.2
+}
+
+private void Cutscene__50(uint id)
+{
+    Condition(id + 0x0, 2.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5331), "", 5f, 0.0f); // t=302.3; StartsUsing 5331 from Warrior Of Light
+    Timeout(id + 0x10, 6.0f, "Ascendance"); // t=308.3; Ability 5331 from Warrior Of Light
+    Targetable(id + 0x20, false, 3.1f, "--untargetable--"); // t=311.4
+    Timeout(id + 0x30, 8.2f, "Absolute Teleport"); // t=319.6; Ability 5332 from Warrior Of Light
+    Timeout(id + 0x40, 26.4f, "--active time event--"); // t=346.0
+    Timeout(id + 0x50, 117.2f, "Ultimate Crossover"); // t=463.2; Ability 547C from Warrior Of Light
+}
+
+private void Phase_1_includes_a_jump_to_the_middle_line_to_sync(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=470.2
+    Timeout(id + 0x10, 5.2f, "--middle--"); // t=475.4; Ability 4F45 from Warrior Of Light
+    Timeout(id + 0x20, 5.4f, "Imbued Fire/Blizzard"); // t=480.8
+    Timeout(id + 0x30, 9.2f, "Specter Of Light"); // t=490.0; Ability 4F37 from Warrior Of Light
+    Timeout(id + 0x40, 10.4f, "Twincast"); // t=500.4; Ability 4F3D from Spectral Black Mage
+    Timeout(id + 0x50, 14.6f, "Meteor Impact 1"); // t=515.0
+    Timeout(id + 0x60, 3.0f, "Meteor Impact 2"); // t=518.0
+    Timeout(id + 0x70, 3.0f, "Meteor Impact 3"); // t=521.0
+    Timeout(id + 0x80, 3.0f, "Meteor Impact 4"); // t=524.0
+    Timeout(id + 0x90, 4.2f, "Imbued Coruscance"); // t=528.2
+    Timeout(id + 0xA0, 9.1f, "Elddragon Dive").SetHint(StateMachine.StateHint.Raidwide); // t=537.3; Ability 4F29 from Warrior Of Light; cactbot StartsUsing 4F29 [WOL Elddragon Dive]
+    Timeout(id + 0xB0, 10.3f, "Summon Wyrm"); // t=547.6; Ability 4F41 from Warrior Of Light; cactbot StartsUsing 4F41 [WOL Summon Wyrm]
+    Timeout(id + 0xC0, 4.1f, "Brimstone Earth"); // t=551.7; Ability 4F1E from Spectral Dark Knight
+    Timeout(id + 0xD0, 4.2f, "Deluge Of Death"); // t=555.9; Ability 4F3B from Spectral Bard; cactbot HeadMarker 57 [WOL Deluge of Death Marker] | HeadMarker 57 [WOL Deluge of Death Cleanup]
+    Timeout(id + 0xE0, 1.9f, "Cauterize"); // t=557.8; Ability 4F25 from Wyrm Of Light
+    Timeout(id + 0xF0, 8.2f, "Deluge Of Death / Absolute Holy"); // t=566.0; Ability 4F20 from Spectral Bard | Ability 4F2B from Warrior Of Light
+    Timeout(id + 0x100, 9.9f, "The Bitter End").SetHint(StateMachine.StateHint.Tankbuster); // t=575.9; Ability 4F28 from Warrior Of Light; cactbot StartsUsing 4F28 [WOL Bitter End]
+    Timeout(id + 0x110, 6.3f, "--middle--"); // t=582.2; Ability 4F45 from Warrior Of Light
+    Timeout(id + 0x120, 5.3f, "To The Limit 1"); // t=587.5; Ability 4F34 from Warrior Of Light
+    Timeout(id + 0x130, 11.2f, "Radiant Braver"); // t=598.7; Ability 5254 from Warrior Of Light; cactbot HeadMarker EA [WOL Radiant Braver]
+    Timeout(id + 0x140, 6.4f, "To The Limit 2"); // t=605.1; Ability 4F35 from Warrior Of Light
+    Timeout(id + 0x150, 11.2f, "Radiant Desperado"); // t=616.3; Ability 515D from Warrior Of Light; cactbot StartsUsing 515D [WOL Radiant Desperado]
+    Timeout(id + 0x160, 11.7f, "To The Limit 3"); // t=628.0; Ability 4F36 from Warrior Of Light
+    Timeout(id + 0x170, 11.1f, "Radiant Meteor"); // t=639.1; Ability 4F1A from Warrior Of Light; cactbot HeadMarker E9 [WOL Radiant Meteor]
+    Timeout(id + 0x180, 11.3f, "Sword Of Light"); // t=650.4; Ability 4F42 from Warrior Of Light; cactbot StartsUsing 4F42 [WOL Sword Of Light]
+    Timeout(id + 0x190, 18.2f, "Shining Wave"); // t=668.6; Ability 4F26 from Warrior Of Light
+    Timeout(id + 0x1A0, 2.1f, "Absolute Fire/Blizzard"); // t=670.7
+    Timeout(id + 0x1B0, 8.2f, "Elddragon Dive").SetHint(StateMachine.StateHint.Raidwide); // t=678.9; Ability 4F29 from Warrior Of Light; cactbot StartsUsing 4F29 [WOL Elddragon Dive]
+    Timeout(id + 0x1C0, 4.2f, "--middle--"); // t=683.1; Ability 4F45 from Warrior Of Light
+    Timeout(id + 0x1D0, 5.2f, "Imbued Fire/Blizzard"); // t=688.3
+    Timeout(id + 0x1E0, 9.2f, "Specter Of Light"); // t=697.5; Ability 4F37 from Warrior Of Light
+    Timeout(id + 0x1F0, 19.5f, "Suiton: San").SetHint(StateMachine.StateHint.Knockback); // t=717.0; Ability 4F1C from Spectral Ninja; cactbot Ability 4F38 [WOL Suiton San]
+    Timeout(id + 0x200, 1.8f, "--middle--"); // t=718.8; Ability 4F45 from Warrior Of Light
+    Timeout(id + 0x210, 3.3f, "Katon: San"); // t=722.1; Ability 4F1D from Spectral Ninja; cactbot HeadMarker A1 [WOL Absolute Holy Katon San]
+    Timeout(id + 0x220, 4.9f, "Summon"); // t=727.0; Ability 4F3F from Spectral Summoner; cactbot StartsUsing 4F41 [WOL Summon Wyrm]
+    Timeout(id + 0x230, 0.9f, "Imbued Coruscance"); // t=727.9
+    Timeout(id + 0x240, 10.7f, "Solemn Confiteor"); // t=738.6; Ability 4F2A from Warrior Of Light
+    Timeout(id + 0x250, 4.7f, "Flare Breath"); // t=743.3; Ability 4F24 from Spectral Egi; cactbot Tether 11 [WOL Spectral Egi Flare Breath]
+    Timeout(id + 0x260, 9.1f, "The Bitter End").SetHint(StateMachine.StateHint.Tankbuster); // t=752.4; Ability 4F28 from Warrior Of Light; cactbot StartsUsing 4F28 [WOL Bitter End]
+    Timeout(id + 0x270, 3.7f, "Perfect Decimation"); // t=756.1; Ability 4F3E from Spectral Warrior
+    Timeout(id + 0x280, 4.5f, "Absolute Fire/Blizzard"); // t=760.6
+    Timeout(id + 0x290, 0.4f, "Perfect Decimation"); // t=761.0; Ability 4F23 from Spectral Warrior
+    Timeout(id + 0x2A0, 11.8f, "Elddragon Dive").SetHint(StateMachine.StateHint.Raidwide); // t=772.8; Ability 4F29 from Warrior Of Light; cactbot StartsUsing 4F29 [WOL Elddragon Dive]
+    Timeout(id + 0x2B0, 13.4f, "--middle--"); // t=786.2; Ability 4F45 from Warrior Of Light
+    Timeout(id + 0x2C0, 5.4f, "Imbued Fire/Blizzard"); // t=791.6
+    Timeout(id + 0x2D0, 9.2f, "Specter Of Light"); // t=800.8
+    Timeout(id + 0x2E0, 10.4f, "Twincast"); // t=811.2
+    Timeout(id + 0x2F0, 14.6f, "Meteor Impact 1"); // t=825.8
+    Timeout(id + 0x300, 3.0f, "Meteor Impact 2"); // t=828.8
+    Timeout(id + 0x310, 3.0f, "Meteor Impact 3"); // t=831.8
+    Timeout(id + 0x320, 3.0f, "Meteor Impact 4"); // t=834.8
+    Timeout(id + 0x330, 4.2f, "Imbued Coruscance"); // t=839.0
+}
+

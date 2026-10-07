@@ -1,0 +1,59 @@
+// Generated development skeleton from o6n.txt (TerritoryType 749).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 4 static/dynamic trigger definitions from ui/raidboss/data/04-sb/raid/o6n.ts.
+
+private void Timeline(uint id)
+{
+    Targetable(id + 0x0, true, 18.0f, "--targetable--"); // t=18.0
+    Timeout(id + 0x10, 3.0f, "Demonic Howl").SetHint(StateMachine.StateHint.Raidwide); // t=21.0; Ability 282C from Demon Chadarnook; cactbot StartsUsing 282C [O6N Demonic Howl]
+    Timeout(id + 0x20, 9.0f, "Demonic Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=30.0; Ability 282A from Demon Chadarnook; cactbot StartsUsing 282A [O6N Demonic Shear]
+    Timeout(id + 0x30, 24.0f, "Possession"); // t=54.0; Ability 2803 from Demon Chadarnook
+    Timeout(id + 0x40, 5.0f, "Flash Fire"); // t=59.0; Ability 280B from Portrayal of Fire
+    Timeout(id + 0x50, 7.0f, "Demonic Howl").SetHint(StateMachine.StateHint.Raidwide); // t=66.0; Ability 282C from Demon Chadarnook; cactbot StartsUsing 282C [O6N Demonic Howl]
+    Timeout(id + 0x60, 10.0f, "Demonic Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=76.0; Ability 282A from Demon Chadarnook; cactbot StartsUsing 282A [O6N Demonic Shear]
+    Timeout(id + 0x70, 10.0f, "Release"); // t=86.0; Ability 2804 from Demon Chadarnook
+    Timeout(id + 0x80, 13.0f, "Possession"); // t=99.0; Ability 2803 from Demon Chadarnook
+    Timeout(id + 0x90, 5.0f, "Earthquake"); // t=104.0; Ability 2811 from Portrayal of Earth
+    Timeout(id + 0xA0, 14.0f, "Demonic Stone"); // t=118.0; Ability 2847 from Demon Chadarnook; cactbot HeadMarker 1 [O6N Demonic Stone]
+    Timeout(id + 0xB0, 7.0f, "Demonic Howl").SetHint(StateMachine.StateHint.Raidwide); // t=125.0; Ability 282C from Demon Chadarnook; cactbot StartsUsing 282C [O6N Demonic Howl]
+    Timeout(id + 0xC0, 13.0f, "Demonic Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=138.0; Ability 282A from Demon Chadarnook; cactbot StartsUsing 282A [O6N Demonic Shear]
+    Timeout(id + 0xD0, 8.0f, "Release"); // t=146.0; Ability 2804 from Demon Chadarnook
+    Timeout(id + 0xE0, 13.0f, "Possession"); // t=159.0; Ability 2803 from Demon Chadarnook
+    Timeout(id + 0xF0, 11.0f, "Demonic Wave"); // t=170.0; Ability 2831 from Portrayal of Water
+    Timeout(id + 0x100, 9.0f, "Demonic Howl").SetHint(StateMachine.StateHint.Raidwide); // t=179.0; Ability 282C from Demon Chadarnook; cactbot StartsUsing 282C [O6N Demonic Howl]
+    Timeout(id + 0x110, 8.0f, "Demonic Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=187.0; Ability 282A from Demon Chadarnook; cactbot StartsUsing 282A [O6N Demonic Shear]
+    Timeout(id + 0x120, 8.0f, "Demonic Spout"); // t=195.0; Ability 2835 from Demon Chadarnook
+    Timeout(id + 0x130, 5.0f, "Demonic Spout"); // t=200.0; Ability 2837 from Demon Chadarnook
+    Timeout(id + 0x140, 9.0f, "Release"); // t=209.0; Ability 2804 from Demon Chadarnook
+    Timeout(id + 0x150, 13.0f, "Possession"); // t=222.0; Ability 2803 from Demon Chadarnook
+    Timeout(id + 0x160, 5.0f, "Demonic Typhoon"); // t=227.0; Ability 283D from Demon Chadarnook
+    Timeout(id + 0x170, 17.0f, "Demonic Howl").SetHint(StateMachine.StateHint.Raidwide); // t=244.0; Ability 282C from Demon Chadarnook; cactbot StartsUsing 282C [O6N Demonic Howl]
+    Timeout(id + 0x180, 1.0f, "Featherlance"); // t=245.0; Ability 2AE8 from Easterly
+    Timeout(id + 0x190, 8.0f, "Demonic Pain"); // t=253.0; Ability 2AEB from Demon Chadarnook; cactbot Tether 1/39 [O6N Demonic Pain]
+    Timeout(id + 0x1A0, 11.0f, "Flash Gale"); // t=264.0; Ability 2842 from Demon Chadarnook
+    Timeout(id + 0x1B0, 11.0f, "Release"); // t=275.0; Ability 2804 from Demon Chadarnook
+    Timeout(id + 0x1C0, 13.0f, "Possession"); // t=288.0; Ability 2803 from Demon Chadarnook
+    Timeout(id + 0x1D0, 5.0f, "Flash Fire"); // t=293.0; Ability 280B from Portrayal of Fire
+    Timeout(id + 0x1E0, 6.0f, "Demonic Wave"); // t=299.0; Ability 2831 from Portrayal of Water
+    Timeout(id + 0x1F0, 9.0f, "Demonic Howl").SetHint(StateMachine.StateHint.Raidwide); // t=308.0; Ability 282C from Demon Chadarnook; cactbot StartsUsing 282C [O6N Demonic Howl]
+    Timeout(id + 0x200, 10.0f, "Demonic Spout"); // t=318.0; Ability 2835 from Demon Chadarnook
+    Timeout(id + 0x210, 5.0f, "Demonic Spout"); // t=323.0; Ability 2837 from Demon Chadarnook
+    Timeout(id + 0x220, 7.0f, "Demonic Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=330.0; Ability 282A from Demon Chadarnook; cactbot StartsUsing 282A [O6N Demonic Shear]
+    Timeout(id + 0x230, 11.0f, "Release"); // t=341.0; Ability 2809 from Haunt
+    Timeout(id + 0x240, 13.0f, "Possession"); // t=354.0; Ability 2803 from Demon Chadarnook
+    Timeout(id + 0x250, 5.0f, "Earthquake / Flash Fire"); // t=359.0; Ability 2811 from Portrayal of Earth | Ability 280B from Portrayal of Fire
+    Timeout(id + 0x260, 9.0f, "Materialize"); // t=368.0; Ability 282D from Demon Chadarnook
+    Timeout(id + 0x270, 13.0f, "Demonic Stone"); // t=381.0; Ability 2847 from Demon Chadarnook; cactbot HeadMarker 1 [O6N Demonic Stone]
+    Timeout(id + 0x280, 3.0f, "Demonic Howl").SetHint(StateMachine.StateHint.Raidwide); // t=384.0; Ability 282C from Demon Chadarnook; cactbot StartsUsing 282C [O6N Demonic Howl]
+    Timeout(id + 0x290, 10.0f, "Demonic Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=394.0; Ability 282A from Demon Chadarnook; cactbot StartsUsing 282A [O6N Demonic Shear]
+    Timeout(id + 0x2A0, 10.0f, "Demonic Howl").SetHint(StateMachine.StateHint.Raidwide); // t=404.0; Ability 282C from Demon Chadarnook; cactbot StartsUsing 282C [O6N Demonic Howl]
+    Timeout(id + 0x2B0, 11.0f, "Release"); // t=415.0; Ability 2804 from Demon Chadarnook
+    Timeout(id + 0x2C0, 13.0f, "Possession"); // t=428.0; Ability 2803 from Demon Chadarnook
+    Timeout(id + 0x2D0, 5.0f, "Flash Fire"); // t=433.0
+    Timeout(id + 0x2E0, 6.0f, "Demonic Wave"); // t=439.0
+    Timeout(id + 0x2F0, 9.0f, "Demonic Howl"); // t=448.0; cactbot StartsUsing 282C [O6N Demonic Howl]
+    Timeout(id + 0x300, 7.0f, "Demonic Spout"); // t=455.0
+    Timeout(id + 0x310, 3.0f, "Demonic Spout"); // t=458.0
+}
+

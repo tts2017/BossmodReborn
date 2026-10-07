@@ -1,0 +1,165 @@
+// Generated development skeleton from a7s.txt (TerritoryType 531).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 13 static/dynamic trigger definitions from ui/raidboss/data/03-hw/raid/a7s.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 8.0f, "Hammertime x2"); // t=8.0
+    Timeout(id + 0x10, 13.0f, "Sizzlebeam"); // t=21.0; cactbot HeadMarker 18 [A7S Sizzlebeam]
+    Timeout(id + 0x20, 10.0f, "Sizzlespark"); // t=31.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x30, 4.0f, "Bombs x8"); // t=35.0
+    Timeout(id + 0x40, 24.0f, "Bomb x1"); // t=59.0
+    Timeout(id + 0x50, 7.0f, "Jails"); // t=66.0
+    Timeout(id + 0x60, 2.0f, "Zoomdoom"); // t=68.0; Ability 15BE from Quickthinx Allthoughts; cactbot StartsUsing 16F4 [A7S Zoomdoom Clear]
+    Timeout(id + 0x70, 1.0f, "Doll"); // t=69.0
+    Timeout(id + 0x80, 15.0f, "Resync"); // t=84.0
+    Timeout(id + 0x90, 19.0f, "Sizzlespark"); // t=103.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0xA0, 13.0f, "Uplander Doom"); // t=116.0
+    Timeout(id + 0xB0, 14.0f, "Bomb x1"); // t=130.0
+    Timeout(id + 0xC0, 7.0f, "Jails - Get Tether"); // t=137.0
+    Timeout(id + 0xD0, 2.0f, "Zoomdoom"); // t=139.0; Ability 15BE from Quickthinx Allthoughts; cactbot StartsUsing 16F4 [A7S Zoomdoom Clear]
+    Timeout(id + 0xE0, 1.0f, "Small Doll"); // t=140.0
+    Timeout(id + 0xF0, 38.0f, "Sizzlebeam"); // t=178.0; cactbot HeadMarker 18 [A7S Sizzlebeam]
+    Timeout(id + 0x100, 12.0f, "Sizzlespark"); // t=190.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x110, 4.0f, "Uplander Doom"); // t=194.0; Ability 15F0 from Quickthinx Allthoughts
+    Condition(id + 0x120, 10.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x15EC), "Kill Heart", 5f, 5.0f); // t=204.0; StartsUsing 15EC from Shanoa; cactbot Ability 15EC [A7S True Heart]
+    Timeout(id + 0x130, 15.0f, "Stun Heart / Sizzlespark"); // t=219.0
+    Timeout(id + 0x140, 10.0f, "Flamethrower"); // t=229.0; Ability 1CFA from Quickthinx Allthoughts
+    Condition(id + 0x150, 5.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x15EC), "Kill Heart", 5f, 0.0f); // t=234.0; StartsUsing 15EC from Shanoa; cactbot Ability 15EC [A7S True Heart]
+    Timeout(id + 0x160, 15.0f, "Stun Heart / Sizzlebeam"); // t=249.0
+    Timeout(id + 0x170, 9.0f, "Sizzlespark"); // t=258.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x180, 8.0f, "Bomb x1"); // t=266.0
+    Timeout(id + 0x190, 93.0f, "Bomb x1"); // t=359.0
+    Timeout(id + 0x1A0, 7.0f, "Jails"); // t=366.0
+    Timeout(id + 0x1B0, 2.0f, "Zoomdoom"); // t=368.0; Ability 15BE from Quickthinx Allthoughts; cactbot StartsUsing 16F4 [A7S Zoomdoom Clear]
+    Timeout(id + 0x1C0, 1.0f, "Doll"); // t=369.0
+    Timeout(id + 0x1D0, 28.0f, "Uplander Doom"); // t=397.0
+    Timeout(id + 0x1E0, 12.0f, "Sizzlebeam"); // t=409.0; cactbot HeadMarker 18 [A7S Sizzlebeam]
+    Timeout(id + 0x1F0, 19.0f, "Bomb x1"); // t=428.0
+    Timeout(id + 0x200, 7.0f, "Jails"); // t=435.0
+    Timeout(id + 0x210, 2.0f, "Zoomdoom"); // t=437.0; cactbot StartsUsing 16F4 [A7S Zoomdoom Clear]
+    Timeout(id + 0x220, 1.0f, "Big Doll"); // t=438.0
+    Timeout(id + 0x230, 35.0f, "Sizzlespark"); // t=473.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x240, 12.0f, "Sizzlespark"); // t=485.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x250, 4.0f, "Uplander Doom"); // t=489.0; Ability 15F0 from Quickthinx Allthoughts
+    Condition(id + 0x260, 10.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x15EC), "Kill Heart", 5f, 5.0f); // t=499.0; StartsUsing 15EC from Shanoa; cactbot Ability 15EC [A7S True Heart]
+    Timeout(id + 0x270, 15.0f, "Stun Heart / Sizzlespark"); // t=514.0
+    Timeout(id + 0x280, 10.0f, "Flamethrower"); // t=524.0; Ability 1CFA from Quickthinx Allthoughts
+    Condition(id + 0x290, 5.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x15EC), "Kill Heart", 5f, 0.0f); // t=529.0; StartsUsing 15EC from Shanoa; cactbot Ability 15EC [A7S True Heart]
+    Timeout(id + 0x2A0, 15.0f, "Stun Heart / Sizzlebeam"); // t=544.0
+    Timeout(id + 0x2B0, 9.0f, "Sizzlespark"); // t=553.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x2C0, 8.0f, "Bomb x1"); // t=561.0
+    Timeout(id + 0x2D0, 6.0f, "Jails"); // t=567.0
+    Timeout(id + 0x2E0, 3.0f, "Zoomdoom / Doll"); // t=570.0; Ability 15BE from Quickthinx Allthoughts
+    Timeout(id + 0x2F0, 12.0f, "Resync"); // t=582.0
+    Timeout(id + 0x300, 14.0f, "Uplander Doom"); // t=596.0
+    Timeout(id + 0x310, 17.0f, "Sizzlespark"); // t=613.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x320, 8.0f, "Sizzlespark"); // t=621.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x330, 7.0f, "Bomb x1"); // t=628.0
+    Timeout(id + 0x340, 8.0f, "Jails - Get Prey"); // t=636.0
+    Timeout(id + 0x350, 4.0f, "Zoomdoom / Small Dolls x2"); // t=640.0; Ability 15BE from Quickthinx Allthoughts
+    Timeout(id + 0x360, 38.0f, "Sizzlebeam"); // t=678.0; cactbot HeadMarker 18 [A7S Sizzlebeam]
+    Timeout(id + 0x370, 8.0f, "Sizzlespark").SetHint(StateMachine.StateHint.Raidwide); // t=686.0; Ability 16F8 from Quickthinx Allthoughts; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x380, 8.0f, "Sizzlespark"); // t=694.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x390, 13.0f, "Sizzlebeam"); // t=707.0; Ability 15EE from Quickthinx Allthoughts; cactbot HeadMarker 18 [A7S Sizzlebeam]
+    Timeout(id + 0x3A0, 4.0f, "Bombs x8"); // t=711.0
+    Timeout(id + 0x3B0, 29.0f, "Sizzlespark"); // t=740.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x3C0, 8.0f, "Sizzlespark"); // t=748.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x3D0, 7.0f, "Uplander Doom"); // t=755.0
+    Timeout(id + 0x3E0, 18.0f, "Flamethrower"); // t=773.0; Ability 1CFA from Quickthinx Allthoughts
+    Timeout(id + 0x3F0, 6.0f, "Hammertime x4"); // t=779.0
+    Timeout(id + 0x400, 11.0f, "Sizzlespark"); // t=790.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x410, 3.0f, "Hammertime x4"); // t=793.0
+    Timeout(id + 0x420, 7.0f, "Sizzlespark"); // t=800.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x430, 6.0f, "Sizzlespark"); // t=806.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x440, 6.0f, "Sizzlespark"); // t=812.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x450, 16.0f, "Sizzlebeam"); // t=828.0; cactbot HeadMarker 18 [A7S Sizzlebeam]
+    Timeout(id + 0x460, 8.0f, "Sizzlespark"); // t=836.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x470, 6.0f, "Sizzlespark"); // t=842.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x480, 12.0f, "Flamethrower"); // t=854.0; Ability 1CFA from Quickthinx Allthoughts
+    Condition(id + 0x490, 4.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x15EC), "Kill Heart", 5f, 0.0f); // t=858.0; StartsUsing 15EC from Shanoa; cactbot Ability 15EC [A7S True Heart]
+    Timeout(id + 0x4A0, 7.0f, "Uplander Doom"); // t=865.0
+    Timeout(id + 0x4B0, 8.0f, "Stun Heart"); // t=873.0
+    Timeout(id + 0x4C0, 6.0f, "Sizzlebeam"); // t=879.0; cactbot HeadMarker 18 [A7S Sizzlebeam]
+    Timeout(id + 0x4D0, 9.0f, "Flamethrower"); // t=888.0
+    Condition(id + 0x4E0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x15EC), "Kill Heart", 5f, 0.0f); // t=888.0; StartsUsing 15EC from Shanoa; cactbot Ability 15EC [A7S True Heart]
+    Timeout(id + 0x4F0, 13.0f, "Sizzlespark"); // t=901.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x500, 2.0f, "Stun Heart"); // t=903.0
+    Timeout(id + 0x510, 6.0f, "Sizzlespark"); // t=909.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x520, 8.0f, "Sizzlespark"); // t=917.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x530, 6.0f, "Bombs / Sizzlebeam"); // t=923.0
+    Timeout(id + 0x540, 39.0f, "Bomb x1"); // t=962.0
+    Timeout(id + 0x550, 8.0f, "Jails"); // t=970.0
+    Timeout(id + 0x560, 2.0f, "Zoomdoom / Doll"); // t=972.0
+    Timeout(id + 0x570, 39.0f, "Sizzlebeam"); // t=1011.0; Ability 15EE from Quickthinx Allthoughts; cactbot HeadMarker 18 [A7S Sizzlebeam]
+    Timeout(id + 0x580, 8.0f, "Sizzlespark"); // t=1019.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x590, 8.0f, "Sizzlespark"); // t=1027.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x5A0, 7.0f, "Bomb x1"); // t=1034.0
+    Timeout(id + 0x5B0, 7.0f, "Jails"); // t=1041.0
+    Timeout(id + 0x5C0, 2.0f, "Zoomdoom / Big Doll"); // t=1043.0; Ability 15BE from Quickthinx Allthoughts
+    Timeout(id + 0x5D0, 28.0f, "Uplander Doom"); // t=1071.0
+    Timeout(id + 0x5E0, 16.0f, "Sizzlespark"); // t=1087.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x5F0, 8.0f, "Sizzlespark"); // t=1095.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x600, 13.0f, "Sizzlebeam"); // t=1108.0; Ability 15EE from Quickthinx Allthoughts; cactbot HeadMarker 18 [A7S Sizzlebeam]
+    Timeout(id + 0x610, 3.0f, "Bombs x8"); // t=1111.0
+    Timeout(id + 0x620, 30.0f, "Sizzlespark"); // t=1141.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x630, 8.0f, "Sizzlespark"); // t=1149.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x640, 7.0f, "Uplander Doom"); // t=1156.0
+    Timeout(id + 0x650, 18.0f, "Flamethrower"); // t=1174.0; Ability 1CFA from Quickthinx Allthoughts
+    Timeout(id + 0x660, 6.0f, "Hammertime x4"); // t=1180.0
+    Timeout(id + 0x670, 11.0f, "Sizzlespark"); // t=1191.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x680, 3.0f, "Hammertime x4"); // t=1194.0
+    Timeout(id + 0x690, 6.0f, "Sizzlespark"); // t=1200.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x6A0, 6.0f, "Sizzlespark"); // t=1206.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x6B0, 6.0f, "Sizzlespark"); // t=1212.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x6C0, 17.0f, "Sizzlebeam"); // t=1229.0; cactbot HeadMarker 18 [A7S Sizzlebeam]
+    Timeout(id + 0x6D0, 7.0f, "Sizzlespark"); // t=1236.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x6E0, 7.0f, "Sizzlespark"); // t=1243.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x6F0, 10.0f, "Flamethrower"); // t=1253.0; Ability 1CFA from Quickthinx Allthoughts
+    Condition(id + 0x700, 5.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x15EC), "Kill Heart", 5f, 0.0f); // t=1258.0; StartsUsing 15EC from Shanoa; cactbot Ability 15EC [A7S True Heart]
+    Timeout(id + 0x710, 5.0f, "Uplander Doom"); // t=1263.0
+    Timeout(id + 0x720, 10.0f, "Stun Heart"); // t=1273.0
+    Timeout(id + 0x730, 7.0f, "Sizzlebeam"); // t=1280.0; cactbot HeadMarker 18 [A7S Sizzlebeam]
+    Timeout(id + 0x740, 8.0f, "Flamethrower"); // t=1288.0
+    Condition(id + 0x750, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x15EC), "Kill Heart", 5f, 0.0f); // t=1288.0; StartsUsing 15EC from Shanoa; cactbot Ability 15EC [A7S True Heart]
+    Timeout(id + 0x760, 13.0f, "Sizzlespark"); // t=1301.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x770, 2.0f, "Stun Heart"); // t=1303.0
+    Timeout(id + 0x780, 5.0f, "Sizzlespark"); // t=1308.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x790, 8.0f, "Sizzlespark"); // t=1316.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x7A0, 10.0f, "Bombs x2"); // t=1326.0; Ability 15EE from Quickthinx Allthoughts
+    Timeout(id + 0x7B0, 7.0f, "Jails"); // t=1333.0
+    Timeout(id + 0x7C0, 2.0f, "Small Doll"); // t=1335.0
+    Timeout(id + 0x7D0, 1.0f, "Zoomdoom"); // t=1336.0; Ability 15BE from Quickthinx Allthoughts; cactbot StartsUsing 16F4 [A7S Zoomdoom Clear]
+    Timeout(id + 0x7E0, 8.0f, "Big Doll"); // t=1344.0
+    Timeout(id + 0x7F0, 4.0f, "Resync"); // t=1348.0
+    Timeout(id + 0x800, 14.0f, "Uplander Doom"); // t=1362.0
+    Timeout(id + 0x810, 19.0f, "Sizzlespark"); // t=1381.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x820, 11.0f, "Sizzlebeam"); // t=1392.0; cactbot HeadMarker 18 [A7S Sizzlebeam]
+    Timeout(id + 0x830, 4.0f, "Jails"); // t=1396.0
+    Timeout(id + 0x840, 2.0f, "Zoomdoom / Small Dolls x2"); // t=1398.0; Ability 15BE from Quickthinx Allthoughts
+    Timeout(id + 0x850, 28.0f, "Sizzlespark"); // t=1426.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x860, 7.0f, "Sizzlebeam"); // t=1433.0; cactbot HeadMarker 18 [A7S Sizzlebeam]
+    Timeout(id + 0x870, 8.0f, "Sizzlespark"); // t=1441.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x880, 7.0f, "Sizzlespark"); // t=1448.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x890, 7.0f, "Sizzlespark"); // t=1455.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x8A0, 19.0f, "Enrage"); // t=1474.0
+    Timeout(id + 0x8B0, 52.0f, "Sizzlebeam"); // t=1526.0; cactbot HeadMarker 18 [A7S Sizzlebeam]
+    Timeout(id + 0x8C0, 4.0f, "Jails"); // t=1530.0
+    Timeout(id + 0x8D0, 2.0f, "Zoomdoom"); // t=1532.0; Ability 15BE from Quickthinx Allthoughts; cactbot StartsUsing 16F4 [A7S Zoomdoom Clear]
+    Timeout(id + 0x8E0, 1.0f, "Small Dolls x2"); // t=1533.0
+    Timeout(id + 0x8F0, 27.0f, "Sizzlespark"); // t=1560.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x900, 8.0f, "Sizzlebeam"); // t=1568.0; cactbot HeadMarker 18 [A7S Sizzlebeam]
+    Timeout(id + 0x910, 8.0f, "Sizzlespark"); // t=1576.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x920, 7.0f, "Sizzlespark"); // t=1583.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x930, 7.0f, "Sizzlespark"); // t=1590.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x940, 5.0f, "Bombs x2"); // t=1595.0
+    Timeout(id + 0x950, 6.0f, "Jails - Get Prey"); // t=1601.0
+    Timeout(id + 0x960, 2.0f, "Zoomdoom / Small Doll"); // t=1603.0; Ability 15BE from Quickthinx Allthoughts
+    Timeout(id + 0x970, 9.0f, "Big Doll"); // t=1612.0
+    Timeout(id + 0x980, 18.0f, "Uplander Doom"); // t=1630.0
+    Timeout(id + 0x990, 17.0f, "Sizzlespark"); // t=1647.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x9A0, 7.0f, "Sizzlespark"); // t=1654.0; cactbot StartsUsing 16F8 [A7S Sizzlespark]
+    Timeout(id + 0x9B0, 19.0f, "Enrage"); // t=1673.0
+}
+

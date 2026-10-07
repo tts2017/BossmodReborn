@@ -1,0 +1,9 @@
+// Generated development skeleton from zelenia.txt (TerritoryType 1270).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+
+private void Recollection(uint id)
+{
+    // No visible timeline entries in this section.
+}
+

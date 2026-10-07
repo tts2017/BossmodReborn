@@ -1,0 +1,366 @@
+// Generated development skeleton from dancing_mad.txt (TerritoryType 1363).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 146 static/dynamic trigger definitions from ui/raidboss/data/07-dt/ultimate/dancing_mad.ts.
+
+private void DANCING_MAD__ULTIMATE(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Phase_1___Kefka(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xC403), "", 5f, 0.0f); // t=10.6; StartsUsing C403 from Kefka
+    Timeout(id + 0x10, 5.0f, "Revolting Ruin III 1"); // t=15.6; Ability C403 from Kefka
+    Timeout(id + 0x20, 3.1f, "Revolting Ruin III 2"); // t=18.7; Ability C4E1 from Kefka
+    Timeout(id + 0x30, 6.1f, "--middle--"); // t=24.8; Ability C3FD from Kefka
+    Timeout(id + 0x40, 4.4f, "Graven Image 1"); // t=29.2; Ability BCF2 from Kefka; cactbot StartsUsing BCF2 [DMU P1 Graven Image Counter]
+    Timeout(id + 0x50, 5.9f, "Pulse Wave"); // t=35.1; Ability BAA9 from Graven Image; cactbot Ability BAA9/BAAC/BAB0/BAB5/BAB6 [DMU P1 Graven Image Tether Cleanup]
+    Timeout(id + 0x60, 2.3f, "Mystery Magic / Blizzard III Blowout"); // t=37.4; Ability BA94 from Kefka; cactbot StartsUsing BA94 [DMU P1 Mystery Magic Ice and Fire] | StartsUsing BA94 [DMU P1 and P4 Mystery Magic Ice and Thunder] | StartsUsing BA94 [DMU P1 Mystery Magic Fire and Thunder] | StartsUsing BA94/C622/BB14 [DMU P1 and P4 Mystery Magic Cleanup]
+    Timeout(id + 0x70, 0.9f, "Flagrant Fire III"); // t=38.3; Ability BAA2/BAA3 from Kefka
+    Timeout(id + 0x80, 4.2f, "Wave Cannon"); // t=42.5; Ability BAA8 from Graven Image; cactbot Ability BAA8 [DMU P1 Wave Cannon Collect] | Ability BAA8 [DMU P1 Wave Cannon Explosion Towers]
+    Timeout(id + 0x90, 2.1f, "Double-trouble Trap 1"); // t=44.6; Ability BAA6 from Kefka
+    Timeout(id + 0xA0, 1.4f, "Explosion"); // t=46.0; Ability BAAA from Kefka; cactbot Ability BAA8 [DMU P1 Wave Cannon Explosion Towers]
+    Timeout(id + 0xB0, 3.6f, "--knockback--"); // t=49.6; cactbot GainsEffect 13D6 [DMU P1 Double-trouble Trap Knockback]
+    Timeout(id + 0xC0, 0.1f, "Double-trouble Trap 2"); // t=49.7; Ability BAA7 from Kefka; cactbot GainsEffect 13D6 [DMU P1 Double-trouble Trap 2 Early]
+    Timeout(id + 0xD0, 4.0f, "Mystery Magic / Thrumming Thunder III / Blizzard III Blowout"); // t=53.7; Ability BA94 from Kefka; cactbot StartsUsing BA94 [DMU P1 Mystery Magic Ice and Fire] | StartsUsing BA94 [DMU P1 and P4 Mystery Magic Ice and Thunder] | StartsUsing BA94 [DMU P1 Mystery Magic Fire and Thunder] | StartsUsing BA94/C622/BB14 [DMU P1 and P4 Mystery Magic Cleanup]
+    Timeout(id + 0xE0, 9.0f, "Light of Judgment").SetHint(StateMachine.StateHint.Raidwide | StateMachine.StateHint.Tankbuster); // t=62.7; Ability C622 from Kefka; cactbot StartsUsing C622 [DMU P1 Light of Judgment] | StartsUsing C622 [DMU P1 Hyperdrive] | StartsUsing BA94/C622/BB14 [DMU P1 and P4 Mystery Magic Cleanup]
+    Timeout(id + 0xF0, 3.1f, "Hyperdrive 1"); // t=65.8
+    Timeout(id + 0x100, 2.0f, "Hyperdrive 2"); // t=67.8
+    Timeout(id + 0x110, 2.0f, "Hyperdrive 3"); // t=69.8
+    Timeout(id + 0x120, 5.8f, "--middle--"); // t=75.6; Ability C3FD from Kefka
+    Timeout(id + 0x130, 4.4f, "Graven Image 2"); // t=80.0; Ability BCF2 from Kefka; cactbot StartsUsing BCF2 [DMU P1 Graven Image Counter]
+    Timeout(id + 0x140, 7.1f, "Blizzard III Blowout"); // t=87.1; cactbot StartsUsing BA95 [DMU P4 Blizzard III Blowout]
+    Timeout(id + 0x150, 0.1f, "Gravitas"); // t=87.2; Ability BAAC from Graven Image; cactbot Ability BAA9/BAAC/BAB0/BAB5/BAB6 [DMU P1 Graven Image Tether Cleanup] | Ability BAAC [DMU P1 Vitrophyre]
+    Timeout(id + 0x160, 4.0f, "Vitrophyre"); // t=91.2; Ability BAB0 from Graven Image; cactbot Ability BAA9/BAAC/BAB0/BAB5/BAB6 [DMU P1 Graven Image Tether Cleanup]
+    Timeout(id + 0x170, 5.9f, "Revolting Ruin III 1"); // t=97.1; Ability C403 from Kefka
+    Timeout(id + 0x180, 3.1f, "Revolting Ruin III 2"); // t=100.2; Ability C4E1 from Kefka
+    Timeout(id + 0x190, 0.9f, "Intemperate Will/Gravitational Wave"); // t=101.1; Ability BAB2/BAB1 from Graven Image
+    Timeout(id + 0x1A0, 4.7f, "Gravitas"); // t=105.8; Ability BAAC from Graven Image; cactbot Ability BAA9/BAAC/BAB0/BAB5/BAB6 [DMU P1 Graven Image Tether Cleanup] | Ability BAAC [DMU P1 Vitrophyre]
+    Timeout(id + 0x1B0, 4.0f, "Vitrophyre"); // t=109.8; Ability BAB0 from Graven Image; cactbot Ability BAA9/BAAC/BAB0/BAB5/BAB6 [DMU P1 Graven Image Tether Cleanup]
+    Timeout(id + 0x1C0, 4.6f, "Intemperate Will/Gravitational Wave"); // t=114.4; Ability BAB2/BAB1 from Graven Image
+    Timeout(id + 0x1D0, 2.6f, "Gravity III (Pop Window)"); // t=117.0
+    Timeout(id + 0x1E0, 1.0f, "--knockback--"); // t=118.0; cactbot GainsEffect 13D6 [DMU P1 Double-trouble Trap Knockback]
+    Timeout(id + 0x1F0, 0.1f, "Double-Trouble Trap 3"); // t=118.1; Ability BAA7 from Kefka; cactbot GainsEffect 13D6 [DMU P1 Double-trouble Trap 3 Early]
+    Timeout(id + 0x200, 14.3f, "Light of Judgment").SetHint(StateMachine.StateHint.Raidwide | StateMachine.StateHint.Tankbuster); // t=132.4; Ability C622 from Kefka; cactbot StartsUsing C622 [DMU P1 Light of Judgment] | StartsUsing C622 [DMU P1 Hyperdrive] | StartsUsing BA94/C622/BB14 [DMU P1 and P4 Mystery Magic Cleanup]
+    Timeout(id + 0x210, 3.2f, "Hyperdrive 1"); // t=135.6
+    Timeout(id + 0x220, 2.1f, "Hyperdrive 2"); // t=137.7
+    Timeout(id + 0x230, 2.0f, "Hyperdrive 3"); // t=139.7
+    Timeout(id + 0x240, 11.8f, "Tele-trouncing (castbar)"); // t=151.5; Ability BAB9 from Kefka
+    Timeout(id + 0x250, 7.9f, "Tele-trouncing 1"); // t=159.4; Ability BABA from Kefka
+    Timeout(id + 0x260, 3.0f, "Tele-trouncing 2"); // t=162.4; Ability BABA from Kefka
+    Timeout(id + 0x270, 1.2f, "Graven Image 3"); // t=163.6; Ability BCF2 from Kefka; cactbot StartsUsing BCF2 [DMU P1 Graven Image Counter]
+    Timeout(id + 0x280, 7.0f, "--knockback--"); // t=170.6; cactbot GainsEffect 13D6 [DMU P1 Double-trouble Trap Knockback]
+    Timeout(id + 0x290, 2.8f, "Indulgent Will / Idyllic Will"); // t=173.4; Ability BAB5 from Graven Image; cactbot Ability BAA9/BAAC/BAB0/BAB5/BAB6 [DMU P1 Graven Image Tether Cleanup]
+    Timeout(id + 0x2A0, 6.3f, "--middle--"); // t=179.7; Ability C3FD from Kefka
+    Timeout(id + 0x2B0, 6.6f, "Mystery Magic / Thrumming Thunder III / Ave Maria/Indolent Will"); // t=186.3; Ability BA94 from Kefka; cactbot StartsUsing BA94 [DMU P1 Mystery Magic Ice and Fire] | StartsUsing BA94 [DMU P1 and P4 Mystery Magic Ice and Thunder] | StartsUsing BA94 [DMU P1 Mystery Magic Fire and Thunder] | StartsUsing BA94/C622/BB14 [DMU P1 and P4 Mystery Magic Cleanup]
+    Timeout(id + 0x2C0, 0.8f, "Flagrant Fire III"); // t=187.1; Ability BAA2/BAA3 from Kefka
+    Targetable(id + 0x2D0, false, 10.2f, "--untargetable--"); // t=197.3
+    Condition(id + 0x2E0, 0.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xBABB), "", 5f, 0.0f); // t=197.5; StartsUsing BABB from Kefka
+    Timeout(id + 0x2F0, 4.9f, "Light of Judgment (Enrage)?"); // t=202.4; Ability BABB from Kefka
+}
+
+private void Phase_2___God_Kefka(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=207.6
+    Timeout(id + 0x10, 12.5f, "Ultimate Embrace").SetHint(StateMachine.StateHint.Tankbuster); // t=220.1; Ability C24C from Kefka; cactbot StartsUsing C24C/C3F7/C2DC/BB40 [DMU Phase Tracker] | StartsUsing C24C [DMU P2 Ultimate Embrace]
+    Timeout(id + 0x20, 15.2f, "Forsaken").SetHint(StateMachine.StateHint.Raidwide); // t=235.3; Ability BABC from Kefka; cactbot StartsUsing BABC [DMU P2 Forsaken]
+    Timeout(id + 0x30, 13.2f, "The Path of Light 1"); // t=248.5; Ability BABE from Kefka; cactbot Ability BABE [DMU P2 Path of Light Counter]
+    Timeout(id + 0x40, 0.6f, "Spelldriver/Spellscatter/Spellwave"); // t=249.1; Ability BAC0/BAC1/BAC2 from Kefka; cactbot Ability BABF/BAC0/BAC1/BAC2 [DMU P2 Path of Light Towers 8]
+    Timeout(id + 0x50, 8.7f, "Future's End/Past's End 1"); // t=257.8; Ability BAD2/BAD3 from Kefka; cactbot StartsUsing BAD2/BAD3 [DMU P2 Future\] | Ability BAD2/BAD3 [DMU P2 All Things Ending Baits] | StartsUsing BAD2/BAD3 [DMU P2 Path of Light Tower 8 AAAABBBB Special]
+    Timeout(id + 0x60, 0.6f, "The Path of Light 2"); // t=258.4; Ability BABE from Kefka; cactbot Ability BABE [DMU P2 Path of Light Counter]
+    Timeout(id + 0x70, 0.7f, "Spelldriver/Spellscatter/Spellwave"); // t=259.1; Ability BAC0/BAC1/BAC2 from Kefka; cactbot Ability BABF/BAC0/BAC1/BAC2 [DMU P2 Path of Light Towers 8]
+    Timeout(id + 0x80, 10.0f, "All Things Ending"); // t=269.1; cactbot Ability BAD2/BAD3 [DMU P2 All Things Ending Baits] | StartsUsing BADC [DMU P2 Last All Things Ending Followup]
+    Timeout(id + 0x90, 0.3f, "The Path of Light 3"); // t=269.4; Ability BABE from Kefka; cactbot Ability BABE [DMU P2 Path of Light Counter]
+    Timeout(id + 0xA0, 0.6f, "Spelldriver/Spellscatter/Spellwave"); // t=270.0; Ability BAC0/BAC1/BAC2 from Kefka; cactbot Ability BABF/BAC0/BAC1/BAC2 [DMU P2 Path of Light Towers 8]
+    Timeout(id + 0xB0, 8.7f, "Future's End/Past's End 2"); // t=278.7; Ability BAD2/BAD3 from Kefka; cactbot StartsUsing BAD2/BAD3 [DMU P2 Future\] | Ability BAD2/BAD3 [DMU P2 All Things Ending Baits] | StartsUsing BAD2/BAD3 [DMU P2 Path of Light Tower 8 AAAABBBB Special]
+    Timeout(id + 0xC0, 0.7f, "The Path of Light 4"); // t=279.4; Ability BABE from Kefka; cactbot Ability BABE [DMU P2 Path of Light Counter]
+    Timeout(id + 0xD0, 0.7f, "Spelldriver/Spellscatter/Spellwave"); // t=280.1; Ability BAC0/BAC1/BAC2 from Kefka; cactbot Ability BABF/BAC0/BAC1/BAC2 [DMU P2 Path of Light Towers 8]
+    Timeout(id + 0xE0, 10.3f, "All Things Ending"); // t=290.4; cactbot Ability BAD2/BAD3 [DMU P2 All Things Ending Baits] | StartsUsing BADC [DMU P2 Last All Things Ending Followup]
+    Timeout(id + 0xF0, 0.1f, "The Path of Light 5"); // t=290.5; Ability BABE from Kefka; cactbot Ability BABE [DMU P2 Path of Light Counter]
+    Timeout(id + 0x100, 0.7f, "Spelldriver/Spellscatter/Spellwave"); // t=291.2; Ability BAC0/BAC1/BAC2 from Kefka; cactbot Ability BABF/BAC0/BAC1/BAC2 [DMU P2 Path of Light Towers 8]
+    Timeout(id + 0x110, 8.8f, "Future's End/Past's End 3"); // t=300.0; Ability BAD2/BAD3 from Kefka; cactbot StartsUsing BAD2/BAD3 [DMU P2 Future\] | Ability BAD2/BAD3 [DMU P2 All Things Ending Baits] | StartsUsing BAD2/BAD3 [DMU P2 Path of Light Tower 8 AAAABBBB Special]
+    Timeout(id + 0x120, 0.5f, "The Path of Light 6"); // t=300.5; Ability BABE from Kefka; cactbot Ability BABE [DMU P2 Path of Light Counter]
+    Timeout(id + 0x130, 0.6f, "Spelldriver/Spellscatter/Spellwave"); // t=301.1; Ability BAC0/BAC1/BAC2 from Kefka; cactbot Ability BABF/BAC0/BAC1/BAC2 [DMU P2 Path of Light Towers 8]
+    Timeout(id + 0x140, 10.1f, "All Things Ending"); // t=311.2; cactbot Ability BAD2/BAD3 [DMU P2 All Things Ending Baits] | StartsUsing BADC [DMU P2 Last All Things Ending Followup]
+    Timeout(id + 0x150, 0.2f, "The Path of Light 7"); // t=311.4; Ability BABE from Kefka; cactbot Ability BABE [DMU P2 Path of Light Counter]
+    Timeout(id + 0x160, 0.6f, "Spelldriver/Spellscatter/Spellwave"); // t=312.0; Ability BAC0/BAC1/BAC2 from Kefka; cactbot Ability BABF/BAC0/BAC1/BAC2 [DMU P2 Path of Light Towers 8]
+    Timeout(id + 0x170, 8.7f, "Future's End/Past's End 4"); // t=320.7; Ability BAD2/BAD3 from Kefka; cactbot StartsUsing BAD2/BAD3 [DMU P2 Future\] | Ability BAD2/BAD3 [DMU P2 All Things Ending Baits] | StartsUsing BAD2/BAD3 [DMU P2 Path of Light Tower 8 AAAABBBB Special]
+    Timeout(id + 0x180, 0.7f, "The Path of Light 8"); // t=321.4; Ability BABE from Kefka; cactbot Ability BABE [DMU P2 Path of Light Counter]
+    Timeout(id + 0x190, 0.6f, "Spelldriver/Spellscatter/Spellwave"); // t=322.0; Ability BAC0/BAC1/BAC2 from Kefka; cactbot Ability BABF/BAC0/BAC1/BAC2 [DMU P2 Path of Light Towers 8]
+    Timeout(id + 0x1A0, 10.1f, "All Things Ending"); // t=332.1; Ability BADC/BADD from Kefka; cactbot StartsUsing BADC/BADD [DMU P2 Path of Light Towers 3] | StartsUsing BADC/BADD [DMU P2 Path of Light Towers 5] | StartsUsing BADC/BADD [DMU P2 Path of Light Towers 7] | StartsUsing BADC [DMU P2 Last All Things Ending Followup]
+    Timeout(id + 0x1B0, 9.0f, "Light of Judgment").SetHint(StateMachine.StateHint.Raidwide); // t=341.1; Ability BABD from Kefka; cactbot StartsUsing BABD [DMU P2 Light of Judgment]
+    Timeout(id + 0x1C0, 11.2f, "Trine"); // t=352.3; Ability BADF from Kefka
+    Timeout(id + 0x1D0, 7.1f, "Wings of Destruction"); // t=359.4; Ability BACD/BACE from Kefka; cactbot StartsUsing BACD/BACE [DMU P2 Single Wing of Destruction]
+    Timeout(id + 0x1E0, 5.8f, "Trine 1"); // t=365.2
+    Timeout(id + 0x1F0, 2.0f, "Trine 2"); // t=367.2
+    Timeout(id + 0x200, 2.0f, "Trine 3"); // t=369.2
+    Timeout(id + 0x210, 0.3f, "Wings of Destruction"); // t=369.5; Ability C487 from Kefka; cactbot StartsUsing C487 [DMU P2 Wings of Destruction]
+    Timeout(id + 0x220, 7.2f, "Ultimate Embrace").SetHint(StateMachine.StateHint.Tankbuster); // t=376.7; Ability C24C from Kefka; cactbot StartsUsing C24C/C3F7/C2DC/BB40 [DMU Phase Tracker] | StartsUsing C24C [DMU P2 Ultimate Embrace]
+    Timeout(id + 0x230, 3.4f, "--untargetable?--"); // t=380.1
+    Condition(id + 0x240, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xBAE1), "", 5f, 0.0f); // t=380.1; StartsUsing BAE1 from Kefka
+    Condition(id + 0x250, 3.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xC3F7), "", 5f, 0.0f); // t=383.2; StartsUsing C3F7 from Kefka; cactbot StartsUsing C24C/C3F7/C2DC/BB40 [DMU Phase Tracker] | StartsUsing C3F7 [DMU P2 Aero III Assault]
+    Timeout(id + 0x260, 1.8f, "Light of Judgment (Enrage)?"); // t=385.0
+    Timeout(id + 0x270, 1.2f, "Aero III Assault?"); // t=386.2; Ability C3F7 from Kefka; cactbot StartsUsing C24C/C3F7/C2DC/BB40 [DMU Phase Tracker] | StartsUsing C3F7 [DMU P2 Aero III Assault]
+    Timeout(id + 0x280, 113.8f, "Aero III Assault"); // t=500.0; Ability C3F7 from Kefka; cactbot StartsUsing C24C/C3F7/C2DC/BB40 [DMU Phase Tracker] | StartsUsing C3F7 [DMU P2 Aero III Assault]
+    Timeout(id + 0x290, 0.8f, "Down for the Count"); // t=500.8
+}
+
+private void Phase_3___Chaos_and_Exdeath(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Definition of Insanity"); // t=537.3; Ability BAE2 from Kefka
+    Timeout(id + 0x10, 3.0f, "--both targetable--"); // t=540.3
+    Timeout(id + 0x20, 3.2f, "The Decisive Battle / --single target--"); // t=543.5; Ability C2E2/C2E3 from Chaos/Exdeath
+    Timeout(id + 0x30, 19.4f, "Bowels of Agony").SetHint(StateMachine.StateHint.Raidwide); // t=562.9; Ability BAF2 from Chaos; cactbot StartsUsing BAF2 [DMU P3 Bowels of Agony]
+    Timeout(id + 0x40, 12.1f, "--both targetable--"); // t=575.0
+    Timeout(id + 0x50, 7.0f, "Stray Flames/Stray Spray / Thunder III"); // t=582.0; Ability BAF3/BAF6 from Chaos/Kefka; cactbot Ability BAF3/BAF6 [DMU P3 Long Crystal and Wind Crystal Locations] | Ability BAF3/BAF6 [DMU P3 Wind Crystal Location]
+    Timeout(id + 0x60, 1.0f, "Inferno/Tsunami"); // t=583.0; Ability BAF4/BAF5 from Chaos/Kefka
+    Timeout(id + 0x70, 1.7f, "Cyclone"); // t=584.7; Ability BAF8 from Chaos
+    Timeout(id + 0x80, 6.6f, "Thunder III 1"); // t=591.3
+    Timeout(id + 0x90, 3.0f, "Thunder III 2"); // t=594.3
+    Timeout(id + 0xA0, 8.7f, "Trance"); // t=603.0; Ability C2D6 from Kefka
+    Timeout(id + 0xB0, 1.2f, "Longitudinal Implosion/Latitudinal Implosion (castbar)"); // t=604.2; Ability BAFD/BAFE from Chaos; cactbot StartsUsing BAFD [DMU P3 Longitudinal Implosion] | StartsUsing BAFE [DMU P3 Latitudinal Implosion] | Ability BAFD/BAFE [DMU P3 Umbra Smash]
+    Timeout(id + 0xC0, 0.8f, "Shockwave 1"); // t=605.0
+    Timeout(id + 0xD0, 2.0f, "Shockwave 2"); // t=607.0
+    Timeout(id + 0xE0, 2.0f, "Stray Spray/Stray Flames"); // t=609.0; Ability BAF6/BAF3 from Kefka/Chaos; cactbot Ability BAF3/BAF6 [DMU P3 Long Crystal and Wind Crystal Locations] | Ability BAF3/BAF6 [DMU P3 Wind Crystal Location]
+    Timeout(id + 0xF0, 1.0f, "Tsunami/Inferno"); // t=610.0; Ability BAF5/BAF4 from Chaos; cactbot GainsEffect 15A7/15A8/15A9/15AA [DMU P4 Tsunami/Inferno and First Debuffs (Early)] | GainsEffect 15A7/15A8/15A9/15AA [DMU P4 Tsunami/Inferno and Third Debuffs (Early)]
+    Timeout(id + 0x100, 1.7f, "Cyclone"); // t=611.7; Ability BAF8 from Chaos
+    Timeout(id + 0x110, 8.6f, "Ultima Blaster 1"); // t=620.3
+    Timeout(id + 0x120, 2.0f, "Ultima Blaster 2"); // t=622.3
+    Timeout(id + 0x130, 2.0f, "Ultima Blaster 3"); // t=624.3
+    Timeout(id + 0x140, 0.1f, "Umbra Smash"); // t=624.4; Ability BB00 from Chaos; cactbot Ability BAFD/BAFE [DMU P3 Umbra Smash]
+    Timeout(id + 0x150, 1.9f, "Ultima Blaster 4"); // t=626.3
+    Timeout(id + 0x160, 1.0f, "Vacuum Wave"); // t=627.3; Ability BB13 from Exdeath; cactbot StartsUsing BB13 [DMU P3 Vacuum Wave] | StartsUsing BB13 [DMU P3 Vacuum Wave Tank LB3]
+    Timeout(id + 0x170, 1.0f, "Ultima Blaster 5"); // t=628.3
+    Timeout(id + 0x180, 1.0f, "--numbers--"); // t=629.3
+    Timeout(id + 0x190, 1.0f, "Ultima Blaster 6"); // t=630.3
+    Timeout(id + 0x1A0, 1.0f, "Cyclone"); // t=631.3; Ability BAF8 from Chaos
+    Timeout(id + 0x1B0, 1.1f, "Ultima Blaster 7"); // t=632.4
+    Timeout(id + 0x1C0, 0.3f, "Aetherlink"); // t=632.7; Ability C2E4/C2E5 from Chaos/Exdeath
+    Timeout(id + 0x1D0, 1.7f, "Ultima Blaster 8"); // t=634.4
+    Timeout(id + 0x1E0, 8.0f, "Ultima Blaster 1"); // t=642.4
+    Timeout(id + 0x1F0, 0.2f, "Ultima Blaster 2"); // t=642.6
+    Timeout(id + 0x200, 0.2f, "Ultima Blaster 3"); // t=642.8
+    Timeout(id + 0x210, 0.2f, "Ultima Blaster 4"); // t=643.0
+    Timeout(id + 0x220, 0.2f, "Ultima Blaster 5"); // t=643.2
+    Timeout(id + 0x230, 0.2f, "Ultima Blaster 6"); // t=643.4
+    Timeout(id + 0x240, 0.2f, "Ultima Blaster 7"); // t=643.6
+    Timeout(id + 0x250, 0.2f, "Ultima Blaster 8"); // t=643.8
+    Timeout(id + 0x260, 5.9f, "Thunder III 1"); // t=649.7
+    Timeout(id + 0x270, 3.0f, "Thunder III 2"); // t=652.7
+    Timeout(id + 0x280, 5.0f, "The Decisive Battle / --single target--"); // t=657.7; Ability C2E2/C2E3 from Chaos/Exdeath
+    Timeout(id + 0x290, 9.1f, "Thunder III 1"); // t=666.8
+    Timeout(id + 0x2A0, 1.8f, "Max"); // t=668.6; Ability BAE5 from Kefka; cactbot StartsUsing BAE5 [DMU P3 Max Collect ID]
+    Timeout(id + 0x2B0, 1.2f, "Thunder III 2"); // t=669.8
+    Timeout(id + 0x2C0, 2.0f, "Earthquake"); // t=671.8; Ability C571 from Chaos
+    Timeout(id + 0x2D0, 4.0f, "--accretion?--"); // t=675.8; cactbot GainsEffect 644 [DMU P3 Accretion Collector] | GainsEffect BBC/BBD/BBE [DMU P3 In Line Debuff + Accretion 1] | LosesEffect 644 [DMU P3 Accretion Cleanup] | GainsEffect D2C [DMU P3 Accretion 2]
+    Timeout(id + 0x2E0, 1.0f, "Accretion Earthquake 1?"); // t=676.8
+    Timeout(id + 0x2F0, 3.1f, "--accretion?--"); // t=679.9; cactbot GainsEffect 644 [DMU P3 Accretion Collector] | GainsEffect BBC/BBD/BBE [DMU P3 In Line Debuff + Accretion 1] | LosesEffect 644 [DMU P3 Accretion Cleanup] | GainsEffect D2C [DMU P3 Accretion 2]
+    Timeout(id + 0x300, 1.0f, "Accretion Earthquake 2?"); // t=680.9
+    Timeout(id + 0x310, 6.5f, "Slap Happy (castbar)"); // t=687.4; Ability BAE6/BAE7 from Kefka; cactbot StartsUsing BAE6/BAE7 [DMU P3 Slap Happy]
+    Timeout(id + 0x320, 0.8f, "Slap Happy 1"); // t=688.2
+    Timeout(id + 0x330, 0.7f, "Slap Happy 2"); // t=688.9
+    Timeout(id + 0x340, 0.8f, "Slap Happy 3"); // t=689.7
+    Timeout(id + 0x350, 1.2f, "Slap Happy 4 / Shockwave"); // t=690.9; Ability BAE9 from Kefka
+    Timeout(id + 0x360, 0.3f, "Black Hole"); // t=691.2; Ability BAFB from Exdeath; cactbot AddedCombatant [DMU P3 Black Hole Tracker] | Tether [DMU P3 Black Hole Tether Collect (NetworkTether)] | SpawnNpcExtra [DMU P3 Black Hole Tether Collect (SpawnNpcExtra)] | SpawnNpcExtra [DMU P3 Black Hole 1, Nothingness 1] | Tether [DMU P3 Black Hole 2, Nothingness 2] | SpawnNpcExtra [DMU P3  Black Hole 3, Nothingness 3] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 4] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 5] | SpawnNpcExtra [DMU P3  Black Hole 4, Nothingness 6] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 7] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 8] | SpawnNpcExtra [DMU P3 Black Hole 5, Nothingness 9] | Tether [DMU P3 Black Hole 6, Nothingness 10]
+    Timeout(id + 0x370, 7.1f, "Nothingness / Aetherlink"); // t=698.3; Ability BAFC from Black Hole; cactbot Ability BAFC [DMU P3 Nothingness Counter] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 4] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 5] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 7] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 8] | Ability BAFC [DMU P3 Blizzard III Puddles]
+    Timeout(id + 0x380, 7.0f, "Nothingness"); // t=705.3; Ability BAFC from Black Hole; cactbot Ability BAFC [DMU P3 Nothingness Counter] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 4] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 5] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 7] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 8] | Ability BAFC [DMU P3 Blizzard III Puddles]
+    Timeout(id + 0x390, 3.1f, "Thunder III 1"); // t=708.4
+    Timeout(id + 0x3A0, 3.0f, "Thunder III 2"); // t=711.4
+    Timeout(id + 0x3B0, 1.3f, "Primordial Crust Quake?"); // t=712.7
+    Timeout(id + 0x3C0, 3.8f, "Damning Edict"); // t=716.5; Ability BB01 from Chaos; cactbot StartsUsing BB01 [DMU P3 Damning Edict]
+    Timeout(id + 0x3D0, 1.2f, "Slap Happy (castbar)"); // t=717.7; Ability BAE6/BAE7 from Kefka; cactbot StartsUsing BAE6/BAE7 [DMU P3 Slap Happy]
+    Timeout(id + 0x3E0, 0.8f, "Slap Happy 1"); // t=718.5
+    Timeout(id + 0x3F0, 0.7f, "Slap Happy 2"); // t=719.2
+    Timeout(id + 0x400, 0.8f, "Slap Happy 3"); // t=720.0
+    Timeout(id + 0x410, 1.2f, "Slap Happy 4 / Shockwave"); // t=721.2; Ability BAE9 from Kefka
+    Timeout(id + 0x420, 3.4f, "Black Spark"); // t=724.6; Ability BCCD from Black Hole
+    Timeout(id + 0x430, 4.0f, "Nothingness"); // t=728.6; Ability BAFC from Black Hole; cactbot Ability BAFC [DMU P3 Nothingness Counter] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 4] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 5] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 7] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 8] | Ability BAFC [DMU P3 Blizzard III Puddles]
+    Timeout(id + 0x440, 1.6f, "Primordial Crust Quake?"); // t=730.2
+    Timeout(id + 0x450, 3.6f, "Nothingness"); // t=733.8; Ability BAFC from Black Hole; cactbot Ability BAFC [DMU P3 Nothingness Counter] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 4] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 5] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 7] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 8] | Ability BAFC [DMU P3 Blizzard III Puddles]
+    Timeout(id + 0x460, 1.6f, "Primordial Crust Quake?"); // t=735.4
+    Timeout(id + 0x470, 3.6f, "Nothingness"); // t=739.0; Ability BAFC from Black Hole; cactbot Ability BAFC [DMU P3 Nothingness Counter] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 4] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 5] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 7] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 8] | Ability BAFC [DMU P3 Blizzard III Puddles]
+    Timeout(id + 0x480, 5.0f, "Damning Edict"); // t=744.0; Ability BB01 from Chaos; cactbot StartsUsing BB01 [DMU P3 Damning Edict]
+    Timeout(id + 0x490, 0.4f, "Look upon Me and Despair (castbar)"); // t=744.4; Ability BAEC from Kefka; cactbot StartsUsing BAEC [DMU P3 Look upon Me and Despair 1]
+    Timeout(id + 0x4A0, 1.0f, "Look upon Me and Despair"); // t=745.4; Ability BAEE from Kefka
+    Timeout(id + 0x4B0, 2.1f, "Blackblood / Primordial Crust Quake?"); // t=747.5; Ability C4BA from Kefka
+    Timeout(id + 0x4C0, 2.2f, "Thunder III 1"); // t=749.7
+    Timeout(id + 0x4D0, 3.0f, "Thunder III 2"); // t=752.7
+    Timeout(id + 0x4E0, 10.1f, "Nothingness"); // t=762.8; Ability BAFC from Black Hole; cactbot Ability BAFC [DMU P3 Nothingness Counter] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 4] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 5] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 7] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 8] | Ability BAFC [DMU P3 Blizzard III Puddles]
+    Timeout(id + 0x4F0, 1.6f, "Primordial Crust Quake?"); // t=764.4
+    Timeout(id + 0x500, 0.6f, "Aetherlink"); // t=765.0; Ability C2E4/C2E5 from Chaos/Exdeath
+    Timeout(id + 0x510, 3.0f, "Nothingness"); // t=768.0; Ability BAFC from Black Hole; cactbot Ability BAFC [DMU P3 Nothingness Counter] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 4] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 5] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 7] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 8] | Ability BAFC [DMU P3 Blizzard III Puddles]
+    Timeout(id + 0x520, 1.6f, "Primordial Crust Quake?"); // t=769.6
+    Timeout(id + 0x530, 3.6f, "Nothingness"); // t=773.2; Ability BAFC from Black Hole; cactbot Ability BAFC [DMU P3 Nothingness Counter] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 4] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 5] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 7] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 8] | Ability BAFC [DMU P3 Blizzard III Puddles]
+    Timeout(id + 0x540, 11.0f, "White Hole / Longitudinal Implosion/Latitudinal Implosion (castbar)"); // t=784.2; Ability BD66 from Exdeath | Ability BAFD/BAFE from Chaos; cactbot StartsUsing BAFD [DMU P3 Longitudinal Implosion] | StartsUsing BAFE [DMU P3 Latitudinal Implosion] | Ability BAFD/BAFE [DMU P3 Umbra Smash]
+    Timeout(id + 0x550, 0.8f, "Shockwave 1"); // t=785.0
+    Timeout(id + 0x560, 0.9f, "Slap Happy (castbar)"); // t=785.9; Ability BAE6/BAE7 from Kefka; cactbot StartsUsing BAE6/BAE7 [DMU P3 Slap Happy]
+    Timeout(id + 0x570, 0.9f, "Slap Happy 1"); // t=786.8
+    Timeout(id + 0x580, 0.4f, "Shockwave 2"); // t=787.2
+    Timeout(id + 0x590, 0.2f, "Slap Happy 2"); // t=787.4
+    Timeout(id + 0x5A0, 0.7f, "Slap Happy 3"); // t=788.1
+    Timeout(id + 0x5B0, 1.2f, "Slap Happy 4 / Shocking Impact"); // t=789.3; Ability BAE9 from Kefka | Ability BAEA from Kefka
+    Timeout(id + 0x5C0, 3.2f, "Black Spark"); // t=792.5; Ability BCCD from Black Hole/Kefka
+    Timeout(id + 0x5D0, 4.0f, "Nothingness"); // t=796.5; Ability BAFC from Black Hole; cactbot Ability BAFC [DMU P3 Nothingness Counter] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 4] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 5] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 7] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 8] | Ability BAFC [DMU P3 Blizzard III Puddles]
+    Timeout(id + 0x5E0, 5.7f, "Look upon Me and Despair (castbar)"); // t=802.2; Ability BAED from Kefka; cactbot StartsUsing BAED [DMU P3 Look upon Me and Despair 2]
+    Timeout(id + 0x5F0, 1.0f, "Look upon Me and Despair"); // t=803.2; Ability BAEE from Kefka
+    Timeout(id + 0x600, 0.3f, "Nothingness"); // t=803.5; Ability BAFC from Black Hole; cactbot Ability BAFC [DMU P3 Nothingness Counter] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 4] | Ability BAFC [DMU P3 Black Hole 3, Nothingness 5] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 7] | Ability BAFC [DMU P3 Black Hole 4, Nothingness 8] | Ability BAFC [DMU P3 Blizzard III Puddles]
+    Timeout(id + 0x610, 8.9f, "Blizzard III (castbar)"); // t=812.4; Ability BB0F from Exdeath
+    Timeout(id + 0x620, 3.0f, "Blizzard III 1"); // t=815.4; Ability BB0D from Exdeath; cactbot StartsUsing BB0D [DMU P3 Knock Down 1]
+    Timeout(id + 0x630, 0.9f, "Stomp-a-Mole (castbar)"); // t=816.3; Ability BAEF from Kefka
+    Timeout(id + 0x640, 1.6f, "Knock Down 1"); // t=817.9; Ability BB02 from Chaos; cactbot Ability BB02 [DMU P3 Knock Down 1 State]
+    Timeout(id + 0x650, 0.1f, "Stomp-a-Mole 1"); // t=818.0; Ability BAF0 from Kefka
+    Timeout(id + 0x660, 0.4f, "Blizzard III 2"); // t=818.4; Ability BB0D from Exdeath; cactbot StartsUsing BB0D [DMU P3 Knock Down 1]
+    Timeout(id + 0x670, 0.9f, "Stomp-a-Mole 2"); // t=819.3; Ability BAF0 from Kefka
+    Timeout(id + 0x680, 1.3f, "Stomp-a-Mole 3"); // t=820.6; Ability BAF0 from Kefka
+    Timeout(id + 0x690, 1.3f, "Stomp-a-Mole 4"); // t=821.9; Ability BAF0 from Kefka
+    Timeout(id + 0x6A0, 1.4f, "Knock Down 2"); // t=823.3; Ability BB03 from Chaos; cactbot Ability BB03 [DMU P3 Blizzard III Keep Moving (Stack Role)]
+    Timeout(id + 0x6B0, 3.1f, "Blizzard III"); // t=826.4; Ability BB11 from Exdeath; cactbot StartsUsing BB11 [DMU P3 Blizzard III State] | StartsUsing BB11 [DMU P3 Blizzard III Keep Moving (Tower Role)]
+    Timeout(id + 0x6C0, 1.0f, "Big Bang"); // t=827.4; Ability BB05 from Chaos
+    Timeout(id + 0x6D0, 2.9f, "--both targetable--"); // t=830.3
+    Condition(id + 0x6E0, 10.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xC61E or 0xC61F), "", 5f, 5.4f); // t=840.7; StartsUsing C61F from Chaos | StartsUsing C61E from Exdeath
+    Condition(id + 0x6F0, 0.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xC258 or 0xC259), "", 5f, 0.0f); // t=840.8; StartsUsing C258 from Exdeath | StartsUsing C259 from Chaos
+    Timeout(id + 0x700, 0.0f, "--Chaos untargetable?-- / --Exdeath untargetable?--"); // t=840.8
+    Timeout(id + 0x710, 5.0f, "Bowels of Agony (Enrage)? / Meteor (Enrage)?"); // t=845.8
+    Timeout(id + 0x720, 4.9f, "Bowels of Agony (Chaos Enrage)? / Meteor (Exdeath Enrage)?"); // t=850.7; Ability C61F from Chaos | Ability C61E from Exdeath
+}
+
+private void Phase_4___Kefka_with_Chaos_and_Neo_Exdeath(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xC2DC), "", 5f, 0.0f); // t=995.0; StartsUsing C2DC from Kefka; cactbot StartsUsing C24C/C3F7/C2DC/BB40 [DMU Phase Tracker]
+    Timeout(id + 0x10, 5.0f, "Kefka Says"); // t=1000.0; Ability C2DC from Kefka; cactbot StartsUsing C24C/C3F7/C2DC/BB40 [DMU Phase Tracker]
+    Timeout(id + 0x20, 3.1f, "--middle--"); // t=1003.1; Ability C3FD from Kefka
+    Timeout(id + 0x30, 6.3f, "Mystery Magic 1 / Thrumming Thunder III / Blizzard III Blowout"); // t=1009.4; Ability BA94 from Kefka; cactbot StartsUsing BA94 [DMU P1 Mystery Magic Ice and Fire] | StartsUsing BA94 [DMU P1 and P4 Mystery Magic Ice and Thunder] | StartsUsing BA94 [DMU P1 Mystery Magic Fire and Thunder] | StartsUsing BA94/C622/BB14 [DMU P1 and P4 Mystery Magic Cleanup]
+    Timeout(id + 0x40, 4.3f, "Grand Cross").SetHint(StateMachine.StateHint.Raidwide); // t=1013.7; Ability BB14 from Neo Exdeath; cactbot StartsUsing BA94/C622/BB14 [DMU P1 and P4 Mystery Magic Cleanup] | StartsUsing BB14 [DMU P4 Grand Cross Counter] | StartsUsing BB14 [DMU P4 Grand Cross]
+    Timeout(id + 0x50, 5.0f, "Inferno/Tsunami"); // t=1018.7; Ability BB20/BB21 from Chaos; cactbot StartsUsing BB20/BB21 [DMU P4 Second and Fourth Debuffs (Early)]
+    Timeout(id + 0x60, 5.4f, "Mystery Magic 2 / Thrumming Thunder III / Blizzard III Blowout"); // t=1024.1; Ability BA94 from Kefka; cactbot StartsUsing BA94 [DMU P1 Mystery Magic Ice and Fire] | StartsUsing BA94 [DMU P1 and P4 Mystery Magic Ice and Thunder] | StartsUsing BA94 [DMU P1 Mystery Magic Fire and Thunder] | StartsUsing BA94/C622/BB14 [DMU P1 and P4 Mystery Magic Cleanup]
+    Timeout(id + 0x70, 4.3f, "Grand Cross").SetHint(StateMachine.StateHint.Raidwide); // t=1028.4; Ability BB14 from Neo Exdeath; cactbot StartsUsing BA94/C622/BB14 [DMU P1 and P4 Mystery Magic Cleanup] | StartsUsing BB14 [DMU P4 Grand Cross Counter] | StartsUsing BB14 [DMU P4 Grand Cross]
+    Timeout(id + 0x80, 5.1f, "Tsunami/Inferno"); // t=1033.5; Ability BB21/BB20 from Chaos; cactbot StartsUsing BB20/BB21 [DMU P4 Second and Fourth Debuffs (Early)]
+    Timeout(id + 0x90, 5.7f, "Mystery Magic 3 / Thrumming Thunder III / Blizzard III Blowout"); // t=1039.2; Ability BA94 from Kefka; cactbot StartsUsing BA94 [DMU P1 Mystery Magic Ice and Fire] | StartsUsing BA94 [DMU P1 and P4 Mystery Magic Ice and Thunder] | StartsUsing BA94 [DMU P1 Mystery Magic Fire and Thunder] | StartsUsing BA94/C622/BB14 [DMU P1 and P4 Mystery Magic Cleanup]
+    Timeout(id + 0xA0, 4.1f, "Grand Cross").SetHint(StateMachine.StateHint.Raidwide); // t=1043.3; Ability BB14 from Neo Exdeath; cactbot StartsUsing BA94/C622/BB14 [DMU P1 and P4 Mystery Magic Cleanup] | StartsUsing BB14 [DMU P4 Grand Cross Counter] | StartsUsing BB14 [DMU P4 Grand Cross]
+    Timeout(id + 0xB0, 12.1f, "Flood of Naught"); // t=1055.4; Ability C393 from Neo Exdeath; cactbot StartsUsing C392/C393/C3A1/C3A2 [DMU P4 Flood of Naught]
+    Timeout(id + 0xC0, 0.4f, "Edge of Death / White Antilight / Black Antilight"); // t=1055.8; Ability C396 from Neo Exdeath
+    Timeout(id + 0xD0, 3.9f, "Death Surge"); // t=1059.7; Ability BB1D from Neo Exdeath
+    Timeout(id + 0xE0, 4.4f, "Mana Charge"); // t=1064.1; Ability BAA4 from Kefka; cactbot GainsEffect 5CD/5CC [DMU P4 Mana Charge Collect]
+    Timeout(id + 0xF0, 0.3f, "Death Bolt / Death Wave"); // t=1064.4
+    Timeout(id + 0x100, 8.0f, "Thrumming Thunder III"); // t=1072.4; Ability C5DE from Kefka; cactbot StartsUsing C5DE [DMU P4 Thrumming Thunder III]
+    Timeout(id + 0x110, 1.0f, "Death Shriek"); // t=1073.4; Ability BB16 from Neo Exdeath
+    Timeout(id + 0x120, 9.1f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=1082.5; Ability C24A from Kefka; cactbot StartsUsing C24A [DMU P4/P5 Ultima Upsurge]
+    Timeout(id + 0x130, 2.8f, "Stray Flames"); // t=1085.3; Ability BB23 from Chaos; cactbot GainsEffect 15AB [DMU P4 Stray Flames and Long Debuffs]
+    Timeout(id + 0x140, 4.1f, "Death Wave / Death Bolt / Death Bomb"); // t=1089.4; Ability BB1B from Neo Exdeath
+    Timeout(id + 0x150, 1.0f, "Blizzard III Blowout"); // t=1090.4; Ability BA9B from Kefka; cactbot StartsUsing BA95 [DMU P4 Blizzard III Blowout]
+    Timeout(id + 0x160, 4.2f, "Stray Spray"); // t=1094.6; cactbot GainsEffect 15AC [DMU P4 Fake Stray Spray]
+    Timeout(id + 0x170, 1.3f, "Stray Spray"); // t=1095.9; cactbot GainsEffect 15AC [DMU P4 Fake Stray Spray]
+    Timeout(id + 0x180, 1.3f, "Death Shriek"); // t=1097.2; Ability BB17 from Neo Exdeath
+    Timeout(id + 0x190, 6.3f, "Mana Release"); // t=1103.5; Ability BAA5 from Kefka; cactbot StartsUsing BAA5 [DMU P4 Mana Release]
+    Timeout(id + 0x1A0, 4.1f, "Stray Spray"); // t=1107.6; Ability BB25 from Chaos; cactbot GainsEffect 15AC [DMU P4 Fake Stray Spray]
+    Timeout(id + 0x1B0, 0.9f, "Thrumming Thunder III / Blizzard III Blowout"); // t=1108.5
+    Condition(id + 0x1C0, 4.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xBABB), "", 5f, 0.0f); // t=1112.8; StartsUsing BABB from Kefka
+    Timeout(id + 0x1D0, 0.0f, "--untargetable?--"); // t=1112.8
+    Timeout(id + 0x1E0, 2.0f, "--middle?--"); // t=1114.8; Ability C3FD from Kefka
+    Timeout(id + 0x1F0, 3.0f, "Light of Judgment (Enrage)?"); // t=1117.8
+    Timeout(id + 0x200, 3.5f, "Ultima Upsurge?"); // t=1121.3; cactbot StartsUsing C24A [DMU P4/P5 Ultima Upsurge]
+    Timeout(id + 0x210, 37.9f, "Ultima Repeater (castbar)?"); // t=1159.2
+}
+
+private void Phase_5___Kefka(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "--middle--"); // t=1255.6; Ability C3FD from Kefka
+    Timeout(id + 0x10, 6.3f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=1261.9; Ability C24A from Kefka; cactbot StartsUsing C24A [DMU P4/P5 Ultima Upsurge]
+    Timeout(id + 0x20, 38.1f, "Ultima Repeater (castbar)"); // t=1300.0; Ability BB40 from Kefka; cactbot StartsUsing C24C/C3F7/C2DC/BB40 [DMU Phase Tracker]
+    Timeout(id + 0x30, 1.1f, "Ultima Repeater 1"); // t=1301.1
+    Timeout(id + 0x40, 0.8f, "Ultima Repeater 2"); // t=1301.9
+    Timeout(id + 0x50, 0.7f, "Ultima Repeater 3"); // t=1302.6
+    Timeout(id + 0x60, 0.8f, "Ultima Repeater 4"); // t=1303.4
+    Timeout(id + 0x70, 2.9f, "Fell Forces"); // t=1306.3; Ability C654/C653/C654 from Kefka
+    Timeout(id + 0x80, 3.2f, "Fell Forces"); // t=1309.5; Ability C654/C653/C654 from Kefka
+    Timeout(id + 0x90, 3.1f, "Fell Forces"); // t=1312.6; Ability C654/C653/C654 from Kefka
+    Timeout(id + 0xA0, 5.3f, "Flood"); // t=1317.9; Ability C13F from Kefka
+    Timeout(id + 0xB0, 1.0f, "Chaotic Flood / Flood"); // t=1318.9
+    Timeout(id + 0xC0, 0.9f, "Chaotic Flood"); // t=1319.8
+    Timeout(id + 0xD0, 0.1f, "Flood"); // t=1319.9
+    Timeout(id + 0xE0, 0.9f, "Chaotic Flood"); // t=1320.8
+    Timeout(id + 0xF0, 0.1f, "Flood"); // t=1320.9
+    Timeout(id + 0x100, 0.9f, "Chaotic Flood"); // t=1321.8
+    Timeout(id + 0x110, 0.1f, "Flood"); // t=1321.9
+    Timeout(id + 0x120, 9.0f, "Maddening Orchestra"); // t=1330.9; Ability BB50 from Kefka
+    Timeout(id + 0x130, 0.9f, "Holy / Flare"); // t=1331.8; Ability BB54 from Kefka
+    Timeout(id + 0x140, 2.2f, "Maddening Orchestra"); // t=1334.0; Ability BB51 from Kefka
+    Timeout(id + 0x150, 0.9f, "Holy / Chaotic Flare"); // t=1334.9; Ability BB54 from Kefka | Ability BB54 from Kefka
+    Timeout(id + 0x160, 3.4f, "Chaotic Holy / Flare Diffusion"); // t=1338.3; Ability BB56 from Kefka
+    Timeout(id + 0x170, 4.8f, "Fell Forces"); // t=1343.1; Ability C654/C653/C654 from Kefka
+    Timeout(id + 0x180, 3.2f, "Fell Forces"); // t=1346.3; Ability C654/C653/C654 from Kefka
+    Timeout(id + 0x190, 6.6f, "Celestriad"); // t=1352.9; Ability BB42 from Kefka
+    Timeout(id + 0x1A0, 8.4f, "Catastrophic Choice"); // t=1361.3; Ability C24F from Kefka
+    Timeout(id + 0x1B0, 0.7f, "Fire III/Blizzard III/Thunder III?"); // t=1362.0; Ability BB43/BB44/BB45 from Kefka
+    Timeout(id + 0x1C0, 0.1f, "Tornado"); // t=1362.1; Ability BB4B from Kefka
+    Timeout(id + 0x1D0, 5.9f, "Fire III/Blizzard III/Thunder III?"); // t=1368.0; Ability BB43/BB44/BB45 from Kefka
+    Timeout(id + 0x1E0, 5.4f, "Catastrophic Choice"); // t=1373.4; Ability C24E from Kefka
+    Timeout(id + 0x1F0, 0.6f, "Fire III/Blizzard III/Thunder III?"); // t=1374.0; Ability BB43/BB44/BB45 from Kefka
+    Timeout(id + 0x200, 0.2f, "Quake"); // t=1374.2; Ability BB4A from Kefka
+    Timeout(id + 0x210, 8.0f, "Ultima Repeater (castbar)"); // t=1382.2; Ability BB40 from Kefka; cactbot StartsUsing C24C/C3F7/C2DC/BB40 [DMU Phase Tracker]
+    Timeout(id + 0x220, 1.1f, "Ultima Repeater 1"); // t=1383.3
+    Timeout(id + 0x230, 0.8f, "Ultima Repeater 2"); // t=1384.1
+    Timeout(id + 0x240, 0.7f, "Ultima Repeater 3"); // t=1384.8
+    Timeout(id + 0x250, 0.8f, "Ultima Repeater 4"); // t=1385.6
+    Timeout(id + 0x260, 2.9f, "Fell Forces"); // t=1388.5; Ability C654/C653/C654 from Kefka
+    Timeout(id + 0x270, 3.2f, "Fell Forces"); // t=1391.7; Ability C654/C653/C654 from Kefka
+    Timeout(id + 0x280, 5.4f, "Stray Apocalypse (castbar)"); // t=1397.1; Ability BB3B from Kefka
+    Timeout(id + 0x290, 0.7f, "Stray Apocalypse 1 x6"); // t=1397.8
+    Timeout(id + 0x2A0, 2.2f, "Stray Apocalypse 2 x6"); // t=1400.0
+    Timeout(id + 0x2B0, 2.0f, "Stray Apocalypse 3 x6"); // t=1402.0
+    Timeout(id + 0x2C0, 2.0f, "Stray Apocalypse 4 x6"); // t=1404.0
+    Timeout(id + 0x2D0, 2.0f, "Stray Apocalypse 5 x6"); // t=1406.0
+    Timeout(id + 0x2E0, 2.0f, "Stray Apocalypse 6 x6"); // t=1408.0
+    Timeout(id + 0x2F0, 4.0f, "Stray Entropy"); // t=1412.0; Ability BB3E from Kefka
+    Timeout(id + 0x300, 0.9f, "Stray Entropy"); // t=1412.9; Ability BB3F from Kefka
+    Timeout(id + 0x310, 8.2f, "Maddening Orchestra"); // t=1421.1; Ability BB50 from Kefka
+    Timeout(id + 0x320, 0.9f, "Holy / Flare"); // t=1422.0; Ability BB54 from Kefka
+    Timeout(id + 0x330, 2.2f, "Maddening Orchestra"); // t=1424.2; Ability BB51 from Kefka
+    Timeout(id + 0x340, 0.9f, "Holy / Chaotic Flare"); // t=1425.1; Ability BB54 from Kefka
+    Timeout(id + 0x350, 3.6f, "Flare Diffusion / Chaotic Holy"); // t=1428.7; Ability BB55 from Kefka
+    Timeout(id + 0x360, 4.7f, "Fell Forces"); // t=1433.4; Ability C654/C653/C654 from Kefka
+    Timeout(id + 0x370, 3.2f, "Fell Forces"); // t=1436.6; Ability C654/C653/C654 from Kefka
+    Timeout(id + 0x380, 3.2f, "Fell Forces"); // t=1439.8; Ability C654/C653/C654 from Kefka
+    Timeout(id + 0x390, 11.3f, "Forsaken 1"); // t=1451.1; Ability BB35 from Kefka
+    Timeout(id + 0x3A0, 5.0f, "Forsaken Ground/Forsaken Bonds"); // t=1456.1
+    Timeout(id + 0x3B0, 3.0f, "Forsaken 2"); // t=1459.1; Ability BB36 from Kefka
+    Timeout(id + 0x3C0, 5.0f, "Forsaken Ground/Forsaken Bonds"); // t=1464.1
+    Timeout(id + 0x3D0, 3.0f, "Forsaken 3"); // t=1467.1; Ability BB36 from Kefka
+    Timeout(id + 0x3E0, 5.0f, "Forsaken Ground/Forsaken Bonds"); // t=1472.1
+    Timeout(id + 0x3F0, 3.0f, "Forsaken 4"); // t=1475.1; Ability BB36 from Kefka
+    Timeout(id + 0x400, 5.0f, "Forsaken Ground/Forsaken Bonds"); // t=1480.1
+    Condition(id + 0x410, 5.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xBB3A), "", 5f, 0.0f); // t=1485.1; StartsUsing BB3A from Kefka
+    Timeout(id + 0x420, 26.0f, "Forsaken Null (Enrage)"); // t=1511.1; Ability BB3A from Kefka
+}
+
+private void Phase_1_and_Phase_4_Enrage_Sequence(uint id)
+{
+    Timeout(id + 0x0, 5.0f, "Light of Judgment (Enrage)"); // t=10005.0; Ability BABB from Kefka
+}
+
+private void Phase_2_Enrage_Sequence(uint id)
+{
+    Timeout(id + 0x0, 5.0f, "Light of Judgment (Enrage)"); // t=11005.0; Ability BAE1 from Kefka
+}
+
+private void Phase_3_Enrage_Sequence(uint id)
+{
+    Timeout(id + 0x0, 5.0f, "Bowels of Agony (Enrage) / Meteor (Enrage)"); // t=12005.0; Ability C259 from Chaos | Ability C258 from Exdeath
+}
+
+private void Phase_3_Exdeath_Enrage_Sequence(uint id)
+{
+    Timeout(id + 0x0, 10.0f, "Meteor (Exdeath Enrage)"); // t=13010.0; Ability C61E from Exdeath
+}
+
+private void Phase_3_Chaos_Enrage_Sequence(uint id)
+{
+    Timeout(id + 0x0, 10.0f, "Bowels of Agony (Chaos Enrage)"); // t=14010.0; Ability C61F from Chaos
+}
+
+private void Phase_4_Enrage_Sequence(uint id)
+{
+    Timeout(id + 0x0, 5.0f, "Light of Judgment (Enrage)"); // t=15005.0; Ability BABB from Kefka
+}
+

@@ -1,0 +1,310 @@
+// Generated development skeleton from orbonne_monastery.txt (TerritoryType 826).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 47 static/dynamic trigger definitions from ui/raidboss/data/04-sb/alliance/orbonne_monastery.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 12.0f, "Energy Burst"); // t=1012.0; Ability 373B from Mustadio
+    Timeout(id + 0x10, 10.7f, "Arm Shot").SetHint(StateMachine.StateHint.Tankbuster); // t=1022.7; Ability 3739 from Mustadio; cactbot StartsUsing 3739 [Orbonne Mustadio Arm Shot]
+    Timeout(id + 0x20, 10.5f, "L/R Handgonne"); // t=1033.2
+    Timeout(id + 0x30, 9.3f, "L/R Handgonne"); // t=1042.5
+    Timeout(id + 0x40, 16.1f, "Maintenance"); // t=1058.6; Ability 3734 from Mustadio
+    Timeout(id + 0x50, 6.5f, "Compress"); // t=1065.1; Ability 3740 from Iron Construct
+    Timeout(id + 0x60, 1.1f, "Searchlight"); // t=1066.2; Ability 373D from Mustadio; cactbot HeadMarker A4 [Orbonne Mustadio Searchlight]
+    Timeout(id + 0x70, 12.7f, "Energy Burst"); // t=1078.9; Ability 373B from Mustadio
+    Timeout(id + 0x80, 6.7f, "Arm Shot").SetHint(StateMachine.StateHint.Tankbuster); // t=1085.6; Ability 3739 from Mustadio; cactbot StartsUsing 3739 [Orbonne Mustadio Arm Shot]
+    Timeout(id + 0x90, 13.7f, "Analysis"); // t=1099.3; Ability 3735 from Mustadio
+    Targetable(id + 0xA0, false, 0.2f, "--untargetable--"); // t=1099.5
+    Timeout(id + 0xB0, 1.3f, "Ballistic Impact"); // t=1100.8; Ability 3745 from Mustadio
+}
+
+private void DRAMATIC_CUTSCENE(uint id)
+{
+    Timeout(id + 0x0, 18.8f, "Last Testament"); // t=1123.8; Ability 3737 from Mustadio; cactbot StartsUsing 3737 [Orbonne Mustadio Last Testament]
+    Targetable(id + 0x10, true, 7.7f, "--targetable--"); // t=1131.5
+    Timeout(id + 0x20, 9.9f, "Leg Shot"); // t=1141.4; Ability 3738 from Mustadio
+    Timeout(id + 0x30, 9.7f, "L/R Handgonne"); // t=1151.1
+    Timeout(id + 0x40, 10.6f, "Energy Burst"); // t=1161.7; Ability 373B from Mustadio
+    Timeout(id + 0x50, 16.3f, "Maintenance"); // t=1178.0; Ability 3734 from Mustadio
+    Timeout(id + 0x60, 6.7f, "Satellite Beam"); // t=1184.7; Ability 3741 from Early Turret
+    Timeout(id + 0x70, 6.0f, "Ballistic Missile"); // t=1190.7; Ability 373C from Mustadio
+    Timeout(id + 0x80, 6.9f, "L/R Handgonne"); // t=1197.6
+    Timeout(id + 0x90, 1.1f, "Ballistic Impact"); // t=1198.7; Ability 3743 from Mustadio
+    Timeout(id + 0xA0, 5.3f, "L/R Handgonne"); // t=1204.0
+    Timeout(id + 0xB0, 9.4f, "Arm Shot").SetHint(StateMachine.StateHint.Tankbuster); // t=1213.4; Ability 3739 from Mustadio; cactbot StartsUsing 3739 [Orbonne Mustadio Arm Shot]
+    Timeout(id + 0xC0, 16.9f, "Maintenance"); // t=1230.3; Ability 3734 from Mustadio
+    Timeout(id + 0xD0, 6.6f, "Satellite Beam / Compress"); // t=1236.9; Ability 3741 from Early Turret | Ability 3740 from Iron Construct
+    Timeout(id + 0xE0, 4.2f, "Ballistic Missile"); // t=1241.1; Ability 373C from Mustadio
+    Timeout(id + 0xF0, 7.9f, "Ballistic Impact"); // t=1249.0; Ability 3743 from Mustadio
+    Timeout(id + 0x100, 7.4f, "Maintenance"); // t=1256.4; Ability 3734 from Mustadio
+    Timeout(id + 0x110, 6.6f, "Satellite Beam / Compress"); // t=1263.0; Ability 3741 from Early Turret | Ability 3740 from Iron Construct
+    Timeout(id + 0x120, 7.1f, "Energy Burst"); // t=1270.1; Ability 373B from Mustadio
+}
+
+private void Phase_3_Loop(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Searchlight"); // t=1281.0; Ability 373D from Mustadio; cactbot HeadMarker A4 [Orbonne Mustadio Searchlight]
+    Timeout(id + 0x10, 6.9f, "Analysis"); // t=1287.9; Ability 3735 from Mustadio
+    Targetable(id + 0x20, false, 0.6f, "--untargetable--"); // t=1288.5
+    Timeout(id + 0x30, 12.8f, "Last Testament"); // t=1301.3; Ability 3737 from Mustadio; cactbot StartsUsing 3737 [Orbonne Mustadio Last Testament]
+    Targetable(id + 0x40, true, 7.5f, "--targetable--"); // t=1308.8
+    Timeout(id + 0x50, 6.2f, "Energy Burst"); // t=1315.0; Ability 373B from Mustadio
+    Timeout(id + 0x60, 12.9f, "Leg Shot"); // t=1327.9; Ability 3738 from Mustadio
+    Timeout(id + 0x70, 9.6f, "L/R Handgonne"); // t=1337.5
+    Timeout(id + 0x80, 6.6f, "L/R Handgonne"); // t=1344.1
+    Timeout(id + 0x90, 10.6f, "Energy Burst"); // t=1354.7; Ability 373B from Mustadio
+    Timeout(id + 0xA0, 6.8f, "Arm Shot").SetHint(StateMachine.StateHint.Tankbuster); // t=1361.5; Ability 3739 from Mustadio; cactbot StartsUsing 3739 [Orbonne Mustadio Arm Shot]
+    Timeout(id + 0xB0, 17.2f, "Maintenance"); // t=1378.7; Ability 3734 from Mustadio
+    Timeout(id + 0xC0, 6.5f, "Satellite Beam / Compress"); // t=1385.2; Ability 3741 from Early Turret | Ability 3740 from Iron Construct
+    Timeout(id + 0xD0, 4.1f, "Ballistic Missile"); // t=1389.3; Ability 373C from Mustadio
+    Timeout(id + 0xE0, 7.8f, "Ballistic Impact"); // t=1397.1; Ability 3743 from Mustadio
+    Timeout(id + 0xF0, 6.7f, "Maintenance"); // t=1403.8; Ability 3734 from Mustadio
+    Timeout(id + 0x100, 6.6f, "Satellite Beam / Compress"); // t=1410.4; Ability 3741 from Early Turret | Ability 3740 from Iron Construct
+    Timeout(id + 0x110, 7.1f, "Energy Burst"); // t=1417.5; Ability 373B from Mustadio
+    Timeout(id + 0x120, 10.9f, "Arm Shot").SetHint(StateMachine.StateHint.Tankbuster); // t=1428.4; Ability 3739 from Mustadio; cactbot StartsUsing 3739 [Orbonne Mustadio Arm Shot]
+    Timeout(id + 0x130, 9.7f, "Ballistic Missile"); // t=1438.1; Ability 373C from Mustadio
+    Timeout(id + 0x140, 6.9f, "L/R Handgonne"); // t=1445.0
+    Timeout(id + 0x150, 1.0f, "Ballistic Impact"); // t=1446.0; Ability 3743 from Mustadio
+    Timeout(id + 0x160, 5.5f, "L/R Handgonne"); // t=1451.5
+    Timeout(id + 0x170, 10.6f, "Energy Burst"); // t=1462.1; Ability 373B from Mustadio
+    Timeout(id + 0x180, 2.9f, "Searchlight"); // t=1465.0; Ability 373D from Mustadio; cactbot HeadMarker A4 [Orbonne Mustadio Searchlight]
+    Timeout(id + 0x190, 6.9f, "Analysis"); // t=1471.9
+    Timeout(id + 0x1A0, 13.4f, "Last Testament"); // t=1485.3; cactbot StartsUsing 3737 [Orbonne Mustadio Last Testament]
+}
+
+private void Phase_1_2(uint id)
+{
+    Timeout(id + 0x0, 12.8f, "Divine Light"); // t=2012.8; Ability 3867 from Agrias
+    Timeout(id + 0x10, 10.5f, "Thunder Slash"); // t=2023.3; Ability 3866 from Agrias; cactbot StartsUsing 3866 [Orbonne Agrias Thunder Slash]
+    Timeout(id + 0x20, 20.2f, "Judgment Blade"); // t=2043.5; Ability 3857 from Agrias; cactbot StartsUsing 3857 [Orbonne Agrias Judgment Blade]
+    Timeout(id + 0x30, 11.4f, "Divine Light"); // t=2054.9; Ability 3867 from Agrias
+    Timeout(id + 0x40, 10.5f, "Thunder Slash"); // t=2065.4; Ability 3866 from Agrias; cactbot StartsUsing 3866 [Orbonne Agrias Thunder Slash]
+    Timeout(id + 0x50, 11.0f, "Cleansing Flame"); // t=2076.4; Ability 3864 from Agrias
+    Timeout(id + 0x60, 8.6f, "--ghost stun--"); // t=2085.0
+    Timeout(id + 0x70, 6.0f, "Cleansing Strike"); // t=2091.0; Ability 3854 from Agrias; cactbot StartsUsing 3854 [Orbonne Agrias Cleansing Strike]
+    Timeout(id + 0x80, 15.2f, "Consecration / --crystal stun--"); // t=2106.2; Ability 3850 from Agrias; cactbot StartsUsing 3850 [Orbonne Agrias Consecration]
+    Timeout(id + 0x90, 17.7f, "Northswain's Strike"); // t=2123.9; Ability 3A86 from Agrias
+    Timeout(id + 0xA0, 7.2f, "Divine Light"); // t=2131.1; Ability 3867 from Agrias
+    Timeout(id + 0xB0, 5.5f, "Thunder Slash"); // t=2136.6; Ability 3866 from Agrias; cactbot StartsUsing 3866 [Orbonne Agrias Thunder Slash]
+    Timeout(id + 0xC0, 11.0f, "Hallowed Bolt Marks"); // t=2147.6; Ability 385A from Agrias
+    Timeout(id + 0xD0, 4.0f, "Hallowed Bolt In/Out"); // t=2151.6
+    Timeout(id + 0xE0, 4.5f, "Hallowed Bolt Out/In"); // t=2156.1
+    Timeout(id + 0xF0, 10.7f, "Cleansing Flame"); // t=2166.8; Ability 3864 from Agrias
+    Timeout(id + 0x100, 16.6f, "Judgment Blade"); // t=2183.4; Ability 3857 from Agrias; cactbot StartsUsing 3857 [Orbonne Agrias Judgment Blade]
+    Timeout(id + 0x110, 6.4f, "Divine Light"); // t=2189.8; Ability 3867 from Agrias
+}
+
+private void Adds_Phase(uint id)
+{
+    Timeout(id + 0x0, 25.7f, "Mortal Blow"); // t=2222.3; Ability 385E from Sword Knight; cactbot StartsUsing 385E [Orbonne Agrias Mortal Blow]
+    Timeout(id + 0x10, 40.3f, "Enrage"); // t=2262.6
+    Condition(id + 0x20, 237.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x3861), "", 5f, 232.4f); // t=2500.0; StartsUsing 3861 from Agrias
+    Timeout(id + 0x30, 8.0f, "Heavenly Judgment"); // t=2508.0; Ability 3861 from Agrias
+}
+
+private void Phase_3_Loop_2(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Divine Ruination"); // t=2524.4; Ability 3858 from Agrias; cactbot StartsUsing 3858 [Orbonne Agrias Divine Ruination]
+    Timeout(id + 0x10, 11.2f, "Divine Light"); // t=2535.6; Ability 3867 from Agrias
+    Timeout(id + 0x20, 10.5f, "Thunder Slash"); // t=2546.1; Ability 3866 from Agrias; cactbot StartsUsing 3866 [Orbonne Agrias Thunder Slash]
+    Timeout(id + 0x30, 12.0f, "Cleansing Flame"); // t=2558.1; Ability 3864 from Agrias
+    Timeout(id + 0x40, 9.5f, "--ghost stun--"); // t=2567.6
+    Timeout(id + 0x50, 6.0f, "Cleansing Strike"); // t=2573.6; Ability 3854 from Agrias; cactbot StartsUsing 3854 [Orbonne Agrias Cleansing Strike]
+    Timeout(id + 0x60, 8.2f, "Consecration / --crystal stun--"); // t=2581.8; Ability 3850 from Agrias; cactbot StartsUsing 3850 [Orbonne Agrias Consecration]
+    Timeout(id + 0x70, 17.7f, "Northswain's Strike"); // t=2599.5; Ability 3A86 from Agrias
+    Timeout(id + 0x80, 7.2f, "Divine Light"); // t=2606.7; Ability 3867 from Agrias
+    Timeout(id + 0x90, 10.5f, "Hallowed Bolt Marks"); // t=2617.2; Ability 385A from Agrias
+    Timeout(id + 0xA0, 4.0f, "Hallowed Bolt In/Out"); // t=2621.2
+    Timeout(id + 0xB0, 3.2f, "Cleansing Flame"); // t=2624.4; Ability 3864 from Agrias
+    Timeout(id + 0xC0, 1.3f, "Hallowed Bolt Out/In"); // t=2625.7
+    Timeout(id + 0xD0, 10.9f, "Thunder Slash"); // t=2636.6; Ability 3866 from Agrias; cactbot StartsUsing 3866 [Orbonne Agrias Thunder Slash]
+    Timeout(id + 0xE0, 11.0f, "Divine Light"); // t=2647.6; Ability 3867 from Agrias
+    Timeout(id + 0xF0, 5.5f, "Divine Light"); // t=2653.1; Ability 3867 from Agrias
+    Timeout(id + 0x100, 14.6f, "Judgment Blade"); // t=2667.7; Ability 3857 from Agrias; cactbot StartsUsing 3857 [Orbonne Agrias Judgment Blade]
+    Timeout(id + 0x110, 21.9f, "Divine Ruination"); // t=2689.6; Ability 3858 from Agrias; cactbot StartsUsing 3858 [Orbonne Agrias Divine Ruination]
+    Timeout(id + 0x120, 11.2f, "Divine Light"); // t=2700.8
+    Timeout(id + 0x130, 10.5f, "Thunder Slash"); // t=2711.3; cactbot StartsUsing 3866 [Orbonne Agrias Thunder Slash]
+    Timeout(id + 0x140, 12.0f, "Cleansing Flame"); // t=2723.3
+    Condition(id + 0x150, 767.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x377F), "", 5f, 762.7f); // t=3491.0; StartsUsing 377F from Dark Crusader
+    Timeout(id + 0x160, 9.0f, "Dark Rite"); // t=3500.0; Ability 377F from Dark Crusader
+    Timeout(id + 0x170, 9.0f, "Noahionto"); // t=3509.0; Ability 377E from Dark Crusader
+    Timeout(id + 0x180, 11.0f, "Infernal Wave"); // t=3520.0
+    Timeout(id + 0x190, 3.5f, "Infernal Wave"); // t=3523.5
+    Timeout(id + 0x1A0, 4.5f, "Noahionto"); // t=3528.0; Ability 377E from Dark Crusader
+    Timeout(id + 0x1B0, 9.0f, "Noahionto"); // t=3537.0; Ability 377E from Dark Crusader
+    Timeout(id + 0x1C0, 7.0f, "Noahionto"); // t=3544.0; Ability 377E from Dark Crusader
+    Timeout(id + 0x1D0, 22.0f, "Dark Rite"); // t=3566.0; Ability 377F from Dark Crusader
+    Timeout(id + 0x1E0, 9.0f, "Noahionto"); // t=3575.0; Ability 377E from Dark Crusader
+    Timeout(id + 0x1F0, 9.0f, "Infernal Wave"); // t=3584.0
+    Timeout(id + 0x200, 4.5f, "Infernal Wave"); // t=3588.5
+    Timeout(id + 0x210, 5.5f, "Noahionto"); // t=3594.0; Ability 377E from Dark Crusader
+    Timeout(id + 0x220, 9.0f, "Noahionto"); // t=3603.0; Ability 377E from Dark Crusader
+    Timeout(id + 0x230, 7.5f, "Noahionto"); // t=3610.5; Ability 377E from Dark Crusader
+    Timeout(id + 0x240, 15.0f, "Noahionto"); // t=3625.5; Ability 377E from Dark Crusader
+}
+
+private void Phase_1_3(uint id)
+{
+    Timeout(id + 0x0, 15.0f, "Cleansing Strike"); // t=4015.0; Ability 3751 from The Thunder God; cactbot Ability 3751 [Orbonne Cid Cleansing Strike]
+    Timeout(id + 0x10, 17.5f, "Sword L/R"); // t=4032.5
+    Timeout(id + 0x20, 10.0f, "Sword In/Out"); // t=4042.5
+    Timeout(id + 0x30, 14.5f, "Shadowblade"); // t=4057.0; Ability 375D from The Thunder God; cactbot StartsUsing 3761 [Orbonne Cid Shadowblade Pads] | HeadMarker AA [Orbonne Cid Shadowblade Bubble]
+    Timeout(id + 0x40, 5.6f, "Crush Helm"); // t=4062.6; cactbot StartsUsing 3752 [Orbonne Cid Crush Helm Healer] | StartsUsing 3752 [Orbonne Cid Crush Helm Feint] | Ability 3753 [Orbonne Cid Crush Helm Tank]
+    Timeout(id + 0x50, 17.5f, "Sword L/R"); // t=4080.1
+    Timeout(id + 0x60, 10.0f, "Sword Out/In"); // t=4090.1
+    Timeout(id + 0x70, 20.1f, "Duskblade"); // t=4110.2; Ability 3761 from The Thunder God; cactbot StartsUsing 3761 [Orbonne Cid Shadowblade Pads]
+    Timeout(id + 0x80, 13.0f, "Crush Weapon"); // t=4123.2; Ability 3755 from The Thunder God; cactbot HeadMarker 5C [Orbonne Cid Crush Weapon]
+}
+
+private void Adds_Phase_2(uint id)
+{
+    Targetable(id + 0x0, false, 0.0f, "--untargetable--"); // t=4136.0
+    Timeout(id + 0x10, 0.0f, "Colosseum"); // t=4136.0; Ability 3762 from The Thunder God
+    Targetable(id + 0x20, true, 7.4f, "--targetable--"); // t=4143.4
+    Timeout(id + 0x30, 19.6f, "Hallowed Bolt"); // t=4163.0; Ability 3765 from Ephemeral Knight; cactbot HeadMarker A6 [Orbonne Agrias Hallowed Bolt] | HeadMarker 17 [Orbonne Cid Hallowed Bolt] | HeadMarker 3E [Orbonne Cid Hallowed Bolt Stack]
+    Timeout(id + 0x40, 10.0f, "Stack"); // t=4173.0; Ability 3768 from Ephemeral Knight
+    Timeout(id + 0x50, 18.0f, "Hallowed Bolt"); // t=4191.0; Ability 3765 from Ephemeral Knight; cactbot HeadMarker A6 [Orbonne Agrias Hallowed Bolt] | HeadMarker 17 [Orbonne Cid Hallowed Bolt] | HeadMarker 3E [Orbonne Cid Hallowed Bolt Stack]
+    Timeout(id + 0x60, 10.0f, "Divine Ruination"); // t=4201.0; Ability 3763 from Ephemeral Knight; cactbot StartsUsing 3858 [Orbonne Agrias Divine Ruination] | HeadMarker 6E [Orbonne Cid Divine Ruination]
+    Timeout(id + 0x70, 18.0f, "Hallowed Bolt"); // t=4219.0; Ability 3765 from Ephemeral Knight; cactbot HeadMarker A6 [Orbonne Agrias Hallowed Bolt] | HeadMarker 17 [Orbonne Cid Hallowed Bolt] | HeadMarker 3E [Orbonne Cid Hallowed Bolt Stack]
+    Timeout(id + 0x80, 20.0f, "Enrage"); // t=4239.0
+    Timeout(id + 0x90, 164.0f, "Balance Asunder"); // t=4403.0; Ability 376A from The Thunder God
+    Targetable(id + 0xA0, true, 17.0f, "--targetable--"); // t=4420.0
+}
+
+private void Phase_3_Loop_3(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Sword L/R"); // t=4438.5
+    Timeout(id + 0x10, 10.0f, "Sword In/Out"); // t=4448.5
+    Timeout(id + 0x20, 14.0f, "Crush Weapon"); // t=4462.5; Ability 3755 from The Thunder God; cactbot HeadMarker 5C [Orbonne Cid Crush Weapon]
+    Timeout(id + 0x30, 3.1f, "Crush Helm"); // t=4465.6; cactbot StartsUsing 3752 [Orbonne Cid Crush Helm Healer] | StartsUsing 3752 [Orbonne Cid Crush Helm Feint] | Ability 3753 [Orbonne Cid Crush Helm Tank]
+    Timeout(id + 0x40, 17.5f, "Sword Out/In"); // t=4483.1
+    Timeout(id + 0x50, 12.1f, "Sword Three In A Row"); // t=4495.2
+    Timeout(id + 0x60, 14.5f, "Cleansing Strike"); // t=4509.7; Ability 3751 from The Thunder God; cactbot Ability 3751 [Orbonne Cid Cleansing Strike]
+    Timeout(id + 0x70, 16.5f, "Crush Armor"); // t=4526.2; Ability 3758 from The Thunder God; cactbot StartsUsing 3758 [Orbonne Cid Crush Armor Tank]
+    Timeout(id + 0x80, 34.6f, "Shadowblade"); // t=4560.8; Ability 375D from The Thunder God; cactbot StartsUsing 3761 [Orbonne Cid Shadowblade Pads] | HeadMarker AA [Orbonne Cid Shadowblade Bubble]
+    Timeout(id + 0x90, 5.6f, "Crush Helm"); // t=4566.4; cactbot StartsUsing 3752 [Orbonne Cid Crush Helm Healer] | StartsUsing 3752 [Orbonne Cid Crush Helm Feint] | Ability 3753 [Orbonne Cid Crush Helm Tank]
+    Timeout(id + 0xA0, 21.5f, "Duskblade"); // t=4587.9; Ability 3761 from The Thunder God; cactbot StartsUsing 3761 [Orbonne Cid Shadowblade Pads]
+    Timeout(id + 0xB0, 13.5f, "Crush Accessory"); // t=4601.4; Ability 375A from The Thunder God; cactbot StartsUsing 375A [Orbonne Cid Crush Accessory]
+    Timeout(id + 0xC0, 39.8f, "Sword L/R"); // t=4641.2
+    Timeout(id + 0xD0, 10.0f, "Sword In/Out"); // t=4651.2
+    Timeout(id + 0xE0, 14.0f, "Crush Weapon"); // t=4665.2; cactbot HeadMarker 5C [Orbonne Cid Crush Weapon]
+    Timeout(id + 0xF0, 3.1f, "Crush Helm"); // t=4668.3; cactbot StartsUsing 3752 [Orbonne Cid Crush Helm Healer] | StartsUsing 3752 [Orbonne Cid Crush Helm Feint] | Ability 3753 [Orbonne Cid Crush Helm Tank]
+}
+
+private void Phase_1__Throwbacks(uint id)
+{
+    Timeout(id + 0x0, 15.0f, "Holy IV Ground"); // t=5015.0; Ability 3899 from Ultima, the High Seraph
+    Timeout(id + 0x10, 14.2f, "Auralight"); // t=5029.2; Ability 3898 from Ultima, the High Seraph
+    Timeout(id + 0x20, 6.5f, "Holy IV"); // t=5035.7; Ability 389B from Ultima, the High Seraph
+    Timeout(id + 0x30, 9.7f, "Grand Cross"); // t=5045.4; Ability 38AC from Ultima, the High Seraph
+    Timeout(id + 0x40, 26.4f, "Demi-Aquarius"); // t=5071.8; Ability 38BF from Ultima, the High Seraph
+    Timeout(id + 0x50, 8.5f, "Dark Ewer"); // t=5080.3; Ability 38CA from Demi-Famfrit
+    Timeout(id + 0x60, 3.2f, "Materialize"); // t=5083.5; Ability 38CB from Aspersory
+    Timeout(id + 0x70, 5.6f, "Auralight"); // t=5089.1; Ability 3898 from Ultima, the High Seraph
+    Timeout(id + 0x80, 6.4f, "Holy IV"); // t=5095.5; Ability 389B from Ultima, the High Seraph
+    Timeout(id + 0x90, 6.7f, "Demi-Aries"); // t=5102.2; Ability 38C0 from Ultima, the High Seraph
+    Timeout(id + 0xA0, 14.5f, "Time Eruption"); // t=5116.7; Ability 38D0 from Demi-Belias; cactbot StartsUsing 38CF [Orbonne Ultima Time Eruption]
+    Timeout(id + 0xB0, 2.8f, "Holy IV"); // t=5119.5; Ability 389B from Ultima, the High Seraph
+    Timeout(id + 0xC0, 0.2f, "Time Eruption"); // t=5119.7; Ability 38D1 from Demi-Belias; cactbot StartsUsing 38CF [Orbonne Ultima Time Eruption]
+    Timeout(id + 0xD0, 8.0f, "Demi-Leo"); // t=5127.7; Ability 38C1 from Ultima, the High Seraph
+    Timeout(id + 0xE0, 8.4f, "Control Tower"); // t=5136.1; Ability 38D4 from Demi-Hashmal
+    Timeout(id + 0xF0, 1.0f, "Control Tower"); // t=5137.1; Ability 38D5 from Demi-Hashmal
+    Timeout(id + 0x100, 2.1f, "Sanction"); // t=5139.2; Ability 38D6 from Demi-Hashmal
+    Timeout(id + 0x110, 5.7f, "Holy IV Ground"); // t=5144.9; Ability 3899 from Ultima, the High Seraph
+    Timeout(id + 0x120, 1.8f, "Towerfall"); // t=5146.7; Ability 38D7 from Demi-Hashmal
+    Timeout(id + 0x130, 0.8f, "Holy IV"); // t=5147.5; Ability 389B from Ultima, the High Seraph
+    Timeout(id + 0x140, 12.8f, "Grand Cross"); // t=5160.3; Ability 38AC from Ultima, the High Seraph
+    Timeout(id + 0x150, 29.3f, "Auralight"); // t=5189.6; Ability 3898 from Ultima, the High Seraph
+    Timeout(id + 0x160, 6.5f, "Holy IV"); // t=5196.1; Ability 389B from Ultima, the High Seraph
+    Timeout(id + 0x170, 11.7f, "Flare IV"); // t=5207.8; Ability 389C from Ultima, the High Seraph; cactbot HeadMarker 57 [Orbonne Ultima Flare IV]
+    Timeout(id + 0x180, 0.5f, "Flare IV"); // t=5208.3; Ability 389D from Ultima, the High Seraph; cactbot HeadMarker 57 [Orbonne Ultima Flare IV]
+}
+
+private void Phase_2__50__Push_Remix__Death_awaits_defiance(uint id)
+{
+    Timeout(id + 0x0, 0.0f, ""); // t=5400.0
+    Timeout(id + 0x10, 13.0f, "Earth Hammer"); // t=5413.0; Ability 38D8 from Demi-Hashmal
+    Timeout(id + 0x20, 2.9f, "Time Eruption"); // t=5415.9; Ability 38D0 from Demi-Belias; cactbot StartsUsing 38CF [Orbonne Ultima Time Eruption]
+    Timeout(id + 0x30, 3.0f, "Time Eruption"); // t=5418.9; Ability 38D1 from Demi-Belias; cactbot StartsUsing 38CF [Orbonne Ultima Time Eruption]
+    Timeout(id + 0x40, 2.4f, "Dark Ewer"); // t=5421.3; Ability 38CA from Demi-Famfrit
+    Timeout(id + 0x50, 1.3f, "Dark Cannonade"); // t=5422.6; Ability 38CE from Demi-Famfrit; cactbot HeadMarker 37 [Orbonne Ultima Dark Cannonade]
+    Timeout(id + 0x60, 1.7f, "Materialize"); // t=5424.3; Ability 38CB from Aspersory
+    Timeout(id + 0x70, 0.1f, "Hammerfall"); // t=5424.4; Ability 38D9 from Demi-Hashmal
+    Timeout(id + 0x80, 6.0f, "Eruption"); // t=5430.4; Ability 3C77 from Demi-Belias; cactbot HeadMarker 66 [Orbonne Ultima Eruption] | StartsUsing 38CF [Orbonne Ultima Time Eruption]
+    Timeout(id + 0x90, 3.2f, "Extreme Edge"); // t=5433.6; Ability 38DA from Demi-Hashmal; cactbot StartsUsing 38DA [Orbonne Ultima Extreme Edge]
+    Timeout(id + 0xA0, 48.4f, "Ultimate Illusion"); // t=5482.0; Ability 3895 from Ultima, the High Seraph; cactbot StartsUsing 3895 [Orbonne Ultima Ultimate Illusion Healer] | Ability 3895 [Orbonne Ultima Ultimate Illusion]
+    Targetable(id + 0xB0, true, 23.5f, "--targetable--"); // t=5505.5
+    Timeout(id + 0xC0, 17.5f, "Enrage"); // t=5523.0
+    Targetable(id + 0xD0, true, 472.6f, "--targetable--"); // t=5995.6
+}
+
+private void Phase_1__March(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x38C2), "", 5f, 0.0f); // t=6004.0; StartsUsing 38C2 from Ultima, the High Seraph
+    Timeout(id + 0x10, 3.0f, "Demi-Virgo Line"); // t=6007.0; Ability 38C2 from Ultima, the High Seraph
+    Timeout(id + 0x20, 9.0f, "East/West March"); // t=6016.0
+    Timeout(id + 0x30, 2.0f, "Ray of Light"); // t=6018.0; Ability 38B7 from Dominion
+    Timeout(id + 0x40, 8.4f, "Redemption").SetHint(StateMachine.StateHint.Tankbuster); // t=6026.4; Ability 38AA from Ultima, the High Seraph; cactbot StartsUsing 38AA [Orbonne Ultima Redemption]
+    Timeout(id + 0x50, 9.1f, "Grand Cross"); // t=6035.5; Ability 38C8 from Ultima, the High Seraph
+    Timeout(id + 0x60, 7.9f, "East/West March"); // t=6043.4
+    Timeout(id + 0x70, 18.6f, "Demi-Virgo Feet"); // t=6062.0; Ability 38C2 from Ultima, the High Seraph
+    Timeout(id + 0x80, 11.2f, "Redemption").SetHint(StateMachine.StateHint.Tankbuster); // t=6073.2; Ability 38AA from Ultima, the High Seraph; cactbot StartsUsing 38AA [Orbonne Ultima Redemption]
+    Timeout(id + 0x90, 9.2f, "Demi-Virgo Tether"); // t=6082.4; Ability 38C2 from Ultima, the High Seraph
+    Timeout(id + 0xA0, 5.1f, "Embrace"); // t=6087.5; Ability 38B8 from Dominion
+    Timeout(id + 0xB0, 11.1f, "Holy IV Ground"); // t=6098.6; Ability 38C6 from Ultima, the High Seraph
+    Timeout(id + 0xC0, 2.5f, "Holy IV"); // t=6101.1; Ability 389B from Ultima, the High Seraph
+}
+
+private void Phase_2__Maze_Loop(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Cataclysm"); // t=6124.9; Ability 38A4 from Ultima, the High Seraph
+    Timeout(id + 0x10, 1.9f, "Shockwave"); // t=6126.8; Ability 3894 from Ultima, the High Seraph
+    Timeout(id + 0x20, 16.6f, "East/West March"); // t=6143.4
+    Timeout(id + 0x30, 14.4f, "Holy IV"); // t=6157.8; Ability 389B from Ultima, the High Seraph
+    Timeout(id + 0x40, 13.0f, "Flare IV"); // t=6170.8; Ability 389D from Ultima, the High Seraph; cactbot HeadMarker 57 [Orbonne Ultima Flare IV]
+    Timeout(id + 0x50, 15.8f, "Demi-Virgo Feet"); // t=6186.6; Ability 38C2 from Ultima, the High Seraph
+    Timeout(id + 0x60, 19.1f, "Grand Cross"); // t=6205.7; Ability 38C8 from Ultima, the High Seraph
+    Timeout(id + 0x70, 7.8f, "East/West March"); // t=6213.5
+    Timeout(id + 0x80, 14.7f, "Redemption").SetHint(StateMachine.StateHint.Tankbuster); // t=6228.2; Ability 38AA from Ultima, the High Seraph; cactbot StartsUsing 38AA [Orbonne Ultima Redemption]
+    Timeout(id + 0x90, 1.5f, "Holy IV"); // t=6229.7; Ability 389B from Ultima, the High Seraph
+    Timeout(id + 0xA0, 11.6f, "Demi-Virgo Tether"); // t=6241.3; Ability 38C2 from Ultima, the High Seraph
+    Timeout(id + 0xB0, 5.2f, "Embrace"); // t=6246.5; Ability 38B8 from Dominion
+    Timeout(id + 0xC0, 7.1f, "Demi-Virgo Line"); // t=6253.6; Ability 38C2 from Ultima, the High Seraph
+    Timeout(id + 0xD0, 8.9f, "East/West March"); // t=6262.5
+    Timeout(id + 0xE0, 2.2f, "Ray of Light"); // t=6264.7; Ability 38B7 from Dominion
+    Timeout(id + 0xF0, 6.4f, "Redemption").SetHint(StateMachine.StateHint.Tankbuster); // t=6271.1; Ability 38AA from Ultima, the High Seraph; cactbot StartsUsing 38AA [Orbonne Ultima Redemption]
+    Timeout(id + 0x100, 1.4f, "Holy IV"); // t=6272.5; Ability 389B from Ultima, the High Seraph
+    Timeout(id + 0x110, 7.8f, "Demi-Virgo Feet"); // t=6280.3; Ability 38C2 from Ultima, the High Seraph
+    Timeout(id + 0x120, 9.7f, "Holy IV"); // t=6290.0; Ability 389B from Ultima, the High Seraph
+    Timeout(id + 0x130, 9.5f, "Grand Cross"); // t=6299.5; Ability 38C8 from Ultima, the High Seraph
+    Timeout(id + 0x140, 7.8f, "East/West March"); // t=6307.3
+    Timeout(id + 0x150, 18.1f, "Cataclysm"); // t=6325.4; Ability 38A4 from Ultima, the High Seraph
+    Timeout(id + 0x160, 1.9f, "Shockwave"); // t=6327.3
+    Timeout(id + 0x170, 16.6f, "East/West March"); // t=6343.9
+    Timeout(id + 0x180, 14.4f, "Holy IV"); // t=6358.3
+    Timeout(id + 0x190, 13.0f, "Flare IV"); // t=6371.3; cactbot HeadMarker 57 [Orbonne Ultima Flare IV]
+}
+
+private void Phase_3__15__off_Demi_Virgo_Combo_Platter(uint id)
+{
+    Timeout(id + 0x0, 3.0f, "Demi-Virgo Line/Tether"); // t=6503.0; Ability 38C2 from Ultima, the High Seraph
+    Timeout(id + 0x10, 6.1f, "Redemption").SetHint(StateMachine.StateHint.Tankbuster); // t=6509.1; Ability 38AA from Ultima, the High Seraph; cactbot StartsUsing 38AA [Orbonne Ultima Redemption]
+    Timeout(id + 0x20, 1.3f, "Holy IV"); // t=6510.4; Ability 389B from Ultima, the High Seraph
+    Timeout(id + 0x30, 3.5f, "Ray of Light"); // t=6513.9; Ability 38B7 from Dominion
+    Timeout(id + 0x40, 2.4f, "Demi-Virgo Tether/Feet"); // t=6516.3; Ability 38C2 from Ultima, the High Seraph
+    Timeout(id + 0x50, 2.5f, "Holy IV"); // t=6518.8; Ability 389B from Ultima, the High Seraph
+    Timeout(id + 0x60, 5.8f, "Redemption").SetHint(StateMachine.StateHint.Tankbuster); // t=6524.6; Ability 38AA from Ultima, the High Seraph; cactbot StartsUsing 38AA [Orbonne Ultima Redemption]
+    Timeout(id + 0x70, 1.5f, "Holy IV"); // t=6526.1; Ability 389B from Ultima, the High Seraph
+    Timeout(id + 0x80, 6.7f, "Redemption").SetHint(StateMachine.StateHint.Tankbuster); // t=6532.8; Ability 38AA from Ultima, the High Seraph; cactbot StartsUsing 38AA [Orbonne Ultima Redemption]
+    Timeout(id + 0x90, 7.2f, "Demi-Virgo Line/Tether"); // t=6540.0; Ability 38C2 from Ultima, the High Seraph
+    Timeout(id + 0xA0, 6.1f, "Redemption"); // t=6546.1; cactbot StartsUsing 38AA [Orbonne Ultima Redemption]
+    Timeout(id + 0xB0, 1.3f, "Holy IV"); // t=6547.4
+    Timeout(id + 0xC0, 3.5f, "Ray of Light"); // t=6550.9
+    Timeout(id + 0xD0, 2.4f, "Demi-Virgo Tether/Feet"); // t=6553.3
+    Timeout(id + 0xE0, 2.5f, "Holy IV"); // t=6555.8
+    Timeout(id + 0xF0, 5.8f, "Redemption"); // t=6561.6; cactbot StartsUsing 38AA [Orbonne Ultima Redemption]
+    Timeout(id + 0x100, 1.5f, "Holy IV"); // t=6563.1
+    Timeout(id + 0x110, 6.7f, "Redemption"); // t=6569.8; cactbot StartsUsing 38AA [Orbonne Ultima Redemption]
+}
+

@@ -1,0 +1,26 @@
+query CharacterRankingsCollect(
+  $encounterId: Int!
+  $difficulty: Int
+  $partition: Int
+  $metric: CharacterRankingMetricType
+  $className: String
+  $specName: String
+  $page: Int
+  $partySize: Int
+) {
+  worldData {
+    encounter(id: $encounterId) {
+      characterRankings(
+        difficulty: $difficulty
+        partition: $partition
+        metric: $metric
+        className: $className
+        specName: $specName
+        page: $page
+        size: $partySize
+        includeCombatantInfo: true
+        includeOtherPlayers: false
+      )
+    }
+  }
+}

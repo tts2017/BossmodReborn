@@ -1,0 +1,109 @@
+// Generated development skeleton from a1s.txt (TerritoryType 449).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 9 static/dynamic trigger definitions from ui/raidboss/data/03-hw/raid/a1s.ts.
+
+private void Faust(uint id)
+{
+    Timeout(id + 0x0, 6.0f, "Kaltstrahl"); // t=1006.0; Ability E3C from Faust
+    Timeout(id + 0x10, 3.7f, "Sturm Doll Add"); // t=1009.7
+    Timeout(id + 0x20, 6.3f, "Kaltstrahl"); // t=1016.0; Ability E3C from Faust
+    Timeout(id + 0x30, 3.0f, "Pressure Increase 1"); // t=1019.0; Ability E3D from Faust
+    Timeout(id + 0x40, 7.0f, "Kaltstrahl"); // t=1026.0; Ability E3C from Faust
+    Timeout(id + 0x50, 3.7f, "Sturm Doll Add"); // t=1029.7
+    Timeout(id + 0x60, 6.3f, "Kaltstrahl"); // t=1036.0; Ability E3C from Faust
+    Timeout(id + 0x70, 3.0f, "Pressure Increase 2"); // t=1039.0; Ability E3D from Faust
+    Timeout(id + 0x80, 7.0f, "Kaltstrahl"); // t=1046.0; Ability E3C from Faust
+    Timeout(id + 0x90, 3.7f, "Sturm Doll Add"); // t=1049.7
+    Timeout(id + 0xA0, 6.3f, "Kaltstrahl"); // t=1056.0; Ability E3C from Faust
+    Timeout(id + 0xB0, 3.0f, "Pressure Increase 3"); // t=1059.0; Ability E3D from Faust
+    Timeout(id + 0xC0, 7.0f, "Kaltstrahl"); // t=1066.0; Ability E3C from Faust
+    Timeout(id + 0xD0, 3.7f, "Sturm Doll Add"); // t=1069.7
+    Timeout(id + 0xE0, 6.3f, "Kaltstrahl"); // t=1076.0; Ability E3C from Faust
+    Timeout(id + 0xF0, 3.0f, "Pressure Increase 4"); // t=1079.0; Ability E3D from Faust
+    Timeout(id + 0x100, 7.0f, "Kaltstrahl"); // t=1086.0; Ability E3C from Faust
+    Timeout(id + 0x110, 3.7f, "Sturm Doll Add"); // t=1089.7
+    Timeout(id + 0x120, 6.3f, "Kaltstrahl"); // t=1096.0; Ability E3C from Faust
+    Timeout(id + 0x130, 3.0f, "Pressure Increase 5"); // t=1099.0; Ability E3D from Faust
+    Timeout(id + 0x140, 7.0f, "Kaltstrahl"); // t=1106.0; Ability E3C from Faust
+    Timeout(id + 0x150, 3.7f, "Sturm Doll Add"); // t=1109.7
+    Timeout(id + 0x160, 6.3f, "Kaltstrahl"); // t=1116.0; Ability E3C from Faust
+    Timeout(id + 0x170, 3.0f, "Pressure Increase 6"); // t=1119.0; Ability E3D from Faust
+    Timeout(id + 0x180, 7.0f, "Kaltstrahl"); // t=1126.0; Ability E3C from Faust
+    Timeout(id + 0x190, 3.7f, "Sturm Doll Add"); // t=1129.7
+    Timeout(id + 0x1A0, 6.3f, "Kaltstrahl"); // t=1136.0; Ability E3C from Faust
+    Timeout(id + 0x1B0, 3.0f, "Pressure Increase 7"); // t=1139.0; Ability E3D from Faust
+    Timeout(id + 0x1C0, 7.0f, "Kaltstrahl"); // t=1146.0; Ability E3C from Faust
+    Timeout(id + 0x1D0, 3.7f, "Sturm Doll Add"); // t=1149.7
+    Timeout(id + 0x1E0, 2.3f, "Pressure Increase 16"); // t=1152.0; Ability E7E from Faust
+    Timeout(id + 0x1F0, 7.0f, "Kaltstrahl Enrage"); // t=1159.0; Ability E7D from Faust
+    Timeout(id + 0x200, 5.0f, "Kaltstrahl Enrage"); // t=1164.0; Ability E7D from Faust
+}
+
+private void Oppressor_and_a_half(uint id)
+{
+    Timeout(id + 0x0, 7.0f, "Royal Fount"); // t=2007.0; Ability E40 from Oppressor
+    Timeout(id + 0x10, 4.1f, "Gunnery Pod"); // t=2011.1; Ability E41 from Oppressor
+    Timeout(id + 0x20, 5.1f, "Hydrothermal Missile"); // t=2016.2; Ability E43 from Oppressor
+    Timeout(id + 0x30, 2.1f, "Gunnery Pod"); // t=2018.3; Ability E41 from Oppressor
+    Timeout(id + 0x40, 5.8f, "Photon Spaser"); // t=2024.1; Ability E42 from Oppressor
+    Timeout(id + 0x50, 4.1f, "Royal Fount"); // t=2028.2; Ability E40 from Oppressor
+    Timeout(id + 0x60, 8.1f, "Resin Bomb"); // t=2036.3; Ability E46 from Oppressor; cactbot StartsUsing E46 [A1S Resin Bomb]
+    Timeout(id + 0x70, 2.1f, "Royal Fount"); // t=2038.4; Ability E40 from Oppressor
+    Timeout(id + 0x80, 5.8f, "Photon Spaser"); // t=2044.2; Ability E42 from Oppressor
+    Timeout(id + 0x90, 2.1f, "Gunnery Pod"); // t=2046.3; Ability E41 from Oppressor
+    Timeout(id + 0xA0, 2.8f, "Royal Fount"); // t=2049.1; Ability E40 from Oppressor
+    Timeout(id + 0xB0, 5.1f, "Emergency Deployment"); // t=2054.2; Ability E45 from Oppressor
+    Targetable(id + 0xC0, true, 0.3f, "--targetable--"); // t=2054.5
+    Timeout(id + 0xD0, 6.8f, "Hydrothermal Missile"); // t=2061.3; Ability E43 from Oppressor
+    Timeout(id + 0xE0, 2.1f, "Gunnery Pod"); // t=2063.4; Ability E41 from Oppressor
+    Timeout(id + 0xF0, 3.1f, "Royal Fount"); // t=2066.5; Ability E40 from Oppressor
+    Timeout(id + 0x100, 3.1f, "Gunnery Pod"); // t=2069.6; Ability E41 from Oppressor
+    Timeout(id + 0x110, 5.6f, "Photon Spaser"); // t=2075.2; Ability E42 from Oppressor
+    Timeout(id + 0x120, 2.1f, "Gunnery Pod"); // t=2077.3
+    Timeout(id + 0x130, 2.1f, "Gunnery Pod"); // t=2079.4
+    Timeout(id + 0x140, 4.1f, "Royal Fount"); // t=2083.5; Ability E40 from Oppressor
+    Timeout(id + 0x150, 2.1f, "Distress Beacon"); // t=2085.6; Ability E48 from Oppressor
+    Targetable(id + 0x160, true, 10.7f, "--targetable--"); // t=2096.3
+    Timeout(id + 0x170, 10.1f, "3000-Tonze Missile"); // t=2106.4; Ability E4B from Oppressor
+    Timeout(id + 0x180, 6.2f, "Gunnery Pod"); // t=2112.6; Ability E41 from Oppressor
+    Timeout(id + 0x190, 5.1f, "Emergency Deployment"); // t=2117.7; Ability E45 from Oppressor
+    Targetable(id + 0x1A0, true, 0.3f, "--targetable--"); // t=2118.0
+    Timeout(id + 0x1B0, 7.8f, "Resin Bomb"); // t=2125.8; Ability E46 from Oppressor; cactbot StartsUsing E46 [A1S Resin Bomb]
+    Timeout(id + 0x1C0, 2.2f, "Royal Fount"); // t=2128.0; Ability E40 from Oppressor
+    Timeout(id + 0x1D0, 5.7f, "Photon Spaser"); // t=2133.7; Ability E42 from Oppressor
+    Timeout(id + 0x1E0, 3.2f, "Gunnery Pod"); // t=2136.9; Ability E41 from Oppressor
+    Timeout(id + 0x1F0, 6.1f, "Hydrothermal Missile"); // t=2143.0; Ability E43 from Oppressor
+    Timeout(id + 0x200, 5.2f, "Royal Fount"); // t=2148.2; Ability E40 from Oppressor
+    Timeout(id + 0x210, 8.1f, "Hypercompressed Plasma").SetHint(StateMachine.StateHint.Tankbuster); // t=2156.3; Ability E4A from Oppressor; cactbot StartsUsing E4A [A1S Hypercompressed Collect] | StartsUsing E4A [A1S Hypercompressed You] | StartsUsing E4A [A1S Hypercompressed Other] | StartsUsing E4A [A1S Hypercompressed Delete]
+    Timeout(id + 0x220, 3.6f, "Missile Impact"); // t=2159.9
+    Timeout(id + 0x230, 6.6f, "Photon Spaser"); // t=2166.5; Ability E42 from Oppressor
+    Timeout(id + 0x240, 7.2f, "Gunnery Pod"); // t=2173.7; Ability E41 from Oppressor
+    Timeout(id + 0x250, 9.1f, "Royal Fount"); // t=2182.8; Ability E40 from Oppressor
+    Targetable(id + 0x260, false, 6.1f, "--untargetable--"); // t=2188.9
+    Timeout(id + 0x270, 0.1f, "Emergency Liftoff"); // t=2189.0; Ability E4F from Oppressor
+    Timeout(id + 0x280, 14.7f, "Resin Bomb 1"); // t=2203.7
+    Timeout(id + 0x290, 1.0f, "Resin Bomb 2"); // t=2204.7
+    Timeout(id + 0x2A0, 1.0f, "Resin Bomb 3"); // t=2205.7
+    Timeout(id + 0x2B0, 1.0f, "Resin Bomb 4"); // t=2206.7
+    Timeout(id + 0x2C0, 1.0f, "Resin Bomb 5"); // t=2207.7
+    Timeout(id + 0x2D0, 1.0f, "Resin Bomb 6"); // t=2208.7
+    Timeout(id + 0x2E0, 1.0f, "Resin Bomb 7"); // t=2209.7
+    Timeout(id + 0x2F0, 1.0f, "Resin Bomb 8 / Quick Landing"); // t=2210.7; Ability E51 from Oppressor
+    Targetable(id + 0x300, true, 5.1f, "--targetable--"); // t=2215.8
+    Timeout(id + 0x310, 10.9f, "3000-Tonze Missile"); // t=2226.7; Ability E4B from Oppressor
+    Timeout(id + 0x320, 6.2f, "Gunnery Pod"); // t=2232.9
+    Timeout(id + 0x330, 5.1f, "Emergency Deployment"); // t=2238.0
+    Targetable(id + 0x340, true, 0.3f, "--targetable--"); // t=2238.3
+    Timeout(id + 0x350, 7.8f, "Resin Bomb"); // t=2246.1; cactbot StartsUsing E46 [A1S Resin Bomb]
+    Timeout(id + 0x360, 2.2f, "Royal Fount"); // t=2248.3
+    Timeout(id + 0x370, 5.7f, "Photon Spaser"); // t=2254.0
+    Timeout(id + 0x380, 3.2f, "Gunnery Pod"); // t=2257.2
+    Timeout(id + 0x390, 6.1f, "Hydrothermal Missile"); // t=2263.3
+    Timeout(id + 0x3A0, 5.2f, "Royal Fount"); // t=2268.5
+    Timeout(id + 0x3B0, 8.1f, "Hypercompressed Plasma"); // t=2276.6
+    Timeout(id + 0x3C0, 3.6f, "Missile Impact"); // t=2280.2
+    Condition(id + 0x3D0, 719.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xE49), "", 5f, 714.8f); // t=3000.0; StartsUsing E49 from Oppressor | StartsUsing E49 from Oppressor 0\\.5
+    Timeout(id + 0x3E0, 10.0f, "Self-Destruct Enrage"); // t=3010.0; Ability E49 from Oppressor
+}
+

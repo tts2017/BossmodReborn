@@ -1,0 +1,176 @@
+// Generated development skeleton from a10s.txt (TerritoryType 585).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 17 static/dynamic trigger definitions from ui/raidboss/data/03-hw/raid/a10s.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 6.5f, "Goblin Rush"); // t=6.5; Ability 1A16 from Lamebrix Strikebocks
+    Timeout(id + 0x10, 3.1f, "Gobsway Rumblerocks"); // t=9.6; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x20, 5.1f, "Gobsway Rumblerocks"); // t=14.7; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x30, 7.4f, "Single Charge"); // t=22.1; Ability 1A97 from Lamebrix Strikebocks
+    Timeout(id + 0x40, 0.8f, "--spread/stack--"); // t=22.9
+    Timeout(id + 0x50, 7.4f, "Floor Trap"); // t=30.3; Ability 1AB2 from Lamebrix Strikebocks; cactbot Ability 1AB2 [A10S Floor Spike Trap]
+    Timeout(id + 0x60, 1.3f, "--jump--"); // t=31.6; Ability 1AA2 from Lamebrix Strikebocks
+    Timeout(id + 0x70, 7.4f, "Single Charge (Stack/Spread)"); // t=39.0; Ability 1A97 from Lamebrix Strikebocks
+    Timeout(id + 0x80, 0.8f, "--stack/spread--"); // t=39.8
+    Timeout(id + 0x90, 10.2f, "Gobslash Slicetops"); // t=50.0; Ability 1AA1 from Lamebrix Strikebocks
+    Timeout(id + 0xA0, 3.1f, "Goblin Rush"); // t=53.1; Ability 1A16 from Lamebrix Strikebocks
+    Timeout(id + 0xB0, 8.1f, "Gobrush Rushgob").SetHint(StateMachine.StateHint.Tankbuster); // t=61.2; Ability 1A9F from Lamebrix Strikebocks; cactbot StartsUsing 1A9F [A10S Gobrush Rushgob]
+    Timeout(id + 0xC0, 6.4f, "Gobsway Rumblerocks"); // t=67.6; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0xD0, 6.0f, "Frost Trap"); // t=73.6; Ability 1AB1 from Lamebrix Strikebocks; cactbot Ability 1AB1 [A10S Frost Laser Trap]
+    Timeout(id + 0xE0, 1.3f, "--jump--"); // t=74.9; Ability 1AA2 from Lamebrix Strikebocks
+    Timeout(id + 0xF0, 1.6f, "Discharge"); // t=76.5; Ability 1AA7 from Lamebrix Strikebocks
+    Timeout(id + 0x100, 2.0f, "Frostbite"); // t=78.5; Ability 1A8E from Lamebrix Strikebocks
+    Timeout(id + 0x110, 9.5f, "Gobsnick Leghops"); // t=88.0; Ability 1AA4 from Lamebrix Strikebocks; cactbot StartsUsing 1AA4 [A10S Gobsnick Leghops]
+    Timeout(id + 0x120, 2.2f, "Clone Add / --jump--"); // t=90.2; Ability 1AA2 from Lamebrix Strikebocks
+    Timeout(id + 0x130, 5.6f, "Single Charge"); // t=95.8; Ability 1A97 from Lamebrix Strikebocks
+    Timeout(id + 0x140, 0.8f, "--in--"); // t=96.6; Ability 1A9A from Lamebrix Strikebocks
+    Timeout(id + 0x150, 7.1f, "Gobsway Rumblerocks"); // t=103.7; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x160, 1.6f, "Gobswish Spraymops"); // t=105.3; Ability 1AA3 from Lameprix Strikedocks
+    Timeout(id + 0x170, 8.6f, "Gobrush Rushgob").SetHint(StateMachine.StateHint.Tankbuster); // t=113.9; Ability 1A9F from Lamebrix Strikebocks; cactbot StartsUsing 1A9F [A10S Gobrush Rushgob]
+    Timeout(id + 0x180, 4.6f, "Goblin Rush"); // t=118.5; Ability 1A16 from Lamebrix Strikebocks
+    Timeout(id + 0x190, 1.0f, "Gobswish Spraymops"); // t=119.5; Ability 1AA3 from Lameprix Strikedocks
+    Timeout(id + 0x1A0, 7.1f, "Weight Trap"); // t=126.6; Ability 1AB0 from Lamebrix Strikebocks; cactbot Ability 1AB0 [A10S Ceiling Weight Trap]
+    Timeout(id + 0x1B0, 1.4f, "--jump--"); // t=128.0; Ability 1AA2 from Lamebrix Strikebocks
+    Timeout(id + 0x1C0, 3.6f, "Impact"); // t=131.6; Ability 1A8B from Weight Of The World
+    Timeout(id + 0x1D0, 4.1f, "Discharge"); // t=135.7; Ability 1AA7 from Lamebrix Strikebocks
+    Timeout(id + 0x1E0, 8.6f, "Gobslash Slicetops"); // t=144.3; Ability 1AA1 from Lamebrix Strikebocks
+    Timeout(id + 0x1F0, 3.1f, "Gobsway Rumblerocks"); // t=147.4; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x200, 4.2f, "Gobsway Rumblerocks"); // t=151.6; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x210, 13.4f, "Double Charge"); // t=165.0; Ability 1A98 from Lamebrix Strikebocks
+    Timeout(id + 0x220, 0.8f, "--in/out--"); // t=165.8
+    Timeout(id + 0x230, 3.0f, "--out/in--"); // t=168.8
+    Timeout(id + 0x240, 3.1f, "--jump--"); // t=171.9; Ability 1AA2 from Lamebrix Strikebocks
+    Timeout(id + 0x250, 6.3f, "Leghops?/Charge (In)?"); // t=178.2
+    Timeout(id + 0x260, 5.8f, "Gobsway Rumblerocks"); // t=184.0; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x270, 3.2f, "Goblin Rush"); // t=187.2; Ability 1A16 from Lamebrix Strikebocks
+    Timeout(id + 0x280, 8.1f, "Gobrush Rushgob").SetHint(StateMachine.StateHint.Tankbuster); // t=195.3; Ability 1A9F from Lamebrix Strikebocks; cactbot StartsUsing 1A9F [A10S Gobrush Rushgob]
+    Timeout(id + 0x290, 4.2f, "Goblin Rush"); // t=199.5; Ability 1A16 from Lamebrix Strikebocks
+}
+
+private void Phase_2__Steam_Roller__60(uint id)
+{
+    Targetable(id + 0x0, false, 0.0f, "--untargetable--"); // t=200.5
+    Timeout(id + 0x10, 1.1f, "--jump--"); // t=201.6; Ability 1AA2 from Lamebrix Strikebocks
+    Timeout(id + 0x20, 5.4f, "Brighteyes Markers"); // t=207.0; Ability 1AA9 from Lamebrix Strikebocks; cactbot Ability 1AA9 [A10S Brighteyes Tracker] | Ability 1AA9 [A10S Brighteyes Cleanup]
+    Timeout(id + 0x30, 5.0f, "Brighteyes"); // t=212.0; Ability 1AAA from Lamebrix Strikebocks; cactbot Ability 1AA9 [A10S Brighteyes Tracker] | Ability 1AA9 [A10S Brighteyes Cleanup] | HeadMarker 29 [A10S Brighteyes Prey Marker] | HeadMarker 29 [A10S Brighteyes Prey Marker Pass]
+    Timeout(id + 0x40, 0.1f, "Illuminati Hand Cannon"); // t=212.1; Ability 1AA8 from Lamebrix Strikebocks
+    Timeout(id + 0x50, 4.2f, "Brighteyes Markers"); // t=216.3; Ability 1AA9 from Lamebrix Strikebocks; cactbot Ability 1AA9 [A10S Brighteyes Tracker] | Ability 1AA9 [A10S Brighteyes Cleanup]
+    Timeout(id + 0x60, 4.9f, "Steam Roller / Brighteyes"); // t=221.2; Ability 1A95 from Gobpress R-VI | Ability 1AAA from Lamebrix Strikebocks
+    Timeout(id + 0x70, 10.3f, "Illuminati Hand Cannon"); // t=231.5; Ability 1AA8 from Lamebrix Strikebocks
+    Timeout(id + 0x80, 3.2f, "Gobsway Rumblerocks"); // t=234.7; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x90, 4.2f, "Gobsway Rumblerocks"); // t=238.9; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0xA0, 1.6f, "Steam Roller"); // t=240.5; Ability 1A95 from Gobpress R-VI
+    Timeout(id + 0xB0, 1.1f, "Brighteyes Markers"); // t=241.6; Ability 1AA9 from Lamebrix Strikebocks; cactbot Ability 1AA9 [A10S Brighteyes Tracker] | Ability 1AA9 [A10S Brighteyes Cleanup]
+    Timeout(id + 0xC0, 5.0f, "Brighteyes"); // t=246.6; Ability 1AAA from Lamebrix Strikebocks; cactbot Ability 1AA9 [A10S Brighteyes Tracker] | Ability 1AA9 [A10S Brighteyes Cleanup] | HeadMarker 29 [A10S Brighteyes Prey Marker] | HeadMarker 29 [A10S Brighteyes Prey Marker Pass]
+    Timeout(id + 0xD0, 0.1f, "Illuminati Hand Cannon"); // t=246.7; Ability 1AA8 from Lamebrix Strikebocks
+    Timeout(id + 0xE0, 4.2f, "Brighteyes Markers"); // t=250.9; Ability 1AA9 from Lamebrix Strikebocks; cactbot Ability 1AA9 [A10S Brighteyes Tracker] | Ability 1AA9 [A10S Brighteyes Cleanup]
+    Timeout(id + 0xF0, 5.0f, "Brighteyes"); // t=255.9; Ability 1AAA from Lamebrix Strikebocks; cactbot Ability 1AA9 [A10S Brighteyes Tracker] | Ability 1AA9 [A10S Brighteyes Cleanup] | HeadMarker 29 [A10S Brighteyes Prey Marker] | HeadMarker 29 [A10S Brighteyes Prey Marker Pass]
+    Timeout(id + 0x100, 3.9f, "Steam Roller"); // t=259.8; Ability 1A95 from Gobpress R-VI
+    Timeout(id + 0x110, 8.3f, "Illuminati Hand Cannon"); // t=268.1; Ability 1AA8 from Lamebrix Strikebocks
+    Timeout(id + 0x120, 3.2f, "Gobsway Rumblerocks"); // t=271.3; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x130, 4.2f, "Gobsway Rumblerocks"); // t=275.5; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x140, 3.6f, "Steam Roller"); // t=279.1; Ability 1A95 from Gobpress R-VI
+    Timeout(id + 0x150, 6.7f, "Gobsway Rumblerocks"); // t=285.8; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x160, 4.1f, "Gobsway Rumblerocks"); // t=289.9; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x170, 4.2f, "Gobsway Rumblerocks"); // t=294.1; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x180, 4.1f, "Gobsway Rumblerocks"); // t=298.2; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x190, 0.2f, "Steam Roller Enrage"); // t=298.4; Ability 1A95 from Gobpress R-VI
+    Timeout(id + 0x1A0, 4.0f, "Gobsway Rumblerocks"); // t=302.4; Ability 1AA0 from Lamebrix Strikebocks
+}
+
+private void Phase_3(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=500.0
+    Timeout(id + 0x10, 9.0f, "Goblin Rush"); // t=509.0; Ability 1A16 from Lamebrix Strikebocks
+    Timeout(id + 0x20, 8.1f, "Gobrush Rushgob").SetHint(StateMachine.StateHint.Tankbuster); // t=517.1; Ability 1A9F from Lamebrix Strikebocks; cactbot StartsUsing 1A9F [A10S Gobrush Rushgob]
+    Timeout(id + 0x30, 11.4f, "Triple Charge"); // t=528.5; Ability 1A99 from Lamebrix Strikebocks
+    Timeout(id + 0x40, 0.8f, "--mechanic 1--"); // t=529.3
+    Timeout(id + 0x50, 3.1f, "--mechanic 2--"); // t=532.4
+    Timeout(id + 0x60, 4.5f, "--mechanic 3--"); // t=536.9
+    Timeout(id + 0x70, 5.1f, "Goblin Rush"); // t=542.0; Ability 1A16 from Lamebrix Strikebocks
+    Timeout(id + 0x80, 4.1f, "Gobsway Rumblerocks"); // t=546.1; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x90, 4.1f, "Goblin Rush"); // t=550.2; Ability 1A16 from Lamebrix Strikebocks
+    Timeout(id + 0xA0, 4.1f, "Gobsway Rumblerocks"); // t=554.3; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0xB0, 5.1f, "--jump--"); // t=559.4; Ability 1AA2 from Lamebrix Strikebocks
+    Timeout(id + 0xC0, 5.6f, "Single Charge"); // t=565.0; Ability 1A97 from Lamebrix Strikebocks
+    Timeout(id + 0xD0, 0.8f, "--in--"); // t=565.8; Ability 1A9A from Lamebrix Strikebocks
+    Timeout(id + 0xE0, 9.2f, "Gobspin Zoomdrops"); // t=575.0; Ability 1A8F from Lamebrix Strikebocks; cactbot StartsUsing 1A8F [A10S Gobslice Mooncrops Cast] | Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0xF0, 1.9f, "Stoneskin"); // t=576.9
+    Timeout(id + 0x100, 3.3f, "Gobspin Zoomdrops"); // t=580.2; Ability 1A91 from Lamebrix Strikebocks; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x110, 6.0f, "Gobspin Zoomdrops"); // t=586.2; Ability 1A91 from Lamebrix Strikebocks; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x120, 6.0f, "Gobspin Zoomdrops"); // t=592.2; Ability 1A91 from Lamebrix Strikebocks; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x130, 2.0f, "Gobspin Zoomdrops"); // t=594.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x140, 2.0f, "Gobspin Zoomdrops"); // t=596.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x150, 2.0f, "Gobspin Zoomdrops"); // t=598.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x160, 2.0f, "Gobspin Zoomdrops"); // t=600.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x170, 2.0f, "Gobspin Zoomdrops"); // t=602.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x180, 2.0f, "Gobspin Zoomdrops"); // t=604.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x190, 2.0f, "Gobspin Zoomdrops"); // t=606.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x1A0, 2.0f, "Gobspin Zoomdrops"); // t=608.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x1B0, 2.0f, "Gobspin Zoomdrops"); // t=610.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x1C0, 2.0f, "Gobspin Zoomdrops"); // t=612.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x1D0, 2.0f, "Gobspin Zoomdrops"); // t=614.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x1E0, 2.0f, "Gobspin Zoomdrops"); // t=616.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x1F0, 2.0f, "Gobspin Zoomdrops"); // t=618.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x200, 2.0f, "Gobspin Zoomdrops"); // t=620.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x210, 2.0f, "Gobspin Zoomdrops"); // t=622.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x220, 2.0f, "Gobspin Zoomdrops"); // t=624.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x230, 2.0f, "Gobspin Zoomdrops"); // t=626.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x240, 2.0f, "Gobspin Zoomdrops"); // t=628.2; cactbot Ability 1A8F [A10S Gobspin Zoomdrops]
+    Timeout(id + 0x250, 71.8f, "Frostbite"); // t=700.0; Ability 1A8E from Lamebrix Strikebocks
+    Timeout(id + 0x260, 12.8f, "Gobsway Rumblerocks"); // t=712.8; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x270, 8.1f, "Gobrush Rushgob").SetHint(StateMachine.StateHint.Tankbuster); // t=720.9; Ability 1A9F from Lamebrix Strikebocks; cactbot StartsUsing 1A9F [A10S Gobrush Rushgob]
+    Timeout(id + 0x280, 3.2f, "--jump--"); // t=724.1; Ability 1AA2 from Lamebrix Strikebocks
+    Timeout(id + 0x290, 11.2f, "Gobslice Mooncrops"); // t=735.3; Ability 1A92 from Lamebrix Strikebocks; cactbot StartsUsing 1A92 [A10S Gobslice Mooncrops]
+    Timeout(id + 0x2A0, 4.1f, "--jump--"); // t=739.4; Ability 1AA2 from Lamebrix Strikebocks
+    Timeout(id + 0x2B0, 6.3f, "Leghops?/Charge (In)?"); // t=745.7
+    Timeout(id + 0x2C0, 4.2f, "Gobsway Rumblerocks"); // t=749.9; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x2D0, 4.1f, "Gobsway Rumblerocks"); // t=754.0; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x2E0, 4.1f, "Goblin Rush"); // t=758.1; Ability 1A16 from Lamebrix Strikebocks
+    Timeout(id + 0x2F0, 4.1f, "Goblin Rush"); // t=762.2; Ability 1A16 from Lamebrix Strikebocks
+    Timeout(id + 0x300, 3.1f, "Brighteyes Markers"); // t=765.3; Ability 1AA9 from Lamebrix Strikebocks; cactbot Ability 1AA9 [A10S Brighteyes Tracker] | Ability 1AA9 [A10S Brighteyes Cleanup]
+    Timeout(id + 0x310, 3.9f, "Laceration"); // t=769.2
+    Timeout(id + 0x320, 1.1f, "Brighteyes"); // t=770.3; Ability 1AAA from Lamebrix Strikebocks; cactbot Ability 1AA9 [A10S Brighteyes Tracker] | Ability 1AA9 [A10S Brighteyes Cleanup] | HeadMarker 29 [A10S Brighteyes Prey Marker] | HeadMarker 29 [A10S Brighteyes Prey Marker Pass]
+    Timeout(id + 0x330, 0.6f, "Illuminati Hand Cannon"); // t=770.9; Ability 1AA8 from Lamebrix Strikebocks
+    Timeout(id + 0x340, 1.4f, "Laceration"); // t=772.3
+    Timeout(id + 0x350, 2.8f, "Brighteyes Markers"); // t=775.1; Ability 1AA9 from Lamebrix Strikebocks; cactbot Ability 1AA9 [A10S Brighteyes Tracker] | Ability 1AA9 [A10S Brighteyes Cleanup]
+    Timeout(id + 0x360, 0.3f, "Laceration"); // t=775.4
+    Timeout(id + 0x370, 3.0f, "Laceration"); // t=778.4
+    Timeout(id + 0x380, 1.7f, "Brighteyes"); // t=780.1; Ability 1AAA from Lamebrix Strikebocks; cactbot Ability 1AA9 [A10S Brighteyes Tracker] | Ability 1AA9 [A10S Brighteyes Cleanup] | HeadMarker 29 [A10S Brighteyes Prey Marker] | HeadMarker 29 [A10S Brighteyes Prey Marker Pass]
+    Timeout(id + 0x390, 1.4f, "Single Charge"); // t=781.5; Ability 1A97 from Lamebrix Strikebocks
+    Timeout(id + 0x3A0, 0.8f, "--out--"); // t=782.3; Ability 1A9B from Lamebrix Strikebocks
+    Timeout(id + 0x3B0, 4.1f, "Goblin Rush"); // t=786.4; Ability 1A16 from Lamebrix Strikebocks
+    Timeout(id + 0x3C0, 9.2f, "Gobslash Slicetops"); // t=795.6; Ability 1AA1 from Lamebrix Strikebocks
+    Timeout(id + 0x3D0, 8.1f, "Gobrush Rushgob").SetHint(StateMachine.StateHint.Tankbuster); // t=803.7; Ability 1A9F from Lamebrix Strikebocks; cactbot StartsUsing 1A9F [A10S Gobrush Rushgob]
+    Timeout(id + 0x3E0, 8.1f, "Frost Trap"); // t=811.8; Ability 1AB1 from Lamebrix Strikebocks; cactbot Ability 1AB1 [A10S Frost Laser Trap]
+    Timeout(id + 0x3F0, 3.1f, "Discharge"); // t=814.9; Ability 1AA7 from Lamebrix Strikebocks
+    Timeout(id + 0x400, 1.0f, "Weight Trap"); // t=815.9; Ability 1AB0 from Lamebrix Strikebocks; cactbot Ability 1AB0 [A10S Ceiling Weight Trap]
+    Timeout(id + 0x410, 0.9f, "Frostbite"); // t=816.8; Ability 1A8E from Lamebrix Strikebocks
+    Timeout(id + 0x420, 0.4f, "--jump--"); // t=817.2; Ability 1AA2 from Lamebrix Strikebocks
+    Timeout(id + 0x430, 3.6f, "Impact"); // t=820.8; Ability 1A8B from Weight Of The World
+    Timeout(id + 0x440, 4.1f, "Discharge"); // t=824.9; Ability 1AA7 from Lamebrix Strikebocks
+    Timeout(id + 0x450, 2.2f, "Gobbie Adds x3 (NE)"); // t=827.1
+    Timeout(id + 0x460, 1.3f, "Gobsway Rumblerocks"); // t=828.4; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x470, 4.1f, "Gobsway Rumblerocks"); // t=832.5; Ability 1AA0 from Lamebrix Strikebocks
+    Timeout(id + 0x480, 8.2f, "Gobsnick Leghops"); // t=840.7; Ability 1AA4 from Lamebrix Strikebocks; cactbot StartsUsing 1AA4 [A10S Gobsnick Leghops]
+    Timeout(id + 0x490, 4.9f, "Laceration"); // t=845.6
+    Timeout(id + 0x4A0, 2.2f, "Goblin Rush"); // t=847.8; Ability 1A16 from Lamebrix Strikebocks
+    Timeout(id + 0x4B0, 0.8f, "Laceration"); // t=848.6
+    Timeout(id + 0x4C0, 3.0f, "Laceration"); // t=851.6
+    Timeout(id + 0x4D0, 4.3f, "Gobrush Rushgob").SetHint(StateMachine.StateHint.Tankbuster); // t=855.9; Ability 1A9F from Lamebrix Strikebocks; cactbot StartsUsing 1A9F [A10S Gobrush Rushgob]
+    Timeout(id + 0x4E0, 4.1f, "Goblin Rush"); // t=860.0; Ability 1A16 from Lamebrix Strikebocks
+    Timeout(id + 0x4F0, 15.3f, "Triple Charge"); // t=875.3; Ability 1A99 from Lamebrix Strikebocks
+    Timeout(id + 0x500, 0.8f, "--mechanic 1--"); // t=876.1
+    Timeout(id + 0x510, 3.1f, "--mechanic 2--"); // t=879.2
+    Timeout(id + 0x520, 4.5f, "--mechanic 3--"); // t=883.7
+    Timeout(id + 0x530, 5.1f, "Goblin Rush"); // t=888.8
+    Timeout(id + 0x540, 4.1f, "Gobsway Rumblerocks"); // t=892.9
+    Timeout(id + 0x550, 4.1f, "Goblin Rush"); // t=897.0
+    Timeout(id + 0x560, 4.1f, "Gobsway Rumblerocks"); // t=901.1
+    Timeout(id + 0x570, 5.1f, "--jump--"); // t=906.2
+    Timeout(id + 0x580, 5.6f, "Single Charge"); // t=911.8
+    Timeout(id + 0x590, 0.8f, "--in--"); // t=912.6
+}
+

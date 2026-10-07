@@ -1,0 +1,97 @@
+// Generated development skeleton from holminster_switch.txt (TerritoryType 837).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 13 static/dynamic trigger definitions from ui/raidboss/data/05-shb/dungeon/holminster_switch.ts.
+
+private void Forgiven_Dissonance(uint id)
+{
+    Timeout(id + 0x0, 12.0f, "The Path Of Light").SetHint(StateMachine.StateHint.Raidwide); // t=112.0; Ability 3DC5 from Forgiven Dissonance; cactbot StartsUsing 3DC5 [Holminster Path of Light]
+    Timeout(id + 0x10, 8.4f, "Brazen Bull"); // t=120.4; Ability 3DC9 from Forgiven Dissonance
+    Timeout(id + 0x20, 6.1f, "Gibbet Cage"); // t=126.5; Ability 3DC8 from Forgiven Dissonance
+    Timeout(id + 0x30, 7.9f, "Thumbscrew"); // t=134.4; Ability 3DC6 from Forgiven Dissonance
+    Timeout(id + 0x40, 0.2f, "Heretic's Fork"); // t=134.6; Ability 3DCE from Forgiven Dissonance
+    Timeout(id + 0x50, 5.1f, "Light Shot"); // t=139.7; Ability 3DCB from Forgiven Dissonance
+    Timeout(id + 0x60, 2.3f, "Wooden Horse"); // t=142.0; Ability 3DC7 from Forgiven Dissonance
+    Timeout(id + 0x70, 12.2f, "The Path Of Light").SetHint(StateMachine.StateHint.Raidwide); // t=154.2; Ability 3DC5 from Forgiven Dissonance; cactbot StartsUsing 3DC5 [Holminster Path of Light]
+    Timeout(id + 0x80, 8.3f, "Pillory").SetHint(StateMachine.StateHint.Tankbuster); // t=162.5; Ability 3DC4 from Forgiven Dissonance; cactbot StartsUsing 3DC4 [Holminster Pillory]
+    Timeout(id + 0x90, 10.5f, "Brazen Bull"); // t=173.0; Ability 3DC9 from Forgiven Dissonance
+    Timeout(id + 0xA0, 9.3f, "Gibbet Cage"); // t=182.3; Ability 3DC8 from Forgiven Dissonance
+    Timeout(id + 0xB0, 4.9f, "Heretic's Fork"); // t=187.2; Ability 3DCE from Forgiven Dissonance
+    Timeout(id + 0xC0, 3.1f, "Thumbscrew"); // t=190.3; Ability 3DC6 from Forgiven Dissonance
+    Timeout(id + 0xD0, 2.0f, "Light Shot"); // t=192.3; Ability 3DCB from Forgiven Dissonance
+    Timeout(id + 0xE0, 10.5f, "The Path Of Light").SetHint(StateMachine.StateHint.Raidwide); // t=202.8; Ability 3DC5 from Forgiven Dissonance; cactbot StartsUsing 3DC5 [Holminster Path of Light]
+    Timeout(id + 0xF0, 8.3f, "Pillory").SetHint(StateMachine.StateHint.Tankbuster); // t=211.1; Ability 3DC4 from Forgiven Dissonance; cactbot StartsUsing 3DC4 [Holminster Pillory]
+    Timeout(id + 0x100, 7.8f, "Brazen Bull"); // t=218.9; Ability 3DC9 from Forgiven Dissonance
+    Timeout(id + 0x110, 7.9f, "Thumbscrew"); // t=226.8; Ability 3DC6 from Forgiven Dissonance
+    Timeout(id + 0x120, 6.2f, "Heretic's Fork"); // t=233.0; Ability 3DCE from Forgiven Dissonance
+    Timeout(id + 0x130, 1.5f, "Wooden Horse"); // t=234.5; Ability 3DC7 from Forgiven Dissonance
+    Timeout(id + 0x140, 3.7f, "Light Shot"); // t=238.2; Ability 3DCB from Forgiven Dissonance
+    Timeout(id + 0x150, 3.2f, "Thumbscrew"); // t=241.4; Ability 3DC6 from Forgiven Dissonance
+    Timeout(id + 0x160, 1.8f, "Heretic's Fork"); // t=243.2; Ability 3DCE from Forgiven Dissonance
+    Timeout(id + 0x170, 5.2f, "Light Shot"); // t=248.4; Ability 3DCB from Forgiven Dissonance
+    Timeout(id + 0x180, 0.6f, "Wooden Horse"); // t=249.0; Ability 3DC7 from Forgiven Dissonance
+    Timeout(id + 0x190, 12.3f, "The Path Of Light").SetHint(StateMachine.StateHint.Raidwide); // t=261.3; Ability 3DC5 from Forgiven Dissonance; cactbot StartsUsing 3DC5 [Holminster Path of Light]
+    Timeout(id + 0x1A0, 8.3f, "Pillory"); // t=269.6; cactbot StartsUsing 3DC4 [Holminster Pillory]
+    Timeout(id + 0x1B0, 10.5f, "Brazen Bull"); // t=280.1
+    Timeout(id + 0x1C0, 9.3f, "Gibbet Cage"); // t=289.4
+    Timeout(id + 0x1D0, 4.9f, "Heretic's Fork"); // t=294.3
+    Timeout(id + 0x1E0, 3.1f, "Thumbscrew"); // t=297.4
+    Timeout(id + 0x1F0, 2.0f, "Light Shot"); // t=299.4
+    Timeout(id + 0x200, 10.5f, "The Path Of Light"); // t=309.9
+}
+
+private void Tesleen__the_Forgiven(uint id)
+{
+    Timeout(id + 0x0, 13.5f, "The Tickler").SetHint(StateMachine.StateHint.Tankbuster); // t=513.5; Ability 3DCF from Tesleen, the Forgiven; cactbot StartsUsing 3DCF [Holminster Tickler]
+    Timeout(id + 0x10, 10.1f, "Scold's Bridle").SetHint(StateMachine.StateHint.Raidwide); // t=523.6; Ability 3DD0 from Tesleen, the Forgiven; cactbot StartsUsing 3DD0 [Holminster Bridle]
+    Timeout(id + 0x20, 10.2f, "Fevered Flagellation"); // t=533.8; Ability 3DD5 from Tesleen, the Forgiven; cactbot StartsUsing 3DD5 [Holminster Flagellation]
+    Timeout(id + 0x30, 14.5f, "Scold's Bridle").SetHint(StateMachine.StateHint.Raidwide); // t=548.3; Ability 3DD0 from Tesleen, the Forgiven; cactbot StartsUsing 3DD0 [Holminster Bridle]
+    Timeout(id + 0x40, 10.3f, "Exorcise"); // t=558.6; Ability 3DD2 from Tesleen, the Forgiven; cactbot HeadMarker 3E [Holminster Exorcise Stack]
+    Timeout(id + 0x50, 1.8f, "Holy Water"); // t=560.4; Ability 3DD4 from Tesleen, the Forgiven
+    Timeout(id + 0x60, 13.4f, "Fevered Flagellation"); // t=573.8; Ability 3DD5 from Tesleen, the Forgiven; cactbot StartsUsing 3DD5 [Holminster Flagellation]
+    Timeout(id + 0x70, 21.0f, "Scold's Bridle").SetHint(StateMachine.StateHint.Raidwide); // t=594.8; Ability 3DD0 from Tesleen, the Forgiven; cactbot StartsUsing 3DD0 [Holminster Bridle]
+    Timeout(id + 0x80, 7.2f, "Scold's Bridle").SetHint(StateMachine.StateHint.Raidwide); // t=602.0; Ability 3DD0 from Tesleen, the Forgiven; cactbot StartsUsing 3DD0 [Holminster Bridle]
+    Timeout(id + 0x90, 10.1f, "The Tickler").SetHint(StateMachine.StateHint.Tankbuster); // t=612.1; Ability 3DCF from Tesleen, the Forgiven; cactbot StartsUsing 3DCF [Holminster Tickler]
+    Timeout(id + 0xA0, 7.1f, "Scold's Bridle").SetHint(StateMachine.StateHint.Raidwide); // t=619.2; Ability 3DD0 from Tesleen, the Forgiven; cactbot StartsUsing 3DD0 [Holminster Bridle]
+    Timeout(id + 0xB0, 17.2f, "Exorcise"); // t=636.4; Ability 3DD2 from Tesleen, the Forgiven; cactbot HeadMarker 3E [Holminster Exorcise Stack]
+    Timeout(id + 0xC0, 1.9f, "Holy Water"); // t=638.3; Ability 3DD4 from Tesleen, the Forgiven
+    Timeout(id + 0xD0, 13.3f, "Fevered Flagellation"); // t=651.6; Ability 3DD5 from Tesleen, the Forgiven; cactbot StartsUsing 3DD5 [Holminster Flagellation]
+    Timeout(id + 0xE0, 21.2f, "Scold's Bridle"); // t=672.8
+    Timeout(id + 0xF0, 7.2f, "Scold's Bridle"); // t=680.0
+    Timeout(id + 0x100, 10.1f, "The Tickler"); // t=690.1
+    Timeout(id + 0x110, 7.1f, "Scold's Bridle"); // t=697.2
+    Timeout(id + 0x120, 17.2f, "Exorcise"); // t=714.4; cactbot HeadMarker 3E [Holminster Exorcise Stack]
+    Timeout(id + 0x130, 1.9f, "Holy Water"); // t=716.3
+    Timeout(id + 0x140, 13.3f, "Fevered Flagellation"); // t=729.6
+}
+
+private void Philia(uint id)
+{
+    Timeout(id + 0x0, 12.5f, "Scavenger's Daughter").SetHint(StateMachine.StateHint.Raidwide); // t=1012.5; Ability 3DD8 from Philia; cactbot StartsUsing 3DD8 [Holminster Scavenger]
+    Timeout(id + 0x10, 10.3f, "Head Crusher").SetHint(StateMachine.StateHint.Tankbuster); // t=1022.8; Ability 3DD7 from Philia; cactbot StartsUsing 3DD7 [Holminster Head Crusher]
+    Timeout(id + 0x20, 10.1f, "Pendulum Tank"); // t=1032.9; Ability 4189 from Philia
+    Timeout(id + 0x30, 2.1f, "Pendulum Center"); // t=1035.0; Ability 3DD9 from Philia
+    Timeout(id + 0x40, 7.1f, "Chain Down"); // t=1042.1; Ability 429C from Philia; cactbot HeadMarker 5C [Holminster Chain Down]
+    Timeout(id + 0x50, 17.4f, "Aethersup"); // t=1059.5; Ability 3DE8 from Philia
+    Timeout(id + 0x60, 10.6f, "Left/Right Knout"); // t=1070.1
+    Timeout(id + 0x70, 7.0f, "Right/Left Knout"); // t=1077.1
+    Timeout(id + 0x80, 11.3f, "Head Crusher").SetHint(StateMachine.StateHint.Tankbuster); // t=1088.4; Ability 3DD7 from Philia; cactbot StartsUsing 3DD7 [Holminster Head Crusher]
+    Timeout(id + 0x90, 6.6f, "Taphephobia"); // t=1095.0; Ability 3DE2 from Philia; cactbot HeadMarker 8B [Holminster Taphephobia]
+    Timeout(id + 0xA0, 7.1f, "Into The Light"); // t=1102.1; Ability 4350 from Philia; cactbot StartsUsing 4350 [Holminster Into The Light]
+    Timeout(id + 0xB0, 20.7f, "Pendulum Tank"); // t=1122.8; Ability 4189 from Philia
+    Timeout(id + 0xC0, 2.2f, "Pendulum Center"); // t=1125.0; Ability 3DD9 from Philia
+    Timeout(id + 0xD0, 7.3f, "Fierce Beating"); // t=1132.3; Ability 3DDA from Philia
+    Timeout(id + 0xE0, 38.5f, "Into The Light"); // t=1170.8; Ability 4350 from Philia; cactbot StartsUsing 4350 [Holminster Into The Light]
+    Timeout(id + 0xF0, 7.7f, "Left/Right Knout"); // t=1178.5
+    Timeout(id + 0x100, 7.2f, "Right/Left Knout"); // t=1185.7
+    Timeout(id + 0x110, 7.2f, "Chain Down"); // t=1192.9; Ability 429C from Philia; cactbot HeadMarker 5C [Holminster Chain Down]
+    Timeout(id + 0x120, 17.4f, "Aethersup"); // t=1210.3; Ability 3DE8 from Philia
+    Timeout(id + 0x130, 15.3f, "Scavenger's Daughter").SetHint(StateMachine.StateHint.Raidwide); // t=1225.6; Ability 3DD8 from Philia; cactbot StartsUsing 3DD8 [Holminster Scavenger]
+    Timeout(id + 0x140, 19.3f, "Head Crusher").SetHint(StateMachine.StateHint.Tankbuster); // t=1244.9; Ability 3DD7 from Philia; cactbot StartsUsing 3DD7 [Holminster Head Crusher]
+    Timeout(id + 0x150, 6.7f, "Taphephobia"); // t=1251.6; Ability 3DE2 from Philia; cactbot HeadMarker 8B [Holminster Taphephobia]
+    Timeout(id + 0x160, 7.1f, "Into The Light"); // t=1258.7; cactbot StartsUsing 4350 [Holminster Into The Light]
+    Timeout(id + 0x170, 20.7f, "Pendulum Tank"); // t=1279.4
+    Timeout(id + 0x180, 2.2f, "Pendulum Center"); // t=1281.6
+    Timeout(id + 0x190, 7.3f, "Fierce Beating"); // t=1288.9
+}
+

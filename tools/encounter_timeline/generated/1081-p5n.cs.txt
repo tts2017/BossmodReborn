@@ -1,0 +1,50 @@
+// Generated development skeleton from p5n.txt (TerritoryType 1081).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 15 static/dynamic trigger definitions from ui/raidboss/data/06-ew/raid/p5n.ts.
+
+private void P5N__Abyssos__The_Fifth_Circle(uint id)
+{
+    Timeout(id + 0x0, 19.1f, "Searing Ray"); // t=19.1; Ability 76D7 from Proto-Carbuncle; cactbot StartsUsing 76D7 [P5N Searing Ray]
+    Timeout(id + 0x10, 9.1f, "Ruby Glow").SetHint(StateMachine.StateHint.Raidwide); // t=28.2; Ability 76D4 from Proto-Carbuncle; cactbot StartsUsing [P5N Ruby Glow]
+    Timeout(id + 0x20, 11.5f, "Searing Ray"); // t=39.7; Ability 76D8 from Proto-Carbuncle; cactbot StartsUsing 76D8 [P5N Searing Ray Reflected]
+    Timeout(id + 0x30, 12.2f, "Crunch").SetHint(StateMachine.StateHint.Tankbuster); // t=51.9; Ability 76F0 from Proto-Carbuncle; cactbot StartsUsing 76F0 [P5N Crunch]
+    Timeout(id + 0x40, 7.2f, "Topaz Stones"); // t=59.1; Ability 76DE from Proto-Carbuncle; cactbot Ability 76DE [P5N Topaz Stones] | Ability 76DE [P5N Topaz Stones Cleanup]
+    Timeout(id + 0x50, 16.2f, "Ruby Glow").SetHint(StateMachine.StateHint.Raidwide); // t=75.3; Ability 76D4 from Proto-Carbuncle; cactbot StartsUsing [P5N Ruby Glow]
+    Timeout(id + 0x60, 6.1f, "Topaz Stones"); // t=81.4; Ability 76DE from Proto-Carbuncle; cactbot Ability 76DE [P5N Topaz Stones] | Ability 76DE [P5N Topaz Stones Cleanup]
+    Timeout(id + 0x70, 16.2f, "Sonic Howl").SetHint(StateMachine.StateHint.Raidwide); // t=97.6; Ability 76F2 from Proto-Carbuncle; cactbot StartsUsing 76F2 [P5N Sonic Howl]
+    Timeout(id + 0x80, 12.8f, "Searing Ray"); // t=110.4; Ability 76D7 from Proto-Carbuncle; cactbot StartsUsing 76D7 [P5N Searing Ray]
+    Timeout(id + 0x90, 7.2f, "Crunch").SetHint(StateMachine.StateHint.Tankbuster); // t=117.6; Ability 76F0 from Proto-Carbuncle; cactbot StartsUsing 76F0 [P5N Crunch]
+    Timeout(id + 0xA0, 9.1f, "Sonic Howl").SetHint(StateMachine.StateHint.Raidwide); // t=126.7; Ability 76F2 from Proto-Carbuncle; cactbot StartsUsing 76F2 [P5N Sonic Howl]
+    Targetable(id + 0xB0, false, 17.5f, "--untargetable--"); // t=144.2; Ability 78EB from Proto-Carbuncle; cactbot StartsUsing 78EB [P5N Acidic Slaver]
+    Targetable(id + 0xC0, true, 45.0f, "--targetable--"); // t=189.2
+    Timeout(id + 0xD0, 10.5f, "Ruby Glow").SetHint(StateMachine.StateHint.Raidwide); // t=199.7; Ability 76D4 from Proto-Carbuncle; cactbot StartsUsing [P5N Ruby Glow]
+    Timeout(id + 0xE0, 6.1f, "Topaz Stones"); // t=205.8; Ability 76DE from Proto-Carbuncle; cactbot Ability 76DE [P5N Topaz Stones] | Ability 76DE [P5N Topaz Stones Cleanup]
+    Timeout(id + 0xF0, 15.1f, "Toxic Crunch").SetHint(StateMachine.StateHint.Tankbuster); // t=220.9; Ability 76F1 from Proto-Carbuncle; cactbot StartsUsing 76F1 [P5N Toxic Crunch]
+    Timeout(id + 0x100, 17.1f, "Venom Squall"); // t=238.0; Ability 76EC from Proto-Carbuncle
+    Timeout(id + 0x110, 7.8f, "Venom Rain"); // t=245.8; Ability 76ED from Proto-Carbuncle; cactbot HeadMarker 178 [P5N Venom Rain]
+    Timeout(id + 0x120, 7.0f, "Venom Pool"); // t=252.8; Ability 76EF from Proto-Carbuncle; cactbot HeadMarker 64 [P5N Venom Pool]
+    Timeout(id + 0x130, 8.4f, "Sonic Howl").SetHint(StateMachine.StateHint.Raidwide); // t=261.2; Ability 76F2 from Proto-Carbuncle; cactbot StartsUsing 76F2 [P5N Sonic Howl]
+    Timeout(id + 0x140, 11.1f, "Topaz Stones"); // t=272.3; Ability 76DE from Proto-Carbuncle; cactbot Ability 76DE [P5N Topaz Stones] | Ability 76DE [P5N Topaz Stones Cleanup]
+    Timeout(id + 0x150, 9.1f, "Toxic Crunch").SetHint(StateMachine.StateHint.Tankbuster); // t=281.4; Ability 76F1 from Proto-Carbuncle; cactbot StartsUsing 76F1 [P5N Toxic Crunch]
+    Targetable(id + 0x160, false, 30.4f, "--untargetable--"); // t=311.8; Ability 76E5 from Proto-Carbuncle
+    Timeout(id + 0x170, 0.0f, "Starving Stampede"); // t=311.8; Ability 76E5 from Proto-Carbuncle; cactbot StartsUsing 79E9 [P5N Starving Stampede]
+    Targetable(id + 0x180, true, 6.0f, "--targetable--"); // t=317.8
+    Timeout(id + 0x190, 16.3f, "Ruby Glow").SetHint(StateMachine.StateHint.Raidwide); // t=334.1; Ability 76D4 from Proto-Carbuncle; cactbot StartsUsing [P5N Ruby Glow]
+    Timeout(id + 0x1A0, 6.1f, "Topaz Cluster"); // t=340.2; Ability 76E6 from Proto-Carbuncle; cactbot Ability 76E6 [P5N Topaz Cluster Cleanup]
+    Timeout(id + 0x1B0, 27.9f, "Searing Ray"); // t=368.1; Ability 76D7 from Proto-Carbuncle; cactbot StartsUsing 76D7 [P5N Searing Ray]
+    Timeout(id + 0x1C0, 14.2f, "Ruby Glow").SetHint(StateMachine.StateHint.Raidwide); // t=382.3; Ability 76D4 from Proto-Carbuncle; cactbot StartsUsing [P5N Ruby Glow]
+    Timeout(id + 0x1D0, 6.1f, "Topaz Stones"); // t=388.4; Ability 76DE from Proto-Carbuncle; cactbot Ability 76DE [P5N Topaz Stones] | Ability 76DE [P5N Topaz Stones Cleanup]
+    Timeout(id + 0x1E0, 14.4f, "Searing Ray"); // t=402.8; Ability 76D8 from Proto-Carbuncle; cactbot StartsUsing 76D8 [P5N Searing Ray Reflected]
+    Timeout(id + 0x1F0, 13.1f, "Toxic Crunch").SetHint(StateMachine.StateHint.Tankbuster); // t=415.9; Ability 76F1 from Proto-Carbuncle; cactbot StartsUsing 76F1 [P5N Toxic Crunch]
+    Timeout(id + 0x200, 9.1f, "Ruby Glow").SetHint(StateMachine.StateHint.Raidwide); // t=425.0; Ability 76D4 from Proto-Carbuncle; cactbot StartsUsing [P5N Ruby Glow]
+    Timeout(id + 0x210, 6.1f, "Topaz Stones"); // t=431.1; Ability 76DE from Proto-Carbuncle; cactbot Ability 76DE [P5N Topaz Stones] | Ability 76DE [P5N Topaz Stones Cleanup]
+    Timeout(id + 0x220, 7.1f, "Venom Squall"); // t=438.2; Ability 76EC from Proto-Carbuncle
+    Timeout(id + 0x230, 7.8f, "Venom Rain"); // t=446.0; Ability 76ED from Proto-Carbuncle; cactbot HeadMarker 178 [P5N Venom Rain]
+    Timeout(id + 0x240, 7.0f, "Venom Pool"); // t=453.0; Ability 76EF from Proto-Carbuncle; cactbot HeadMarker 64 [P5N Venom Pool]
+    Timeout(id + 0x250, 10.3f, "Sonic Howl").SetHint(StateMachine.StateHint.Raidwide); // t=463.3; Ability 76F2 from Proto-Carbuncle; cactbot StartsUsing 76F2 [P5N Sonic Howl]
+    Timeout(id + 0x260, 12.2f, "Toxic Crunch").SetHint(StateMachine.StateHint.Tankbuster); // t=475.5; Ability 76F1 from Proto-Carbuncle; cactbot StartsUsing 76F1 [P5N Toxic Crunch]
+    Timeout(id + 0x270, 7.1f, "Ruby Glow").SetHint(StateMachine.StateHint.Raidwide); // t=482.6; Ability 76D4 from Proto-Carbuncle; cactbot StartsUsing [P5N Ruby Glow]
+    Timeout(id + 0x280, 6.1f, "Topaz Cluster"); // t=488.7; Ability 76E6 from Proto-Carbuncle; cactbot Ability 76E6 [P5N Topaz Cluster Cleanup]
+}
+

@@ -1,0 +1,1549 @@
+// Generated development skeleton from occult_crescent_south_horn.txt (TerritoryType 1252).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 161 static/dynamic trigger definitions from ui/raidboss/data/07-dt/eureka/occult_crescent_south_horn.ts.
+
+private void Occult_Crescent__South_Horn(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Calamity_Bound(uint id)
+{
+    Condition(id + 0x0, 117.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA178), "", 5f, 112.3f); // t=1117.3; StartsUsing A178 from Cloister Demon
+    Timeout(id + 0x10, 4.7f, "Sunderseal Roar"); // t=1122.0; Ability A178 from Cloister Demon
+    Condition(id + 0x20, 2.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA17B), "Seal Asunder", 5f, 0.0f); // t=1124.2; StartsUsing A17B from Cloister Demon
+    Timeout(id + 0x30, 13.0f, "Void Thunder III"); // t=1137.2; Ability A18E from Cloister Demon
+    Timeout(id + 0x40, 3.6f, "Void Thunder III"); // t=1140.8; Ability A18E from Cloister Demon
+    Timeout(id + 0x50, 3.6f, "Void Thunder III"); // t=1144.4; Ability A18E from Cloister Demon
+    Timeout(id + 0x60, 3.4f, "Void Thunder III"); // t=1147.8; Ability A18E from Cloister Demon
+    Timeout(id + 0x70, 9.4f, "--reseal?-- / Seal Asunder?"); // t=1157.2; Ability A17A from Cloister Demon | Ability A17B from Cloister Demon
+    Timeout(id + 0x80, 13.4f, "Great Ball of Fire?"); // t=1170.6
+    Timeout(id + 0x90, 11.7f, "Explosion?"); // t=1182.3; cactbot Ability A2F1/A2EF [Occult Crescent Demon Tablet Gravity/Ground Tower Explosion]
+    Timeout(id + 0xA0, 5.0f, "Explosion?"); // t=1187.3; cactbot Ability A2F1/A2EF [Occult Crescent Demon Tablet Gravity/Ground Tower Explosion]
+    Timeout(id + 0xB0, 8.4f, "Gigaflare?"); // t=1195.7
+    Timeout(id + 0xC0, 9.3f, "Tidal Breath?"); // t=1205.0; cactbot StartsUsing A190 [Occult Crescent Cloister Demon Tidal Breath]
+    Timeout(id + 0xD0, 65.6f, "Great Ball of Fire"); // t=1270.6; Ability A18A from Cloister Demon
+    Timeout(id + 0xE0, 11.7f, "Explosion"); // t=1282.3; Ability A18D from Ball of Fire; cactbot Ability A2F1/A2EF [Occult Crescent Demon Tablet Gravity/Ground Tower Explosion]
+    Timeout(id + 0xF0, 5.0f, "Explosion"); // t=1287.3; Ability A18D from Ball of Fire; cactbot Ability A2F1/A2EF [Occult Crescent Demon Tablet Gravity/Ground Tower Explosion]
+    Timeout(id + 0x100, 8.4f, "Gigaflare"); // t=1295.7; Ability A192 from Cloister Demon
+    Timeout(id + 0x110, 9.3f, "Tidal Breath"); // t=1305.0; Ability A190 from Cloister Demon; cactbot StartsUsing A190 [Occult Crescent Cloister Demon Tidal Breath]
+    Timeout(id + 0x120, 17.1f, "Sunderseal Roar"); // t=1322.1; Ability A178 from Cloister Demon
+    Condition(id + 0x130, 2.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA17C), "Seal Asunder", 5f, 0.0f); // t=1324.3; StartsUsing A17C from Cloister Demon
+    Timeout(id + 0x140, 9.9f, "Karmic Drain"); // t=1334.2; Ability A18F from Cloister Demon
+    Timeout(id + 0x150, 3.6f, "Karmic Drain"); // t=1337.8; Ability A18F from Cloister Demon
+    Timeout(id + 0x160, 26.5f, "--reseal?-- / Seal Asunder?"); // t=1364.3; Ability A17A from Cloister Demon | Ability A17C from Cloister Demon
+    Timeout(id + 0x170, 4.4f, "Blazing Flare?"); // t=1368.7
+    Timeout(id + 0x180, 11.6f, "Explosion?"); // t=1380.3; cactbot Ability A2F1/A2EF [Occult Crescent Demon Tablet Gravity/Ground Tower Explosion]
+    Timeout(id + 0x190, 12.0f, "Explosion?"); // t=1392.3; cactbot Ability A2F1/A2EF [Occult Crescent Demon Tablet Gravity/Ground Tower Explosion]
+    Timeout(id + 0x1A0, 5.2f, "Tidal Breath?"); // t=1397.5; cactbot StartsUsing A190 [Occult Crescent Cloister Demon Tidal Breath]
+    Timeout(id + 0x1B0, 12.0f, "Gigaflare?"); // t=1409.5
+    Timeout(id + 0x1C0, 59.2f, "Blazing Flare"); // t=1468.7; Ability A18B from Cloister Demon
+    Timeout(id + 0x1D0, 11.6f, "Explosion"); // t=1480.3; Ability A18D from Ball of Fire; cactbot Ability A2F1/A2EF [Occult Crescent Demon Tablet Gravity/Ground Tower Explosion]
+    Timeout(id + 0x1E0, 12.0f, "Explosion"); // t=1492.3; Ability A18D from Ball of Fire; cactbot Ability A2F1/A2EF [Occult Crescent Demon Tablet Gravity/Ground Tower Explosion]
+    Timeout(id + 0x1F0, 5.2f, "Tidal Breath"); // t=1497.5; Ability A190 from Cloister Demon; cactbot StartsUsing A190 [Occult Crescent Cloister Demon Tidal Breath]
+    Timeout(id + 0x200, 12.0f, "Gigaflare"); // t=1509.5; Ability A192 from Cloister Demon
+    Timeout(id + 0x210, 16.2f, "Sunderseal Roar"); // t=1525.7; Ability A178 from Cloister Demon
+    Condition(id + 0x220, 2.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA17D), "Seal Asunder", 5f, 0.0f); // t=1527.9; StartsUsing A17D from Cloister Demon
+    Timeout(id + 0x230, 6.0f, "--adds-targetable--"); // t=1533.9
+    Timeout(id + 0x240, 9.0f, "Karmic Drain"); // t=1542.9; Ability A18F from Cloister Demon
+    Timeout(id + 0x250, 3.6f, "Karmic Drain"); // t=1546.5; Ability A18F from Cloister Demon
+    Timeout(id + 0x260, 11.4f, "--adds-targetable--"); // t=1557.9
+    Timeout(id + 0x270, 16.0f, "--reseal?-- / Seal Asunder?"); // t=1573.9; Ability A17A from Cloister Demon | Ability A17D from Cloister Demon
+    Timeout(id + 0x280, 2.3f, "Gigaflare"); // t=1576.2
+    Timeout(id + 0x290, 11.3f, "Blazing Flare"); // t=1587.5
+    Timeout(id + 0x2A0, 11.7f, "Explosion"); // t=1599.2; cactbot Ability A2F1/A2EF [Occult Crescent Demon Tablet Gravity/Ground Tower Explosion]
+    Timeout(id + 0x2B0, 12.0f, "Explosion"); // t=1611.2; cactbot Ability A2F1/A2EF [Occult Crescent Demon Tablet Gravity/Ground Tower Explosion]
+    Timeout(id + 0x2C0, 5.1f, "Tidal Breath"); // t=1616.3; cactbot StartsUsing A190 [Occult Crescent Cloister Demon Tidal Breath]
+    Timeout(id + 0x2D0, 59.9f, "Gigaflare"); // t=1676.2; Ability A192 from Cloister Demon
+    Timeout(id + 0x2E0, 11.3f, "Blazing Flare"); // t=1687.5; Ability A18B from Cloister Demon
+    Timeout(id + 0x2F0, 11.7f, "Explosion"); // t=1699.2; Ability A18D from Ball of Fire; cactbot Ability A2F1/A2EF [Occult Crescent Demon Tablet Gravity/Ground Tower Explosion]
+    Timeout(id + 0x300, 12.0f, "Explosion"); // t=1711.2; Ability A18D from Ball of Fire; cactbot Ability A2F1/A2EF [Occult Crescent Demon Tablet Gravity/Ground Tower Explosion]
+    Timeout(id + 0x310, 5.1f, "Tidal Breath"); // t=1716.3; Ability A190 from Cloister Demon; cactbot StartsUsing A190 [Occult Crescent Cloister Demon Tidal Breath]
+    Condition(id + 0x320, 23.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA178), "", 5f, 18.2f); // t=1739.5; StartsUsing A178 from Cloister Demon
+    Timeout(id + 0x330, 64.0f, "--reseal?--"); // t=1803.5; Ability A17A from Cloister Demon
+    Timeout(id + 0x340, 0.1f, "Void Death IV (Enrage)"); // t=1803.6; Ability A187 from Cloister Demon
+    Timeout(id + 0x350, 59.9f, "--reseal?--"); // t=1863.5; Ability A17A from Cloister Demon
+    Timeout(id + 0x360, 0.1f, "Void Death IV (Enrage)"); // t=1863.6; Ability A187 from Cloister Demon
+    Timeout(id + 0x370, 99.9f, "--reseal?--"); // t=1963.5; Ability A17A from Cloister Demon
+    Timeout(id + 0x380, 0.1f, "Void Death IV (Enrage)"); // t=1963.6; Ability A187 from Cloister Demon
+}
+
+private void Company_of_Stone(uint id)
+{
+    Condition(id + 0x0, 245.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA359), "", 5f, 240.3f); // t=2245.3; StartsUsing A359 from Occult Knight
+    Timeout(id + 0x10, 5.0f, "Line of Fire 1 (middle)"); // t=2250.3; Ability A359 from Occult Knight
+    Timeout(id + 0x20, 2.0f, "Line of Fire 2 (H Pattern)"); // t=2252.3
+    Timeout(id + 0x30, 2.0f, "Line of Fire 3 (inner)"); // t=2254.3
+    Timeout(id + 0x40, 2.0f, "Line of Fire 4 (outer)"); // t=2256.3
+    Timeout(id + 0x50, 11.0f, "Knuckle Crusher 1 (middle)"); // t=2267.3
+    Timeout(id + 0x60, 1.0f, "Knuckle Crusher 2"); // t=2268.3
+    Timeout(id + 0x70, 1.0f, "Knuckle Crusher 3"); // t=2269.3
+    Timeout(id + 0x80, 1.0f, "Knuckle Crusher 4"); // t=2270.3
+    Timeout(id + 0x90, 1.0f, "Knuckle Crusher 5 / --adds-targetable--"); // t=2271.3
+    Timeout(id + 0xA0, 2.0f, "--adds-targetable--"); // t=2273.3
+    Timeout(id + 0xB0, 3.0f, "Knuckle Down 1"); // t=2276.3
+    Timeout(id + 0xC0, 1.7f, "Knuckle Down 2"); // t=2278.0
+    Timeout(id + 0xD0, 1.6f, "Knuckle Down 3"); // t=2279.6
+    Timeout(id + 0xE0, 1.6f, "Knuckle Down 4"); // t=2281.2
+    Timeout(id + 0xF0, 1.7f, "--adds-targetable--"); // t=2282.9
+    Condition(id + 0x100, 143.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA35F), "", 5f, 138.6f); // t=2426.5; StartsUsing A35F from Occult Knight
+    Timeout(id + 0x110, 8.0f, "Spinning Siege 1"); // t=2434.5; Ability A35F from Occult Knight
+    Timeout(id + 0x120, 1.7f, "Spinning Siege 2"); // t=2436.2
+    Timeout(id + 0x130, 1.7f, "Spinning Siege 3"); // t=2437.9
+    Timeout(id + 0x140, 1.7f, "Spinning Siege 4"); // t=2439.6
+    Timeout(id + 0x150, 1.7f, "Spinning Siege 5"); // t=2441.3
+    Timeout(id + 0x160, 1.7f, "Spinning Siege 6"); // t=2443.0
+    Timeout(id + 0x170, 6.4f, "Blast Knuckles"); // t=2449.4; Ability A362 from Occult Knight
+    Timeout(id + 0x180, 1.0f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=2450.4; Ability A3A3 from Occult Knight; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Timeout(id + 0x190, 1.0f, "Cage of Fire 1"); // t=2451.4
+    Timeout(id + 0x1A0, 2.0f, "Cage of Fire 2"); // t=2453.4
+    Timeout(id + 0x1B0, 2.0f, "--adds-targetable--"); // t=2455.4
+    Timeout(id + 0x1C0, 1.0f, "Knuckle Down 1"); // t=2456.4
+    Timeout(id + 0x1D0, 1.7f, "Knuckle Down 2"); // t=2458.1
+    Timeout(id + 0x1E0, 1.7f, "Knuckle Down 3"); // t=2459.8
+    Timeout(id + 0x1F0, 1.7f, "Knuckle Down 4"); // t=2461.5
+    Timeout(id + 0x200, 1.7f, "--adds-targetable--"); // t=2463.2
+    Condition(id + 0x210, 145.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA363), "", 5f, 140.2f); // t=2608.4; StartsUsing A363 from Occult Knight
+    Timeout(id + 0x220, 3.0f, "Moatmaker 1"); // t=2611.4; Ability A363 from Occult Knight
+    Timeout(id + 0x230, 2.0f, "Dualfist Flurry 1"); // t=2613.4; Ability A364 from Occult Knight
+    Timeout(id + 0x240, 1.1f, "Dualfist Flurry 2"); // t=2614.5
+    Timeout(id + 0x250, 1.0f, "Dualfist Flurry 3"); // t=2615.5
+    Timeout(id + 0x260, 1.0f, "Moatmaker 2 / Dualfist Flurry 4"); // t=2616.5
+    Timeout(id + 0x270, 0.9f, "Dualfist Flurry 1"); // t=2617.4; Ability A364 from Occult Knight
+    Timeout(id + 0x280, 0.1f, "Dualfist Flurry 5"); // t=2617.5
+    Timeout(id + 0x290, 0.9f, "Dualfist Flurry 2 / Dualfist Flurry 6"); // t=2618.4
+    Timeout(id + 0x2A0, 0.9f, "Dualfist Flurry 3"); // t=2619.3
+    Timeout(id + 0x2B0, 1.1f, "Dualfist Flurry 4"); // t=2620.4
+    Timeout(id + 0x2C0, 0.9f, "Dualfist Flurry 5 / Moatmaker 3"); // t=2621.3
+    Timeout(id + 0x2D0, 1.0f, "Dualfist Flurry 6"); // t=2622.3
+    Timeout(id + 0x2E0, 2.0f, "--adds-targetable--"); // t=2624.3
+    Timeout(id + 0x2F0, 1.9f, "Knuckle Down"); // t=2626.2
+    Timeout(id + 0x300, 0.3f, "Moatmaker 4"); // t=2626.5
+    Timeout(id + 0x310, 0.4f, "Knuckle Down 1"); // t=2626.9
+    Timeout(id + 0x320, 1.6f, "Knuckle Down 2 / --adds-targetable--"); // t=2628.5
+    Timeout(id + 0x330, 1.6f, "Knuckle Down 3"); // t=2630.1
+    Timeout(id + 0x340, 1.6f, "Knuckle Down 4"); // t=2631.7
+    Timeout(id + 0x350, 0.8f, "--adds-targetable--"); // t=2632.5
+    Timeout(id + 0x360, 150.7f, ""); // t=2783.2
+    Condition(id + 0x370, 7.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA366), "", 5f, 2.3f); // t=2790.5; StartsUsing A366 from Megaloknight
+    Timeout(id + 0x380, 0.1f, "--adds-targetable--"); // t=2790.6
+    Timeout(id + 0x390, 8.4f, "Spirit Sling"); // t=2799.0; Ability A36A from Occult Knight
+    Timeout(id + 0x3A0, 10.6f, "Spirit Sling"); // t=2809.6; Ability A36A from Occult Knight
+    Timeout(id + 0x3B0, 10.7f, "Spirit Sling"); // t=2820.3; Ability A36A from Occult Knight
+    Timeout(id + 0x3C0, 10.6f, "Spirit Sling"); // t=2830.9; Ability A36A from Occult Knight
+    Timeout(id + 0x3D0, 10.6f, "Spirit Sling"); // t=2841.5; Ability A36A from Occult Knight
+    Timeout(id + 0x3E0, 10.6f, "Spirit Sling"); // t=2852.1; Ability A36A from Occult Knight
+    Timeout(id + 0x3F0, 10.6f, "Spirit Sling"); // t=2862.7; Ability A36A from Occult Knight
+    Timeout(id + 0x400, 10.6f, "Spirit Sling"); // t=2873.3; Ability A36A from Occult Knight
+    Timeout(id + 0x410, 7.2f, "Barefisted Death (Enrage)"); // t=2880.5; Ability A366 from Megaloknight
+    Timeout(id + 0x420, 2.1f, "Barefisted Death (Enrage)"); // t=2882.6; Ability A367 from Megaloknight
+    Timeout(id + 0x430, 1.3f, "Spirit Sling"); // t=2883.9; Ability A36A from Occult Knight
+}
+
+private void Crawling_Death(uint id)
+{
+    Condition(id + 0x0, 105.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA174), "", 5f, 100.1f); // t=3105.1; StartsUsing A174 from Death Claw; cactbot StartsUsing A174 [Occult Crescent Death Claw Dirty Nails]
+    Timeout(id + 0x10, 5.1f, "Dirty Nails").SetHint(StateMachine.StateHint.Tankbuster); // t=3110.2; Ability A174 from Death Claw; cactbot StartsUsing A174 [Occult Crescent Death Claw Dirty Nails]
+    Timeout(id + 0x20, 12.4f, "Clawmarks"); // t=3122.6; Ability A15D from Death Claw
+    Timeout(id + 0x30, 8.5f, "Lethal Nails"); // t=3131.1; Ability A163 from Clawmarks
+    Timeout(id + 0x40, 4.1f, "Lethal Nails"); // t=3135.2; Ability A164 from Clawmarks
+    Timeout(id + 0x50, 11.4f, "Vertical Crosshatch/Horizontal Crosshatch"); // t=3146.6
+    Timeout(id + 0x60, 2.1f, "Raking Scratch"); // t=3148.7; Ability A16D from Death Claw
+    Timeout(id + 0x70, 10.1f, "Skulking Orders"); // t=3158.8; Ability A16E from Death Claw
+    Timeout(id + 0x80, 3.1f, "Clawing Shadow"); // t=3161.9; Ability A16F from Phantom Claw
+    Timeout(id + 0x90, 8.0f, "The Grip of Poison"); // t=3169.9; Ability A176 from Death Claw
+    Timeout(id + 0xA0, 9.9f, "Threefold Marks"); // t=3179.8; Ability A15E from Death Claw
+    Timeout(id + 0xB0, 8.5f, "Lethal Nails"); // t=3188.3; Ability A163 from Clawmarks
+    Timeout(id + 0xC0, 4.1f, "Lethal Nails"); // t=3192.4; Ability A164 from Clawmarks
+    Timeout(id + 0xD0, 4.0f, "Lethal Nails"); // t=3196.4; Ability A165 from Clawmarks
+    Timeout(id + 0xE0, 9.1f, "Vertical Crosshatch/Horizontal Crosshatch"); // t=3205.5
+    Timeout(id + 0xF0, 2.1f, "Raking Scratch"); // t=3207.6; Ability A16D from Death Claw
+    Timeout(id + 0x100, 14.0f, "The Grip of Poison"); // t=3221.6; Ability A176 from Death Claw
+    Timeout(id + 0x110, 14.5f, "Vertical Crosshatch/Horizontal Crosshatch"); // t=3236.1
+    Timeout(id + 0x120, 2.1f, "Raking Scratch"); // t=3238.2; Ability A16D from Death Claw
+    Timeout(id + 0x130, 10.1f, "Skulking Orders"); // t=3248.3; Ability A171 from Death Claw
+    Timeout(id + 0x140, 3.1f, "Clawing Shadow"); // t=3251.4; Ability A16F from Phantom Claw
+    Timeout(id + 0x150, 5.5f, "Clawing Shadow"); // t=3256.9; Ability A16F from Phantom Claw
+    Timeout(id + 0x160, 16.5f, "The Grip of Poison"); // t=3273.4; Ability A176 from Death Claw
+    Timeout(id + 0x170, 13.1f, "Manifold Marks"); // t=3286.5; Ability A15F from Death Claw
+    Timeout(id + 0x180, 8.5f, "Lethal Nails"); // t=3295.0; Ability A163 from Clawmarks
+    Timeout(id + 0x190, 4.1f, "Lethal Nails"); // t=3299.1; Ability A164 from Clawmarks
+    Timeout(id + 0x1A0, 5.8f, "Vertical Crosshatch/Horizontal Crosshatch"); // t=3304.9
+    Timeout(id + 0x1B0, 2.1f, "Raking Scratch"); // t=3307.0; Ability A16D from Death Claw
+    Timeout(id + 0x1C0, 14.1f, "Dirty Nails").SetHint(StateMachine.StateHint.Tankbuster); // t=3321.1; Ability A174 from Death Claw; cactbot StartsUsing A174 [Occult Crescent Death Claw Dirty Nails]
+    Timeout(id + 0x1D0, 11.1f, "The Grip of Poison"); // t=3332.2; Ability A176 from Death Claw
+    Timeout(id + 0x1E0, 12.3f, "Threefold Marks"); // t=3344.5; Ability A15E from Death Claw
+}
+
+private void Cursed_Concern(uint id)
+{
+    Condition(id + 0x0, 128.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA22E), "", 5f, 123.8f); // t=4128.8; StartsUsing A22E from Trade Tortoise
+    Timeout(id + 0x10, 3.0f, "Ill-gotten Goods (Red)"); // t=4131.8; Ability A22E from Trade Tortoise
+    Timeout(id + 0x20, 7.1f, "Material World "); // t=4138.9; Ability A22D from Trade Tortoise
+    Timeout(id + 0x30, 7.9f, "Ruby Blaze (Stop)"); // t=4146.8
+    Timeout(id + 0x40, 6.2f, "Ill-gotten Goods (Blue)"); // t=4153.0; Ability A22E from Trade Tortoise
+    Timeout(id + 0x50, 7.1f, "Material World"); // t=4160.1; Ability A22D from Trade Tortoise
+    Timeout(id + 0x60, 7.9f, "Deep Freeze (Move)"); // t=4168.0
+    Timeout(id + 0x70, 6.2f, "Ill-gotten Goods (Green)"); // t=4174.2; Ability A22E from Trade Tortoise
+    Timeout(id + 0x80, 7.1f, "Material World"); // t=4181.3; Ability A22D from Trade Tortoise
+    Timeout(id + 0x90, 8.3f, "--forced move--"); // t=4189.6
+    Timeout(id + 0xA0, 6.8f, "Earthquake"); // t=4196.4; Ability A238 from Trade Tortoise; cactbot StartsUsing A7D4 [Occult Crescent Guardian Knight Earthquake]
+    Timeout(id + 0xB0, 11.3f, "Recommended for You"); // t=4207.7; Ability A409 from Trade Tortoise
+    Timeout(id + 0xC0, 28.1f, "What're You Buying?"); // t=4235.8; Ability A22B from Trade Tortoise
+    Timeout(id + 0xD0, 7.0f, "Material World"); // t=4242.8; Ability A22D from Trade Tortoise
+    Timeout(id + 0xE0, 24.3f, "Twopenny Inflation / Onepenny Inflation / Fourpenny Inflation / Cost of Living"); // t=4267.1; Ability A915/A231/A230 from Trade Tortoise
+    Timeout(id + 0xF0, 12.3f, "Recommended for You"); // t=4279.4; Ability A409 from Trade Tortoise
+    Timeout(id + 0x100, 28.1f, "What're You Buying?"); // t=4307.5; Ability A9BC from Trade Tortoise
+    Timeout(id + 0x110, 12.1f, "Waterspout"); // t=4319.6; Ability A236 from Trade Tortoise
+    Timeout(id + 0x120, 6.1f, "Material World"); // t=4325.7; Ability A22D from Trade Tortoise
+    Timeout(id + 0x130, 4.2f, "Waterspout 1"); // t=4329.9
+    Timeout(id + 0x140, 1.0f, "Waterspout 2"); // t=4330.9
+    Timeout(id + 0x150, 0.9f, "Waterspout 3"); // t=4331.8
+    Timeout(id + 0x160, 0.9f, "Waterspout 4"); // t=4332.7
+    Timeout(id + 0x170, 0.9f, "Waterspout 5"); // t=4333.6
+    Timeout(id + 0x180, 1.0f, "Waterspout 6"); // t=4334.6
+    Timeout(id + 0x190, 0.9f, "Waterspout 7"); // t=4335.5
+    Timeout(id + 0x1A0, 0.9f, "Waterspout 8"); // t=4336.4
+    Timeout(id + 0x1B0, 0.9f, "Waterspout (middle)"); // t=4337.3
+    Timeout(id + 0x1C0, 13.8f, "Twopenny Inflation / Onepenny Inflation / Fourpenny Inflation / Cost of Living"); // t=4351.1; Ability A915/A231/A230 from Trade Tortoise
+    Timeout(id + 0x1D0, 2.0f, "Hoard Wealth 1"); // t=4353.1; Ability A96C from Trade Tortoise
+    Timeout(id + 0x1E0, 3.0f, "Hoard Wealth 2"); // t=4356.1; Ability A96C from Trade Tortoise
+    Timeout(id + 0x1F0, 12.7f, "Earthquake"); // t=4368.8; Ability A238 from Trade Tortoise; cactbot StartsUsing A7D4 [Occult Crescent Guardian Knight Earthquake]
+    Condition(id + 0x200, 10.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA409), "", 5f, 5.4f); // t=4379.2; StartsUsing A409 from Trade Tortoise
+}
+
+private void Eternal_Watch(uint id)
+{
+    Condition(id + 0x0, 117.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA13F), "", 5f, 112.2f); // t=5117.2; StartsUsing A13F from Repaired Lion
+    Timeout(id + 0x10, 5.0f, "Radiant Wave"); // t=5122.2; Ability A13F from Repaired Lion
+    Timeout(id + 0x20, 5.7f, "Aetherial Exchange"); // t=5127.9; Ability A140 from Repaired Lion
+    Timeout(id + 0x30, 1.0f, "--wind spheres x2-- / --sand spheres x2--"); // t=5128.9
+    Condition(id + 0x40, 1.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA146 or 0xA148), "", 5f, 0.0f); // t=5129.9; StartsUsing A148 from Repaired Lion | StartsUsing A146 from Repaired Lion
+    Timeout(id + 0x50, 4.0f, "Ancient Stone III/Ancient Aero III?"); // t=5133.9
+    Timeout(id + 0x60, 3.7f, "Sand Surge/Wind Surge?"); // t=5137.6
+    Timeout(id + 0x70, 3.6f, "Ancient Aero III/Ancient Stone III?"); // t=5141.2
+    Timeout(id + 0x80, 3.7f, "Wind Surge/Sand Surge?"); // t=5144.9
+    Timeout(id + 0x90, 4.7f, "Holy Blaze"); // t=5149.6; cactbot StartsUsing A151 [Occult Crescent Repaired Lion Holy Blaze]
+    Timeout(id + 0xA0, 8.8f, "Scratch"); // t=5158.4
+    Timeout(id + 0xB0, 75.5f, "Ancient Aero III"); // t=5233.9; Ability A146 from Repaired Lion; cactbot StartsUsing A61F [Occult Crescent Pronged Passage Ancient Aero III]
+    Timeout(id + 0xC0, 3.7f, "Wind Surge"); // t=5237.6; Ability A14F from Holy Sphere
+    Timeout(id + 0xD0, 3.6f, "Ancient Stone III"); // t=5241.2; Ability A148 from Repaired Lion
+    Timeout(id + 0xE0, 3.7f, "Sand Surge"); // t=5244.9; Ability A150 from Holy Sphere
+    Condition(id + 0xF0, 0.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA151), "", 5f, 0.0f); // t=5245.8; StartsUsing A151 from Repaired Lion; cactbot StartsUsing A151 [Occult Crescent Repaired Lion Holy Blaze]
+    Timeout(id + 0x100, 4.0f, "Holy Blaze"); // t=5249.8; cactbot StartsUsing A151 [Occult Crescent Repaired Lion Holy Blaze]
+    Timeout(id + 0x110, 8.9f, "Scratch"); // t=5258.7
+    Timeout(id + 0x120, 12.1f, "Radiant Wave"); // t=5270.8
+    Timeout(id + 0x130, 63.5f, "Ancient Stone III"); // t=5334.3; Ability A148 from Repaired Lion
+    Timeout(id + 0x140, 3.7f, "Sand Surge"); // t=5338.0; Ability A150 from Holy Sphere
+    Timeout(id + 0x150, 3.4f, "Ancient Aero III"); // t=5341.4; Ability A146 from Repaired Lion; cactbot StartsUsing A61F [Occult Crescent Pronged Passage Ancient Aero III]
+    Timeout(id + 0x160, 3.6f, "Wind Surge"); // t=5345.0; Ability A14F from Holy Sphere
+    Timeout(id + 0x170, 4.6f, "Holy Blaze"); // t=5349.6; Ability A151 from Repaired Lion; cactbot StartsUsing A151 [Occult Crescent Repaired Lion Holy Blaze]
+    Timeout(id + 0x180, 8.8f, "Scratch").SetHint(StateMachine.StateHint.Tankbuster); // t=5358.4; Ability A155 from Repaired Lion; cactbot StartsUsing A155 [Occult Crescent Repaired Lion Scratch]
+    Timeout(id + 0x190, 12.4f, "Radiant Wave"); // t=5370.8; Ability A13F from Repaired Lion
+    Timeout(id + 0x1A0, 2.1f, "Ancient Holy"); // t=5372.9; Ability A143 from Repaired Lion
+    Timeout(id + 0x1B0, 11.0f, "--holy spheres x4--"); // t=5383.9
+    Timeout(id + 0x1C0, 2.5f, "Light Surge"); // t=5386.4; Ability A14E from Holy Sphere
+    Timeout(id + 0x1D0, 1.8f, "Holy Blaze"); // t=5388.2; Ability A151 from Repaired Lion; cactbot StartsUsing A151 [Occult Crescent Repaired Lion Holy Blaze]
+    Timeout(id + 0x1E0, 8.8f, "Scratch").SetHint(StateMachine.StateHint.Tankbuster); // t=5397.0; Ability A155 from Repaired Lion; cactbot StartsUsing A155 [Occult Crescent Repaired Lion Scratch]
+    Timeout(id + 0x1F0, 14.1f, "Radiant Wave"); // t=5411.1; Ability A13F from Repaired Lion
+    Timeout(id + 0x200, 5.1f, "Aetherial Exchange"); // t=5416.2; Ability A140 from Repaired Lion
+    Timeout(id + 0x210, 1.0f, "--wind spheres x6-- / --sand spheres x6--"); // t=5417.2
+    Timeout(id + 0x220, 12.6f, "Double Cast"); // t=5429.8; Ability A14B/A14A from Repaired Lion
+    Timeout(id + 0x230, 0.4f, "Ancient Stone III / Ancient Aero III"); // t=5430.2; Ability A14D from Repaired Lion
+    Timeout(id + 0x240, 2.6f, "Wind Surge / Sand Surge"); // t=5432.8; Ability A14F from Holy Sphere
+    Timeout(id + 0x250, 1.4f, "Ancient Stone III / Ancient Aero III"); // t=5434.2; Ability A14D from Repaired Lion
+    Timeout(id + 0x260, 2.6f, "Wind Surge / Sand Surge"); // t=5436.8; Ability A14F from Holy Sphere
+    Timeout(id + 0x270, 1.4f, "Ancient Stone III / Ancient Aero III"); // t=5438.2; Ability A14D from Repaired Lion
+    Timeout(id + 0x280, 2.7f, "Wind Surge / Sand Surge"); // t=5440.9; Ability A14F from Holy Sphere
+    Timeout(id + 0x290, 12.0f, "Double Cast"); // t=5452.9; Ability A14A/A14B from Repaired Lion
+    Timeout(id + 0x2A0, 0.4f, "Ancient Stone III / Ancient Aero III"); // t=5453.3; Ability A14D from Repaired Lion
+    Timeout(id + 0x2B0, 2.6f, "Wind Surge / Sand Surge"); // t=5455.9; Ability A14F from Holy Sphere
+    Timeout(id + 0x2C0, 1.4f, "Ancient Stone III / Ancient Aero III"); // t=5457.3; Ability A14D from Repaired Lion
+    Timeout(id + 0x2D0, 2.6f, "Wind Surge / Sand Surge"); // t=5459.9; Ability A14F from Holy Sphere
+    Timeout(id + 0x2E0, 1.4f, "Ancient Stone III / Ancient Aero III"); // t=5461.3; Ability A14D from Repaired Lion
+    Timeout(id + 0x2F0, 2.6f, "Wind Surge / Sand Surge"); // t=5463.9; Ability A14F from Holy Sphere
+    Timeout(id + 0x300, 4.9f, "Holy Blaze"); // t=5468.8; Ability A151 from Repaired Lion; cactbot StartsUsing A151 [Occult Crescent Repaired Lion Holy Blaze]
+    Timeout(id + 0x310, 9.8f, "Scratch").SetHint(StateMachine.StateHint.Tankbuster); // t=5478.6; Ability A155 from Repaired Lion; cactbot StartsUsing A155 [Occult Crescent Repaired Lion Scratch]
+    Timeout(id + 0x320, 12.9f, "Radiant Wave"); // t=5491.5; Ability A13F from Repaired Lion
+    Timeout(id + 0x330, 2.1f, "Ancient Holy"); // t=5493.6; Ability A142 from Repaired Lion
+    Timeout(id + 0x340, 5.0f, "Aetherial Exchange"); // t=5498.6; Ability A140 from Repaired Lion
+    Timeout(id + 0x350, 1.0f, "--wind spheres x2-- / --sand spheres x2--"); // t=5499.6
+    Timeout(id + 0x360, 4.9f, "--holy spheres x4--"); // t=5504.5
+    Condition(id + 0x370, 2.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA146 or 0xA148), "", 5f, 0.0f); // t=5506.8; StartsUsing A148 from Repaired Lion | StartsUsing A146 from Repaired Lion
+    Timeout(id + 0x380, 1.0f, "Light Surge"); // t=5507.8; Ability A14E from Holy Sphere
+    Timeout(id + 0x390, 3.0f, "Ancient Stone III/Ancient Aero III?"); // t=5510.8
+    Timeout(id + 0x3A0, 97.0f, "Light Surge"); // t=5607.8; Ability A14E from Holy Sphere
+    Timeout(id + 0x3B0, 3.0f, "Ancient Stone III"); // t=5610.8; Ability A148 from Repaired Lion
+    Timeout(id + 0x3C0, 3.6f, "Sand Surge"); // t=5614.4; Ability A150 from Holy Sphere
+    Timeout(id + 0x3D0, 3.6f, "Ancient Aero III"); // t=5618.0; Ability A146 from Repaired Lion; cactbot StartsUsing A61F [Occult Crescent Pronged Passage Ancient Aero III]
+    Timeout(id + 0x3E0, 3.7f, "Wind Surge"); // t=5621.7; Ability A14F from Holy Sphere
+    Condition(id + 0x3F0, 0.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA151), "", 5f, 0.0f); // t=5622.4; StartsUsing A151 from Repaired Lion; cactbot StartsUsing A151 [Occult Crescent Repaired Lion Holy Blaze]
+    Timeout(id + 0x400, 4.0f, "Holy Blaze"); // t=5626.4; cactbot StartsUsing A151 [Occult Crescent Repaired Lion Holy Blaze]
+    Timeout(id + 0x410, 80.7f, "Light Surge"); // t=5707.1; Ability A14E from Holy Sphere
+    Timeout(id + 0x420, 2.8f, "Ancient Aero III"); // t=5709.9; Ability A146 from Repaired Lion; cactbot StartsUsing A61F [Occult Crescent Pronged Passage Ancient Aero III]
+    Timeout(id + 0x430, 3.6f, "Wind Surge"); // t=5713.5; Ability A14F from Holy Sphere
+    Timeout(id + 0x440, 3.6f, "Ancient Stone III"); // t=5717.1; Ability A148 from Repaired Lion
+    Timeout(id + 0x450, 3.7f, "Sand Surge"); // t=5720.8; Ability A150 from Holy Sphere
+    Timeout(id + 0x460, 4.6f, "Holy Blaze"); // t=5725.4; Ability A151 from Repaired Lion; cactbot StartsUsing A151 [Occult Crescent Repaired Lion Holy Blaze]
+    Timeout(id + 0x470, 9.8f, "Scratch").SetHint(StateMachine.StateHint.Tankbuster); // t=5735.2; Ability A155 from Repaired Lion; cactbot StartsUsing A155 [Occult Crescent Repaired Lion Scratch]
+    Condition(id + 0x480, 7.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA13F), "", 5f, 2.3f); // t=5742.5; StartsUsing A13F from Repaired Lion
+}
+
+private void From_Times_Bygone(uint id)
+{
+    Condition(id + 0x0, 118.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0B1), "", 5f, 113.6f); // t=7118.6; StartsUsing A0B1 from Mythic Idol
+    Timeout(id + 0x10, 5.0f, "Mystic Heat"); // t=7123.6; Ability A0B1 from Mythic Idol
+    Timeout(id + 0x20, 5.9f, "--middle--"); // t=7129.5
+    Timeout(id + 0x30, 3.9f, "Shifting Shape"); // t=7133.4; Ability A0A6 from Mythic Idol
+    Timeout(id + 0x40, 6.2f, "--Bomb Mirror--"); // t=7139.6; Ability A0A9 from Mythic Mirror
+    Timeout(id + 0x50, 6.0f, "Shifting Shape"); // t=7145.6; Ability A0A6 from Mythic Idol
+    Timeout(id + 0x60, 3.5f, "Big Burst"); // t=7149.1; Ability A0AA from Mythic Mirror
+    Timeout(id + 0x70, 2.8f, "--Demon Mirror--"); // t=7151.9; Ability A0A9 from Mythic Mirror
+    Timeout(id + 0x80, 6.0f, "Shifting Shape"); // t=7157.9; Ability A0A6 from Mythic Idol
+    Timeout(id + 0x90, 3.5f, "Death Ray"); // t=7161.4; Ability A0AD from Mythic Mirror
+    Timeout(id + 0xA0, 2.8f, "--Swords Mirror--"); // t=7164.2; Ability A0A9 from Mythic Mirror
+    Timeout(id + 0xB0, 9.6f, "Steelstrike"); // t=7173.8; Ability A0AB from Mythic Mirror
+    Timeout(id + 0xC0, 6.1f, "--middle--"); // t=7179.9
+    Timeout(id + 0xD0, 3.5f, "Arcane Design"); // t=7183.4; Ability A0AE from Mythic Idol
+    Timeout(id + 0xE0, 2.9f, "--1--"); // t=7186.3
+    Timeout(id + 0xF0, 0.4f, "--2--"); // t=7186.7
+    Timeout(id + 0x100, 0.4f, "--3--"); // t=7187.1
+    Timeout(id + 0x110, 0.4f, "--4--"); // t=7187.5
+    Timeout(id + 0x120, 0.4f, "--5--"); // t=7187.9
+    Timeout(id + 0x130, 0.4f, "--6--"); // t=7188.3
+    Timeout(id + 0x140, 0.4f, "--7--"); // t=7188.7
+    Timeout(id + 0x150, 0.4f, "--8--"); // t=7189.1
+    Timeout(id + 0x160, 3.2f, "Arcane Orb Spiral 1"); // t=7192.3
+    Timeout(id + 0x170, 0.4f, "Arcane Orb Spiral 2"); // t=7192.7
+    Timeout(id + 0x180, 0.4f, "Arcane Orb Spiral 3"); // t=7193.1
+    Timeout(id + 0x190, 0.4f, "Arcane Orb Spiral 4"); // t=7193.5
+    Timeout(id + 0x1A0, 0.4f, "Arcane Orb Spiral 5"); // t=7193.9
+    Timeout(id + 0x1B0, 0.4f, "Arcane Orb Spiral 6"); // t=7194.3
+    Timeout(id + 0x1C0, 0.4f, "Arcane Orb Spiral 7"); // t=7194.7
+    Timeout(id + 0x1D0, 0.4f, "Arcane Orb Spiral 8"); // t=7195.1
+    Timeout(id + 0x1E0, 9.5f, "Lots Cast"); // t=7204.6; Ability A0B2 from Mythic Idol
+    Timeout(id + 0x1F0, 5.8f, "Lots Cast (tankbusters)").SetHint(StateMachine.StateHint.Tankbuster); // t=7210.4; Ability A0B3 from Mythic Idol
+    Timeout(id + 0x200, 1.0f, "Lots Cast (spreads)"); // t=7211.4; Ability A0B4 from Mythic Idol
+    Timeout(id + 0x210, 3.6f, "Mystic Heat"); // t=7215.0; Ability A0B1 from Mythic Idol
+    Timeout(id + 0x220, 3.1f, "--middle--"); // t=7218.1
+    Timeout(id + 0x230, 3.5f, "Shifting Shape"); // t=7221.6; Ability A0A6 from Mythic Idol
+    Timeout(id + 0x240, 9.4f, "--Mythic Mirror x2--"); // t=7231.0; Ability A0A9 from Mythic Mirror
+    Condition(id + 0x250, 1.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA0AA or 0xA0AD), "", 5f, 0.0f); // t=7232.6; StartsUsing A0AA from Mythic Mirror | StartsUsing A0AD from Mythic Mirror
+    Timeout(id + 0x260, 5.0f, "--Mythic Mirror x2--"); // t=7237.6
+    Timeout(id + 0x270, 3.0f, "Steelstrike / Big Burst/Death Ray?"); // t=7240.6
+    Timeout(id + 0x280, 109.8f, "--Mythic Mirror x2--"); // t=7350.4; Ability A0A9 from Mythic Mirror
+    Timeout(id + 0x290, 3.0f, "Steelstrike / Death Ray"); // t=7353.4; Ability A0AB from Mythic Mirror
+    Timeout(id + 0x2A0, 3.6f, "--Mythic Mirror x2--"); // t=7357.0; Ability A0A9 from Mythic Mirror
+    Condition(id + 0x2B0, 1.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA0AA or 0xA0AD), "", 5f, 0.0f); // t=7358.6; StartsUsing A0AA from Mythic Mirror | StartsUsing A0AD from Mythic Mirror
+    Timeout(id + 0x2C0, 1.4f, "Death Ray/Big Burst"); // t=7360.0
+    Timeout(id + 0x2D0, 3.6f, "--Mythic Mirror x2--"); // t=7363.6
+    Timeout(id + 0x2E0, 3.0f, "Steelstrike / Big Burst/Death Ray?"); // t=7366.6
+    Timeout(id + 0x2F0, 6.6f, "Death Ray/Big Burst"); // t=7373.2
+    Timeout(id + 0x300, 86.8f, "Death Ray/Big Burst"); // t=7460.0; Ability A0AD/A0AA from Mythic Mirror
+    Timeout(id + 0x310, 3.6f, "--Mythic Mirror x2--"); // t=7463.6; Ability A0A9 from Mythic Mirror
+    Timeout(id + 0x320, 3.0f, "Steelstrike / Death Ray"); // t=7466.6; Ability A0AB from Mythic Mirror
+    Timeout(id + 0x330, 6.6f, "Death Ray/Big Burst"); // t=7473.2; Ability A0AD/A0AA from Mythic Mirror
+    Condition(id + 0x340, 0.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0B2), "", 5f, 0.0f); // t=7474.1; StartsUsing A0B2 from Mythic Idol
+    Timeout(id + 0x350, 5.0f, "Lots Cast"); // t=7479.1
+    Timeout(id + 0x360, 5.8f, "Lots Cast (tankbusters)"); // t=7484.9
+    Timeout(id + 0x370, 1.0f, "Lots Cast (spreads)"); // t=7485.9
+    Timeout(id + 0x380, 3.7f, "Mystic Heat"); // t=7489.6
+    Timeout(id + 0x390, 7.1f, "Arcane Light"); // t=7496.7
+    Timeout(id + 0x3A0, 63.3f, "Death Ray/Big Burst"); // t=7560.0; Ability A0AD/A0AA from Mythic Mirror
+    Timeout(id + 0x3B0, 3.6f, "--Mythic Mirror x2--"); // t=7563.6; Ability A0A9 from Mythic Mirror
+    Timeout(id + 0x3C0, 3.0f, "Steelstrike / Big Burst"); // t=7566.6; Ability A0AB from Mythic Mirror
+    Timeout(id + 0x3D0, 6.6f, "Death Ray/Big Burst"); // t=7573.2; Ability A0AD/A0AA from Mythic Mirror
+    Condition(id + 0x3E0, 0.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0B2), "", 5f, 0.0f); // t=7574.1; StartsUsing A0B2 from Mythic Idol
+    Timeout(id + 0x3F0, 5.0f, "Lots Cast"); // t=7579.1
+    Timeout(id + 0x400, 5.8f, "Lots Cast (tankbusters)"); // t=7584.9
+    Timeout(id + 0x410, 1.0f, "Lots Cast (spreads)"); // t=7585.9
+    Timeout(id + 0x420, 3.7f, "Mystic Heat"); // t=7589.6
+    Timeout(id + 0x430, 7.1f, "Arcane Light"); // t=7596.7
+    Timeout(id + 0x440, 40.9f, "--Mythic Mirror x2--"); // t=7637.6; Ability A0A9 from Mythic Mirror
+    Timeout(id + 0x450, 3.0f, "Steelstrike / Big Burst"); // t=7640.6; Ability A0AB from Mythic Mirror
+    Timeout(id + 0x460, 3.6f, "--Mythic Mirror x2--"); // t=7644.2; Ability A0A9 from Mythic Mirror
+    Condition(id + 0x470, 1.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA0AA or 0xA0AD), "", 5f, 0.0f); // t=7645.8; StartsUsing A0AA from Mythic Mirror | StartsUsing A0AD from Mythic Mirror
+    Timeout(id + 0x480, 1.4f, "Death Ray/Big Burst"); // t=7647.2
+    Timeout(id + 0x490, 3.6f, "--Mythic Mirror x2--"); // t=7650.8
+    Timeout(id + 0x4A0, 3.0f, "Death Ray/Big Burst? / Steelstrike"); // t=7653.8
+    Timeout(id + 0x4B0, 6.6f, "Death Ray/Big Burst"); // t=7660.4
+    Timeout(id + 0x4C0, 5.9f, "Lots Cast"); // t=7666.3; Ability A0B2 from Mythic Idol
+    Timeout(id + 0x4D0, 5.8f, "Lots Cast (tankbusters)").SetHint(StateMachine.StateHint.Tankbuster); // t=7672.1; Ability A0B3 from Mythic Idol
+    Timeout(id + 0x4E0, 1.0f, "Lots Cast (spreads)"); // t=7673.1; Ability A0B4 from Mythic Idol
+    Timeout(id + 0x4F0, 3.7f, "Mystic Heat"); // t=7676.8; Ability A0B1 from Mythic Idol
+    Timeout(id + 0x500, 7.1f, "Arcane Light"); // t=7683.9; Ability A0B5 from Mythic Idol
+    Timeout(id + 0x510, 9.8f, "--middle--"); // t=7693.7
+    Timeout(id + 0x520, 3.5f, "Arcane Design"); // t=7697.2; Ability A0AE from Mythic Idol
+    Timeout(id + 0x530, 2.9f, "--1--"); // t=7700.1
+    Timeout(id + 0x540, 0.4f, "--2--"); // t=7700.5
+    Timeout(id + 0x550, 0.4f, "--3--"); // t=7700.9
+    Timeout(id + 0x560, 0.4f, "--4--"); // t=7701.3
+    Timeout(id + 0x570, 0.4f, "--5--"); // t=7701.7
+    Timeout(id + 0x580, 0.4f, "--6--"); // t=7702.1
+    Timeout(id + 0x590, 0.4f, "--7--"); // t=7702.5
+    Timeout(id + 0x5A0, 0.4f, "--8--"); // t=7702.9
+    Timeout(id + 0x5B0, 3.1f, "Arcane Orb Spiral 1"); // t=7706.0
+    Timeout(id + 0x5C0, 0.4f, "Arcane Orb Spiral 2"); // t=7706.4
+    Timeout(id + 0x5D0, 0.4f, "Arcane Orb Spiral 3"); // t=7706.8
+    Timeout(id + 0x5E0, 0.4f, "Arcane Orb Spiral 4"); // t=7707.2
+    Timeout(id + 0x5F0, 0.4f, "Arcane Orb Spiral 5"); // t=7707.6
+    Timeout(id + 0x600, 0.4f, "Arcane Orb Spiral 6"); // t=7708.0
+    Timeout(id + 0x610, 0.2f, "--Mythic Mirror x2--"); // t=7708.2; Ability A0A9 from Mythic Mirror
+    Timeout(id + 0x620, 0.1f, "Arcane Orb Spiral 7"); // t=7708.3
+    Timeout(id + 0x630, 0.4f, "Arcane Orb Spiral 8"); // t=7708.7
+    Condition(id + 0x640, 0.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0AB), "", 5f, 0.0f); // t=7708.9; StartsUsing A0AB from Mythic Mirror
+    Timeout(id + 0x650, 8.0f, "Death Ray + Big Burst? / Steelstrike + Death Ray? / Steelstrike + Big Burst?"); // t=7716.9
+    Timeout(id + 0x660, 8.4f, "Arcane Light"); // t=7725.3
+    Timeout(id + 0x670, 5.6f, "--middle--"); // t=7730.9
+    Timeout(id + 0x680, 3.5f, "Shifting Shape"); // t=7734.4
+    Timeout(id + 0x690, 9.4f, "--Mythic Mirror x2--"); // t=7743.8
+    Timeout(id + 0x6A0, 73.1f, "Death Ray/Big Burst"); // t=7816.9; Ability A0AD/A0AA from Mythic Mirror
+    Condition(id + 0x6B0, 3.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0B5), "", 5f, 0.0f); // t=7820.3; StartsUsing A0B5 from Mythic Idol
+    Timeout(id + 0x6C0, 5.0f, "Arcane Light"); // t=7825.3
+    Timeout(id + 0x6D0, 5.6f, "--middle--"); // t=7830.9
+    Timeout(id + 0x6E0, 3.5f, "Shifting Shape"); // t=7834.4
+    Timeout(id + 0x6F0, 9.4f, "--Mythic Mirror x2--"); // t=7843.8
+    Timeout(id + 0x700, 73.1f, "Steelstrike / Death Ray/Big Burst"); // t=7916.9; Ability A0AB from Mythic Mirror
+    Timeout(id + 0x710, 8.4f, "Arcane Light"); // t=7925.3; Ability A0B5 from Mythic Idol
+    Timeout(id + 0x720, 5.6f, "--middle--"); // t=7930.9
+    Condition(id + 0x730, 0.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0A6), "", 5f, 0.0f); // t=7931.4; StartsUsing A0A6 from Mythic Idol
+}
+
+private void Noise_Complaint(uint id)
+{
+    Condition(id + 0x0, 117.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0E5), "", 5f, 112.4f); // t=8117.4; StartsUsing A0E5 from Neo Garula; cactbot StartsUsing A0E5 [Occult Crescent Neo Garula Squash]
+    Timeout(id + 0x10, 5.0f, "Squash").SetHint(StateMachine.StateHint.Tankbuster); // t=8122.4; Ability A0E5 from Neo Garula; cactbot StartsUsing A0E5 [Occult Crescent Neo Garula Squash]
+    Timeout(id + 0x20, 6.3f, "--middle--"); // t=8128.7
+    Condition(id + 0x30, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA0DE or 0xA0DF), "", 5f, 0.0f); // t=8128.7; StartsUsing A0DF from Neo Garula | StartsUsing A0DE from Neo Garula
+    Timeout(id + 0x40, 3.5f, "Lightning Crossing (Cards/Intercards?)"); // t=8132.2
+    Timeout(id + 0x50, 9.3f, "Heave"); // t=8141.5
+    Timeout(id + 0x60, 9.4f, "Heave"); // t=8150.9
+    Timeout(id + 0x70, 5.1f, "--middle--"); // t=8156.0
+    Timeout(id + 0x80, 5.0f, "Agitated Groan"); // t=8161.0
+    Timeout(id + 0x90, 16.1f, "Rushing Rumble"); // t=8177.1
+    Timeout(id + 0xA0, 55.1f, "Lightning Crossing (Cards)"); // t=8232.2; Ability A0DF from Neo Garula
+    Condition(id + 0xB0, 5.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA8FE), "", 5f, 0.3f); // t=8237.5; StartsUsing A8FE from Neo Garula
+    Timeout(id + 0xC0, 4.0f, "Heave"); // t=8241.5
+    Timeout(id + 0xD0, 9.4f, "Heave"); // t=8250.9
+    Timeout(id + 0xE0, 5.1f, "--middle--"); // t=8256.0
+    Timeout(id + 0xF0, 5.0f, "Agitated Groan"); // t=8261.0
+    Timeout(id + 0x100, 16.1f, "Rushing Rumble"); // t=8277.1
+    Timeout(id + 0x110, 55.101f, "Lightning Crossing (Intercards)"); // t=8332.2; Ability A0DE from Neo Garula
+    Timeout(id + 0x120, 9.3f, "Heave"); // t=8341.5; Ability A8FE from Neo Garula
+    Timeout(id + 0x130, 9.4f, "Heave"); // t=8350.9; Ability A8FE from Neo Garula
+    Condition(id + 0x140, 5.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0E4), "--middle--", 5f, 0.1f); // t=8356.0; StartsUsing A0E4 from Neo Garula
+    Timeout(id + 0x150, 5.0f, "Agitated Groan"); // t=8361.0; Ability A0E4 from Neo Garula
+    Timeout(id + 0x160, 16.1f, "Rushing Rumble"); // t=8377.1; Ability A0D7 from Neo Garula
+    Timeout(id + 0x170, 0.2f, "Rush"); // t=8377.3
+    Timeout(id + 0x180, 3.101f, "Rumble"); // t=8380.4; Ability A0DB from Neo Garula
+    Timeout(id + 0x190, 1.1f, "Lightning Crossing"); // t=8381.5; Ability A7E8 from Neo Garula
+    Timeout(id + 0x1A0, 16.0f, "--middle--"); // t=8397.5
+    Timeout(id + 0x1B0, 5.0f, "Agitated Groan"); // t=8402.5; Ability A0E4 from Neo Garula
+    Timeout(id + 0x1C0, 8.1f, "Birdserk Rush"); // t=8410.6; Ability A0D8 from Neo Garula
+    Timeout(id + 0x1D0, 0.2f, "Rush"); // t=8410.8
+    Timeout(id + 0x1E0, 4.2f, "Heave"); // t=8415.0; Ability A0DC from Neo Garula
+    Timeout(id + 0x1F0, 11.6f, "Squash").SetHint(StateMachine.StateHint.Tankbuster); // t=8426.6; Ability A0E5 from Neo Garula; cactbot StartsUsing A0E5 [Occult Crescent Neo Garula Squash]
+    Timeout(id + 0x200, 9.7f, "--middle--"); // t=8436.3
+    Timeout(id + 0x210, 5.0f, "Lightning Charge"); // t=8441.3; Ability A0E1 from Neo Garula
+    Condition(id + 0x220, 2.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA0DE or 0xA0DF), "", 5f, 0.0f); // t=8443.5; StartsUsing A0DF from Neo Garula | StartsUsing A0DE from Neo Garula
+    Timeout(id + 0x230, 3.5f, "Lightning Crossing (Cards/Intercards?)"); // t=8447.0
+    Timeout(id + 0x240, 0.2f, "Epicenter Shock 1"); // t=8447.2
+    Timeout(id + 0x250, 4.0f, "Epicenter Shock 2"); // t=8451.2
+    Timeout(id + 0x260, 1.2f, "Mammoth Bolt"); // t=8452.4
+    Timeout(id + 0x270, 2.699f, "Lightning Crossing (Cards/Intercards?)"); // t=8455.1
+    Timeout(id + 0x280, 14.301f, "--middle--"); // t=8469.4
+    Timeout(id + 0x290, 77.6f, "Lightning Crossing (Cards)"); // t=8547.0; Ability A0DF from Neo Garula
+    Timeout(id + 0x2A0, 0.2f, "Epicenter Shock 1"); // t=8547.2
+    Timeout(id + 0x2B0, 4.0f, "Epicenter Shock 2"); // t=8551.2; Ability A0E2 from Neo Garula
+    Condition(id + 0x2C0, 0.399f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA0DE or 0xA0DF), "", 5f, 0.0f); // t=8551.6; StartsUsing A0DF from Neo Garula | StartsUsing A0DE from Neo Garula
+    Timeout(id + 0x2D0, 0.801f, "Mammoth Bolt"); // t=8552.4
+    Timeout(id + 0x2E0, 2.699f, "Lightning Crossing (Cards/Intercards?)"); // t=8555.1
+    Timeout(id + 0x2F0, 14.301f, "--middle--"); // t=8569.4
+    Timeout(id + 0x300, 77.6f, "Lightning Crossing (Intercards)"); // t=8647.0; Ability A0DE from Neo Garula
+    Timeout(id + 0x310, 0.2f, "Epicenter Shock 1"); // t=8647.2
+    Timeout(id + 0x320, 4.0f, "Epicenter Shock 2"); // t=8651.2; Ability A0E2 from Neo Garula
+    Condition(id + 0x330, 0.399f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA0DE or 0xA0DF), "", 5f, 0.0f); // t=8651.6; StartsUsing A0DF from Neo Garula | StartsUsing A0DE from Neo Garula
+    Timeout(id + 0x340, 0.801f, "Mammoth Bolt"); // t=8652.4
+    Timeout(id + 0x350, 2.699f, "Lightning Crossing (Cards/Intercards?)"); // t=8655.1
+    Timeout(id + 0x360, 14.301f, "--middle--"); // t=8669.4
+    Timeout(id + 0x370, 5.0f, "Agitated Groan"); // t=8674.4
+    Timeout(id + 0x380, 9.1f, "Rushing Rumble Rampage"); // t=8683.5
+    Timeout(id + 0x390, 68.9f, "Mammoth Bolt"); // t=8752.4; Ability A0E3 from Neo Garula
+    Timeout(id + 0x3A0, 2.699f, "Lightning Crossing (Cards)"); // t=8755.1; Ability A0DF from Neo Garula
+    Condition(id + 0x3B0, 14.301f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0E4), "--middle--", 5f, 9.301f); // t=8769.4; StartsUsing A0E4 from Neo Garula
+    Timeout(id + 0x3C0, 5.0f, "Agitated Groan"); // t=8774.4
+    Timeout(id + 0x3D0, 9.1f, "Rushing Rumble Rampage"); // t=8783.5
+    Timeout(id + 0x3E0, 0.2f, "Rush"); // t=8783.7
+    Timeout(id + 0x3F0, 3.1f, "Rumble"); // t=8786.8
+    Timeout(id + 0x400, 65.601f, "Mammoth Bolt"); // t=8852.4; Ability A0E3 from Neo Garula
+    Timeout(id + 0x410, 2.699f, "Lightning Crossing (Intercards)"); // t=8855.1; Ability A0DE from Neo Garula
+    Condition(id + 0x420, 14.301f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0E4), "--middle--", 5f, 9.301f); // t=8869.4; StartsUsing A0E4 from Neo Garula
+    Timeout(id + 0x430, 5.0f, "Agitated Groan"); // t=8874.4; Ability A0E4 from Neo Garula
+    Timeout(id + 0x440, 9.1f, "Rushing Rumble Rampage"); // t=8883.5; Ability A0D9 from Neo Garula
+    Timeout(id + 0x450, 0.2f, "Rush"); // t=8883.7
+    Timeout(id + 0x460, 3.1f, "Rumble"); // t=8886.8; Ability A0DB from Neo Garula
+    Timeout(id + 0x470, 1.101f, "Lightning Crossing"); // t=8887.9; Ability A7E8 from Neo Garula
+    Timeout(id + 0x480, 3.0f, "Rush"); // t=8890.9; Ability A0DA from Neo Garula
+    Timeout(id + 0x490, 3.1f, "Rumble"); // t=8894.0; Ability A0DB from Neo Garula
+    Timeout(id + 0x4A0, 1.1f, "Lightning Crossing"); // t=8895.1; Ability A7E8 from Neo Garula
+    Timeout(id + 0x4B0, 3.0f, "Rush"); // t=8898.1; Ability A0DA from Neo Garula
+    Timeout(id + 0x4C0, 3.101f, "Rumble"); // t=8901.2; Ability A0DB from Neo Garula
+    Timeout(id + 0x4D0, 1.1f, "Lightning Crossing"); // t=8902.3; Ability A7E8 from Neo Garula
+    Timeout(id + 0x4E0, 13.3f, "Squash").SetHint(StateMachine.StateHint.Tankbuster); // t=8915.6; Ability A0E5 from Neo Garula; cactbot StartsUsing A0E5 [Occult Crescent Neo Garula Squash]
+    Condition(id + 0x4F0, 16.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0E4), "--middle--", 5f, 11.2f); // t=8931.8; StartsUsing A0E4 from Neo Garula
+}
+
+private void On_The_Hunt(uint id)
+{
+    Condition(id + 0x0, 119.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA1C3), "", 5f, 114.0f); // t=9119.0; StartsUsing A1C3 from Lion Rampant; cactbot StartsUsing A1C3 [Occult Crescent Lion Rampant Fearsome Glint]
+    Timeout(id + 0x10, 6.0f, "Fearsome Glint"); // t=9125.0; Ability A1C3 from Lion Rampant; cactbot StartsUsing A1C3 [Occult Crescent Lion Rampant Fearsome Glint]
+    Timeout(id + 0x20, 10.2f, "Augmentation of Beacons"); // t=9135.2; Ability A1B9 from Lion Rampant
+    Timeout(id + 0x30, 17.8f, "Aetherial Ray x4"); // t=9153.0; Ability A1BA from Lion Rampant
+    Timeout(id + 0x40, 13.0f, "Aetherial Ray x4"); // t=9166.0; Ability A1BA from Lion Rampant
+    Timeout(id + 0x50, 4.6f, "Fearsome Glint"); // t=9170.6; Ability A1C3 from Lion Rampant; cactbot StartsUsing A1C3 [Occult Crescent Lion Rampant Fearsome Glint]
+    Timeout(id + 0x60, 8.101f, "Shockwave (cast)"); // t=9178.7; Ability A1C4 from Lion Rampant
+    Timeout(id + 0x70, 0.899f, "Shockwave 1"); // t=9179.6
+    Timeout(id + 0x80, 1.2f, "Shockwave 2"); // t=9180.8
+    Timeout(id + 0x90, 1.101f, "Shockwave 3"); // t=9181.9
+    Timeout(id + 0xA0, 1.1f, "Shockwave 4"); // t=9183.0
+    Timeout(id + 0xB0, 7.3f, "Augmentation of Roundels"); // t=9190.3; Ability A1BC from Lion Rampant
+    Timeout(id + 0xC0, 6.101f, "Augmentation of Stones"); // t=9196.4; Ability A1BD from Lion Rampant
+    Timeout(id + 0xD0, 6.1f, "Augmentation of Beacons"); // t=9202.5; Ability A1B9 from Lion Rampant
+    Timeout(id + 0xE0, 9.1f, "Falling Rock (cast)"); // t=9211.6; Ability A1C1 from Lion Rampant
+    Timeout(id + 0xF0, 4.9f, "Falling Rock 1"); // t=9216.5
+    Timeout(id + 0x100, 2.0f, "Falling Rock 2"); // t=9218.5
+    Timeout(id + 0x110, 2.0f, "Falling Rock 3"); // t=9220.5
+    Timeout(id + 0x120, 2.7f, "Aetherial Ray x4"); // t=9223.2; Ability A1BA from Lion Rampant
+    Timeout(id + 0x130, 2.7f, "Flatten x4 (No Crystal) / Flatten x5 (Crystal) / Decompress x5"); // t=9225.9; Ability A1C0 from Ochre Stone
+    Timeout(id + 0x140, 10.1f, "Augmentation of Beacons"); // t=9236.0; Ability A1B9 from Lion Rampant
+    Timeout(id + 0x150, 12.3f, "--Aetherial Ray x4?-- / --Bright Pulse x4?--"); // t=9248.3; Ability A1BA from Lion Rampant | Ability A1BB from Lion Rampant
+    Timeout(id + 0x160, 3.0f, "Bright Pulse x4/Aetherial Ray x4?"); // t=9251.3
+    Timeout(id + 0x170, 9.9f, "Aetherial Ray x4/Bright Pulse x4?"); // t=9261.2
+    Timeout(id + 0x180, 3.0f, "Bright Pulse x4/Aetherial Ray x4?"); // t=9264.2
+    Timeout(id + 0x190, 6.3f, "Fearsome Glint"); // t=9270.5; cactbot StartsUsing A1C3 [Occult Crescent Lion Rampant Fearsome Glint]
+    Timeout(id + 0x1A0, 8.1f, "Shockwave (cast)"); // t=9278.6
+    Timeout(id + 0x1B0, 0.9f, "Shockwave 1"); // t=9279.5
+    Timeout(id + 0x1C0, 1.1f, "Shockwave 2"); // t=9280.6
+    Timeout(id + 0x1D0, 1.101f, "Shockwave 3"); // t=9281.7
+    Timeout(id + 0x1E0, 1.1f, "Shockwave 4"); // t=9282.8
+    Timeout(id + 0x1F0, 68.5f, "Bright Pulse x4"); // t=9351.3; Ability A1BB from Lion Rampant
+    Timeout(id + 0x200, 9.9f, "Aetherial Ray x4"); // t=9361.2; Ability A1BA from Lion Rampant
+    Timeout(id + 0x210, 3.0f, "Bright Pulse x4"); // t=9364.2; Ability A1BB from Lion Rampant
+    Timeout(id + 0x220, 6.3f, "Fearsome Glint"); // t=9370.5; Ability A1C3 from Lion Rampant; cactbot StartsUsing A1C3 [Occult Crescent Lion Rampant Fearsome Glint]
+    Timeout(id + 0x230, 8.1f, "Shockwave (cast)"); // t=9378.6; Ability A1C4 from Lion Rampant
+    Timeout(id + 0x240, 0.9f, "Shockwave 1"); // t=9379.5
+    Timeout(id + 0x250, 1.1f, "Shockwave 2"); // t=9380.6
+    Timeout(id + 0x260, 1.101f, "Shockwave 3"); // t=9381.7
+    Timeout(id + 0x270, 1.1f, "Shockwave 4"); // t=9382.8
+    Condition(id + 0x280, 10.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA1BC), "", 5f, 5.3f); // t=9393.1; StartsUsing A1BC from Lion Rampant
+    Timeout(id + 0x290, 162.9f, "Aetherial Ray x4"); // t=9556.0; Ability A1BA from Lion Rampant
+    Timeout(id + 0x2A0, 12.9f, "Bright Pulse x4"); // t=9568.9; Ability A1BB from Lion Rampant
+    Timeout(id + 0x2B0, 3.0f, "Aetherial Ray x4"); // t=9571.9; Ability A1BA from Lion Rampant
+    Timeout(id + 0x2C0, 6.399f, "Fearsome Glint"); // t=9578.3; Ability A1C3 from Lion Rampant; cactbot StartsUsing A1C3 [Occult Crescent Lion Rampant Fearsome Glint]
+    Timeout(id + 0x2D0, 8.101f, "Shockwave (cast)"); // t=9586.4; Ability A1C4 from Lion Rampant
+    Timeout(id + 0x2E0, 0.899f, "Shockwave 1"); // t=9587.3
+    Timeout(id + 0x2F0, 1.101f, "Shockwave 2"); // t=9588.4
+    Timeout(id + 0x300, 1.1f, "Shockwave 3"); // t=9589.5
+    Timeout(id + 0x310, 1.1f, "Shockwave 4"); // t=9590.6
+    Condition(id + 0x320, 10.301f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA1BC), "", 5f, 5.301f); // t=9600.9; StartsUsing A1BC from Lion Rampant
+}
+
+private void Scourge_Of_The_Mind(uint id)
+{
+    Condition(id + 0x0, 117.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0D2), "", 5f, 112.1f); // t=10117.1; StartsUsing A0D2 from Mysterious Mindflayer
+    Timeout(id + 0x10, 6.0f, "Dark II").SetHint(StateMachine.StateHint.Raidwide); // t=10123.1; Ability A0D2 from Mysterious Mindflayer; cactbot StartsUsing A306 [Occult Crescent Demon Tablet Demonic Dark II]
+    Timeout(id + 0x20, 9.4f, "Summon"); // t=10132.5; Ability A0D0 from Mysterious Mindflayer; cactbot StartsUsing A30D [Occult Crescent Demon Tablet Summon]
+    Timeout(id + 0x30, 6.1f, "Mind Blast"); // t=10138.6; Ability A0CF from Mysterious Mindflayer
+    Timeout(id + 0x40, 10.101f, "--forced move--"); // t=10148.7
+    Timeout(id + 0x50, 5.0f, "Fire Trap / Blizzard Trap"); // t=10153.7; Ability A122 from Jesting Jackanapes
+    Timeout(id + 0x60, 5.399f, "Summon"); // t=10159.1; Ability A0D0 from Mysterious Mindflayer; cactbot StartsUsing A30D [Occult Crescent Demon Tablet Summon]
+    Timeout(id + 0x70, 0.9f, "--tentacles x6--"); // t=10160.0; Ability A127 from Tentacle
+    Timeout(id + 0x80, 5.1f, "Recharge"); // t=10165.1; Ability A0D1 from Mysterious Mindflayer
+    Timeout(id + 0x90, 7.9f, "Wallop x3 (Big) / Wallop x3 (Small)"); // t=10173.0; Ability A129 from Tentacle
+    Timeout(id + 0xA0, 5.2f, "Void Thunder III"); // t=10178.2; Ability A0D4 from Mysterious Mindflayer
+    Timeout(id + 0xB0, 6.6f, "Summon"); // t=10184.8; Ability A0D0 from Mysterious Mindflayer; cactbot StartsUsing A30D [Occult Crescent Demon Tablet Summon]
+    Timeout(id + 0xC0, 6.101f, "Mind Blast"); // t=10190.9; Ability A0CF from Mysterious Mindflayer
+    Timeout(id + 0xD0, 16.1f, "Surprise Attack 1 x4"); // t=10207.0; Ability A126 from Jesting Jackanapes
+    Timeout(id + 0xE0, 3.0f, "Surprise Attack 2 x4"); // t=10210.0; Ability A126 from Jesting Jackanapes
+    Timeout(id + 0xF0, 1.0f, "Summon"); // t=10211.0; Ability A0D0 from Mysterious Mindflayer; cactbot StartsUsing A30D [Occult Crescent Demon Tablet Summon]
+    Timeout(id + 0x100, 0.5f, "--forced move--"); // t=10211.5
+    Timeout(id + 0x110, 0.4f, "--tentacles x6--"); // t=10211.9; Ability A127 from Tentacle
+    Timeout(id + 0x120, 5.199f, "Recharge"); // t=10217.1; Ability A0D1 from Mysterious Mindflayer
+    Timeout(id + 0x130, 0.4f, "Fire Trap x2 / Blizzard Trap x2"); // t=10217.5; Ability A122 from Jesting Jackanapes
+    Timeout(id + 0x140, 7.4f, "Wallop x3 (Big) / Wallop x3 (Small)"); // t=10224.9; Ability A129 from Tentacle
+    Timeout(id + 0x150, 13.3f, "Arcane Blast"); // t=10238.2; Ability A0D3 from Mysterious Mindflayer
+    Timeout(id + 0x160, 11.3f, "Summon"); // t=10249.5; Ability A0D0 from Mysterious Mindflayer; cactbot StartsUsing A30D [Occult Crescent Demon Tablet Summon]
+    Timeout(id + 0x170, 0.9f, "--tentacles x6--"); // t=10250.4; Ability A127 from Tentacle
+    Timeout(id + 0x180, 5.1f, "Recharge"); // t=10255.5; Ability A0D1 from Mysterious Mindflayer
+    Timeout(id + 0x190, 7.9f, "Wallop x3 (Big) / Wallop x3 (Small)"); // t=10263.4; Ability A129 from Tentacle
+    Timeout(id + 0x1A0, 0.3f, "Summon"); // t=10263.7; Ability A0D0 from Mysterious Mindflayer; cactbot StartsUsing A30D [Occult Crescent Demon Tablet Summon]
+    Timeout(id + 0x1B0, 0.899f, "--tentacles x6--"); // t=10264.6; Ability A127 from Tentacle
+    Timeout(id + 0x1C0, 9.0f, "Wallop x5 (Small)"); // t=10273.6; Ability A162 from Tentacle
+    Timeout(id + 0x1D0, 11.301f, "Dark II").SetHint(StateMachine.StateHint.Raidwide); // t=10284.9; Ability A0D2 from Mysterious Mindflayer; cactbot StartsUsing A306 [Occult Crescent Demon Tablet Demonic Dark II]
+    Timeout(id + 0x1E0, 7.199f, "Void Thunder III"); // t=10292.1; Ability A0D4 from Mysterious Mindflayer
+    Condition(id + 0x1F0, 6.301f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0D0), "", 5f, 1.301f); // t=10298.4; StartsUsing A0D0 from Mysterious Mindflayer
+}
+
+private void Shark_Attack(uint id)
+{
+    Condition(id + 0x0, 117.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA2D9), "", 5f, 112.2f); // t=11117.2; StartsUsing A2D9 from Nymian Petalodus
+    Timeout(id + 0x10, 5.0f, "Marine Mayhem"); // t=11122.2; Ability A2D9 from Nymian Petalodus
+    Timeout(id + 0x20, 19.7f, "Pelagic Cleaver 1"); // t=11141.9; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0x30, 3.199f, "Pelagic Cleaver 2"); // t=11145.1; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0x40, 3.101f, "Pelagic Cleaver 3"); // t=11148.2; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0x50, 3.1f, "Pelagic Cleaver 4"); // t=11151.3; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0x60, 3.2f, "Pelagic Cleaver 5"); // t=11154.5; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0x70, 3.1f, "Pelagic Cleaver 6"); // t=11157.6; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0x80, 3.2f, "Pelagic Cleaver 7"); // t=11160.8; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0x90, 3.101f, "Pelagic Cleaver 8"); // t=11163.9; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0xA0, 12.0f, "--north--"); // t=11175.9
+    Timeout(id + 0xB0, 3.5f, "Dive"); // t=11179.4; Ability A2CC from Nymian Petalodus
+    Targetable(id + 0xC0, false, 0.0f, "--untargetable--"); // t=11179.4
+    Timeout(id + 0xD0, 6.0f, "--adds-targetable--"); // t=11185.4
+    Timeout(id + 0xE0, 8.6f, "Tidal Guillotine 1 (resurface)"); // t=11194.0; Ability A2CD from Nymian Petalodus
+    Timeout(id + 0xF0, 2.7f, "Tidal Guillotine 2 (across land)"); // t=11196.7; Ability A88C from Nymian Petalodus
+    Timeout(id + 0x100, 2.8f, "Tidal Guillotine 3 (submerge)"); // t=11199.5; Ability A2CF from Nymian Petalodus
+    Timeout(id + 0x110, 11.9f, "Tidal Guillotine 1 (resurface)"); // t=11211.4; Ability A2CD from Nymian Petalodus
+    Timeout(id + 0x120, 2.699f, "Tidal Guillotine 2 (across land)"); // t=11214.1; Ability A88C from Nymian Petalodus
+    Timeout(id + 0x130, 2.801f, "Tidal Guillotine 3 (submerge)"); // t=11216.9; Ability A2CF from Nymian Petalodus
+    Timeout(id + 0x140, 11.899f, "Tidal Guillotine (resurface)"); // t=11228.8; Ability A2CD from Nymian Petalodus
+    Targetable(id + 0x150, true, 2.101f, "--targetable--"); // t=11230.9
+    Timeout(id + 0x160, 11.1f, "Open Water"); // t=11242.0; Ability A2D6 from Nymian Petalodus
+    Timeout(id + 0x170, 16.8f, "Pelagic Cleaver 1"); // t=11258.8; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0x180, 3.2f, "Pelagic Cleaver 2"); // t=11262.0; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0x190, 3.1f, "Pelagic Cleaver 3"); // t=11265.1; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0x1A0, 3.101f, "Pelagic Cleaver 4"); // t=11268.2; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0x1B0, 3.1f, "Pelagic Cleaver 5"); // t=11271.3; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0x1C0, 3.101f, "Pelagic Cleaver 6"); // t=11274.4; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0x1D0, 3.1f, "Pelagic Cleaver 7"); // t=11277.5; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0x1E0, 3.1f, "Pelagic Cleaver 8"); // t=11280.6; Ability A2D5 from Petalodus Progeny
+    Timeout(id + 0x1F0, 13.2f, "Hydrocleave"); // t=11293.8; Ability A88D from Nymian Petalodus; cactbot StartsUsing A88D [Occult Crescent Nymian Petalodus Hydrocleave]
+    Timeout(id + 0x200, 18.3f, "Tidal Guillotine 1 (resurface)"); // t=11312.1; Ability A2CE from Petalodus Progeny
+    Timeout(id + 0x210, 2.7f, "Tidal Guillotine 2 (across land)"); // t=11314.8; Ability A88C from Petalodus Progeny
+    Timeout(id + 0x220, 2.8f, "Tidal Guillotine 3 (submerge)"); // t=11317.6; Ability A2D0 from Petalodus Progeny
+    Timeout(id + 0x230, 3.801f, "Hydrocleave"); // t=11321.4; Ability A88D from Nymian Petalodus; cactbot StartsUsing A88D [Occult Crescent Nymian Petalodus Hydrocleave]
+    Timeout(id + 0x240, 8.1f, "Tidal Guillotine 1 (resurface)"); // t=11329.5; Ability A2CE from Petalodus Progeny
+    Timeout(id + 0x250, 2.7f, "Tidal Guillotine 2 (across land)"); // t=11332.2; Ability A88C from Petalodus Progeny
+    Timeout(id + 0x260, 2.7f, "Tidal Guillotine 3 (submerge)"); // t=11334.9; Ability A2D0 from Petalodus Progeny
+    Timeout(id + 0x270, 5.1f, "Hydrocleave"); // t=11340.0; Ability A88D from Nymian Petalodus; cactbot StartsUsing A88D [Occult Crescent Nymian Petalodus Hydrocleave]
+    Timeout(id + 0x280, 6.9f, "Tidal Guillotine 1 (resurface)"); // t=11346.9; Ability A2CE from Petalodus Progeny
+    Timeout(id + 0x290, 2.699f, "Tidal Guillotine 2 (across land)"); // t=11349.6; Ability A88C from Petalodus Progeny
+    Timeout(id + 0x2A0, 2.801f, "Tidal Guillotine 3 (submerge)"); // t=11352.4; Ability A2D0 from Petalodus Progeny
+    Timeout(id + 0x2B0, 6.399f, "Hydrocleave"); // t=11358.8; Ability A88D from Nymian Petalodus; cactbot StartsUsing A88D [Occult Crescent Nymian Petalodus Hydrocleave]
+    Timeout(id + 0x2C0, 12.101f, "Marine Mayhem"); // t=11370.9; Ability A2D9 from Nymian Petalodus
+    Condition(id + 0x2D0, 8.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA2D6), "", 5f, 3.1f); // t=11379.0; StartsUsing A2D6 from Nymian Petalodus
+}
+
+private void The_Black_Regiment(uint id)
+{
+    Timeout(id + 0x0, 243.1f, ""); // t=12243.1
+    Condition(id + 0x10, 4.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0CB), "", 5f, 0.0f); // t=12247.3; StartsUsing A0CB from Black Chocobo
+    Timeout(id + 0x20, 5.0f, "Choco Beak"); // t=12252.3; Ability A0CB from Black Chocobo
+    Timeout(id + 0x30, 140.601f, ""); // t=12392.9
+    Condition(id + 0x40, 4.699f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0CC), "", 5f, 0.0f); // t=12397.6; StartsUsing A0CC from Black Chocobo
+    Timeout(id + 0x50, 5.0f, "Choco Maelfeather"); // t=12402.6; Ability A0CC from Black Chocobo
+    Timeout(id + 0x60, 12.2f, "Choco Maelfeather"); // t=12414.8; Ability A0CC from Black Chocobo
+    Timeout(id + 0x70, 129.2f, ""); // t=12544.0
+    Condition(id + 0x80, 9.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA0BB), "", 5f, 4.4f); // t=12553.4; StartsUsing A0BB from Black Star; cactbot StartsUsing A0BB [Occult Crescent Black Star Choco Windstorm]
+    Timeout(id + 0x90, 7.0f, "Choco Windstorm"); // t=12560.4; Ability A0BB from Black Star; cactbot StartsUsing A0BB [Occult Crescent Black Star Choco Windstorm]
+    Timeout(id + 0xA0, 9.1f, "Choco Cyclone"); // t=12569.5; Ability A0BC from Black Star; cactbot StartsUsing A0BC [Occult Crescent Black Star Choco Cyclone]
+    Timeout(id + 0xB0, 19.7f, "Choco Windstorm"); // t=12589.2; Ability A0BB from Black Star; cactbot StartsUsing A0BB [Occult Crescent Black Star Choco Windstorm]
+    Timeout(id + 0xC0, 0.1f, "Choco Beak"); // t=12589.3
+    Timeout(id + 0xD0, 14.601f, "Choco Cyclone / Choco Maelfeather"); // t=12603.9; Ability A0BC from Black Star; cactbot StartsUsing A0BC [Occult Crescent Black Star Choco Cyclone]
+    Timeout(id + 0xE0, 14.399f, "Choco Slaughter"); // t=12618.3; Ability A0BF from Black Star
+    Timeout(id + 0xF0, 1.101f, "Choco Slaughter 1"); // t=12619.4
+    Timeout(id + 0x100, 1.1f, "Choco Slaughter 2"); // t=12620.5
+    Timeout(id + 0x110, 0.9f, "Choco Slaughter"); // t=12621.4; Ability A0BF from Black Star
+    Timeout(id + 0x120, 0.199f, "Choco Slaughter 3"); // t=12621.6
+    Timeout(id + 0x130, 0.9f, "Choco Slaughter 1"); // t=12622.5
+    Timeout(id + 0x140, 0.2f, "Choco Slaughter 4"); // t=12622.7
+    Timeout(id + 0x150, 0.899f, "Choco Slaughter 2"); // t=12623.6
+    Timeout(id + 0x160, 1.101f, "Choco Slaughter 3"); // t=12624.7
+    Timeout(id + 0x170, 1.1f, "Choco Slaughter 4"); // t=12625.8
+    Timeout(id + 0x180, 0.7f, "Choco Doublades / Choco Blades"); // t=12626.5; Ability A0C1 from Black Star
+    Timeout(id + 0x190, 2.0f, "--middle--"); // t=12628.5; Ability A0C2 from Black Star
+    Timeout(id + 0x1A0, 1.0f, "Choco Blades"); // t=12629.5; Ability A0C4 from Black Star
+    Timeout(id + 0x1B0, 2.0f, "Choco Beak"); // t=12631.5; Ability A0CB from Black Chocobo
+    Timeout(id + 0x1C0, 2.0f, "Choco Aero II"); // t=12633.5; Ability A0CA from Black Star
+    Timeout(id + 0x1D0, 18.0f, "Choco Windstorm"); // t=12651.5; Ability A0BB from Black Star; cactbot StartsUsing A0BB [Occult Crescent Black Star Choco Windstorm]
+    Timeout(id + 0x1E0, 0.1f, "Choco Beak"); // t=12651.6
+    Timeout(id + 0x1F0, 9.0f, "Choco Cyclone"); // t=12660.6; Ability A0BC from Black Star; cactbot StartsUsing A0BC [Occult Crescent Black Star Choco Cyclone]
+    Timeout(id + 0x200, 0.2f, "Choco Maelfeather"); // t=12660.8
+    Timeout(id + 0x210, 9.9f, "Choco Aero II"); // t=12670.7
+    Timeout(id + 0x220, 2.0f, "Choco Aero II"); // t=12672.7
+    Timeout(id + 0x230, 12.3f, "Choco Windstorm"); // t=12685.0; Ability A0BB from Black Star; cactbot StartsUsing A0BB [Occult Crescent Black Star Choco Windstorm]
+    Timeout(id + 0x240, 0.1f, "Choco Beak"); // t=12685.1
+    Timeout(id + 0x250, 14.601f, "Choco Cyclone / Choco Maelfeather"); // t=12699.7; Ability A0BC from Black Star; cactbot StartsUsing A0BC [Occult Crescent Black Star Choco Cyclone]
+    Timeout(id + 0x260, 14.7f, "Choco Slaughter"); // t=12714.4; Ability A0BF from Black Star
+    Timeout(id + 0x270, 1.1f, "Choco Slaughter 1"); // t=12715.5
+    Timeout(id + 0x280, 1.1f, "Choco Slaughter 2"); // t=12716.6
+    Timeout(id + 0x290, 0.9f, "Choco Slaughter"); // t=12717.5; Ability A0BF from Black Star
+    Timeout(id + 0x2A0, 0.2f, "Choco Slaughter 3"); // t=12717.7
+    Timeout(id + 0x2B0, 0.899f, "Choco Slaughter 1"); // t=12718.6
+    Timeout(id + 0x2C0, 0.2f, "Choco Slaughter 4"); // t=12718.8
+    Timeout(id + 0x2D0, 0.9f, "Choco Slaughter 2"); // t=12719.7
+    Timeout(id + 0x2E0, 1.1f, "Choco Slaughter 3"); // t=12720.8
+    Timeout(id + 0x2F0, 1.101f, "Choco Slaughter 4"); // t=12721.9
+    Timeout(id + 0x300, 0.699f, "Choco Doublades / Choco Blades"); // t=12722.6; Ability A0C1 from Black Star
+    Timeout(id + 0x310, 2.0f, "--middle--"); // t=12724.6; Ability A0C2 from Black Star
+}
+
+private void The_Unbridled(uint id)
+{
+    Condition(id + 0x0, 105.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7845), "", 5f, 100.1f); // t=13105.1; StartsUsing 7845 from Crescent Berserker
+    Timeout(id + 0x10, 6.0f, "Boil Over"); // t=13111.1; Ability 7845 from Crescent Berserker
+    Timeout(id + 0x20, 12.9f, "Scathing Sweep"); // t=13124.0; Ability A6C3 from Crescent Berserker; cactbot StartsUsing A6C3 [Occult Crescent Berserker Scathing Sweep]
+    Timeout(id + 0x30, 9.4f, "Scathing Sweep"); // t=13133.4; Ability A6C3 from Crescent Berserker; cactbot StartsUsing A6C3 [Occult Crescent Berserker Scathing Sweep]
+    Timeout(id + 0x40, 11.699f, "Channeled Rage"); // t=13145.1; Ability 7847 from Crescent Berserker
+    Timeout(id + 0x50, 13.2f, "Hopping Mad (jump)"); // t=13158.3; Ability 91BA from Crescent Berserker
+    Timeout(id + 0x60, 1.0f, "Hopping Mad (out)"); // t=13159.3; Ability 91CB from Crescent Berserker
+    Timeout(id + 0x70, 2.0f, "Bedrock Uplift (in)"); // t=13161.3; Ability 93AF from Crescent Berserker
+    Timeout(id + 0x80, 10.101f, "Heightened Rage"); // t=13171.4; Ability 93B7 from Crescent Berserker
+    Timeout(id + 0x90, 14.1f, "Hopping Mad (jump)"); // t=13185.5; Ability 7848 from Crescent Berserker
+    Timeout(id + 0xA0, 1.0f, "Hopping Mad (out)"); // t=13186.5; Ability 7898 from Crescent Berserker
+    Timeout(id + 0xB0, 2.0f, "Bedrock Uplift (in)"); // t=13188.5; Ability 93AD from Crescent Berserker
+    Timeout(id + 0xC0, 3.5f, "Hopping Mad (jump)"); // t=13192.0; Ability 7896 from Crescent Berserker
+    Timeout(id + 0xD0, 0.9f, "Hopping Mad (out)"); // t=13192.9; Ability 7899 from Crescent Berserker
+    Timeout(id + 0xE0, 2.0f, "Bedrock Uplift (in)"); // t=13194.9; Ability 93AE from Crescent Berserker
+    Timeout(id + 0xF0, 4.0f, "Hopping Mad (jump)"); // t=13198.9; Ability 7897 from Crescent Berserker
+    Timeout(id + 0x100, 0.8f, "Hopping Mad (out)"); // t=13199.7; Ability 90B1 from Crescent Berserker
+    Timeout(id + 0x110, 2.0f, "Bedrock Uplift (in)"); // t=13201.7; Ability 93AF from Crescent Berserker
+    Timeout(id + 0x120, 12.7f, "White-hot Rage"); // t=13214.4; Ability 93A8 from Crescent Berserker
+    Timeout(id + 0x130, 8.0f, "Heated Outburst"); // t=13222.4; Ability 93AC from Crescent Berserker
+    Timeout(id + 0x140, 1.3f, "Scathing Sweep"); // t=13223.7; Ability A6C3 from Crescent Berserker; cactbot StartsUsing A6C3 [Occult Crescent Berserker Scathing Sweep]
+    Timeout(id + 0x150, 2.6f, "Heated Outburst"); // t=13226.3; Ability 93AC from Crescent Berserker
+    Timeout(id + 0x160, 7.101f, "Heated Outburst"); // t=13233.4; Ability 93AC from Crescent Berserker
+    Timeout(id + 0x170, 1.699f, "Scathing Sweep"); // t=13235.1; Ability A6C3 from Crescent Berserker; cactbot StartsUsing A6C3 [Occult Crescent Berserker Scathing Sweep]
+    Timeout(id + 0x180, 2.301f, "Heated Outburst"); // t=13237.4; Ability 93AC from Crescent Berserker
+    Timeout(id + 0x190, 7.5f, "Heated Outburst"); // t=13244.9; Ability 93AC from Crescent Berserker
+    Timeout(id + 0x1A0, 1.6f, "Scathing Sweep"); // t=13246.5; Ability A6C3 from Crescent Berserker; cactbot StartsUsing A6C3 [Occult Crescent Berserker Scathing Sweep]
+    Timeout(id + 0x1B0, 2.4f, "Heated Outburst"); // t=13248.9; Ability 93AC from Crescent Berserker
+    Timeout(id + 0x1C0, 9.3f, "Heightened Rage"); // t=13258.2; Ability 93B7 from Crescent Berserker
+    Timeout(id + 0x1D0, 10.2f, "White-hot Rage"); // t=13268.4; Ability 93A8 from Crescent Berserker
+    Timeout(id + 0x1E0, 9.0f, "Heated Outburst"); // t=13277.4; Ability 93AC from Crescent Berserker
+    Timeout(id + 0x1F0, 4.0f, "Heated Outburst / Hopping Mad (jump)"); // t=13281.4; Ability 93AC from Crescent Berserker | Ability 7848 from Crescent Berserker
+    Timeout(id + 0x200, 1.0f, "Hopping Mad (out)"); // t=13282.4; Ability 7898 from Crescent Berserker
+    Timeout(id + 0x210, 2.0f, "Bedrock Uplift (in)"); // t=13284.4; Ability 93AD from Crescent Berserker
+    Timeout(id + 0x220, 2.8f, "Heated Outburst"); // t=13287.2; Ability 93AC from Crescent Berserker
+    Timeout(id + 0x230, 0.5f, "Hopping Mad (jump)"); // t=13287.7; Ability 7896 from Crescent Berserker
+    Timeout(id + 0x240, 0.899f, "Hopping Mad (out)"); // t=13288.6; Ability 7899 from Crescent Berserker
+    Timeout(id + 0x250, 2.0f, "Bedrock Uplift (in)"); // t=13290.6; Ability 93AE from Crescent Berserker
+    Timeout(id + 0x260, 3.301f, "Heated Outburst"); // t=13293.9; Ability 93AC from Crescent Berserker
+    Timeout(id + 0x270, 0.699f, "Hopping Mad (jump)"); // t=13294.6; Ability 7897 from Crescent Berserker
+    Timeout(id + 0x280, 0.801f, "Hopping Mad (out)"); // t=13295.4; Ability 90B1 from Crescent Berserker
+    Timeout(id + 0x290, 2.1f, "Bedrock Uplift (in)"); // t=13297.5; Ability 93AF from Crescent Berserker
+    Timeout(id + 0x2A0, 7.4f, "Heated Outburst"); // t=13304.9; Ability 93AC from Crescent Berserker
+    Timeout(id + 0x2B0, 4.699f, "Scathing Sweep"); // t=13309.6; Ability A6C3 from Crescent Berserker; cactbot StartsUsing A6C3 [Occult Crescent Berserker Scathing Sweep]
+    Timeout(id + 0x2C0, 2.301f, "Heated Outburst"); // t=13311.9; Ability 93AC from Crescent Berserker
+    Timeout(id + 0x2D0, 10.8f, "Boil Over"); // t=13322.7; Ability 7845 from Crescent Berserker
+    Timeout(id + 0x2E0, 10.2f, "White-hot Rage"); // t=13332.9; Ability 93A8 from Crescent Berserker
+}
+
+private void Trial_By_Claw(uint id)
+{
+    Condition(id + 0x0, 105.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA323), "", 5f, 100.1f); // t=14105.1; StartsUsing A323 from Crystal Dragon
+    Timeout(id + 0x10, 5.0f, "Primal Roar"); // t=14110.1; Ability A323 from Crystal Dragon
+    Condition(id + 0x20, 6.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA315), "", 5f, 1.2f); // t=14116.3; StartsUsing A315 from Crystal Dragon
+    Timeout(id + 0x30, 3.0f, "Fearsome Facet"); // t=14119.3; Ability A315 from Crystal Dragon
+    Timeout(id + 0x40, 10.101f, "Prismatic Wing (Lightning)"); // t=14129.4; Ability A70E from Draconic Double
+    Timeout(id + 0x50, 4.899f, "Made Magic (Lightning)"); // t=14134.3; Ability A710 from Draconic Double
+    Condition(id + 0x60, 8.101f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA315), "", 5f, 3.101f); // t=14142.4; StartsUsing A315 from Crystal Dragon
+    Timeout(id + 0x70, 3.0f, "Fearsome Facet"); // t=14145.4; Ability A315 from Crystal Dragon
+    Timeout(id + 0x80, 10.1f, "Prismatic Wing (Wind)"); // t=14155.5; Ability A70F from Draconic Double
+    Timeout(id + 0x90, 4.6f, "Made Magic (Wind)"); // t=14160.1; Ability A711 from Draconic Double
+    Condition(id + 0xA0, 12.101f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA315), "", 5f, 7.101f); // t=14172.2; StartsUsing A315 from Crystal Dragon
+    Timeout(id + 0xB0, 3.0f, "Fearsome Facet"); // t=14175.2; Ability A315 from Crystal Dragon
+    Timeout(id + 0xC0, 10.3f, "Prismatic Wing"); // t=14185.5
+    Timeout(id + 0xD0, 2.0f, "Crystal Mirror"); // t=14187.5; Ability A31A from Crystal Dragon
+    Timeout(id + 0xE0, 2.8f, "Made Magic"); // t=14190.3
+    Timeout(id + 0xF0, 9.8f, "Crystal Call"); // t=14200.1; Ability A314 from Crystal Dragon
+    Condition(id + 0x100, 4.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA31B), "", 5f, 0.0f); // t=14204.3; StartsUsing A31B from Crystal Dragon
+    Timeout(id + 0x110, 6.9f, "Crystallized Energy (1)"); // t=14211.2; Ability A6E8 from Crystal Dragon
+    Timeout(id + 0x120, 4.0f, "Crystallized Energy (2)"); // t=14215.2; Ability A31E from Crystal Dragon
+    Timeout(id + 0x130, 13.1f, "Primal Roar"); // t=14228.3; Ability A323 from Crystal Dragon
+    Timeout(id + 0x140, 12.5f, "Crystal Call"); // t=14240.8; Ability A314 from Crystal Dragon
+    Condition(id + 0x150, 3.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA31C), "", 5f, 0.0f); // t=14244.0; StartsUsing A31C from Crystal Dragon
+    Timeout(id + 0x160, 10.0f, "Crystallized Energy (1)"); // t=14254.0; Ability A6EC from Crystal Dragon
+    Timeout(id + 0x170, 4.0f, "Crystallized Energy (2)"); // t=14258.0; Ability A31E from Crystal Dragon
+    Timeout(id + 0x180, 4.0f, "Crystallized Energy (3)"); // t=14262.0; Ability A31E from Crystal Dragon
+    Timeout(id + 0x190, 13.1f, "Primal Roar"); // t=14275.1; Ability A323 from Crystal Dragon
+    Condition(id + 0x1A0, 12.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA315), "", 5f, 7.5f); // t=14287.6; StartsUsing A315 from Crystal Dragon
+    Timeout(id + 0x1B0, 3.101f, "Fearsome Facet"); // t=14290.7; Ability A315 from Crystal Dragon
+    Timeout(id + 0x1C0, 10.1f, "Prismatic Wing"); // t=14300.8
+    Timeout(id + 0x1D0, 2.0f, "Crystal Mirror"); // t=14302.8; Ability A31A from Crystal Dragon
+    Timeout(id + 0x1E0, 2.8f, "Made Magic"); // t=14305.6
+    Condition(id + 0x1F0, 1.801f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA31C), "", 5f, 0.0f); // t=14307.4; StartsUsing A31C from Crystal Dragon
+    Timeout(id + 0x200, 10.0f, "Crystallized Energy (1)"); // t=14317.4; Ability A6EC from Crystal Dragon
+    Timeout(id + 0x210, 4.0f, "Crystallized Energy (2)"); // t=14321.4; Ability A31E from Crystal Dragon
+    Timeout(id + 0x220, 4.0f, "Crystallized Energy (3)"); // t=14325.4; Ability A31E from Crystal Dragon
+    Timeout(id + 0x230, 16.1f, "Primal Roar"); // t=14341.5; Ability A323 from Crystal Dragon
+    Condition(id + 0x240, 13.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA315), "", 5f, 8.4f); // t=14354.9; StartsUsing A315 from Crystal Dragon
+    Timeout(id + 0x250, 3.1f, "Fearsome Facet"); // t=14358.0; Ability A315 from Crystal Dragon
+    Timeout(id + 0x260, 10.1f, "Prismatic Wing"); // t=14368.1
+    Timeout(id + 0x270, 2.0f, "Crystal Mirror"); // t=14370.1; Ability A31A from Crystal Dragon
+    Timeout(id + 0x280, 2.601f, "Made Magic"); // t=14372.7
+    Condition(id + 0x290, 2.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA31C), "", 5f, 0.0f); // t=14374.8; StartsUsing A31C from Crystal Dragon
+    Timeout(id + 0x2A0, 10.0f, "Crystallized Energy (1)"); // t=14384.8; Ability A6EC from Crystal Dragon
+    Timeout(id + 0x2B0, 4.0f, "Crystallized Energy (2)"); // t=14388.8; Ability A31E from Crystal Dragon
+    Timeout(id + 0x2C0, 4.0f, "Crystallized Energy (3)"); // t=14392.8; Ability A31E from Crystal Dragon
+    Timeout(id + 0x2D0, 16.101f, "Primal Roar"); // t=14408.9; Ability A323 from Crystal Dragon
+    Condition(id + 0x2E0, 15.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA315), "", 5f, 10.3f); // t=14424.2; StartsUsing A315 from Crystal Dragon
+    Timeout(id + 0x2F0, 3.1f, "Fearsome Facet"); // t=14427.3; Ability A315 from Crystal Dragon
+    Timeout(id + 0x300, 10.101f, "Prismatic Wing"); // t=14437.4
+    Timeout(id + 0x310, 2.0f, "Crystal Mirror"); // t=14439.4; Ability A31A from Crystal Dragon
+    Timeout(id + 0x320, 2.6f, "Made Magic"); // t=14442.0
+    Condition(id + 0x330, 1.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA31C), "", 5f, 0.0f); // t=14443.9; StartsUsing A31C from Crystal Dragon
+}
+
+private void With_Extreme_Prejudice(uint id)
+{
+    Condition(id + 0x0, 117.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA1C8), "", 5f, 112.0f); // t=15117.0; StartsUsing A1C8 from Command Urn
+    Timeout(id + 0x10, 3.0f, "Summon"); // t=15120.0; Ability A1C8 from Command Urn; cactbot StartsUsing A30D [Occult Crescent Demon Tablet Summon]
+    Timeout(id + 0x20, 6.1f, "Assail"); // t=15126.1; Ability A1C9 from Command Urn
+    Timeout(id + 0x30, 6.9f, "Stone Swell"); // t=15133.0; Ability A1CC from Vassal Vessel
+    Timeout(id + 0x40, 8.1f, "Stone Swell"); // t=15141.1; Ability A1CC from Vassal Vessel
+    Timeout(id + 0x50, 8.101f, "Stone Swell / Assail"); // t=15149.2; Ability A1C9 from Command Urn
+    Timeout(id + 0x60, 6.899f, "Rockslide"); // t=15156.1; Ability A1CD from Vassal Vessel
+    Timeout(id + 0x70, 8.101f, "Rockslide"); // t=15164.2; Ability A1CD from Vassal Vessel
+    Timeout(id + 0x80, 8.1f, "Rockslide"); // t=15172.3; Ability A1CD from Vassal Vessel
+    Timeout(id + 0x90, 4.0f, "Aetheric Burst"); // t=15176.3; Ability A1D0 from Command Urn
+    Timeout(id + 0xA0, 1.4f, "--adds-targetable--"); // t=15177.7
+    Timeout(id + 0xB0, 14.8f, "Summon"); // t=15192.5; Ability A1C8 from Command Urn; cactbot StartsUsing A30D [Occult Crescent Demon Tablet Summon]
+    Timeout(id + 0xC0, 5.2f, "Assail"); // t=15197.7; Ability A1C9 from Command Urn
+    Timeout(id + 0xD0, 6.8f, "Stone Swell"); // t=15204.5
+    Timeout(id + 0xE0, 1.6f, "Stone Swell"); // t=15206.1
+    Timeout(id + 0xF0, 1.4f, "Stone Swell"); // t=15207.5
+    Timeout(id + 0x100, 1.6f, "Stone Swell"); // t=15209.1
+    Timeout(id + 0x110, 1.601f, "Stone Swell"); // t=15210.7
+    Timeout(id + 0x120, 1.6f, "Stone Swell"); // t=15212.3
+    Timeout(id + 0x130, 2.9f, "Destruct / --adds-targetable--"); // t=15215.2; Ability A1CE from Command Urn
+    Timeout(id + 0x140, 42.1f, "Summon"); // t=15257.3; Ability A1C8 from Command Urn; cactbot StartsUsing A30D [Occult Crescent Demon Tablet Summon]
+    Timeout(id + 0x150, 5.101f, "Assail"); // t=15262.4; Ability A1C9 from Command Urn
+    Timeout(id + 0x160, 6.899f, "Rockslide/Stone Swell?"); // t=15269.3
+    Timeout(id + 0x170, 5.0f, "Stone Swell/Rockslide?"); // t=15274.3
+    Timeout(id + 0x180, 5.101f, "Rockslide/Stone Swell?"); // t=15279.4
+    Timeout(id + 0x190, 5.0f, "Stone Swell/Rockslide?"); // t=15284.4
+    Timeout(id + 0x1A0, 5.1f, "Rockslide/Stone Swell?"); // t=15289.5
+    Timeout(id + 0x1B0, 5.0f, "Stone Swell/Rockslide?"); // t=15294.5
+    Timeout(id + 0x1C0, 74.8f, "Rockslide"); // t=15369.3
+    Timeout(id + 0x1D0, 5.0f, "Stone Swell"); // t=15374.3; Ability 9A2E from Vassal Vessel
+    Timeout(id + 0x1E0, 5.101f, "Rockslide"); // t=15379.4; Ability 9A2F from Vassal Vessel
+    Timeout(id + 0x1F0, 5.0f, "Stone Swell"); // t=15384.4; Ability 9A2E from Vassal Vessel
+    Timeout(id + 0x200, 5.1f, "Rockslide"); // t=15389.5; Ability 9A2F from Vassal Vessel
+    Timeout(id + 0x210, 5.0f, "Stone Swell"); // t=15394.5; Ability 9A2E from Vassal Vessel
+    Timeout(id + 0x220, 5.1f, "Rockslide"); // t=15399.6; Ability 9A2F from Vassal Vessel
+    Timeout(id + 0x230, 5.0f, "Stone Swell"); // t=15404.6; Ability 9A2E from Vassal Vessel
+    Timeout(id + 0x240, 5.101f, "Rockslide"); // t=15409.7; Ability 9A2F from Vassal Vessel
+    Timeout(id + 0x250, 5.0f, "Stone Swell"); // t=15414.7; Ability 9A2E from Vassal Vessel
+    Timeout(id + 0x260, 6.7f, "Aetheric Burst"); // t=15421.4; Ability A1D0 from Command Urn
+    Timeout(id + 0x270, 16.1f, "Assail"); // t=15437.5; Ability A1C9 from Command Urn
+    Timeout(id + 0x280, 157.1f, "Stone Swell"); // t=15594.6
+    Timeout(id + 0x290, 5.0f, "Rockslide"); // t=15599.6; Ability 9A2F from Vassal Vessel
+    Timeout(id + 0x2A0, 5.101f, "Stone Swell"); // t=15604.7; Ability 9A2E from Vassal Vessel
+    Timeout(id + 0x2B0, 5.0f, "Rockslide"); // t=15609.7; Ability 9A2F from Vassal Vessel
+    Timeout(id + 0x2C0, 5.1f, "Stone Swell"); // t=15614.8; Ability 9A2E from Vassal Vessel
+    Timeout(id + 0x2D0, 5.0f, "Rockslide"); // t=15619.8; Ability 9A2F from Vassal Vessel
+    Timeout(id + 0x2E0, 5.101f, "Stone Swell"); // t=15624.9; Ability 9A2E from Vassal Vessel
+    Timeout(id + 0x2F0, 5.0f, "Rockslide"); // t=15629.9; Ability 9A2F from Vassal Vessel
+    Timeout(id + 0x300, 5.1f, "Stone Swell"); // t=15635.0; Ability 9A2E from Vassal Vessel
+    Timeout(id + 0x310, 5.0f, "Rockslide"); // t=15640.0; Ability 9A2F from Vassal Vessel
+    Timeout(id + 0x320, 6.7f, "Aetheric Burst"); // t=15646.7; Ability A1D0 from Command Urn
+    Timeout(id + 0x330, 16.1f, "Assail"); // t=15662.8; Ability A1C9 from Command Urn
+}
+
+private void Flame_Of_Dusk(uint id)
+{
+    Condition(id + 0x0, 119.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA1A5), "", 5f, 114.1f); // t=16119.1; StartsUsing A1A5 from Hinkypunk; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0x10, 5.0f, "Lamplight").SetHint(StateMachine.StateHint.Raidwide); // t=16124.1; Ability A1A5 from Hinkypunk; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0x20, 13.301f, "Dread Dive").SetHint(StateMachine.StateHint.Tankbuster); // t=16137.4; Ability A1A4 from Hinkypunk; cactbot StartsUsing A1A4 [Occult Crescent Hinkypunk Dread Dive]
+    Timeout(id + 0x30, 7.399f, "--Tell 1 (Blowout)--"); // t=16144.8; Ability A1A3 from Hinkypunk
+    Condition(id + 0x40, 0.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA19E or 0xA1A1), "", 5f, 0.0f); // t=16145.1; StartsUsing A1A1 from Hinkypunk | StartsUsing A19E from Hinkypunk
+    Timeout(id + 0x50, 2.5f, "--Tell 2--"); // t=16147.6
+    Timeout(id + 0x60, 2.801f, "--Tell 3 (Blowout)--"); // t=16150.4
+    Timeout(id + 0x70, 2.8f, "--Tell 4--"); // t=16153.2
+    Timeout(id + 0x80, 1.2f, "Molt"); // t=16154.4
+    Targetable(id + 0x90, false, 1.0f, "--untargetable--"); // t=16155.4
+    Targetable(id + 0xA0, true, 1.8f, "--targetable--"); // t=16157.2
+    Timeout(id + 0xB0, 3.2f, "Blowout"); // t=16160.4
+    Timeout(id + 0xC0, 0.899f, "--knockback--"); // t=16161.3; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Timeout(id + 0xD0, 86.3f, "--Tell 2 (Shades' Crossing)--"); // t=16247.6; Ability A1A1 from Hinkypunk
+    Timeout(id + 0xE0, 2.801f, "--Tell 3 (Blowout)--"); // t=16250.4; Ability A1A3 from Hinkypunk
+    Timeout(id + 0xF0, 2.8f, "--Tell 4 (Shades' Nest)--"); // t=16253.2; Ability A19E from Hinkypunk
+    Timeout(id + 0x100, 1.2f, "Molt"); // t=16254.4; Ability A198 from Hinkypunk
+    Targetable(id + 0x110, false, 1.0f, "--untargetable--"); // t=16255.4
+    Targetable(id + 0x120, true, 1.8f, "--targetable--"); // t=16257.2
+    Timeout(id + 0x130, 3.2f, "Blowout"); // t=16260.4; Ability A1A2 from Hinkypunk
+    Timeout(id + 0x140, 0.899f, "--knockback--"); // t=16261.3; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Targetable(id + 0x150, false, 0.3f, "--untargetable--"); // t=16261.6
+    Targetable(id + 0x160, true, 1.9f, "--targetable--"); // t=16263.5
+    Timeout(id + 0x170, 2.1f, "Shades' Crossing"); // t=16265.6; Ability A1A0 from Hinkypunk; cactbot StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Targetable(id + 0x180, false, 1.2f, "--untargetable--"); // t=16266.8
+    Targetable(id + 0x190, true, 1.9f, "--targetable--"); // t=16268.7
+    Timeout(id + 0x1A0, 2.1f, "Blowout"); // t=16270.8; Ability A1A2 from Hinkypunk
+    Timeout(id + 0x1B0, 0.9f, "--knockback--"); // t=16271.7; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Targetable(id + 0x1C0, false, 0.3f, "--untargetable--"); // t=16272.0
+    Targetable(id + 0x1D0, true, 1.9f, "--targetable--"); // t=16273.9
+    Timeout(id + 0x1E0, 2.1f, "Shades' Nest"); // t=16276.0; Ability A19D from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest]
+    Targetable(id + 0x1F0, false, 1.2f, "--untargetable--"); // t=16277.2
+    Targetable(id + 0x200, true, 1.899f, "--targetable--"); // t=16279.1
+    Condition(id + 0x210, 2.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA1A5), "", 5f, 0.0f); // t=16281.6; StartsUsing A1A5 from Hinkypunk; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0x220, 5.0f, "Lamplight"); // t=16286.6; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0x230, 8.301f, "Dread Dive"); // t=16294.9; cactbot StartsUsing A1A4 [Occult Crescent Hinkypunk Dread Dive]
+    Timeout(id + 0x240, 12.8f, "Flock of Souls"); // t=16307.7
+    Timeout(id + 0x250, 9.1f, "--Tell 1--"); // t=16316.8
+    Timeout(id + 0x260, 2.8f, "--Tell 2--"); // t=16319.6
+    Timeout(id + 0x270, 2.801f, "--Tell 3--"); // t=16322.4
+    Timeout(id + 0x280, 2.8f, "--Tell 4--"); // t=16325.2
+    Timeout(id + 0x290, 122.399f, "--Tell 2 (Shades' Nest)--"); // t=16447.6; Ability A19E from Hinkypunk
+    Timeout(id + 0x2A0, 2.801f, "--Tell 3 (Blowout)--"); // t=16450.4; Ability A1A3 from Hinkypunk
+    Timeout(id + 0x2B0, 2.799f, "--Tell 4 (Shades' Crossing)--"); // t=16453.2; Ability A1A1 from Hinkypunk
+    Timeout(id + 0x2C0, 1.201f, "Molt"); // t=16454.4; Ability A198 from Hinkypunk
+    Targetable(id + 0x2D0, false, 1.0f, "--untargetable--"); // t=16455.4
+    Targetable(id + 0x2E0, true, 1.799f, "--targetable--"); // t=16457.2
+    Timeout(id + 0x2F0, 3.201f, "Blowout"); // t=16460.4; Ability A1A2 from Hinkypunk
+    Timeout(id + 0x300, 0.9f, "--knockback--"); // t=16461.3; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Targetable(id + 0x310, false, 0.299f, "--untargetable--"); // t=16461.6
+    Targetable(id + 0x320, true, 1.9f, "--targetable--"); // t=16463.5
+    Timeout(id + 0x330, 2.1f, "Shades' Nest"); // t=16465.6; Ability A19D from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest]
+    Targetable(id + 0x340, false, 1.201f, "--untargetable--"); // t=16466.8
+    Targetable(id + 0x350, true, 1.898f, "--targetable--"); // t=16468.7
+    Timeout(id + 0x360, 2.102f, "Blowout"); // t=16470.8; Ability A1A2 from Hinkypunk
+    Timeout(id + 0x370, 0.898f, "--knockback--"); // t=16471.7; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Targetable(id + 0x380, false, 0.301f, "--untargetable--"); // t=16472.0
+    Targetable(id + 0x390, true, 1.9f, "--targetable--"); // t=16473.9
+    Timeout(id + 0x3A0, 2.1f, "Shades' Crossing"); // t=16476.0; Ability A1A0 from Hinkypunk; cactbot StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Targetable(id + 0x3B0, false, 1.199f, "--untargetable--"); // t=16477.2
+    Targetable(id + 0x3C0, true, 1.9f, "--targetable--"); // t=16479.1
+    Timeout(id + 0x3D0, 7.5f, "Lamplight").SetHint(StateMachine.StateHint.Raidwide); // t=16486.6; Ability A1A5 from Hinkypunk; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0x3E0, 8.301f, "Dread Dive").SetHint(StateMachine.StateHint.Tankbuster); // t=16494.9; Ability A1A4 from Hinkypunk; cactbot StartsUsing A1A4 [Occult Crescent Hinkypunk Dread Dive]
+    Timeout(id + 0x3F0, 12.799f, "Flock of Souls"); // t=16507.7; Ability A19A from Hinkypunk
+    Condition(id + 0x400, 6.602f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA19E or 0xA1A1 or 0xA1A3), "", 5f, 1.602f); // t=16514.3; StartsUsing A1A3 from Hinkypunk | StartsUsing A19E from Hinkypunk | StartsUsing A1A1 from Hinkypunk
+    Timeout(id + 0x410, 2.5f, "--Tell 1--"); // t=16516.8
+    Timeout(id + 0x420, 2.799f, "--Tell 2--"); // t=16519.6
+    Timeout(id + 0x430, 2.801f, "--Tell 3--"); // t=16522.4
+    Timeout(id + 0x440, 2.799f, "--Tell 4--"); // t=16525.2
+    Timeout(id + 0x450, 1.102f, "Molt"); // t=16526.3
+    Timeout(id + 0x460, 4.799f, "Blowout/Shades' Nest/Shades' Crossing?"); // t=16531.1
+    Timeout(id + 0x470, 0.9f, "--knockback?--"); // t=16532.0; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Timeout(id + 0x480, 2.199f, "Shades' Nest/Shades' Crossing/Blowout?"); // t=16534.2
+    Timeout(id + 0x490, 3.0f, "Shades' Nest (middle)"); // t=16537.2
+    Timeout(id + 0x4A0, 79.602f, "--Tell 1 (Blowout)--"); // t=16616.8; Ability A1A3 from Hinkypunk
+    Timeout(id + 0x4B0, 2.799f, "--Tell 2 (Shades' Nest)--"); // t=16619.6; Ability A19E from Hinkypunk
+    Timeout(id + 0x4C0, 2.801f, "--Tell 3 (Shades' Crossing)--"); // t=16622.4; Ability A1A1 from Hinkypunk
+    Timeout(id + 0x4D0, 2.799f, "--Tell 4 (Blowout)--"); // t=16625.2; Ability A1A3 from Hinkypunk
+    Timeout(id + 0x4E0, 1.102f, "Molt"); // t=16626.3; Ability A199 from Hinkypunk
+    Timeout(id + 0x4F0, 4.799f, "Blowout"); // t=16631.1; Ability A1A2 from Hinkypunk
+    Timeout(id + 0x500, 0.9f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=16632.0; Ability A1B5 from Hinkypunk; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Timeout(id + 0x510, 2.199f, "Shades' Nest"); // t=16634.2; Ability A19D from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest]
+    Timeout(id + 0x520, 3.0f, "Shades' Nest (middle)"); // t=16637.2; Ability A19C from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest]
+    Timeout(id + 0x530, 6.801f, "Shades' Crossing"); // t=16644.0; Ability A1A0 from Hinkypunk; cactbot StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Condition(id + 0x540, 1.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA19C or 0xA19F), "", 5f, 0.0f); // t=16645.6; StartsUsing A19F from Hinkypunk | StartsUsing A19C from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest] | StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Timeout(id + 0x550, 1.5f, "Blowout"); // t=16647.1
+    Timeout(id + 0x560, 0.9f, "--knockback--"); // t=16648.0; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Timeout(id + 0x570, 2.6f, "Shades' Crossing (Intercards)/Shades' Nest (middle)?"); // t=16650.6
+    Timeout(id + 0x580, 9.1f, "Lamplight"); // t=16659.7; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0x590, 157.102f, "--Tell 1 (Shades' Nest)--"); // t=16816.8; Ability A19E from Hinkypunk
+    Timeout(id + 0x5A0, 2.799f, "--Tell 2 (Shades' Crossing)--"); // t=16819.6; Ability A1A1 from Hinkypunk
+    Timeout(id + 0x5B0, 2.801f, "--Tell 3 (Shades' Crossing)--"); // t=16822.4; Ability A1A1 from Hinkypunk
+    Timeout(id + 0x5C0, 2.799f, "--Tell 4 (Blowout)--"); // t=16825.2; Ability A1A3 from Hinkypunk
+    Timeout(id + 0x5D0, 1.102f, "Molt"); // t=16826.3; Ability A199 from Hinkypunk
+    Timeout(id + 0x5E0, 4.799f, "Shades' Nest"); // t=16831.1; Ability A19D from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest]
+    Timeout(id + 0x5F0, 3.1f, "Shades' Crossing"); // t=16834.2; Ability A1A0 from Hinkypunk; cactbot StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Timeout(id + 0x600, 3.0f, "Shades' Nest (middle)"); // t=16837.2; Ability A19C from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest]
+    Timeout(id + 0x610, 6.801f, "Shades' Crossing"); // t=16844.0; Ability A1A0 from Hinkypunk; cactbot StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Condition(id + 0x620, 1.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA19C or 0xA19F), "", 5f, 0.0f); // t=16845.6; StartsUsing A19F from Hinkypunk | StartsUsing A19C from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest] | StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Timeout(id + 0x630, 1.5f, "Blowout"); // t=16847.1
+    Timeout(id + 0x640, 0.9f, "--knockback--"); // t=16848.0; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Timeout(id + 0x650, 2.6f, "Shades' Crossing (Intercards)/Shades' Nest (middle)?"); // t=16850.6
+    Timeout(id + 0x660, 9.1f, "Lamplight"); // t=16859.7; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0x670, 157.102f, "--Tell 1 (Shades' Crossing)--"); // t=17016.8; Ability A1A1 from Hinkypunk
+    Timeout(id + 0x680, 2.799f, "--Tell 2 (Blowout)--"); // t=17019.6; Ability A1A3 from Hinkypunk
+    Condition(id + 0x690, 0.301f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA19E or 0xA1A3), "", 5f, 0.0f); // t=17019.9; StartsUsing A1A3 from Hinkypunk | StartsUsing A19E from Hinkypunk
+    Timeout(id + 0x6A0, 2.5f, "--Tell 3--"); // t=17022.4
+    Timeout(id + 0x6B0, 2.799f, "--Tell 4--"); // t=17025.2
+    Timeout(id + 0x6C0, 1.102f, "Molt"); // t=17026.3
+    Timeout(id + 0x6D0, 4.799f, "Shades' Crossing"); // t=17031.1; cactbot StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Timeout(id + 0x6E0, 3.1f, "Blowout"); // t=17034.2
+    Timeout(id + 0x6F0, 0.9f, "--knockback--"); // t=17035.1; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Timeout(id + 0x700, 2.1f, "Shades' Nest (middle)"); // t=17037.2
+    Timeout(id + 0x710, 6.801f, "Blowout/Shades' Nest?"); // t=17044.0
+    Timeout(id + 0x720, 0.9f, "--knockback?--"); // t=17044.9; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Timeout(id + 0x730, 2.199f, "Shades' Nest/Shades' Crossing?"); // t=17047.1
+    Timeout(id + 0x740, 75.301f, "--Tell 3 (Blowout)--"); // t=17122.4; Ability A1A3 from Hinkypunk
+    Timeout(id + 0x750, 2.799f, "--Tell 4 (Shades' Nest)--"); // t=17125.2; Ability A19E from Hinkypunk
+    Timeout(id + 0x760, 1.102f, "Molt"); // t=17126.3; Ability A199 from Hinkypunk
+    Timeout(id + 0x770, 4.799f, "Shades' Crossing"); // t=17131.1; Ability A1A0 from Hinkypunk; cactbot StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Timeout(id + 0x780, 3.1f, "Blowout"); // t=17134.2; Ability A1A2 from Hinkypunk
+    Timeout(id + 0x790, 0.9f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=17135.1; Ability A1B5 from Hinkypunk; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Timeout(id + 0x7A0, 2.1f, "Shades' Nest (middle)"); // t=17137.2; Ability A19C from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest]
+    Timeout(id + 0x7B0, 6.801f, "Blowout"); // t=17144.0; Ability A1A2 from Hinkypunk
+    Timeout(id + 0x7C0, 0.9f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=17144.9; Ability A1B5 from Hinkypunk; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Condition(id + 0x7D0, 0.699f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA19C or 0xA19F), "", 5f, 0.0f); // t=17145.6; StartsUsing A19F from Hinkypunk | StartsUsing A19C from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest] | StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Timeout(id + 0x7E0, 1.5f, "Shades' Nest"); // t=17147.1; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest]
+    Timeout(id + 0x7F0, 3.5f, "Shades' Crossing (Intercards)/Shades' Nest (middle)?"); // t=17150.6
+    Timeout(id + 0x800, 9.1f, "Lamplight"); // t=17159.7; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0x810, 62.701f, "--Tell 3 (Shades' Nest)--"); // t=17222.4; Ability A19E from Hinkypunk
+    Timeout(id + 0x820, 2.799f, "--Tell 4 (Shades' Crossing)--"); // t=17225.2; Ability A1A1 from Hinkypunk
+    Timeout(id + 0x830, 1.102f, "Molt"); // t=17226.3; Ability A199 from Hinkypunk
+    Timeout(id + 0x840, 4.799f, "Shades' Crossing"); // t=17231.1; Ability A1A0 from Hinkypunk; cactbot StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Timeout(id + 0x850, 3.1f, "Blowout"); // t=17234.2; Ability A1A2 from Hinkypunk
+    Timeout(id + 0x860, 0.9f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=17235.1; Ability A1B5 from Hinkypunk; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Timeout(id + 0x870, 2.1f, "Shades' Nest (middle)"); // t=17237.2; Ability A19C from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest]
+    Timeout(id + 0x880, 6.801f, "Shades' Nest"); // t=17244.0; Ability A19D from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest]
+    Condition(id + 0x890, 1.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA19C or 0xA19F), "", 5f, 0.0f); // t=17245.6; StartsUsing A19F from Hinkypunk | StartsUsing A19C from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest] | StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Timeout(id + 0x8A0, 1.5f, "Shades' Crossing"); // t=17247.1; cactbot StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Timeout(id + 0x8B0, 3.5f, "Shades' Crossing (Intercards)/Shades' Nest (middle)?"); // t=17250.6
+    Timeout(id + 0x8C0, 9.1f, "Lamplight"); // t=17259.7; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0x8D0, 87.4f, "Blowout"); // t=17347.1; Ability A1A2 from Hinkypunk
+    Timeout(id + 0x8E0, 0.9f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=17348.0; Ability A1B5 from Hinkypunk; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Timeout(id + 0x8F0, 2.6f, "Shades' Nest (middle)"); // t=17350.6; Ability A19C from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest]
+    Condition(id + 0x900, 4.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA1A5), "", 5f, 0.0f); // t=17354.7; StartsUsing A1A5 from Hinkypunk; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0x910, 5.0f, "Lamplight"); // t=17359.7; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0x920, 8.201f, "Lamplight"); // t=17367.9; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0x930, 8.299f, "Dread Dive"); // t=17376.2; cactbot StartsUsing A1A4 [Occult Crescent Hinkypunk Dread Dive]
+    Timeout(id + 0x940, 12.301f, "Flock of Souls"); // t=17388.5
+    Timeout(id + 0x950, 9.1f, "--Tell 1--"); // t=17397.6
+    Timeout(id + 0x960, 49.5f, "Shades' Nest"); // t=17447.1; Ability A19D from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest]
+    Timeout(id + 0x970, 3.5f, "Shades' Nest (middle)"); // t=17450.6; Ability A19C from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest]
+    Condition(id + 0x980, 4.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA1A5), "", 5f, 0.0f); // t=17454.7; StartsUsing A1A5 from Hinkypunk; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0x990, 5.0f, "Lamplight"); // t=17459.7; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0x9A0, 8.201f, "Lamplight"); // t=17467.9; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0x9B0, 8.299f, "Dread Dive"); // t=17476.2; cactbot StartsUsing A1A4 [Occult Crescent Hinkypunk Dread Dive]
+    Timeout(id + 0x9C0, 12.301f, "Flock of Souls"); // t=17488.5
+    Timeout(id + 0x9D0, 9.1f, "--Tell 1--"); // t=17497.6
+    Timeout(id + 0x9E0, 49.5f, "Shades' Crossing"); // t=17547.1; Ability A1A0 from Hinkypunk; cactbot StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Timeout(id + 0x9F0, 3.5f, "Shades' Nest (middle)"); // t=17550.6; Ability A19C from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest]
+    Condition(id + 0xA00, 4.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA1A5), "", 5f, 0.0f); // t=17554.7; StartsUsing A1A5 from Hinkypunk; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0xA10, 5.0f, "Lamplight"); // t=17559.7; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0xA20, 8.201f, "Lamplight"); // t=17567.9; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0xA30, 8.299f, "Dread Dive"); // t=17576.2; cactbot StartsUsing A1A4 [Occult Crescent Hinkypunk Dread Dive]
+    Timeout(id + 0xA40, 12.301f, "Flock of Souls"); // t=17588.5
+    Timeout(id + 0xA50, 9.1f, "--Tell 1--"); // t=17597.6
+    Timeout(id + 0xA60, 49.5f, "Blowout"); // t=17647.1; Ability A1A2 from Hinkypunk
+    Timeout(id + 0xA70, 0.9f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=17648.0; Ability A1B5 from Hinkypunk; cactbot Tether [Occult Crescent Dead Stars Snowball Tether/Knockback]
+    Timeout(id + 0xA80, 2.6f, "Shades' Crossing (Intercards)"); // t=17650.6; Ability A19F from Hinkypunk; cactbot StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Condition(id + 0xA90, 4.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA1A5), "", 5f, 0.0f); // t=17654.7; StartsUsing A1A5 from Hinkypunk; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0xAA0, 5.0f, "Lamplight"); // t=17659.7; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0xAB0, 8.201f, "Lamplight"); // t=17667.9; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0xAC0, 8.299f, "Dread Dive"); // t=17676.2; cactbot StartsUsing A1A4 [Occult Crescent Hinkypunk Dread Dive]
+    Timeout(id + 0xAD0, 12.301f, "Flock of Souls"); // t=17688.5
+    Timeout(id + 0xAE0, 9.1f, "--Tell 1--"); // t=17697.6
+    Timeout(id + 0xAF0, 49.5f, "Shades' Nest"); // t=17747.1; Ability A19D from Hinkypunk; cactbot StartsUsing A19C/A19D/A430/A431 [Occult Crescent Hinkypunk Shades Nest]
+    Timeout(id + 0xB00, 3.5f, "Shades' Crossing (Intercards)"); // t=17750.6; Ability A19F from Hinkypunk; cactbot StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Condition(id + 0xB10, 4.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA1A5), "", 5f, 0.0f); // t=17754.7; StartsUsing A1A5 from Hinkypunk; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0xB20, 5.0f, "Lamplight"); // t=17759.7; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0xB30, 8.201f, "Lamplight"); // t=17767.9; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0xB40, 8.299f, "Dread Dive"); // t=17776.2; cactbot StartsUsing A1A4 [Occult Crescent Hinkypunk Dread Dive]
+    Timeout(id + 0xB50, 12.301f, "Flock of Souls"); // t=17788.5
+    Timeout(id + 0xB60, 9.1f, "--Tell 1--"); // t=17797.6
+    Timeout(id + 0xB70, 49.5f, "Shades' Crossing"); // t=17847.1; Ability A1A0 from Hinkypunk; cactbot StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Timeout(id + 0xB80, 3.5f, "Shades' Crossing (Intercards)"); // t=17850.6; Ability A19F from Hinkypunk; cactbot StartsUsing A19F/A1A0/A432/A433 [Occult Crescent Hinkypunk Shades Crossing]
+    Condition(id + 0xB90, 4.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA1A5), "", 5f, 0.0f); // t=17854.7; StartsUsing A1A5 from Hinkypunk; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0xBA0, 5.0f, "Lamplight"); // t=17859.7; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0xBB0, 8.201f, "Lamplight"); // t=17867.9; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Timeout(id + 0xBC0, 8.299f, "Dread Dive"); // t=17876.2; cactbot StartsUsing A1A4 [Occult Crescent Hinkypunk Dread Dive]
+    Timeout(id + 0xBD0, 12.301f, "Flock of Souls"); // t=17888.5
+    Timeout(id + 0xBE0, 9.1f, "--Tell 1--"); // t=17897.6
+    Timeout(id + 0xBF0, 62.1f, "Lamplight").SetHint(StateMachine.StateHint.Raidwide); // t=17959.7; Ability A1A5 from Hinkypunk; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+    Condition(id + 0xC00, 3.201f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA1A5), "", 5f, 0.0f); // t=17962.9; StartsUsing A1A5 from Hinkypunk; cactbot StartsUsing A1A5/A310 [Occult Crescent Hinkypunk Lamplight]
+}
+
+private void Demon_Tablet(uint id)
+{
+    Condition(id + 0x0, 4.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA306), "", 5f, 0.0f); // t=20004.1; StartsUsing A306 from Demon Tablet; cactbot StartsUsing A306 [Occult Crescent Demon Tablet Demonic Dark II]
+    Timeout(id + 0x10, 5.0f, "Demonic Dark II").SetHint(StateMachine.StateHint.Raidwide); // t=20009.1; Ability A306 from Demon Tablet; cactbot StartsUsing A306 [Occult Crescent Demon Tablet Demonic Dark II]
+    Timeout(id + 0x20, 16.1f, "Ray of Dangers Near / Ray of Expulsion Afar").SetHint(StateMachine.StateHint.Knockback); // t=20025.2; Ability A2F3/A2F4 from Demon Tablet; cactbot StartsUsing A2F3/A2F4 [Occult Crescent Demon Tablet Ray of Dangers Near/Expulsion Afar] | StartsUsing A2F4 [Occult Crescent Demon Tablet Ray of Expulsion Afar Knockback]
+    Timeout(id + 0x30, 0.4f, "Ray of Ignorance / Landing"); // t=20025.6; Ability A2F5 from Demon Tablet
+    Timeout(id + 0x40, 12.701f, "Ray of Dangers Near / Ray of Expulsion Afar").SetHint(StateMachine.StateHint.Knockback); // t=20038.3; Ability A2F3/A2F4 from Demon Tablet; cactbot StartsUsing A2F3/A2F4 [Occult Crescent Demon Tablet Ray of Dangers Near/Expulsion Afar] | StartsUsing A2F4 [Occult Crescent Demon Tablet Ray of Expulsion Afar Knockback]
+    Timeout(id + 0x50, 0.398f, "Ray of Ignorance / Landing"); // t=20038.7; Ability A2F5 from Demon Tablet
+    Timeout(id + 0x60, 14.102f, "Occult Chisel"); // t=20052.8; Ability A307/A308 from Demon Tablet; cactbot HeadMarker [Occult Crescent Demon Tablet Occult Chisel]
+    Timeout(id + 0x70, 16.1f, "Demonograph of Dangers Near / Demonograph of Expulsion Afar").SetHint(StateMachine.StateHint.Knockback); // t=20068.9; Ability A2F6/A2F7 from Demon Tablet; cactbot StartsUsing A2F6/A2F7 [Occult Crescent Demon Tablet Demonograph of Dangears Near/Expulsion Afar] | StartsUsing A2F7 [Occult Crescent Demon Tablet Demonograph of Expulsion Afar Knockback]
+    Timeout(id + 0x80, 0.4f, "Landing"); // t=20069.3; Ability A354 from Demon Tablet
+    Timeout(id + 0x90, 4.398f, "Explosion"); // t=20073.7; Ability A2F8 from Demon Tablet; cactbot Ability A2F1/A2EF [Occult Crescent Demon Tablet Gravity/Ground Tower Explosion]
+    Timeout(id + 0xA0, 13.102f, "Rotate Right / Rotate Left"); // t=20086.8; Ability A301/A302 from Demon Tablet; cactbot StartsUsing A302/A301 [Occult Crescent Demon Tablet Rotate Left/Right]
+    Timeout(id + 0xB0, 0.898f, "Rotation"); // t=20087.7; Ability A304/A303 from Demon Tablet
+    Timeout(id + 0xC0, 11.301f, "Rotate Right / Rotate Left"); // t=20099.0; Ability A301/A302 from Demon Tablet; cactbot StartsUsing A302/A301 [Occult Crescent Demon Tablet Rotate Left/Right]
+    Timeout(id + 0xD0, 0.9f, "Rotation"); // t=20099.9; Ability A304/A303 from Demon Tablet
+    Timeout(id + 0xE0, 3.299f, "Lacunate Stream"); // t=20103.2; Ability A300 from Demon Tablet
+    Timeout(id + 0xF0, 20.102f, "Cometeor of Dangers Near / Cometeor of Expulsion Afar").SetHint(StateMachine.StateHint.Knockback); // t=20123.3; Ability A2E4/A2E5 from Demon Tablet; cactbot StartsUsing A2E4/A2E5 [Occult Crescent Demon Tablet Cometeor of Dangers Near/Expulsion Afar] | StartsUsing A2E5 [Occult Crescent Demon Tablet Cometeor of Dangers Near/Expulsion Afar Knockback]
+    Timeout(id + 0x100, 0.398f, "Landing"); // t=20123.7; Ability A354 from Demon Tablet
+    Timeout(id + 0x110, 6.602f, "Portentous Comet"); // t=20130.3; Ability A2E8/A2E7 from Demon Tablet; cactbot HeadMarker [Occult Crescent Demon Tablet Portentous Comet]
+    Timeout(id + 0x120, 7.0f, "Portentous Cometeor"); // t=20137.3; Ability A2E6 from Demon Tablet
+    Timeout(id + 0x130, 13.699f, "Rotate Right / Rotate Left"); // t=20151.0; Ability A301/A302 from Demon Tablet; cactbot StartsUsing A302/A301 [Occult Crescent Demon Tablet Rotate Left/Right]
+    Timeout(id + 0x140, 0.9f, "Rotation"); // t=20151.9; Ability A304/A303 from Demon Tablet
+    Timeout(id + 0x150, 11.299f, "Rotate Right / Rotate Left"); // t=20163.2; Ability A301/A302 from Demon Tablet; cactbot StartsUsing A302/A301 [Occult Crescent Demon Tablet Rotate Left/Right]
+    Timeout(id + 0x160, 0.9f, "Rotation"); // t=20164.1; Ability A304/A303 from Demon Tablet
+    Timeout(id + 0x170, 3.301f, "Lacunate Stream"); // t=20167.4; Ability A300 from Demon Tablet
+    Timeout(id + 0x180, 20.1f, "Summon"); // t=20187.5; Ability A30D from Demon Tablet; cactbot StartsUsing A30D [Occult Crescent Demon Tablet Summon]
+    Timeout(id + 0x190, 1.4f, "--adds-targetable--"); // t=20188.9
+    Timeout(id + 0x1A0, 44.799f, "Summon"); // t=20233.7; Ability A2E9 from Demon Tablet; cactbot StartsUsing A2E9 [Occult Crescent Demon Tablet Erase Gravity Safe Corner (Early)]
+    Timeout(id + 0x1B0, 6.0f, "Demonography"); // t=20239.7; Ability A2EE from Demon Tablet
+    Timeout(id + 0x1C0, 12.0f, "Gravity of Dangers Near / Gravity of Expulsion Afar").SetHint(StateMachine.StateHint.Knockback); // t=20251.7; Ability A2EA/AA01 from Demon Tablet; cactbot StartsUsing A2EA/AA01 [Occult Crescent Demon Tablet Gravity of Dangears Near/Expulsion Afar] | StartsUsing AA01 [Occult Crescent Demon Tablet Gravity of Dangears Near/Expulsion Afar Knockback] | StartsUsing A2EA/AA01 [Occult Crescent Demon Tablet Gravity/Ground Towers]
+    Timeout(id + 0x1D0, 0.4f, "Landing"); // t=20252.1; Ability A354 from Demon Tablet
+    Timeout(id + 0x1E0, 3.6f, "Erase Gravity"); // t=20255.7; Ability A2EB from Demon Tablet; cactbot StartsUsing A2E9 [Occult Crescent Demon Tablet Erase Gravity Safe Corner (Early)]
+    Timeout(id + 0x1F0, 5.701f, "Explosion"); // t=20261.4; Ability A2F1/A2EF from Demon Tablet; cactbot Ability A2F1/A2EF [Occult Crescent Demon Tablet Gravity/Ground Tower Explosion]
+    Timeout(id + 0x200, 4.299f, "Restore Gravity"); // t=20265.7; Ability A2EC from Demon Tablet
+    Timeout(id + 0x210, 2.0f, "Landing"); // t=20267.7; Ability A2ED from Demon Tablet
+    Timeout(id + 0x220, 14.102f, "Rotate Right / Rotate Left"); // t=20281.8; Ability A301/A302 from Demon Tablet; cactbot StartsUsing A302/A301 [Occult Crescent Demon Tablet Rotate Left/Right]
+    Timeout(id + 0x230, 0.898f, "Rotation"); // t=20282.7; Ability A304/A303 from Demon Tablet
+    Timeout(id + 0x240, 11.301f, "Rotate Right / Rotate Left"); // t=20294.0; Ability A301/A302 from Demon Tablet; cactbot StartsUsing A302/A301 [Occult Crescent Demon Tablet Rotate Left/Right]
+    Timeout(id + 0x250, 0.801f, "Rotation"); // t=20294.8; Ability A304/A303 from Demon Tablet
+    Timeout(id + 0x260, 3.299f, "Lacunate Stream"); // t=20298.1; Ability A300 from Demon Tablet
+    Timeout(id + 0x270, 20.1f, "Cometeor of Dangers Near / Cometeor of Expulsion Afar").SetHint(StateMachine.StateHint.Knockback); // t=20318.2; Ability A2E4/A2E5 from Demon Tablet; cactbot StartsUsing A2E4/A2E5 [Occult Crescent Demon Tablet Cometeor of Dangers Near/Expulsion Afar] | StartsUsing A2E5 [Occult Crescent Demon Tablet Cometeor of Dangers Near/Expulsion Afar Knockback]
+    Timeout(id + 0x280, 0.4f, "Landing"); // t=20318.6; Ability A354 from Demon Tablet
+    Timeout(id + 0x290, 6.6f, "Portentous Comet"); // t=20325.2; Ability A2E8/A2E7 from Demon Tablet; cactbot HeadMarker [Occult Crescent Demon Tablet Portentous Comet]
+    Timeout(id + 0x2A0, 7.0f, "Portentous Cometeor"); // t=20332.2; Ability A2E6 from Demon Tablet
+    Timeout(id + 0x2B0, 15.602f, "Ray of Dangers Near / Ray of Expulsion Afar").SetHint(StateMachine.StateHint.Knockback); // t=20347.8; Ability A2F3/A2F4 from Demon Tablet; cactbot StartsUsing A2F3/A2F4 [Occult Crescent Demon Tablet Ray of Dangers Near/Expulsion Afar] | StartsUsing A2F4 [Occult Crescent Demon Tablet Ray of Expulsion Afar Knockback]
+    Timeout(id + 0x2C0, 0.398f, "Ray of Ignorance / Landing"); // t=20348.2; Ability A2F5 from Demon Tablet
+    Timeout(id + 0x2D0, 14.102f, "Occult Chisel"); // t=20362.3; Ability A307/A308 from Demon Tablet; cactbot HeadMarker [Occult Crescent Demon Tablet Occult Chisel]
+    Timeout(id + 0x2E0, 11.1f, "Demonic Dark II").SetHint(StateMachine.StateHint.Raidwide); // t=20373.4; Ability A306 from Demon Tablet; cactbot StartsUsing A306 [Occult Crescent Demon Tablet Demonic Dark II]
+    Timeout(id + 0x2F0, 22.0f, "End of History (Enrage)"); // t=20395.4; Ability A30B from Demon Tablet
+    Timeout(id + 0x300, 0.9f, "End of History (Enrage)"); // t=20396.3; Ability A355 from Demon Tablet
+    Timeout(id + 0x310, 1.299f, "End of History (Enrage)"); // t=20397.6; Ability A30C from Demon Tablet
+    Timeout(id + 0x320, 0.801f, "End of History (Enrage)"); // t=20398.4; Ability A355 from Demon Tablet
+    Timeout(id + 0x330, 1.199f, "End of History (Enrage)"); // t=20399.6; Ability A30C from Demon Tablet
+    Timeout(id + 0x340, 0.801f, "End of History (Enrage)"); // t=20400.4
+}
+
+private void Dead_Stars(uint id)
+{
+    Condition(id + 0x0, 10.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA5FC), "", 5f, 5.5f); // t=30010.5; StartsUsing A5FC from Phobos; cactbot StartsUsing A5FC [Occult Crescent Dead Stars Decisive Battle]
+    Timeout(id + 0x10, 6.0f, "Decisive Battle").SetHint(StateMachine.StateHint.Raidwide); // t=30016.5; Ability A5FC from Phobos; cactbot StartsUsing A5FC [Occult Crescent Dead Stars Decisive Battle]
+    Timeout(id + 0x20, 10.199f, "Slice 'n' Dice"); // t=30026.7; Ability A601 from Phobos
+    Timeout(id + 0x30, 13.0f, "Three-Body Probl─"); // t=30039.7; Ability A5B5 from Phobos; cactbot StartsUsing A5B5 [Occult Crescent Dead Stars Three-Body Problem]
+    Timeout(id + 0x40, 1.102f, "Three-Body Problem"); // t=30040.8; Ability A9BD from Nereid; cactbot StartsUsing A5B5 [Occult Crescent Dead Stars Three-Body Problem]
+    Timeout(id + 0x50, 0.6f, "Noisome Nuisance"); // t=30041.4; Ability A637 from Phobos
+    Timeout(id + 0x60, 0.299f, "--Nereid untargetable-- / --Triton untargetable--"); // t=30041.7
+    Timeout(id + 0x70, 12.0f, "Primordial Chaos").SetHint(StateMachine.StateHint.Raidwide); // t=30053.7; Ability A5D9 from Phobos; cactbot StartsUsing A5D9 [Occult Crescent Dead Stars Primordial Chaos]
+    Condition(id + 0x80, 5.201f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA5DD), "Frozen Fallout", 5f, 0.201f); // t=30058.9; StartsUsing A5DD from Phobos; cactbot Ability A5DF/A5E0 [Occult Crescent Dead Stars Frozen Fallout Locations]
+    Timeout(id + 0x90, 2.6f, "Frozen Fallout Tell 1"); // t=30061.5; Ability A5E0 from Phobos; cactbot Ability A5DF/A5E0 [Occult Crescent Dead Stars Frozen Fallout Locations] | Ability A5DF/A5E0 [Occult Crescent Dead Stars Nova/Ice Ooze 1]
+    Timeout(id + 0xA0, 2.6f, "Frozen Fallout Tell 2"); // t=30064.1; Ability A5E0 from Triton; cactbot Ability A5DF/A5E0 [Occult Crescent Dead Stars Frozen Fallout Locations] | Ability A5DF/A5E0 [Occult Crescent Dead Stars Nova/Ice Ooze 1]
+    Timeout(id + 0xB0, 2.4f, "Frozen Fallout Tell 3"); // t=30066.5; Ability A5E0 from Phobos; cactbot Ability A5DF/A5E0 [Occult Crescent Dead Stars Frozen Fallout Locations] | Ability A5DF/A5E0 [Occult Crescent Dead Stars Nova/Ice Ooze 1]
+    Timeout(id + 0xC0, 2.4f, "Frozen Fallout Tell 4"); // t=30068.9; Ability A5E0 from Triton; cactbot Ability A5DF/A5E0 [Occult Crescent Dead Stars Frozen Fallout Locations] | Ability A5DF/A5E0 [Occult Crescent Dead Stars Nova/Ice Ooze 1]
+    Timeout(id + 0xD0, 1.4f, "Frozen Fallout 1"); // t=30070.3; Ability A5E3 from Liquified Triton
+    Timeout(id + 0xE0, 5.398f, "Frozen Fallout 2"); // t=30075.7; Ability A5E3 from Liquified Triton
+    Timeout(id + 0xF0, 5.4f, "Frozen Fallout 3"); // t=30081.1; Ability A5E3 from Liquified Triton
+    Timeout(id + 0x100, 5.4f, "Frozen Fallout 4"); // t=30086.5; Ability A5E3 from Liquified Triton
+    Timeout(id + 0x110, 10.0f, "Noxious Nova").SetHint(StateMachine.StateHint.Raidwide); // t=30096.5; Ability A5E6 from Phobos; cactbot StartsUsing A5E5 [Occult Crescent Dead Stars Noxious Nova]
+    Timeout(id + 0x120, 4.199f, "--Nereid targetable-- / --Triton targetable--"); // t=30100.7
+    Timeout(id + 0x130, 9.9f, "Vengeful Blizzard III / Vengeful Fire III"); // t=30110.6; Ability A5BE from Nereid
+    Timeout(id + 0x140, 4.6f, "Excruciating Equilibrium"); // t=30115.2; Ability A5F8 from Phobos
+    Timeout(id + 0x150, 12.4f, "Delta Attack 1").SetHint(StateMachine.StateHint.Raidwide); // t=30127.6; Ability A5FD from Phobos; cactbot StartsUsing A5FD [Occult Crescent Dead Stars Delta Attack]
+    Timeout(id + 0x160, 1.1f, "Delta Attack 2"); // t=30128.7; Ability A5FE from Phobos
+    Timeout(id + 0x170, 1.201f, "Delta Attack 3"); // t=30129.9; Ability A5FE from Phobos
+    Timeout(id + 0x180, 5.1f, "Firestrike (marker)"); // t=30135.0; Ability A604 from Phobos; cactbot Ability A604 [Occult Crescent Dead Stars Firestrike]
+    Timeout(id + 0x190, 5.0f, "Firestrike"); // t=30140.0; Ability A603 from Phobos; cactbot Ability A604 [Occult Crescent Dead Stars Firestrike] | Ability A607 [Occult Crescent Dead Stars Firestrike 2]
+    Timeout(id + 0x1A0, 12.9f, "Three-Body Probl─"); // t=30152.9; Ability A5B5 from Nereid; cactbot StartsUsing A5B5 [Occult Crescent Dead Stars Three-Body Problem]
+    Timeout(id + 0x1B0, 1.199f, "Three-Body Problem"); // t=30154.1; Ability A5B8 from Phobos; cactbot StartsUsing A5B5 [Occult Crescent Dead Stars Three-Body Problem]
+    Timeout(id + 0x1C0, 0.6f, "Icebound Buffoon"); // t=30154.7; Ability A636 from Nereid
+    Timeout(id + 0x1D0, 0.301f, "--Phobos untargetable-- / --Triton untargetable-- / --Snowballs targetable--"); // t=30155.0
+    Timeout(id + 0x1E0, 14.0f, "Snowball Flight / Snow Boulder 1").SetHint(StateMachine.StateHint.Knockback); // t=30169.0; Ability A5CE from Nereid; cactbot StartsUsing A5CE [Occult Crescent Dead Stars Snowball Flight Positions] | StartsUsing A5CE [Occult Crescent Dead Stars Snowball Flight Knockback]
+    Timeout(id + 0x1F0, 2.5f, "Snow Boulder 2"); // t=30171.5; Ability A5D0 from Frozen Phobos
+    Timeout(id + 0x200, 2.5f, "Snow Boulder 3"); // t=30174.0; Ability A5D0 from Frozen Phobos
+    Timeout(id + 0x210, 5.0f, "Chilling Collision"); // t=30179.0; Ability A5B6 from Nereid
+    Timeout(id + 0x220, 1.1f, "Chilling Collision (knockback)").SetHint(StateMachine.StateHint.Knockback); // t=30180.1; Ability A5D4 from Nereid
+    Timeout(id + 0x230, 1.4f, "Avalaunch"); // t=30181.5; Ability A89A from Frozen Phobos
+    Timeout(id + 0x240, 18.301f, "To the Winds / --Snowballs untargetable-- / Self-destruct (Enrage)"); // t=30199.8; Ability A5D5 from Nereid
+    Timeout(id + 0x250, 0.6f, "Self-destruct (Enrage)"); // t=30200.4
+    Timeout(id + 0x260, 3.699f, "--Phobos targetable-- / --Triton targetable--"); // t=30204.1
+    Timeout(id + 0x270, 9.9f, "Vengeful Bio III / Vengeful Fire III"); // t=30214.0; Ability A5BF from Phobos
+    Timeout(id + 0x280, 4.6f, "Excruciating Equilibrium"); // t=30218.6; Ability A5F8 from Phobos
+    Timeout(id + 0x290, 12.4f, "Delta Attack 1").SetHint(StateMachine.StateHint.Raidwide); // t=30231.0; Ability A5FD from Phobos; cactbot StartsUsing A5FD [Occult Crescent Dead Stars Delta Attack]
+    Timeout(id + 0x2A0, 1.1f, "Delta Attack 2"); // t=30232.1; Ability A5FE from Phobos
+    Timeout(id + 0x2B0, 1.1f, "Delta Attack 3"); // t=30233.2; Ability A5FE from Phobos
+    Timeout(id + 0x2C0, 5.102f, "Firestrike (marker)"); // t=30238.3; Ability A607 from Phobos; cactbot Ability A607 [Occult Crescent Dead Stars Firestrike 2]
+    Timeout(id + 0x2D0, 5.0f, "Slice 'n' Strike"); // t=30243.3; Ability A605 from Phobos
+    Timeout(id + 0x2E0, 1.199f, "Firestrike"); // t=30244.5; cactbot Ability A604 [Occult Crescent Dead Stars Firestrike] | Ability A607 [Occult Crescent Dead Stars Firestrike 2]
+    Timeout(id + 0x2F0, 13.699f, "Three-Body Probl─"); // t=30258.2; Ability A5B5 from Triton; cactbot StartsUsing A5B5 [Occult Crescent Dead Stars Three-Body Problem]
+    Timeout(id + 0x300, 1.201f, "Three-Body Problem"); // t=30259.4; Ability A5B7 from Phobos; cactbot StartsUsing A5B5 [Occult Crescent Dead Stars Three-Body Problem]
+    Timeout(id + 0x310, 0.6f, "Blazing Belligerent"); // t=30260.0; Ability A635 from Triton
+    Timeout(id + 0x320, 0.199f, "--Phobos untargetable-- / --Nereid untargetable--"); // t=30260.2
+    Timeout(id + 0x330, 13.9f, "Elemental Impact 1"); // t=30274.1; Ability A5C0 from Gaseous Phobos
+    Timeout(id + 0x340, 0.4f, "Fire Spread 1"); // t=30274.5; Ability A908 from Triton
+    Timeout(id + 0x350, 0.6f, "--Fireballs targetable--"); // t=30275.1
+    Timeout(id + 0x360, 3.0f, "Elemental Impact 2"); // t=30278.1; Ability A5C1 from Gaseous Phobos
+    Timeout(id + 0x370, 0.6f, "Fire Spread 2"); // t=30278.7; Ability A908 from Triton
+    Timeout(id + 0x380, 3.602f, "Elemental Impact 3"); // t=30282.3; Ability A5C1 from Gaseous Phobos
+    Timeout(id + 0x390, 0.6f, "Fire Spread 3"); // t=30282.9
+    Timeout(id + 0x3A0, 4.6f, "Geothermal Rupture"); // t=30287.5; Ability A5C9 from Triton
+    Timeout(id + 0x3B0, 2.1f, "Flame Thrower"); // t=30289.6; Ability A5CC from Triton
+    Timeout(id + 0x3C0, 1.0f, "Geothermal Rupture 1"); // t=30290.6; Ability A5CA from Triton
+    Timeout(id + 0x3D0, 2.0f, "Geothermal Rupture 2"); // t=30292.6; Ability A5CA from Triton
+    Timeout(id + 0x3E0, 2.0f, "Geothermal Rupture 3 / Flame Thrower"); // t=30294.6; Ability A5CA from Triton
+    Timeout(id + 0x3F0, 5.0f, "Elemental Impact 1"); // t=30299.6; Ability A5C2 from Gaseous Phobos
+    Timeout(id + 0x400, 0.4f, "Fire Spread 1"); // t=30300.0; Ability A908 from Triton
+    Timeout(id + 0x410, 3.699f, "Elemental Impact 2"); // t=30303.7; Ability A5C1 from Gaseous Phobos
+    Timeout(id + 0x420, 0.4f, "Fire Spread 2"); // t=30304.1
+    Timeout(id + 0x430, 3.701f, "Elemental Impact 3"); // t=30307.8; Ability A5C1 from Gaseous Phobos
+    Timeout(id + 0x440, 0.398f, "Fire Spread 3"); // t=30308.2; Ability A908 from Triton
+    Timeout(id + 0x450, 11.801f, "To the Winds / Self-destruct / Self-destruct (Enrage)"); // t=30320.0; Ability A5C5 from Triton
+    Timeout(id + 0x460, 0.699f, "Self-destruct (Enrage)"); // t=30320.7
+    Timeout(id + 0x470, 3.5f, "--Nereid targetable-- / --Phobos targetable--"); // t=30324.2
+    Timeout(id + 0x480, 9.9f, "Vengeful Bio III / Vengeful Blizzard III"); // t=30334.1; Ability A5BF from Phobos
+    Timeout(id + 0x490, 4.6f, "Excruciating Equilibrium"); // t=30338.7; Ability A5F8 from Phobos
+    Timeout(id + 0x4A0, 19.201f, "Six-Handed Fistfight / --Bosses untargetable--"); // t=30357.9; Ability A5E7 from Phobos; cactbot StartsUsing A5E7 [Occult Crescent Dead Stars Six-handed Fistfight]
+    Timeout(id + 0x4B0, 1.5f, "--Dead Stars targetable--"); // t=30359.4
+    Timeout(id + 0x4C0, 11.0f, "Collateral Damage / Collateral Jets 1"); // t=30370.4; Ability A5ED from Dead Stars; cactbot StartsUsing A5ED [Occult Crescent Dead Stars Collateral Damage] | StartsUsing A5ED [Occult Crescent Dead Stars Collateral Damage Spread]
+    Timeout(id + 0x4D0, 1.9f, "Collateral Jets 2"); // t=30372.3
+    Timeout(id + 0x4E0, 4.898f, "Collateral Balls 1 x8"); // t=30377.2
+    Timeout(id + 0x4F0, 0.801f, "Collateral Balls 2 x8"); // t=30378.0
+    Timeout(id + 0x500, 0.801f, "Collateral Balls 3 x8"); // t=30378.8
+    Timeout(id + 0x510, 0.799f, "Collateral Balls 4 x8"); // t=30379.6
+    Timeout(id + 0x520, 0.801f, "Collateral Balls 5 x8"); // t=30380.4
+    Timeout(id + 0x530, 0.799f, "Collateral Balls 6 x8"); // t=30381.2
+    Timeout(id + 0x540, 10.0f, "Collateral Damage / Collateral Jets 1"); // t=30391.2; Ability A5ED from Dead Stars; cactbot StartsUsing A5ED [Occult Crescent Dead Stars Collateral Damage] | StartsUsing A5ED [Occult Crescent Dead Stars Collateral Damage Spread]
+    Timeout(id + 0x550, 1.701f, "Collateral Jets 2"); // t=30392.9
+    Timeout(id + 0x560, 5.199f, "Collateral Balls 1 x8"); // t=30398.1
+    Timeout(id + 0x570, 0.9f, "Collateral Balls 2 x8"); // t=30399.0
+    Timeout(id + 0x580, 0.801f, "Collateral Balls 3 x8"); // t=30399.8
+    Timeout(id + 0x590, 0.898f, "Collateral Balls 4 x8"); // t=30400.7
+    Timeout(id + 0x5A0, 1.0f, "Collateral Balls 5 x8"); // t=30401.7
+    Timeout(id + 0x5B0, 1.0f, "Collateral Balls 6 x8"); // t=30402.7
+    Timeout(id + 0x5C0, 14.701f, "Fusion Burst (Enrage)"); // t=30417.4; Ability A5F4 from Dead Stars
+    Targetable(id + 0x5D0, false, 0.0f, "--untargetable--"); // t=30417.4
+    Timeout(id + 0x5E0, 4.9f, "Fusion Burst (Enrage)"); // t=30422.3; Ability A641 from Dead Stars
+    Timeout(id + 0x5F0, 4.699f, "Fusion Burst (Enrage)"); // t=30427.0; Ability A641 from Dead Stars
+    Condition(id + 0x600, 173.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA5F7), "", 5f, 168.0f); // t=30600.0; StartsUsing A5F7 from Phobos
+    Timeout(id + 0x610, 6.0f, "Return (Clear)"); // t=30606.0; Ability A5F7 from Phobos
+}
+
+private void Pronged_Passage__Bridges(uint id)
+{
+    Condition(id + 0x0, 5.301f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA441), "", 5f, 0.301f); // t=40005.3; StartsUsing A441 from Trap; cactbot StartsUsing A441 [Occult Crescent Pronged Passage Arcane Spear]
+    Timeout(id + 0x10, 6.0f, "Arcane Spear (side 1)"); // t=40011.3; Ability A441 from Trap; cactbot StartsUsing A441 [Occult Crescent Pronged Passage Arcane Spear]
+    Timeout(id + 0x20, 4.801f, "Arcane Spear (side 2)"); // t=40016.1; Ability A441 from Trap; cactbot StartsUsing A441 [Occult Crescent Pronged Passage Arcane Spear]
+    Timeout(id + 0x30, 25.0f, "Arcane Spear (side 1)"); // t=40041.1; Ability A441 from Trap; cactbot StartsUsing A441 [Occult Crescent Pronged Passage Arcane Spear]
+    Timeout(id + 0x40, 4.699f, "Arcane Spear (side 2) / --Burns (Section 1)--"); // t=40045.8; Ability A441 from Trap | Ability A43F from Trap; cactbot StartsUsing A441 [Occult Crescent Pronged Passage Arcane Spear]
+    Timeout(id + 0x50, 37.0f, "--Burns (Section 2)--"); // t=40082.8; Ability A43F from Trap
+    Timeout(id + 0x60, 37.0f, "--Burns (Section 3)--"); // t=40119.8; Ability A43F from Trap
+    Timeout(id + 0x70, 0.199f, "--Burns (Section 4)--"); // t=40120.0; Ability A43F from Trap
+    Timeout(id + 0x80, 22.602f, "--Burns (Section 5)--"); // t=40142.6; Ability A43F from Trap
+    Timeout(id + 0x90, 28.297f, "--Burns (Final)--"); // t=40170.9; Ability A43F from Trap
+    Condition(id + 0xA0, 172.102f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA620 or 0xA621 or 0xA622 or 0xA623), "", 5f, 167.102f); // t=40343.0; StartsUsing A621/A623/A620/A622 from Tower Progenitor/Tower Progenitrix; cactbot StartsUsing A620/A622 [Occult Crescent Pronged Passage Close Call to Detonate / Far Cry to Detonate]
+    Timeout(id + 0xB0, 3.0f, "Close Call to Detonate / Far Cry to Detonate"); // t=40346.0; cactbot StartsUsing A620/A622 [Occult Crescent Pronged Passage Close Call to Detonate / Far Cry to Detonate]
+    Timeout(id + 0xC0, 17.199f, "Arcane Spear"); // t=40363.2; Ability A6F4 from Trap; cactbot StartsUsing A6F4 [Occult Crescent Pronged Passage Arcane Spear 2]
+    Timeout(id + 0xD0, 4.0f, "Bombshell Drop / --adds--"); // t=40367.2; Ability A626/A627 from Tower Progenitrix/Tower Progenitor; cactbot StartsUsing A626/A627 [Occult Crescent Pronged Passage Bombshell Drop]
+    Timeout(id + 0xE0, 24.199f, "Arcane Spear / Close Call to Detonate / Far Cry to Detonate"); // t=40391.4; Ability A6F4 from Trap; cactbot StartsUsing A6F4 [Occult Crescent Pronged Passage Arcane Spear 2]
+    Timeout(id + 0xF0, 14.102f, "Punishing Pounce"); // t=40405.5; Ability A628/A629 from Tower Progenitrix/Tower Progenitor; cactbot HeadMarker [Occult Crescent Pronged Passage Punishing Pounce]
+    Timeout(id + 0x100, 15.0f, "Arcane Spear"); // t=40420.5; Ability A6F4 from Trap; cactbot StartsUsing A6F4 [Occult Crescent Pronged Passage Arcane Spear 2]
+    Timeout(id + 0x110, 1.0f, "Bombshell Drop / --adds--"); // t=40421.5; Ability A626/A627 from Tower Progenitrix/Tower Progenitor; cactbot StartsUsing A626/A627 [Occult Crescent Pronged Passage Bombshell Drop]
+    Timeout(id + 0x120, 28.199f, "Arcane Spear / Close Call to Detonate / Far Cry to Detonate"); // t=40449.7; Ability A6F4 from Trap; cactbot StartsUsing A6F4 [Occult Crescent Pronged Passage Arcane Spear 2]
+    Timeout(id + 0x130, 14.199f, "Punishing Pounce"); // t=40463.9; cactbot HeadMarker [Occult Crescent Pronged Passage Punishing Pounce]
+    Timeout(id + 0x140, 15.0f, "Arcane Spear"); // t=40478.9
+    Timeout(id + 0x150, 1.0f, "Bombshell Drop / --adds--"); // t=40479.9
+}
+
+private void Marble_Dragon(uint id)
+{
+    Condition(id + 0x0, 6.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x77F1), "", 5f, 1.0f); // t=50006.0; StartsUsing 77F1 from Marble Dragon; cactbot StartsUsing 77F1 [Occult Crescent Marble Dragon Tankbuster Filter] | StartsUsing 77F1 [Occult Crescent Marble Dragon Imitation Star]
+    Timeout(id + 0x10, 5.0f, "Imitation Star").SetHint(StateMachine.StateHint.Tankbuster); // t=50011.0; Ability 77F1 from Marble Dragon; cactbot StartsUsing 77F1 [Occult Crescent Marble Dragon Tankbuster Filter] | StartsUsing 77F1 [Occult Crescent Marble Dragon Imitation Star]
+    Timeout(id + 0x20, 14.301f, "Draconiform Motion"); // t=50025.3; Ability 77C1 from Marble Dragon; cactbot StartsUsing 77C1 [Occult Crescent Marble Dragon Draconiform Motion]
+    Timeout(id + 0x30, 5.098f, "Imitation Rain"); // t=50030.4; Ability 7687 from Marble Dragon; cactbot Ability 7687 [Occult Crescent Marble Dragon Imitation Rain Counter]
+    Timeout(id + 0x40, 2.0f, "--middle--"); // t=50032.4; Ability 756C from Marble Dragon
+    Timeout(id + 0x50, 5.301f, "Imitation Icicle"); // t=50037.7; Ability 756F from Marble Dragon
+    Timeout(id + 0x60, 8.301f, "Draconiform Motion"); // t=50046.0; Ability 77C1 from Marble Dragon; cactbot StartsUsing 77C1 [Occult Crescent Marble Dragon Draconiform Motion]
+    Timeout(id + 0x70, 0.398f, "--Icicle Puddles--"); // t=50046.4; Ability 75E4 from Marble Dragon
+    Timeout(id + 0x80, 1.203f, "Ball of Ice 1"); // t=50047.6
+    Timeout(id + 0x90, 1.0f, "Ball of Ice 2"); // t=50048.6
+    Timeout(id + 0xA0, 1.0f, "Ball of Ice 3"); // t=50049.6
+    Condition(id + 0xB0, 0.398f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7614), "", 5f, 0.0f); // t=50050.0; StartsUsing 7614 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 2] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder] | StartsUsing 7614 [Occult Crescent Marble Dragon Towers 2 and 4]
+    Timeout(id + 0xC0, 0.602f, "Ball of Ice 4"); // t=50050.6
+    Timeout(id + 0xD0, 0.398f, "Imitation Blizzard 1 (circles + cross?)"); // t=50051.0; Ability 7602 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder]
+    Timeout(id + 0xE0, 1.0f, "Imitation Blizzard 2 (circles + cross?)"); // t=50052.0
+    Timeout(id + 0xF0, 1.0f, "Imitation Blizzard 3 (circles + cross?)"); // t=50053.0
+    Timeout(id + 0x100, 1.0f, "Imitation Blizzard 4 (circle)"); // t=50054.0
+    Timeout(id + 0x110, 11.0f, "Dread Deluge (castbar)"); // t=50065.0
+    Timeout(id + 0x120, 2.0f, "Dread Deluge x6"); // t=50067.0
+    Timeout(id + 0x130, 5.102f, "Imitation Rain"); // t=50072.1; cactbot Ability 7687 [Occult Crescent Marble Dragon Imitation Rain Counter] | Ability 7797 [Occult Crescent Marble Dragon Imitation Rain 1 and 5 Direction (Cross-based)] | Ability 7797 [Occult Crescent Marble Dragon Imitation Rain 2 Direction] | AddedCombatant [Occult Crescent Marble Dragon Imitation Rain 2 Pattern] | Ability 7797 [Occult Crescent Marble Dragon Imitation Rain 6 and 7 Puddles] | AddedCombatant [Occult Crescent Marble Dragon Imitation Rain 6 Pattern]
+    Timeout(id + 0x140, 78.5f, "Ball of Ice 4"); // t=50150.6
+    Timeout(id + 0x150, 0.398f, "Imitation Blizzard 1 (circles + cross)"); // t=50151.0
+    Timeout(id + 0x160, 1.0f, "Imitation Blizzard 2 (circles + cross)"); // t=50152.0
+    Timeout(id + 0x170, 1.0f, "Imitation Blizzard 3 (circles)"); // t=50153.0
+    Timeout(id + 0x180, 1.0f, "Imitation Blizzard 4 (circle)"); // t=50154.0
+    Condition(id + 0x190, 8.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x77E8), "", 5f, 3.0f); // t=50162.0; StartsUsing 77E8 from Marble Dragon
+    Timeout(id + 0x1A0, 3.0f, "Dread Deluge (castbar)"); // t=50165.0
+    Timeout(id + 0x1B0, 2.0f, "Dread Deluge x6"); // t=50167.0
+    Timeout(id + 0x1C0, 5.102f, "Imitation Rain"); // t=50172.1; cactbot Ability 7687 [Occult Crescent Marble Dragon Imitation Rain Counter] | Ability 7797 [Occult Crescent Marble Dragon Imitation Rain 1 and 5 Direction (Cross-based)] | Ability 7797 [Occult Crescent Marble Dragon Imitation Rain 2 Direction] | AddedCombatant [Occult Crescent Marble Dragon Imitation Rain 2 Pattern] | Ability 7797 [Occult Crescent Marble Dragon Imitation Rain 6 and 7 Puddles] | AddedCombatant [Occult Crescent Marble Dragon Imitation Rain 6 Pattern]
+    Timeout(id + 0x1D0, 6.0f, "Frigid Twister"); // t=50178.1; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder]
+    Timeout(id + 0x1E0, 2.098f, "--middle--"); // t=50180.2
+    Timeout(id + 0x1F0, 2.801f, "--twisters start--"); // t=50183.0
+    Timeout(id + 0x200, 69.0f, "Imitation Blizzard 2 (circles + cross)"); // t=50252.0
+    Timeout(id + 0x210, 1.0f, "Imitation Blizzard 3 (circles + cross)"); // t=50253.0
+    Timeout(id + 0x220, 1.0f, "Imitation Blizzard 4 (circle)"); // t=50254.0
+    Timeout(id + 0x230, 11.0f, "Dread Deluge (castbar)"); // t=50265.0; Ability 77E8 from Marble Dragon
+    Timeout(id + 0x240, 2.0f, "Dread Deluge x6"); // t=50267.0
+    Timeout(id + 0x250, 5.102f, "Imitation Rain"); // t=50272.1; Ability 7687 from Marble Dragon; cactbot Ability 7687 [Occult Crescent Marble Dragon Imitation Rain Counter]
+    Timeout(id + 0x260, 6.0f, "Frigid Twister"); // t=50278.1; Ability 7638 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder]
+    Timeout(id + 0x270, 2.098f, "--middle--"); // t=50280.2; Ability 756C from Marble Dragon
+    Timeout(id + 0x280, 2.801f, "--twisters start--"); // t=50283.0
+    Timeout(id + 0x290, 3.301f, "Draconiform Motion"); // t=50286.3; Ability 77C1 from Marble Dragon; cactbot StartsUsing 77C1 [Occult Crescent Marble Dragon Draconiform Motion]
+    Timeout(id + 0x2A0, 0.898f, "Ball of Ice"); // t=50287.2; Ability A715 from Marble Dragon
+    Condition(id + 0x2B0, 2.301f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x7602 or 0x7614), "", 5f, 0.0f); // t=50289.5; StartsUsing 7614 from Marble Dragon | StartsUsing 7602 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 2] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder] | StartsUsing 7614 [Occult Crescent Marble Dragon Towers 2 and 4]
+    Timeout(id + 0x2C0, 1.0f, "Imitation Blizzard (circles/cross?)"); // t=50290.5
+    Timeout(id + 0x2D0, 99.898f, "Imitation Blizzard (cross)"); // t=50390.4; Ability 7614 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 2] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder] | StartsUsing 7614 [Occult Crescent Marble Dragon Towers 2 and 4]
+    Timeout(id + 0x2E0, 0.402f, "Ball of Ice"); // t=50390.8; Ability A715 from Marble Dragon
+    Timeout(id + 0x2F0, 3.301f, "Imitation Blizzard (circles)"); // t=50394.1; Ability 7602 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder]
+    Timeout(id + 0x300, 0.297f, "Ball of Ice"); // t=50394.4
+    Timeout(id + 0x310, 3.301f, "Imitation Blizzard (cross)"); // t=50397.7; Ability 7614 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 2] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder] | StartsUsing 7614 [Occult Crescent Marble Dragon Towers 2 and 4]
+    Timeout(id + 0x320, 4.699f, "--twisters end--"); // t=50402.4
+    Timeout(id + 0x330, 1.801f, "Dread Deluge (castbar)"); // t=50404.2
+    Timeout(id + 0x340, 2.0f, "Dread Deluge x6"); // t=50406.2
+    Timeout(id + 0x350, 7.199f, "--middle--"); // t=50413.4
+    Timeout(id + 0x360, 177.102f, "Imitation Blizzard (circles)"); // t=50590.5; Ability 7602 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder]
+    Timeout(id + 0x370, 0.398f, "Ball of Ice"); // t=50590.9; Ability A715 from Marble Dragon
+    Timeout(id + 0x380, 3.301f, "Imitation Blizzard (circles + cross)"); // t=50594.2; Ability 7614 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 2] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder] | StartsUsing 7614 [Occult Crescent Marble Dragon Towers 2 and 4]
+    Timeout(id + 0x390, 0.301f, "Ball of Ice"); // t=50594.5
+    Timeout(id + 0x3A0, 3.301f, "Imitation Blizzard (circles)"); // t=50597.8; Ability 7602 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder]
+    Timeout(id + 0x3B0, 4.598f, "--twisters end--"); // t=50602.4
+    Timeout(id + 0x3C0, 1.801f, "Dread Deluge (castbar)"); // t=50604.2; Ability 77E8 from Marble Dragon
+    Timeout(id + 0x3D0, 2.0f, "Dread Deluge x6"); // t=50606.2
+    Timeout(id + 0x3E0, 7.199f, "--middle--"); // t=50613.4; Ability 756C from Marble Dragon
+    Timeout(id + 0x3F0, 6.902f, "Withering Eternity"); // t=50620.3; Ability 76D3 from Marble Dragon
+    Timeout(id + 0x400, 2.0f, "Imitation Rain / --ice golems--"); // t=50622.3; Ability 7687 from Marble Dragon; cactbot Ability 7687 [Occult Crescent Marble Dragon Imitation Rain Counter]
+    Targetable(id + 0x410, false, 0.0f, "--untargetable--"); // t=50622.3
+    Timeout(id + 0x420, 2.801f, "--dive spot--"); // t=50625.1; Ability 7795 from Marble Dragon; cactbot Ability 7795 [Occult Crescent Marble Dragon Frigid Dive Direction]
+    Timeout(id + 0x430, 9.199f, "Frigid Dive"); // t=50634.3; Ability 7796 from Marble Dragon; cactbot Ability 7795 [Occult Crescent Marble Dragon Frigid Dive Direction] | Ability 7615 [Occult Crescent Marble Dragon Frigid Dive Cleanup]
+    Timeout(id + 0x440, 1.398f, "--towers x2-- / Ball of Ice (center)"); // t=50635.7; Ability A716 from Marble Dragon
+    Timeout(id + 0x450, 3.602f, "Imitation Blizzard (towers + cross)"); // t=50639.3; Ability 7615 from Marble Dragon; cactbot Ability 7615 [Occult Crescent Marble Dragon Frigid Dive Cleanup] | StartsUsing 7615 [Occult Crescent Marble Dragon Imitation Rain 6 and 7 Second Safe Spots]
+    Timeout(id + 0x460, 0.398f, "--towers x4--"); // t=50639.7; Ability A716 from Marble Dragon
+    Timeout(id + 0x470, 3.602f, "Imitation Blizzard (towers)"); // t=50643.3; Ability 7615 from Marble Dragon; cactbot Ability 7615 [Occult Crescent Marble Dragon Frigid Dive Cleanup] | StartsUsing 7615 [Occult Crescent Marble Dragon Imitation Rain 6 and 7 Second Safe Spots]
+    Timeout(id + 0x480, 4.0f, "Imitation Rain"); // t=50647.3; Ability 7687 from Marble Dragon; cactbot Ability 7687 [Occult Crescent Marble Dragon Imitation Rain Counter]
+    Timeout(id + 0x490, 2.0f, "--dive spot--"); // t=50649.3; Ability 7795 from Marble Dragon; cactbot Ability 7795 [Occult Crescent Marble Dragon Frigid Dive Direction]
+    Timeout(id + 0x4A0, 9.199f, "Frigid Dive"); // t=50658.5; Ability 7796 from Marble Dragon; cactbot Ability 7795 [Occult Crescent Marble Dragon Frigid Dive Direction] | Ability 7615 [Occult Crescent Marble Dragon Frigid Dive Cleanup]
+    Timeout(id + 0x4B0, 1.398f, "--towers x2-- / Ball of Ice (center)"); // t=50659.9; Ability A716 from Marble Dragon
+    Timeout(id + 0x4C0, 3.602f, "Imitation Blizzard (towers + cross)"); // t=50663.5; Ability 7615 from Marble Dragon; cactbot Ability 7615 [Occult Crescent Marble Dragon Frigid Dive Cleanup] | StartsUsing 7615 [Occult Crescent Marble Dragon Imitation Rain 6 and 7 Second Safe Spots]
+    Timeout(id + 0x4D0, 0.398f, "--towers x4--"); // t=50663.9; Ability A716 from Marble Dragon
+    Timeout(id + 0x4E0, 3.602f, "Imitation Blizzard (towers)"); // t=50667.5
+    Timeout(id + 0x4F0, 2.801f, "Frozen Heart"); // t=50670.3; Ability 93BF from Ice Golem
+    Timeout(id + 0x500, 0.801f, "--golems enrage--"); // t=50671.1
+    Targetable(id + 0x510, true, 2.398f, "--targetable--"); // t=50673.5
+    Timeout(id + 0x520, 0.602f, "--ice sprites--"); // t=50674.1
+    Timeout(id + 0x530, 35.398f, "Lifeless Legacy").SetHint(StateMachine.StateHint.Raidwide); // t=50709.5; Ability 7798 from Marble Dragon; cactbot StartsUsing 7798 [Occult Crescent Marble Dragon Lifeless Legacy]
+    Timeout(id + 0x540, 14.199f, "Wicked Water"); // t=50723.7; Ability 77E7 from Marble Dragon; cactbot HeadMarker [Occult Crescent Marble Dragon Wicked Water] | HeadMarker [Occult Crescent Marble Dragon Wicked Water Reminder]
+    Timeout(id + 0x550, 2.102f, "Imitation Rain"); // t=50725.8; Ability 7687 from Marble Dragon; cactbot Ability 7687 [Occult Crescent Marble Dragon Imitation Rain Counter]
+    Timeout(id + 0x560, 1.699f, "--middle--"); // t=50727.5; Ability 756C from Marble Dragon
+    Timeout(id + 0x570, 5.398f, "Imitation Icicle"); // t=50732.9; Ability 756F from Marble Dragon
+    Timeout(id + 0x580, 8.301f, "Draconiform Motion"); // t=50741.2; Ability 77C1 from Marble Dragon; cactbot StartsUsing 77C1 [Occult Crescent Marble Dragon Draconiform Motion]
+    Timeout(id + 0x590, 0.402f, "--Icicle Puddles--"); // t=50741.6; Ability 75E4 from Marble Dragon
+    Timeout(id + 0x5A0, 1.098f, "Ball of Ice 1"); // t=50742.7
+    Timeout(id + 0x5B0, 1.0f, "Ball of Ice 2"); // t=50743.7
+    Timeout(id + 0x5C0, 1.0f, "Ball of Ice 3"); // t=50744.7
+    Condition(id + 0x5D0, 0.402f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7614), "", 5f, 0.0f); // t=50745.1; StartsUsing 7614 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 2] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder] | StartsUsing 7614 [Occult Crescent Marble Dragon Towers 2 and 4]
+    Timeout(id + 0x5E0, 0.598f, "Ball of Ice 4"); // t=50745.7
+    Timeout(id + 0x5F0, 0.402f, "Imitation Blizzard 1 (circles + cross?)"); // t=50746.1; Ability 7602 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder]
+    Timeout(id + 0x600, 1.0f, "Imitation Blizzard 2 (circles + cross?)"); // t=50747.1
+    Timeout(id + 0x610, 1.0f, "Imitation Blizzard 3 (circles + cross?)"); // t=50748.1
+    Timeout(id + 0x620, 1.0f, "Imitation Blizzard 4 (circle)"); // t=50749.1
+    Timeout(id + 0x630, 16.0f, "Imitation Star"); // t=50765.1; cactbot StartsUsing 77F1 [Occult Crescent Marble Dragon Imitation Star]
+    Timeout(id + 0x640, 13.199f, "Imitation Rain"); // t=50778.3; cactbot Ability 7687 [Occult Crescent Marble Dragon Imitation Rain Counter] | Ability 7797 [Occult Crescent Marble Dragon Imitation Rain 1 and 5 Direction (Cross-based)] | Ability 7797 [Occult Crescent Marble Dragon Imitation Rain 2 Direction] | AddedCombatant [Occult Crescent Marble Dragon Imitation Rain 2 Pattern] | Ability 7797 [Occult Crescent Marble Dragon Imitation Rain 6 and 7 Puddles] | AddedCombatant [Occult Crescent Marble Dragon Imitation Rain 6 Pattern]
+    Timeout(id + 0x650, 67.398f, "Ball of Ice 4"); // t=50845.7
+    Timeout(id + 0x660, 0.402f, "Imitation Blizzard 1 (circles + cross)"); // t=50846.1
+    Timeout(id + 0x670, 1.0f, "Imitation Blizzard 2 (circles + cross)"); // t=50847.1
+    Timeout(id + 0x680, 1.0f, "Imitation Blizzard 3 (circles)"); // t=50848.1
+    Timeout(id + 0x690, 1.0f, "Imitation Blizzard 4 (circle)"); // t=50849.1
+    Condition(id + 0x6A0, 11.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x77F1), "", 5f, 6.0f); // t=50860.1; StartsUsing 77F1 from Marble Dragon; cactbot StartsUsing 77F1 [Occult Crescent Marble Dragon Tankbuster Filter] | StartsUsing 77F1 [Occult Crescent Marble Dragon Imitation Star]
+    Timeout(id + 0x6B0, 5.0f, "Imitation Star"); // t=50865.1; cactbot StartsUsing 77F1 [Occult Crescent Marble Dragon Imitation Star]
+    Timeout(id + 0x6C0, 13.199f, "Imitation Rain"); // t=50878.3; cactbot Ability 7687 [Occult Crescent Marble Dragon Imitation Rain Counter] | Ability 7797 [Occult Crescent Marble Dragon Imitation Rain 1 and 5 Direction (Cross-based)] | Ability 7797 [Occult Crescent Marble Dragon Imitation Rain 2 Direction] | AddedCombatant [Occult Crescent Marble Dragon Imitation Rain 2 Pattern] | Ability 7797 [Occult Crescent Marble Dragon Imitation Rain 6 and 7 Puddles] | AddedCombatant [Occult Crescent Marble Dragon Imitation Rain 6 Pattern]
+    Timeout(id + 0x6D0, 6.0f, "Frigid Twister"); // t=50884.3; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder]
+    Timeout(id + 0x6E0, 2.098f, "--middle--"); // t=50886.4
+    Timeout(id + 0x6F0, 2.801f, "--twisters start--"); // t=50889.2
+    Timeout(id + 0x700, 3.301f, "Draconiform Motion"); // t=50892.5; cactbot StartsUsing 77C1 [Occult Crescent Marble Dragon Draconiform Motion]
+    Timeout(id + 0x710, 54.602f, "Imitation Blizzard 2 (circles + cross)"); // t=50947.1
+    Timeout(id + 0x720, 1.0f, "Imitation Blizzard 3 (circles + cross)"); // t=50948.1
+    Timeout(id + 0x730, 1.0f, "Imitation Blizzard 4 (circle)"); // t=50949.1
+    Timeout(id + 0x740, 16.0f, "Imitation Star").SetHint(StateMachine.StateHint.Tankbuster); // t=50965.1; Ability 77F1 from Marble Dragon; cactbot StartsUsing 77F1 [Occult Crescent Marble Dragon Tankbuster Filter] | StartsUsing 77F1 [Occult Crescent Marble Dragon Imitation Star]
+    Timeout(id + 0x750, 13.199f, "Imitation Rain"); // t=50978.3; Ability 7687 from Marble Dragon; cactbot Ability 7687 [Occult Crescent Marble Dragon Imitation Rain Counter]
+    Timeout(id + 0x760, 6.0f, "Frigid Twister"); // t=50984.3; Ability 7638 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder]
+    Timeout(id + 0x770, 2.098f, "--middle--"); // t=50986.4; Ability 756C from Marble Dragon
+    Timeout(id + 0x780, 2.801f, "--twisters start--"); // t=50989.2
+    Timeout(id + 0x790, 3.301f, "Draconiform Motion"); // t=50992.5; Ability 77C1 from Marble Dragon; cactbot StartsUsing 77C1 [Occult Crescent Marble Dragon Draconiform Motion]
+    Timeout(id + 0x7A0, 1.199f, "Ball of Ice"); // t=50993.7; Ability A715 from Marble Dragon
+    Condition(id + 0x7B0, 2.602f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x7602 or 0x7614), "", 5f, 0.0f); // t=50996.3; StartsUsing 7602 from Marble Dragon | StartsUsing 7614 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 2] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder] | StartsUsing 7614 [Occult Crescent Marble Dragon Towers 2 and 4]
+    Timeout(id + 0x7C0, 1.0f, "Imitation Blizzard (circles/crosses?)"); // t=50997.3
+    Timeout(id + 0x7D0, 99.398f, "Imitation Blizzard (crosses)"); // t=51096.7; Ability 7614 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 2] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder] | StartsUsing 7614 [Occult Crescent Marble Dragon Towers 2 and 4]
+    Timeout(id + 0x7E0, 0.402f, "--towers x6--"); // t=51097.1; Ability A716 from Marble Dragon
+    Timeout(id + 0x7F0, 3.297f, "Imitation Blizzard (towers)"); // t=51100.4; Ability 7615 from Marble Dragon; cactbot Ability 7615 [Occult Crescent Marble Dragon Frigid Dive Cleanup] | StartsUsing 7615 [Occult Crescent Marble Dragon Imitation Rain 6 and 7 Second Safe Spots]
+    Timeout(id + 0x800, 2.203f, "Ball of Ice"); // t=51102.6; Ability A715 from Marble Dragon
+    Timeout(id + 0x810, 3.297f, "Imitation Blizzard (circles)"); // t=51105.9; Ability 7602 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder]
+    Timeout(id + 0x820, 1.5f, "--middle-- / Imitation Rain"); // t=51107.4; Ability 756C from Marble Dragon
+    Timeout(id + 0x830, 4.801f, "Ball of Ice"); // t=51112.2; Ability A715 from Marble Dragon
+    Timeout(id + 0x840, 1.102f, "Draconiform Motion"); // t=51113.3; Ability 77C1 from Marble Dragon; cactbot StartsUsing 77C1 [Occult Crescent Marble Dragon Draconiform Motion]
+    Timeout(id + 0x850, 2.098f, "Imitation Blizzard (circles)"); // t=51115.4; Ability 7602 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder]
+    Timeout(id + 0x860, 0.402f, "--towers x6--"); // t=51115.8; Ability A716 from Marble Dragon
+    Timeout(id + 0x870, 3.301f, "Imitation Blizzard (towers)"); // t=51119.1
+    Timeout(id + 0x880, 2.199f, "Ball of Ice"); // t=51121.3; Ability A715 from Marble Dragon
+    Timeout(id + 0x890, 3.301f, "Imitation Blizzard (crosses)"); // t=51124.6; Ability 7614 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 2] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder] | StartsUsing 7614 [Occult Crescent Marble Dragon Towers 2 and 4]
+    Timeout(id + 0x8A0, 4.797f, "--twisters end--"); // t=51129.4
+    Condition(id + 0x8B0, 2.902f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x77F1), "", 5f, 0.0f); // t=51132.3; StartsUsing 77F1 from Marble Dragon; cactbot StartsUsing 77F1 [Occult Crescent Marble Dragon Tankbuster Filter] | StartsUsing 77F1 [Occult Crescent Marble Dragon Imitation Star]
+    Timeout(id + 0x8C0, 5.0f, "Imitation Star"); // t=51137.3; cactbot StartsUsing 77F1 [Occult Crescent Marble Dragon Imitation Star]
+    Timeout(id + 0x8D0, 11.098f, "Dread Deluge"); // t=51148.4; cactbot HeadMarker [Occult Crescent Marble Dragon Dread Deluge]
+    Timeout(id + 0x8E0, 2.0f, "Dread Deluge x6"); // t=51150.4
+    Timeout(id + 0x8F0, 32.102f, "Lifeless Legacy (Enrage)"); // t=51182.5
+    Timeout(id + 0x900, 114.199f, "Imitation Blizzard (circles)"); // t=51296.7; Ability 7602 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder]
+    Timeout(id + 0x910, 0.402f, "--towers x6--"); // t=51297.1; Ability A716 from Marble Dragon
+    Timeout(id + 0x920, 3.297f, "Imitation Blizzard (towers)"); // t=51300.4; Ability 7615 from Marble Dragon; cactbot Ability 7615 [Occult Crescent Marble Dragon Frigid Dive Cleanup] | StartsUsing 7615 [Occult Crescent Marble Dragon Imitation Rain 6 and 7 Second Safe Spots]
+    Timeout(id + 0x930, 2.203f, "Ball of Ice"); // t=51302.6; Ability A715 from Marble Dragon
+    Timeout(id + 0x940, 3.297f, "Imitation Blizzard (crosses)"); // t=51305.9
+    Timeout(id + 0x950, 1.402f, "--middle-- / Imitation Rain"); // t=51307.3; Ability 756C from Marble Dragon
+    Timeout(id + 0x960, 4.898f, "Ball of Ice"); // t=51312.2; Ability A715 from Marble Dragon
+    Timeout(id + 0x970, 0.801f, "Draconiform Motion"); // t=51313.0; Ability 77C1 from Marble Dragon; cactbot StartsUsing 77C1 [Occult Crescent Marble Dragon Draconiform Motion]
+    Timeout(id + 0x980, 2.398f, "Imitation Blizzard (cross)"); // t=51315.4; Ability 7614 from Marble Dragon; cactbot StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Blizzard Counter] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 1] | StartsUsing 7614 [Occult Crescent Marble Dragon Imitation Rain 2 Dodge 2] | StartsUsing 7614/7602 [Occult Crescent Marble Dragon Imitation Rain 2 Frigid Twister Reminder] | StartsUsing 7614 [Occult Crescent Marble Dragon Towers 2 and 4]
+    Timeout(id + 0x990, 0.402f, "--towers x6--"); // t=51315.8; Ability A716 from Marble Dragon
+    Timeout(id + 0x9A0, 3.301f, "Imitation Blizzard (towers)"); // t=51319.1; Ability 7615 from Marble Dragon; cactbot Ability 7615 [Occult Crescent Marble Dragon Frigid Dive Cleanup] | StartsUsing 7615 [Occult Crescent Marble Dragon Imitation Rain 6 and 7 Second Safe Spots]
+    Timeout(id + 0x9B0, 2.199f, "Ball of Ice"); // t=51321.3
+    Timeout(id + 0x9C0, 3.301f, "Imitation Blizzard (circles)"); // t=51324.6
+    Timeout(id + 0x9D0, 4.797f, "--twisters end--"); // t=51329.4
+    Timeout(id + 0x9E0, 7.402f, "Imitation Star").SetHint(StateMachine.StateHint.Tankbuster); // t=51336.8; Ability 77F1 from Marble Dragon; cactbot StartsUsing 77F1 [Occult Crescent Marble Dragon Tankbuster Filter] | StartsUsing 77F1 [Occult Crescent Marble Dragon Imitation Star]
+    Timeout(id + 0x9F0, 11.098f, "Dread Deluge (castbar)"); // t=51347.9; Ability 77E8 from Marble Dragon
+    Timeout(id + 0xA00, 2.0f, "Dread Deluge x6"); // t=51349.9
+    Timeout(id + 0xA10, 32.102f, "Lifeless Legacy (Enrage)"); // t=51382.0; Ability 756D from Marble Dragon
+    Timeout(id + 0xA20, 1.898f, "Lifeless Legacy (Enrage)"); // t=51383.9; Ability 9ECD from Marble Dragon
+    Timeout(id + 0xA30, 2.801f, "Lifeless Legacy (Enrage)"); // t=51386.7; Ability 756E from Marble Dragon
+    Timeout(id + 0xA40, 4.699f, "Lifeless Legacy (Enrage)"); // t=51391.4; Ability 756E from Marble Dragon
+}
+
+private void Magitaur(uint id)
+{
+    Condition(id + 0x0, 10.102f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA264), "", 5f, 5.102f); // t=60010.1; StartsUsing A264 from Magitaur; cactbot StartsUsing A264 [Occult Crescent Magitaur Unsealed Aura]
+    Timeout(id + 0x10, 4.199f, "Unsealed Aura").SetHint(StateMachine.StateHint.Raidwide); // t=60014.3; Ability A264 from Magitaur; cactbot StartsUsing A264 [Occult Crescent Magitaur Unsealed Aura]
+    Timeout(id + 0x20, 16.0f, "Unseal"); // t=60030.3; Ability A241/A242 from Magitaur; cactbot Ability A241/A242 [Occult Crescent Magitaur Unseal Tank Autos Near/Far]
+    Timeout(id + 0x30, 14.598f, "--middle--"); // t=60044.9; Ability A1B7 from Magitaur
+    Timeout(id + 0x40, 6.203f, "Assassin's Dagger (castbar)"); // t=60051.1; Ability A260 from Magitaur
+    Timeout(id + 0x50, 0.297f, "Assassin's Dagger 1"); // t=60051.4; Ability A261 from Assassin's Dagger
+    Timeout(id + 0x60, 2.0f, "Assassin's Dagger 1 Returns"); // t=60053.4
+    Timeout(id + 0x70, 2.0f, "Assassin's Dagger 2"); // t=60055.4
+    Timeout(id + 0x80, 2.0f, "Assassin's Dagger 2 Returns"); // t=60057.4
+    Condition(id + 0x90, 1.703f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA247 or 0xA24B), "", 5f, 0.0f); // t=60059.1; StartsUsing A247 from Magitaur | StartsUsing A24B from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow] | StartsUsing A24B [Occult Crescent Magitaur Holy Lance Critical Lanceblow]
+    Timeout(id + 0xA0, 0.297f, "Assassin's Dagger 3"); // t=60059.4
+    Timeout(id + 0xB0, 2.0f, "Assassin's Dagger 3 Returns"); // t=60061.4
+    Timeout(id + 0xC0, 2.0f, "Assassin's Dagger 4"); // t=60063.4
+    Timeout(id + 0xD0, 0.703f, "Critical Axeblow / Critical Lanceblow?"); // t=60064.1
+    Timeout(id + 0xE0, 1.297f, "Assassin's Dagger 4 Returns"); // t=60065.4
+    Timeout(id + 0xF0, 2.0f, "Assassin's Dagger 5"); // t=60067.4
+    Timeout(id + 0x100, 2.0f, "Assassin's Dagger 5 Returns"); // t=60069.4
+    Timeout(id + 0x110, 2.0f, "Assassin's Dagger 6"); // t=60071.4
+    Timeout(id + 0x120, 2.0f, "Assassin's Dagger 6 Returns"); // t=60073.4
+    Timeout(id + 0x130, 1.0f, "Critical Lanceblow / Critical Axeblow?"); // t=60074.4
+    Timeout(id + 0x140, 85.0f, "Assassin's Dagger 3"); // t=60159.4
+    Timeout(id + 0x150, 2.0f, "Assassin's Dagger 3 Returns"); // t=60161.4
+    Timeout(id + 0x160, 2.0f, "Assassin's Dagger 4"); // t=60163.4
+    Timeout(id + 0x170, 0.703f, "Critical Axeblow"); // t=60164.1; Ability A247 from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow]
+    Timeout(id + 0x180, 1.297f, "Assassin's Dagger 4 Returns"); // t=60165.4
+    Timeout(id + 0x190, 2.0f, "Assassin's Dagger 5"); // t=60167.4
+    Timeout(id + 0x1A0, 2.0f, "Assassin's Dagger 5 Returns"); // t=60169.4
+    Timeout(id + 0x1B0, 2.0f, "Assassin's Dagger 6"); // t=60171.4
+    Timeout(id + 0x1C0, 2.0f, "Assassin's Dagger 6 Returns"); // t=60173.4; Ability A263 from Assassin's Dagger
+    Timeout(id + 0x1D0, 1.0f, "Critical Lanceblow"); // t=60174.4; Ability A24B from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow] | StartsUsing A24B [Occult Crescent Magitaur Holy Lance Critical Lanceblow]
+    Timeout(id + 0x1E0, 10.602f, "Forked Fury"); // t=60185.0; cactbot StartsUsing A265 [Occult Crescent Magitaur Forked Fury]
+    Timeout(id + 0x1F0, 10.0f, "--middle--"); // t=60195.0
+    Timeout(id + 0x200, 64.398f, "Assassin's Dagger 3"); // t=60259.4
+    Timeout(id + 0x210, 2.0f, "Assassin's Dagger 3 Returns"); // t=60261.4
+    Timeout(id + 0x220, 2.0f, "Assassin's Dagger 4"); // t=60263.4
+    Timeout(id + 0x230, 0.703f, "Critical Lanceblow"); // t=60264.1; Ability A24B from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow] | StartsUsing A24B [Occult Crescent Magitaur Holy Lance Critical Lanceblow]
+    Timeout(id + 0x240, 1.297f, "Assassin's Dagger 4 Returns"); // t=60265.4
+    Timeout(id + 0x250, 2.0f, "Assassin's Dagger 5"); // t=60267.4
+    Timeout(id + 0x260, 2.0f, "Assassin's Dagger 5 Returns"); // t=60269.4
+    Timeout(id + 0x270, 2.0f, "Assassin's Dagger 6"); // t=60271.4
+    Timeout(id + 0x280, 2.0f, "Assassin's Dagger 6 Returns"); // t=60273.4; Ability A263 from Assassin's Dagger
+    Timeout(id + 0x290, 1.0f, "Critical Axeblow"); // t=60274.4; Ability A247 from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow]
+    Timeout(id + 0x2A0, 10.602f, "Forked Fury"); // t=60285.0; Ability A265 from Magitaur; cactbot StartsUsing A265 [Occult Crescent Magitaur Forked Fury]
+    Timeout(id + 0x2B0, 10.0f, "--middle--"); // t=60295.0; Ability A1B7 from Magitaur
+    Timeout(id + 0x2C0, 20.398f, "Aura Burst / Holy").SetHint(StateMachine.StateHint.Raidwide); // t=60315.4; Ability A25A/A25B from Magitaur; cactbot StartsUsing A25A/A25B [Occult Crescent Magitaur Aura Burst / Holy Canisters] | StartsUsing A25A/A25B [Occult Crescent Magitaur Aura Burst / Holy]
+    Timeout(id + 0x2D0, 14.102f, "--middle--"); // t=60329.5; Ability A1B7 from Magitaur
+    Timeout(id + 0x2E0, 6.699f, "Sage's Staff"); // t=60336.2; Ability A25E from Magitaur; cactbot Ability A25E [Occult Crescent Magitaur Sage\]
+    Condition(id + 0x2F0, 2.902f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xA247 or 0xA24B), "", 5f, 0.0f); // t=60339.1; StartsUsing A247 from Magitaur | StartsUsing A24B from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow] | StartsUsing A24B [Occult Crescent Magitaur Holy Lance Critical Lanceblow]
+    Timeout(id + 0x300, 5.5f, "Critical Axeblow / Critical Lanceblow?"); // t=60344.6
+    Timeout(id + 0x310, 6.0f, "Mana Expulsion"); // t=60350.6
+    Timeout(id + 0x320, 3.0f, "Sage's Staff"); // t=60353.6
+    Timeout(id + 0x330, 8.199f, "Critical Lanceblow / Critical Axeblow?"); // t=60361.8
+    Timeout(id + 0x340, 6.199f, "Mana Expulsion"); // t=60368.0
+    Timeout(id + 0x350, 4.0f, "Unsealed Aura"); // t=60372.0; cactbot StartsUsing A264 [Occult Crescent Magitaur Unsealed Aura]
+    Timeout(id + 0x360, 14.0f, "Unseal"); // t=60386.0; cactbot StartsUsing A264 [Occult Crescent Magitaur Unsealed Aura] | Ability A241/A242 [Occult Crescent Magitaur Unseal Tank Autos Near/Far]
+    Timeout(id + 0x370, 58.602f, "Critical Axeblow"); // t=60444.6; Ability A247 from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow]
+    Timeout(id + 0x380, 6.0f, "Mana Expulsion"); // t=60450.6; Ability A25F from Sage's Staff
+    Timeout(id + 0x390, 3.0f, "Sage's Staff"); // t=60453.6; Ability A25E from Magitaur; cactbot Ability A25E [Occult Crescent Magitaur Sage\]
+    Timeout(id + 0x3A0, 8.199f, "Critical Lanceblow"); // t=60461.8; Ability A24B from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow] | StartsUsing A24B [Occult Crescent Magitaur Holy Lance Critical Lanceblow]
+    Timeout(id + 0x3B0, 6.199f, "Mana Expulsion"); // t=60468.0
+    Timeout(id + 0x3C0, 4.0f, "Unsealed Aura"); // t=60472.0; cactbot StartsUsing A264 [Occult Crescent Magitaur Unsealed Aura]
+    Timeout(id + 0x3D0, 14.0f, "Unseal"); // t=60486.0; cactbot StartsUsing A264 [Occult Crescent Magitaur Unsealed Aura] | Ability A241/A242 [Occult Crescent Magitaur Unseal Tank Autos Near/Far]
+    Timeout(id + 0x3E0, 12.602f, "--middle--"); // t=60498.6
+    Timeout(id + 0x3F0, 46.0f, "Critical Lanceblow"); // t=60544.6; Ability A24B from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow] | StartsUsing A24B [Occult Crescent Magitaur Holy Lance Critical Lanceblow]
+    Timeout(id + 0x400, 6.0f, "Mana Expulsion"); // t=60550.6; Ability A25F from Sage's Staff
+    Timeout(id + 0x410, 3.0f, "Sage's Staff"); // t=60553.6; Ability A25E from Magitaur; cactbot Ability A25E [Occult Crescent Magitaur Sage\]
+    Timeout(id + 0x420, 8.199f, "Critical Axeblow"); // t=60561.8; Ability A247 from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow]
+    Timeout(id + 0x430, 6.199f, "Mana Expulsion"); // t=60568.0; Ability A25F from Sage's Staff
+    Timeout(id + 0x440, 4.0f, "Unsealed Aura").SetHint(StateMachine.StateHint.Raidwide); // t=60572.0; Ability A264 from Magitaur; cactbot StartsUsing A264 [Occult Crescent Magitaur Unsealed Aura]
+    Timeout(id + 0x450, 14.0f, "Unseal"); // t=60586.0; Ability A241 from Magitaur; cactbot Ability A241/A242 [Occult Crescent Magitaur Unseal Tank Autos Near/Far]
+    Timeout(id + 0x460, 12.602f, "--middle--"); // t=60598.6; Ability A1B7 from Magitaur
+    Timeout(id + 0x470, 6.398f, "Rune Axe"); // t=60605.0; Ability A24F from Magitaur; cactbot GainsEffect 10F0/10F1 [Occult Crescent Magitaur Rune Axe Debuffs] | Ability A251 [Occult Crescent Magitaur Rune Axe Lanceblow]
+    Timeout(id + 0x480, 2.102f, "--Big Rune Marker--"); // t=60607.1
+    Timeout(id + 0x490, 3.898f, "--Small Rune Markers x3--"); // t=60611.0
+    Timeout(id + 0x4A0, 4.102f, "Big Ruinous Rune / Axeglow"); // t=60615.1; Ability A254 from Magitaur
+    Timeout(id + 0x4B0, 3.797f, "--Big Rune Marker-- / --Small Rune Markers x2--"); // t=60618.9
+    Timeout(id + 0x4C0, 0.102f, "Carving Rune / Small Ruinous Rune x3 / Axeglow"); // t=60619.0; Ability A253 from Magitaur
+    Timeout(id + 0x4D0, 1.199f, "Critical Lanceblow"); // t=60620.2; Ability A24B from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow] | StartsUsing A24B [Occult Crescent Magitaur Holy Lance Critical Lanceblow]
+    Timeout(id + 0x4E0, 0.699f, "Carving Rune"); // t=60620.9
+    Timeout(id + 0x4F0, 2.0f, "Carving Rune"); // t=60622.9
+    Timeout(id + 0x500, 2.0f, "Carving Rune"); // t=60624.9
+    Timeout(id + 0x510, 2.0f, "Big Ruinous Rune / Small Ruinous Rune x2 / Axeglow"); // t=60626.9; Ability A253 from Magitaur
+    Timeout(id + 0x520, 11.902f, "Forked Fury"); // t=60638.8; Ability A265 from Magitaur; cactbot StartsUsing A265 [Occult Crescent Magitaur Forked Fury]
+    Timeout(id + 0x530, 10.0f, "--middle--"); // t=60648.8; Ability A1B7 from Magitaur
+    Timeout(id + 0x540, 20.398f, "Aura Burst / Holy").SetHint(StateMachine.StateHint.Raidwide); // t=60669.2; Ability A25A/A25B from Magitaur; cactbot StartsUsing A25A/A25B [Occult Crescent Magitaur Aura Burst / Holy Canisters] | StartsUsing A25A/A25B [Occult Crescent Magitaur Aura Burst / Holy]
+    Timeout(id + 0x550, 9.902f, "Assassin's Dagger (castbar)"); // t=60679.1; Ability A260 from Magitaur
+    Timeout(id + 0x560, 0.297f, "Assassin's Dagger 1"); // t=60679.4; Ability A261 from Assassin's Dagger
+    Timeout(id + 0x570, 2.0f, "Assassin's Dagger 1 Returns"); // t=60681.4
+    Timeout(id + 0x580, 2.0f, "Assassin's Dagger 2"); // t=60683.4
+    Timeout(id + 0x590, 2.0f, "Assassin's Dagger 2 Returns"); // t=60685.4
+    Timeout(id + 0x5A0, 2.0f, "Assassin's Dagger 3"); // t=60687.4
+    Timeout(id + 0x5B0, 2.0f, "Assassin's Dagger 3 Returns"); // t=60689.4
+    Timeout(id + 0x5C0, 2.0f, "Assassin's Dagger 4"); // t=60691.4
+    Timeout(id + 0x5D0, 0.703f, "Critical Lanceblow"); // t=60692.1; Ability A24B from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow] | StartsUsing A24B [Occult Crescent Magitaur Holy Lance Critical Lanceblow]
+    Timeout(id + 0x5E0, 1.199f, "Assassin's Dagger 4 Returns"); // t=60693.3
+    Timeout(id + 0x5F0, 2.0f, "Assassin's Dagger 5"); // t=60695.3
+    Timeout(id + 0x600, 2.0f, "Assassin's Dagger 5 Returns"); // t=60697.3
+    Timeout(id + 0x610, 2.0f, "Assassin's Dagger 6"); // t=60699.3
+    Timeout(id + 0x620, 2.0f, "Assassin's Dagger 6 Returns"); // t=60701.3; Ability A263 from Assassin's Dagger
+    Timeout(id + 0x630, 1.0f, "Critical Axeblow"); // t=60702.3; Ability A247 from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow]
+    Timeout(id + 0x640, 10.199f, "Unseal"); // t=60712.5; Ability A241/A242 from Magitaur; cactbot Ability A241/A242 [Occult Crescent Magitaur Unseal Tank Autos Near/Far]
+    Timeout(id + 0x650, 12.602f, "--middle--"); // t=60725.1; Ability A1B7 from Magitaur
+    Timeout(id + 0x660, 6.699f, "Holy Lance"); // t=60731.8; Ability A255 from Magitaur; cactbot StartsUsing A24B [Occult Crescent Magitaur Holy Lance Critical Lanceblow]
+    Timeout(id + 0x670, 9.398f, "Critical Lanceblow"); // t=60741.2; Ability A24B from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow] | StartsUsing A24B [Occult Crescent Magitaur Holy Lance Critical Lanceblow]
+    Timeout(id + 0x680, 4.699f, "Lance 1"); // t=60745.9
+    Timeout(id + 0x690, 2.0f, "Lance 2"); // t=60747.9
+    Timeout(id + 0x6A0, 2.0f, "Holy IV / Lance 3"); // t=60749.9; Ability A257 from Magitaur
+    Timeout(id + 0x6B0, 2.0f, "Lance 4"); // t=60751.9
+    Timeout(id + 0x6C0, 2.0f, "Lance 5"); // t=60753.9
+    Timeout(id + 0x6D0, 2.0f, "Lance 6"); // t=60755.9
+    Timeout(id + 0x6E0, 2.0f, "Holy IV / Lance 7"); // t=60757.9; Ability A257 from Magitaur
+    Timeout(id + 0x6F0, 2.0f, "Lance 8"); // t=60759.9
+    Timeout(id + 0x700, 2.0f, "Lance 9"); // t=60761.9
+    Timeout(id + 0x710, 2.0f, "Lance 10"); // t=60763.9
+    Timeout(id + 0x720, 2.0f, "Holy IV / Lance 11"); // t=60765.9; Ability A257 from Magitaur/Luminous Lance
+    Timeout(id + 0x730, 2.0f, "Lance 12"); // t=60767.9
+    Timeout(id + 0x740, 1.801f, "Critical Axeblow"); // t=60769.7; Ability A247 from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow]
+    Timeout(id + 0x750, 9.301f, "Unsealed Aura").SetHint(StateMachine.StateHint.Raidwide); // t=60779.0; Ability A264 from Magitaur; cactbot StartsUsing A264 [Occult Crescent Magitaur Unsealed Aura]
+    Timeout(id + 0x760, 9.398f, "Forked Fury"); // t=60788.4; Ability A265 from Magitaur; cactbot StartsUsing A265 [Occult Crescent Magitaur Forked Fury]
+    Timeout(id + 0x770, 10.0f, "--middle--"); // t=60798.4; Ability A1B7 from Magitaur
+    Timeout(id + 0x780, 20.602f, "Aura Burst / Holy").SetHint(StateMachine.StateHint.Raidwide); // t=60819.0; Ability A25A/A25B from Magitaur; cactbot StartsUsing A25A/A25B [Occult Crescent Magitaur Aura Burst / Holy Canisters] | StartsUsing A25A/A25B [Occult Crescent Magitaur Aura Burst / Holy]
+    Timeout(id + 0x790, 9.801f, "Assassin's Dagger (castbar)"); // t=60828.8; Ability A260 from Magitaur
+    Timeout(id + 0x7A0, 0.301f, "Assassin's Dagger 1"); // t=60829.1; Ability A261 from Assassin's Dagger
+    Timeout(id + 0x7B0, 2.0f, "Assassin's Dagger 1 Returns"); // t=60831.1
+    Timeout(id + 0x7C0, 2.0f, "Assassin's Dagger 2"); // t=60833.1
+    Timeout(id + 0x7D0, 2.0f, "Assassin's Dagger 2 Returns"); // t=60835.1
+    Timeout(id + 0x7E0, 2.0f, "Assassin's Dagger 3"); // t=60837.1
+    Timeout(id + 0x7F0, 2.0f, "Assassin's Dagger 3 Returns"); // t=60839.1
+    Timeout(id + 0x800, 2.0f, "Assassin's Dagger 4"); // t=60841.1
+    Timeout(id + 0x810, 0.699f, "Critical Lanceblow"); // t=60841.8; Ability A24B from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow] | StartsUsing A24B [Occult Crescent Magitaur Holy Lance Critical Lanceblow]
+    Timeout(id + 0x820, 1.199f, "Assassin's Dagger 4 Returns"); // t=60843.0
+    Timeout(id + 0x830, 2.0f, "Assassin's Dagger 5"); // t=60845.0
+    Timeout(id + 0x840, 2.0f, "Assassin's Dagger 5 Returns"); // t=60847.0
+    Timeout(id + 0x850, 2.0f, "Assassin's Dagger 6"); // t=60849.0
+    Timeout(id + 0x860, 2.0f, "Assassin's Dagger 6 Returns"); // t=60851.0; Ability A263 from Assassin's Dagger
+    Timeout(id + 0x870, 1.0f, "Critical Axeblow"); // t=60852.0; Ability A247 from Magitaur; cactbot StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow Counter] | StartsUsing A247/A24B [Occult Crescent Magitaur Critical Axeblow/Lanceblow]
+    Timeout(id + 0x880, 27.398f, "Unsealed Aura (Enrage)"); // t=60879.4; Ability A267 from Magitaur
+    Timeout(id + 0x890, 0.902f, "Unsealed Aura (Enrage)"); // t=60880.3; Ability 9BE8 from Magitaur
+    Timeout(id + 0x8A0, 3.098f, "Unsealed Aura").SetHint(StateMachine.StateHint.Raidwide); // t=60883.4; Ability A268 from Magitaur; cactbot StartsUsing A264 [Occult Crescent Magitaur Unsealed Aura]
+    Timeout(id + 0x8B0, 4.402f, "Unsealed Aura").SetHint(StateMachine.StateHint.Raidwide); // t=60887.8; Ability A268 from Magitaur; cactbot StartsUsing A264 [Occult Crescent Magitaur Unsealed Aura]
+}
+

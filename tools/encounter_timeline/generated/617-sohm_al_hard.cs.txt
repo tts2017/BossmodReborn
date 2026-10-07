@@ -1,0 +1,79 @@
+// Generated development skeleton from sohm_al_hard.txt (TerritoryType 617).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 13 static/dynamic trigger definitions from ui/raidboss/data/03-hw/dungeon/sohm_al_hard.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 6.1f, "Wild Horn"); // t=6.1; Ability 1C2D from The Leightonward
+    Timeout(id + 0x10, 7.1f, "Inflammable Fumes (Readies)").SetHint(StateMachine.StateHint.Raidwide); // t=13.2; Ability 1C30 from The Leightonward; cactbot Ability 1C30 [Sohm Al Hard Inflammable Fumes]
+    Timeout(id + 0x20, 4.0f, "Inflammable Fumes").SetHint(StateMachine.StateHint.Raidwide); // t=17.2; Ability 1C31 from The Leightonward; cactbot Ability 1C30 [Sohm Al Hard Inflammable Fumes]
+    Timeout(id + 0x30, 5.2f, "Wild Horn"); // t=22.4; Ability 1C2D from The Leightonward
+    Timeout(id + 0x40, 5.1f, "Spore Sac"); // t=27.5; Ability 1C2F from The Leightonward
+    Timeout(id + 0x50, 6.1f, "Inflammable Fumes (Readies)").SetHint(StateMachine.StateHint.Raidwide); // t=33.6; Ability 1C30 from The Leightonward; cactbot Ability 1C30 [Sohm Al Hard Inflammable Fumes]
+    Timeout(id + 0x60, 4.0f, "Inflammable Fumes").SetHint(StateMachine.StateHint.Raidwide); // t=37.6; Ability 1C31 from The Leightonward; cactbot Ability 1C30 [Sohm Al Hard Inflammable Fumes]
+    Timeout(id + 0x70, 3.1f, "Glorious Blaze"); // t=40.7; Ability 1C33 from Small Spore Sac; cactbot StartsUsing 1C32 [Sohm Al Hard Glorious Blaze]
+    Timeout(id + 0x80, 4.2f, "Excretion"); // t=44.9; Ability 1C2E from The Leightonward; cactbot GainsEffect E [Sohm Al Hard Excretion]
+    Timeout(id + 0x90, 4.1f, "Wild Horn"); // t=49.0; Ability 1C2D from The Leightonward
+    Timeout(id + 0xA0, 6.1f, "Wild Horn"); // t=55.1; Ability 1C2D from The Leightonward
+    Timeout(id + 0xB0, 5.1f, "Spore Sac"); // t=60.2; Ability 1C2F from The Leightonward
+    Timeout(id + 0xC0, 6.1f, "Inflammable Fumes (Readies)").SetHint(StateMachine.StateHint.Raidwide); // t=66.3; Ability 1C30 from The Leightonward; cactbot Ability 1C30 [Sohm Al Hard Inflammable Fumes]
+    Timeout(id + 0xD0, 4.0f, "Inflammable Fumes").SetHint(StateMachine.StateHint.Raidwide); // t=70.3; Ability 1C31 from The Leightonward; cactbot Ability 1C30 [Sohm Al Hard Inflammable Fumes]
+    Timeout(id + 0xE0, 3.0f, "Glorious Blaze"); // t=73.3; Ability 1C33 from Small Spore Sac; cactbot StartsUsing 1C32 [Sohm Al Hard Glorious Blaze]
+    Timeout(id + 0xF0, 11.3f, "Wild Horn"); // t=84.6; Ability 1C2D from The Leightonward
+    Timeout(id + 0x100, 8.3f, "Excretion"); // t=92.9; Ability 1C2E from The Leightonward; cactbot GainsEffect E [Sohm Al Hard Excretion]
+    Timeout(id + 0x110, 5.1f, "Spore Sac"); // t=98.0; Ability 1C2F from The Leightonward
+    Timeout(id + 0x120, 6.2f, "Inflammable Fumes (Readies)").SetHint(StateMachine.StateHint.Raidwide); // t=104.2; Ability 1C30 from The Leightonward; cactbot Ability 1C30 [Sohm Al Hard Inflammable Fumes]
+    Timeout(id + 0x130, 4.0f, "Inflammable Fumes").SetHint(StateMachine.StateHint.Raidwide); // t=108.2; Ability 1C31 from The Leightonward; cactbot Ability 1C30 [Sohm Al Hard Inflammable Fumes]
+    Timeout(id + 0x140, 3.0f, "Glorious Blaze"); // t=111.2; Ability 1C33 from Small Spore Sac; cactbot StartsUsing 1C32 [Sohm Al Hard Glorious Blaze]
+    Timeout(id + 0x150, 13.2f, "Wild Horn"); // t=124.4; Ability 1C2D from The Leightonward
+    Timeout(id + 0x160, 6.1f, "Wild Horn"); // t=130.5; Ability 1C2D from The Leightonward
+    Timeout(id + 0x170, 7.1f, "Inflammable Fumes (Readies)").SetHint(StateMachine.StateHint.Raidwide); // t=137.6; Ability 1C30 from The Leightonward; cactbot Ability 1C30 [Sohm Al Hard Inflammable Fumes]
+    Timeout(id + 0x180, 4.0f, "Inflammable Fumes").SetHint(StateMachine.StateHint.Raidwide); // t=141.6; Ability 1C31 from The Leightonward; cactbot Ability 1C30 [Sohm Al Hard Inflammable Fumes]
+    Timeout(id + 0x190, 2.2f, "Wild Horn"); // t=143.8; Ability 1C2D from The Leightonward
+    Timeout(id + 0x1A0, 6.2f, "Wild Horn"); // t=150.0; Ability 1C2D from The Leightonward
+    Timeout(id + 0x1B0, 8.2f, "Excretion"); // t=158.2; cactbot GainsEffect E [Sohm Al Hard Excretion]
+    Timeout(id + 0x1C0, 5.1f, "Spore Sac"); // t=163.3
+    Timeout(id + 0x1D0, 6.2f, "Inflammable Fumes (Readies)"); // t=169.5
+    Timeout(id + 0x1E0, 4.0f, "Inflammable Fumes"); // t=173.5; cactbot Ability 1C30 [Sohm Al Hard Inflammable Fumes]
+    Timeout(id + 0x1F0, 3.0f, "Glorious Blaze"); // t=176.5; cactbot StartsUsing 1C32 [Sohm Al Hard Glorious Blaze]
+    Timeout(id + 0x200, 13.2f, "Wild Horn"); // t=189.7
+    Timeout(id + 0x210, 1822.3f, "Molten Silk (Front)"); // t=2012.0; Ability 1C43 from Lava Scorpion
+    Timeout(id + 0x220, 10.2f, "Flying Press"); // t=2022.2; Ability 1C3E from Lava Scorpion; cactbot StartsUsing 1C3E [Sohm Al Hard Flying Press]
+    Timeout(id + 0x230, 16.2f, "Deadly Thrust").SetHint(StateMachine.StateHint.Tankbuster); // t=2038.4; Ability 1C40 from Lava Scorpion; cactbot StartsUsing 1C40/1C48 [Sohm Al Hard Deadly Thrust]
+    Timeout(id + 0x240, 7.2f, "Hiss (Adds x2)"); // t=2045.6; Ability 1C45 from Lava Scorpion; cactbot StartsUsing 1C45 [Sohm Al Hard Hiss]
+    Timeout(id + 0x250, 23.2f, "Realm Shaker"); // t=2068.8; Ability 1C41 from Lava Scorpion
+    Timeout(id + 0x260, 10.6f, "Flying Press"); // t=2079.4; Ability 1C3E from Lava Scorpion; cactbot StartsUsing 1C3E [Sohm Al Hard Flying Press]
+    Timeout(id + 0x270, 12.2f, "Deadly Thrust").SetHint(StateMachine.StateHint.Tankbuster); // t=2091.6; Ability 1C40 from Lava Scorpion; cactbot StartsUsing 1C40/1C48 [Sohm Al Hard Deadly Thrust]
+    Timeout(id + 0x280, 10.2f, "Molten Silk (Front)"); // t=2101.8; Ability 1C43 from Lava Scorpion
+    Timeout(id + 0x290, 5.1f, "Molten Silk (Back)"); // t=2106.9; Ability 1C44 from Lava Scorpion
+    Timeout(id + 0x2A0, 11.7f, "Hiss (Adds x4)"); // t=2118.6; Ability 1C45 from Lava Scorpion; cactbot StartsUsing 1C45 [Sohm Al Hard Hiss]
+    Timeout(id + 0x2B0, 5.1f, "Molten Silk (Ring)"); // t=2123.7; Ability 1C42 from Lava Scorpion
+    Timeout(id + 0x2C0, 6.1f, "Deadly Thrust").SetHint(StateMachine.StateHint.Tankbuster); // t=2129.8; Ability 1C40 from Lava Scorpion; cactbot StartsUsing 1C40/1C48 [Sohm Al Hard Deadly Thrust]
+    Timeout(id + 0x2D0, 20.2f, "Flying Press"); // t=2150.0; Ability 1C3E from Lava Scorpion; cactbot StartsUsing 1C3E [Sohm Al Hard Flying Press]
+    Timeout(id + 0x2E0, 6.1f, "Flying Press"); // t=2156.1; Ability 1C3E from Lava Scorpion; cactbot StartsUsing 1C3E [Sohm Al Hard Flying Press]
+    Timeout(id + 0x2F0, 11.2f, "Molten Silk (Front)"); // t=2167.3; Ability 1C43 from Lava Scorpion
+    Timeout(id + 0x300, 5.1f, "Molten Silk (Back)"); // t=2172.4; Ability 1C44 from Lava Scorpion
+    Timeout(id + 0x310, 9.6f, "Deadly Thrust").SetHint(StateMachine.StateHint.Tankbuster); // t=2182.0; Ability 1C40 from Lava Scorpion; cactbot StartsUsing 1C40/1C48 [Sohm Al Hard Deadly Thrust]
+    Timeout(id + 0x320, 5.1f, "Flying Press"); // t=2187.1; Ability 1C3E from Lava Scorpion; cactbot StartsUsing 1C3E [Sohm Al Hard Flying Press]
+    Timeout(id + 0x330, 9.2f, "Realm Shaker"); // t=2196.3; Ability 1C41 from Lava Scorpion
+    Timeout(id + 0x340, 5.7f, "Molten Silk (Ring)"); // t=2202.0; Ability 1C42 from Lava Scorpion
+    Timeout(id + 0x350, 9.2f, "Hiss (Adds x2)"); // t=2211.2; Ability 1C45 from Lava Scorpion; cactbot StartsUsing 1C45 [Sohm Al Hard Hiss]
+    Timeout(id + 0x360, 10.1f, "Deadly Thrust").SetHint(StateMachine.StateHint.Tankbuster); // t=2221.3; Ability 1C40 from Lava Scorpion; cactbot StartsUsing 1C40/1C48 [Sohm Al Hard Deadly Thrust]
+    Timeout(id + 0x370, 10.2f, "Molten Silk (Back)"); // t=2231.5; Ability 1C44 from Lava Scorpion
+    Timeout(id + 0x380, 5.6f, "Molten Silk (Front)"); // t=2237.1; Ability 1C43 from Lava Scorpion
+    Timeout(id + 0x390, 9.2f, "Deadly Thrust").SetHint(StateMachine.StateHint.Tankbuster); // t=2246.3; Ability 1C40 from Lava Scorpion; cactbot StartsUsing 1C40/1C48 [Sohm Al Hard Deadly Thrust]
+    Timeout(id + 0x3A0, 8.2f, "Realm Shaker"); // t=2254.5; Ability 1C41 from Lava Scorpion
+    Timeout(id + 0x3B0, 5.7f, "Molten Silk (Ring)"); // t=2260.2; Ability 1C42 from Lava Scorpion
+    Timeout(id + 0x3C0, 9.2f, "Hiss (Adds x2)"); // t=2269.4; Ability 1C45 from Lava Scorpion; cactbot StartsUsing 1C45 [Sohm Al Hard Hiss]
+    Timeout(id + 0x3D0, 10.1f, "Deadly Thrust").SetHint(StateMachine.StateHint.Tankbuster); // t=2279.5; Ability 1C40 from Lava Scorpion; cactbot StartsUsing 1C40/1C48 [Sohm Al Hard Deadly Thrust]
+    Timeout(id + 0x3E0, 10.2f, "Molten Silk (Back)"); // t=2289.7; Ability 1C44 from Lava Scorpion
+    Timeout(id + 0x3F0, 5.6f, "Molten Silk (Front)"); // t=2295.3; Ability 1C43 from Lava Scorpion
+    Timeout(id + 0x400, 9.2f, "Deadly Thrust").SetHint(StateMachine.StateHint.Tankbuster); // t=2304.5; Ability 1C40 from Lava Scorpion; cactbot StartsUsing 1C40/1C48 [Sohm Al Hard Deadly Thrust]
+    Timeout(id + 0x410, 8.2f, "Realm Shaker"); // t=2312.7
+    Timeout(id + 0x420, 5.7f, "Molten Silk (Ring)"); // t=2318.4
+    Timeout(id + 0x430, 9.2f, "Hiss (Adds x2)"); // t=2327.6
+    Timeout(id + 0x440, 10.1f, "Deadly Thrust"); // t=2337.7; cactbot StartsUsing 1C40/1C48 [Sohm Al Hard Deadly Thrust]
+    Timeout(id + 0x450, 10.2f, "Molten Silk (Back)"); // t=2347.9
+}
+

@@ -1,0 +1,133 @@
+// Generated development skeleton from doma_castle.txt (TerritoryType 1144).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 4 static/dynamic trigger definitions from ui/raidboss/data/04-sb/dungeon/doma_castle.ts.
+
+private void Magitek_Rearguard(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 7.4f, "Cermet Pile"); // t=7.4; Ability 209D from Magitek Rearguard
+    Timeout(id + 0x20, 7.6f, "Garlean Fire"); // t=15.0; Ability 209E from Magitek Rearguard
+    Timeout(id + 0x30, 15.6f, "Magitek Ray"); // t=30.6; Ability 20A1 from Rearguard Bit
+    Timeout(id + 0x40, 5.0f, "Rearguard Mines"); // t=35.6
+    Timeout(id + 0x50, 2.2f, "Cermet Pile"); // t=37.8; Ability 209D from Magitek Rearguard
+    Timeout(id + 0x60, 3.0f, "Magitek Ray"); // t=40.8; Ability 20A1 from Rearguard Bit
+    Timeout(id + 0x70, 2.6f, "Garlean Fire"); // t=43.4; Ability 209E from Magitek Rearguard
+    Timeout(id + 0x80, 5.5f, "Magitek Ray"); // t=48.9; Ability 20A1 from Rearguard Bit
+    Timeout(id + 0x90, 5.0f, "Magitek Ray"); // t=53.9; Ability 20A1 from Rearguard Bit
+    Timeout(id + 0xA0, 7.0f, "Cermet Pile"); // t=60.9; Ability 209D from Magitek Rearguard
+    Timeout(id + 0xB0, 7.6f, "Rearguard Mines"); // t=68.5
+    Timeout(id + 0xC0, 2.2f, "Cermet Pile"); // t=70.7; Ability 209D from Magitek Rearguard
+    Timeout(id + 0xD0, 3.0f, "Magitek Ray"); // t=73.7; Ability 20A1 from Rearguard Bit
+    Timeout(id + 0xE0, 2.7f, "Garlean Fire"); // t=76.4; Ability 209E from Magitek Rearguard
+    Timeout(id + 0xF0, 5.5f, "Magitek Ray"); // t=81.9; Ability 20A1 from Rearguard Bit
+    Timeout(id + 0x100, 4.1f, "Cermet Pile"); // t=86.0; Ability 209D from Magitek Rearguard
+    Timeout(id + 0x110, 2.9f, "Magitek Ray"); // t=88.9; Ability 20A1 from Rearguard Bit
+    Timeout(id + 0x120, 2.7f, "Garlean Fire"); // t=91.6; Ability 209E from Magitek Rearguard
+    Timeout(id + 0x130, 5.6f, "Magitek Ray"); // t=97.2; Ability 20A1 from Rearguard Bit
+    Timeout(id + 0x140, 1.5f, "Rearguard Mines"); // t=98.7
+    Timeout(id + 0x150, 2.6f, "Cermet Pile"); // t=101.3; Ability 209D from Magitek Rearguard
+    Timeout(id + 0x160, 3.0f, "Magitek Ray"); // t=104.3; Ability 20A1 from Rearguard Bit
+    Timeout(id + 0x170, 2.7f, "Garlean Fire"); // t=107.0; Ability 209E from Magitek Rearguard
+    Timeout(id + 0x180, 5.5f, "Magitek Ray"); // t=112.5; Ability 20A1 from Rearguard Bit
+    Timeout(id + 0x190, 3.1f, "Cermet Pile"); // t=115.6; Ability 209D from Magitek Rearguard
+    Timeout(id + 0x1A0, 3.0f, "Magitek Ray"); // t=118.6; Ability 20A1 from Rearguard Bit
+    Timeout(id + 0x1B0, 12.7f, "Rearguard Mines"); // t=131.3
+    Timeout(id + 0x1C0, 1.9f, "Cermet Pile"); // t=133.2; Ability 209D from Magitek Rearguard
+    Timeout(id + 0x1D0, 3.0f, "Magitek Ray"); // t=136.2
+    Timeout(id + 0x1E0, 2.7f, "Garlean Fire"); // t=138.9
+    Timeout(id + 0x1F0, 5.5f, "Magitek Ray"); // t=144.4
+    Timeout(id + 0x200, 4.1f, "Cermet Pile"); // t=148.5
+    Timeout(id + 0x210, 2.9f, "Magitek Ray"); // t=151.4
+    Timeout(id + 0x220, 2.7f, "Garlean Fire"); // t=154.1
+    Timeout(id + 0x230, 5.6f, "Magitek Ray"); // t=159.7
+    Timeout(id + 0x240, 1.5f, "Rearguard Mines"); // t=161.2
+}
+
+private void Magitek_Hexadrone(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=1000.0
+    Timeout(id + 0x10, 10.6f, "Circle Of Death"); // t=1010.6; Ability 20A2 from Magitek Hexadrone
+    Timeout(id + 0x20, 8.3f, "2-Tonze Magitek Missile"); // t=1018.9; Ability 20A3 from Magitek Hexadrone; cactbot HeadMarker 3E [Doma Castle Magitek Hexadrone 2-Tonze Magitek Missile]
+    Timeout(id + 0x30, 5.2f, "Hexadrone Bits"); // t=1024.1
+    Timeout(id + 0x40, 5.5f, "Bits Activate"); // t=1029.6
+    Timeout(id + 0x50, 10.0f, "Circle Of Death"); // t=1039.6; Ability 20A2 from Magitek Hexadrone
+    Timeout(id + 0x60, 6.1f, "Hexadrone Bits"); // t=1045.7
+    Timeout(id + 0x70, 4.1f, "Circle Of Death"); // t=1049.8; Ability 20A2 from Magitek Hexadrone
+    Timeout(id + 0x80, 1.4f, "Bits Activate"); // t=1051.2
+    Timeout(id + 0x90, 13.3f, "Magitek Missiles"); // t=1064.5; Ability 20A5 from Magitek Hexadrone; cactbot StartsUsing 20A4 [Doma Castle Magitek Hexadrone Magitek Missiles]
+    Timeout(id + 0xA0, 4.4f, "Hexadrone Bits"); // t=1068.9
+    Timeout(id + 0xB0, 5.5f, "Bits Activate"); // t=1074.4
+    Timeout(id + 0xC0, 2.9f, "2-Tonze Magitek Missile"); // t=1077.3; Ability 20A3 from Magitek Hexadrone; cactbot HeadMarker 3E [Doma Castle Magitek Hexadrone 2-Tonze Magitek Missile]
+    Timeout(id + 0xD0, 6.6f, "Circle Of Death"); // t=1083.9; Ability 20A2 from Magitek Hexadrone
+    Timeout(id + 0xE0, 6.1f, "Hexadrone Bits"); // t=1090.0
+    Timeout(id + 0xF0, 5.5f, "Bits Activate"); // t=1095.5
+    Timeout(id + 0x100, 3.1f, "Magitek Missiles"); // t=1098.6; Ability 20A5 from Magitek Hexadrone; cactbot StartsUsing 20A4 [Doma Castle Magitek Hexadrone Magitek Missiles]
+    Timeout(id + 0x110, 12.6f, "Hexadrone Bits"); // t=1111.2
+    Timeout(id + 0x120, 1.7f, "Magitek Missiles"); // t=1112.9; Ability 20A5 from Magitek Hexadrone; cactbot StartsUsing 20A4 [Doma Castle Magitek Hexadrone Magitek Missiles]
+    Timeout(id + 0x130, 3.8f, "Bits Activate"); // t=1116.7
+    Timeout(id + 0x140, 8.9f, "Circle Of Death"); // t=1125.6; Ability 20A2 from Magitek Hexadrone
+    Timeout(id + 0x150, 6.4f, "Hexadrone Bits"); // t=1132.0
+    Timeout(id + 0x160, 5.5f, "Bits Activate"); // t=1137.5
+    Timeout(id + 0x170, 2.5f, "2-Tonze Magitek Missile"); // t=1140.0; Ability 20A3 from Magitek Hexadrone; cactbot HeadMarker 3E [Doma Castle Magitek Hexadrone 2-Tonze Magitek Missile]
+    Timeout(id + 0x180, 10.1f, "Magitek Missiles"); // t=1150.1; Ability 20A5 from Magitek Hexadrone; cactbot StartsUsing 20A4 [Doma Castle Magitek Hexadrone Magitek Missiles]
+    Timeout(id + 0x190, 9.4f, "Hexadrone Bits"); // t=1159.5
+    Timeout(id + 0x1A0, 5.5f, "Bits Activate"); // t=1165.0
+    Timeout(id + 0x1B0, 3.0f, "2-Tonze Magitek Missile"); // t=1168.0; Ability 20A3 from Magitek Hexadrone; cactbot HeadMarker 3E [Doma Castle Magitek Hexadrone 2-Tonze Magitek Missile]
+    Timeout(id + 0x1C0, 6.6f, "Circle Of Death"); // t=1174.6; Ability 20A2 from Magitek Hexadrone
+    Timeout(id + 0x1D0, 6.1f, "Hexadrone Bits"); // t=1180.7
+    Timeout(id + 0x1E0, 5.5f, "Bits Activate"); // t=1186.2
+    Timeout(id + 0x1F0, 3.1f, "Magitek Missiles"); // t=1189.3; cactbot StartsUsing 20A4 [Doma Castle Magitek Hexadrone Magitek Missiles]
+    Timeout(id + 0x200, 12.6f, "Hexadrone Bits"); // t=1201.9
+    Timeout(id + 0x210, 1.7f, "Magitek Missiles"); // t=1203.6; cactbot StartsUsing 20A4 [Doma Castle Magitek Hexadrone Magitek Missiles]
+    Timeout(id + 0x220, 3.8f, "Bits Activate"); // t=1207.4
+}
+
+private void Hypertuned_Grynewaht(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=2000.0
+    Timeout(id + 0x10, 9.4f, "Chainsaw"); // t=2009.4; Ability 20A8 from Hypertuned Grynewaht
+    Timeout(id + 0x20, 13.3f, "--center-- / Delay-Action Charge"); // t=2022.7; Ability 20AD from Hypertuned Grynewaht
+    Timeout(id + 0x30, 0.4f, "Gunsaw"); // t=2023.1; Ability 20AA from Hypertuned Grynewaht
+    Timeout(id + 0x40, 22.3f, "Thermobaric Charge"); // t=2045.4; Ability 20AF from Hypertuned Grynewaht; cactbot GainsEffect 4E5 [Doma Castle Hypertuned Grynewaht Thermobaric Charge]
+    Timeout(id + 0x50, 8.4f, "--center--"); // t=2053.8; Ability 20B0 from Hypertuned Grynewaht
+    Timeout(id + 0x60, 8.2f, "Gunsaw"); // t=2062.0; Ability 20AA from Hypertuned Grynewaht
+    Timeout(id + 0x70, 13.3f, "Delay-Action Charge / Clean Cut"); // t=2075.3; Ability 20AD from Hypertuned Grynewaht
+    Timeout(id + 0x80, 1.4f, "--center--"); // t=2076.7; Ability 20B0 from Hypertuned Grynewaht
+    Timeout(id + 0x90, 8.2f, "Gunsaw"); // t=2084.9; Ability 20AA from Hypertuned Grynewaht
+    Timeout(id + 0xA0, 13.3f, "Delay-Action Charge / Clean Cut"); // t=2098.2; Ability 20AD from Hypertuned Grynewaht
+    Timeout(id + 0xB0, 4.4f, "Magitek Bits"); // t=2102.6
+    Timeout(id + 0xC0, 5.5f, "Bits Activate"); // t=2108.1
+    Timeout(id + 0xD0, 9.8f, "Chainsaw"); // t=2117.9; Ability 20A8 from Hypertuned Grynewaht
+    Timeout(id + 0xE0, 3.0f, "Thermobaric Charge"); // t=2120.9; Ability 20AF from Hypertuned Grynewaht; cactbot GainsEffect 4E5 [Doma Castle Hypertuned Grynewaht Thermobaric Charge]
+    Timeout(id + 0xF0, 7.0f, "--center--"); // t=2127.9; Ability 20B0 from Hypertuned Grynewaht
+    Timeout(id + 0x100, 6.3f, "Gunsaw"); // t=2134.2; Ability 20AA from Hypertuned Grynewaht
+    Timeout(id + 0x110, 13.3f, "Delay-Action Charge"); // t=2147.5; Ability 20AD from Hypertuned Grynewaht; cactbot HeadMarker 63 [Doma Castle Hypertuned Grynewaht Delay-Action Charge]
+    Timeout(id + 0x120, 2.0f, "Clean Cut"); // t=2149.5; Ability 20B1 from Magitek Chakram
+    Timeout(id + 0x130, 3.1f, "--center--"); // t=2152.6; Ability 20B0 from Hypertuned Grynewaht
+    Timeout(id + 0x140, 8.2f, "Gunsaw"); // t=2160.8; Ability 20AA from Hypertuned Grynewaht
+    Timeout(id + 0x150, 13.3f, "Delay-Action Charge / Clean Cut"); // t=2174.1; Ability 20AD from Hypertuned Grynewaht
+    Timeout(id + 0x160, 5.6f, "--center--"); // t=2179.7; Ability 20B0 from Hypertuned Grynewaht
+    Timeout(id + 0x170, 0.0f, "Magitek Bits"); // t=2179.7
+    Timeout(id + 0x180, 5.5f, "Bits Activate"); // t=2185.2
+    Timeout(id + 0x190, 9.6f, "Chainsaw"); // t=2194.8; Ability 20A8 from Hypertuned Grynewaht
+    Timeout(id + 0x1A0, 5.1f, "Thermobaric Charge"); // t=2199.9; Ability 20AF from Hypertuned Grynewaht; cactbot GainsEffect 4E5 [Doma Castle Hypertuned Grynewaht Thermobaric Charge]
+    Timeout(id + 0x1B0, 1.3f, "Clean Cut"); // t=2201.2; Ability 20B1 from Magitek Chakram
+    Timeout(id + 0x1C0, 7.3f, "--center--"); // t=2208.5; Ability 20B0 from Hypertuned Grynewaht
+    Timeout(id + 0x1D0, 8.2f, "Gunsaw"); // t=2216.7; Ability 20AA from Hypertuned Grynewaht
+    Timeout(id + 0x1E0, 13.3f, "Delay-Action Charge / Clean Cut"); // t=2230.0; Ability 20AD from Hypertuned Grynewaht
+    Timeout(id + 0x1F0, 2.5f, "Magitek Bits"); // t=2232.5
+    Timeout(id + 0x200, 5.5f, "Bits Activate"); // t=2238.0
+    Timeout(id + 0x210, 7.7f, "Chainsaw"); // t=2245.7; Ability 20A8 from Hypertuned Grynewaht
+    Timeout(id + 0x220, 7.7f, "Thermobaric Charge"); // t=2253.4; Ability 20AF from Hypertuned Grynewaht; cactbot GainsEffect 4E5 [Doma Castle Hypertuned Grynewaht Thermobaric Charge]
+    Timeout(id + 0x230, 6.4f, "Chainsaw"); // t=2259.8; Ability 20A8 from Hypertuned Grynewaht
+    Timeout(id + 0x240, 14.2f, "--center--"); // t=2274.0; Ability 20B0 from Hypertuned Grynewaht
+    Timeout(id + 0x250, 8.2f, "Gunsaw"); // t=2282.2; Ability 20AA from Hypertuned Grynewaht
+    Timeout(id + 0x260, 13.3f, "Delay-Action Charge / Clean Cut"); // t=2295.5; Ability 20AD from Hypertuned Grynewaht
+    Timeout(id + 0x270, 2.5f, "Magitek Bits"); // t=2298.0
+    Timeout(id + 0x280, 5.5f, "Bits Activate"); // t=2303.5
+    Timeout(id + 0x290, 5.0f, "Chainsaw"); // t=2308.5
+    Timeout(id + 0x2A0, 7.7f, "Thermobaric Charge"); // t=2316.2; cactbot GainsEffect 4E5 [Doma Castle Hypertuned Grynewaht Thermobaric Charge]
+    Timeout(id + 0x2B0, 6.4f, "Chainsaw"); // t=2322.6
+}
+

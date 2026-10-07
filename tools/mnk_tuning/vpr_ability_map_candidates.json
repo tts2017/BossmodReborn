@@ -1,0 +1,106 @@
+{
+  "abilities": {
+    "34620": {
+      "confirmed": true,
+      "name": "Vicewinder",
+      "role": "vicewinder"
+    },
+    "34621": {
+      "confirmed": true,
+      "name": "Hunter's Coil",
+      "role": "huntersCoil"
+    },
+    "34622": {
+      "confirmed": true,
+      "name": "Swiftskin's Coil",
+      "role": "swiftskinsCoil"
+    },
+    "34623": {
+      "confirmed": true,
+      "name": "Vicepit",
+      "role": "vicepit"
+    },
+    "34626": {
+      "confirmed": true,
+      "name": "Reawaken",
+      "role": "reawaken"
+    },
+    "34627": {
+      "confirmed": true,
+      "name": "First Generation",
+      "role": "firstGeneration"
+    },
+    "34628": {
+      "confirmed": true,
+      "name": "Second Generation",
+      "role": "secondGeneration"
+    },
+    "34629": {
+      "confirmed": true,
+      "name": "Third Generation",
+      "role": "thirdGeneration"
+    },
+    "34630": {
+      "confirmed": true,
+      "name": "Fourth Generation",
+      "role": "fourthGeneration"
+    },
+    "34631": {
+      "confirmed": true,
+      "name": "Ouroboros",
+      "role": "ouroboros"
+    },
+    "34633": {
+      "confirmed": true,
+      "name": "Uncoiled Fury",
+      "role": "uncoiledFury"
+    },
+    "34634": {
+      "confirmed": true,
+      "name": "Death Rattle",
+      "role": "deathRattle"
+    },
+    "34635": {
+      "confirmed": true,
+      "name": "Last Lash",
+      "role": "lastLash"
+    },
+    "34640": {
+      "confirmed": true,
+      "name": "First Legacy",
+      "role": "firstLegacy"
+    },
+    "34641": {
+      "confirmed": true,
+      "name": "Second Legacy",
+      "role": "secondLegacy"
+    },
+    "34642": {
+      "confirmed": true,
+      "name": "Third Legacy",
+      "role": "thirdLegacy"
+    },
+    "34643": {
+      "confirmed": true,
+      "name": "Fourth Legacy",
+      "role": "fourthLegacy"
+    },
+    "34644": {
+      "confirmed": true,
+      "name": "Uncoiled Twinfang",
+      "role": "uncoiledTwinfang"
+    },
+    "34645": {
+      "confirmed": true,
+      "name": "Uncoiled Twinblood",
+      "role": "uncoiledTwinblood"
+    },
+    "34647": {
+      "confirmed": true,
+      "name": "Serpent's Ire",
+      "role": "serpentsIre"
+    }
+  },
+  "job": "VPR",
+  "source": "vpr_ability_usage_summary_top200_candidate"
+}

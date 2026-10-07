@@ -1,0 +1,84 @@
+// Generated development skeleton from e3n.txt (TerritoryType 851).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 13 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e3n.ts.
+
+private void Eden_3__Normal(uint id)
+{
+    Timeout(id + 0x0, 12.5f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=12.5; Ability 3FC4 from Leviathan; cactbot StartsUsing 3FC4 [E3N Tidal Roar]
+    Timeout(id + 0x10, 11.0f, "Rip Current"); // t=23.5; Ability 3FC6 from Leviathan; cactbot HeadMarker 17 [E3N Rip Current]
+    Timeout(id + 0x20, 14.2f, "Temporary Current"); // t=37.7
+    Timeout(id + 0x30, 9.3f, "Drenching Pulse"); // t=47.0; Ability 3FC8 from Leviathan; cactbot HeadMarker A9 [E3N Drenching Pulse Spread]
+    Timeout(id + 0x40, 4.1f, "Monster Wave"); // t=51.1; Ability 3FCA from Leviathan
+    Timeout(id + 0x50, 4.0f, "Freak Wave"); // t=55.1; Ability 3FCB from Leviathan
+    Timeout(id + 0x60, 5.1f, "Temporary Current"); // t=60.2
+    Timeout(id + 0x70, 10.2f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=70.4; Ability 3FC4 from Leviathan; cactbot StartsUsing 3FC4 [E3N Tidal Roar]
+    Timeout(id + 0x80, 7.0f, "Rip Current"); // t=77.4; Ability 3FC6 from Leviathan; cactbot HeadMarker 17 [E3N Rip Current]
+    Timeout(id + 0x90, 21.3f, "Tidal Wave").SetHint(StateMachine.StateHint.Knockback); // t=98.7; Ability 3FD3 from Leviathan; cactbot StartsUsing 3FD2 [E3N Tidal Wave Look] | StartsUsing 3FD2 [E3N Tidal Wave Knockback]
+    Timeout(id + 0xA0, 6.9f, "Undersea Quake"); // t=105.6; Ability 3FD0 from Leviathan; cactbot StartsUsing 3FD0 [E3N Undersea Quake Outside]
+    Timeout(id + 0xB0, 9.2f, "Crashing Pulse"); // t=114.8; Ability 3FC9 from Leviathan
+    Timeout(id + 0xC0, 4.1f, "Monster Wave"); // t=118.9; Ability 3FCA from Leviathan
+    Timeout(id + 0xD0, 4.0f, "Killer Wave"); // t=122.9; Ability 3FCC from Leviathan
+    Timeout(id + 0xE0, 6.0f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=128.9; Ability 3FC4 from Leviathan; cactbot StartsUsing 3FC4 [E3N Tidal Roar]
+    Timeout(id + 0xF0, 11.1f, "Temporary Current"); // t=140.0
+    Timeout(id + 0x100, 22.3f, "Tsunami").SetHint(StateMachine.StateHint.Raidwide); // t=162.3; Ability 441B from Leviathan; cactbot StartsUsing 3FD4 [E3N Tsunami]
+    Timeout(id + 0x110, 9.6f, "Surging Tsunami"); // t=171.9; Ability 4011 from Leviathan
+    Timeout(id + 0x120, 7.0f, "Smothering Tsunami"); // t=178.9; Ability 3FD7 from Leviathan
+    Timeout(id + 0x130, 6.0f, "Splashing Tsunami"); // t=184.9; Ability 3FD6 from Leviathan
+    Timeout(id + 0x140, 0.9f, "Swirling Tsunami"); // t=185.8; Ability 3FD5 from Leviathan
+    Timeout(id + 0x150, 7.0f, "Surging Tsunami"); // t=192.8; Ability 4011 from Leviathan
+    Timeout(id + 0x160, 10.7f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=203.5; Ability 3FC4 from Leviathan; cactbot StartsUsing 3FC4 [E3N Tidal Roar]
+    Timeout(id + 0x170, 13.2f, "Maelstrom"); // t=216.7; Ability 3FD8 from Leviathan; cactbot StartsUsing 3FD8 [E3N Maelstrom]
+    Targetable(id + 0x180, false, 2.0f, "--untargetable--"); // t=218.7
+    Timeout(id + 0x190, 8.2f, "Spinning Dive 1"); // t=226.9; Ability 3FDB from Leviathan
+    Timeout(id + 0x1A0, 7.1f, "Spinning Dive 2"); // t=234.0; Ability 3FDB from Leviathan
+    Targetable(id + 0x1B0, true, 6.4f, "--targetable--"); // t=240.4
+    Timeout(id + 0x1C0, 8.0f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=248.4; Ability 3FC4 from Leviathan; cactbot StartsUsing 3FC4 [E3N Tidal Roar]
+    Timeout(id + 0x1D0, 7.0f, "Rip Current"); // t=255.4; Ability 3FC6 from Leviathan; cactbot HeadMarker 17 [E3N Rip Current]
+    Timeout(id + 0x1E0, 21.4f, "Tidal Wave").SetHint(StateMachine.StateHint.Knockback); // t=276.8; Ability 3FD3 from Leviathan; cactbot StartsUsing 3FD2 [E3N Tidal Wave Look] | StartsUsing 3FD2 [E3N Tidal Wave Knockback]
+    Timeout(id + 0x1F0, 7.0f, "Undersea Quake"); // t=283.8; Ability 3FCF from Leviathan; cactbot StartsUsing 3FCF [E3N Undersea Quake Inside]
+    Timeout(id + 0x200, 9.2f, "Drenching Pulse"); // t=293.0; Ability 3FC8 from Leviathan; cactbot HeadMarker A9 [E3N Drenching Pulse Spread]
+    Timeout(id + 0x210, 4.1f, "Monster Wave"); // t=297.1; Ability 3FCA from Leviathan
+    Timeout(id + 0x220, 4.0f, "Freak Wave"); // t=301.1; Ability 3FCB from Leviathan
+    Timeout(id + 0x230, 7.1f, "Temporary Current 1"); // t=308.2
+    Timeout(id + 0x240, 9.1f, "Temporary Current 2"); // t=317.3
+    Timeout(id + 0x250, 15.2f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=332.5; Ability 3FC4 from Leviathan; cactbot StartsUsing 3FC4 [E3N Tidal Roar]
+    Timeout(id + 0x260, 6.1f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=338.6; Ability 3FC4 from Leviathan; cactbot StartsUsing 3FC4 [E3N Tidal Roar]
+    Timeout(id + 0x270, 10.2f, "Rip Current"); // t=348.8; Ability 3FC6 from Leviathan; cactbot HeadMarker 17 [E3N Rip Current]
+    Timeout(id + 0x280, 11.2f, "Drenching Pulse"); // t=360.0; Ability 3FC8 from Leviathan; cactbot HeadMarker A9 [E3N Drenching Pulse Spread]
+    Timeout(id + 0x290, 4.1f, "Monster Wave"); // t=364.1; Ability 3FCA from Leviathan
+    Timeout(id + 0x2A0, 4.0f, "Freak Wave"); // t=368.1; Ability 3FCB from Leviathan
+    Timeout(id + 0x2B0, 4.0f, "Undersea Quake"); // t=372.1; Ability 3FD0 from Leviathan; cactbot StartsUsing 3FD0 [E3N Undersea Quake Outside]
+    Timeout(id + 0x2C0, 14.2f, "Tsunami").SetHint(StateMachine.StateHint.Raidwide); // t=386.3; Ability 441B from Leviathan; cactbot StartsUsing 3FD4 [E3N Tsunami]
+    Timeout(id + 0x2D0, 9.6f, "Surging Tsunami"); // t=395.9; Ability 4011 from Leviathan
+    Timeout(id + 0x2E0, 7.0f, "Smothering Tsunami"); // t=402.9; Ability 3FD7 from Leviathan
+    Timeout(id + 0x2F0, 5.9f, "Splashing Tsunami"); // t=408.8; Ability 3FD6 from Leviathan
+    Timeout(id + 0x300, 1.0f, "Swirling Tsunami"); // t=409.8; Ability 3FD5 from Leviathan
+    Timeout(id + 0x310, 7.0f, "Surging Tsunami"); // t=416.8; Ability 4011 from Leviathan
+    Timeout(id + 0x320, 12.6f, "Temporary Current 1"); // t=429.4
+    Timeout(id + 0x330, 9.0f, "Temporary Current 2"); // t=438.4
+    Timeout(id + 0x340, 11.0f, "Rip Current"); // t=449.4; Ability 3FC6 from Leviathan; cactbot HeadMarker 17 [E3N Rip Current]
+    Timeout(id + 0x350, 6.0f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=455.4; Ability 3FC4 from Leviathan; cactbot StartsUsing 3FC4 [E3N Tidal Roar]
+    Timeout(id + 0x360, 6.0f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=461.4; Ability 3FC4 from Leviathan; cactbot StartsUsing 3FC4 [E3N Tidal Roar]
+    Timeout(id + 0x370, 15.0f, "Maelstrom"); // t=476.4; Ability 3FD8 from Leviathan; cactbot StartsUsing 3FD8 [E3N Maelstrom]
+    Targetable(id + 0x380, false, 2.0f, "--untargetable--"); // t=478.4
+    Timeout(id + 0x390, 8.0f, "Spinning Dive 1"); // t=486.4; Ability 3FDB from Leviathan
+    Timeout(id + 0x3A0, 7.0f, "Spinning Dive 2"); // t=493.4; Ability 3FDB from Leviathan
+    Targetable(id + 0x3B0, true, 6.5f, "--targetable--"); // t=499.9
+    Timeout(id + 0x3C0, 8.0f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=507.9; Ability 3FC4 from Leviathan; cactbot StartsUsing 3FC4 [E3N Tidal Roar]
+    Timeout(id + 0x3D0, 7.1f, "Rip Current"); // t=515.0; Ability 3FC6 from Leviathan; cactbot HeadMarker 17 [E3N Rip Current]
+    Timeout(id + 0x3E0, 21.4f, "Tidal Wave").SetHint(StateMachine.StateHint.Knockback); // t=536.4; Ability 3FD3 from Leviathan; cactbot StartsUsing 3FD2 [E3N Tidal Wave Look] | StartsUsing 3FD2 [E3N Tidal Wave Knockback]
+    Timeout(id + 0x3F0, 7.0f, "Undersea Quake"); // t=543.4; Ability 3FCF from Leviathan; cactbot StartsUsing 3FCF [E3N Undersea Quake Inside]
+    Timeout(id + 0x400, 9.2f, "Drenching Pulse"); // t=552.6; cactbot HeadMarker A9 [E3N Drenching Pulse Spread]
+    Timeout(id + 0x410, 4.1f, "Monster Wave"); // t=556.7
+    Timeout(id + 0x420, 4.0f, "Freak Wave"); // t=560.7
+    Timeout(id + 0x430, 7.1f, "Temporary Current"); // t=567.8
+    Timeout(id + 0x440, 9.1f, "Temporary Current"); // t=576.9
+    Timeout(id + 0x450, 15.2f, "Tidal Roar"); // t=592.1; cactbot StartsUsing 3FC4 [E3N Tidal Roar]
+    Timeout(id + 0x460, 6.1f, "Tidal Roar"); // t=598.2; cactbot StartsUsing 3FC4 [E3N Tidal Roar]
+    Timeout(id + 0x470, 10.2f, "Rip Current"); // t=608.4; cactbot HeadMarker 17 [E3N Rip Current]
+    Timeout(id + 0x480, 11.2f, "Drenching Pulse"); // t=619.6; cactbot HeadMarker A9 [E3N Drenching Pulse Spread]
+    Timeout(id + 0x490, 4.1f, "Monster Wave"); // t=623.7
+    Timeout(id + 0x4A0, 4.0f, "Freak Wave"); // t=627.7
+}
+

@@ -1,0 +1,85 @@
+// Generated development skeleton from a10n.txt (TerritoryType 581).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 8 static/dynamic trigger definitions from ui/raidboss/data/03-hw/raid/a10n.ts.
+
+private void A10N(uint id)
+{
+    Timeout(id + 0x0, 7.0f, "Goblin Rush"); // t=7.0; Ability 1A17 from Lamebrix Strikebocks
+    Timeout(id + 0x10, 3.1f, "Gobsway Rumblerocks"); // t=10.1; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x20, 5.1f, "Gobsway Rumblerocks"); // t=15.2; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x30, 7.0f, "Illuminati Hand Cannon"); // t=22.2; Ability 1AD2 from Lamebrix Strikebocks
+    Timeout(id + 0x40, 12.2f, "Gobslash Slicetops"); // t=34.4; Ability 1AD1 from Lamebrix Strikebocks; cactbot HeadMarker 17 [A10N Gobslash Slicetops]
+    Timeout(id + 0x50, 3.1f, "Goblin Rush"); // t=37.5; Ability 1A17 from Lamebrix Strikebocks
+    Timeout(id + 0x60, 8.1f, "Gobrush Rushgob").SetHint(StateMachine.StateHint.Tankbuster); // t=45.6; Ability 1ACF from Lamebrix Strikebocks; cactbot StartsUsing 1ACF [A10N Gobrush Rushgob]
+    Timeout(id + 0x70, 4.1f, "Gobsway Rumblerocks"); // t=49.7; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x80, 7.0f, "Trap"); // t=56.7; Ability 1AB0/1AB1 from Lamebrix Strikebocks; cactbot Ability 1AB1 [A10N Frost Laser Trap] | Ability 1AB0 [A10N Ceiling Weight Trap]
+    Timeout(id + 0x90, 4.4f, "Goblin Rush"); // t=61.1; Ability 1A17 from Lamebrix Strikebocks
+    Timeout(id + 0xA0, 0.6f, "Frostbite/Impact"); // t=61.7; Ability 1AC7/1AC6 from Blizzard Arrow/Weight of the World
+    Timeout(id + 0xB0, 7.3f, "Trap"); // t=69.0; Ability 1AB0/1AB1 from Lamebrix Strikebocks; cactbot Ability 1AB1 [A10N Frost Laser Trap] | Ability 1AB0 [A10N Ceiling Weight Trap]
+    Timeout(id + 0xC0, 5.0f, "Impact/Frostbite"); // t=74.0; Ability 1AC7/1AC6 from Blizzard Arrow/Weight of the World
+    Timeout(id + 0xD0, 0.9f, "Illuminati Hand Cannon"); // t=74.9; Ability 1AD2 from Lamebrix Strikebocks
+    Timeout(id + 0xE0, 3.1f, "Goblin Rush"); // t=78.0; Ability 1A17 from Lamebrix Strikebocks
+    Timeout(id + 0xF0, 9.1f, "Gobslash Slicetops"); // t=87.1; Ability 1AD1 from Lamebrix Strikebocks; cactbot HeadMarker 17 [A10N Gobslash Slicetops]
+    Timeout(id + 0x100, 3.1f, "Goblin Rush"); // t=90.2; Ability 1A17 from Lamebrix Strikebocks
+    Timeout(id + 0x110, 8.1f, "Gobrush Rushgob").SetHint(StateMachine.StateHint.Tankbuster); // t=98.3; Ability 1ACF from Lamebrix Strikebocks; cactbot StartsUsing 1ACF [A10N Gobrush Rushgob]
+    Timeout(id + 0x120, 4.1f, "Gobsway Rumblerocks"); // t=102.4; Ability 1AD0 from Lamebrix Strikebocks
+    Targetable(id + 0x130, false, 3.0f, "--untargetable--"); // t=105.4
+    Targetable(id + 0x140, true, 5.3f, "--targetable--"); // t=110.7
+    Condition(id + 0x150, 0.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1AC9), "", 5f, 0.0f); // t=111.1; StartsUsing 1AC9 from Gobpress R-VI
+    Timeout(id + 0x160, 6.7f, "Critical Wrath"); // t=117.8; Ability 1ACD from Lamebrix Strikebocks; cactbot HeadMarker 19 [A10N Critical Wrath]
+    Timeout(id + 0x170, 5.1f, "Illuminati Hand Cannon"); // t=122.9; Ability 1AD2 from Lamebrix Strikebocks
+    Timeout(id + 0x180, 3.3f, "Steam Roller"); // t=126.2; Ability 1ACA from Gobpress R-VI
+    Timeout(id + 0x190, 6.0f, "Gobsway Rumblerocks"); // t=132.2; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x1A0, 4.0f, "Gobsway Rumblerocks"); // t=136.2; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x1B0, 6.1f, "Illuminati Hand Cannon"); // t=142.3; Ability 1AD2 from Lamebrix Strikebocks
+    Timeout(id + 0x1C0, 3.2f, "Steam Roller"); // t=145.5; Ability 1ACA from Gobpress R-VI
+    Timeout(id + 0x1D0, 10.7f, "Bomb Toss"); // t=156.2; Ability 1ACE from Lamebrix Strikebocks; cactbot HeadMarker 3E [A10N Bomb Toss]
+    Timeout(id + 0x1E0, 5.2f, "Illuminati Hand Cannon"); // t=161.4; Ability 1AD2 from Lamebrix Strikebocks
+    Timeout(id + 0x1F0, 3.6f, "Steam Roller"); // t=165.0; Ability 1ACA from Gobpress R-VI
+    Timeout(id + 0x200, 5.2f, "Gobsway Rumblerocks"); // t=170.2; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x210, 4.1f, "Gobsway Rumblerocks"); // t=174.3; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x220, 6.1f, "Illuminati Hand Cannon"); // t=180.4; Ability 1AD2 from Lamebrix Strikebocks
+    Timeout(id + 0x230, 3.9f, "Steam Roller"); // t=184.3; Ability 1ACA from Gobpress R-VI
+    Timeout(id + 0x240, 5.4f, "Gobsway Rumblerocks"); // t=189.7; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x250, 5.1f, "Gobsway Rumblerocks"); // t=194.8; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x260, 5.1f, "Gobsway Rumblerocks"); // t=199.9; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x270, 3.7f, "Steam Roller Enrage?"); // t=203.6; Ability 1ACA from Gobpress R-VI
+    Targetable(id + 0x280, true, 96.4f, "--targetable--"); // t=300.0
+    Timeout(id + 0x290, 9.2f, "Goblin Rush"); // t=309.2; Ability 1A17 from Lamebrix Strikebocks
+    Timeout(id + 0x2A0, 8.1f, "Gobrush Rushgob").SetHint(StateMachine.StateHint.Tankbuster); // t=317.3; Ability 1ACF from Lamebrix Strikebocks; cactbot StartsUsing 1ACF [A10N Gobrush Rushgob]
+    Timeout(id + 0x2B0, 8.2f, "Gobspin Whooshdrops/Gobswipe Conklops"); // t=325.5; Ability 1ACB/1ACC from Lamebrix Strikebocks
+    Timeout(id + 0x2C0, 6.1f, "Gobsway Rumblerocks"); // t=331.6; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x2D0, 4.0f, "Goblin Rush"); // t=335.6; Ability 1A17 from Lamebrix Strikebocks
+    Timeout(id + 0x2E0, 4.1f, "Gobsway Rumblerocks"); // t=339.7; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x2F0, 9.1f, "Gobswipe Conklops/Gobspin Whooshdrops"); // t=348.8; Ability 1ACB/1ACC from Lamebrix Strikebocks
+    Timeout(id + 0x300, 7.1f, "Gobsway Rumblerocks"); // t=355.9; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x310, 4.1f, "Goblin Rush"); // t=360.0; Ability 1A17 from Lamebrix Strikebocks
+    Timeout(id + 0x320, 8.1f, "Gobrush Rushgob").SetHint(StateMachine.StateHint.Tankbuster); // t=368.1; Ability 1ACF from Lamebrix Strikebocks; cactbot StartsUsing 1ACF [A10N Gobrush Rushgob]
+    Timeout(id + 0x330, 4.2f, "Goblin Rush"); // t=372.3; Ability 1A17 from Lamebrix Strikebocks
+    Timeout(id + 0x340, 13.0f, "Gobsway Rumblerocks"); // t=385.3; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x350, 4.0f, "Gobsway Rumblerocks"); // t=389.3; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x360, 4.0f, "Goblin Rush"); // t=393.3; Ability 1A17 from Lamebrix Strikebocks
+    Timeout(id + 0x370, 9.9f, "Frostbite/Impact"); // t=403.2; Ability 1AC7/1AC6 from Blizzard Arrow/Weight of the World
+    Timeout(id + 0x380, 4.1f, "Impact/Frostbite"); // t=407.3; Ability 1AC7/1AC6 from Blizzard Arrow/Weight of the World
+    Timeout(id + 0x390, 1.6f, "Illuminati Hand Cannon"); // t=408.9; Ability 1AD2 from Lamebrix Strikebocks
+    Timeout(id + 0x3A0, 9.2f, "Gobslash Slicetops"); // t=418.1; Ability 1AD1 from Lamebrix Strikebocks; cactbot HeadMarker 17 [A10N Gobslash Slicetops]
+    Timeout(id + 0x3B0, 4.0f, "Goblin Rush"); // t=422.1; Ability 1A17 from Lamebrix Strikebocks
+    Timeout(id + 0x3C0, 8.1f, "Gobrush Rushgob").SetHint(StateMachine.StateHint.Tankbuster); // t=430.2; Ability 1ACF from Lamebrix Strikebocks; cactbot StartsUsing 1ACF [A10N Gobrush Rushgob]
+    Timeout(id + 0x3D0, 4.1f, "Gobsway Rumblerocks"); // t=434.3; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x3E0, 11.1f, "Critical Wrath"); // t=445.4; Ability 1ACD from Lamebrix Strikebocks; cactbot HeadMarker 19 [A10N Critical Wrath]
+    Timeout(id + 0x3F0, 7.7f, "Bomb Toss"); // t=453.1; Ability 1ACE from Lamebrix Strikebocks; cactbot HeadMarker 3E [A10N Bomb Toss]
+    Timeout(id + 0x400, 12.0f, "Gobbieboom?"); // t=465.1; Ability 1AD3 from Goblin of Fortune
+    Timeout(id + 0x410, 2.1f, "Gobrush Rushgob").SetHint(StateMachine.StateHint.Tankbuster); // t=467.2; Ability 1ACF from Lamebrix Strikebocks; cactbot StartsUsing 1ACF [A10N Gobrush Rushgob]
+    Timeout(id + 0x420, 3.1f, "Gobsway Rumblerocks"); // t=470.3; Ability 1AD0 from Lamebrix Strikebocks
+    Timeout(id + 0x430, 7.3f, "Single Charge"); // t=477.6; cactbot Ability 1AB8 [A10N Single Charge In] | Ability 1AB9 [A10N Single Charge Out]
+    Timeout(id + 0x440, 0.9f, "Gobspin Whooshdrops/Gobswipe Conklops"); // t=478.5
+    Timeout(id + 0x450, 6.1f, "Gobsway Rumblerocks"); // t=484.6
+    Timeout(id + 0x460, 4.0f, "Goblin Rush"); // t=488.6
+    Timeout(id + 0x470, 4.1f, "Gobsway Rumblerocks"); // t=492.7
+    Timeout(id + 0x480, 8.2f, "Single Charge"); // t=500.9; cactbot Ability 1AB8 [A10N Single Charge In] | Ability 1AB9 [A10N Single Charge Out]
+    Timeout(id + 0x490, 0.9f, "Gobswipe Conklops/Gobspin Whooshdrops"); // t=501.8
+    Timeout(id + 0x4A0, 7.1f, "Gobsway Rumblerocks"); // t=508.9
+    Timeout(id + 0x4B0, 4.1f, "Goblin Rush"); // t=513.0
+}
+

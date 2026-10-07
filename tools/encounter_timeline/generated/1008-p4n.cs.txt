@@ -1,0 +1,72 @@
+// Generated development skeleton from p4n.txt (TerritoryType 1008).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 18 static/dynamic trigger definitions from ui/raidboss/data/06-ew/raid/p4n.ts.
+
+private void P4N__Asphodelos__The_Fourth_Circle(uint id)
+{
+    Condition(id + 0x0, 10.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6A50), "", 5f, 5.8f); // t=10.8; StartsUsing 6A50 from Hesperos; cactbot StartsUsing 6A50 [P4N Elegant Evisceration]
+    Timeout(id + 0x10, 5.0f, "Elegant Evisceration"); // t=15.8; Ability 6A50 from Hesperos; cactbot StartsUsing 6A50 [P4N Elegant Evisceration]
+    Timeout(id + 0x20, 15.2f, "Setting the Scene 1"); // t=31.0; Ability 69CB from Hesperos
+    Timeout(id + 0x30, 12.2f, "Pinax"); // t=43.2; Ability 69CF from Hesperos
+    Timeout(id + 0x40, 10.1f, "Levinstrike Pinax"); // t=53.3; Ability 6A3F from Hesperos; cactbot StartsUsing 6A3F [P4N Levinstrike Pinax]
+    Timeout(id + 0x50, 12.1f, "Decollation").SetHint(StateMachine.StateHint.Raidwide); // t=65.4; Ability 6A51 from Hesperos; cactbot StartsUsing 6A51 [P4N Decollation]
+    Timeout(id + 0x60, 11.2f, "Setting the Scene 2"); // t=76.6; Ability 69CB from Hesperos
+    Timeout(id + 0x70, 12.2f, "Pinax"); // t=88.8; Ability 69CF from Hesperos
+    Timeout(id + 0x80, 10.1f, "Well Pinax"); // t=98.9; Ability 6A3E from Hesperos; cactbot StartsUsing 6A3E [P4N Well Pinax]
+    Timeout(id + 0x90, 13.2f, "Hell Skewer"); // t=112.1; Ability 6A4F from Hesperos; cactbot StartsUsing 6A4F [P4N Hell Skewer]
+    Timeout(id + 0xA0, 9.2f, "Elegant Evisceration"); // t=121.3; Ability 6A50 from Hesperos; cactbot StartsUsing 6A50 [P4N Elegant Evisceration]
+    Timeout(id + 0xB0, 11.2f, "Setting the Scene 3"); // t=132.5; Ability 69CB from Hesperos
+    Timeout(id + 0xC0, 12.2f, "Pinax"); // t=144.7; Ability 69CF from Hesperos
+    Timeout(id + 0xD0, 10.1f, "Well Pinax/Levinstrike Pinax"); // t=154.8; Ability 6A3E/6A3F from Hesperos; cactbot StartsUsing 6A3F [P4N Levinstrike Pinax] | StartsUsing 6A3E [P4N Well Pinax]
+    Timeout(id + 0xE0, 7.2f, "Hell Skewer"); // t=162.0; Ability 6A4F from Hesperos; cactbot StartsUsing 6A4F [P4N Hell Skewer]
+    Timeout(id + 0xF0, 3.7f, "Acid Pinax"); // t=165.7; Ability 6A3C from Hesperos; cactbot StartsUsing 6A3C [P4N Acid Pinax]
+    Timeout(id + 0x100, 11.0f, "Levinstrike Pinax/Well Pinax"); // t=176.7; Ability 6A3E/6A3F from Hesperos; cactbot StartsUsing 6A3F [P4N Levinstrike Pinax] | StartsUsing 6A3E [P4N Well Pinax]
+    Timeout(id + 0x110, 7.4f, "Hell Skewer"); // t=184.1; Ability 6A4F from Hesperos; cactbot StartsUsing 6A4F [P4N Hell Skewer]
+    Timeout(id + 0x120, 15.2f, "Bloodrake").SetHint(StateMachine.StateHint.Raidwide); // t=199.3; Ability 6A40 from Hesperos; cactbot StartsUsing 6A40 [P4N Bloodrake]
+    Timeout(id + 0x130, 9.1f, "Belone Coils"); // t=208.4; Ability 69DD from Hesperos; cactbot StartsUsing 69DD [P4N Belone Coils]
+    Timeout(id + 0x140, 10.8f, "Burst"); // t=219.2
+    Timeout(id + 0x150, 4.1f, "Hell Skewer"); // t=223.3; Ability 6A4F from Hesperos; cactbot StartsUsing 6A4F [P4N Hell Skewer]
+    Timeout(id + 0x160, 9.2f, "Decollation").SetHint(StateMachine.StateHint.Raidwide); // t=232.5; Ability 6A51 from Hesperos; cactbot StartsUsing 6A51 [P4N Decollation]
+    Timeout(id + 0x170, 7.2f, "--middle--"); // t=239.7; Ability 69CE from Hesperos
+    Timeout(id + 0x180, 8.7f, "Directional Shift"); // t=248.4; Ability 6A4A/6A4B/6A4C/6A4D from Hesperos; cactbot StartsUsing 6A4A [P4N Northerly Shift Slash] | StartsUsing 6A4C [P4N Easterly Shift Slash] | StartsUsing 6A4B [P4N Southerly Shift Slash] | StartsUsing 6A4D [P4N Westerly Shift Slash]
+    Timeout(id + 0x190, 1.5f, "Shifting Strike (cleave)"); // t=249.9; Ability 6A4E from Hesperos
+    Timeout(id + 0x1A0, 7.7f, "--middle--"); // t=257.6; Ability 69CE from Hesperos
+    Timeout(id + 0x1B0, 8.6f, "Directional Shift").SetHint(StateMachine.StateHint.Knockback); // t=266.2; Ability 6DAE/6DAF/6DB0/6DB1 from Hesperos; cactbot StartsUsing 6DAE [P4N Northerly Shift Knockback] | StartsUsing 6DB0 [P4N Easterly Shift Knockback] | StartsUsing 6DAF [P4N Southerly Shift Knockback] | StartsUsing 6DB1 [P4N Westerly Shift Knockback]
+    Timeout(id + 0x1C0, 1.7f, "Shifting Strike (knockback)").SetHint(StateMachine.StateHint.Knockback); // t=267.9; Ability 6DB2 from Hesperos
+    Timeout(id + 0x1D0, 1.5f, "--middle--"); // t=269.4; Ability 69CE from Hesperos
+    Timeout(id + 0x1E0, 9.0f, "Directional Shift").SetHint(StateMachine.StateHint.Knockback); // t=278.4; Ability 6A4A/6A4B/6A4C/6A4D/6DAE/6DAF/6DB0/6DB1 from Hesperos; cactbot StartsUsing 6A4A [P4N Northerly Shift Slash] | StartsUsing 6A4C [P4N Easterly Shift Slash] | StartsUsing 6A4B [P4N Southerly Shift Slash] | StartsUsing 6A4D [P4N Westerly Shift Slash] | StartsUsing 6DAE [P4N Northerly Shift Knockback] | StartsUsing 6DB0 [P4N Easterly Shift Knockback] | StartsUsing 6DAF [P4N Southerly Shift Knockback] | StartsUsing 6DB1 [P4N Westerly Shift Knockback]
+    Timeout(id + 0x1F0, 1.5f, "Shifting Strike"); // t=279.9; Ability 6DB2/6A4E from Hesperos
+    Timeout(id + 0x200, 5.7f, "--middle--"); // t=285.6; Ability 69CE from Hesperos
+    Timeout(id + 0x210, 6.7f, "Bloodrake").SetHint(StateMachine.StateHint.Raidwide); // t=292.3; Ability 6A40 from Hesperos; cactbot StartsUsing 6A40 [P4N Bloodrake]
+    Timeout(id + 0x220, 8.2f, "Belone Bursts"); // t=300.5; Ability 69D9 from Hesperos; cactbot StartsUsing 69D9 [P4N Belone Bursts]
+    Timeout(id + 0x230, 24.2f, "Elegant Evisceration"); // t=324.7; Ability 6A50 from Hesperos; cactbot StartsUsing 6A50 [P4N Elegant Evisceration]
+    Timeout(id + 0x240, 11.2f, "Setting the Scene"); // t=335.9; Ability 69CB from Hesperos
+    Timeout(id + 0x250, 13.2f, "Bloodrake").SetHint(StateMachine.StateHint.Raidwide); // t=349.1; Ability 6A40 from Hesperos; cactbot StartsUsing 6A40 [P4N Bloodrake]
+    Timeout(id + 0x260, 9.2f, "Pinax"); // t=358.3; Ability 69CF from Hesperos
+    Timeout(id + 0x270, 10.1f, "Pinax 1"); // t=368.4; Ability 6A3C/6A3D/6A3E/6A3F from Hesperos; cactbot StartsUsing 6A3F [P4N Levinstrike Pinax] | StartsUsing 6A3E [P4N Well Pinax] | StartsUsing 6A3C [P4N Acid Pinax] | StartsUsing 6A3D [P4N Lava Pinax]
+    Timeout(id + 0x280, 3.1f, "Hell Skewer"); // t=371.5; Ability 6A4F from Hesperos; cactbot StartsUsing 6A4F [P4N Hell Skewer]
+    Timeout(id + 0x290, 7.9f, "Pinax 2"); // t=379.4; Ability 6A3C/6A3D/6A3E/6A3F from Hesperos; cactbot StartsUsing 6A3F [P4N Levinstrike Pinax] | StartsUsing 6A3E [P4N Well Pinax] | StartsUsing 6A3C [P4N Acid Pinax] | StartsUsing 6A3D [P4N Lava Pinax]
+    Timeout(id + 0x2A0, 6.9f, "Belone Coils"); // t=386.3; Ability 69DD from Hesperos; cactbot StartsUsing 69DD [P4N Belone Coils]
+    Timeout(id + 0x2B0, 4.1f, "Pinax 3"); // t=390.4; Ability 6A3C/6A3D/6A3E/6A3F from Hesperos; cactbot StartsUsing 6A3F [P4N Levinstrike Pinax] | StartsUsing 6A3E [P4N Well Pinax] | StartsUsing 6A3C [P4N Acid Pinax] | StartsUsing 6A3D [P4N Lava Pinax]
+    Timeout(id + 0x2C0, 6.7f, "Burst"); // t=397.1
+    Timeout(id + 0x2D0, 6.3f, "Pinax 4"); // t=403.4; Ability 6A3C/6A3D/6A3E/6A3F from Hesperos; cactbot StartsUsing 6A3F [P4N Levinstrike Pinax] | StartsUsing 6A3E [P4N Well Pinax] | StartsUsing 6A3C [P4N Acid Pinax] | StartsUsing 6A3D [P4N Lava Pinax]
+    Timeout(id + 0x2E0, 1.1f, "--middle--"); // t=404.5; Ability 69CE from Hesperos
+    Timeout(id + 0x2F0, 9.0f, "Directional Shift").SetHint(StateMachine.StateHint.Knockback); // t=413.5; Ability 6A4A/6A4B/6A4C/6A4D/6DAE/6DAF/6DB0/6DB1 from Hesperos; cactbot StartsUsing 6A4A [P4N Northerly Shift Slash] | StartsUsing 6A4C [P4N Easterly Shift Slash] | StartsUsing 6A4B [P4N Southerly Shift Slash] | StartsUsing 6A4D [P4N Westerly Shift Slash] | StartsUsing 6DAE [P4N Northerly Shift Knockback] | StartsUsing 6DB0 [P4N Easterly Shift Knockback] | StartsUsing 6DAF [P4N Southerly Shift Knockback] | StartsUsing 6DB1 [P4N Westerly Shift Knockback]
+    Timeout(id + 0x300, 1.5f, "Shifting Strike"); // t=415.0; Ability 6DB2/6A4E from Hesperos
+    Timeout(id + 0x310, 13.9f, "Decollation").SetHint(StateMachine.StateHint.Raidwide); // t=428.9; Ability 6A51 from Hesperos; cactbot StartsUsing 6A51 [P4N Decollation]
+    Timeout(id + 0x320, 9.2f, "Bloodrake").SetHint(StateMachine.StateHint.Raidwide); // t=438.1; Ability 6A40 from Hesperos; cactbot StartsUsing 6A40 [P4N Bloodrake]
+    Timeout(id + 0x330, 8.2f, "Belone Bursts"); // t=446.3; Ability 69D9 from Hesperos; cactbot StartsUsing 69D9 [P4N Belone Bursts]
+    Timeout(id + 0x340, 8.2f, "--middle--"); // t=454.5; Ability 69CE from Hesperos
+    Timeout(id + 0x350, 8.6f, "Westerly Shift").SetHint(StateMachine.StateHint.Knockback); // t=463.1; Ability 6DB1 from Hesperos; cactbot StartsUsing 6DB1 [P4N Westerly Shift Knockback]
+    Timeout(id + 0x360, 1.7f, "Shifting Strike"); // t=464.8; Ability 6DB2 from Hesperos
+    Timeout(id + 0x370, 13.5f, "Decollation").SetHint(StateMachine.StateHint.Raidwide); // t=478.3; Ability 6A51 from Hesperos; cactbot StartsUsing 6A51 [P4N Decollation]
+    Timeout(id + 0x380, 13.2f, "Elegant Evisceration"); // t=491.5; Ability 6A50 from Hesperos; cactbot StartsUsing 6A50 [P4N Elegant Evisceration]
+    Timeout(id + 0x390, 11.2f, "Setting the Scene"); // t=502.7; Ability 69CB from Hesperos
+    Timeout(id + 0x3A0, 13.2f, "Bloodrake"); // t=515.9; cactbot StartsUsing 6A40 [P4N Bloodrake]
+    Timeout(id + 0x3B0, 9.2f, "Pinax"); // t=525.1
+    Timeout(id + 0x3C0, 10.1f, "Pinax 1"); // t=535.2
+    Timeout(id + 0x3D0, 3.1f, "Hell Skewer"); // t=538.3; cactbot StartsUsing 6A4F [P4N Hell Skewer]
+    Timeout(id + 0x3E0, 7.9f, "Pinax 2"); // t=546.2
+}
+

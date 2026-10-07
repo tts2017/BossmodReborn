@@ -1,0 +1,12 @@
+query ZoneEncountersProbe($expansionId: Int) {
+  worldData {
+    zones(expansion_id: $expansionId) {
+      id
+      name
+      encounters {
+        id
+        name
+      }
+    }
+  }
+}

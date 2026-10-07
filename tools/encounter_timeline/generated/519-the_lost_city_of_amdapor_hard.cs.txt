@@ -1,0 +1,140 @@
+// Generated development skeleton from the_lost_city_of_amdapor_hard.txt (TerritoryType 519).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 19 static/dynamic trigger definitions from ui/raidboss/data/03-hw/dungeon/the_lost_city_of_amdapor_hard.ts.
+
+private void THE_LOST_CITY_OF_AMDAPOR__HARD(uint id)
+{
+    Timeout(id + 0x0, 1022.7f, "Psycho Squama"); // t=1022.7; Ability 15C6 from Achamoth
+    Timeout(id + 0x10, 21.3f, "Psycho Squama"); // t=1044.0; Ability 15C6 from Achamoth
+    Timeout(id + 0x20, 11.1f, "Neuro Squama"); // t=1055.1; Ability 15C5 from Achamoth; cactbot StartsUsing 15C5 [LostCityHard Achamoth Neuro Squama]
+    Timeout(id + 0x30, 8.1f, "Toxic Squama"); // t=1063.2; Ability 15C7 from Achamoth; cactbot HeadMarker 1 [LostCityHard Achamoth Toxic Squama]
+    Timeout(id + 0x40, 5.0f, "Enthrallment"); // t=1068.2; Ability 15C3 from Whisper of Existence
+    Timeout(id + 0x50, 10.1f, "Enthrallment"); // t=1078.3; Ability 15C3 from Whisper of Existence
+    Timeout(id + 0x60, 11.1f, "Psycho Squama"); // t=1089.4; Ability 15C6 from Achamoth
+    Timeout(id + 0x70, 20.4f, "Toxic Squama"); // t=1109.8; Ability 15C7 from Achamoth; cactbot HeadMarker 1 [LostCityHard Achamoth Toxic Squama]
+    Timeout(id + 0x80, 20.2f, "Neuro Squama"); // t=1130.0; Ability 15C5 from Achamoth; cactbot StartsUsing 15C5 [LostCityHard Achamoth Neuro Squama]
+    Timeout(id + 0x90, 10.0f, "Enthrallment"); // t=1140.0; Ability 15C3 from Whisper of Existence
+    Timeout(id + 0xA0, 5.1f, "Toxic Squama"); // t=1145.1; Ability 15C7 from Achamoth; cactbot HeadMarker 1 [LostCityHard Achamoth Toxic Squama]
+    Timeout(id + 0xB0, 9.0f, "Psycho Squama"); // t=1154.1; Ability 15C6 from Achamoth
+    Timeout(id + 0xC0, 7.0f, "Enthrallment"); // t=1161.1; Ability 15C3 from Whisper of Existence
+    Timeout(id + 0xD0, 22.6f, "Toxic Squama"); // t=1183.7; Ability 15C7 from Achamoth; cactbot HeadMarker 1 [LostCityHard Achamoth Toxic Squama]
+    Timeout(id + 0xE0, 11.1f, "Psycho Squama"); // t=1194.8; Ability 15C6 from Achamoth
+    Timeout(id + 0xF0, 17.2f, "Neuro Squama"); // t=1212.0; Ability 15C5 from Achamoth; cactbot StartsUsing 15C5 [LostCityHard Achamoth Neuro Squama]
+    Timeout(id + 0x100, 10.0f, "Enthrallment"); // t=1222.0
+    Timeout(id + 0x110, 5.1f, "Toxic Squama"); // t=1227.1; cactbot HeadMarker 1 [LostCityHard Achamoth Toxic Squama]
+    Timeout(id + 0x120, 9.0f, "Psycho Squama"); // t=1236.1
+    Timeout(id + 0x130, 7.0f, "Enthrallment"); // t=1243.1
+    Timeout(id + 0x140, 22.6f, "Toxic Squama"); // t=1265.7; cactbot HeadMarker 1 [LostCityHard Achamoth Toxic Squama]
+    Timeout(id + 0x150, 11.1f, "Psycho Squama"); // t=1276.8
+    Timeout(id + 0x160, 735.2f, "Ancient Aero"); // t=2012.0; Ability 15CE from Winged Lion; cactbot Ability 15CE [LostCityHard Winged Lion Ancient Aero]
+    Timeout(id + 0x170, 13.1f, "Scratch"); // t=2025.1; Ability 15D5 from Winged Lion
+    Timeout(id + 0x180, 8.1f, "Ancient Stone"); // t=2033.2; Ability 15D2 from Winged Lion; cactbot Ability 15D2 [LostCityHard Winged Lion Ancient Stone]
+    Timeout(id + 0x190, 10.1f, "Scratch"); // t=2043.3; Ability 15D5 from Winged Lion
+    Condition(id + 0x1A0, 6.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x15C9), "", 5f, 1.2f); // t=2049.5; StartsUsing 15C9 from Winged Lion
+    Targetable(id + 0x1B0, false, 5.0f, "--untargetable--"); // t=2054.5
+    Timeout(id + 0x1C0, 18.1f, "Ancient Holy"); // t=2072.6; Ability 15CA from Winged Lion; cactbot Ability 15CA [LostCityHard Winged Lion Ancient Holy]
+    Targetable(id + 0x1D0, true, 2.0f, "--targetable--"); // t=2074.6
+    Timeout(id + 0x1E0, 14.1f, "Ancient Stone"); // t=2088.7; Ability 15D2 from Winged Lion; cactbot Ability 15D2 [LostCityHard Winged Lion Ancient Stone]
+    Timeout(id + 0x1F0, 9.1f, "Scratch"); // t=2097.8; Ability 15D5 from Winged Lion
+    Timeout(id + 0x200, 8.1f, "Scratch"); // t=2105.9; Ability 15D5 from Winged Lion
+    Timeout(id + 0x210, 14.1f, "Ancient Libra"); // t=2120.0; Ability 167D from Winged Lion
+    Timeout(id + 0x220, 5.1f, "Scratch"); // t=2125.1; Ability 15D5 from Winged Lion
+    Timeout(id + 0x230, 8.1f, "Ancient Stone"); // t=2133.2; Ability 15D2 from Winged Lion; cactbot Ability 15D2 [LostCityHard Winged Lion Ancient Stone]
+    Timeout(id + 0x240, 5.1f, "Scratch"); // t=2138.3; Ability 15D5 from Winged Lion
+    Condition(id + 0x250, 5.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x15C9), "", 5f, 0.0f); // t=2143.3; StartsUsing 15C9 from Winged Lion
+    Timeout(id + 0x260, 2.3f, "--adds--"); // t=2145.6
+    Targetable(id + 0x270, false, 2.7f, "--untargetable--"); // t=2148.3
+    Timeout(id + 0x280, 18.1f, "Ancient Holy"); // t=2166.4; Ability 15CA from Winged Lion; cactbot Ability 15CA [LostCityHard Winged Lion Ancient Holy]
+    Targetable(id + 0x290, true, 2.0f, "--targetable--"); // t=2168.4
+    Timeout(id + 0x2A0, 8.1f, "Ancient Libra"); // t=2176.5; Ability 167D from Winged Lion
+    Timeout(id + 0x2B0, 12.1f, "Ancient Aero"); // t=2188.6; Ability 15CE from Winged Lion; cactbot Ability 15CE [LostCityHard Winged Lion Ancient Aero]
+    Timeout(id + 0x2C0, 8.1f, "Scratch"); // t=2196.7; Ability 15D5 from Winged Lion
+    Timeout(id + 0x2D0, 7.0f, "Scratch"); // t=2203.7; Ability 15D5 from Winged Lion
+    Timeout(id + 0x2E0, 8.1f, "Ancient Stone"); // t=2211.8; Ability 15D2 from Winged Lion; cactbot Ability 15D2 [LostCityHard Winged Lion Ancient Stone]
+    Timeout(id + 0x2F0, 7.1f, "Scratch"); // t=2218.9; Ability 15D5 from Winged Lion
+    Timeout(id + 0x300, 9.1f, "Ancient Aero"); // t=2228.0; Ability 15CE from Winged Lion; cactbot Ability 15CE [LostCityHard Winged Lion Ancient Aero]
+    Timeout(id + 0x310, 13.1f, "Ancient Libra"); // t=2241.1; Ability 167D from Winged Lion
+    Timeout(id + 0x320, 5.0f, "Scratch"); // t=2246.1; Ability 15D5 from Winged Lion
+    Timeout(id + 0x330, 8.1f, "Ancient Stone"); // t=2254.2; Ability 15D2 from Winged Lion; cactbot Ability 15D2 [LostCityHard Winged Lion Ancient Stone]
+    Timeout(id + 0x340, 5.1f, "Scratch"); // t=2259.3; Ability 15D5 from Winged Lion
+    Condition(id + 0x350, 5.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x15C9), "", 5f, 0.1f); // t=2264.4; StartsUsing 15C9 from Winged Lion
+    Timeout(id + 0x360, 2.3f, "--adds--"); // t=2266.7
+    Targetable(id + 0x370, false, 2.7f, "--untargetable--"); // t=2269.4
+    Timeout(id + 0x380, 18.1f, "Ancient Holy"); // t=2287.5; Ability 15CA from Winged Lion; cactbot Ability 15CA [LostCityHard Winged Lion Ancient Holy]
+    Targetable(id + 0x390, true, 2.0f, "--targetable--"); // t=2289.5
+    Timeout(id + 0x3A0, 8.1f, "Ancient Libra"); // t=2297.6
+    Timeout(id + 0x3B0, 12.1f, "Ancient Aero"); // t=2309.7; cactbot Ability 15CE [LostCityHard Winged Lion Ancient Aero]
+    Timeout(id + 0x3C0, 8.1f, "Scratch"); // t=2317.8
+    Timeout(id + 0x3D0, 7.0f, "Scratch"); // t=2324.8
+    Timeout(id + 0x3E0, 8.1f, "Ancient Stone"); // t=2332.9; cactbot Ability 15D2 [LostCityHard Winged Lion Ancient Stone]
+    Timeout(id + 0x3F0, 7.1f, "Scratch"); // t=2340.0
+    Timeout(id + 0x400, 9.1f, "Ancient Aero"); // t=2349.1; cactbot Ability 15CE [LostCityHard Winged Lion Ancient Aero]
+    Timeout(id + 0x410, 13.1f, "Ancient Libra"); // t=2362.2
+    Timeout(id + 0x420, 5.0f, "Scratch"); // t=2367.2
+    Timeout(id + 0x430, 8.1f, "Ancient Stone"); // t=2375.3; cactbot Ability 15D2 [LostCityHard Winged Lion Ancient Stone]
+    Timeout(id + 0x440, 5.1f, "Scratch"); // t=2380.4
+}
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 7.0f, "Glory"); // t=3007.0; Ability 15E4 from Kuribu
+    Timeout(id + 0x10, 8.1f, "Regen"); // t=3015.1; Ability 15DC from Kuribu; cactbot StartsUsing 15DC [LostCityHard Kuribu Regen]
+    Timeout(id + 0x20, 7.1f, "Transference"); // t=3022.2; Ability 15DE from Kuribu
+    Timeout(id + 0x30, 10.0f, "Cure IV"); // t=3032.2; Ability 15DF from Kuribu; cactbot StartsUsing 15DF [LostCityHard Kuribu Cure IV]
+    Timeout(id + 0x40, 10.2f, "Cure III"); // t=3042.4; Ability 15D9 from Kuribu; cactbot HeadMarker 4A [LostCityHard Kuribu Cure III]
+    Timeout(id + 0x50, 8.1f, "Glory"); // t=3050.5; Ability 15E4 from Kuribu
+    Timeout(id + 0x60, 8.1f, "Glory"); // t=3058.6; Ability 15E4 from Kuribu
+    Timeout(id + 0x70, 9.1f, "Glory"); // t=3067.7; Ability 15E4 from Kuribu
+    Timeout(id + 0x80, 8.1f, "Regen"); // t=3075.8; Ability 15DC from Kuribu; cactbot StartsUsing 15DC [LostCityHard Kuribu Regen]
+    Timeout(id + 0x90, 7.1f, "Transference"); // t=3082.9; Ability 15DE from Kuribu
+    Timeout(id + 0xA0, 10.0f, "Cure IV"); // t=3092.9
+    Timeout(id + 0xB0, 10.2f, "Cure III"); // t=3103.1; cactbot HeadMarker 4A [LostCityHard Kuribu Cure III]
+    Timeout(id + 0xC0, 8.1f, "Glory"); // t=3111.2
+    Timeout(id + 0xD0, 8.1f, "Glory"); // t=3119.3
+}
+
+private void Phase_2(uint id)
+{
+    Targetable(id + 0x0, false, 0.0f, "--untargetable--"); // t=3300.0
+    Targetable(id + 0x10, true, 6.0f, "--targetable--"); // t=3306.0
+    Timeout(id + 0x20, 0.0f, "Reverse").SetHint(StateMachine.StateHint.Raidwide); // t=3306.0; Ability 15D8 from Kuribu; cactbot StartsUsing 15E0 [LostCityHard Kuribu Cure IV Reverse]
+    Timeout(id + 0x30, 7.0f, "Regen"); // t=3313.0; Ability 15DD from Kuribu
+    Timeout(id + 0x40, 13.1f, "Cure IV").SetHint(StateMachine.StateHint.Raidwide); // t=3326.1; Ability 15E0 from Kuribu; cactbot StartsUsing 15E0 [LostCityHard Kuribu Cure IV Reverse]
+    Timeout(id + 0x50, 8.1f, "Glory"); // t=3334.2; Ability 15E4 from Kuribu
+    Timeout(id + 0x60, 10.1f, "Cure III"); // t=3344.3; Ability 15DA from Kuribu; cactbot HeadMarker 4A [LostCityHard Kuribu Cure III]
+    Timeout(id + 0x70, 11.2f, "Glory"); // t=3355.5; Ability 15E4 from Kuribu
+    Timeout(id + 0x80, 10.1f, "Regen"); // t=3365.6; Ability 15DD from Kuribu
+    Timeout(id + 0x90, 13.1f, "Cure IV"); // t=3378.7
+    Timeout(id + 0xA0, 8.1f, "Glory"); // t=3386.8
+    Timeout(id + 0xB0, 10.1f, "Cure III"); // t=3396.9; cactbot HeadMarker 4A [LostCityHard Kuribu Cure III]
+    Timeout(id + 0xC0, 11.3f, "Glory"); // t=3408.2
+}
+
+private void Phase_3(uint id)
+{
+    Targetable(id + 0x0, false, 0.0f, "--untargetable--"); // t=3500.0
+    Targetable(id + 0x10, true, 6.0f, "--targetable--"); // t=3506.0
+    Timeout(id + 0x20, 0.0f, "Reverse").SetHint(StateMachine.StateHint.Raidwide); // t=3506.0; Ability 15D8 from Kuribu; cactbot StartsUsing 15E0 [LostCityHard Kuribu Cure IV Reverse]
+    Timeout(id + 0x30, 5.0f, "Decoy"); // t=3511.0; Ability 15E1 from Kuribu
+    Targetable(id + 0x40, true, 0.5f, "--targetable--"); // t=3511.5
+    Timeout(id + 0x50, 4.6f, "Glory"); // t=3516.1; Ability 15E4 from Kuribu
+    Timeout(id + 0x60, 2.1f, "Transference"); // t=3518.2; Ability 15DE from Kuribu
+    Timeout(id + 0x70, 10.0f, "Cure IV"); // t=3528.2; Ability 15DF from Kuribu; cactbot StartsUsing 15DF [LostCityHard Kuribu Cure IV]
+    Timeout(id + 0x80, 8.1f, "Glory"); // t=3536.3; Ability 15E4 from Kuribu
+    Timeout(id + 0x90, 5.2f, "Reverse").SetHint(StateMachine.StateHint.Raidwide); // t=3541.5; Ability 15D8 from Kuribu; cactbot StartsUsing 15E0 [LostCityHard Kuribu Cure IV Reverse]
+    Timeout(id + 0xA0, 5.0f, "Decoy"); // t=3546.5; Ability 15E2 from Kuribu
+    Targetable(id + 0xB0, true, 0.5f, "--targetable--"); // t=3547.0
+    Timeout(id + 0xC0, 4.6f, "Regen"); // t=3551.6; Ability 15DD from Kuribu
+    Timeout(id + 0xD0, 28.1f, "Cure IV").SetHint(StateMachine.StateHint.Raidwide); // t=3579.7; Ability 15E0 from Kuribu; cactbot StartsUsing 15E0 [LostCityHard Kuribu Cure IV Reverse]
+    Timeout(id + 0xE0, 16.1f, "Cure III"); // t=3595.8; Ability 15DA from Kuribu; cactbot HeadMarker 4A [LostCityHard Kuribu Cure III]
+    Timeout(id + 0xF0, 12.2f, "Glory"); // t=3608.0; Ability 15E4 from Kuribu
+    Timeout(id + 0x100, 9.2f, "Reverse").SetHint(StateMachine.StateHint.Raidwide); // t=3617.2; Ability 15D8 from Kuribu; cactbot StartsUsing 15E0 [LostCityHard Kuribu Cure IV Reverse]
+    Timeout(id + 0x110, 5.0f, "Decoy"); // t=3622.2
+    Targetable(id + 0x120, true, 0.5f, "--targetable--"); // t=3622.7
+    Timeout(id + 0x130, 4.6f, "Glory"); // t=3627.3
+    Timeout(id + 0x140, 2.1f, "Transference"); // t=3629.4
+    Timeout(id + 0x150, 10.0f, "Cure IV"); // t=3639.4
+    Timeout(id + 0x160, 8.1f, "Glory"); // t=3647.5
+}
+

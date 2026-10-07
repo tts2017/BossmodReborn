@@ -1,0 +1,294 @@
+// Generated development skeleton from the_puppets_bunker.txt (TerritoryType 917).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 51 static/dynamic trigger definitions from ui/raidboss/data/05-shb/alliance/the_puppets_bunker.ts.
+
+private void Timeline_813P_Operated_Aegis_Unit(uint id)
+{
+    Timeout(id + 0x0, 12.8f, "Firing Order: Anti-Personnel Laser"); // t=112.8; Ability 508D from 813P-Operated Aegis Unit
+    Timeout(id + 0x10, 27.3f, "Maneuver: Beam Cannons"); // t=140.1; Ability 5073 from 813P-Operated Aegis Unit; cactbot StartsUsing 5073 [Puppet Aegis Beam Cannons]
+    Timeout(id + 0x20, 18.3f, "Maneuver: Collider Cannons"); // t=158.4
+    Timeout(id + 0x30, 12.2f, "Firing Order: Surface Laser"); // t=170.6; Ability 508E from 813P-Operated Aegis Unit
+    Timeout(id + 0x40, 7.1f, "Aerial Support: Swoop"); // t=177.7; Ability 50D2 from 813P-Operated Aegis Unit
+    Timeout(id + 0x50, 10.1f, "Flight Path"); // t=187.8; Ability 508C from Flight Unit
+    Timeout(id + 0x60, 10.1f, "Maneuver: Refraction Cannons"); // t=197.9; Ability 507F/5080 from 813P-Operated Aegis Unit; cactbot StartsUsing 5080 [Puppet Aegis Refraction Cannons 1] | StartsUsing 507F [Puppet Aegis Refraction Cannons 2]
+    Timeout(id + 0x70, 22.3f, "Maneuver: Beam Cannons"); // t=220.2; Ability 5073 from 813P-Operated Aegis Unit; cactbot StartsUsing 5073 [Puppet Aegis Beam Cannons]
+    Timeout(id + 0x80, 19.4f, "Aerial Support: Bombardment"); // t=239.6; Ability 50D3 from 813P-Operated Aegis Unit
+    Timeout(id + 0x90, 4.8f, "--adds targetable--"); // t=244.4
+    Timeout(id + 0xA0, 5.4f, "Firing Order: Surface Laser"); // t=249.8; Ability 508E from 813P-Operated Aegis Unit
+    Timeout(id + 0xB0, 6.2f, "Firing Order: High-Powered Laser"); // t=256.0; Ability 508F from 813P-Operated Aegis Unit; cactbot StartsUsing 508F [Puppet Aegis High-Powered Laser]
+    Timeout(id + 0xC0, 7.3f, "High-Powered Laser"); // t=263.3; Ability 5093 from 813P-Operated Aegis Unit
+    Timeout(id + 0xD0, 6.2f, "Maneuver: Saturation Bombing?"); // t=269.5; Ability 5097 from Flight Unit
+    Timeout(id + 0xE0, 18.3f, "Life's Last Song"); // t=287.8; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0xF0, 8.0f, "Life's Last Song"); // t=295.8; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x100, 8.0f, "Life's Last Song"); // t=303.8; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x110, 5.5f, "Aerial Support: Swoop"); // t=309.3; Ability 50D2 from 813P-Operated Aegis Unit
+    Timeout(id + 0x120, 8.1f, "Maneuver: Refraction Cannons"); // t=317.4; Ability 507F/5080 from 813P-Operated Aegis Unit; cactbot StartsUsing 5080 [Puppet Aegis Refraction Cannons 1] | StartsUsing 507F [Puppet Aegis Refraction Cannons 2]
+    Timeout(id + 0x130, 2.0f, "Flight Path"); // t=319.4; Ability 508C from Flight Unit
+    Timeout(id + 0x140, 9.1f, "Firing Order: Surface Laser"); // t=328.5; Ability 508E from 813P-Operated Aegis Unit
+    Timeout(id + 0x150, 17.2f, "Maneuver: Beam Cannons"); // t=345.7; Ability 5073 from 813P-Operated Aegis Unit; cactbot StartsUsing 5073 [Puppet Aegis Beam Cannons]
+    Timeout(id + 0x160, 11.6f, "Life's Last Song"); // t=357.3; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x170, 5.0f, "Life's Last Song"); // t=362.3; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x180, 5.0f, "Life's Last Song"); // t=367.3; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x190, 5.0f, "Life's Last Song"); // t=372.3; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x1A0, 5.0f, "Life's Last Song"); // t=377.3; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x1B0, 5.5f, "Aerial Support: Swoop"); // t=382.8; Ability 50D2 from 813P-Operated Aegis Unit
+    Timeout(id + 0x1C0, 10.1f, "Flight Path"); // t=392.9; Ability 508C from Flight Unit
+    Timeout(id + 0x1D0, 1.5f, "Maneuver: Collider Cannons"); // t=394.4
+    Timeout(id + 0x1E0, 17.3f, "Firing Order: Anti-Personnel Laser"); // t=411.7; Ability 508D from 813P-Operated Aegis Unit
+    Timeout(id + 0x1F0, 10.6f, "Maneuver: Collider Cannons"); // t=422.3
+    Timeout(id + 0x200, 19.3f, "Firing Order: Surface Laser"); // t=441.6; Ability 508E from 813P-Operated Aegis Unit
+    Timeout(id + 0x210, 17.2f, "Maneuver: Beam Cannons"); // t=458.8; Ability 5073 from 813P-Operated Aegis Unit; cactbot StartsUsing 5073 [Puppet Aegis Beam Cannons]
+    Timeout(id + 0x220, 11.5f, "Life's Last Song"); // t=470.3; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x230, 5.0f, "Life's Last Song"); // t=475.3; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x240, 5.0f, "Life's Last Song"); // t=480.3; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x250, 4.9f, "Life's Last Song"); // t=485.2; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x260, 5.0f, "Life's Last Song"); // t=490.2; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x270, 5.5f, "Aerial Support: Swoop"); // t=495.7; Ability 50D2 from 813P-Operated Aegis Unit
+    Timeout(id + 0x280, 8.1f, "Maneuver: Refraction Cannons"); // t=503.8; Ability 507F/5080 from 813P-Operated Aegis Unit; cactbot StartsUsing 5080 [Puppet Aegis Refraction Cannons 1] | StartsUsing 507F [Puppet Aegis Refraction Cannons 2]
+    Timeout(id + 0x290, 2.0f, "Flight Path"); // t=505.8; Ability 508C from Flight Unit
+    Timeout(id + 0x2A0, 15.3f, "Firing Order: Anti-Personnel Laser"); // t=521.1; Ability 508D from 813P-Operated Aegis Unit
+    Timeout(id + 0x2B0, 10.0f, "Maneuver: Collider Cannons"); // t=531.1
+    Timeout(id + 0x2C0, 19.4f, "Firing Order: Surface Laser"); // t=550.5; Ability 508E from 813P-Operated Aegis Unit
+    Timeout(id + 0x2D0, 16.2f, "Maneuver: Beam Cannons"); // t=566.7; Ability 5073 from 813P-Operated Aegis Unit; cactbot StartsUsing 5073 [Puppet Aegis Beam Cannons]
+    Timeout(id + 0x2E0, 11.5f, "Life's Last Song"); // t=578.2; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x2F0, 5.0f, "Life's Last Song"); // t=583.2; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x300, 5.0f, "Life's Last Song"); // t=588.2; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x310, 4.9f, "Life's Last Song"); // t=593.1; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x320, 5.0f, "Life's Last Song"); // t=598.1; Ability 53B3 from 813P-Operated Aegis Unit; cactbot StartsUsing 53B3 [Puppet Aegis Life\]
+    Timeout(id + 0x330, 5.5f, "Aerial Support: Swoop"); // t=603.6; Ability 50D2 from 813P-Operated Aegis Unit
+    Timeout(id + 0x340, 8.1f, "Maneuver: Refraction Cannons"); // t=611.7
+    Timeout(id + 0x350, 2.0f, "Flight Path"); // t=613.7
+    Timeout(id + 0x360, 15.3f, "Firing Order: Anti-Personnel Laser"); // t=629.0
+    Timeout(id + 0x370, 10.0f, "Maneuver: Collider Cannons"); // t=639.0
+    Timeout(id + 0x380, 19.4f, "Firing Order: Surface Laser"); // t=658.4
+    Timeout(id + 0x390, 16.2f, "Maneuver: Beam Cannons"); // t=674.6
+}
+
+private void Light_Artillery_Unit_x3_and_friends(uint id)
+{
+    Timeout(id + 0x0, 13.9f, "Maneuver: Long-Barreled Laser"); // t=1013.9; Ability 5212 from Light Artillery Unit
+    Timeout(id + 0x10, 11.8f, "Maneuver: Volt Array"); // t=1025.7; Ability 5211 from Light Artillery Unit; cactbot StartsUsing 5211 [Puppet Light Volt Array]
+    Timeout(id + 0x20, 10.3f, "Authorization: No Restrictions"); // t=1036.0; Ability 520E from Light Artillery Unit
+    Timeout(id + 0x30, 5.7f, "Surface Missile Impact"); // t=1041.7; Ability 520F from Light Artillery Unit
+    Timeout(id + 0x40, 2.0f, "Homing Missile Impact"); // t=1043.7; Ability 5210 from Light Artillery Unit
+    Timeout(id + 0x50, 9.0f, "Maneuver: Long-Barreled Laser"); // t=1052.7; Ability 5212 from Light Artillery Unit
+    Timeout(id + 0x60, 6.8f, "Maneuver: Long-Barreled Laser"); // t=1059.5; Ability 5212 from Light Artillery Unit
+    Timeout(id + 0x70, 10.7f, "Maneuver: Volt Array"); // t=1070.2; Ability 5211 from Light Artillery Unit; cactbot StartsUsing 5211 [Puppet Light Volt Array]
+    Timeout(id + 0x80, 16.5f, "Maneuver: Martial Arm").SetHint(StateMachine.StateHint.Tankbuster); // t=1086.7; Ability 5213 from Light Artillery Unit; cactbot StartsUsing 5213 [Puppet Light Maneuver Martial Arm Target] | StartsUsing 5213 [Puppet Light Maneuver Martial Arm Collect] | StartsUsing 5213 [Puppet Light Maneuver Martial Arm Healer]
+    Timeout(id + 0x90, 10.4f, "Maneuver: Martial Arm").SetHint(StateMachine.StateHint.Tankbuster); // t=1097.1; Ability 5213 from Light Artillery Unit; cactbot StartsUsing 5213 [Puppet Light Maneuver Martial Arm Target] | StartsUsing 5213 [Puppet Light Maneuver Martial Arm Collect] | StartsUsing 5213 [Puppet Light Maneuver Martial Arm Healer]
+    Timeout(id + 0xA0, 6.4f, "Maneuver: Long-Barreled Laser"); // t=1103.5; Ability 5212 from Light Artillery Unit
+    Timeout(id + 0xB0, 0.2f, "Maneuver: Long-Barreled Laser"); // t=1103.7; Ability 5212 from Light Artillery Unit
+    Timeout(id + 0xC0, 15.9f, "Maneuver: Volt Array"); // t=1119.6; Ability 5211 from Light Artillery Unit; cactbot StartsUsing 5211 [Puppet Light Volt Array]
+    Timeout(id + 0xD0, 10.3f, "Authorization: No Restrictions"); // t=1129.9; Ability 520E from Light Artillery Unit
+    Timeout(id + 0xE0, 5.7f, "Surface Missile Impact"); // t=1135.6
+    Timeout(id + 0xF0, 2.0f, "Homing Missile Impact"); // t=1137.6
+    Timeout(id + 0x100, 16.1f, "Initiate Self-Destruct"); // t=1153.7
+}
+
+private void Superior_Flight_Unit_Swordy_Boi_Trio(uint id)
+{
+    Timeout(id + 0x0, 5.1f, "Apply Shield Protocol"); // t=2005.1; Ability 4FA6 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x10, 13.2f, "Maneuver: Missile Command").SetHint(StateMachine.StateHint.Raidwide); // t=2018.3; Ability 4FBD from 724P-Operated Superior Flight Unit \\(A-Lpha\\); cactbot StartsUsing 4FBD [Puppet Superior Missile Command]
+    Timeout(id + 0x20, 13.2f, "Maneuver: Incendiary Bombing"); // t=2031.5; Ability 4FC3 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x30, 9.2f, "Maneuver: High-Powered Laser"); // t=2040.7; Ability 4FB4 from 724P-Operated Superior Flight Unit \\(A-Lpha\\); cactbot StartsUsing 4FB4 [Puppet Superior High-Powered Laser]
+    Timeout(id + 0x40, 19.7f, "Formation: Sharp Turn"); // t=2060.4; Ability 4FAB from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x50, 13.2f, "Sharp Turn"); // t=2073.6
+    Timeout(id + 0x60, 16.8f, "Maneuver: Precision Guided Missile"); // t=2090.4; Ability 4FC4 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x70, 14.3f, "Formation: Air Raid"); // t=2104.7; Ability 4FB0 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x80, 9.3f, "Lethal Revolution"); // t=2114.0; Ability 4FB3 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x90, 28.4f, "Formation: Sliding Swipe"); // t=2142.4; Ability 4FAE from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Targetable(id + 0xA0, false, 2.0f, "--untargetable--"); // t=2144.4
+    Timeout(id + 0xB0, 9.1f, "Incendiary Barrage"); // t=2153.5; Ability 4FAF from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0xC0, 1.5f, "Sliding Swipe 1"); // t=2155.0
+    Timeout(id + 0xD0, 2.0f, "Sliding Swipe 2"); // t=2157.0
+    Timeout(id + 0xE0, 2.0f, "Sliding Swipe 3"); // t=2159.0; Ability 550F/5510 from 772P-Operated Superior Flight Unit \\(C-Hi\\); cactbot StartsUsing 5510 [Puppet Superior Sliding Swipe First] | Ability 5510 [Puppet Superior Sliding Swipe Others]
+    Targetable(id + 0xF0, true, 2.3f, "--targetable--"); // t=2161.3
+    Condition(id + 0x100, 11.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4FC4), "", 5f, 6.4f); // t=2172.7; StartsUsing 4FC4 from 724P-Operated Superior Flight Unit \\(A-Lpha\\) | StartsUsing 4FC4 from 767P-Operated Superior Flight Unit \\(B-Eta\\) | StartsUsing 4FC4 from 772P-Operated Superior Flight Unit \\(C-Hi\\)
+    Timeout(id + 0x110, 4.0f, "Maneuver: Precision Guided Missile"); // t=2176.7; Ability 4FC4 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x120, 14.3f, "Maneuver: Area Bombardment"); // t=2191.0; Ability 4FB7 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x130, 15.2f, "Maneuver: High-Powered Laser"); // t=2206.2; Ability 4FB4 from 724P-Operated Superior Flight Unit \\(A-Lpha\\); cactbot StartsUsing 4FB4 [Puppet Superior High-Powered Laser]
+    Timeout(id + 0x140, 18.6f, "Maneuver: Missile Command").SetHint(StateMachine.StateHint.Raidwide); // t=2224.8; Ability 4FBD from 724P-Operated Superior Flight Unit \\(A-Lpha\\); cactbot StartsUsing 4FBD [Puppet Superior Missile Command]
+    Timeout(id + 0x150, 18.3f, "Formation: Air Raid"); // t=2243.1; Ability 4FB0 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x160, 9.4f, "Lethal Revolution"); // t=2252.5; Ability 4FB3 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x170, 21.3f, "Maneuver: Area Bombardment"); // t=2273.8; Ability 4FB7 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x180, 30.3f, "Maneuver: Precision Guided Missile"); // t=2304.1; Ability 4FC4 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x190, 11.2f, "Maneuver: Incendiary Bombing"); // t=2315.3; Ability 4FC3 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x1A0, 6.2f, "Maneuver: High-Order Explosive Blast"); // t=2321.5; Ability 4FBF from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x1B0, 18.3f, "Maneuver: Missile Command").SetHint(StateMachine.StateHint.Raidwide); // t=2339.8; Ability 4FBD from 724P-Operated Superior Flight Unit \\(A-Lpha\\); cactbot StartsUsing 4FBD [Puppet Superior Missile Command]
+    Timeout(id + 0x1C0, 16.3f, "Formation: Sharp Turn"); // t=2356.1; Ability 4FAB from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x1D0, 13.1f, "Sharp Turn"); // t=2369.2
+    Timeout(id + 0x1E0, 22.8f, "Formation: Sliding Swipe"); // t=2392.0; Ability 4FAE from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Targetable(id + 0x1F0, false, 2.0f, "--untargetable--"); // t=2394.0
+    Timeout(id + 0x200, 6.0f, "Anti-Personnel Missile"); // t=2400.0; Ability 4FBB from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x210, 3.1f, "Incendiary Barrage"); // t=2403.1; Ability 4FAF from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x220, 1.5f, "Sliding Swipe 1"); // t=2404.6
+    Timeout(id + 0x230, 2.0f, "Sliding Swipe 2"); // t=2406.6
+    Timeout(id + 0x240, 2.0f, "Sliding Swipe 3"); // t=2408.6; Ability 550F/5510 from 772P-Operated Superior Flight Unit \\(C-Hi\\); cactbot StartsUsing 5510 [Puppet Superior Sliding Swipe First] | Ability 5510 [Puppet Superior Sliding Swipe Others]
+    Targetable(id + 0x250, true, 2.3f, "--targetable--"); // t=2410.9
+    Condition(id + 0x260, 16.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4FBD), "", 5f, 11.3f); // t=2427.2; StartsUsing 4FBD from 724P-Operated Superior Flight Unit \\(A-Lpha\\) | StartsUsing 4FBD from 767P-Operated Superior Flight Unit \\(B-Eta\\) | StartsUsing 4FBD from 772P-Operated Superior Flight Unit \\(C-Hi\\); cactbot StartsUsing 4FBD [Puppet Superior Missile Command]
+    Timeout(id + 0x270, 4.0f, "Maneuver: Missile Command").SetHint(StateMachine.StateHint.Raidwide); // t=2431.2; Ability 4FBD from 724P-Operated Superior Flight Unit \\(A-Lpha\\); cactbot StartsUsing 4FBD [Puppet Superior Missile Command]
+    Timeout(id + 0x280, 16.2f, "Maneuver: Precision Guided Missile"); // t=2447.4; Ability 4FC4 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x290, 20.3f, "Maneuver: Area Bombardment"); // t=2467.7; Ability 4FB7 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x2A0, 15.2f, "Maneuver: High-Powered Laser"); // t=2482.9; Ability 4FB4 from 724P-Operated Superior Flight Unit \\(A-Lpha\\); cactbot StartsUsing 4FB4 [Puppet Superior High-Powered Laser]
+    Timeout(id + 0x2B0, 18.6f, "Maneuver: Missile Command").SetHint(StateMachine.StateHint.Raidwide); // t=2501.5; Ability 4FBD from 724P-Operated Superior Flight Unit \\(A-Lpha\\); cactbot StartsUsing 4FBD [Puppet Superior Missile Command]
+    Timeout(id + 0x2C0, 18.3f, "Formation: Air Raid"); // t=2519.8; Ability 4FB0 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x2D0, 9.2f, "Lethal Revolution"); // t=2529.0; Ability 4FB3 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x2E0, 21.5f, "Maneuver: Area Bombardment"); // t=2550.5; Ability 4FB7 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x2F0, 15.1f, "Anti-Personnel Missile"); // t=2565.6; Ability 4FBB from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x300, 15.2f, "Maneuver: Precision Guided Missile"); // t=2580.8; Ability 4FC4 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x310, 11.2f, "Maneuver: Incendiary Bombing"); // t=2592.0; Ability 4FC3 from 724P-Operated Superior Flight Unit \\(A-Lpha\\)
+    Timeout(id + 0x320, 6.2f, "Maneuver: High-Order Explosive Blast"); // t=2598.2
+    Timeout(id + 0x330, 18.3f, "Maneuver: Missile Command"); // t=2616.5
+    Timeout(id + 0x340, 16.3f, "Formation: Sharp Turn"); // t=2632.8
+    Timeout(id + 0x350, 13.1f, "Sharp Turn"); // t=2645.9
+    Timeout(id + 0x360, 22.8f, "Formation: Sliding Swipe"); // t=2668.7
+}
+
+private void Timeline_905P_Operated_Heavy_Artillery_Unit(uint id)
+{
+    Timeout(id + 0x0, 12.1f, "Maneuver: Volt Array").SetHint(StateMachine.StateHint.Raidwide); // t=3012.1; Ability 5006 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5006 [Puppet Heavy Volt Array]
+    Timeout(id + 0x10, 12.4f, "Operation: Activate Laser Turret"); // t=3024.5; Ability 4FED from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 4FED [Puppet Heavy Active Laser Turret Initial]
+    Timeout(id + 0x20, 3.7f, "Lower Laser / Upper Laser"); // t=3028.2; Ability 5086 from 905P-Operated Heavy Artillery Unit | Ability 5087 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5086 [Puppet Heavy Active Laser Turret Move]
+    Timeout(id + 0x30, 3.0f, "Upper Laser"); // t=3031.2; Ability 5088 from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x40, 3.0f, "Upper Laser"); // t=3034.2; Ability 5089 from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x50, 4.3f, "Maneuver: High-Powered Laser x2"); // t=3038.5; Ability 5001 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5001 [Puppet Heavy High-Powered Laser]
+    Timeout(id + 0x60, 15.8f, "Maneuver: Unconventional Voltage"); // t=3054.3; Ability 5003 from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x70, 7.1f, "Energy Bombardment"); // t=3061.4; Ability 4FFB from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x80, 11.1f, "Maneuver: Impact Crusher x3"); // t=3072.5; Ability 4FFD from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x90, 6.3f, "Maneuver: Revolving Laser"); // t=3078.8; Ability 5000 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5000 [Puppet Heavy Revolving Laser]
+    Timeout(id + 0xA0, 9.1f, "Maneuver: Volt Array").SetHint(StateMachine.StateHint.Raidwide); // t=3087.9; Ability 5006 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5006 [Puppet Heavy Volt Array]
+    Timeout(id + 0xB0, 22.0f, "Operation: Access Self-Consciousness Data"); // t=3109.9; Ability 4FEF from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0xC0, 16.3f, "Operation: Activate Suppressive Unit"); // t=3126.2; Ability 4FEE from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0xD0, 30.0f, "Maneuver: Volt Array").SetHint(StateMachine.StateHint.Raidwide); // t=3156.2; Ability 5006 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5006 [Puppet Heavy Volt Array]
+    Timeout(id + 0xE0, 16.2f, "Support: Pod"); // t=3172.4; Ability 4FE9 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 4FE9 [Puppet Heavy Support Pod]
+    Timeout(id + 0xF0, 10.3f, "Operation: Pod Program"); // t=3182.7; Ability 4FEA from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x100, 11.9f, "R010: Laser / R030: Hammer"); // t=3194.6
+    Timeout(id + 0x110, 5.0f, "Support: Pod"); // t=3199.6; Ability 4FE9 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 4FE9 [Puppet Heavy Support Pod]
+    Timeout(id + 0x120, 11.2f, "Operation: Pod Program"); // t=3210.8; Ability 4FEA from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x130, 11.9f, "R030: Hammer / R010: Laser"); // t=3222.7
+    Timeout(id + 0x140, 10.1f, "Operation: Synthesize Compound"); // t=3232.8; Ability 4FEC from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 4FEC [Puppet Heavy Synthesize Compound]
+    Timeout(id + 0x150, 17.0f, "Chemical Burn"); // t=3249.8; Ability 4FF4 from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x160, 5.0f, "Maneuver: Volt Array").SetHint(StateMachine.StateHint.Raidwide); // t=3254.8; Ability 5006 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5006 [Puppet Heavy Volt Array]
+    Timeout(id + 0x170, 17.3f, "Maneuver: Unconventional Voltage"); // t=3272.1; Ability 5003 from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x180, 4.1f, "Energy Bombardment"); // t=3276.2; Ability 4FFB from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x190, 20.9f, "Maneuver: Volt Array").SetHint(StateMachine.StateHint.Raidwide); // t=3297.1; Ability 5006 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5006 [Puppet Heavy Volt Array]
+    Timeout(id + 0x1A0, 12.2f, "Maneuver: Volt Array").SetHint(StateMachine.StateHint.Raidwide); // t=3309.3; Ability 5006 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5006 [Puppet Heavy Volt Array]
+    Timeout(id + 0x1B0, 4.1f, "Support: Pod"); // t=3313.4; Ability 4FE9 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 4FE9 [Puppet Heavy Support Pod]
+    Timeout(id + 0x1C0, 10.3f, "Operation: Pod Program"); // t=3323.7; Ability 4FEA from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x1D0, 11.9f, "R010: Laser / R030: Hammer"); // t=3335.6; Ability 4FF0 from Pod | Ability 4FF1 from Pod
+    Timeout(id + 0x1E0, 5.0f, "Support: Pod"); // t=3340.6; Ability 4FE9 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 4FE9 [Puppet Heavy Support Pod]
+    Timeout(id + 0x1F0, 11.3f, "Operation: Pod Program"); // t=3351.9; Ability 4FEA from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x200, 12.0f, "R010: Laser / R030: Hammer"); // t=3363.9; Ability 4FF0 from Pod | Ability 4FF1 from Pod
+    Timeout(id + 0x210, 6.5f, "Operation: Activate Laser Turret"); // t=3370.4; Ability 4FED from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 4FED [Puppet Heavy Active Laser Turret Initial]
+    Timeout(id + 0x220, 3.7f, "Lower Laser / Upper Laser"); // t=3374.1; Ability 5086 from 905P-Operated Heavy Artillery Unit | Ability 5087 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5086 [Puppet Heavy Active Laser Turret Move]
+    Timeout(id + 0x230, 3.0f, "Upper Laser"); // t=3377.1; Ability 5088 from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x240, 3.0f, "Upper Laser"); // t=3380.1; Ability 5089 from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x250, 1.2f, "Maneuver: Volt Array").SetHint(StateMachine.StateHint.Raidwide); // t=3381.3; Ability 5006 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5006 [Puppet Heavy Volt Array]
+    Timeout(id + 0x260, 14.2f, "Maneuver: Volt Array").SetHint(StateMachine.StateHint.Raidwide); // t=3395.5; Ability 5006 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5006 [Puppet Heavy Volt Array]
+    Timeout(id + 0x270, 9.2f, "Operation: Synthesize Compound"); // t=3404.7; Ability 4FEC from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 4FEC [Puppet Heavy Synthesize Compound]
+    Timeout(id + 0x280, 17.0f, "Chemical Conflagration"); // t=3421.7; Ability 4FF5 from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x290, 3.0f, "Maneuver: Impact Crusher x3"); // t=3424.7; Ability 4FFD from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x2A0, 6.3f, "Maneuver: Revolving Laser"); // t=3431.0; Ability 5000 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5000 [Puppet Heavy Revolving Laser]
+    Timeout(id + 0x2B0, 8.1f, "Maneuver: Volt Array").SetHint(StateMachine.StateHint.Raidwide); // t=3439.1; Ability 5006 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5006 [Puppet Heavy Volt Array]
+    Timeout(id + 0x2C0, 17.3f, "Operation: Activate Suppressive Unit"); // t=3456.4; Ability 4FEE from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x2D0, 30.0f, "Maneuver: Unconventional Voltage"); // t=3486.4; Ability 5003 from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x2E0, 9.1f, "Maneuver: Volt Array").SetHint(StateMachine.StateHint.Raidwide); // t=3495.5; Ability 5006 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5006 [Puppet Heavy Volt Array]
+    Timeout(id + 0x2F0, 8.1f, "Maneuver: Volt Array").SetHint(StateMachine.StateHint.Raidwide); // t=3503.6; Ability 5006 from 905P-Operated Heavy Artillery Unit; cactbot StartsUsing 5006 [Puppet Heavy Volt Array]
+    Timeout(id + 0x300, 18.2f, "Maneuver: Unconventional Voltage"); // t=3521.8; Ability 5003 from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x310, 4.1f, "Energy Bombardment"); // t=3525.9; Ability 4FFB from 905P-Operated Heavy Artillery Unit
+    Timeout(id + 0x320, 12.2f, "Maneuver: High-Powered Laser"); // t=3538.1
+    Timeout(id + 0x330, 8.8f, "Maneuver: Volt Array"); // t=3546.9
+    Timeout(id + 0x340, 12.2f, "Maneuver: Volt Array"); // t=3559.1
+    Timeout(id + 0x350, 4.1f, "Support: Pod"); // t=3563.2; cactbot StartsUsing 4FE9 [Puppet Heavy Support Pod]
+    Timeout(id + 0x360, 10.3f, "Operation: Pod Program"); // t=3573.5
+}
+
+private void Heavy_Artillery_Unit__caster_friendly_hallway_section(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void The_Compound(uint id)
+{
+    Timeout(id + 0x0, 11.2f, "Mechanical Laceration").SetHint(StateMachine.StateHint.Raidwide); // t=5013.2; Ability 51B8 from The Compound; cactbot StartsUsing 51B8 [Puppet Compound Mechanical Laceration] | StartsUsing 51B8 [Puppet Compound 2P Centrifugal Slice]
+    Timeout(id + 0x10, 11.2f, "Mechanical Decapitation/Dissection"); // t=5024.4
+    Timeout(id + 0x20, 10.5f, "Mechanical Dissection/Decapitation"); // t=5034.9
+    Timeout(id + 0x30, 9.0f, "Mechanical Contusion"); // t=5043.9; Ability 51B5 from The Compound
+    Targetable(id + 0x40, false, 14.1f, "--untargetable--"); // t=5058.0
+    Timeout(id + 0x50, 10.7f, "Incongruous Spin x2"); // t=5068.7
+    Targetable(id + 0x60, true, 5.2f, "--targetable--"); // t=5073.9
+    Timeout(id + 0x70, 14.1f, "Mechanical Laceration").SetHint(StateMachine.StateHint.Raidwide); // t=5088.0; Ability 51B8 from The Compound; cactbot StartsUsing 51B8 [Puppet Compound Mechanical Laceration] | StartsUsing 51B8 [Puppet Compound 2P Centrifugal Slice]
+    Timeout(id + 0x80, 11.1f, "Mechanical Decapitation"); // t=5099.1; Ability 51B4 from The Compound; cactbot StartsUsing 51B4 [Puppet Compound Mechanical Decapitation]
+    Timeout(id + 0x90, 6.0f, "Mechanical Contusion"); // t=5105.1; Ability 51B5 from The Compound
+    Timeout(id + 0xA0, 10.2f, "Mechanical Dissection"); // t=5115.3; Ability 51B3 from The Compound; cactbot StartsUsing 51B3 [Puppet Compound Mechanical Dissection]
+    Timeout(id + 0xB0, 10.3f, "Mechanical Laceration").SetHint(StateMachine.StateHint.Raidwide); // t=5125.6; Ability 51B8 from The Compound; cactbot StartsUsing 51B8 [Puppet Compound Mechanical Laceration] | StartsUsing 51B8 [Puppet Compound 2P Centrifugal Slice]
+    Timeout(id + 0xC0, 16.1f, "Mechanical Decapitation"); // t=5141.7; Ability 51B4 from The Compound; cactbot StartsUsing 51B4 [Puppet Compound Mechanical Decapitation]
+    Timeout(id + 0xD0, 6.0f, "Mechanical Contusion"); // t=5147.7; Ability 51B5 from The Compound
+    Timeout(id + 0xE0, 10.2f, "Mechanical Dissection"); // t=5157.9; Ability 51B3 from The Compound; cactbot StartsUsing 51B3 [Puppet Compound Mechanical Dissection]
+    Timeout(id + 0xF0, 10.3f, "Mechanical Laceration").SetHint(StateMachine.StateHint.Raidwide); // t=5168.2; Ability 51B8 from The Compound; cactbot StartsUsing 51B8 [Puppet Compound Mechanical Laceration] | StartsUsing 51B8 [Puppet Compound 2P Centrifugal Slice]
+    Timeout(id + 0x100, 16.3f, "Mechanical Dissection"); // t=5184.5; Ability 51B3 from The Compound; cactbot StartsUsing 51B3 [Puppet Compound Mechanical Dissection]
+    Timeout(id + 0x110, 6.3f, "Mechanical Contusion"); // t=5190.8; Ability 51B5 from The Compound
+    Timeout(id + 0x120, 10.1f, "Mechanical Decapitation"); // t=5200.9; Ability 51B4 from The Compound; cactbot StartsUsing 51B4 [Puppet Compound Mechanical Decapitation]
+    Timeout(id + 0x130, 10.0f, "Mechanical Laceration").SetHint(StateMachine.StateHint.Raidwide); // t=5210.9; Ability 51B8 from The Compound; cactbot StartsUsing 51B8 [Puppet Compound Mechanical Laceration] | StartsUsing 51B8 [Puppet Compound 2P Centrifugal Slice]
+    Timeout(id + 0x140, 16.3f, "Mechanical Dissection"); // t=5227.2; cactbot StartsUsing 51B3 [Puppet Compound Mechanical Dissection]
+    Timeout(id + 0x150, 6.3f, "Mechanical Contusion"); // t=5233.5
+    Timeout(id + 0x160, 10.1f, "Mechanical Decapitation"); // t=5243.6; cactbot StartsUsing 51B4 [Puppet Compound Mechanical Decapitation]
+}
+
+private void Compound_2P(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Mechanical Laceration").SetHint(StateMachine.StateHint.Raidwide); // t=6000.0; Ability 53D5 from The Compound; cactbot StartsUsing 51B8 [Puppet Compound Mechanical Laceration]
+    Targetable(id + 0x10, true, 51.1f, "--targetable--"); // t=6051.1
+    Timeout(id + 0x20, 17.2f, "Centrifugal Slice").SetHint(StateMachine.StateHint.Raidwide); // t=6068.3; Ability 51B0 from Compound 2P; cactbot StartsUsing 51B8 [Puppet Compound 2P Centrifugal Slice]
+    Timeout(id + 0x30, 11.8f, "Relentless Spiral x3"); // t=6080.1; Ability 51A9 from Compound 2P
+    Timeout(id + 0x40, 19.8f, "Prime Blade (Out)"); // t=6099.9; Ability 541F from Compound 2P; cactbot StartsUsing 541F/5198 [Puppet Compound 2P Prime Blade Out]
+    Timeout(id + 0x50, 10.6f, "Prime Blade (Behind)"); // t=6110.5; Ability 5420 from Compound 2P; cactbot StartsUsing 5420/5199 [Puppet Compound 2P Prime Blade Behind]
+    Timeout(id + 0x60, 10.5f, "Prime Blade (In)"); // t=6121.0; Ability 5421 from Compound 2P; cactbot StartsUsing 5421/519A [Puppet Compound 2P Prime Blade In] | StartsUsing 5421 [Puppet Puppet 2P Prime Blade Puppet Guaranteed In]
+    Timeout(id + 0x70, 19.1f, "Forced Transfer"); // t=6140.1; Ability 53D0 from Compound 2P
+    Timeout(id + 0x80, 3.5f, "Prime Blade (In)"); // t=6143.6; Ability 519A from Compound 2P; cactbot StartsUsing 5421/519A [Puppet Compound 2P Prime Blade In] | StartsUsing 519A [Puppet Puppet 2P Prime Blade Puppet In]
+    Timeout(id + 0x90, 9.5f, "Centrifugal Slice").SetHint(StateMachine.StateHint.Raidwide); // t=6153.1; Ability 51B0 from Compound 2P; cactbot StartsUsing 51B8 [Puppet Compound 2P Centrifugal Slice]
+    Timeout(id + 0xA0, 13.5f, "Three Parts Disdain"); // t=6166.6; Ability 519B from Compound 2P; cactbot HeadMarker 3E [Puppet Compound 2P Three Parts Disdain] | HeadMarker 3E [Puppet Compound 2P Three Parts Disdain Knockback]
+    Timeout(id + 0xB0, 12.9f, "Compound Pod: R012"); // t=6179.5; Ability 51AB from Compound 2P
+    Timeout(id + 0xC0, 3.8f, "R012: Laser"); // t=6183.3; Ability 51AC from Compound Pod; cactbot HeadMarker DA [Puppet Compound 2P R012: Laser You] | HeadMarker DA [Puppet Compound 2P R012: Laser Not You]
+    Timeout(id + 0xD0, 21.3f, "Four Parts Resolve"); // t=6204.6; Ability 519E from Compound 2P; cactbot HeadMarker 4F/50/51/52 [Puppet Compound 2P Four Parts Resolve]
+    Timeout(id + 0xE0, 26.0f, "Reproduce"); // t=6230.6; Ability 51A1 from Compound 2P
+    Timeout(id + 0xF0, 9.7f, "Prime Blade (In)"); // t=6240.3; Ability 5421 from Compound 2P; cactbot StartsUsing 5421/519A [Puppet Compound 2P Prime Blade In] | StartsUsing 5421 [Puppet Puppet 2P Prime Blade Puppet Guaranteed In]
+    Timeout(id + 0x100, 10.4f, "Prime Blade (In)"); // t=6250.7; Ability 5421 from Puppet 2P; cactbot StartsUsing 5421/519A [Puppet Compound 2P Prime Blade In] | StartsUsing 5421 [Puppet Puppet 2P Prime Blade Puppet Guaranteed In]
+    Timeout(id + 0x110, 11.2f, "Energy Compression"); // t=6261.9; Ability 51A6 from Compound 2P; cactbot StartsUsing 51A6 [Puppet Compound 2P Energy Compression]
+    Timeout(id + 0x120, 11.0f, "Explosion"); // t=6272.9; Ability 51A7 from Compound 2P
+    Timeout(id + 0x130, 14.5f, "Forced Transfer"); // t=6287.4; Ability 51A2 from Compound 2P
+    Timeout(id + 0x140, 3.8f, "Explosion"); // t=6291.2; Ability 51A7 from Compound 2P
+    Timeout(id + 0x150, 8.0f, "Compound Pod: R011"); // t=6299.2; Ability 51A4 from Compound 2P; cactbot StartsUsing 541B [Puppet Compound Pod R011: Laser]
+    Timeout(id + 0x160, 16.4f, "Forced Transfer"); // t=6315.6; Ability 543A from Compound 2P
+    Timeout(id + 0x170, 2.9f, "R011: Laser"); // t=6318.5; Ability 51A5 from Compound Pod; cactbot StartsUsing 541B [Puppet Compound Pod R011: Laser]
+    Timeout(id + 0x180, 11.4f, "Relentless Spiral x3"); // t=6329.9; Ability 51A9 from Compound 2P
+    Timeout(id + 0x190, 11.4f, "Forced Transfer"); // t=6341.3; Ability 53D1 from Compound 2P
+    Timeout(id + 0x1A0, 3.4f, "Prime Blade (Out/Behind)"); // t=6344.7
+    Timeout(id + 0x1B0, 11.6f, "Reproduce"); // t=6356.3; Ability 51A1 from Compound 2P
+    Timeout(id + 0x1C0, 9.7f, "Prime Blade (In/Out)"); // t=6366.0; Ability 541F/5421 from Compound 2P; cactbot StartsUsing 541F/5198 [Puppet Compound 2P Prime Blade Out] | StartsUsing 5421/519A [Puppet Compound 2P Prime Blade In] | StartsUsing 5421 [Puppet Puppet 2P Prime Blade Puppet Guaranteed In]
+    Timeout(id + 0x1D0, 9.9f, "Forced Transfer"); // t=6375.9; Ability 51A2 from Compound 2P
+    Timeout(id + 0x1E0, 3.5f, "Prime Blade (In/Out)"); // t=6379.4; Ability 5198/519A from Puppet 2P; cactbot StartsUsing 541F/5198 [Puppet Compound 2P Prime Blade Out] | StartsUsing 5421/519A [Puppet Compound 2P Prime Blade In] | StartsUsing 519A [Puppet Puppet 2P Prime Blade Puppet In] | StartsUsing 5198 [Puppet Puppet 2P Prime Blade Puppet Out Corner]
+    Condition(id + 0x1F0, 12.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x519E), "", 5f, 7.4f); // t=6391.8; StartsUsing 519E from Compound 2P
+    Timeout(id + 0x200, 8.0f, "Four Parts Resolve?"); // t=6399.8; Ability 519E from Compound 2P; cactbot HeadMarker 4F/50/51/52 [Puppet Compound 2P Four Parts Resolve]
+    Condition(id + 0x210, 0.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x519B), "", 5f, 0.0f); // t=6400.7; StartsUsing 519B from Compound 2P
+    Timeout(id + 0x220, 6.0f, "Three Parts Disdain?"); // t=6406.7; Ability 519B from Compound 2P; cactbot HeadMarker 3E [Puppet Compound 2P Three Parts Disdain] | HeadMarker 3E [Puppet Compound 2P Three Parts Disdain Knockback]
+    Timeout(id + 0x230, 13.8f, "Compound Pod: R012"); // t=6420.5; Ability 51AB from Compound 2P
+    Timeout(id + 0x240, 3.8f, "R012: Laser"); // t=6424.3; Ability 51AC from Compound Pod; cactbot HeadMarker DA [Puppet Compound 2P R012: Laser You] | HeadMarker DA [Puppet Compound 2P R012: Laser Not You]
+    Timeout(id + 0x250, 5.3f, "Energy Compression"); // t=6429.6; Ability 51A6 from Compound 2P; cactbot StartsUsing 51A6 [Puppet Compound 2P Energy Compression]
+    Timeout(id + 0x260, 11.0f, "Explosion"); // t=6440.6; Ability 51A7 from Compound 2P
+    Timeout(id + 0x270, 14.5f, "Forced Transfer"); // t=6455.1; Ability 51A2 from Compound 2P
+    Timeout(id + 0x280, 3.8f, "Explosion"); // t=6458.9; Ability 51A7 from Compound 2P
+    Timeout(id + 0x290, 13.0f, "Centrifugal Slice").SetHint(StateMachine.StateHint.Raidwide); // t=6471.9; Ability 51B0 from Compound 2P; cactbot StartsUsing 51B8 [Puppet Compound 2P Centrifugal Slice]
+    Timeout(id + 0x2A0, 18.3f, "Compound Pod: R011"); // t=6490.2; Ability 51A4 from Compound 2P; cactbot StartsUsing 541B [Puppet Compound Pod R011: Laser]
+    Timeout(id + 0x2B0, 16.4f, "Forced Transfer"); // t=6506.6; Ability 543A from Compound 2P
+    Timeout(id + 0x2C0, 2.9f, "R011: Laser"); // t=6509.5; Ability 51A5 from Compound Pod; cactbot StartsUsing 541B [Puppet Compound Pod R011: Laser]
+    Timeout(id + 0x2D0, 11.4f, "Relentless Spiral x3"); // t=6520.9; Ability 51A9 from Compound 2P
+    Timeout(id + 0x2E0, 11.6f, "Forced Transfer"); // t=6532.5
+    Timeout(id + 0x2F0, 3.3f, "Prime Blade (In/Out)"); // t=6535.8; Ability 5198/519A from Compound 2P; cactbot StartsUsing 541F/5198 [Puppet Compound 2P Prime Blade Out] | StartsUsing 5421/519A [Puppet Compound 2P Prime Blade In] | StartsUsing 519A [Puppet Puppet 2P Prime Blade Puppet In] | StartsUsing 5198 [Puppet Puppet 2P Prime Blade Puppet Out Corner]
+    Timeout(id + 0x300, 11.6f, "Reproduce"); // t=6547.4; Ability 51A1 from Compound 2P
+    Timeout(id + 0x310, 9.8f, "Prime Blade (In/Out)"); // t=6557.2; Ability 541F/5421 from Compound 2P; cactbot StartsUsing 541F/5198 [Puppet Compound 2P Prime Blade Out] | StartsUsing 5421/519A [Puppet Compound 2P Prime Blade In] | StartsUsing 5421 [Puppet Puppet 2P Prime Blade Puppet Guaranteed In]
+    Timeout(id + 0x320, 9.9f, "Forced Transfer"); // t=6567.1; Ability 51A2 from Compound 2P
+    Timeout(id + 0x330, 3.5f, "Prime Blade (In/Out)"); // t=6570.6; Ability 5198/519A from Puppet 2P; cactbot StartsUsing 541F/5198 [Puppet Compound 2P Prime Blade Out] | StartsUsing 5421/519A [Puppet Compound 2P Prime Blade In] | StartsUsing 519A [Puppet Puppet 2P Prime Blade Puppet In] | StartsUsing 5198 [Puppet Puppet 2P Prime Blade Puppet Out Corner]
+}
+

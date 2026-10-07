@@ -1,0 +1,56 @@
+// Generated development skeleton from e9n.txt (TerritoryType 942).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 16 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e9n.ts.
+
+private void Eden_9__Normal(uint id)
+{
+    Condition(id + 0x0, 10.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x55ED), "", 5f, 5.4f); // t=10.4; StartsUsing 55ED from Cloud Of Darkness; cactbot StartsUsing 55ED [E9N Ground-Razing Particle Beam]
+    Timeout(id + 0x10, 4.7f, "Ground-Razing Particle Beam").SetHint(StateMachine.StateHint.Raidwide); // t=15.1; Ability 55ED from Cloud Of Darkness; cactbot StartsUsing 55ED [E9N Ground-Razing Particle Beam]
+    Timeout(id + 0x20, 10.2f, "The Art Of Darkness"); // t=25.3
+    Timeout(id + 0x30, 9.5f, "Wide-Angle Particle Beam"); // t=34.8; Ability 5AFF from Cloud Of Darkness; cactbot StartsUsing 5AFF [E9N Wide-Angle Particle Beam]
+    Timeout(id + 0x40, 10.4f, "Zero-Form Particle Beam").SetHint(StateMachine.StateHint.Tankbuster); // t=45.2; Ability 55EB from Cloud Of Darkness; cactbot StartsUsing 55EB [E9N Zero-Form Particle Beam]
+    Timeout(id + 0x50, 11.5f, "Empty Plane").SetHint(StateMachine.StateHint.Raidwide); // t=56.7; Ability 4FC6 from Cloud Of Darkness; cactbot StartsUsing 4FC6 [E9N Empty Plane]
+    Timeout(id + 0x60, 14.2f, "Flood Of Emptiness"); // t=70.9; Ability 5132 from Cloud Of Darkness
+    Timeout(id + 0x70, 0.4f, "Mire Of Despair / Earth-Shattering Particle Beam"); // t=71.3; Ability 5B07 from Cloud Of Darkness | Ability 5225 from Cloud Of Darkness
+    Timeout(id + 0x80, 16.7f, "Ground-Razing Particle Beam").SetHint(StateMachine.StateHint.Raidwide); // t=88.0; Ability 55ED from Cloud Of Darkness; cactbot StartsUsing 55ED [E9N Ground-Razing Particle Beam]
+    Timeout(id + 0x90, 11.2f, "The Art Of Darkness"); // t=99.2
+    Timeout(id + 0xA0, 12.3f, "Obscure Woods").SetHint(StateMachine.StateHint.Raidwide); // t=111.5; Ability 4FA2 from Cloud Of Darkness; cactbot StartsUsing 4FA2 [E9N Obscure Woods]
+    Timeout(id + 0xB0, 13.2f, "Flood Of Obscurity"); // t=124.7; Ability 58F1 from Cloud Of Darkness
+    Timeout(id + 0xC0, 0.2f, "Waste Away").SetHint(StateMachine.StateHint.Knockback); // t=124.9; Ability 55DE from Cloud Of Darkness; cactbot StartsUsing 55DE [E9N Waste Away]
+    Timeout(id + 0xD0, 2.3f, "Evil Seed"); // t=127.2; Ability 55E7 from Cloud Of Darkness
+    Timeout(id + 0xE0, 18.1f, "The Art Of Darkness"); // t=145.3
+    Timeout(id + 0xF0, 12.0f, "Wide-Angle Phaser"); // t=157.3; Ability 55E0 from Cloud Of Darkness; cactbot StartsUsing 55DF [E9N Wide-Angle Phaser]
+    Timeout(id + 0x100, 13.8f, "Rejuvenating Balm"); // t=171.1; Ability 55E2 from Cloud Of Darkness; cactbot StartsUsing 55E2 [E9N Rejuvenating Balm]
+    Timeout(id + 0x110, 10.2f, "Bad Vibrations"); // t=181.3; Ability 55E6 from Stygian Arbor
+    Timeout(id + 0x120, 11.0f, "Deluge Of Darkness").SetHint(StateMachine.StateHint.Raidwide); // t=192.3; Ability 5155 from Cloud Of Darkness; cactbot StartsUsing 5155 [E9N Deluge Of Darkness]
+    Timeout(id + 0x130, 13.4f, "Zero-Form Particle Beam").SetHint(StateMachine.StateHint.Tankbuster); // t=205.7; Ability 55EB from Cloud Of Darkness; cactbot StartsUsing 55EB [E9N Zero-Form Particle Beam]
+    Timeout(id + 0x140, 6.2f, "Particle Concentration"); // t=211.9; Ability 55E8 from Cloud Of Darkness; cactbot StartsUsing 55E8 [E9N Particle Concentration]
+    Timeout(id + 0x150, 11.0f, "Particle Beam"); // t=222.9; Ability 55E9 from Cloud Of Darkness
+    Timeout(id + 0x160, 3.7f, "The Art Of Darkness"); // t=226.6
+    Timeout(id + 0x170, 12.6f, "Empty Plane").SetHint(StateMachine.StateHint.Raidwide); // t=239.2; Ability 4FC6 from Cloud Of Darkness; cactbot StartsUsing 4FC6 [E9N Empty Plane]
+    Timeout(id + 0x180, 14.2f, "Flood Of Emptiness"); // t=253.4; Ability 5132 from Cloud Of Darkness
+    Timeout(id + 0x190, 0.4f, "Mire Of Despair / Earth-Shattering Particle Beam"); // t=253.8; Ability 5B07 from Cloud Of Darkness | Ability 5225 from Cloud Of Darkness
+    Timeout(id + 0x1A0, 5.7f, "Hypercharged Condensation"); // t=259.5; Ability 532E from Cloud Of Darkness; cactbot StartsUsing 532E [E9N Hypercharged Condensation]
+    Timeout(id + 0x1B0, 22.2f, "Summon"); // t=281.7; Ability 5330 from Cloud Of Darkness
+    Timeout(id + 0x1C0, 8.1f, "Anti-Air Particle Beam"); // t=289.8; Ability 55DC from Cloud Of Darkness; cactbot StartsUsing 55DC [E9N Anti-Air Particle Beam]
+    Timeout(id + 0x1D0, 11.2f, "The Art Of Darkness"); // t=301.0
+    Timeout(id + 0x1E0, 12.2f, "Ground-Razing Particle Beam").SetHint(StateMachine.StateHint.Raidwide); // t=313.2; Ability 55ED from Cloud Of Darkness; cactbot StartsUsing 55ED [E9N Ground-Razing Particle Beam]
+    Timeout(id + 0x1F0, 14.5f, "Obscure Woods").SetHint(StateMachine.StateHint.Raidwide); // t=327.7; Ability 4FA2 from Cloud Of Darkness; cactbot StartsUsing 4FA2 [E9N Obscure Woods]
+    Timeout(id + 0x200, 12.2f, "Flood Of Obscurity"); // t=339.9; Ability 58F1 from Cloud Of Darkness
+    Timeout(id + 0x210, 0.2f, "Waste Away").SetHint(StateMachine.StateHint.Knockback); // t=340.1; Ability 55DE from Cloud Of Darkness; cactbot StartsUsing 55DE [E9N Waste Away]
+    Timeout(id + 0x220, 2.3f, "Evil Seed"); // t=342.4; Ability 55E7 from Cloud Of Darkness
+    Timeout(id + 0x230, 19.3f, "Wide-Angle Phaser"); // t=361.7; Ability 55E0 from Cloud Of Darkness; cactbot StartsUsing 55DF [E9N Wide-Angle Phaser]
+    Timeout(id + 0x240, 15.1f, "Rejuvenating Balm"); // t=376.8; Ability 55E2 from Cloud Of Darkness; cactbot StartsUsing 55E2 [E9N Rejuvenating Balm]
+    Timeout(id + 0x250, 7.4f, "The Art Of Darkness"); // t=384.2
+    Timeout(id + 0x260, 2.4f, "Bad Vibrations"); // t=386.6; Ability 55E6 from Stygian Arbor
+    Timeout(id + 0x270, 12.6f, "Deluge Of Darkness").SetHint(StateMachine.StateHint.Raidwide); // t=399.2; Ability 5155 from Cloud Of Darkness; cactbot StartsUsing 5155 [E9N Deluge Of Darkness]
+    Timeout(id + 0x280, 15.1f, "The Art Of Darkness"); // t=414.3
+    Timeout(id + 0x290, 12.2f, "Ground-Razing Particle Beam").SetHint(StateMachine.StateHint.Raidwide); // t=426.5; Ability 55ED from Cloud Of Darkness; cactbot StartsUsing 55ED [E9N Ground-Razing Particle Beam]
+    Timeout(id + 0x2A0, 8.4f, "Zero-Form Particle Beam").SetHint(StateMachine.StateHint.Tankbuster); // t=434.9; Ability 55EB from Cloud Of Darkness; cactbot StartsUsing 55EB [E9N Zero-Form Particle Beam]
+    Timeout(id + 0x2B0, 14.7f, "Empty Plane").SetHint(StateMachine.StateHint.Raidwide); // t=449.6; Ability 4FC6 from Cloud Of Darkness; cactbot StartsUsing 4FC6 [E9N Empty Plane]
+    Timeout(id + 0x2C0, 14.2f, "Flood Of Emptiness"); // t=463.8
+    Timeout(id + 0x2D0, 0.4f, "Mire Of Despair / Earth-Shattering Particle Beam"); // t=464.2
+    Timeout(id + 0x2E0, 5.7f, "Hypercharged Condensation"); // t=469.9; cactbot StartsUsing 532E [E9N Hypercharged Condensation]
+}
+

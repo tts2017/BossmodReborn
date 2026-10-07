@@ -1,0 +1,129 @@
+// Generated development skeleton from sephirot-ex.txt (TerritoryType 524).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 20 static/dynamic trigger definitions from ui/raidboss/data/03-hw/trial/sephirot-ex.ts.
+
+private void Phase_1_rotation_block__76_3_seconds(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Triple Trial"); // t=21.6; Ability 1566 from Sephirot
+    Timeout(id + 0x10, 4.0f, "Ein Sof (4 puddles)"); // t=25.6; Ability 156E from Sephirot
+    Timeout(id + 0x20, 4.1f, "Tiferet"); // t=29.7; Ability 1568 from Sephirot
+    Timeout(id + 0x30, 8.6f, "Fiendish Rage 1"); // t=38.3; Ability 156D from Sephirot
+    Timeout(id + 0x40, 3.7f, "Fiendish Rage 2"); // t=42.0; Ability 156D from Sephirot
+    Timeout(id + 0x50, 7.2f, "Tiferet"); // t=49.2; Ability 1568 from Sephirot
+    Timeout(id + 0x60, 4.1f, "Tiferet"); // t=53.3; Ability 1568 from Sephirot
+    Timeout(id + 0x70, 6.1f, "Chesed").SetHint(StateMachine.StateHint.Tankbuster); // t=59.4; Ability 1567 from Sephirot; cactbot StartsUsing 1567 [SephirotEx Chesed Buster]
+    Timeout(id + 0x80, 2.2f, "Triple Trial"); // t=61.6; Ability 1566 from Sephirot
+    Timeout(id + 0x90, 6.1f, "Ein Sof (1 puddle)"); // t=67.7; Ability 156E from Sephirot
+    Timeout(id + 0xA0, 3.2f, "Tiferet"); // t=70.9; Ability 1568 from Sephirot
+    Timeout(id + 0xB0, 10.4f, "Ratzon"); // t=81.3; cactbot HeadMarker 46/47 [SephirotEx Ratzon Spread]
+    Timeout(id + 0xC0, 4.2f, "Tiferet"); // t=85.5; Ability 1568 from Sephirot
+    Timeout(id + 0xD0, 4.1f, "Tiferet"); // t=89.6; Ability 1568 from Sephirot
+    Timeout(id + 0xE0, 6.1f, "Chesed").SetHint(StateMachine.StateHint.Tankbuster); // t=95.7; Ability 1567 from Sephirot; cactbot StartsUsing 1567 [SephirotEx Chesed Buster]
+    Timeout(id + 0xF0, 2.2f, "Triple Trial"); // t=97.9; Ability 1566 from Sephirot
+    Timeout(id + 0x100, 4.0f, "Ein Sof (4 puddles)"); // t=101.9; Ability 156E from Sephirot
+    Timeout(id + 0x110, 4.1f, "Tiferet"); // t=106.0; Ability 1568 from Sephirot
+    Timeout(id + 0x120, 8.6f, "Fiendish Rage 1"); // t=114.6; Ability 156D from Sephirot
+    Timeout(id + 0x130, 3.7f, "Fiendish Rage 2"); // t=118.3; Ability 156D from Sephirot
+    Timeout(id + 0x140, 7.2f, "Tiferet"); // t=125.5; Ability 1568 from Sephirot
+    Timeout(id + 0x150, 4.1f, "Tiferet"); // t=129.6; Ability 1568 from Sephirot
+    Timeout(id + 0x160, 6.1f, "Chesed").SetHint(StateMachine.StateHint.Tankbuster); // t=135.7; Ability 1567 from Sephirot; cactbot StartsUsing 1567 [SephirotEx Chesed Buster]
+    Timeout(id + 0x170, 2.2f, "Triple Trial"); // t=137.9; Ability 1566 from Sephirot
+    Timeout(id + 0x180, 6.1f, "Ein Sof (1 puddle)"); // t=144.0; Ability 156E from Sephirot
+    Timeout(id + 0x190, 3.2f, "Tiferet"); // t=147.2; Ability 1568 from Sephirot
+    Timeout(id + 0x1A0, 10.4f, "Ratzon"); // t=157.6; cactbot HeadMarker 46/47 [SephirotEx Ratzon Spread]
+    Timeout(id + 0x1B0, 4.2f, "Tiferet"); // t=161.8; Ability 1568 from Sephirot
+    Timeout(id + 0x1C0, 4.1f, "Tiferet"); // t=165.9; Ability 1568 from Sephirot
+    Timeout(id + 0x1D0, 6.1f, "Chesed").SetHint(StateMachine.StateHint.Tankbuster); // t=172.0; Ability 1567 from Sephirot; cactbot StartsUsing 1567 [SephirotEx Chesed Buster]
+    Timeout(id + 0x1E0, 2.2f, "Triple Trial"); // t=174.2
+    Timeout(id + 0x1F0, 4.0f, "Ein Sof (4 puddles)"); // t=178.2
+    Timeout(id + 0x200, 4.1f, "Tiferet"); // t=182.3
+    Timeout(id + 0x210, 8.6f, "Fiendish Rage 1"); // t=190.9
+    Timeout(id + 0x220, 3.7f, "Fiendish Rage 2"); // t=194.6
+    Timeout(id + 0x230, 7.2f, "Tiferet"); // t=201.8
+    Timeout(id + 0x240, 4.1f, "Tiferet"); // t=205.9
+    Timeout(id + 0x250, 794.1f, "Ein Sof Ohr"); // t=1000.0; Ability 1571 from Sephirot
+}
+
+private void Phase_2_rotation_block__197_3_seconds(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Yesod"); // t=1013.2; Ability 157E from Sephirot; cactbot StartsUsing 157E [SephirotEx Yesod Move]
+    Timeout(id + 0x10, 3.0f, "Force Field"); // t=1016.2; Ability 1587 from Sephirot
+    Timeout(id + 0x20, 12.2f, "Chesed Gevurah"); // t=1028.4; Ability 1578/1579 from Sephirot; cactbot StartsUsing 1578 [SephirotEx Gevurah Chesed] | StartsUsing 1579 [SephirotEx Chesed Gevurah]
+    Timeout(id + 0x30, 0.6f, "Life Force + Spirit"); // t=1029.0; Ability 157A/157B from Sephirot
+    Timeout(id + 0x40, 5.6f, "Fiendish Wail"); // t=1034.6; Ability 1576 from Sephirot; cactbot Ability 1575 [SephirotEx Fiendish Wail]
+    Timeout(id + 0x50, 8.1f, "Da'at Tethers"); // t=1042.7
+    Timeout(id + 0x60, 10.6f, "Fiendish Wail"); // t=1053.3; Ability 1576 from Sephirot; cactbot Ability 1575 [SephirotEx Fiendish Wail]
+    Timeout(id + 0x70, 7.0f, "Chesed Gevurah"); // t=1060.3; Ability 1578/1579 from Sephirot; cactbot StartsUsing 1578 [SephirotEx Gevurah Chesed] | StartsUsing 1579 [SephirotEx Chesed Gevurah]
+    Timeout(id + 0x80, 0.6f, "Life Force + Spirit"); // t=1060.9; Ability 157A/157B from Sephirot
+    Timeout(id + 0x90, 7.5f, "Earth Shaker"); // t=1068.4; Ability 157D from Sephirot; cactbot HeadMarker 28 [SephirotEx Earth Shaker Collect] | HeadMarker 28 [SephirotEx Earth Shaker Call] | HeadMarker 28 [SephirotEx Earth Shaker Cleanup]
+    Timeout(id + 0xA0, 1.7f, "Yesod"); // t=1070.1; Ability 157E from Sephirot; cactbot StartsUsing 157E [SephirotEx Yesod Move]
+    Timeout(id + 0xB0, 7.6f, "Da'at spread"); // t=1077.7
+    Timeout(id + 0xC0, 7.4f, "Fiendish Wail"); // t=1085.1; Ability 1576 from Sephirot; cactbot Ability 1575 [SephirotEx Fiendish Wail]
+    Timeout(id + 0xD0, 7.1f, "Chesed Gevurah"); // t=1092.2; Ability 1578/1579 from Sephirot; cactbot StartsUsing 1578 [SephirotEx Gevurah Chesed] | StartsUsing 1579 [SephirotEx Chesed Gevurah]
+    Timeout(id + 0xE0, 0.7f, "Life Force + Spirit"); // t=1092.9; Ability 157A/157B from Sephirot
+    Timeout(id + 0xF0, 8.1f, "Pillar of Mercy 1"); // t=1101.0; Ability 1580 from Sephirot
+    Timeout(id + 0x100, 0.3f, "Yesod"); // t=1101.3; Ability 157E from Sephirot; cactbot StartsUsing 157E [SephirotEx Yesod Move]
+    Timeout(id + 0x110, 4.9f, "Pillar of Mercy 2"); // t=1106.2; Ability 1580 from Sephirot
+    Timeout(id + 0x120, 3.9f, "Pillar of Mercy 3"); // t=1110.1; Ability 1580 from Sephirot
+    Timeout(id + 0x130, 9.2f, "Earth Shaker"); // t=1119.3; Ability 157D from Sephirot; cactbot HeadMarker 28 [SephirotEx Earth Shaker Collect] | HeadMarker 28 [SephirotEx Earth Shaker Call] | HeadMarker 28 [SephirotEx Earth Shaker Cleanup]
+    Timeout(id + 0x140, 9.5f, "Da'at spread"); // t=1128.8
+    Timeout(id + 0x150, 0.9f, "Yesod"); // t=1129.7; Ability 157E from Sephirot; cactbot StartsUsing 157E [SephirotEx Yesod Move]
+    Timeout(id + 0x160, 6.4f, "Fiendish Wail"); // t=1136.1; Ability 1576 from Sephirot; cactbot Ability 1575 [SephirotEx Fiendish Wail]
+    Timeout(id + 0x170, 7.1f, "Chesed Gevurah"); // t=1143.2; Ability 1578/1579 from Sephirot; cactbot StartsUsing 1578 [SephirotEx Gevurah Chesed] | StartsUsing 1579 [SephirotEx Chesed Gevurah]
+    Timeout(id + 0x180, 0.6f, "Life Force + Spirit"); // t=1143.8; Ability 157A/157B from Sephirot
+    Timeout(id + 0x190, 5.6f, "Malkuth").SetHint(StateMachine.StateHint.Knockback); // t=1149.4; Ability 1582 from Sephirot; cactbot StartsUsing 1582 [SephirotEx Malkuth]
+    Timeout(id + 0x1A0, 1.1f, "Adds Spawn"); // t=1150.5
+    Timeout(id + 0x1B0, 8.2f, "Chesed Gevurah"); // t=1158.7; Ability 1578/1579 from Sephirot; cactbot StartsUsing 1578 [SephirotEx Gevurah Chesed] | StartsUsing 1579 [SephirotEx Chesed Gevurah]
+    Timeout(id + 0x1C0, 0.6f, "Life Force + Spirit"); // t=1159.3; Ability 157A/157B from Sephirot
+    Timeout(id + 0x1D0, 5.6f, "Fiendish Wail"); // t=1164.9; Ability 1576 from Sephirot; cactbot Ability 1575 [SephirotEx Fiendish Wail]
+    Timeout(id + 0x1E0, 1.6f, "Yesod"); // t=1166.5; Ability 157E from Sephirot; cactbot StartsUsing 157E [SephirotEx Yesod Move]
+    Timeout(id + 0x1F0, 5.7f, "Chesed Gevurah"); // t=1172.2; Ability 1578/1579 from Sephirot; cactbot StartsUsing 1578 [SephirotEx Gevurah Chesed] | StartsUsing 1579 [SephirotEx Chesed Gevurah]
+    Timeout(id + 0x200, 0.6f, "Life Force + Spirit"); // t=1172.8; Ability 157A/157B from Sephirot
+    Timeout(id + 0x210, 13.0f, "Yesod"); // t=1185.8; Ability 157E from Sephirot; cactbot StartsUsing 157E [SephirotEx Yesod Move]
+    Timeout(id + 0x220, 2.6f, "Chesed Gevurah"); // t=1188.4; Ability 1578/1579 from Sephirot; cactbot StartsUsing 1578 [SephirotEx Gevurah Chesed] | StartsUsing 1579 [SephirotEx Chesed Gevurah]
+    Timeout(id + 0x230, 0.6f, "Life Force + Spirit"); // t=1189.0; Ability 157A/157B from Sephirot
+    Timeout(id + 0x240, 2.6f, "Pillar of Severity"); // t=1191.6; Ability 1585 from Sephirot
+    Timeout(id + 0x250, 3.7f, "Impact of Hod"); // t=1195.3; Ability 172C from Sephirot
+    Timeout(id + 0x260, 4.4f, "Ascension"); // t=1199.7; Ability 1584 from Coronal Wind; cactbot HeadMarker 3E [SephirotEx Ascension]
+    Timeout(id + 0x270, 10.7f, "Yesod"); // t=1210.4; Ability 157E from Sephirot; cactbot StartsUsing 157E [SephirotEx Yesod Move]
+    Timeout(id + 0x280, 3.1f, "Force Field"); // t=1213.5; Ability 1587 from Sephirot
+    Timeout(id + 0x290, 12.2f, "Chesed Gevurah"); // t=1225.7; Ability 1578/1579 from Sephirot; cactbot StartsUsing 1578 [SephirotEx Gevurah Chesed] | StartsUsing 1579 [SephirotEx Chesed Gevurah]
+    Timeout(id + 0x2A0, 0.6f, "Life Force + Spirit"); // t=1226.3; Ability 157A/157B from Sephirot
+    Timeout(id + 0x2B0, 5.6f, "Fiendish Wail"); // t=1231.9; Ability 1576 from Sephirot; cactbot Ability 1575 [SephirotEx Fiendish Wail]
+    Timeout(id + 0x2C0, 8.1f, "Da'at Tethers"); // t=1240.0
+    Timeout(id + 0x2D0, 10.6f, "Fiendish Wail"); // t=1250.6; Ability 1576 from Sephirot; cactbot Ability 1575 [SephirotEx Fiendish Wail]
+    Timeout(id + 0x2E0, 7.0f, "Chesed Gevurah"); // t=1257.6; Ability 1578/1579 from Sephirot; cactbot StartsUsing 1578 [SephirotEx Gevurah Chesed] | StartsUsing 1579 [SephirotEx Chesed Gevurah]
+    Timeout(id + 0x2F0, 0.6f, "Life Force + Spirit"); // t=1258.2; Ability 157A/157B from Sephirot
+    Timeout(id + 0x300, 7.5f, "Earth Shaker"); // t=1265.7; Ability 157D from Sephirot; cactbot HeadMarker 28 [SephirotEx Earth Shaker Collect] | HeadMarker 28 [SephirotEx Earth Shaker Call] | HeadMarker 28 [SephirotEx Earth Shaker Cleanup]
+    Timeout(id + 0x310, 1.7f, "Yesod"); // t=1267.4; Ability 157E from Sephirot; cactbot StartsUsing 157E [SephirotEx Yesod Move]
+    Timeout(id + 0x320, 7.6f, "Da'at spread"); // t=1275.0
+    Timeout(id + 0x330, 7.4f, "Fiendish Wail"); // t=1282.4; Ability 1576 from Sephirot; cactbot Ability 1575 [SephirotEx Fiendish Wail]
+    Timeout(id + 0x340, 7.1f, "Chesed Gevurah"); // t=1289.5; Ability 1578/1579 from Sephirot; cactbot StartsUsing 1578 [SephirotEx Gevurah Chesed] | StartsUsing 1579 [SephirotEx Chesed Gevurah]
+    Timeout(id + 0x350, 0.7f, "Life Force + Spirit"); // t=1290.2; Ability 157A/157B from Sephirot
+    Timeout(id + 0x360, 8.1f, "Pillar of Mercy 1"); // t=1298.3; Ability 1580 from Sephirot
+    Timeout(id + 0x370, 0.3f, "Yesod"); // t=1298.6; Ability 157E from Sephirot; cactbot StartsUsing 157E [SephirotEx Yesod Move]
+    Timeout(id + 0x380, 4.9f, "Pillar of Mercy 2"); // t=1303.5; Ability 1580 from Sephirot
+    Timeout(id + 0x390, 3.9f, "Pillar of Mercy 3"); // t=1307.4; Ability 1580 from Sephirot
+    Timeout(id + 0x3A0, 9.2f, "Earth Shaker"); // t=1316.6; Ability 157D from Sephirot; cactbot HeadMarker 28 [SephirotEx Earth Shaker Collect] | HeadMarker 28 [SephirotEx Earth Shaker Call] | HeadMarker 28 [SephirotEx Earth Shaker Cleanup]
+    Timeout(id + 0x3B0, 9.5f, "Da'at spread"); // t=1326.1
+    Timeout(id + 0x3C0, 0.9f, "Yesod"); // t=1327.0; Ability 157E from Sephirot; cactbot StartsUsing 157E [SephirotEx Yesod Move]
+    Timeout(id + 0x3D0, 6.4f, "Fiendish Wail"); // t=1333.4; Ability 1576 from Sephirot; cactbot Ability 1575 [SephirotEx Fiendish Wail]
+    Timeout(id + 0x3E0, 7.1f, "Chesed Gevurah"); // t=1340.5; Ability 1578/1579 from Sephirot; cactbot StartsUsing 1578 [SephirotEx Gevurah Chesed] | StartsUsing 1579 [SephirotEx Chesed Gevurah]
+    Timeout(id + 0x3F0, 0.6f, "Life Force + Spirit"); // t=1341.1; Ability 157A/157B from Sephirot
+    Timeout(id + 0x400, 5.6f, "Malkuth").SetHint(StateMachine.StateHint.Knockback); // t=1346.7; Ability 1582 from Sephirot; cactbot StartsUsing 1582 [SephirotEx Malkuth]
+    Timeout(id + 0x410, 1.1f, "Adds Spawn"); // t=1347.8
+    Timeout(id + 0x420, 8.2f, "Chesed Gevurah"); // t=1356.0; Ability 1578/1579 from Sephirot; cactbot StartsUsing 1578 [SephirotEx Gevurah Chesed] | StartsUsing 1579 [SephirotEx Chesed Gevurah]
+    Timeout(id + 0x430, 0.6f, "Life Force + Spirit"); // t=1356.6; Ability 157A/157B from Sephirot
+    Timeout(id + 0x440, 5.6f, "Fiendish Wail"); // t=1362.2; Ability 1576 from Sephirot; cactbot Ability 1575 [SephirotEx Fiendish Wail]
+    Timeout(id + 0x450, 1.6f, "Yesod"); // t=1363.8; Ability 157E from Sephirot; cactbot StartsUsing 157E [SephirotEx Yesod Move]
+    Timeout(id + 0x460, 5.7f, "Chesed Gevurah"); // t=1369.5; Ability 1578/1579 from Sephirot; cactbot StartsUsing 1578 [SephirotEx Gevurah Chesed] | StartsUsing 1579 [SephirotEx Chesed Gevurah]
+    Timeout(id + 0x470, 0.6f, "Life Force + Spirit"); // t=1370.1; Ability 157A/157B from Sephirot
+    Timeout(id + 0x480, 12.8f, "Yesod"); // t=1382.9; Ability 157E from Sephirot; cactbot StartsUsing 157E [SephirotEx Yesod Move]
+    Timeout(id + 0x490, 2.8f, "Chesed Gevurah"); // t=1385.7; Ability 1578/1579 from Sephirot; cactbot StartsUsing 1578 [SephirotEx Gevurah Chesed] | StartsUsing 1579 [SephirotEx Chesed Gevurah]
+    Timeout(id + 0x4A0, 0.6f, "Life Force + Spirit"); // t=1386.3; Ability 157A/157B from Sephirot
+    Timeout(id + 0x4B0, 2.6f, "Pillar of Severity"); // t=1388.9; Ability 1585 from Sephirot
+    Timeout(id + 0x4C0, 3.7f, "Impact of Hod"); // t=1392.6; Ability 172C from Sephirot
+    Timeout(id + 0x4D0, 4.4f, "Pillar of Severity Enrage"); // t=1397.0; Ability 1585 from Sephirot
+}
+

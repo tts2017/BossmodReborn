@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BossModReborn" HintPath="..\..\BossMod\bin\x64\Debug\BossModReborn.dll" />
+    <Reference Include="Dalamud" HintPath="$(DalamudLibPath)Dalamud.dll" />
+    <Reference Include="Lumina" HintPath="$(DalamudLibPath)Lumina.dll" />
+    <Reference Include="Lumina.Excel" HintPath="$(DalamudLibPath)Lumina.Excel.dll" />
+    <ProjectReference Include="..\encounter_timeline\EncounterTimeline.csproj" />
+    <None Include="$(DalamudLibPath)*.dll" Link="%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

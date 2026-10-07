@@ -1,0 +1,102 @@
+// Generated development skeleton from r1n.txt (TerritoryType 1225).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 15 static/dynamic trigger definitions from ui/raidboss/data/07-dt/raid/r1n.ts.
+
+private void Arcadion__R1N___AAC_Light_heavyweight_M1(uint id)
+{
+    Condition(id + 0x0, 8.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9340), "", 5f, 3.9f); // t=8.9; StartsUsing 9340 from Black Cat; cactbot StartsUsing 9340 [R1N Bloody Scratch]
+    Timeout(id + 0x10, 4.7f, "Bloody Scratch").SetHint(StateMachine.StateHint.Raidwide); // t=13.6; Ability 9340 from Black Cat; cactbot StartsUsing 9340 [R1N Bloody Scratch]
+    Timeout(id + 0x20, 5.1f, "--middle--"); // t=18.7; Ability 9308 from Black Cat
+    Timeout(id + 0x30, 8.2f, "One-two Paw (cast)"); // t=26.9; Ability 9309/930C from Black Cat; cactbot StartsUsing 9309 [R1N One-two Paw Right Left] | StartsUsing 930C [R1N One-two Paw Left Right]
+    Timeout(id + 0x40, 0.9f, "One-two Paw (damage)"); // t=27.8; Ability 930A/930B/930D/930E from Black Cat
+    Timeout(id + 0x50, 3.0f, "One-two Paw (damage)"); // t=30.8; Ability 930A/930B/930D/930E from Black Cat
+    Timeout(id + 0x60, 7.2f, "One-two Paw (cast)"); // t=38.0; Ability 9309/930C from Black Cat; cactbot StartsUsing 9309 [R1N One-two Paw Right Left] | StartsUsing 930C [R1N One-two Paw Left Right]
+    Timeout(id + 0x70, 0.9f, "One-two Paw (damage)"); // t=38.9; Ability 930A/930B/930D/930E from Black Cat
+    Timeout(id + 0x80, 3.0f, "One-two Paw (damage)"); // t=41.9; Ability 930A/930B/930D/930E from Black Cat
+    Timeout(id + 0x90, 6.2f, "--middle--"); // t=48.1; Ability 9308 from Black Cat
+    Timeout(id + 0xA0, 9.0f, "Black Cat Crossing (cast)"); // t=57.1; Ability 930F/9310 from Black Cat
+    Timeout(id + 0xB0, 1.0f, "Black Cat Crossing (damage)"); // t=58.1; Ability 9311/9312 from Black Cat
+    Timeout(id + 0xC0, 2.0f, "Black Cat Crossing (cast)"); // t=60.1; Ability 930F/9310 from Black Cat
+    Timeout(id + 0xD0, 1.1f, "Black Cat Crossing (damage)"); // t=61.2; Ability 9311/9312 from Black Cat
+    Timeout(id + 0xE0, 7.0f, "Biscuit Maker").SetHint(StateMachine.StateHint.Tankbuster); // t=68.2; Ability 934A from Black Cat; cactbot StartsUsing 934A [R1N Biscuit Maker]
+    Timeout(id + 0xF0, 6.0f, "Clawful (cast)"); // t=74.2; Ability 933C from Black Cat; cactbot StartsUsing 933C [R1N Clawful]
+    Timeout(id + 0x100, 1.0f, "Clawful (damage)"); // t=75.2; Ability 933D from Black Cat
+    Timeout(id + 0x110, 10.1f, "--middle--"); // t=85.3; Ability 9308 from Black Cat
+    Timeout(id + 0x120, 3.3f, "Mouser (telegraphs)"); // t=88.6
+    Timeout(id + 0x130, 9.6f, "Mouser (hits)"); // t=98.2
+    Timeout(id + 0x140, 29.0f, "Elevate and Eviscerate"); // t=127.2; Ability 9317 from Black Cat; cactbot StartsUsing 9317 [R1N Elevate and Eviscerate]
+    Timeout(id + 0x150, 3.7f, "Impact"); // t=130.9; Ability 9952 from Black Cat
+    Timeout(id + 0x160, 6.6f, "Elevate and Eviscerate"); // t=137.5; Ability 9317 from Black Cat; cactbot StartsUsing 9317 [R1N Elevate and Eviscerate]
+    Timeout(id + 0x170, 3.7f, "Impact"); // t=141.2; Ability 9952 from Black Cat
+    Timeout(id + 0x180, 6.6f, "Elevate and Eviscerate"); // t=147.8; Ability 9317 from Black Cat; cactbot StartsUsing 9317 [R1N Elevate and Eviscerate]
+    Timeout(id + 0x190, 3.7f, "Impact"); // t=151.5; Ability 9952 from Black Cat
+    Timeout(id + 0x1A0, 6.6f, "Elevate and Eviscerate"); // t=158.1; Ability 9317 from Black Cat; cactbot StartsUsing 9317 [R1N Elevate and Eviscerate]
+    Timeout(id + 0x1B0, 3.7f, "Impact"); // t=161.8; Ability 9952 from Black Cat
+    Timeout(id + 0x1C0, 2.4f, "--middle--"); // t=164.2; Ability 9308 from Black Cat
+    Timeout(id + 0x1D0, 8.2f, "Shockwave (cast)").SetHint(StateMachine.StateHint.Knockback); // t=172.4; Ability 931D from Black Cat; cactbot StartsUsing 931D [R1N Shockwave 931D]
+    Timeout(id + 0x1E0, 1.0f, "Shockwave (damage)"); // t=173.4; Ability 931E from Black Cat
+    Timeout(id + 0x1F0, 7.0f, "Bloody Scratch").SetHint(StateMachine.StateHint.Raidwide); // t=180.4; Ability 9340 from Black Cat; cactbot StartsUsing 9340 [R1N Bloody Scratch]
+    Timeout(id + 0x200, 8.1f, "--middle--"); // t=188.5; Ability 9308 from Black Cat
+    Condition(id + 0x210, 3.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9332), "Predaceous Pounce (telegraphs)", 5f, 0.0f); // t=191.5; StartsUsing 9332 from Black Cat
+    Timeout(id + 0x220, 13.5f, "Predaceous Pounce (hits)"); // t=205.0
+    Timeout(id + 0x230, 13.1f, "Grimalkin Gale"); // t=218.1; Ability 933F from Black Cat
+    Timeout(id + 0x240, 7.1f, "Biscuit Maker").SetHint(StateMachine.StateHint.Tankbuster); // t=225.2; Ability 934A from Black Cat; cactbot StartsUsing 934A [R1N Biscuit Maker]
+    Timeout(id + 0x250, 6.1f, "--middle--"); // t=231.3; Ability 9308 from Black Cat
+    Timeout(id + 0x260, 9.3f, "Leaping One-two Paw (cast)"); // t=240.6; Ability 931F/9320/9321/9322 from Black Cat; cactbot StartsUsing 931F [R1N Leaping One-two Paw West West East] | StartsUsing 9320 [R1N Leaping One-two Paw West East West] | StartsUsing 9321 [R1N Leaping One-two Paw East West East] | StartsUsing 9322 [R1N Leaping One-two Paw East East West]
+    Timeout(id + 0x270, 1.0f, "Leaping One-two Paw (jump)"); // t=241.6
+    Timeout(id + 0x280, 0.8f, "Leaping One-two Paw (damage)"); // t=242.4
+    Timeout(id + 0x290, 2.0f, "Leaping One-two Paw (damage)"); // t=244.4
+    Timeout(id + 0x2A0, 10.4f, "Leaping Black Cat Crossing (cast)"); // t=254.8; Ability 9329/9810 from Black Cat
+    Timeout(id + 0x2B0, 2.0f, "Leaping Black Cat Crossing (damage)"); // t=256.8; Ability 932C from Black Cat
+    Timeout(id + 0x2C0, 2.0f, "Leaping Black Cat Crossing (damage)"); // t=258.8; Ability 932D from Black Cat
+    Timeout(id + 0x2D0, 6.0f, "Clawful (cast)"); // t=264.8; Ability 933C from Black Cat; cactbot StartsUsing 933C [R1N Clawful]
+    Timeout(id + 0x2E0, 1.0f, "Clawful (damage)"); // t=265.8; Ability 933D from Black Cat
+    Timeout(id + 0x2F0, 7.0f, "Bloody Scratch").SetHint(StateMachine.StateHint.Raidwide); // t=272.8; Ability 9340 from Black Cat; cactbot StartsUsing 9340 [R1N Bloody Scratch]
+    Timeout(id + 0x300, 10.1f, "--middle--"); // t=282.9; Ability 9308 from Black Cat
+    Timeout(id + 0x310, 3.4f, "Mouser (telegraphs)"); // t=286.3
+    Timeout(id + 0x320, 8.7f, "Mouser (hits)"); // t=295.0
+    Timeout(id + 0x330, 22.0f, "Copycat"); // t=317.0; Ability 9318 from Black Cat
+    Timeout(id + 0x340, 12.1f, "Elevate and Eviscerate"); // t=329.1; Ability 9317 from Copy Cat; cactbot StartsUsing 9317 [R1N Elevate and Eviscerate]
+    Timeout(id + 0x350, 0.2f, "Overshadow (cast)"); // t=329.3; Ability 9319 from Black Cat; cactbot StartsUsing 9319 [R1N Overshadow]
+    Timeout(id + 0x360, 0.2f, "Overshadow (damage)"); // t=329.5; Ability 931A from Black Cat
+    Timeout(id + 0x370, 3.3f, "Impact"); // t=332.8; Ability 9952 from Copy Cat
+    Timeout(id + 0x380, 7.9f, "Elevate and Eviscerate"); // t=340.7; Ability 9317 from Copy Cat; cactbot StartsUsing 9317 [R1N Elevate and Eviscerate]
+    Timeout(id + 0x390, 0.1f, "Overshadow (cast)"); // t=340.8; Ability 9319 from Black Cat; cactbot StartsUsing 9319 [R1N Overshadow]
+    Timeout(id + 0x3A0, 0.2f, "Overshadow (damage)"); // t=341.0; Ability 931A from Black Cat
+    Timeout(id + 0x3B0, 3.3f, "Impact"); // t=344.3; Ability 9952 from Copy Cat
+    Timeout(id + 0x3C0, 8.0f, "Elevate and Eviscerate"); // t=352.3; Ability 9317 from Copy Cat; cactbot StartsUsing 9317 [R1N Elevate and Eviscerate]
+    Timeout(id + 0x3D0, 0.2f, "Overshadow (cast)"); // t=352.5; Ability 9319 from Black Cat; cactbot StartsUsing 9319 [R1N Overshadow]
+    Timeout(id + 0x3E0, 0.2f, "Overshadow (damage)"); // t=352.7; Ability 931A from Black Cat
+    Timeout(id + 0x3F0, 3.1f, "Impact"); // t=355.8; Ability 9952 from Copy Cat
+    Timeout(id + 0x400, 7.9f, "Elevate and Eviscerate"); // t=363.7; Ability 9317 from Copy Cat; cactbot StartsUsing 9317 [R1N Elevate and Eviscerate]
+    Timeout(id + 0x410, 0.2f, "Overshadow (cast)"); // t=363.9; Ability 9319 from Black Cat; cactbot StartsUsing 9319 [R1N Overshadow]
+    Timeout(id + 0x420, 0.2f, "Overshadow (damage)"); // t=364.1; Ability 931A from Black Cat
+    Timeout(id + 0x430, 3.2f, "Impact"); // t=367.3; Ability 9952 from Copy Cat
+    Timeout(id + 0x440, 2.8f, "--middle--"); // t=370.1; Ability 9308 from Black Cat
+    Timeout(id + 0x450, 8.2f, "Shockwave (cast)").SetHint(StateMachine.StateHint.Knockback); // t=378.3; Ability 931D from Black Cat; cactbot StartsUsing 931D [R1N Shockwave 931D]
+    Timeout(id + 0x460, 1.0f, "Shockwave (damage)"); // t=379.3; Ability 931E from Black Cat
+    Timeout(id + 0x470, 7.0f, "Biscuit Maker").SetHint(StateMachine.StateHint.Tankbuster); // t=386.3; Ability 934A from Black Cat; cactbot StartsUsing 934A [R1N Biscuit Maker]
+    Timeout(id + 0x480, 11.0f, "Copycat"); // t=397.3; Ability 9318 from Black Cat
+    Condition(id + 0x490, 4.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9332), "Predaceous Pounce (telegraphs)", 5f, 0.0f); // t=402.1; StartsUsing 9332 from Black Cat
+    Timeout(id + 0x4A0, 13.5f, "Predaceous Pounce (hits)"); // t=415.6
+    Timeout(id + 0x4B0, 1.7f, "--middle--"); // t=417.3; Ability 9308 from Black Cat
+    Timeout(id + 0x4C0, 8.6f, "One-two Paw (cast)"); // t=425.9; Ability 9309/930C from Black Cat; cactbot StartsUsing 9309 [R1N One-two Paw Right Left] | StartsUsing 930C [R1N One-two Paw Left Right]
+    Timeout(id + 0x4D0, 0.9f, "One-two Paw (damage)"); // t=426.8; Ability 930A/930B/930D/930E from Black Cat
+    Timeout(id + 0x4E0, 3.0f, "One-two Paw (damage)"); // t=429.8; Ability 930A/930B/930D/930E from Black Cat
+    Timeout(id + 0x4F0, 5.2f, "Clawful (cast)"); // t=435.0; Ability 933C from Black Cat; cactbot StartsUsing 933C [R1N Clawful]
+    Timeout(id + 0x500, 1.0f, "Clawful (damage)"); // t=436.0; Ability 933D from Black Cat
+    Timeout(id + 0x510, 19.0f, "Leaping One-two Paw (cast)"); // t=455.0; Ability 931F/9320/9321/9322 from Black Cat; cactbot StartsUsing 931F [R1N Leaping One-two Paw West West East] | StartsUsing 9320 [R1N Leaping One-two Paw West East West] | StartsUsing 9321 [R1N Leaping One-two Paw East West East] | StartsUsing 9322 [R1N Leaping One-two Paw East East West]
+    Timeout(id + 0x520, 1.0f, "Leaping One-two Paw (jump)"); // t=456.0
+    Timeout(id + 0x530, 0.8f, "Leaping One-two Paw (damage)"); // t=456.8
+    Timeout(id + 0x540, 2.0f, "Leaping One-two Paw (damage)"); // t=458.8
+    Timeout(id + 0x550, 3.0f, "Grimalkin Gale"); // t=461.8; Ability 933F from Black Cat
+    Timeout(id + 0x560, 9.4f, "Leaping Black Cat Crossing (cast)"); // t=471.2; Ability 9329/9810 from Black Cat
+    Timeout(id + 0x570, 2.0f, "Leaping Black Cat Crossing (damage)"); // t=473.2; Ability 932C from Black Cat
+    Timeout(id + 0x580, 2.0f, "Leaping Black Cat Crossing (damage)"); // t=475.2; Ability 932D from Black Cat
+    Timeout(id + 0x590, 2.8f, "Grimalkin Gale"); // t=478.0; Ability 933F from Black Cat
+    Timeout(id + 0x5A0, 6.2f, "Clawful (cast)"); // t=484.2; Ability 933C from Black Cat; cactbot StartsUsing 933C [R1N Clawful]
+    Timeout(id + 0x5B0, 1.0f, "Clawful (damage)"); // t=485.2; Ability 933D from Black Cat
+    Timeout(id + 0x5C0, 7.0f, "Bloody Scratch").SetHint(StateMachine.StateHint.Raidwide); // t=492.2; Ability 9340 from Black Cat; cactbot StartsUsing 9340 [R1N Bloody Scratch]
+}
+

@@ -1,0 +1,76 @@
+// Generated development skeleton from ridorana_lighthouse.txt (TerritoryType 776).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 33 static/dynamic trigger definitions from ui/raidboss/data/04-sb/alliance/ridorana_lighthouse.ts.
+
+private void Yiazmat(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=3000.0
+    Timeout(id + 0x10, 16.0f, "Rake (single)"); // t=3016.0; Ability 2C26 from Yiazmat
+    Timeout(id + 0x20, 10.0f, "Gust Front"); // t=3026.0
+    Timeout(id + 0x30, 8.0f, "Stone Breath"); // t=3034.0; Ability 2C29 from Yiazmat
+    Timeout(id + 0x40, 12.0f, "Dust Storm"); // t=3046.0; Ability 2C36 from Yiazmat
+    Timeout(id + 0x50, 13.0f, "White Breath"); // t=3059.0; Ability 2C31 from Yiazmat; cactbot StartsUsing 2C31 [Ridorana Yiazmat White Breath]
+    Timeout(id + 0x60, 15.0f, "Magnetic Lysis"); // t=3074.0; Ability 2C2A from Yiazmat
+    Timeout(id + 0x70, 8.0f, "Dust Storm"); // t=3082.0; Ability 2C36 from Yiazmat
+    Timeout(id + 0x80, 6.0f, "Gust Front"); // t=3088.0
+    Timeout(id + 0x90, 4.0f, "Stone Breath"); // t=3092.0; Ability 2C29 from Yiazmat
+    Timeout(id + 0xA0, 6.0f, "Dust Storm"); // t=3098.0; Ability 2C36 from Yiazmat
+    Timeout(id + 0xB0, 3.0f, "Magnetic Genesis"); // t=3101.0; Ability 2C2B from Yiazmat
+    Timeout(id + 0xC0, 13.0f, "Rake (combo)"); // t=3114.0
+    Timeout(id + 0xD0, 20.0f, "White Breath"); // t=3134.0; Ability 2C31 from Yiazmat; cactbot StartsUsing 2C31 [Ridorana Yiazmat White Breath]
+    Timeout(id + 0xE0, 15.0f, "Rake (single)"); // t=3149.0; Ability 2C26 from Yiazmat
+    Timeout(id + 0xF0, 11.0f, "Gust Front"); // t=3160.0
+    Timeout(id + 0x100, 2.0f, "Stone Breath"); // t=3162.0; Ability 2C29 from Yiazmat
+    Timeout(id + 0x110, 13.0f, "Summon"); // t=3175.0; Ability 2C37 from Yiazmat
+    Timeout(id + 0x120, 11.0f, "Magnetic Lysis"); // t=3186.0; Ability 2C2A from Yiazmat
+    Timeout(id + 0x130, 8.0f, "White Breath"); // t=3194.0; Ability 2C31 from Yiazmat; cactbot StartsUsing 2C31 [Ridorana Yiazmat White Breath]
+    Timeout(id + 0x140, 7.0f, "Dust Storm"); // t=3201.0; Ability 2C36 from Yiazmat
+    Timeout(id + 0x150, 7.0f, "Death Strike"); // t=3208.0; Ability 2C34 from Yiazmat
+    Timeout(id + 0x160, 5.0f, "Magnetic Genesis"); // t=3213.0; Ability 2C2B from Yiazmat
+    Timeout(id + 0x170, 9.0f, "Cyclone"); // t=3222.0; Ability 2C23 from Yiazmat
+    Timeout(id + 0x180, 19.0f, "Archaeodemon spawn"); // t=3241.0
+    Timeout(id + 0x190, 7.0f, "Gust Front"); // t=3248.0
+    Timeout(id + 0x1A0, 2.0f, "Karma/Unholy Darkness"); // t=3250.0
+    Timeout(id + 0x1B0, 8.0f, "Death Strike"); // t=3258.0; Ability 2C33 from Yiazmat
+    Timeout(id + 0x1C0, 4.0f, "Karma/Unholy Darkness"); // t=3262.0
+    Timeout(id + 0x1D0, 39.0f, "Enrage"); // t=3301.0
+    Timeout(id + 0x1E0, 99.0f, "Solar Storm"); // t=3400.0; Ability 2C2C from Yiazmat
+    Timeout(id + 0x1F0, 20.0f, "Rake (combo)"); // t=3420.0
+    Timeout(id + 0x200, 5.0f, "Gust Front"); // t=3425.0
+    Timeout(id + 0x210, 14.0f, "White Breath"); // t=3439.0; Ability 2C31 from Yiazmat; cactbot StartsUsing 2C31 [Ridorana Yiazmat White Breath]
+    Timeout(id + 0x220, 11.0f, "Rake (single)"); // t=3450.0; Ability 2C26 from Yiazmat
+    Timeout(id + 0x230, 6.0f, "Magnetic Lysis"); // t=3456.0; Ability 2C2A from Yiazmat
+    Timeout(id + 0x240, 7.0f, "Rake (combo)"); // t=3463.0
+    Timeout(id + 0x250, 18.0f, "Dust Storm"); // t=3481.0; Ability 2C36 from Yiazmat
+    Timeout(id + 0x260, 2.0f, "Magnetic Genesis"); // t=3483.0; Ability 2C2B from Yiazmat
+    Timeout(id + 0x270, 10.0f, "Cyclone"); // t=3493.0; Ability 2C23 from Yiazmat
+    Timeout(id + 0x280, 12.0f, "Death Strike"); // t=3505.0; Ability 2C34 from Yiazmat
+    Timeout(id + 0x290, 5.0f, "Gust Front"); // t=3510.0
+    Timeout(id + 0x2A0, 10.0f, "White Breath"); // t=3520.0; Ability 2C31 from Yiazmat; cactbot StartsUsing 2C31 [Ridorana Yiazmat White Breath]
+    Timeout(id + 0x2B0, 11.0f, "Rake (single)"); // t=3531.0; Ability 2C26 from Yiazmat
+    Timeout(id + 0x2C0, 6.0f, "Magnetic Lysis"); // t=3537.0; Ability 2C2A from Yiazmat
+    Timeout(id + 0x2D0, 7.0f, "Dust Storm"); // t=3544.0; Ability 2C36 from Yiazmat
+    Timeout(id + 0x2E0, 7.0f, "White Breath"); // t=3551.0; Ability 2C31 from Yiazmat; cactbot StartsUsing 2C31 [Ridorana Yiazmat White Breath]
+    Timeout(id + 0x2F0, 2.0f, "Gust Front"); // t=3553.0
+    Timeout(id + 0x300, 8.0f, "Dust Storm"); // t=3561.0; Ability 2C36 from Yiazmat
+    Timeout(id + 0x310, 4.0f, "Magnetic Genesis"); // t=3565.0; Ability 2C2B from Yiazmat
+    Timeout(id + 0x320, 12.0f, "Gale Gaol"); // t=3577.0; Ability 2C2D from Yiazmat
+    Timeout(id + 0x330, 7.0f, "Gust Front"); // t=3584.0
+    Timeout(id + 0x340, 3.0f, "Stone Breath"); // t=3587.0; Ability 2C29 from Yiazmat
+    Timeout(id + 0x350, 8.0f, "Rake (single)"); // t=3595.0; Ability 2C26 from Yiazmat
+    Timeout(id + 0x360, 5.0f, "Dust Storm"); // t=3600.0; Ability 2C36 from Yiazmat
+    Timeout(id + 0x370, 10.0f, "Magnetic Lysis"); // t=3610.0; Ability 2C2A from Yiazmat
+    Timeout(id + 0x380, 7.0f, "Rake (combo)"); // t=3617.0
+    Timeout(id + 0x390, 17.0f, "Dust Storm"); // t=3634.0
+    Condition(id + 0x3A0, 60.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2C32), "", 5f, 55.0f); // t=3694.0; StartsUsing 2C32 from Yiazmat
+    Timeout(id + 0x3B0, 6.0f, "Growing Threat"); // t=3700.0; Ability 2C32 from Yiazmat
+    Timeout(id + 0x3C0, 7.0f, "Rake (combo)"); // t=3707.0
+    Timeout(id + 0x3D0, 20.0f, "White Breath"); // t=3727.0; Ability 2C31 from Yiazmat; cactbot StartsUsing 2C31 [Ridorana Yiazmat White Breath]
+    Timeout(id + 0x3E0, 7.0f, "Dust Storm"); // t=3734.0; Ability 2C36 from Yiazmat
+    Timeout(id + 0x3F0, 6.0f, "Rake (combo)"); // t=3740.0
+    Timeout(id + 0x400, 12.0f, "Gust Front"); // t=3752.0
+    Timeout(id + 0x410, 9.0f, "Stone Breath"); // t=3761.0; Ability 2C29 from Yiazmat
+    Timeout(id + 0x420, 6.0f, "Dust Storm"); // t=3767.0; Ability 2C36 from Yiazmat
+}
+

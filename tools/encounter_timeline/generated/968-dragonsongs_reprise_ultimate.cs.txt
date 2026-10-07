@@ -1,0 +1,329 @@
+// Generated development skeleton from dragonsongs_reprise_ultimate.txt (TerritoryType 968).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 75 static/dynamic trigger definitions from ui/raidboss/data/06-ew/ultimate/dragonsongs_reprise_ultimate.ts.
+// Cactbot actor OID candidates (not automatically promoted to primary boss): 0x3144.
+
+private void Dragonsong_s_Reprise_Ultimate(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Phase_1__Adelphel__Grinnaux_and_Charibert(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Condition(id + 0x10, 6.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x62D4), "", 5f, 1.0f); // t=6.0; StartsUsing 62D4 from Ser Adelphel; cactbot StartsUsing 62D4/63C8/6708/62E2/6B86 [DSR Phase Tracker] | StartsUsing 62D4 [DSR Holiest of Holy]
+    Timeout(id + 0x20, 4.0f, "Holiest of Holy").SetHint(StateMachine.StateHint.Raidwide); // t=10.0; Ability 62D4 from Ser Adelphel; cactbot StartsUsing 62D4/63C8/6708/62E2/6B86 [DSR Phase Tracker] | StartsUsing 62D4 [DSR Holiest of Holy]
+    Timeout(id + 0x30, 13.2f, "Empty Dimension / Holy Shield Bash"); // t=23.2; Ability 62DA from Ser Grinnaux | Ability 62D1 from Ser Adelphel; cactbot StartsUsing 62DA [DSR Empty Dimension]
+    Timeout(id + 0x40, 2.1f, "Holy Bladedance"); // t=25.3; Ability 62D2 from Ser Adelphel; cactbot Ability 62D2 [DSR Adelphel ID Tracker]
+    Timeout(id + 0x50, 2.9f, "Heavensblaze"); // t=28.2; Ability 62DD from Ser Charibert
+    Timeout(id + 0x60, 8.3f, "--middle--"); // t=36.5; Ability 62E9 from Ser Grinnaux
+    Targetable(id + 0x70, false, 1.9f, "--untargetable--"); // t=38.4
+    Timeout(id + 0x80, 6.4f, "Hyperdimensional Slash 1"); // t=44.8; Ability 62D7 from Ser Grinnaux/Ser Charibert
+    Timeout(id + 0x90, 7.1f, "Hyperdimensional Slash 2"); // t=51.9; Ability 62D7 from Ser Grinnaux/Ser Charibert
+    Targetable(id + 0xA0, true, 2.9f, "--targetable--"); // t=54.8
+    Timeout(id + 0xB0, 5.0f, "Faith Unmoving").SetHint(StateMachine.StateHint.Knockback); // t=59.8; Ability 62DC from Ser Grinnaux; cactbot StartsUsing 62DC [DSR Faith Unmoving]
+    Timeout(id + 0xC0, 1.1f, "Holiest of Holy").SetHint(StateMachine.StateHint.Raidwide); // t=60.9; Ability 62D4 from Ser Adelphel; cactbot StartsUsing 62D4/63C8/6708/62E2/6B86 [DSR Phase Tracker] | StartsUsing 62D4 [DSR Holiest of Holy]
+    Targetable(id + 0xD0, false, 6.6f, "--untargetable--"); // t=67.5
+    Timeout(id + 0xE0, 1.6f, "Execution"); // t=69.1; Ability 62D5 from Ser Adelphel
+    Targetable(id + 0xF0, true, 1.7f, "--targetable--"); // t=70.8
+    Timeout(id + 0x100, 15.4f, "Faith Unmoving").SetHint(StateMachine.StateHint.Knockback); // t=86.2; Ability 62DC from Ser Grinnaux; cactbot StartsUsing 62DC [DSR Faith Unmoving]
+    Timeout(id + 0x110, 2.0f, "Heavensflame"); // t=88.2; Ability 62DE from Ser Charibert
+    Timeout(id + 0x120, 14.0f, "Holiest of Holy").SetHint(StateMachine.StateHint.Raidwide); // t=102.2; Ability 62D4 from Ser Adelphel; cactbot StartsUsing 62D4/63C8/6708/62E2/6B86 [DSR Phase Tracker] | StartsUsing 62D4 [DSR Holiest of Holy]
+    Timeout(id + 0x130, 2.0f, "Empty Dimension/Full Dimension"); // t=104.2; Ability 62DA/62DB from Ser Grinnaux; cactbot StartsUsing 62DA [DSR Empty Dimension] | StartsUsing 62DB [DSR Full Dimension]
+    Timeout(id + 0x140, 18.0f, "Holiest of Holy").SetHint(StateMachine.StateHint.Raidwide); // t=122.2; Ability 62D4 from Ser Adelphel; cactbot StartsUsing 62D4/63C8/6708/62E2/6B86 [DSR Phase Tracker] | StartsUsing 62D4 [DSR Holiest of Holy]
+    Timeout(id + 0x150, 5.2f, "The Bull's Steel / Brightblade's Steel"); // t=127.4; Ability 62CD from Ser Grinnaux | Ability 62CC from Ser Adelphel
+    Timeout(id + 0x160, 6.2f, "Faith Unmoving / Holiest of Holy").SetHint(StateMachine.StateHint.Raidwide | StateMachine.StateHint.Knockback); // t=133.6; Ability 62DC from Ser Grinnaux | Ability 62D4 from Ser Adelphel; cactbot StartsUsing 62D4/63C8/6708/62E2/6B86 [DSR Phase Tracker] | StartsUsing 62D4 [DSR Holiest of Holy] | StartsUsing 62DC [DSR Faith Unmoving]
+}
+
+private void Phase_1_5__Haurchefant_v1__a_time_loop_better_suits_a_hero(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Planar Prison / Brightwinged Flight"); // t=500.0; Ability 62E1 from Ser Grinnaux | Ability 6316 from Ser Adelphel
+    Condition(id + 0x10, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x62E4), "Pure of Heart", 5f, 0.0f); // t=500.0; StartsUsing 62E4 from Ser Charibert
+    Timeout(id + 0x20, 10.0f, "Spear of the Fury"); // t=510.0; Ability 62E2 from Ser Zephirin; cactbot StartsUsing 62D4/63C8/6708/62E2/6B86 [DSR Phase Tracker] | StartsUsing 62E2 [DSR Spear of the Fury Limit Break]
+    Timeout(id + 0x30, 5.9f, "Brightwing 1"); // t=515.9; Ability 6319 from Ser Charibert; cactbot Ability 6319 [DSR Brightwing Counter] | Ability 6319 [DSR Brightwing Move]
+    Timeout(id + 0x40, 5.0f, "Brightwing 2"); // t=520.9; Ability 6319 from Ser Charibert; cactbot Ability 6319 [DSR Brightwing Counter] | Ability 6319 [DSR Brightwing Move]
+    Timeout(id + 0x50, 2.9f, "Skyblind 1"); // t=523.8; Ability 631A from Ser Charibert
+    Timeout(id + 0x60, 2.1f, "Brightwing 3"); // t=525.9; Ability 6319 from Ser Charibert; cactbot Ability 6319 [DSR Brightwing Counter] | Ability 6319 [DSR Brightwing Move]
+    Timeout(id + 0x70, 2.9f, "Skyblind 2"); // t=528.8; Ability 631A from Ser Charibert
+    Timeout(id + 0x80, 2.1f, "Brightwing 4"); // t=530.9; Ability 6319 from Ser Charibert; cactbot Ability 6319 [DSR Brightwing Counter] | Ability 6319 [DSR Brightwing Move]
+    Timeout(id + 0x90, 2.9f, "Skyblind 3"); // t=533.8; Ability 631A from Ser Charibert
+    Timeout(id + 0xA0, 2.1f, "Pure of Heart"); // t=535.9; Ability 62E4 from Ser Charibert
+    Targetable(id + 0xB0, false, 1.9f, "--untargetable--"); // t=537.8
+    Timeout(id + 0xC0, 1.0f, "Skyblind 4"); // t=538.8; Ability 631A from Ser Charibert
+}
+
+private void Phase_2__King_Thordan(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=541.5
+    Condition(id + 0x10, 8.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x63C8), "", 5f, 3.5f); // t=550.0; StartsUsing 63C8 from King Thordan; cactbot StartsUsing 62D4/63C8/6708/62E2/6B86 [DSR Phase Tracker] | StartsUsing 63C8 [DSR Ascalon\]
+    Timeout(id + 0x20, 3.0f, "Ascalon's Mercy Concealed"); // t=553.0; Ability 63C8 from King Thordan; cactbot StartsUsing 62D4/63C8/6708/62E2/6B86 [DSR Phase Tracker] | StartsUsing 63C8 [DSR Ascalon\]
+    Timeout(id + 0x30, 3.2f, "Ascalon's Might 1"); // t=556.2
+    Timeout(id + 0x40, 1.6f, "Ascalon's Might 2"); // t=557.8
+    Timeout(id + 0x50, 1.6f, "Ascalon's Might 3"); // t=559.4
+    Timeout(id + 0x60, 3.9f, "Knights of the Round"); // t=563.3; Ability 63ED from King Thordan
+    Timeout(id + 0x70, 7.1f, "Strength of the Ward"); // t=570.4; Ability 63D3 from King Thordan; cactbot Ability 63D3 [DSR Spiral Thrust Safe Spots]
+    Targetable(id + 0x80, false, 3.1f, "--untargetable--"); // t=573.5
+    Timeout(id + 0x90, 9.2f, "Lightning Storm"); // t=582.7; Ability 63CC from King Thordan
+    Timeout(id + 0xA0, 0.3f, "Heavy Impact 1 / Spiral Thrust"); // t=583.0; Ability 63D6 from Ser Guerrique | Ability 63D4 from Ser Ignasse
+    Timeout(id + 0xB0, 1.9f, "Heavy Impact 2"); // t=584.9; Ability 63D7 from Ser Guerrique; cactbot Ability 63D7 [DSR Dragon\]
+    Timeout(id + 0xC0, 1.9f, "Heavy Impact 3"); // t=586.8; Ability 63D8 from Ser Guerrique
+    Timeout(id + 0xD0, 1.3f, "Ascalon's Mercy Concealed"); // t=588.1; Ability 63C8 from King Thordan; cactbot StartsUsing 62D4/63C8/6708/62E2/6B86 [DSR Phase Tracker] | StartsUsing 63C8 [DSR Ascalon\]
+    Timeout(id + 0xE0, 0.6f, "Heavy Impact 4"); // t=588.7; Ability 63D9 from Ser Guerrique
+    Timeout(id + 0xF0, 1.9f, "Heavy Impact 5"); // t=590.6; Ability 63DA from Ser Guerrique
+    Timeout(id + 0x100, 7.5f, "Dimensional Collapse / The Dragon's Rage"); // t=598.1; Ability 63DB from Ser Grinnaux | Ability 63CE from King Thordan
+    Timeout(id + 0x110, 0.9f, "Skyward Leap"); // t=599.0; cactbot HeadMarker [DSR Skyward Leap] | HeadMarker [DSR Wrath Skyward Leap]
+    Timeout(id + 0x120, 0.4f, "Holy Shield Bash"); // t=599.4; Ability 62D1 from Ser Adelphel
+    Timeout(id + 0x130, 2.1f, "Holy Bladedance"); // t=601.5; Ability 62D2 from Ser Adelphel; cactbot Ability 62D2 [DSR Adelphel ID Tracker]
+    Timeout(id + 0x140, 1.3f, "Conviction"); // t=602.8; Ability 63DF from Ser Hermenost
+    Targetable(id + 0x150, true, 2.1f, "--targetable--"); // t=604.9
+    Timeout(id + 0x160, 6.1f, "Ancient Quaga").SetHint(StateMachine.StateHint.Raidwide); // t=611.0; Ability 63C6 from King Thordan; cactbot StartsUsing 63C6 [DSR Ancient Quaga]
+    Timeout(id + 0x170, 10.2f, "Heavenly Heel").SetHint(StateMachine.StateHint.Tankbuster); // t=621.2; Ability 63C7 from King Thordan; cactbot StartsUsing 63C7 [DSR Heavenly Heel]
+    Timeout(id + 0x180, 3.2f, "Ascalon's Might 1"); // t=624.4
+    Timeout(id + 0x190, 1.6f, "Ascalon's Might 2"); // t=626.0
+    Timeout(id + 0x1A0, 1.7f, "Ascalon's Might 3"); // t=627.7
+    Timeout(id + 0x1B0, 3.9f, "Knights of the Round"); // t=631.6; Ability 63ED from King Thordan
+    Timeout(id + 0x1C0, 7.1f, "Sanctity of the Ward"); // t=638.7; Ability 63E1 from King Thordan; cactbot Ability 63E1 [DSR Sanctity of the Ward Direction]
+    Targetable(id + 0x1D0, false, 3.1f, "--untargetable--"); // t=641.8
+    Timeout(id + 0x1E0, 10.4f, "Sacred Sever 1"); // t=652.2
+    Timeout(id + 0x1F0, 0.2f, "The Dragon's Glory / The Dragon's Gaze"); // t=652.4; Ability 63D2 from King Thordan | Ability 63D1 from King Thordan
+    Timeout(id + 0x200, 1.6f, "Sacred Sever 2"); // t=654.0
+    Timeout(id + 0x210, 1.8f, "Sacred Sever 3"); // t=655.8
+    Timeout(id + 0x220, 1.8f, "Sacred Sever 4"); // t=657.6
+    Timeout(id + 0x230, 12.2f, "Heavens' Stake / Hiemal Storm"); // t=669.8; Ability 6FAE from Ser Charibert | Ability 63E6 from Ser Haumeric
+    Timeout(id + 0x240, 2.1f, "Conviction 1"); // t=671.9; Ability 737B from Ser Hermenost
+    Timeout(id + 0x250, 3.7f, "Holy Comet 1"); // t=675.6
+    Timeout(id + 0x260, 1.4f, "Holy Comet 2"); // t=677.0
+    Timeout(id + 0x270, 1.4f, "Holy Comet 3"); // t=678.4
+    Timeout(id + 0x280, 1.4f, "Holy Comet 4"); // t=679.8
+    Timeout(id + 0x290, 1.4f, "Holy Comet 5"); // t=681.2
+    Timeout(id + 0x2A0, 1.4f, "Holy Comet 6"); // t=682.6
+    Timeout(id + 0x2B0, 1.4f, "Holy Comet 7"); // t=684.0
+    Timeout(id + 0x2C0, 1.1f, "Faith Unmoving").SetHint(StateMachine.StateHint.Knockback); // t=685.1; Ability 62DC from Ser Grinnaux; cactbot StartsUsing 62DC [DSR Faith Unmoving]
+    Timeout(id + 0x2D0, 0.1f, "Conviction 2"); // t=685.2; Ability 6FEA from Ser Hermenost
+    Targetable(id + 0x2E0, true, 7.3f, "--targetable--"); // t=692.5
+    Timeout(id + 0x2F0, 13.6f, "Ultimate End"); // t=706.1; Ability 63BE from King Thordan
+    Timeout(id + 0x300, 12.3f, "Broad Swing 1"); // t=718.4
+    Timeout(id + 0x310, 8.5f, "Broad Swing 2"); // t=726.9
+    Condition(id + 0x320, 5.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x63C3), "", 5f, 0.1f); // t=732.0; StartsUsing 63C3 from King Thordan
+    Timeout(id + 0x330, 6.0f, "Aetheric Burst Enrage"); // t=738.0; Ability 63C3 from King Thordan
+}
+
+private void Phase_3__Nidhogg(uint id)
+{
+    Targetable(id + 0x0, true, 9.2f, "--targetable--"); // t=1002.3
+    Timeout(id + 0x10, 0.0f, "Final Chorus"); // t=1002.3; Ability 6709 from Nidhogg
+    Timeout(id + 0x20, 18.2f, "Dive from Grace"); // t=1020.5; Ability 670D from Nidhogg; cactbot HeadMarker [DSR Dive From Grace Number] | GainsEffect AC3/AC4/AC5 [DSR Dive From Grace Dir Collect] | GainsEffect AC3/AC4/AC5 [DSR Dive From Grace Dir You] | Ability 670E/670F/6710 [DSR Dive From Grace Dive Collect] | Ability 6714 [DSR Dive From Grace Post Stack] | Ability 670E/670F/6710 [DSR Dive From Grace Post Dive]
+    Timeout(id + 0x30, 9.7f, "Lash and Gnash/Gnash and Lash"); // t=1030.2
+    Timeout(id + 0x40, 0.2f, "Tower 1"); // t=1030.4; Ability 670E/670F/6710 from Nidhogg; cactbot Ability 670E/670F/6710 [DSR Dive From Grace Dive Collect] | Ability 670E/670F/6710 [DSR Dive From Grace Post Dive]
+    Timeout(id + 0x50, 0.1f, "Eye of the Tyrant"); // t=1030.5; Ability 6714 from Nidhogg; cactbot Ability 6714 [DSR Dive From Grace Post Stack]
+    Timeout(id + 0x60, 6.4f, "Darkdragon Dive"); // t=1036.9; cactbot Ability 6711 [DSR Darkdragon Dive Single Tower]
+    Timeout(id + 0x70, 3.4f, "Tower 2"); // t=1040.3; Ability 670E/670F/6710 from Nidhogg; cactbot Ability 670E/670F/6710 [DSR Dive From Grace Dive Collect] | Ability 670E/670F/6710 [DSR Dive From Grace Post Dive]
+    Timeout(id + 0x80, 3.7f, "Geirskogul"); // t=1044.0; Ability 670A from Nidhogg; cactbot StartsUsing 670A [DSR Geirskogul]
+    Timeout(id + 0x90, 2.9f, "Darkdragon Dive"); // t=1046.9; cactbot Ability 6711 [DSR Darkdragon Dive Single Tower]
+    Timeout(id + 0xA0, 4.4f, "Tower 3"); // t=1051.3; Ability 670E/670F/6710 from Nidhogg; cactbot Ability 670E/670F/6710 [DSR Dive From Grace Dive Collect] | Ability 670E/670F/6710 [DSR Dive From Grace Post Dive]
+    Timeout(id + 0xB0, 0.4f, "Lash and Gnash/Gnash and Lash"); // t=1051.7
+    Timeout(id + 0xC0, 0.3f, "Eye of the Tyrant"); // t=1052.0; Ability 6714 from Nidhogg; cactbot Ability 6714 [DSR Dive From Grace Post Stack]
+    Timeout(id + 0xD0, 2.0f, "Geirskogul"); // t=1054.0; Ability 670A from Nidhogg; cactbot StartsUsing 670A [DSR Geirskogul]
+    Timeout(id + 0xE0, 3.9f, "Darkdragon Dive"); // t=1057.9; cactbot Ability 6711 [DSR Darkdragon Dive Single Tower]
+    Timeout(id + 0xF0, 7.0f, "Geirskogul"); // t=1064.9; Ability 670A from Nidhogg; cactbot StartsUsing 670A [DSR Geirskogul]
+    Timeout(id + 0x100, 5.0f, "Drachenlance"); // t=1069.9; Ability 670B from Nidhogg; cactbot StartsUsing 670C [DSR Drachenlance]
+    Timeout(id + 0x110, 3.1f, "Tower x4"); // t=1073.0
+    Timeout(id + 0x120, 4.0f, "Darkdragon Dive"); // t=1077.0; cactbot Ability 6711 [DSR Darkdragon Dive Single Tower]
+    Timeout(id + 0x130, 7.0f, "Soul Tether x2 / Geirskogul"); // t=1084.0; Ability 671C from Nidhogg | Ability 670A from Nidhogg; cactbot StartsUsing 670A [DSR Geirskogul]
+    Timeout(id + 0x140, 23.8f, "Drachenlance"); // t=1107.8; Ability 670B from Nidhogg; cactbot StartsUsing 670C [DSR Drachenlance]
+    Timeout(id + 0x150, 13.1f, "Revenge of the Horde Enrage"); // t=1120.9; Ability 7436 from Nidhogg
+}
+
+private void Phase_4__The_Eyes(uint id)
+{
+    Targetable(id + 0x0, true, 2.9f, "--targetable--"); // t=1502.9
+    Timeout(id + 0x10, 0.1f, "Soul of Devotion / Soul of Friendship"); // t=1503.0; Ability 68C6 from Ysayle | Ability 68C5 from Haurchefant
+    Timeout(id + 0x20, 7.2f, "Resentment"); // t=1510.2; Ability 68BA from Estinien
+    Timeout(id + 0x30, 8.4f, "Hatebound"); // t=1518.6; Ability 68BE from Right Eye
+    Timeout(id + 0x40, 7.8f, "Flare Nova x2"); // t=1526.4
+    Timeout(id + 0x50, 6.0f, "Flare Star x4"); // t=1532.4
+    Timeout(id + 0x60, 13.1f, "Mirage Dive 1"); // t=1545.5
+    Timeout(id + 0x70, 5.1f, "Mirage Dive 2"); // t=1550.6
+    Timeout(id + 0x80, 5.1f, "Mirage Dive 3"); // t=1555.7
+    Timeout(id + 0x90, 5.1f, "Mirage Dive 4"); // t=1560.8
+    Timeout(id + 0xA0, 9.8f, "Steep in Rage"); // t=1570.6; cactbot StartsUsing 68BD [DSR Eyes Steep in Rage]
+    Targetable(id + 0xB0, false, 7.3f, "--untargetable--"); // t=1577.9
+    Timeout(id + 0xC0, 12.2f, "Revenge of the Horde Enrage"); // t=1590.1; Ability 6722 from Nidhogg
+}
+
+private void Phase_4_5__Haurchefant_v2(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Planar Prison / Brightwinged Flight"); // t=2000.0; Ability 62E1 from Ser Grinnaux | Ability 6316 from Ser Adelphel
+    Timeout(id + 0x10, 10.0f, "Spear of the Fury"); // t=2010.0; Ability 62E2 from Ser Zephirin; cactbot StartsUsing 62D4/63C8/6708/62E2/6B86 [DSR Phase Tracker] | StartsUsing 62E2 [DSR Spear of the Fury Limit Break]
+    Timeout(id + 0x20, 5.9f, "Brightwing 1"); // t=2015.9; Ability 6319 from Ser Charibert; cactbot Ability 6319 [DSR Brightwing Counter] | Ability 6319 [DSR Brightwing Move]
+    Timeout(id + 0x30, 5.1f, "Brightwing 2"); // t=2021.0; Ability 6319 from Ser Charibert; cactbot Ability 6319 [DSR Brightwing Counter] | Ability 6319 [DSR Brightwing Move]
+    Timeout(id + 0x40, 3.0f, "Skyblind 1"); // t=2024.0; Ability 631A from Ser Charibert
+    Timeout(id + 0x50, 2.1f, "Brightwing 3"); // t=2026.1; Ability 6319 from Ser Charibert; cactbot Ability 6319 [DSR Brightwing Counter] | Ability 6319 [DSR Brightwing Move]
+    Timeout(id + 0x60, 2.9f, "Skyblind 2"); // t=2029.0; Ability 631A from Ser Charibert
+    Timeout(id + 0x70, 2.1f, "Brightwing 4"); // t=2031.1; Ability 6319 from Ser Charibert; cactbot Ability 6319 [DSR Brightwing Counter] | Ability 6319 [DSR Brightwing Move]
+    Timeout(id + 0x80, 3.0f, "Skyblind 3"); // t=2034.1; Ability 631A from Ser Charibert
+    Timeout(id + 0x90, 2.2f, "Pure of Heart"); // t=2036.3; Ability 62E4 from Ser Charibert
+    Targetable(id + 0xA0, true, 2.0f, "--targetable--"); // t=2038.3
+    Timeout(id + 0xB0, 1.0f, "Skyblind 4"); // t=2039.3; Ability 631A from Ser Charibert
+    Condition(id + 0xC0, 1.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x69B5), "", 5f, 0.0f); // t=2041.0; StartsUsing 69B5 from Spear of the Fury
+    Timeout(id + 0xD0, 11.0f, "Pierce Enrage"); // t=2052.0; Ability 69B5 from Spear of the Fury
+    Condition(id + 0xE0, 3.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x63C8), "", 5f, 0.0f); // t=2055.9; StartsUsing 63C8 from King Thordan; cactbot StartsUsing 62D4/63C8/6708/62E2/6B86 [DSR Phase Tracker] | StartsUsing 63C8 [DSR Ascalon\]
+}
+
+private void Phase_5__King_Thordan_II(uint id)
+{
+    Targetable(id + 0x0, true, 15.1f, "--targetable--"); // t=2995.9
+    Condition(id + 0x10, 0.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6B86), "", 5f, 0.0f); // t=2996.0; StartsUsing 6B86 from King Thordan; cactbot StartsUsing 62D4/63C8/6708/62E2/6B86 [DSR Phase Tracker]
+    Timeout(id + 0x20, 4.0f, "Incarnation"); // t=3000.0; Ability 6B86 from King Thordan; cactbot StartsUsing 62D4/63C8/6708/62E2/6B86 [DSR Phase Tracker]
+    Timeout(id + 0x30, 6.2f, "The Dragon's Eye"); // t=3006.2; Ability 6B87 from King Thordan
+    Timeout(id + 0x40, 11.6f, "Knights of the Round"); // t=3017.8; Ability 63ED from King Thordan
+    Timeout(id + 0x50, 7.1f, "Wrath of the Heavens"); // t=3024.9; Ability 6B89 from King Thordan
+    Targetable(id + 0x60, false, 3.1f, "--untargetable--"); // t=3028.0
+    Timeout(id + 0x70, 6.4f, "Chain Lightning"); // t=3034.4; Ability 6B8F from Darkscale; cactbot Ability 6B8F [DSR Wrath Thunderstruck] | Ability 6B8F [DSR Wrath Thunderstruck Targets]
+    Timeout(id + 0x80, 2.4f, "Twisting Dive / Skyward Leap / Spiral Pierce"); // t=3036.8; Ability 6B8B from Vedrfolnir; cactbot Ability 6B8B [DSR Twisting Dive]
+    Timeout(id + 0x90, 5.4f, "Ascalon's Mercy Revealed"); // t=3042.2; Ability 63CA from King Thordan
+    Timeout(id + 0xA0, 0.9f, "Liquid Heaven 1"); // t=3043.1
+    Timeout(id + 0xB0, 1.2f, "Liquid Heaven 2"); // t=3044.3
+    Timeout(id + 0xC0, 1.2f, "Liquid Heaven 3"); // t=3045.5
+    Timeout(id + 0xD0, 1.2f, "Liquid Heaven 4"); // t=3046.7
+    Timeout(id + 0xE0, 0.4f, "Altar Flare 1"); // t=3047.1
+    Timeout(id + 0xF0, 0.8f, "Liquid Heaven 5"); // t=3047.9
+    Timeout(id + 0x100, 0.8f, "Altar Flare 2"); // t=3048.7
+    Timeout(id + 0x110, 1.4f, "Cauterize"); // t=3050.1; Ability 6B8D from Darkscale; cactbot HeadMarker [DSR Wrath Cauterize Marker]
+    Timeout(id + 0x120, 0.1f, "Altar Flare 3"); // t=3050.2
+    Timeout(id + 0x130, 0.1f, "Empty Dimension"); // t=3050.3; Ability 62DA from Ser Grinnaux; cactbot StartsUsing 62DA [DSR Empty Dimension]
+    Targetable(id + 0x140, true, 1.1f, "--targetable--"); // t=3051.4
+    Timeout(id + 0x150, 0.3f, "Altar Flare 4"); // t=3051.7
+    Timeout(id + 0x160, 5.7f, "Ancient Quaga").SetHint(StateMachine.StateHint.Raidwide); // t=3057.4; Ability 63C6 from King Thordan; cactbot StartsUsing 63C6 [DSR Ancient Quaga]
+    Timeout(id + 0x170, 10.4f, "Heavenly Heel").SetHint(StateMachine.StateHint.Tankbuster); // t=3067.8; Ability 63C7 from King Thordan; cactbot StartsUsing 63C7 [DSR Heavenly Heel]
+    Timeout(id + 0x180, 3.2f, "Ascalon's Might 1"); // t=3071.0
+    Timeout(id + 0x190, 1.6f, "Ascalon's Might 2"); // t=3072.6
+    Timeout(id + 0x1A0, 1.6f, "Ascalon's Might 3"); // t=3074.2
+    Timeout(id + 0x1B0, 3.9f, "Knights of the Round"); // t=3078.1; Ability 63ED from King Thordan
+    Timeout(id + 0x1C0, 7.1f, "Death of the Heavens"); // t=3085.2; Ability 6B92 from King Thordan
+    Targetable(id + 0x1D0, false, 3.1f, "--untargetable--"); // t=3088.3
+    Timeout(id + 0x1E0, 3.9f, "Deathstorm"); // t=3092.2; Ability 6B94 from Darkscale
+    Timeout(id + 0x1F0, 8.2f, "Heavy Impact 1"); // t=3100.4; Ability 63D6 from Ser Guerrique
+    Timeout(id + 0x200, 1.6f, "Lightning Storm"); // t=3102.0; Ability 63CC from King Thordan
+    Timeout(id + 0x210, 0.3f, "Twisting Dive / Cauterize / Spear of the Fury / Heavy Impact 2"); // t=3102.3; Ability 6B8D from Darkscale
+    Timeout(id + 0x220, 0.1f, "Lightning Storm"); // t=3102.4
+    Timeout(id + 0x230, 1.7f, "Heavy Impact 3"); // t=3104.1; Ability 63D8 from Ser Guerrique
+    Timeout(id + 0x240, 1.9f, "Heavy Impact 4"); // t=3106.0; Ability 63D9 from Ser Guerrique
+    Timeout(id + 0x250, 1.9f, "Heavy Impact 5"); // t=3107.9; Ability 63DA from Ser Guerrique
+    Timeout(id + 0x260, 7.6f, "Faith Unmoving / The Dragon's Gaze / The Dragon's Glory"); // t=3115.5
+    Timeout(id + 0x270, 1.9f, "Heavensflame"); // t=3117.4; Ability 62DE from Ser Charibert
+    Timeout(id + 0x280, 2.3f, "Holy Meteor"); // t=3119.7; Ability 6B97 from Ser Noudenet
+    Targetable(id + 0x290, true, 1.0f, "--targetable--"); // t=3120.7
+    Timeout(id + 0x2A0, 14.7f, "Meteor Impact?"); // t=3135.4; Ability 6B98 from Meteor Circle
+    Targetable(id + 0x2B0, true, 64.6f, "--targetable--"); // t=3200.0
+    Condition(id + 0x2C0, 2.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x63C6), "", 5f, 0.0f); // t=3202.1; StartsUsing 63C6 from King Thordan; cactbot StartsUsing 63C6 [DSR Ancient Quaga]
+    Timeout(id + 0x2D0, 6.0f, "Ancient Quaga").SetHint(StateMachine.StateHint.Raidwide); // t=3208.1; Ability 63C6 from King Thordan; cactbot StartsUsing 63C6 [DSR Ancient Quaga]
+    Timeout(id + 0x2E0, 10.2f, "Heavenly Heel").SetHint(StateMachine.StateHint.Tankbuster); // t=3218.3; Ability 63C7 from King Thordan; cactbot StartsUsing 63C7 [DSR Heavenly Heel]
+    Timeout(id + 0x2F0, 3.1f, "Ascalon's Might 1"); // t=3221.4
+    Timeout(id + 0x300, 1.6f, "Ascalon's Might 2"); // t=3223.0
+    Timeout(id + 0x310, 1.6f, "Ascalon's Might 3"); // t=3224.6
+    Condition(id + 0x320, 4.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6B88), "", 5f, 0.0f); // t=3229.5; StartsUsing 6B88 from King Thordan
+    Timeout(id + 0x330, 6.0f, "Aetheric Burst Enrage"); // t=3235.5; Ability 6B88 from King Thordan
+}
+
+private void Phase_6__Nidhogg_v2(uint id)
+{
+    Targetable(id + 0x0, true, 17.3f, "--targetable--"); // t=3517.3
+    Timeout(id + 0x10, 17.7f, "Great Wyrmsbreath / Dread Wyrmsbreath"); // t=3535.0; Ability 6D35 from Hraesvelgr; cactbot StartsUsing 6D35 [DSR Great Wyrmsbreath Hraesvelgr Glowing] | StartsUsing 6D33/6D35 [DSR Great Wyrmsbreath Both Glowing]
+    Timeout(id + 0x20, 0.7f, "Swirling Blizzard"); // t=3535.7
+    Timeout(id + 0x30, 0.1f, "Ice Breath / Holy Breath / Flame Breath / Staggering Breath"); // t=3535.8
+    Timeout(id + 0x40, 7.2f, "Mortal Vow"); // t=3543.0; Ability 6D30 from Nidhogg; cactbot GainsEffect B50 [DSR Mortal Vow Collect]
+    Timeout(id + 0x50, 11.3f, "Akh Afah"); // t=3554.3; Ability 6D42 from Hraesvelgr; cactbot StartsUsing 6D41/6D43 [DSR Akh Afah]
+    Targetable(id + 0x60, false, 4.0f, "--untargetable--"); // t=3558.3
+    Targetable(id + 0x70, true, 1.2f, "--targetable--"); // t=3559.5
+    Timeout(id + 0x80, 7.9f, "Hallowed Wings"); // t=3567.4; Ability 6D23/6D24/6D26/6D27 from Hraesvelgr; cactbot StartsUsing 6D23/6D24/6D26/6D27 [DSR Hallowed Wings and Plume]
+    Timeout(id + 0x90, 0.8f, "Hallowed Plume"); // t=3568.2
+    Timeout(id + 0xA0, 0.3f, "Cauterize"); // t=3568.5; Ability 6D3E from Nidhogg; cactbot HeadMarker [DSR Wrath Cauterize Marker]
+    Targetable(id + 0xB0, false, 0.3f, "--untargetable--"); // t=3568.8
+    Targetable(id + 0xC0, true, 3.1f, "--targetable--"); // t=3571.9
+    Timeout(id + 0xD0, 5.1f, "Mortal Vow"); // t=3577.0; Ability 6D31 from Nidhogg; cactbot GainsEffect B50 [DSR Mortal Vow Collect]
+    Timeout(id + 0xE0, 5.4f, "Wroth Flames"); // t=3582.4; Ability 6D45 from Nidhogg
+    Targetable(id + 0xF0, false, 0.9f, "--untargetable--"); // t=3583.3
+    Targetable(id + 0x100, true, 1.2f, "--targetable--"); // t=3584.5
+    Timeout(id + 0x110, 8.7f, "Akh Morn 1"); // t=3593.2; Ability 6D46 from Nidhogg
+    Timeout(id + 0x120, 0.1f, "Cauterize"); // t=3593.3; Ability 6D3F from Hraesvelgr; cactbot HeadMarker [DSR Wrath Cauterize Marker]
+    Targetable(id + 0x130, false, 0.5f, "--untargetable--"); // t=3593.8
+    Timeout(id + 0x140, 1.1f, "Akh Morn 2"); // t=3594.9
+    Timeout(id + 0x150, 1.6f, "Akh Morn 3"); // t=3596.5
+    Timeout(id + 0x160, 1.6f, "Akh Morn 4"); // t=3598.1
+    Targetable(id + 0x170, true, 1.0f, "--targetable--"); // t=3599.1
+    Timeout(id + 0x180, 6.1f, "Hot Tail/Hot Wing"); // t=3605.2; Ability 6D2D/6D2B from Nidhogg; cactbot StartsUsing 6D2B [DSR Nidhogg Hot Wing] | StartsUsing 6D2D [DSR Nidhogg Hot Tail]
+    Timeout(id + 0x190, 2.0f, "Spreading Flames / Entangled Flames"); // t=3607.2
+    Timeout(id + 0x1A0, 3.9f, "Mortal Vow"); // t=3611.1; Ability 6D31 from Nidhogg; cactbot GainsEffect B50 [DSR Mortal Vow Collect]
+    Timeout(id + 0x1B0, 12.3f, "Akh Afah"); // t=3623.4; Ability 6D42 from Hraesvelgr; cactbot StartsUsing 6D41/6D43 [DSR Akh Afah]
+    Timeout(id + 0x1C0, 12.0f, "Hallowed Wings / Hot Tail/Hot Wing"); // t=3635.4; Ability 6D23/6D24/6D26/6D27 from Hraesvelgr; cactbot StartsUsing 6D23/6D24/6D26/6D27 [DSR Hallowed Wings and Plume]
+    Timeout(id + 0x1D0, 0.1f, "Hallowed Plume"); // t=3635.5
+    Timeout(id + 0x1E0, 9.6f, "Mortal Vow"); // t=3645.1; Ability 6D31 from Nidhogg; cactbot GainsEffect B50 [DSR Mortal Vow Collect]
+    Timeout(id + 0x1F0, 10.0f, "Great Wyrmsbreath / Dread Wyrmsbreath"); // t=3655.1; Ability 6D35 from Hraesvelgr; cactbot StartsUsing 6D35 [DSR Great Wyrmsbreath Hraesvelgr Glowing] | StartsUsing 6D33/6D35 [DSR Great Wyrmsbreath Both Glowing]
+    Timeout(id + 0x200, 0.7f, "Swirling Blizzard"); // t=3655.8
+    Timeout(id + 0x210, 0.1f, "Ice Breath / Holy Orb / Flame Breath / Dark Orb"); // t=3655.9
+    Targetable(id + 0x220, false, 5.3f, "--untargetable--"); // t=3661.2
+    Targetable(id + 0x230, true, 1.2f, "--targetable--"); // t=3662.4
+    Timeout(id + 0x240, 6.0f, "Cauterize"); // t=3668.4; Ability 6D3F from Hraesvelgr; cactbot HeadMarker [DSR Wrath Cauterize Marker]
+    Targetable(id + 0x250, false, 0.3f, "--untargetable--"); // t=3668.7
+    Timeout(id + 0x260, 6.7f, "Touchdown"); // t=3675.4; Ability 70E7 from Hraesvelgr/Nidhogg
+    Targetable(id + 0x270, true, 0.3f, "--targetable--"); // t=3675.7
+    Timeout(id + 0x280, 3.4f, "Mortal Vow"); // t=3679.1; Ability 6D31 from Nidhogg; cactbot GainsEffect B50 [DSR Mortal Vow Collect]
+    Timeout(id + 0x290, 22.7f, "Revenge of the Horde (enrage)"); // t=3701.8; Ability 6D21 from Hraesvelgr/Nidhogg
+    Timeout(id + 0x2A0, 10.0f, "Resentment?"); // t=3711.8
+    Timeout(id + 0x2B0, 7.0f, "Shockwave?"); // t=3718.8
+    Timeout(id + 0x2C0, 25.8f, "Alternative End?"); // t=3744.6
+}
+
+private void Phase_6_5__Eyes_v2(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Resentment"); // t=3809.5
+    Timeout(id + 0x10, 17.0f, "Shockwave?"); // t=3826.5
+    Timeout(id + 0x20, 15.8f, "Alternative End?"); // t=3842.3
+}
+
+private void Phase_7__Dragon_king_Thordan(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Shockwave"); // t=4000.0; Ability 71E4 from King Thordan/Nidhogg; cactbot Ability 6667/71E4 [DSR Phase Tracker P6 and P7]
+    Timeout(id + 0x10, 15.8f, "Alternative End"); // t=4015.8; Ability 7438 from Dragon-king Thordan
+    Targetable(id + 0x20, true, 9.0f, "--targetable--"); // t=4024.8
+    Timeout(id + 0x30, 11.2f, "Exaflare's Edge"); // t=4036.0
+    Timeout(id + 0x40, 0.2f, "Ice of Ascalon/Flames of Ascalon"); // t=4036.2; Ability 6D92/6D91 from Nidhogg/Dragon-king Thordan
+    Timeout(id + 0x50, 8.1f, "Trinity 1"); // t=4044.3
+    Timeout(id + 0x60, 4.1f, "Trinity 2"); // t=4048.4
+    Timeout(id + 0x70, 8.6f, "Akh Morn's Edge x5"); // t=4057.0
+    Timeout(id + 0x80, 0.1f, "Ice of Ascalon/Flames of Ascalon"); // t=4057.1; Ability 6D92/6D91 from Dragon-king Thordan
+    Timeout(id + 0x90, 11.8f, "Trinity 3"); // t=4068.9
+    Timeout(id + 0xA0, 4.1f, "Trinity 4"); // t=4073.0
+    Timeout(id + 0xB0, 10.9f, "Gigaflare's Edge x3"); // t=4083.9
+    Timeout(id + 0xC0, 0.1f, "Ice of Ascalon/Flames of Ascalon"); // t=4084.0; Ability 6D92/6D91 from Dragon-king Thordan
+    Timeout(id + 0xD0, 18.0f, "Trinity 5"); // t=4102.0
+    Timeout(id + 0xE0, 4.0f, "Trinity 6"); // t=4106.0
+    Timeout(id + 0xF0, 8.8f, "Exaflare's Edge"); // t=4114.8
+    Timeout(id + 0x100, 0.2f, "Ice of Ascalon/Flames of Ascalon"); // t=4115.0; Ability 6D92/6D91 from Dragon-king Thordan
+    Timeout(id + 0x110, 7.9f, "Trinity 1"); // t=4122.9
+    Timeout(id + 0x120, 4.0f, "Trinity 2"); // t=4126.9
+    Timeout(id + 0x130, 8.7f, "Akh Morn's Edge x6"); // t=4135.6
+    Timeout(id + 0x140, 0.1f, "Ice of Ascalon/Flames of Ascalon"); // t=4135.7; Ability 6D92/6D91 from Dragon-king Thordan
+    Timeout(id + 0x150, 12.9f, "Trinity 3"); // t=4148.6
+    Timeout(id + 0x160, 4.1f, "Trinity 4"); // t=4152.7
+    Timeout(id + 0x170, 9.9f, "Gigaflare's Edge x3"); // t=4162.6; Ability 6D99 from Dragon-king Thordan; cactbot StartsUsing 6D99/6D9A/6DD2 [DSR Gigaflare]
+    Timeout(id + 0x180, 1.1f, "Ice of Ascalon/Flames of Ascalon"); // t=4163.7; Ability 6D92/6D91 from Dragon-king Thordan
+    Timeout(id + 0x190, 18.2f, "Trinity 5"); // t=4181.9
+    Timeout(id + 0x1A0, 4.1f, "Trinity 6"); // t=4186.0
+    Timeout(id + 0x1B0, 8.8f, "Exaflare's Edge"); // t=4194.8
+    Timeout(id + 0x1C0, 0.2f, "Ice of Ascalon/Flames of Ascalon"); // t=4195.0; Ability 6D92/6D91 from Dragon-king Thordan
+    Timeout(id + 0x1D0, 7.9f, "Trinity 1"); // t=4202.9
+    Timeout(id + 0x1E0, 4.0f, "Trinity 2"); // t=4206.9
+    Timeout(id + 0x1F0, 8.6f, "Akh Morn's Edge x7"); // t=4215.5
+    Timeout(id + 0x200, 0.1f, "Ice of Ascalon/Flames of Ascalon"); // t=4215.6; Ability 6D92/6D91 from Dragon-king Thordan
+    Timeout(id + 0x210, 14.0f, "Trinity 3"); // t=4229.6
+    Timeout(id + 0x220, 4.1f, "Trinity 4"); // t=4233.7
+    Timeout(id + 0x230, 12.6f, "Morn Afah's Edge x3"); // t=4246.3; Ability 730F/7310/7311 from Dragon-king Thordan
+    Timeout(id + 0x240, 3.2f, "Morn Afah's Edge x3"); // t=4249.5; Ability 6E30 from Dragon-king Thordan
+    Timeout(id + 0x250, 3.1f, "Morn Afah's Edge x3"); // t=4252.6
+    Timeout(id + 0x260, 3.1f, "Morn Afah's Edge x3"); // t=4255.7
+    Timeout(id + 0x270, 3.1f, "Morn Afah's Edge x3"); // t=4258.8
+}
+

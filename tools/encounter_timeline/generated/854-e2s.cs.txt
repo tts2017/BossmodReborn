@@ -1,0 +1,78 @@
+// Generated development skeleton from e2s.txt (TerritoryType 854).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 39 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e2s.ts.
+
+private void Eden_2__Savage(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 11.2f, "Doomvoid Cleaver"); // t=11.2; Ability 3E64 from Voidwalker; cactbot StartsUsing 3E63 [E2S Doomvoid Cleaver]
+    Timeout(id + 0x20, 14.2f, "Unholy Darkness"); // t=25.4; Ability 3E54 from Voidwalker; cactbot HeadMarker 3E [E2S Unholy Darkness No Waiting] | HeadMarker 3E [E2S Unholy Darkness Collect] | HeadMarker 3E [E2S Unholy Darkness Waiting] | HeadMarker B8 [E2S Countdown Marker Unholy Darkness]
+    Timeout(id + 0x30, 6.4f, "Slicer/Guillotine"); // t=31.8; Ability 3E4F/3E50 from Voidwalker; cactbot StartsUsing 3E4F [E2S Doomvoid Guillotine] | StartsUsing 3E50 [E2S Doomvoid Slicer]
+    Timeout(id + 0x40, 12.0f, "Dark Fire III"); // t=43.8; Ability 3E57 from Voidwalker
+    Timeout(id + 0x50, 15.4f, "Spell-In-Waiting"); // t=59.2; Ability 3E52 from Voidwalker; cactbot GainsEffect 710 [E2S Spell In Waiting Gain] | LosesEffect 710 [E2S Spell In Waiting Lose]
+    Timeout(id + 0x60, 10.1f, "Punishing Ray"); // t=69.3; Ability 3E5B from Voidwalker
+    Timeout(id + 0x70, 3.4f, "Spell-In-Waiting"); // t=72.7; Ability 3E52 from Voidwalker; cactbot GainsEffect 710 [E2S Spell In Waiting Gain] | LosesEffect 710 [E2S Spell In Waiting Lose]
+    Timeout(id + 0x80, 13.4f, "Spell-In-Waiting"); // t=86.1; Ability 3E52 from Voidwalker; cactbot GainsEffect 710 [E2S Spell In Waiting Gain] | LosesEffect 710 [E2S Spell In Waiting Lose]
+    Timeout(id + 0x90, 9.2f, "Dark Fire III"); // t=95.3; Ability 3E57 from Voidwalker
+    Timeout(id + 0xA0, 10.0f, "Hell Wind"); // t=105.3; Ability 3E66 from Voidwalker; cactbot HeadMarker 1E [E2S Hell Wind No Waiting] | HeadMarker 1E [E2S Hell Wind Cleanup] | HeadMarker 1E [E2S Hell Wind Collect] | HeadMarker 1E [E2S Hell Wind Waiting] | HeadMarker B8 [E2S Countdown Marker Hell Wind] | HeadMarker B8 [E2S Countdown Marker Hell Wind Healer]
+    Timeout(id + 0xB0, 1.5f, "Shadoweye / Unholy Darkness"); // t=106.8; Ability 3E69 from Voidwalker | Ability 3E54 from Voidwalker
+    Timeout(id + 0xC0, 15.1f, "Shadowflame"); // t=121.9; Ability 3E61 from Voidwalker; cactbot StartsUsing 3E61 [E2S Shadowflame Healer]
+    Timeout(id + 0xD0, 12.2f, "Entropy").SetHint(StateMachine.StateHint.Raidwide); // t=134.1; Ability 3E70 from Voidwalker; cactbot StartsUsing 3E6F [E2S Entropy]
+    Timeout(id + 0xE0, 9.7f, "Empty Rage"); // t=143.8; Ability 3E6C from Voidwalker; cactbot StartsUsing 3E6B [E2S Empty Rage]
+    Timeout(id + 0xF0, 4.9f, "Doomvoid Guillotine"); // t=148.7; Ability 3E4F from Voidwalker; cactbot StartsUsing 3E4F [E2S Doomvoid Guillotine]
+    Timeout(id + 0x100, 8.2f, "Doomvoid Slicer"); // t=156.9; Ability 3E50 from Voidwalker; cactbot StartsUsing 3E50 [E2S Doomvoid Slicer]
+    Timeout(id + 0x110, 8.0f, "Empty Hate").SetHint(StateMachine.StateHint.Knockback); // t=164.9; Ability 3E5A from Voidwalker; cactbot StartsUsing 3E59 [E2S Empty Hate]
+    Timeout(id + 0x120, 10.9f, "Doomvoid Cleaver"); // t=175.8; Ability 3E64 from Voidwalker; cactbot StartsUsing 3E63 [E2S Doomvoid Cleaver]
+    Timeout(id + 0x130, 15.4f, "Shadowflame"); // t=191.2; Ability 3E61 from Voidwalker; cactbot StartsUsing 3E61 [E2S Shadowflame Healer]
+    Timeout(id + 0x140, 12.2f, "Entropy").SetHint(StateMachine.StateHint.Raidwide); // t=203.4; Ability 3E70 from Voidwalker; cactbot StartsUsing 3E6F [E2S Entropy]
+    Timeout(id + 0x150, 4.6f, "Spell-In-Waiting"); // t=208.0; Ability 3E52 from Voidwalker; cactbot GainsEffect 710 [E2S Spell In Waiting Gain] | LosesEffect 710 [E2S Spell In Waiting Lose]
+    Timeout(id + 0x160, 16.9f, "Flare"); // t=224.9; Ability 4685 from Voidwalker
+    Timeout(id + 0x170, 4.4f, "Spell-In-Waiting"); // t=229.3; Ability 3E52 from Voidwalker; cactbot GainsEffect 710 [E2S Spell In Waiting Gain] | LosesEffect 710 [E2S Spell In Waiting Lose]
+    Timeout(id + 0x180, 13.2f, "Hell Wind"); // t=242.5; Ability 3E66 from Voidwalker; cactbot HeadMarker 1E [E2S Hell Wind No Waiting] | HeadMarker 1E [E2S Hell Wind Cleanup] | HeadMarker 1E [E2S Hell Wind Collect] | HeadMarker 1E [E2S Hell Wind Waiting] | HeadMarker B8 [E2S Countdown Marker Hell Wind] | HeadMarker B8 [E2S Countdown Marker Hell Wind Healer]
+    Timeout(id + 0x190, 6.0f, "Punishing Ray"); // t=248.5; Ability 3E5B from Voidwalker
+    Timeout(id + 0x1A0, 0.4f, "Shadoweye"); // t=248.9; Ability 3E69 from Voidwalker; cactbot HeadMarker B3 [E2S Shadoweye No Waiting] | HeadMarker B3 [E2S Shadoweye No Waiting You] | HeadMarker B3 [E2S Shadoweye Collect] | HeadMarker B3 [E2S Shadoweye Waiting] | HeadMarker B8 [E2S Countdown Marker Shadoweye Me] | HeadMarker B8 [E2S Countdown Marker Shadoweye Other]
+    Timeout(id + 0x1B0, 11.8f, "Shadowflame"); // t=260.7; Ability 3E61 from Voidwalker; cactbot StartsUsing 3E61 [E2S Shadowflame Healer]
+    Timeout(id + 0x1C0, 12.2f, "Entropy").SetHint(StateMachine.StateHint.Raidwide); // t=272.9; Ability 3E70 from Voidwalker; cactbot StartsUsing 3E6F [E2S Entropy]
+    Timeout(id + 0x1D0, 10.0f, "Light/Dark Circles"); // t=282.9
+    Timeout(id + 0x1E0, 3.5f, "Doomvoid Cleaver"); // t=286.4; Ability 3E64 from Voidwalker; cactbot StartsUsing 3E63 [E2S Doomvoid Cleaver]
+    Timeout(id + 0x1F0, 9.3f, "Unholy Darkness"); // t=295.7; Ability 3E54 from Voidwalker; cactbot HeadMarker 3E [E2S Unholy Darkness No Waiting] | HeadMarker 3E [E2S Unholy Darkness Collect] | HeadMarker 3E [E2S Unholy Darkness Waiting] | HeadMarker B8 [E2S Countdown Marker Unholy Darkness]
+    Timeout(id + 0x200, 8.4f, "Slicer/Guillotine"); // t=304.1; Ability 3E4F/3E50 from Voidwalker; cactbot StartsUsing 3E4F [E2S Doomvoid Guillotine] | StartsUsing 3E50 [E2S Doomvoid Slicer]
+    Timeout(id + 0x210, 26.2f, "Shadowflame"); // t=330.3; Ability 3E61 from Voidwalker; cactbot StartsUsing 3E61 [E2S Shadowflame Healer]
+    Timeout(id + 0x220, 12.2f, "Entropy").SetHint(StateMachine.StateHint.Raidwide); // t=342.5; Ability 3E70 from Voidwalker; cactbot StartsUsing 3E6F [E2S Entropy]
+    Timeout(id + 0x230, 5.6f, "Spell-In-Waiting"); // t=348.1; Ability 3E52 from Voidwalker; cactbot GainsEffect 710 [E2S Spell In Waiting Gain] | LosesEffect 710 [E2S Spell In Waiting Lose]
+    Timeout(id + 0x240, 10.1f, "Empty Hate/Rage"); // t=358.2; Ability 3E5A/3E6C from Voidwalker
+    Timeout(id + 0x250, 3.2f, "Spell-In-Waiting"); // t=361.4; Ability 3E52 from Voidwalker; cactbot GainsEffect 710 [E2S Spell In Waiting Gain] | LosesEffect 710 [E2S Spell In Waiting Lose]
+    Timeout(id + 0x260, 13.3f, "Spell-In-Waiting"); // t=374.7; Ability 3E52 from Voidwalker; cactbot GainsEffect 710 [E2S Spell In Waiting Gain] | LosesEffect 710 [E2S Spell In Waiting Lose]
+    Timeout(id + 0x270, 6.9f, "Flare"); // t=381.6; Ability 4685 from Voidwalker
+    Timeout(id + 0x280, 5.3f, "Unholy Darkness"); // t=386.9; Ability 3E54 from Voidwalker; cactbot HeadMarker 3E [E2S Unholy Darkness No Waiting] | HeadMarker 3E [E2S Unholy Darkness Collect] | HeadMarker 3E [E2S Unholy Darkness Waiting] | HeadMarker B8 [E2S Countdown Marker Unholy Darkness]
+    Timeout(id + 0x290, 13.0f, "Shadowflame"); // t=399.9; Ability 3E61 from Voidwalker; cactbot StartsUsing 3E61 [E2S Shadowflame Healer]
+    Timeout(id + 0x2A0, 8.6f, "Spell-In-Waiting"); // t=408.5; Ability 3E52 from Voidwalker; cactbot GainsEffect 710 [E2S Spell In Waiting Gain] | LosesEffect 710 [E2S Spell In Waiting Lose]
+    Timeout(id + 0x2B0, 13.3f, "Spell-In-Waiting"); // t=421.8; Ability 3E52 from Voidwalker; cactbot GainsEffect 710 [E2S Spell In Waiting Gain] | LosesEffect 710 [E2S Spell In Waiting Lose]
+    Timeout(id + 0x2C0, 8.2f, "Shadoweye / Flare"); // t=430.0; Ability 3E69 from Voidwalker | Ability 4685 from Voidwalker
+    Timeout(id + 0x2D0, 7.4f, "Dark Fire III"); // t=437.4; Ability 3E57 from Voidwalker
+    Timeout(id + 0x2E0, 8.0f, "Light/Dark Circles"); // t=445.4
+    Timeout(id + 0x2F0, 4.8f, "Punishing Ray"); // t=450.2; Ability 3E5B from Voidwalker
+    Timeout(id + 0x300, 4.8f, "Doomvoid Cleaver"); // t=455.0; Ability 3E64 from Voidwalker; cactbot StartsUsing 3E63 [E2S Doomvoid Cleaver]
+    Timeout(id + 0x310, 14.4f, "Shadowflame"); // t=469.4; Ability 3E61 from Voidwalker; cactbot StartsUsing 3E61 [E2S Shadowflame Healer]
+    Timeout(id + 0x320, 29.8f, "Quietus").SetHint(StateMachine.StateHint.Raidwide); // t=499.2; Ability 3E71 from Voidwalker; cactbot StartsUsing 3E71 [E2S Quietus]
+    Timeout(id + 0x330, 8.2f, "Cycle Of ?"); // t=507.4; Ability 40B9/4659 from Voidwalker; cactbot StartsUsing 4659 [E2S Cycle of Retribution] | StartsUsing 40B9 [E2S Cycle of Chaos]
+    Timeout(id + 0x340, 3.1f, "Slicer/Guillotine?"); // t=510.5; Ability 465A from Voidwalker
+    Timeout(id + 0x350, 0.7f, "Cleaver/Slicer?"); // t=511.2; Ability 3E64 from Voidwalker
+    Timeout(id + 0x360, 2.4f, "Guillotine/Cleaver?"); // t=513.6; Ability 465B from Voidwalker
+    Timeout(id + 0x370, 18.2f, "Cycle Of ?"); // t=531.8; Ability 40B9/4659 from Voidwalker; cactbot StartsUsing 4659 [E2S Cycle of Retribution] | StartsUsing 40B9 [E2S Cycle of Chaos]
+    Timeout(id + 0x380, 3.1f, "Slicer/Guillotine?"); // t=534.9; Ability 40BA from Voidwalker
+    Timeout(id + 0x390, 3.1f, "Cleaver/Slicer?"); // t=538.0; Ability 40BB from Voidwalker
+    Timeout(id + 0x3A0, 0.7f, "Guillotine/Cleaver?"); // t=538.7; Ability 3E64 from Voidwalker
+    Timeout(id + 0x3B0, 19.5f, "Quietus").SetHint(StateMachine.StateHint.Raidwide); // t=558.2; Ability 3E71 from Voidwalker; cactbot StartsUsing 3E71 [E2S Quietus]
+    Timeout(id + 0x3C0, 10.0f, "Cycle Of ?"); // t=568.2; Ability 40B9/4659 from Voidwalker; cactbot StartsUsing 4659 [E2S Cycle of Retribution] | StartsUsing 40B9 [E2S Cycle of Chaos]
+    Timeout(id + 0x3D0, 3.1f, "Slicer/Guillotine?"); // t=571.3; Ability 40BA/465A from Voidwalker
+    Timeout(id + 0x3E0, 3.1f, "Cleaver/Slicer?"); // t=574.4
+    Timeout(id + 0x3F0, 0.7f, "Guillotine/Cleaver?"); // t=575.1
+    Timeout(id + 0x400, 18.1f, "Quietus").SetHint(StateMachine.StateHint.Raidwide); // t=593.2; Ability 3E71 from Voidwalker; cactbot StartsUsing 3E71 [E2S Quietus]
+    Timeout(id + 0x410, 9.3f, "Quietus").SetHint(StateMachine.StateHint.Raidwide); // t=602.5; Ability 3E71 from Voidwalker; cactbot StartsUsing 3E71 [E2S Quietus]
+    Timeout(id + 0x420, 9.3f, "Quietus").SetHint(StateMachine.StateHint.Raidwide); // t=611.8; Ability 3E71 from Voidwalker; cactbot StartsUsing 3E71 [E2S Quietus]
+    Condition(id + 0x430, 13.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x3E73), "", 5f, 8.0f); // t=624.8; StartsUsing 3E73 from Voidwalker
+    Timeout(id + 0x440, 5.0f, "Quietus Enrage"); // t=629.8
+}
+

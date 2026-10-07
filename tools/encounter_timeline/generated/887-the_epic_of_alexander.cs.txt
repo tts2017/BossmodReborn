@@ -1,0 +1,256 @@
+// Generated development skeleton from the_epic_of_alexander.txt (TerritoryType 887).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 89 static/dynamic trigger definitions from ui/raidboss/data/05-shb/ultimate/the_epic_of_alexander.ts.
+
+private void Phase_1__Living_Liquid(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 11.4f, "Fluid Swing"); // t=11.4; Ability 49B0 from Living Liquid
+    Timeout(id + 0x20, 8.1f, "Cascade").SetHint(StateMachine.StateHint.Raidwide); // t=19.5; Ability 4826 from Living Liquid; cactbot StartsUsing 4826 [TEA Cascade]
+    Timeout(id + 0x30, 16.3f, "Hand of Prayer/Parting"); // t=35.8
+    Timeout(id + 0x40, 0.9f, "Rage Wave 1"); // t=36.7; Ability 49B5 from Liquid Rage
+    Timeout(id + 0x50, 1.0f, "Fluid Swing / Fluid Strike"); // t=37.7; Ability 49B0 from Living Liquid
+    Timeout(id + 0x60, 1.0f, "Rage Wave 2"); // t=38.7; Ability 49B6 from Liquid Rage
+    Timeout(id + 0x70, 1.0f, "Exhaust"); // t=39.7; Ability 481E from Jagd Doll
+    Timeout(id + 0x80, 1.9f, "Embolus"); // t=41.6; Ability 4829 from Liquid Rage
+    Timeout(id + 0x90, 1.2f, "Hand of Pain"); // t=42.8; Ability 482D from Liquid Hand; cactbot StartsUsing 482D [TEA Hand of Pain 5]
+    Timeout(id + 0xA0, 7.5f, "Exhaust"); // t=50.3; Ability 481E from Jagd Doll
+    Timeout(id + 0xB0, 6.4f, "Fluid Swing / Fluid Strike"); // t=56.7; Ability 49B0 from Living Liquid
+    Timeout(id + 0xC0, 13.1f, "Protean Wave 1"); // t=69.8; Ability 4822 from Living Liquid; cactbot StartsUsing 4822 [TEA Protean Wave]
+    Timeout(id + 0xD0, 0.2f, "Hand of Pain"); // t=70.0; Ability 482D from Liquid Hand; cactbot StartsUsing 482D [TEA Hand of Pain 5]
+    Timeout(id + 0xE0, 1.9f, "Protean Wave 2"); // t=71.9; Ability 4823 from Living Liquid
+    Timeout(id + 0xF0, 3.0f, "Sluice"); // t=74.9; Ability 49B1 from Living Liquid
+    Timeout(id + 0x100, 0.1f, "Protean Wave 3"); // t=75.0; Ability 4823 from Living Liquid
+    Timeout(id + 0x110, 6.1f, "Splash x6"); // t=81.1
+    Timeout(id + 0x120, 5.5f, "Drainage"); // t=86.6; Ability 4827 from Liquid Rage; cactbot Tether 3 [TEA Drainage Tether]
+    Timeout(id + 0x130, 2.5f, "Hand of Pain"); // t=89.1; Ability 482D from Liquid Hand; cactbot StartsUsing 482D [TEA Hand of Pain 5]
+    Timeout(id + 0x140, 2.6f, "Cascade").SetHint(StateMachine.StateHint.Raidwide); // t=91.7; Ability 4826 from Living Liquid; cactbot StartsUsing 4826 [TEA Cascade]
+    Timeout(id + 0x150, 4.2f, "Throttles"); // t=95.9; Ability 4828 from Liquid Rage
+    Timeout(id + 0x160, 11.1f, "Protean Wave 1"); // t=107.0; Ability 4822 from Living Liquid; cactbot StartsUsing 4822 [TEA Protean Wave]
+    Timeout(id + 0x170, 2.0f, "Hand of Pain"); // t=109.0; Ability 482D from Liquid Hand; cactbot StartsUsing 482D [TEA Hand of Pain 5]
+    Timeout(id + 0x180, 0.1f, "Protean Wave 2"); // t=109.1; Ability 4823 from Living Liquid
+    Timeout(id + 0x190, 2.9f, "Sluice"); // t=112.0; Ability 49B1 from Living Liquid
+    Timeout(id + 0x1A0, 0.1f, "Protean Wave 3"); // t=112.1; Ability 4823 from Living Liquid
+    Timeout(id + 0x1B0, 0.9f, "Rage Wave 1"); // t=113.0; Ability 49B5 from Liquid Rage 
+    Timeout(id + 0x1C0, 2.1f, "Rage Wave 2"); // t=115.1; Ability 49B6 from Liquid Rage
+    Timeout(id + 0x1D0, 4.0f, "Embolus"); // t=119.1; Ability 4829 from Liquid Rage
+    Timeout(id + 0x1E0, 5.1f, "Hand of Prayer/Parting"); // t=124.2
+    Timeout(id + 0x1F0, 3.2f, "Splash x6"); // t=127.4
+    Timeout(id + 0x200, 1.9f, "Hand of Pain"); // t=129.3; Ability 482D from Liquid Hand; cactbot StartsUsing 482D [TEA Hand of Pain 5]
+    Timeout(id + 0x210, 4.8f, "Fluid Swing"); // t=134.1; Ability 49B0 from Living Liquid
+    Timeout(id + 0x220, 8.0f, "Cascade Enrage"); // t=142.1; Ability 49B3 from Living Liquid
+}
+
+private void Transition_1__Cruise_Chaser(uint id)
+{
+    Timeout(id + 0x0, 4.0f, "Hawk Blaster 1"); // t=200.0; Ability 4830 from Cruise Chaser
+    Timeout(id + 0x10, 2.2f, "Hawk Blaster 2"); // t=202.2
+    Timeout(id + 0x20, 2.2f, "Hawk Blaster 3"); // t=204.4
+    Timeout(id + 0x30, 2.2f, "Hawk Blaster 4"); // t=206.6
+    Timeout(id + 0x40, 2.2f, "Middle Blaster"); // t=208.8
+    Timeout(id + 0x50, 2.2f, "Hawk Blaster 1"); // t=211.0
+    Timeout(id + 0x60, 2.2f, "Hawk Blaster 2"); // t=213.2
+    Timeout(id + 0x70, 2.3f, "Hawk Blaster 3"); // t=215.5
+    Timeout(id + 0x80, 2.2f, "Hawk Blaster 4"); // t=217.7
+    Timeout(id + 0x90, 2.2f, "Middle Blaster"); // t=219.9
+}
+
+private void Phase_2__Cruise_Chaser_and_Brute_Justice(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "J Kick"); // t=226.1; Ability 4854 from Brute Justice
+    Targetable(id + 0x10, true, 3.0f, "--targetable--"); // t=229.1
+    Timeout(id + 0x20, 9.2f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=238.3; Ability 49C2 from Cruise Chaser; cactbot StartsUsing 49C2 [TEA Whirlwind]
+    Timeout(id + 0x30, 3.0f, "Judgment Nisi"); // t=241.3; Ability 483E from Brute Justice; cactbot StartsUsing 483E [TEA Brute Phase]
+    Timeout(id + 0x40, 6.1f, "Link-Up"); // t=247.4; Ability 483F from Brute Justice; cactbot Ability 483F [TEA Chakrams Out]
+    Timeout(id + 0x50, 8.0f, "Optical Sight"); // t=255.4; Ability 482F from Cruise Chaser; cactbot Ability 482F [TEA Chakrams In]
+    Timeout(id + 0x60, 0.8f, "Chakrams"); // t=256.2; Ability 4855 from Steam Chakram; cactbot Ability 483F [TEA Chakrams Out] | Ability 482F [TEA Chakrams In]
+    Timeout(id + 0x70, 4.4f, "Hawk Blaster"); // t=260.6; Ability 4831 from Cruise Chaser
+    Timeout(id + 0x80, 1.9f, "Photon"); // t=262.5; Ability 4836 from Cruise Chaser; cactbot StartsUsing 4836 [TEA Pass Nisi 1]
+    Timeout(id + 0x90, 10.2f, "Spin Crusher"); // t=272.7; Ability 4A72 from Cruise Chaser; cactbot StartsUsing 4A72 [TEA Spin Crusher]
+    Timeout(id + 0xA0, 4.6f, "Water and Thunder"); // t=277.3; Ability 4841 from Brute Justice
+    Timeout(id + 0xB0, 11.3f, "Earth Missile"); // t=288.6; Ability 484E from Brute Justice
+    Timeout(id + 0xC0, 2.0f, "Hidden Minefield"); // t=290.6; Ability 4851 from Brute Justice; cactbot Ability 4851 [TEA Hidden Minefield]
+    Timeout(id + 0xD0, 2.1f, "Enumeration"); // t=292.7; Ability 4850 from Brute Justice; cactbot Ability 4850 [TEA Pass Nisi 2]
+    Timeout(id + 0xE0, 14.0f, "Water and Thunder"); // t=306.7; Ability 4841 from Brute Justice
+    Timeout(id + 0xF0, 6.8f, "Limit Cut"); // t=313.5; Ability 4833 from Cruise Chaser; cactbot Ability 4833 [TEA Limit Cut Shield]
+    Timeout(id + 0x100, 0.6f, "--Cruise Chaser Invincible--"); // t=314.1
+    Timeout(id + 0x110, 1.4f, "Flarethrower"); // t=315.5; Ability 4845 from Brute Justice; cactbot StartsUsing 4845 [TEA Pass Nisi 3]
+    Timeout(id + 0x120, 12.1f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=327.6; Ability 49C2 from Cruise Chaser; cactbot StartsUsing 49C2 [TEA Whirlwind]
+    Timeout(id + 0x130, 8.6f, "Water and Thunder"); // t=336.2; Ability 4841 from Brute Justice
+    Timeout(id + 0x140, 18.3f, "Propeller Wind"); // t=354.5; Ability 4832 from Cruise Chaser
+    Timeout(id + 0x150, 2.0f, "Gavel"); // t=356.5; Ability 483C from Brute Justice; cactbot StartsUsing 483C [TEA Gavel]
+    Timeout(id + 0x160, 10.3f, "Photon"); // t=366.8; Ability 4836 from Cruise Chaser; cactbot StartsUsing 4836 [TEA Pass Nisi 1]
+    Timeout(id + 0x170, 8.0f, "Double Rocket Punch"); // t=374.8; Ability 4847 from Brute Justice; cactbot StartsUsing 4847 [TEA Double Rocket Punch]
+    Timeout(id + 0x180, 7.3f, "Super Jump"); // t=382.1; Ability 484A from Brute Justice; cactbot Ability 484A [TEA Brute Ray] | Ability 484A [TEA Cactbot Wormhole 4 Super Jump]
+    Timeout(id + 0x190, 2.3f, "Apocalyptic Ray x5"); // t=384.4
+    Timeout(id + 0x1A0, 10.6f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=395.0; Ability 49C2 from Cruise Chaser; cactbot StartsUsing 49C2 [TEA Whirlwind]
+    Timeout(id + 0x1B0, 8.1f, "Whirlwind").SetHint(StateMachine.StateHint.Raidwide); // t=403.1; Ability 49C2 from Cruise Chaser; cactbot StartsUsing 49C2 [TEA Whirlwind]
+    Timeout(id + 0x1C0, 10.6f, "Final Sentence"); // t=413.7; Ability 4856 from Brute Justice
+    Timeout(id + 0x1D0, 10.0f, "Eternal Darkness Enrage"); // t=423.7; Ability 483A from Cruise Chaser
+}
+
+private void Transition_2__Cruise_Chaser__Brute_Justice_and_Alexander_Prime(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x485A), "", 5f, 0.0f); // t=492.0; StartsUsing 485A from Alexander Prime
+    Timeout(id + 0x10, 8.0f, "Temporal Stasis"); // t=500.0; Ability 485A from Alexander Prime; cactbot GainsEffect 464 [TEA Temporal Stasis No Buff]
+    Timeout(id + 0x20, 3.1f, "Surety and Severity"); // t=503.1; Ability 4861 from Alexander Prime
+    Timeout(id + 0x30, 2.0f, "Alpha Sword"); // t=505.1; cactbot Ability 485F [TEA Inception Alpha Sword]
+    Timeout(id + 0x40, 0.1f, "Flarethrower 1"); // t=505.2
+    Timeout(id + 0x50, 0.9f, "Alpha Sword"); // t=506.1; cactbot Ability 485F [TEA Inception Alpha Sword]
+    Timeout(id + 0x60, 1.1f, "Alpha Sword"); // t=507.2; cactbot Ability 485F [TEA Inception Alpha Sword]
+    Timeout(id + 0x70, 0.2f, "Flarethrower 2"); // t=507.4
+    Targetable(id + 0x80, true, 4.0f, "--targetable--"); // t=511.4
+    Timeout(id + 0x90, 10.1f, "Chastening Heat"); // t=521.5; Ability 4A80 from Alexander Prime; cactbot StartsUsing 4A80 [TEA Chastening Heat]
+    Timeout(id + 0xA0, 3.1f, "Divine Spear 1"); // t=524.6
+    Timeout(id + 0xB0, 2.1f, "Divine Spear 2"); // t=526.7
+    Timeout(id + 0xC0, 2.1f, "Divine Spear 3"); // t=528.8
+}
+
+private void Phase_3_Part_1___Inception_Formation(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Inception Formation"); // t=537.9; Ability 486F from Alexander Prime; cactbot StartsUsing 486F [TEA Inception Phase]
+    Targetable(id + 0x10, false, 3.1f, "--untargetable--"); // t=541.0
+    Timeout(id + 0x20, 11.4f, "Judgment Crystal"); // t=552.4; Ability 485B from Alexander Prime; cactbot HeadMarker [TEA Judgment Crystal] | Ability 485C [TEA Judgment Crystal Placement]
+    Timeout(id + 0x30, 5.8f, "Judgment Crystal + True Heart"); // t=558.2; Ability 485C from Alexander Prime; cactbot Ability 485C [TEA Judgment Crystal Placement]
+    Timeout(id + 0x40, 11.3f, "Flarethrower 1"); // t=569.5
+    Timeout(id + 0x50, 2.2f, "Flarethrower 2"); // t=571.7
+    Timeout(id + 0x60, 2.1f, "Flarethrower 3"); // t=573.8
+    Timeout(id + 0x70, 7.2f, "Inception"); // t=581.0; Ability 485E from Alexander Prime; cactbot StartsUsing 486F [TEA Inception Phase] | GainsEffect 462 [TEA Shared Sentence Inception] | GainsEffect 2B7 [TEA Inception Vuln Collection] | Ability 485F [TEA Inception Alpha Sword]
+    Timeout(id + 0x80, 8.1f, "Surety, Solidarity and Severity"); // t=589.1; Ability 4861 from Alexander Prime
+    Timeout(id + 0x90, 0.3f, "Sacrament"); // t=589.4; Ability 485F from Alexander Prime; cactbot Ability 485F [TEA Inception Alpha Sword]
+    Timeout(id + 0xA0, 5.9f, "Alpha Sword"); // t=595.3; cactbot Ability 485F [TEA Inception Alpha Sword]
+    Timeout(id + 0xB0, 1.1f, "Alpha Sword"); // t=596.4; cactbot Ability 485F [TEA Inception Alpha Sword]
+    Timeout(id + 0xC0, 1.1f, "Alpha Sword"); // t=597.5; cactbot Ability 485F [TEA Inception Alpha Sword]
+    Timeout(id + 0xD0, 0.8f, "Super Jump"); // t=598.3; Ability 484A from Brute Justice; cactbot Ability 484A [TEA Brute Ray] | Ability 484A [TEA Cactbot Wormhole 4 Super Jump]
+    Targetable(id + 0xE0, true, 2.0f, "--targetable--"); // t=600.3
+    Timeout(id + 0xF0, 10.6f, "Chastening Heat"); // t=610.9; Ability 4A80 from Alexander Prime; cactbot StartsUsing 4A80 [TEA Chastening Heat]
+    Timeout(id + 0x100, 5.1f, "Divine Spear 1"); // t=616.0
+    Timeout(id + 0x110, 2.1f, "Divine Spear 2"); // t=618.1
+    Timeout(id + 0x120, 2.1f, "Divine Spear 3"); // t=620.2
+}
+
+private void Phase_3_Part_2___Wormhole_Formation(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Wormhole Formation"); // t=629.3; Ability 486E from Alexander Prime; cactbot StartsUsing 486E [TEA Wormhole Phase] | Ability 486E [TEA Wormhole]
+    Targetable(id + 0x10, false, 3.0f, "--untargetable--"); // t=632.3
+    Timeout(id + 0x20, 5.4f, "Limit Cut"); // t=637.7; Ability 4B0F from Cruise Chaser; cactbot HeadMarker [TEA Limit Cut Numbers] | HeadMarker [TEA Limit Cut Knockback] | Ability 4833 [TEA Limit Cut Shield]
+    Timeout(id + 0x30, 3.0f, "Link-Up"); // t=640.7; Ability 483F from Brute Justice; cactbot Ability 483F [TEA Chakrams Out]
+    Timeout(id + 0x40, 3.0f, "Void Of Repentance"); // t=643.7; Ability 4866 from Alexander Prime
+    Timeout(id + 0x50, 5.8f, "Chakrams"); // t=649.5; cactbot Ability 483F [TEA Chakrams Out] | Ability 482F [TEA Chakrams In]
+    Timeout(id + 0x60, 1.4f, "Super Jump"); // t=650.9; Ability 484A from Brute Justice; cactbot Ability 484A [TEA Brute Ray] | Ability 484A [TEA Cactbot Wormhole 4 Super Jump]
+    Timeout(id + 0x70, 2.4f, "Apocalyptic Ray x5"); // t=653.3
+    Timeout(id + 0x80, 2.3f, "Repentance 1"); // t=655.6; Ability 4869 from Alexander Prime
+    Timeout(id + 0x90, 2.3f, "Sacrament"); // t=657.9; Ability 4857 from Alexander Prime
+    Timeout(id + 0xA0, 1.8f, "Repentance 2"); // t=659.7; Ability 4868 from Alexander Prime
+    Timeout(id + 0xB0, 4.3f, "Repentance 3"); // t=664.0; Ability 4867 from Alexander Prime
+    Timeout(id + 0xC0, 2.4f, "Missile Command"); // t=666.4; Ability 484D from Brute Justice
+    Timeout(id + 0xD0, 3.6f, "Incinerating Heat"); // t=670.0; Ability 4A51 from Alexander Prime; cactbot HeadMarker [TEA Incinerating Heat]
+    Targetable(id + 0xE0, true, 4.2f, "--targetable--"); // t=674.2
+    Timeout(id + 0xF0, 0.4f, "Enumeration"); // t=674.6; Ability 4850 from Brute Justice; cactbot Ability 4850 [TEA Pass Nisi 2]
+    Timeout(id + 0x100, 8.3f, "Mega Holy"); // t=682.9; Ability 4A83 from Alexander Prime; cactbot StartsUsing 4A83 [TEA Mega Holy]
+    Timeout(id + 0x110, 7.1f, "Mega Holy"); // t=690.0; Ability 4A83 from Alexander Prime; cactbot StartsUsing 4A83 [TEA Mega Holy]
+}
+
+private void Transition_3__DPS_Checks(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Summon Alexander"); // t=699.4; Ability 4A55 from Alexander Prime; cactbot StartsUsing 4A55 [TEA Summon Alexander]
+    Timeout(id + 0x10, 6.2f, "--alex untargetable--"); // t=705.6
+    Timeout(id + 0x20, 0.1f, "J Storm + Waves x16"); // t=705.7; Ability 4876 from Brute Justice
+    Timeout(id + 0x30, 1.1f, "--adds targetable--"); // t=706.8
+    Timeout(id + 0x40, 24.9f, "Eternal Darkness Enrage"); // t=731.7; Ability 4875 from Cruise Chaser
+    Timeout(id + 0x50, 40.2f, "Divine Judgment Enrage"); // t=771.9; Ability 4879 from Alexander Prime; cactbot Ability 4879 [TEA Divine Judgment]
+    Timeout(id + 0x60, 15.4f, "Divine Judgment"); // t=787.3; Ability 487A from Alexander; cactbot Ability 4879 [TEA Divine Judgment]
+    Timeout(id + 0x70, 0.1f, "Down for the Count"); // t=787.4
+}
+
+private void Phase_4__Perfect_Alexander_Part_1___Fate_Projection(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=845.4
+    Timeout(id + 0x10, 63.7f, "The Final Word"); // t=909.1; Ability 487D from Perfect Alexander
+    Timeout(id + 0x20, 7.0f, "Ordained Motion/Stillness"); // t=916.1
+    Timeout(id + 0x30, 10.2f, "Ordained Motion/Stillness"); // t=926.3
+    Timeout(id + 0x40, 10.2f, "Optical Sight 1"); // t=936.5
+    Timeout(id + 0x50, 2.1f, "Individual/Collective Reprobation"); // t=938.6
+    Timeout(id + 0x60, 4.1f, "Optical Sight 2"); // t=942.7
+    Timeout(id + 0x70, 2.0f, "Individual/Collective Reprobation"); // t=944.7
+    Timeout(id + 0x80, 12.9f, "Fate Projection α"); // t=957.6; Ability 487B from Perfect Alexander; cactbot StartsUsing 487B [TEA Fate Alpha Phase]
+}
+
+private void Enigma_Codex_Revealed_Events(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Fate: Ordained Motion/Stillness"); // t=966.8
+    Timeout(id + 0x10, 5.9f, "Fate: Obloquy, Solidarity and 3x Severity"); // t=972.7; Ability 48A4 from Perfect Alexander
+    Timeout(id + 0x20, 2.2f, "Fate: Ordained Motion/Stillness"); // t=974.9
+    Timeout(id + 0x30, 1.0f, "Fate: Sacrament x3"); // t=975.9
+    Timeout(id + 0x40, 6.7f, "Fate Calibration α"); // t=982.6; Ability 487C from Perfect Alexander; cactbot Ability 487C [TEA Alpha Resolve First Motion] | Ability 487C [TEA Alpha Resolve Second Motion]
+    Targetable(id + 0x50, false, 3.0f, "--untargetable--"); // t=985.6
+    Timeout(id + 0x60, 4.2f, "Ordained Motion/Stillness"); // t=989.8
+    Timeout(id + 0x70, 3.0f, "Obloquy, Solidarity and 3x Severity"); // t=992.8; Ability 4861 from Perfect Alexander
+    Timeout(id + 0x80, 1.0f, "Ordained Motion/Stillness / Sacrament x3"); // t=993.8
+    Targetable(id + 0x90, true, 5.0f, "--targetable--"); // t=998.8
+}
+
+private void Phase_4_Part_2___Fate_Projection(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Ordained Capital Punishment"); // t=1008.0; Ability 4892 from Perfect Alexander
+    Timeout(id + 0x10, 3.1f, "Ordained Capital Punishment 1"); // t=1011.1
+    Timeout(id + 0x20, 1.1f, "Ordained Capital Punishment 2"); // t=1012.2
+    Timeout(id + 0x30, 1.1f, "Ordained Capital Punishment 3"); // t=1013.3
+    Timeout(id + 0x40, 3.9f, "Ordained Punishment").SetHint(StateMachine.StateHint.Tankbuster); // t=1017.2; Ability 4891 from Perfect Alexander; cactbot StartsUsing 4891 [TEA Ordained Punishment]
+    Timeout(id + 0x50, 15.1f, "Fate Projection β"); // t=1032.3; Ability 4B13 from Perfect Alexander; cactbot StartsUsing 4B13 [TEA Fate Beta Phase]
+}
+
+private void Enigma_Codex_Revealed_Events_2(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Fate: Surety and Solidarity"); // t=1047.7
+    Timeout(id + 0x10, 2.8f, "Fate: J Jump"); // t=1050.5; Ability 489D from Perfect Alexander
+    Timeout(id + 0x20, 5.5f, "Fate: Optical Sight"); // t=1056.0
+    Timeout(id + 0x30, 2.1f, "Fate: Individual/Collective Reprobation"); // t=1058.1
+    Timeout(id + 0x40, 3.4f, "Fate: Radiant Sacrament"); // t=1061.5; Ability 489E from Perfect Alexander; cactbot Ability 489E [TEA Beta Radiant]
+    Timeout(id + 0x50, 8.8f, "Fate Calibration β"); // t=1070.3; Ability 4B14 from Perfect Alexander; cactbot Ability 4B14 [TEA Beta Optical Final] | Ability 4B14 [TEA Beta Radiant Final]
+    Targetable(id + 0x60, false, 3.0f, "--untargetable--"); // t=1073.3
+    Timeout(id + 0x70, 8.2f, "Surety and Solidarity"); // t=1081.5; Ability 4863 from Perfect Alexander
+    Timeout(id + 0x80, 1.0f, "J Jump"); // t=1082.5; Ability 4885 from Perfect Alexander
+    Timeout(id + 0x90, 4.0f, "Optical Sight 1"); // t=1086.5
+    Timeout(id + 0xA0, 2.1f, "Individual/Collective Reprobation"); // t=1088.6
+    Timeout(id + 0xB0, 4.9f, "Radiant Sacrament"); // t=1093.5; Ability 4886 from Perfect Alexander
+    Targetable(id + 0xC0, true, 5.0f, "--targetable--"); // t=1098.5
+    Timeout(id + 0xD0, 8.3f, "Ordained Capital Punishment"); // t=1106.8; Ability 4892 from Perfect Alexander
+    Timeout(id + 0xE0, 3.1f, "Ordained Capital Punishment 1"); // t=1109.9
+    Timeout(id + 0xF0, 1.1f, "Ordained Capital Punishment 2"); // t=1111.0
+    Timeout(id + 0x100, 1.1f, "Ordained Capital Punishment 3"); // t=1112.1
+    Timeout(id + 0x110, 3.9f, "Ordained Punishment").SetHint(StateMachine.StateHint.Tankbuster); // t=1116.0; Ability 4891 from Perfect Alexander; cactbot StartsUsing 4891 [TEA Ordained Punishment]
+}
+
+private void Phase_4_Part_3___Almighty_Judgments_and_Burn(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Almighty Judgment"); // t=1126.2; Ability 488E from Perfect Alexander; cactbot Ability 488E [TEA Trine Get Middle]
+    Timeout(id + 0x10, 4.6f, "Almighty Judgment Reveal x3"); // t=1130.8
+    Timeout(id + 0x20, 6.6f, "Almighty Judgment 1"); // t=1137.4
+    Timeout(id + 0x30, 2.0f, "Almighty Judgment 2"); // t=1139.4
+    Timeout(id + 0x40, 2.0f, "Almighty Judgment 3"); // t=1141.4
+    Timeout(id + 0x50, 1.1f, "Irresistible Grace"); // t=1142.5; Ability 4894 from Perfect Alexander; cactbot StartsUsing 4894 [TEA Irresistible Grace]
+    Timeout(id + 0x60, 10.1f, "Ordained Capital Punishment"); // t=1152.6; Ability 4892 from Perfect Alexander
+    Timeout(id + 0x70, 3.1f, "Ordained Capital Punishment 1"); // t=1155.7
+    Timeout(id + 0x80, 1.1f, "Ordained Capital Punishment 2"); // t=1156.8
+    Timeout(id + 0x90, 1.1f, "Ordained Capital Punishment 3"); // t=1157.9
+    Timeout(id + 0xA0, 3.9f, "Ordained Punishment").SetHint(StateMachine.StateHint.Tankbuster); // t=1161.8; Ability 4891 from Perfect Alexander; cactbot StartsUsing 4891 [TEA Ordained Punishment]
+    Timeout(id + 0xB0, 9.9f, "Almighty Judgment"); // t=1171.7; Ability 488E from Perfect Alexander; cactbot Ability 488E [TEA Trine Get Middle]
+    Timeout(id + 0xC0, 4.6f, "Almighty Judgment Reveal x3"); // t=1176.3
+    Timeout(id + 0xD0, 6.6f, "Almighty Judgment 1"); // t=1182.9
+    Timeout(id + 0xE0, 2.0f, "Almighty Judgment 2"); // t=1184.9
+    Timeout(id + 0xF0, 2.0f, "Almighty Judgment 3"); // t=1186.9
+    Timeout(id + 0x100, 1.0f, "Irresistible Grace"); // t=1187.9; Ability 4894 from Perfect Alexander; cactbot StartsUsing 4894 [TEA Irresistible Grace]
+    Timeout(id + 0x110, 14.9f, "Temporal Interference"); // t=1202.8; Ability 4896 from Perfect Alexander
+    Timeout(id + 0x120, 13.6f, "7 Players Remaining"); // t=1216.4
+    Timeout(id + 0x130, 5.0f, "6 Players Remaining"); // t=1221.4
+    Timeout(id + 0x140, 5.0f, "5 Players Remaining"); // t=1226.4
+    Timeout(id + 0x150, 5.1f, "4 Players Remaining"); // t=1231.5
+    Timeout(id + 0x160, 5.0f, "3 Players Remaining"); // t=1236.5
+    Timeout(id + 0x170, 5.1f, "2 Players Remaining"); // t=1241.6
+    Timeout(id + 0x180, 5.0f, "1 Players Remaining"); // t=1246.6
+    Timeout(id + 0x190, 1.0f, "Temporal Prison Enrage"); // t=1247.6; Ability 4897 from Perfect Alexander
+    Timeout(id + 0x1A0, 2.2f, "0 Players Remaining"); // t=1249.8
+}
+

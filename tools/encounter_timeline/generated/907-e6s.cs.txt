@@ -1,0 +1,132 @@
+// Generated development skeleton from e6s.txt (TerritoryType 907).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 21 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e6s.ts.
+
+private void Phase_1__Garuda(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 18.0f, "Superstorm").SetHint(StateMachine.StateHint.Raidwide); // t=18.0; Ability 4BF7 from Garuda; cactbot StartsUsing 4BF7 [E6S Superstorm]
+    Timeout(id + 0x20, 9.1f, "Occluded Front"); // t=27.1; Ability 4BD2 from Garuda
+    Timeout(id + 0x30, 9.1f, "Wind Cutter"); // t=36.2; Ability 4C02 from Tumultuous Nexus
+    Timeout(id + 0x40, 3.0f, "Storm Of Fury"); // t=39.2; Ability 4C01 from Garuda
+    Timeout(id + 0x50, 7.6f, "Air Bump"); // t=46.8; Ability 4BF9 from Garuda; cactbot HeadMarker D3 [E6S Air Bump]
+    Timeout(id + 0x60, 17.2f, "Ferostorm"); // t=64.0; Ability 4BFD from Garuda; cactbot StartsUsing [E6S Ferostorm]
+    Timeout(id + 0x70, 9.6f, "Downburst").SetHint(StateMachine.StateHint.Knockback); // t=73.6; Ability 4BFB from Garuda; cactbot StartsUsing 4BFB [E6S Downburst Knockback 1]
+    Timeout(id + 0x80, 2.5f, "Air Bump"); // t=76.1; Ability 4BF9 from Garuda; cactbot HeadMarker D3 [E6S Air Bump]
+    Timeout(id + 0x90, 11.9f, "Vacuum Slice"); // t=88.0; Ability 4BF5 from Garuda
+    Timeout(id + 0xA0, 7.2f, "Occluded Front"); // t=95.2; Ability 4BD2 from Garuda
+    Timeout(id + 0xB0, 8.1f, "Storm Of Fury"); // t=103.3; Ability 4C01 from Garuda
+    Timeout(id + 0xC0, 1.4f, "Irresistible Pull"); // t=104.7; Ability 4BF6 from Garuda
+    Timeout(id + 0xD0, 0.8f, "Explosions"); // t=105.5
+    Timeout(id + 0xE0, 5.3f, "Ferostorm"); // t=110.8; Ability 4BFD from Garuda; cactbot StartsUsing [E6S Ferostorm]
+    Targetable(id + 0xF0, false, 8.2f, "--untargetable--"); // t=119.0
+}
+
+private void Phase_2__Ifrit(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Touchdown"); // t=122.0; Ability 4C09 from Ifrit; cactbot StartsUsing 4C09 [E6S Touchdown]
+    Timeout(id + 0x10, 13.3f, "Hands Of Flame"); // t=135.3; Ability 4C0A from Ifrit; cactbot StartsUsing 4D00 [E6S Hands of Flame Start] | Tether 68 [E6S Hands of Flame Tether] | Ability 4D00 [E6S Hands of Flame Cast]
+    Timeout(id + 0x20, 4.3f, "Eruption"); // t=139.6; Ability 4C17 from Ifrit
+    Timeout(id + 0x30, 3.9f, "Instant Incineration").SetHint(StateMachine.StateHint.Tankbuster); // t=143.5; Ability 4C0E from Ifrit; cactbot StartsUsing 4C0E [E6S Instant Incineration]
+    Timeout(id + 0x40, 3.6f, "Meteor Strike"); // t=147.1; Ability 4C0F from Ifrit; cactbot StartsUsing 4C0F [E6S Meteor Strike]
+    Timeout(id + 0x50, 12.1f, "Inferno Howl").SetHint(StateMachine.StateHint.Raidwide); // t=159.2; Ability 4C14 from Ifrit; cactbot StartsUsing 4C14 [E6S Inferno Howl]
+    Timeout(id + 0x60, 13.1f, "Hands Of Hell"); // t=172.3; Ability 4D01 from Ifrit; cactbot HeadMarker 16 [E6S Hands of Hell]
+    Timeout(id + 0x70, 4.6f, "Eruption"); // t=176.9; Ability 4C17 from Ifrit
+    Timeout(id + 0x80, 7.8f, "Strike Spark"); // t=184.7; Ability 4BD3 from Ifrit; cactbot StartsUsing 4BD3 [E6S Strike Spark]
+    Timeout(id + 0x90, 3.2f, "Call Of The Inferno"); // t=187.9; Ability 4C12 from Ifrit
+    Timeout(id + 0xA0, 9.2f, "Hot Foot"); // t=197.1; Ability 4C11 from Ifrit
+    Timeout(id + 0xB0, 1.4f, "Eruption"); // t=198.5; Ability 4C17 from Ifrit
+    Timeout(id + 0xC0, 16.6f, "Hands Of Hell"); // t=215.1; Ability 4D01 from Ifrit; cactbot HeadMarker 16 [E6S Hands of Hell]
+    Timeout(id + 0xD0, 4.7f, "Eruption"); // t=219.8; Ability 4C17 from Ifrit
+    Timeout(id + 0xE0, 4.1f, "Hands Of Flame"); // t=223.9; Ability 4C0A from Ifrit; cactbot StartsUsing 4D00 [E6S Hands of Flame Start] | Tether 68 [E6S Hands of Flame Tether] | Ability 4D00 [E6S Hands of Flame Cast]
+    Timeout(id + 0xF0, 4.3f, "Eruption"); // t=228.2; Ability 4C17 from Ifrit
+    Timeout(id + 0x100, 3.9f, "Instant Incineration").SetHint(StateMachine.StateHint.Tankbuster); // t=232.1; Ability 4C0E from Ifrit; cactbot StartsUsing 4C0E [E6S Instant Incineration]
+    Timeout(id + 0x110, 3.6f, "Meteor Strike"); // t=235.7; Ability 4C0F from Ifrit; cactbot StartsUsing 4C0F [E6S Meteor Strike]
+    Targetable(id + 0x120, false, 5.4f, "--untargetable--"); // t=241.1
+}
+
+private void Phase_3__Garuda_and_Ifrit(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=245.4
+    Timeout(id + 0x10, 3.0f, "Hated Of Embers/Vortex"); // t=248.4; Ability 4FA0 from Ifrit
+    Timeout(id + 0x20, 5.2f, "Occluded Front"); // t=253.6; Ability 4BD2 from Garuda
+    Timeout(id + 0x30, 9.1f, "Wind Cutter"); // t=262.7; Ability 4C02 from Tumultuous Nexus
+    Timeout(id + 0x40, 2.4f, "Hands Of Flame"); // t=265.1; Ability 4C0A from Ifrit; cactbot StartsUsing 4D00 [E6S Hands of Flame Start] | Tether 68 [E6S Hands of Flame Tether] | Ability 4D00 [E6S Hands of Flame Cast]
+    Timeout(id + 0x50, 4.3f, "Eruption"); // t=269.4; Ability 4C17 from Ifrit
+    Timeout(id + 0x60, 3.9f, "Instant Incineration").SetHint(StateMachine.StateHint.Tankbuster); // t=273.3; Ability 4C0E from Ifrit; cactbot StartsUsing 4C0E [E6S Instant Incineration]
+    Timeout(id + 0x70, 3.6f, "Meteor Strike"); // t=276.9; Ability 4C0F from Ifrit; cactbot StartsUsing 4C0F [E6S Meteor Strike]
+    Timeout(id + 0x80, 0.1f, "Vacuum Slice"); // t=277.0; Ability 4BF5 from Garuda
+    Timeout(id + 0x90, 3.1f, "Call Of The Inferno"); // t=280.1; Ability 4C12 from Ifrit
+    Timeout(id + 0xA0, 4.1f, "Occluded Front"); // t=284.2; Ability 4BD2 from Garuda
+    Timeout(id + 0xB0, 7.6f, "Hot Foot"); // t=291.8; Ability 4C11 from Ifrit
+    Timeout(id + 0xC0, 1.9f, "Irresistible Pull / Eruption"); // t=293.7; Ability 4BF6 from Garuda | Ability 4C17 from Ifrit
+    Timeout(id + 0xD0, 0.8f, "Explosion"); // t=294.5; Ability 4C03 from Tumultuous Nexus | Ability 4C03 from Tumultuous Nexus | Ability 4C03 from Tumultuous Nexus | Ability 4C03 from Tumultuous Nexus
+    Timeout(id + 0xE0, 4.1f, "Ferostorm"); // t=298.6; Ability 4BFD from Garuda; cactbot StartsUsing [E6S Ferostorm]
+    Targetable(id + 0xF0, false, 4.6f, "--untargetable--"); // t=303.2
+}
+
+private void Phase_4__Raktapaksa(uint id)
+{
+    Timeout(id + 0x0, 10.8f, "Firestorm"); // t=320.4; Ability 4BF8 from Raktapaksa
+    Targetable(id + 0x10, true, 4.1f, "--targetable--"); // t=324.5
+    Timeout(id + 0x20, 19.3f, "Hands Of Hell"); // t=343.8; Ability 4D01 from Raktapaksa; cactbot HeadMarker 16 [E6S Hands of Hell]
+    Timeout(id + 0x30, 4.3f, "Heat Burst"); // t=348.1; Ability 4C0D from Raktapaksa
+    Timeout(id + 0x40, 0.2f, "Eruption"); // t=348.3; Ability 4C17 from Raktapaksa
+    Timeout(id + 0x50, 12.8f, "Hands Of Hell"); // t=361.1; Ability 4D01 from Raktapaksa; cactbot HeadMarker 16 [E6S Hands of Hell]
+    Timeout(id + 0x60, 4.4f, "Heat Burst"); // t=365.5; Ability 4C0D from Raktapaksa
+    Timeout(id + 0x70, 0.2f, "Eruption"); // t=365.7; Ability 4C17 from Raktapaksa
+    Timeout(id + 0x80, 10.8f, "Inferno Howl").SetHint(StateMachine.StateHint.Raidwide); // t=376.5; Ability 4C14 from Raktapaksa; cactbot StartsUsing 4C14 [E6S Inferno Howl]
+    Timeout(id + 0x90, 7.6f, "Air Bump"); // t=384.1; Ability 4BF9 from Raktapaksa; cactbot HeadMarker D3 [E6S Air Bump]
+    Timeout(id + 0xA0, 3.0f, "Ferostorm"); // t=387.1; Ability 4C06 from Raktapaksa; cactbot StartsUsing [E6S Ferostorm]
+    Timeout(id + 0xB0, 7.7f, "Strike Spark"); // t=394.8; Ability 4BD3 from Raktapaksa; cactbot StartsUsing 4BD3 [E6S Strike Spark]
+    Timeout(id + 0xC0, 3.2f, "Call Of The Inferno"); // t=398.0; Ability 4C12 from Raktapaksa
+    Timeout(id + 0xD0, 9.2f, "Hot Foot"); // t=407.2; Ability 4C11 from Raktapaksa
+    Timeout(id + 0xE0, 1.4f, "Eruption"); // t=408.6; Ability 4C17 from Raktapaksa
+    Timeout(id + 0xF0, 2.4f, "Hands Of Flame"); // t=411.0; Ability 4C0A from Raktapaksa; cactbot StartsUsing 4D00 [E6S Hands of Flame Start] | Tether 68 [E6S Hands of Flame Tether] | Ability 4D00 [E6S Hands of Flame Cast]
+    Timeout(id + 0x100, 4.0f, "Heat Burst"); // t=415.0; Ability 4C0D from Raktapaksa
+    Timeout(id + 0x110, 0.3f, "Eruption"); // t=415.3; Ability 4C17 from Raktapaksa
+    Timeout(id + 0x120, 3.9f, "Instant Incineration").SetHint(StateMachine.StateHint.Tankbuster); // t=419.2; Ability 4C0E from Raktapaksa; cactbot StartsUsing 4C0E [E6S Instant Incineration]
+    Timeout(id + 0x130, 3.8f, "Meteor Strike"); // t=423.0; Ability 4C0F from Raktapaksa; cactbot StartsUsing 4C0F [E6S Meteor Strike]
+    Timeout(id + 0x140, 13.7f, "Downburst").SetHint(StateMachine.StateHint.Knockback); // t=436.7; Ability 4BFC from Raktapaksa; cactbot StartsUsing 4BFC [E6S Downburst Knockback 2]
+    Targetable(id + 0x150, false, 0.0f, "--untargetable--"); // t=436.7
+    Targetable(id + 0x160, true, 4.3f, "--targetable--"); // t=441.0
+    Timeout(id + 0x170, 8.2f, "Radiant Plume"); // t=449.2; Ability 4C15 from Raktapaksa
+    Timeout(id + 0x180, 8.1f, "Blaze 1"); // t=457.3
+    Timeout(id + 0x190, 2.1f, "Blaze 2"); // t=459.4
+    Timeout(id + 0x1A0, 0.4f, "Wind Cutter"); // t=459.8
+    Timeout(id + 0x1B0, 1.7f, "Blaze 3"); // t=461.5
+    Timeout(id + 0x1C0, 1.3f, "Wind Cutter"); // t=462.8
+    Timeout(id + 0x1D0, 0.8f, "Blaze 4"); // t=463.6
+    Timeout(id + 0x1E0, 2.1f, "Blaze 5"); // t=465.7
+    Timeout(id + 0x1F0, 0.1f, "Wind Cutter"); // t=465.8
+    Timeout(id + 0x200, 6.5f, "Spread Of Fire"); // t=472.3; Ability 4C18 from Raktapaksa
+    Timeout(id + 0x210, 0.5f, "Air Bump"); // t=472.8; Ability 4BF9 from Raktapaksa; cactbot HeadMarker D3 [E6S Air Bump]
+    Timeout(id + 0x220, 3.2f, "Conflag Strike"); // t=476.0; Ability 4C10 from Raktapaksa; cactbot StartsUsing 4C10 [E6S Conflag Strike] | StartsUsing 4C10 [E6S Conflag Strike Behind]
+    Timeout(id + 0x230, 14.2f, "Occluded Front"); // t=490.2; Ability 4E4C from Raktapaksa
+    Timeout(id + 0x240, 4.5f, "Air Bump"); // t=494.7; Ability 4BF9 from Raktapaksa; cactbot HeadMarker D3 [E6S Air Bump]
+    Timeout(id + 0x250, 4.5f, "Wind Cutter"); // t=499.2; Ability 4C02 from Tumultuous Nexus
+    Timeout(id + 0x260, 3.0f, "Storm Of Fury"); // t=502.2; Ability 4C08 from Raktapaksa
+    Timeout(id + 0x270, 7.2f, "Inferno Howl").SetHint(StateMachine.StateHint.Raidwide); // t=509.4; Ability 4C14 from Raktapaksa; cactbot StartsUsing 4C14 [E6S Inferno Howl]
+    Timeout(id + 0x280, 11.1f, "Occluded Front"); // t=520.5; Ability 4E4C from Raktapaksa
+    Timeout(id + 0x290, 9.1f, "Wind Cutter"); // t=529.6; Ability 4C02 from Tumultuous Nexus
+    Timeout(id + 0x2A0, 1.0f, "Hands Of Hell"); // t=530.6; Ability 4D01 from Raktapaksa; cactbot HeadMarker 16 [E6S Hands of Hell]
+    Timeout(id + 0x2B0, 4.4f, "Heat Burst"); // t=535.0; Ability 4C0D from Raktapaksa
+    Timeout(id + 0x2C0, 0.2f, "Eruption"); // t=535.2; Ability 4C17 from Raktapaksa
+    Timeout(id + 0x2D0, 11.4f, "Air Bump"); // t=546.6; Ability 4BF9 from Raktapaksa; cactbot HeadMarker D3 [E6S Air Bump]
+    Timeout(id + 0x2E0, 1.5f, "Hands Of Hell"); // t=548.1; Ability 4D01 from Raktapaksa; cactbot HeadMarker 16 [E6S Hands of Hell]
+    Timeout(id + 0x2F0, 4.3f, "Heat Burst"); // t=552.4; Ability 4C0D from Raktapaksa
+    Timeout(id + 0x300, 0.2f, "Eruption"); // t=552.6; Ability 4C17 from Raktapaksa
+    Timeout(id + 0x310, 4.1f, "Hands Of Flame"); // t=556.7; Ability 4C0A from Raktapaksa; cactbot StartsUsing 4D00 [E6S Hands of Flame Start] | Tether 68 [E6S Hands of Flame Tether] | Ability 4D00 [E6S Hands of Flame Cast]
+    Timeout(id + 0x320, 4.0f, "Heat Burst"); // t=560.7; Ability 4C0D from Raktapaksa
+    Timeout(id + 0x330, 0.3f, "Eruption"); // t=561.0; Ability 4C17 from Raktapaksa
+    Timeout(id + 0x340, 4.0f, "Instant Incineration").SetHint(StateMachine.StateHint.Tankbuster); // t=565.0; Ability 4C0E from Raktapaksa; cactbot StartsUsing 4C0E [E6S Instant Incineration]
+    Timeout(id + 0x350, 3.7f, "Meteor Strike"); // t=568.7; Ability 4C0F from Raktapaksa; cactbot StartsUsing 4C0F [E6S Meteor Strike]
+    Timeout(id + 0x360, 17.7f, "Ferostorm"); // t=586.4; Ability 4C06 from Raktapaksa; cactbot StartsUsing [E6S Ferostorm]
+    Timeout(id + 0x370, 8.1f, "Ferostorm"); // t=594.5; Ability 4C06 from Raktapaksa; cactbot StartsUsing [E6S Ferostorm]
+    Timeout(id + 0x380, 8.8f, "Downburst").SetHint(StateMachine.StateHint.Knockback); // t=603.3; Ability 4BFC from Raktapaksa; cactbot StartsUsing 4BFC [E6S Downburst Knockback 2]
+    Targetable(id + 0x390, false, 0.0f, "--untargetable--"); // t=603.3
+    Targetable(id + 0x3A0, true, 4.3f, "--targetable--"); // t=607.6
+    Timeout(id + 0x3B0, 12.0f, "Conflag Strike Enrage"); // t=619.6; Ability 4C1C from Raktapaksa
+}
+

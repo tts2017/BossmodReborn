@@ -1,0 +1,107 @@
+// Generated development skeleton from r6s.txt (TerritoryType 1259).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 21 static/dynamic trigger definitions from ui/raidboss/data/07-dt/raid/r6s.ts.
+
+private void AAC_CRUISERWEIGHT_M2__SAVAGE(uint id)
+{
+    Timeout(id + 0x0, 11.3f, "Mousse Mural").SetHint(StateMachine.StateHint.Raidwide); // t=11.3; Ability A6BC from Sugar Riot; cactbot StartsUsing A6BC [R6S Mousse Mural]
+    Timeout(id + 0x10, 11.1f, "Color Riot"); // t=22.4; Ability A691/A692 from Sugar Riot; cactbot StartsUsing A691/A692 [R6S Color Riot]
+    Timeout(id + 0x20, 2.1f, "Cool Bomb/Warm Bomb"); // t=24.5
+    Timeout(id + 0x30, 5.2f, "--middle--"); // t=29.7; Ability A673 from Sugar Riot
+    Timeout(id + 0x40, 5.4f, "Wingmark"); // t=35.1; Ability A676 from Sugar Riot
+    Timeout(id + 0x50, 6.1f, "Color Clash"); // t=41.2; Ability A68B/A68D from Sugar Riot; cactbot StartsUsing A68B/A68D [R6S Color Clash] | StartsUsing A68B/A68D [R6S Color Clash Followup]
+    Timeout(id + 0x60, 16.4f, "Double Style"); // t=57.6; Ability 93CA/9408/A67D/A67E/A67F/A680/A681/A682 from Sugar Riot; cactbot StartsUsing [R6S Double Style Tracker] | Tether 13F/140 [R6S Double Style Tether Tracker] | StartsUsing A687/A689 [R6S Double Style Taste of Fire/Thunder]
+    Timeout(id + 0x70, 4.1f, "Bad Breath/Dark Mist/Burst"); // t=61.7
+    Timeout(id + 0x80, 0.4f, "Color Clash"); // t=62.1; Ability A68F/A690 from Sugar Riot; cactbot StartsUsing A68B/A68D [R6S Color Clash] | StartsUsing A68B/A68D [R6S Color Clash Followup]
+    Timeout(id + 0x90, 7.6f, "Sticky Mousse (cast)"); // t=69.7; Ability A695 from Sugar Riot; cactbot StartsUsing A695 [R6S Sticky Mousse]
+    Timeout(id + 0xA0, 0.9f, "Sticky Mousse (snapshot)"); // t=70.6
+    Timeout(id + 0xB0, 6.0f, "Burst"); // t=76.6; Ability A697 from Sugar Riot
+    Timeout(id + 0xC0, 5.3f, "Color Riot"); // t=81.9; Ability A691/A692 from Sugar Riot; cactbot StartsUsing A691/A692 [R6S Color Riot]
+    Timeout(id + 0xD0, 2.0f, "Cool Bomb/Warm Bomb"); // t=83.9
+    Timeout(id + 0xE0, 5.2f, "--north--"); // t=89.1; Ability A673 from Sugar Riot
+    Timeout(id + 0xF0, 2.2f, "Sugarscape"); // t=91.3; Ability A668 from Sugar Riot
+    Timeout(id + 0x100, 16.2f, "Layer"); // t=107.5; Ability A66A from Sugar Riot
+    Timeout(id + 0x110, 14.2f, "Spray Pain"); // t=121.7; Ability A6A1 from Sugar Riot
+    Timeout(id + 0x120, 19.4f, "Brûlée/Crowd Brûlée"); // t=141.1; Ability A6A2/9A2D from Sugar Riot
+    Timeout(id + 0x130, 1.3f, "--middle--"); // t=142.4; Ability A673 from Sugar Riot
+    Timeout(id + 0x140, 6.4f, "Sticky Mousse (cast)"); // t=148.8; Ability A695 from Sugar Riot; cactbot StartsUsing A695 [R6S Sticky Mousse]
+    Timeout(id + 0x150, 0.9f, "Sticky Mousse (snapshot)"); // t=149.7; Ability A696 from Sugar Riot
+    Timeout(id + 0x160, 6.0f, "Burst"); // t=155.7; Ability A697 from Sugar Riot
+    Timeout(id + 0x170, 1.6f, "Layer"); // t=157.3; Ability A66C from Sugar Riot
+    Timeout(id + 0x180, 15.0f, "Brûlée"); // t=172.3; Ability A6A2 from Sugar Riot
+    Timeout(id + 0x190, 0.8f, "Spray Pain"); // t=173.1; Ability 9A2C from Sugar Riot
+    Timeout(id + 0x1A0, 3.6f, "Pudding Graf"); // t=176.7; Ability A6B5 from Sugar Riot; cactbot Tether 13F/140 [R6S Pudding Graf]
+    Timeout(id + 0x1B0, 3.1f, "--middle--"); // t=179.8; Ability A673 from Sugar Riot
+    Timeout(id + 0x1C0, 9.2f, "Double Style"); // t=189.0; Ability A683 from Sugar Riot; cactbot StartsUsing [R6S Double Style Tracker] | Tether 13F/140 [R6S Double Style Tether Tracker] | StartsUsing A687/A689 [R6S Double Style Taste of Fire/Thunder]
+    Timeout(id + 0x1D0, 1.0f, "Pudding Graf"); // t=190.0; Ability A6B6 from Sugar Riot; cactbot Tether 13F/140 [R6S Pudding Graf]
+    Timeout(id + 0x1E0, 9.0f, "Mousse Mural").SetHint(StateMachine.StateHint.Raidwide); // t=199.0; Ability A6BC from Sugar Riot; cactbot StartsUsing A6BC [R6S Mousse Mural]
+    Timeout(id + 0x1F0, 8.1f, "Color Riot"); // t=207.1; Ability A691/A692 from Sugar Riot; cactbot StartsUsing A691/A692 [R6S Color Riot]
+    Timeout(id + 0x200, 2.0f, "Cool Bomb/Warm Bomb"); // t=209.1
+    Timeout(id + 0x210, 8.1f, "Soul Sugar"); // t=217.2; Ability A6A5 from Sugar Riot
+    Timeout(id + 0x220, 7.1f, "Live Painting"); // t=224.3; Ability A6A6 from Sugar Riot
+    Timeout(id + 0x230, 3.1f, "--Yan targetable-- / --2x Mu targetable--"); // t=227.4
+    Timeout(id + 0x240, 2.0f, "--Gimme Cat targetable--"); // t=229.4
+    Timeout(id + 0x250, 24.0f, "Live Painting"); // t=253.4; Ability A6A7 from Sugar Riot
+    Timeout(id + 0x260, 3.1f, "--2x Feather Ray targetable-- / --2x Mu targetable--"); // t=256.5
+    Timeout(id + 0x270, 19.0f, "Live Painting"); // t=275.5; Ability A6A8 from Sugar Riot
+    Timeout(id + 0x280, 3.1f, "--Yan targetable--"); // t=278.6
+    Timeout(id + 0x290, 2.0f, "--Gimme Cat targetable--"); // t=280.6
+    Timeout(id + 0x2A0, 6.0f, "--Jabberwock targetable--"); // t=286.6
+    Timeout(id + 0x2B0, 18.9f, "Ready Ore Not").SetHint(StateMachine.StateHint.Raidwide); // t=305.5; Ability A6AA from Sugar Riot; cactbot StartsUsing A6AA [R6S Ready Ore Not]
+    Timeout(id + 0x2C0, 9.1f, "Live Painting"); // t=314.6; Ability A6A9 from Sugar Riot
+    Timeout(id + 0x2D0, 3.1f, "--Yan targetable-- / --2x Feather Ray targetable-- / --2x Mu targetable--"); // t=317.7
+    Timeout(id + 0x2E0, 2.0f, "--Gimme Cat targetable--"); // t=319.7
+    Timeout(id + 0x2F0, 6.0f, "--Jabberwock targetable--"); // t=325.7
+    Timeout(id + 0x300, 63.0f, "Ready Ore Not").SetHint(StateMachine.StateHint.Raidwide); // t=388.7; Ability A6AA from Sugar Riot; cactbot StartsUsing A6AA [R6S Ready Ore Not]
+    Timeout(id + 0x310, 9.1f, "Single Style"); // t=397.8; Ability 9A3D from Sugar Riot; cactbot StartsUsing 9A3D [R6S Single Style]
+    Timeout(id + 0x320, 4.1f, "Rush"); // t=401.9; Ability A686 from Sweet Shot
+    Timeout(id + 0x330, 9.0f, "Color Riot"); // t=410.9; Ability A691/A692 from Sugar Riot; cactbot StartsUsing A691/A692 [R6S Color Riot]
+    Timeout(id + 0x340, 2.0f, "Cool Bomb/Warm Bomb"); // t=412.9
+    Timeout(id + 0x350, 6.0f, "Mousse Mural").SetHint(StateMachine.StateHint.Raidwide); // t=418.9; Ability A6BC from Sugar Riot; cactbot StartsUsing A6BC [R6S Mousse Mural]
+    Timeout(id + 0x360, 7.2f, "--north--"); // t=426.1; Ability A673 from Sugar Riot
+    Timeout(id + 0x370, 2.2f, "Sugarscape"); // t=428.3; Ability A663 from Sugar Riot
+    Timeout(id + 0x380, 20.1f, "Double Style"); // t=448.4; Ability A687/A689 from Sugar Riot; cactbot StartsUsing A687/A689 [R6S Double Style Taste of Fire/Thunder]
+    Timeout(id + 0x390, 4.1f, "Rush+Taste of Thunder/Taste of Fire"); // t=452.5
+    Timeout(id + 0x3A0, 2.0f, "Layer"); // t=454.5; Ability A698 from Sugar Riot
+    Timeout(id + 0x3B0, 12.1f, "Taste of Thunder"); // t=466.6; cactbot StartsUsing A69D [R6S Taste of Thunder (Twister/Stepped Leader)]
+    Timeout(id + 0x3C0, 6.4f, "Lightning Bolt"); // t=473.0; Ability A69A from Sugar Riot
+    Timeout(id + 0x3D0, 6.0f, "Lightning Storm (cast)"); // t=479.0; Ability A69E from Sugar Riot
+    Timeout(id + 0x3E0, 0.7f, "Levin Drop (snapshot)"); // t=479.7; Ability A69F from Sugar Riot
+    Timeout(id + 0x3F0, 9.9f, "Lightning Storm (cast)"); // t=489.6; Ability A69E from Sugar Riot
+    Timeout(id + 0x400, 0.7f, "Levin Drop (snapshot)"); // t=490.3; Ability A69F from Sugar Riot
+    Timeout(id + 0x410, 9.9f, "Lightning Storm (cast)"); // t=500.2; Ability A69E from Sugar Riot
+    Timeout(id + 0x420, 0.7f, "Levin Drop (snapshot)"); // t=500.9; Ability A69F from Sugar Riot
+    Timeout(id + 0x430, 9.9f, "Lightning Storm (cast)"); // t=510.8; Ability A69E from Sugar Riot
+    Timeout(id + 0x440, 0.7f, "Levin Drop (snapshot)"); // t=511.5; Ability A69F from Sugar Riot
+    Timeout(id + 0x450, 4.4f, "Pudding Party x5"); // t=515.9; Ability A66D from Sugar Riot
+    Timeout(id + 0x460, 14.0f, "Layer"); // t=529.9; Ability A699 from Sugar Riot
+    Timeout(id + 0x470, 16.1f, "Mousse Drip"); // t=546.0; Ability A6B7 from Sugar Riot
+    Timeout(id + 0x480, 5.0f, "Mousse Drip"); // t=551.0
+    Timeout(id + 0x490, 2.0f, "Mousse Drip"); // t=553.0
+    Timeout(id + 0x4A0, 2.0f, "Mousse Drip"); // t=555.0
+    Timeout(id + 0x4B0, 1.0f, "Moussacre (cast)"); // t=556.0; Ability A6BA from Sugar Riot
+    Timeout(id + 0x4C0, 0.9f, "Moussacre (snapshot)"); // t=556.9; Ability A6BB from Sugar Riot
+    Timeout(id + 0x4D0, 0.2f, "Mousse Drip"); // t=557.1
+    Timeout(id + 0x4E0, 6.0f, "Taste of Thunder"); // t=563.1; cactbot StartsUsing A69D [R6S Taste of Thunder (Twister/Stepped Leader)]
+    Timeout(id + 0x4F0, 1.8f, "Explosion"); // t=564.9; Ability A6A3 from Sugar Riot
+    Timeout(id + 0x500, 4.2f, "Wingmark"); // t=569.1; Ability A676 from Sugar Riot
+    Timeout(id + 0x510, 20.2f, "Taste of Thunder"); // t=589.3; Ability A69D from Sugar Riot; cactbot StartsUsing A69D [R6S Taste of Thunder (Twister/Stepped Leader)]
+    Timeout(id + 0x520, 2.0f, "Explosion"); // t=591.3; Ability A6A3 from Sugar Riot
+    Timeout(id + 0x530, 5.0f, "Mousse Mural").SetHint(StateMachine.StateHint.Raidwide); // t=596.3; Ability A6BC from Sugar Riot; cactbot StartsUsing A6BC [R6S Mousse Mural]
+    Timeout(id + 0x540, 10.1f, "Sticky Mousse (cast)"); // t=606.4; Ability A695 from Sugar Riot; cactbot StartsUsing A695 [R6S Sticky Mousse]
+    Timeout(id + 0x550, 0.9f, "Sticky Mousse (snapshot)"); // t=607.3; Ability A696 from Sugar Riot
+    Timeout(id + 0x560, 6.0f, "Burst"); // t=613.3; Ability A697 from Sugar Riot
+    Timeout(id + 0x570, 5.3f, "Color Riot"); // t=618.6; Ability A691/A692 from Sugar Riot; cactbot StartsUsing A691/A692 [R6S Color Riot]
+    Timeout(id + 0x580, 2.0f, "Cool Bomb/Warm Bomb"); // t=620.6
+    Timeout(id + 0x590, 5.2f, "--middle--"); // t=625.8; Ability A673 from Sugar Riot
+    Timeout(id + 0x5A0, 5.2f, "Wingmark"); // t=631.0; Ability A676 from Sugar Riot
+    Timeout(id + 0x5B0, 6.1f, "Color Clash"); // t=637.1; Ability A68B/A68D from Sugar Riot; cactbot StartsUsing A68B/A68D [R6S Color Clash] | StartsUsing A68B/A68D [R6S Color Clash Followup]
+    Timeout(id + 0x5C0, 16.1f, "Double Style"); // t=653.2; Ability 93CA/9408/A67D/A67E/A67F/A680/A681/A682 from Sugar Riot; cactbot StartsUsing [R6S Double Style Tracker] | Tether 13F/140 [R6S Double Style Tether Tracker] | StartsUsing A687/A689 [R6S Double Style Taste of Fire/Thunder]
+    Timeout(id + 0x5D0, 4.1f, "Bad Breath/Dark Mist/Burst"); // t=657.3
+    Timeout(id + 0x5E0, 0.8f, "Color Clash"); // t=658.1; Ability A68F/A690 from Sugar Riot; cactbot StartsUsing A68B/A68D [R6S Color Clash] | StartsUsing A68B/A68D [R6S Color Clash Followup]
+    Timeout(id + 0x5F0, 7.2f, "--jump?--"); // t=665.3; Ability A673 from Sugar Riot
+    Timeout(id + 0x600, 9.3f, "Artistic Anarchy"); // t=674.6; Ability A6BD from Sugar Riot
+    Timeout(id + 0x610, 6.1f, "Enrage"); // t=680.7
+}
+

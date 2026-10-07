@@ -1,0 +1,130 @@
+// Generated development skeleton from byakko-un.txt (TerritoryType 1239).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 17 static/dynamic trigger definitions from ui/raidboss/data/07-dt/trial/byakko-un.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 10.9f, "Storm Pulse").SetHint(StateMachine.StateHint.Raidwide); // t=10.9; Ability 9BFD from Byakko; cactbot StartsUsing 9BFD [ByakkoUn Storm Pulse]
+    Timeout(id + 0x10, 6.2f, "Heavenly Strike"); // t=17.1; Ability 9BFB from Byakko; cactbot StartsUsing 9BFB [ByakkoUn Heavenly Strike]
+    Timeout(id + 0x20, 10.2f, "State Of Shock 1"); // t=27.3; Ability 9C01 from Byakko; cactbot StartsUsing 9C01 [ByakkoUn State Of Shock Tank 1] | StartsUsing 9C01 [ByakkoUn State Of Shock Tank 2]
+    Timeout(id + 0x30, 1.2f, "Clutch"); // t=28.5; Ability 9C02 from Byakko
+    Timeout(id + 0x40, 6.2f, "Highest Stakes"); // t=34.7; Ability 9C03 from Byakko; cactbot StartsUsing 9C03 [ByakkoUn Stake Counter] | StartsUsing 9C03 [ByakkoUn Stake Counter Cleanup] | StartsUsing 9C03 [ByakkoUn Highest Stakes]
+    Timeout(id + 0x50, 2.8f, "State Of Shock 2"); // t=37.5; Ability 9BF8 from Byakko
+    Timeout(id + 0x60, 1.0f, "Clutch"); // t=38.5; Ability 9C02 from Byakko
+    Timeout(id + 0x70, 6.2f, "Highest Stakes"); // t=44.7; Ability 9C03 from Byakko; cactbot StartsUsing 9C03 [ByakkoUn Stake Counter] | StartsUsing 9C03 [ByakkoUn Stake Counter Cleanup] | StartsUsing 9C03 [ByakkoUn Highest Stakes]
+    Timeout(id + 0x80, 10.8f, "--center--"); // t=55.5; Ability 9BF9 from Byakko
+    Timeout(id + 0x90, 4.1f, "Unrelenting Anguish"); // t=59.6; Ability 9C0E from Byakko
+    Timeout(id + 0xA0, 6.2f, "Storm Pulse").SetHint(StateMachine.StateHint.Raidwide); // t=65.8; Ability 9BFD from Byakko; cactbot StartsUsing 9BFD [ByakkoUn Storm Pulse]
+    Timeout(id + 0xB0, 2.2f, "Ominous Wind"); // t=68.0; Ability 9C0C from Byakko; cactbot GainsEffect 5C9 [ByakkoUn Ominous Wind]
+    Timeout(id + 0xC0, 9.4f, "Fire And Lightning"); // t=77.4; Ability 9BFA from Byakko
+    Timeout(id + 0xD0, 8.3f, "--north--"); // t=85.7; Ability 9BF9 from Byakko
+    Timeout(id + 0xE0, 1.6f, "Dance Of The Incomplete"); // t=87.3; Ability 9BF4 from Byakko
+    Timeout(id + 0xF0, 4.9f, "--Hakutei Add--"); // t=92.2
+    Timeout(id + 0x100, 11.2f, "Storm Pulse / Steel Claw").SetHint(StateMachine.StateHint.Raidwide); // t=103.4; Ability 9BFD from Byakko | Ability 9C00 from Hakutei; cactbot StartsUsing 9BFD [ByakkoUn Storm Pulse]
+    Timeout(id + 0x110, 6.2f, "Steel Claw"); // t=109.6; Ability 9C00 from Hakutei
+    Timeout(id + 0x120, 4.1f, "Heavenly Strike"); // t=113.7; Ability 9BFB from Byakko; cactbot StartsUsing 9BFB [ByakkoUn Heavenly Strike]
+    Timeout(id + 0x130, 2.9f, "--tiger untargetable--"); // t=116.6
+    Timeout(id + 0x140, 5.8f, "White Herald"); // t=122.4; Ability 9C1A from Hakutei; cactbot Ability 9C1A [ByakkoUn White Herald Cleanup]
+    Timeout(id + 0x150, 2.0f, "--tiger targetable--"); // t=124.4
+    Timeout(id + 0x160, 0.4f, "Distant Clap"); // t=124.8; Ability 9BFE from Byakko; cactbot StartsUsing 9BFE [ByakkoUn Distant Clap]
+    Timeout(id + 0x170, 3.8f, "Fire And Lightning"); // t=128.6; Ability 9BFF from Hakutei
+    Timeout(id + 0x180, 4.4f, "Storm Pulse").SetHint(StateMachine.StateHint.Raidwide); // t=133.0; Ability 9BFD from Byakko; cactbot StartsUsing 9BFD [ByakkoUn Storm Pulse]
+    Targetable(id + 0x190, false, 2.1f, "--untargetable--"); // t=135.1
+    Timeout(id + 0x1A0, 1.5f, "The Voice Of Thunder"); // t=136.6; Ability 9C17 from Hakutei
+    Timeout(id + 0x1B0, 23.2f, "The Roar Of Thunder"); // t=159.8; Ability 9C19 from Hakutei; cactbot StartsUsing 9C19 [ByakkoUn Roar Counter] | StartsUsing 9C19 [ByakkoUn Roar Of Thunder]
+    Targetable(id + 0x1C0, false, 3.1f, "--untargetable--"); // t=162.9
+}
+
+private void Phase_2__zzz_x_infinity(uint id)
+{
+    Timeout(id + 0x0, 6.1f, "Sweep The Leg"); // t=197.2; Ability 9C14 from Byakko
+    Timeout(id + 0x10, 10.9f, "Imperial Guard"); // t=208.1; Ability 9C12 from Hakutei
+    Timeout(id + 0x20, 12.1f, "Imperial Guard"); // t=220.2; Ability 9C12 from Hakutei
+    Timeout(id + 0x30, 8.5f, "Sweep The Leg"); // t=228.7; Ability 9C14 from Byakko
+    Timeout(id + 0x40, 8.6f, "Imperial Guard"); // t=237.3; Ability 9C12 from Hakutei
+}
+
+private void Phase_3__More_Bubbles(uint id)
+{
+    Timeout(id + 0x0, 15.0f, "Fell Swoop"); // t=265.1; Ability 9C1B from Byakko
+    Targetable(id + 0x10, true, 8.0f, "--targetable--"); // t=273.1
+    Timeout(id + 0x20, 11.3f, "Heavenly Strike"); // t=284.4; Ability 9BFB from Byakko; cactbot StartsUsing 9BFB [ByakkoUn Heavenly Strike]
+    Timeout(id + 0x30, 6.1f, "Answer On High"); // t=290.5; Ability 9C05 from Byakko
+    Timeout(id + 0x40, 5.1f, "Hundredfold Havoc"); // t=295.6; Ability 9C06 from Byakko
+    Timeout(id + 0x50, 1.0f, "State Of Shock 1"); // t=296.6; Ability 9C01 from Byakko; cactbot StartsUsing 9C01 [ByakkoUn State Of Shock Tank 1] | StartsUsing 9C01 [ByakkoUn State Of Shock Tank 2]
+    Timeout(id + 0x60, 1.1f, "Clutch"); // t=297.7; Ability 9C02 from Byakko
+    Timeout(id + 0x70, 0.9f, "Hundredfold Havoc"); // t=298.6; Ability 9C06 from Byakko
+    Timeout(id + 0x80, 5.4f, "Highest Stakes"); // t=304.0; Ability 9C03 from Byakko; cactbot StartsUsing 9C03 [ByakkoUn Stake Counter] | StartsUsing 9C03 [ByakkoUn Stake Counter Cleanup] | StartsUsing 9C03 [ByakkoUn Highest Stakes]
+    Timeout(id + 0x90, 2.9f, "State Of Shock 2"); // t=306.9; Ability 9BF8 from Byakko
+    Timeout(id + 0xA0, 1.0f, "Clutch"); // t=307.9; Ability 9C02 from Byakko
+    Timeout(id + 0xB0, 6.2f, "Highest Stakes"); // t=314.1; Ability 9C03 from Byakko; cactbot StartsUsing 9C03 [ByakkoUn Stake Counter] | StartsUsing 9C03 [ByakkoUn Stake Counter Cleanup] | StartsUsing 9C03 [ByakkoUn Highest Stakes]
+    Timeout(id + 0xC0, 6.7f, "Sweep The Leg"); // t=320.8; Ability 9BFC from Byakko; cactbot StartsUsing 9BFC [ByakkoUn Sweep The Leg Standard]
+    Timeout(id + 0xD0, 10.1f, "--center--"); // t=330.9; Ability 9BF9 from Byakko
+    Timeout(id + 0xE0, 4.3f, "Unrelenting Anguish"); // t=335.2; Ability 9C0E from Byakko
+    Timeout(id + 0xF0, 6.2f, "Storm Pulse x2").SetHint(StateMachine.StateHint.Raidwide); // t=341.4; Ability 9BFD from Byakko; cactbot StartsUsing 9BFD [ByakkoUn Storm Pulse]
+    Timeout(id + 0x100, 4.2f, "Bombogenesis"); // t=345.6; Ability 9C08 from Byakko
+    Timeout(id + 0x110, 6.0f, "Ominous Wind"); // t=351.6; Ability 9C0C from Byakko; cactbot GainsEffect 5C9 [ByakkoUn Ominous Wind]
+    Timeout(id + 0x120, 2.0f, "Gale Force"); // t=353.6; Ability 9C09 from Byakko; cactbot HeadMarker 65 [ByakkoUn Gale Force]
+    Timeout(id + 0x130, 7.4f, "Fire And Lightning"); // t=361.0; Ability 9BFA from Byakko
+    Timeout(id + 0x140, 3.1f, "--north--"); // t=364.1; Ability 9BF9 from Byakko
+    Timeout(id + 0x150, 5.8f, "Fire And Lightning"); // t=369.9; Ability 9BFA from Byakko
+    Timeout(id + 0x160, 3.2f, "--north--"); // t=373.1; Ability 9BF9 from Byakko
+    Timeout(id + 0x170, 1.4f, "Dance Of The Incomplete"); // t=374.5; Ability 9BF4 from Byakko
+    Timeout(id + 0x180, 5.0f, "--tiger targetable--"); // t=379.5
+    Timeout(id + 0x190, 9.3f, "--tiger untargetable--"); // t=388.8
+    Timeout(id + 0x1A0, 5.7f, "White Herald"); // t=394.5; Ability 9C1A from Hakutei; cactbot Ability 9C1A [ByakkoUn White Herald Cleanup]
+    Timeout(id + 0x1B0, 2.0f, "--tiger targetable--"); // t=396.5
+    Timeout(id + 0x1C0, 0.3f, "Distant Clap"); // t=396.8; Ability 9BFE from Byakko; cactbot StartsUsing 9BFE [ByakkoUn Distant Clap]
+    Timeout(id + 0x1D0, 3.9f, "Fire And Lightning"); // t=400.7; Ability 9BFF from Hakutei
+    Timeout(id + 0x1E0, 4.3f, "Distant Clap"); // t=405.0; Ability 9BFE from Byakko; cactbot StartsUsing 9BFE [ByakkoUn Distant Clap]
+    Timeout(id + 0x1F0, 3.9f, "Fire And Lightning"); // t=408.9; Ability 9BFF from Hakutei
+    Timeout(id + 0x200, 7.2f, "Steel Claw"); // t=416.1; Ability 9C00 from Hakutei
+    Timeout(id + 0x210, 0.3f, "Heavenly Strike"); // t=416.4; Ability 9BFB from Byakko; cactbot StartsUsing 9BFB [ByakkoUn Heavenly Strike]
+    Timeout(id + 0x220, 7.5f, "The Voice Of Thunder"); // t=423.9; Ability 9C17 from Hakutei
+    Timeout(id + 0x230, 12.6f, "Storm Pulse x2").SetHint(StateMachine.StateHint.Raidwide); // t=436.5; Ability 9BFD from Byakko; cactbot StartsUsing 9BFD [ByakkoUn Storm Pulse]
+    Timeout(id + 0x240, 10.6f, "The Roar Of Thunder"); // t=447.1; Ability 9C19 from Hakutei; cactbot StartsUsing 9C19 [ByakkoUn Roar Counter] | StartsUsing 9C19 [ByakkoUn Roar Of Thunder]
+    Timeout(id + 0x250, 6.4f, "--jump--"); // t=453.5; Ability 9BF9 from Byakko
+    Timeout(id + 0x260, 5.8f, "Fire And Lightning"); // t=459.3; Ability 9BFA from Byakko
+    Timeout(id + 0x270, 15.2f, "Storm Pulse x2").SetHint(StateMachine.StateHint.Raidwide); // t=474.5; Ability 9BFD from Byakko; cactbot StartsUsing 9BFD [ByakkoUn Storm Pulse]
+    Timeout(id + 0x280, 10.3f, "Bombogenesis"); // t=484.8; Ability 9C08 from Byakko
+    Timeout(id + 0x290, 2.2f, "Answer On High"); // t=487.0; Ability 9C05 from Byakko
+    Timeout(id + 0x2A0, 5.0f, "Hundredfold Havoc"); // t=492.0; Ability 9C06 from Byakko
+    Timeout(id + 0x2B0, 0.9f, "Gale Force"); // t=492.9; Ability 9C09 from Byakko; cactbot HeadMarker 65 [ByakkoUn Gale Force]
+    Timeout(id + 0x2C0, 2.2f, "Hundredfold Havoc"); // t=495.1; Ability 9C06 from Byakko
+    Timeout(id + 0x2D0, 0.7f, "State Of Shock 1"); // t=495.8; Ability 9C01 from Byakko; cactbot StartsUsing 9C01 [ByakkoUn State Of Shock Tank 1] | StartsUsing 9C01 [ByakkoUn State Of Shock Tank 2]
+    Timeout(id + 0x2E0, 1.1f, "Clutch"); // t=496.9; Ability 9C02 from Byakko
+    Timeout(id + 0x2F0, 6.3f, "Highest Stakes"); // t=503.2; Ability 9C03 from Byakko; cactbot StartsUsing 9C03 [ByakkoUn Stake Counter] | StartsUsing 9C03 [ByakkoUn Stake Counter Cleanup] | StartsUsing 9C03 [ByakkoUn Highest Stakes]
+    Timeout(id + 0x300, 2.6f, "State Of Shock 2"); // t=505.8; Ability 9BF8 from Byakko
+    Timeout(id + 0x310, 1.1f, "Clutch"); // t=506.9; Ability 9C02 from Byakko
+    Timeout(id + 0x320, 6.3f, "Highest Stakes"); // t=513.2; Ability 9C03 from Byakko; cactbot StartsUsing 9C03 [ByakkoUn Stake Counter] | StartsUsing 9C03 [ByakkoUn Stake Counter Cleanup] | StartsUsing 9C03 [ByakkoUn Highest Stakes]
+    Timeout(id + 0x330, 6.5f, "Sweep The Leg"); // t=519.7; Ability 9BFC from Byakko; cactbot StartsUsing 9BFC [ByakkoUn Sweep The Leg Standard]
+    Timeout(id + 0x340, 14.5f, "Heavenly Strike"); // t=534.2; Ability 9BFB from Byakko; cactbot StartsUsing 9BFB [ByakkoUn Heavenly Strike]
+    Timeout(id + 0x350, 10.3f, "Storm Pulse x2").SetHint(StateMachine.StateHint.Raidwide); // t=544.5; Ability 9BFD from Byakko; cactbot StartsUsing 9BFD [ByakkoUn Storm Pulse]
+    Timeout(id + 0x360, 13.4f, "Distant Clap"); // t=557.9; Ability 9BFE from Byakko; cactbot StartsUsing 9BFE [ByakkoUn Distant Clap]
+    Timeout(id + 0x370, 6.2f, "Heavenly Strike"); // t=564.1; Ability 9BFB from Byakko; cactbot StartsUsing 9BFB [ByakkoUn Heavenly Strike]
+    Timeout(id + 0x380, 8.1f, "--center--"); // t=572.2; Ability 9BF9 from Byakko
+    Timeout(id + 0x390, 4.1f, "Unrelenting Anguish"); // t=576.3; Ability 9C0E from Byakko
+    Timeout(id + 0x3A0, 6.1f, "Storm Pulse x2").SetHint(StateMachine.StateHint.Raidwide); // t=582.4; Ability 9BFD from Byakko; cactbot StartsUsing 9BFD [ByakkoUn Storm Pulse]
+    Timeout(id + 0x3B0, 4.3f, "Bombogenesis"); // t=586.7; Ability 9C08 from Byakko
+    Timeout(id + 0x3C0, 6.1f, "Ominous Wind"); // t=592.8; Ability 9C0C from Byakko; cactbot GainsEffect 5C9 [ByakkoUn Ominous Wind]
+    Timeout(id + 0x3D0, 1.9f, "Gale Force"); // t=594.7; Ability 9C09 from Byakko; cactbot HeadMarker 65 [ByakkoUn Gale Force]
+    Timeout(id + 0x3E0, 7.4f, "Fire And Lightning"); // t=602.1; Ability 9BFA from Byakko
+    Timeout(id + 0x3F0, 3.2f, "--north--"); // t=605.3; Ability 9BF9 from Byakko
+    Timeout(id + 0x400, 5.7f, "Fire And Lightning"); // t=611.0; Ability 9BFA from Byakko
+    Timeout(id + 0x410, 15.2f, "Storm Pulse x2").SetHint(StateMachine.StateHint.Raidwide); // t=626.2; Ability 9BFD from Byakko; cactbot StartsUsing 9BFD [ByakkoUn Storm Pulse]
+    Timeout(id + 0x420, 8.2f, "Answer On High"); // t=634.4; Ability 9C05 from Byakko
+    Timeout(id + 0x430, 5.0f, "Hundredfold Havoc"); // t=639.4; Ability 9C06 from Byakko
+    Timeout(id + 0x440, 1.1f, "State Of Shock 1"); // t=640.5; Ability 9C01 from Byakko; cactbot StartsUsing 9C01 [ByakkoUn State Of Shock Tank 1] | StartsUsing 9C01 [ByakkoUn State Of Shock Tank 2]
+    Timeout(id + 0x450, 1.1f, "Clutch"); // t=641.6; Ability 9C02 from Byakko
+    Timeout(id + 0x460, 0.9f, "Hundredfold Havoc"); // t=642.5; Ability 9C06 from Byakko
+    Timeout(id + 0x470, 5.4f, "Highest Stakes"); // t=647.9; Ability 9C03 from Byakko; cactbot StartsUsing 9C03 [ByakkoUn Stake Counter] | StartsUsing 9C03 [ByakkoUn Stake Counter Cleanup] | StartsUsing 9C03 [ByakkoUn Highest Stakes]
+    Timeout(id + 0x480, 2.9f, "State Of Shock 2"); // t=650.8; Ability 9BF8 from Byakko
+    Timeout(id + 0x490, 1.0f, "Clutch"); // t=651.8; Ability 9C02 from Byakko
+    Timeout(id + 0x4A0, 6.3f, "Highest Stakes"); // t=658.1; Ability 9C03 from Byakko; cactbot StartsUsing 9C03 [ByakkoUn Stake Counter] | StartsUsing 9C03 [ByakkoUn Stake Counter Cleanup] | StartsUsing 9C03 [ByakkoUn Highest Stakes]
+    Timeout(id + 0x4B0, 6.7f, "Sweep The Leg"); // t=664.8; Ability 9BFC from Byakko; cactbot StartsUsing 9BFC [ByakkoUn Sweep The Leg Standard]
+    Timeout(id + 0x4C0, 10.1f, "--center--"); // t=674.9; Ability 9BF9 from Byakko
+    Timeout(id + 0x4D0, 5.3f, "Storm Pulse x4").SetHint(StateMachine.StateHint.Raidwide); // t=680.2; Ability 9BFD from Byakko; cactbot StartsUsing 9BFD [ByakkoUn Storm Pulse]
+    Timeout(id + 0x4E0, 16.1f, "Storm Pulse Enrage"); // t=696.3; Ability 9C21 from Byakko
+}
+

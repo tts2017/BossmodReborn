@@ -1,0 +1,83 @@
+// Generated development skeleton from the_fell_court_of_troia.txt (TerritoryType 1070).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 18 static/dynamic trigger definitions from ui/raidboss/data/06-ew/dungeon/the_fell_court_of_troia.ts.
+
+private void Phase_pushes_here_push_when_adds_are_all_dead(uint id)
+{
+    Condition(id + 0x0, 200.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x73B8), "", 5f, 195.0f); // t=1200.0; StartsUsing 73B8 from Evil Dreamer; cactbot StartsUsing 73BB/73B8 [Troia Evil Dreamer Dark Vision]
+    Timeout(id + 0x10, 8.0f, "Dark Vision"); // t=1208.0; Ability 73B8 from Evil Dreamer; cactbot StartsUsing 73BB/73B8 [Troia Evil Dreamer Dark Vision]
+    Condition(id + 0x20, 192.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x73B8), "", 5f, 187.0f); // t=1400.0; StartsUsing 73B8 from Evil Dreamer; cactbot StartsUsing 73BB/73B8 [Troia Evil Dreamer Dark Vision]
+    Timeout(id + 0x30, 8.0f, "Dark Vision / Void Gravity"); // t=1408.0; Ability 73B8 from Evil Dreamer | Ability 73BA from Evil Dreamer; cactbot StartsUsing 73BB/73B8 [Troia Evil Dreamer Dark Vision] | StartsUsing 73BA [Troia Beatrice Void Gravity]
+    Condition(id + 0x40, 192.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x73BB), "", 5f, 187.0f); // t=1600.0; StartsUsing 73BB from Evil Dreamer; cactbot StartsUsing 73BB/73B8 [Troia Evil Dreamer Dark Vision]
+    Timeout(id + 0x50, 8.0f, "Dark Vision / Unite Mare"); // t=1608.0; Ability 73BB from Evil Dreamer | Ability 73BC from Evil Dreamer; cactbot StartsUsing 73BB/73B8 [Troia Evil Dreamer Dark Vision] | StartsUsing 73BC [Troia Evil Dreamer Unite Mare]
+    Condition(id + 0x60, 192.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x73BE), "", 5f, 187.0f); // t=1800.0; StartsUsing 73BE from Evil Dreamer
+    Timeout(id + 0x70, 17.0f, "Unite Mare"); // t=1817.0; Ability 73B6 from Evil Dreamer; cactbot StartsUsing 73BC [Troia Evil Dreamer Unite Mare]
+    Timeout(id + 0x80, 11.0f, "Unite Mare"); // t=1828.0; Ability 73B6 from Evil Dreamer; cactbot StartsUsing 73BC [Troia Evil Dreamer Unite Mare]
+    Timeout(id + 0x90, 11.0f, "Unite Mare"); // t=1839.0; Ability 73B6 from Evil Dreamer; cactbot StartsUsing 73BC [Troia Evil Dreamer Unite Mare]
+    Timeout(id + 0xA0, 11.0f, "Unite Mare"); // t=1850.0; Ability 73B6 from Evil Dreamer; cactbot StartsUsing 73BC [Troia Evil Dreamer Unite Mare]
+    Condition(id + 0xB0, 10.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x73BE), "Endless Nightmare Enrage", 5f, 5.0f); // t=1860.0; StartsUsing 73BE from Evil Dreamer
+    Timeout(id + 0xC0, 151.3f, "--middle--"); // t=2011.3; Ability 747C from Beatrice
+    Timeout(id + 0xD0, 5.2f, "Eye of Troia").SetHint(StateMachine.StateHint.Raidwide); // t=2016.5; Ability 747A from Beatrice; cactbot StartsUsing 747A [Troia Beatrice Eye of Troia]
+    Timeout(id + 0xE0, 6.0f, "Death Foreseen"); // t=2022.5; Ability 747D from Beatrice; cactbot StartsUsing 747D [Troia Beatrice Death Forseen Self]
+    Timeout(id + 0xF0, 7.2f, "Beatific Scorn x4"); // t=2029.7
+    Timeout(id + 0x100, 10.8f, "Beatific Scorn 1"); // t=2040.5
+    Timeout(id + 0x110, 1.7f, "Beatific Scorn 2"); // t=2042.2
+    Timeout(id + 0x120, 1.6f, "Beatific Scorn 3"); // t=2043.8
+    Timeout(id + 0x130, 1.7f, "Beatific Scorn 4"); // t=2045.5
+    Timeout(id + 0x140, 15.1f, "Hush").SetHint(StateMachine.StateHint.Tankbuster); // t=2060.6; Ability 7480 from Beatrice; cactbot StartsUsing 7480 [Troia Beatrice Hush]
+    Timeout(id + 0x150, 7.1f, "--middle--"); // t=2067.7; Ability 747C from Beatrice
+    Timeout(id + 0x160, 6.3f, "Voidshaker"); // t=2074.0; Ability 747E from Beatrice
+    Timeout(id + 0x170, 3.0f, "Void Nail"); // t=2077.0; Ability 747F from Beatrice; cactbot StartsUsing 747F [Troia Beatrice Void Nail]
+    Timeout(id + 0x180, 7.2f, "--middle--"); // t=2084.2; Ability 747C from Beatrice
+    Timeout(id + 0x190, 5.2f, "Eye of Troia").SetHint(StateMachine.StateHint.Raidwide); // t=2089.4; Ability 747A from Beatrice; cactbot StartsUsing 747A [Troia Beatrice Eye of Troia]
+    Timeout(id + 0x1A0, 11.1f, "Death Foreseen 1 / Toric Void"); // t=2100.5; Ability 7484 from Beatrice | Ability 7485 from Beatrice; cactbot StartsUsing 7484 [Troia Beatrice Death Forseen Other]
+    Timeout(id + 0x1B0, 4.0f, "Death Foreseen 2"); // t=2104.5; Ability 7484 from Beatrice; cactbot StartsUsing 7484 [Troia Beatrice Death Forseen Other]
+    Timeout(id + 0x1C0, 0.1f, "Toric Void"); // t=2104.6; Ability 79E6 from Beatrice
+    Timeout(id + 0x1D0, 2.8f, "Void Nail"); // t=2107.4; Ability 747F from Beatrice; cactbot StartsUsing 747F [Troia Beatrice Void Nail]
+    Timeout(id + 0x1E0, 7.4f, "--middle--"); // t=2114.8; Ability 747C from Beatrice
+    Timeout(id + 0x1F0, 5.2f, "Beatific Scorn x4"); // t=2120.0
+    Timeout(id + 0x200, 2.9f, "Antipressure"); // t=2122.9; Ability 79E8 from Beatrice; cactbot StartsUsing 79E8 [Troia Beatrice Antipressure]
+    Timeout(id + 0x210, 7.8f, "Beatific Scorn 1"); // t=2130.7
+    Timeout(id + 0x220, 1.7f, "Beatific Scorn 2"); // t=2132.4
+    Timeout(id + 0x230, 1.6f, "Beatific Scorn 3"); // t=2134.0
+    Timeout(id + 0x240, 1.7f, "Beatific Scorn 4"); // t=2135.7
+    Timeout(id + 0x250, 15.1f, "Hush").SetHint(StateMachine.StateHint.Tankbuster); // t=2150.8; Ability 7480 from Beatrice; cactbot StartsUsing 7480 [Troia Beatrice Hush]
+    Timeout(id + 0x260, 7.1f, "--middle--"); // t=2157.9; Ability 747C from Beatrice
+    Timeout(id + 0x270, 6.3f, "Voidshaker"); // t=2164.2; Ability 747E from Beatrice
+    Timeout(id + 0x280, 3.0f, "Void Nail"); // t=2167.2; cactbot StartsUsing 747F [Troia Beatrice Void Nail]
+    Timeout(id + 0x290, 7.2f, "--middle--"); // t=2174.4
+    Timeout(id + 0x2A0, 5.2f, "Eye of Troia"); // t=2179.6; cactbot StartsUsing 747A [Troia Beatrice Eye of Troia]
+    Timeout(id + 0x2B0, 11.1f, "Death Foreseen 1 / Toric Void"); // t=2190.7
+    Timeout(id + 0x2C0, 4.0f, "Death Foreseen 2"); // t=2194.7
+    Timeout(id + 0x2D0, 0.1f, "Toric Void"); // t=2194.8
+    Timeout(id + 0x2E0, 2.8f, "Void Nail"); // t=2197.6; cactbot StartsUsing 747F [Troia Beatrice Void Nail]
+    Timeout(id + 0x2F0, 811.5f, "Cursed Echo"); // t=3009.1; Ability 7631 from Scarmiglione; cactbot StartsUsing 7631 [Troia Scarmiglione Cursed Echo]
+    Timeout(id + 0x300, 18.0f, "Rotten Rampage"); // t=3027.1; Ability 7617 from Scarmiglione; cactbot StartsUsing 7619 [Troia Scarmiglione Rotten Rampage]
+    Timeout(id + 0x310, 14.5f, "Blighted Bedevilment"); // t=3041.6; Ability 761B from Scarmiglione
+    Timeout(id + 0x320, 0.6f, "Vacuum Wave"); // t=3042.2; Ability 761C from Scarmiglione; cactbot StartsUsing 761C [Troia Scarmiglione Vacuum Wave]
+    Timeout(id + 0x330, 19.3f, "Blighted Bladework"); // t=3061.5; Ability 7633 from Scarmiglione; cactbot StartsUsing 7633 [Troia Scarmiglione Blighted Bladework]
+    Timeout(id + 0x340, 11.0f, "Blighted Sweep"); // t=3072.5; Ability 7635 from Scarmiglione; cactbot StartsUsing 7635 [Troia Scarmiglione Blighted Sweep]
+    Timeout(id + 0x350, 11.1f, "Firedamp"); // t=3083.6; Ability 7636 from Scarmiglione; cactbot StartsUsing 7637 [Troia Scarmiglione Firedamp]
+    Timeout(id + 0x360, 11.7f, "Creeping Decay"); // t=3095.3; Ability 7620 from Scarmiglione
+    Targetable(id + 0x370, false, 3.1f, "--untargetable--"); // t=3098.4
+    Timeout(id + 0x380, 17.1f, "Nox"); // t=3115.5; Ability 7621 from Scarmiglione
+    Timeout(id + 0x390, 3.0f, "Void Gravity/Void Vortex"); // t=3118.5
+    Timeout(id + 0x3A0, 23.6f, "Nox"); // t=3142.1; Ability 7621 from Scarmiglione
+    Timeout(id + 0x3B0, 6.0f, "Void Vortex/Void Gravity"); // t=3148.1
+    Timeout(id + 0x3C0, 43.7f, "Corruptor's Pitch"); // t=3191.8; Ability 7625 from Scarmiglione
+    Targetable(id + 0x3D0, true, 14.6f, "--targetable--"); // t=3206.4
+    Timeout(id + 0x3E0, 16.3f, "Rotten Rampage"); // t=3222.7; Ability 7617 from Scarmiglione; cactbot StartsUsing 7619 [Troia Scarmiglione Rotten Rampage]
+    Timeout(id + 0x3F0, 14.5f, "Blighted Bedevilment"); // t=3237.2; Ability 761B from Scarmiglione
+    Timeout(id + 0x400, 0.6f, "Vacuum Wave"); // t=3237.8; Ability 761C from Scarmiglione; cactbot StartsUsing 761C [Troia Scarmiglione Vacuum Wave]
+    Timeout(id + 0x410, 9.1f, "Void Vortex"); // t=3246.9; Ability 762E from Scarmiglione; cactbot StartsUsing 7623/762E [Troia Scarmiglione Void Vortex]
+    Timeout(id + 0x420, 19.3f, "Blighted Bladework"); // t=3266.2; Ability 7633 from Scarmiglione; cactbot StartsUsing 7633 [Troia Scarmiglione Blighted Bladework]
+    Timeout(id + 0x430, 11.0f, "Blighted Sweep"); // t=3277.2; Ability 7635 from Scarmiglione; cactbot StartsUsing 7635 [Troia Scarmiglione Blighted Sweep]
+    Timeout(id + 0x440, 14.2f, "Firedamp"); // t=3291.4; Ability 7636 from Scarmiglione; cactbot StartsUsing 7637 [Troia Scarmiglione Firedamp]
+    Timeout(id + 0x450, 10.1f, "Cursed Echo"); // t=3301.5; Ability 7631 from Scarmiglione; cactbot StartsUsing 7631 [Troia Scarmiglione Cursed Echo]
+    Timeout(id + 0x460, 17.4f, "Rotten Rampage"); // t=3318.9; Ability 7617 from Scarmiglione; cactbot StartsUsing 7619 [Troia Scarmiglione Rotten Rampage]
+    Timeout(id + 0x470, 14.5f, "Blighted Bedevilment"); // t=3333.4
+    Timeout(id + 0x480, 0.6f, "Vacuum Wave"); // t=3334.0; cactbot StartsUsing 761C [Troia Scarmiglione Vacuum Wave]
+    Timeout(id + 0x490, 9.1f, "Void Vortex"); // t=3343.1; cactbot StartsUsing 7623/762E [Troia Scarmiglione Void Vortex]
+}
+

@@ -1,0 +1,279 @@
+// Generated development skeleton from ultima_weapon_ultimate.txt (TerritoryType 777).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 43 static/dynamic trigger definitions from ui/raidboss/data/04-sb/ultimate/ultima_weapon_ultimate.ts.
+// Cactbot actor OID candidates (not automatically promoted to primary boss): 0x221B.
+
+private void Phase_1__Garuda(uint id)
+{
+    Condition(id + 0x0, 6.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2B53), "", 5f, 1.3f); // t=6.3; StartsUsing 2B53 from Garuda; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker] | StartsUsing 2B53 [UWU Garuda Slipstream] | Ability 2B53 [UWU Garuda Downburst]
+    Timeout(id + 0x10, 2.5f, "Slipstream"); // t=8.8; Ability 2B53 from Garuda; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker] | StartsUsing 2B53 [UWU Garuda Slipstream] | Ability 2B53 [UWU Garuda Downburst]
+    Timeout(id + 0x20, 2.6f, "Mistral Song"); // t=11.4; Ability 2B42 from Garuda; cactbot HeadMarker 10 [UWU Garuda Mistral Song Marker] | HeadMarker 10 [UWU Garuda Mistral Song Tank]
+    Timeout(id + 0x30, 6.1f, "Great Whirlwind"); // t=17.5; Ability 2B41 from Garuda
+    Timeout(id + 0x40, 6.1f, "Great Whirlwind"); // t=23.6; Ability 2B41 from Garuda
+    Timeout(id + 0x50, 0.6f, "Slipstream"); // t=24.2; Ability 2B53 from Garuda; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker] | StartsUsing 2B53 [UWU Garuda Slipstream] | Ability 2B53 [UWU Garuda Downburst]
+    Timeout(id + 0x60, 3.4f, "Downburst"); // t=27.6; Ability 2B50 from Garuda; cactbot Ability 2B53 [UWU Garuda Downburst]
+    Timeout(id + 0x70, 2.1f, "Great Whirlwind"); // t=29.7; Ability 2B41 from Garuda
+    Targetable(id + 0x80, false, 5.2f, "--untargetable--"); // t=34.9
+    Timeout(id + 0x90, 2.6f, "Feather Rain"); // t=37.5; Ability 2B4D from Garuda
+    Targetable(id + 0xA0, true, 1.7f, "--targetable--"); // t=39.2
+    Timeout(id + 0xB0, 3.0f, "Mistral Shriek"); // t=42.2; Ability 2B54 from Garuda
+    Timeout(id + 0xC0, 9.3f, "Friction 1"); // t=51.5; Ability 2B48 from Garuda
+    Timeout(id + 0xD0, 6.1f, "Friction 2"); // t=57.6; Ability 2B48 from Garuda
+    Targetable(id + 0xE0, false, 11.9f, "--untargetable--"); // t=69.5
+    Timeout(id + 0xF0, 2.6f, "Feather Rain"); // t=72.1; Ability 2B4D from Garuda
+    Targetable(id + 0x100, true, 1.7f, "--targetable--"); // t=73.8
+    Timeout(id + 0x110, 3.0f, "Aerial Blast").SetHint(StateMachine.StateHint.Raidwide); // t=76.8; Ability 2B55 from Garuda; cactbot StartsUsing 2B55 [UWU Garuda Aerial Blast] | StartsUsing 2B55 [UWU Garuda Sisters Location] | StartsUsing 2B55 [UWU Ifrit Possible ID Locator]
+    Timeout(id + 0x120, 16.1f, "Feather Rain"); // t=92.9; Ability 2B4D from Garuda
+    Timeout(id + 0x130, 6.9f, "Mistral Song x2"); // t=99.8; Ability 2B4B from Chirada
+    Timeout(id + 0x140, 0.3f, "Eye of the Storm"); // t=100.1; Ability 2B52 from Garuda
+    Timeout(id + 0x150, 0.1f, "Wicked Wheel"); // t=100.2; Ability 2B4E from Garuda; cactbot StartsUsing 2B4E [UWU Garuda Wicked Wheel]
+    Timeout(id + 0x160, 4.0f, "Feather Rain"); // t=104.2; Ability 2B4D from Garuda
+    Timeout(id + 0x170, 1.6f, "Great Whirlwind"); // t=105.8; Ability 2B41 from Suparna
+    Timeout(id + 0x180, 16.0f, "Slipstream"); // t=121.8; Ability 2B53 from Garuda; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker] | StartsUsing 2B53 [UWU Garuda Slipstream] | Ability 2B53 [UWU Garuda Downburst]
+    Timeout(id + 0x190, 1.2f, "Eye of the Storm"); // t=123.0; Ability 2B52 from Garuda
+    Timeout(id + 0x1A0, 2.0f, "Mesohigh x2"); // t=125.0; Ability 2B49 from Chirada
+    Timeout(id + 0x1B0, 0.1f, "Downburst"); // t=125.1; Ability 2B50 from Garuda; cactbot Ability 2B53 [UWU Garuda Downburst]
+    Timeout(id + 0x1C0, 4.5f, "Feather Rain"); // t=129.6; Ability 2B4D from Garuda
+    Timeout(id + 0x1D0, 12.6f, "Slipstream"); // t=142.2; Ability 2B53 from Garuda; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker] | StartsUsing 2B53 [UWU Garuda Slipstream] | Ability 2B53 [UWU Garuda Downburst]
+    Timeout(id + 0x1E0, 8.4f, "Wicked Wheel"); // t=150.6; Ability 2B4E from Garuda; cactbot StartsUsing 2B4E [UWU Garuda Wicked Wheel]
+    Timeout(id + 0x1F0, 2.0f, "Wicked Tornado"); // t=152.6; Ability 2B4F from Garuda
+    Timeout(id + 0x200, 2.8f, "Downburst"); // t=155.4; Ability 2B50 from Garuda; cactbot Ability 2B53 [UWU Garuda Downburst]
+    Timeout(id + 0x210, 8.0f, "Slipstream"); // t=163.4; Ability 2B53 from Garuda; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker] | StartsUsing 2B53 [UWU Garuda Slipstream] | Ability 2B53 [UWU Garuda Downburst]
+    Targetable(id + 0x220, false, 13.1f, "--untargetable--"); // t=176.5; Ability 2B4D from Garuda
+    Timeout(id + 0x230, 5.0f, "Aerial Blast").SetHint(StateMachine.StateHint.Raidwide); // t=181.5; Ability 2B55 from Garuda; cactbot StartsUsing 2B55 [UWU Garuda Aerial Blast] | StartsUsing 2B55 [UWU Garuda Sisters Location] | StartsUsing 2B55 [UWU Ifrit Possible ID Locator]
+}
+
+private void Phase_2__Ifrit(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2B5F), "", 5f, 0.0f); // t=300.0; StartsUsing 2B5F from Ifrit; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker]
+    Timeout(id + 0x10, 3.0f, "Crimson Cyclone"); // t=303.0; Ability 2B5F from Ifrit; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker]
+    Timeout(id + 0x20, 1.0f, "Radiant Plume"); // t=304.0; Ability 2B61 from Ifrit
+    Targetable(id + 0x30, true, 3.1f, "--targetable--"); // t=307.1
+    Timeout(id + 0x40, 3.0f, "Hellfire").SetHint(StateMachine.StateHint.Raidwide); // t=310.1; Ability 2B5E from Ifrit; cactbot StartsUsing 2B5E [UWU Ifrit Hellfire]
+    Timeout(id + 0x50, 8.2f, "Vulcan Burst").SetHint(StateMachine.StateHint.Knockback); // t=318.3; Ability 2B57 from Ifrit; cactbot StartsUsing 25B7 [UWU Ifrit Vulcan Burst]
+    Timeout(id + 0x60, 2.9f, "Incinerate 1"); // t=321.2; Ability 2B56 from Ifrit
+    Timeout(id + 0x70, 3.1f, "Incinerate 2"); // t=324.3; Ability 2B56 from Ifrit
+    Timeout(id + 0x80, 4.1f, "Incinerate 3"); // t=328.4; Ability 2B56 from Ifrit
+    Timeout(id + 0x90, 3.1f, "--nail adds--"); // t=331.5; Ability 1CD from Ifrit; cactbot AddedCombatant OID=0x221B [UWU Ifrit Nail Adds]
+    Timeout(id + 0xA0, 9.1f, "Infernal Fetters"); // t=340.6; Ability 2C19 from Ifrit
+    Timeout(id + 0xB0, 2.1f, "Inferno Howl"); // t=342.7; Ability 2B5B from Ifrit; cactbot StartsUsing 2B5B [UWU Ifrit Searing Wind]
+    Timeout(id + 0xC0, 6.1f, "Eruption 1"); // t=348.8
+    Timeout(id + 0xD0, 2.0f, "Eruption 2"); // t=350.8
+    Timeout(id + 0xE0, 2.0f, "Eruption 3"); // t=352.8
+    Timeout(id + 0xF0, 2.0f, "Eruption 4"); // t=354.8
+    Targetable(id + 0x100, false, 10.9f, "--untargetable--"); // t=365.7
+    Targetable(id + 0x110, true, 4.2f, "--targetable--"); // t=369.9
+    Condition(id + 0x120, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2B5E), "", 5f, 0.0f); // t=369.9; StartsUsing 2B5E from Ifrit; cactbot StartsUsing 2B5E [UWU Ifrit Hellfire]
+    Timeout(id + 0x130, 3.0f, "Hellfire").SetHint(StateMachine.StateHint.Raidwide); // t=372.9; Ability 2B5E from Ifrit; cactbot StartsUsing 2B5E [UWU Ifrit Hellfire]
+    Timeout(id + 0x140, 8.3f, "Inferno Howl 1"); // t=381.2; Ability 2B5B from Ifrit; cactbot StartsUsing 2B5B [UWU Ifrit Searing Wind]
+    Timeout(id + 0x150, 6.1f, "Eruption 1"); // t=387.3
+    Timeout(id + 0x160, 2.0f, "Eruption 2"); // t=389.3
+    Timeout(id + 0x170, 2.0f, "Eruption 3"); // t=391.3
+    Timeout(id + 0x180, 2.0f, "Eruption 4"); // t=393.3
+    Timeout(id + 0x190, 1.0f, "Crimson Cyclone"); // t=394.3; Ability 2B5F from Ifrit; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker]
+    Timeout(id + 0x1A0, 4.9f, "Inferno Howl 2"); // t=399.2; Ability 2B5B from Ifrit; cactbot StartsUsing 2B5B [UWU Ifrit Searing Wind]
+    Timeout(id + 0x1B0, 10.4f, "Flaming Crush"); // t=409.6; Ability 2B5D from Ifrit; cactbot HeadMarker 75 [UWU Ifrit Flaming Crush]
+    Targetable(id + 0x1C0, false, 4.0f, "--untargetable--"); // t=413.6
+    Timeout(id + 0x1D0, 7.5f, "Crimson Cyclone 1"); // t=421.1
+    Timeout(id + 0x1E0, 1.4f, "Crimson Cyclone 2"); // t=422.5
+    Timeout(id + 0x1F0, 1.5f, "Crimson Cyclone 3"); // t=424.0
+    Timeout(id + 0x200, 1.4f, "Crimson Cyclone 4"); // t=425.4
+    Targetable(id + 0x210, true, 4.1f, "--targetable--"); // t=429.5
+    Timeout(id + 0x220, 4.1f, "Incinerate 1"); // t=433.6; Ability 2B56 from Ifrit
+    Timeout(id + 0x230, 3.1f, "Incinerate 2"); // t=436.7; Ability 2B56 from Ifrit
+    Timeout(id + 0x240, 4.1f, "Incinerate 3"); // t=440.8; Ability 2B56 from Ifrit
+    Timeout(id + 0x250, 6.2f, "Eruption 1"); // t=447.0
+    Timeout(id + 0x260, 2.0f, "Eruption 2"); // t=449.0
+    Timeout(id + 0x270, 2.0f, "Eruption 3"); // t=451.0
+    Timeout(id + 0x280, 2.0f, "Eruption 4"); // t=453.0
+    Timeout(id + 0x290, 3.0f, "Flaming Crush"); // t=456.0; Ability 2B5D from Ifrit; cactbot HeadMarker 75 [UWU Ifrit Flaming Crush]
+}
+
+private void Phase_3__Titan(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2CFD), "", 5f, 0.0f); // t=600.0; StartsUsing 2CFD from Titan; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker]
+    Timeout(id + 0x10, 3.0f, "Geocrush"); // t=603.0; Ability 2CFD from Titan; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker]
+    Targetable(id + 0x20, true, 2.3f, "--targetable--"); // t=605.3
+    Timeout(id + 0x30, 3.0f, "Earthen Fury"); // t=608.3; Ability 2B90 from Titan
+    Timeout(id + 0x40, 8.1f, "Rock Buster"); // t=616.4; Ability 2B62 from Titan
+    Timeout(id + 0x50, 3.1f, "Mountain Buster"); // t=619.5; Ability 2B63 from Titan
+    Timeout(id + 0x60, 5.0f, "Weight of the Land 1"); // t=624.5; Ability 2B65 from Titan
+    Timeout(id + 0x70, 3.0f, "Weight of the Land 2"); // t=627.5; Ability 2B65 from Titan
+    Targetable(id + 0x80, false, 0.1f, "--untargetable--"); // t=627.6
+    Timeout(id + 0x90, 5.2f, "Geocrush"); // t=632.8; Ability 2B66 from Titan
+    Targetable(id + 0xA0, true, 2.3f, "--targetable--"); // t=635.1
+    Timeout(id + 0xB0, 3.0f, "Bury"); // t=638.1; Ability 2B69 from Bomb Boulder
+    Timeout(id + 0xC0, 3.0f, "Upheaval"); // t=641.1; Ability 2B67 from Titan
+    Timeout(id + 0xD0, 2.1f, "Rock Throw"); // t=643.2; Ability 2B6B from Titan; cactbot Ability 2B6C/2B6B [UWU Titan Gaols] | Ability 2B6B [UWU Suppression Gaol]
+    Timeout(id + 0xE0, 2.9f, "Bury"); // t=646.1; Ability 2B69 from Bomb Boulder
+    Timeout(id + 0xF0, 1.6f, "Landslide 1"); // t=647.7; Ability 2B70 from Titan
+    Timeout(id + 0x100, 4.4f, "Landslide 2"); // t=652.1; Ability 2B70 from Titan
+    Timeout(id + 0x110, 2.1f, "Tumult x8"); // t=654.2
+    Timeout(id + 0x120, 15.8f, "Weight of the Land 1"); // t=670.0; Ability 2B65 from Titan
+    Timeout(id + 0x130, 3.0f, "Weight of the Land 2"); // t=673.0; Ability 2B65 from Titan
+    Timeout(id + 0x140, 2.0f, "Landslide 1"); // t=675.0; Ability 2B70 from Titan
+    Timeout(id + 0x150, 2.0f, "Landslide 2"); // t=677.0; Ability 2C22 from Titan
+    Targetable(id + 0x160, false, 4.1f, "--untargetable--"); // t=681.1
+    Timeout(id + 0x170, 5.2f, "Geocrush"); // t=686.3; Ability 2B66 from Titan
+    Targetable(id + 0x180, true, 2.3f, "--targetable--"); // t=688.6
+    Timeout(id + 0x190, 0.0f, "Rock Throw"); // t=688.6; Ability 2B6B from Titan; cactbot Ability 2B6C/2B6B [UWU Titan Gaols] | Ability 2B6B [UWU Suppression Gaol]
+    Timeout(id + 0x1A0, 14.3f, "Landslide 1"); // t=702.9; Ability 2B70 from Titan
+    Timeout(id + 0x1B0, 2.0f, "Landslide 2"); // t=704.9; Ability 2C22 from Titan
+    Timeout(id + 0x1C0, 3.1f, "Tumult x6"); // t=708.0
+    Timeout(id + 0x1D0, 7.6f, "Rock Buster"); // t=715.6; Ability 2B62 from Titan
+    Timeout(id + 0x1E0, 4.0f, "Mountain Buster"); // t=719.6; Ability 2B63 from Titan
+    Timeout(id + 0x1F0, 5.0f, "Bury"); // t=724.6
+    Timeout(id + 0x200, 2.0f, "Bury / Weight of the Land 1"); // t=726.6; Ability 2B65 from Titan
+    Timeout(id + 0x210, 2.0f, "Bury"); // t=728.6
+    Timeout(id + 0x220, 1.0f, "Weight of the Land 2"); // t=729.6; Ability 2B65 from Titan
+    Timeout(id + 0x230, 1.0f, "Bury"); // t=730.6
+    Timeout(id + 0x240, 1.3f, "Landslide 1"); // t=731.9; Ability 2B70 from Titan
+    Timeout(id + 0x250, 0.8f, "Weight of the Land 3"); // t=732.7; Ability 2B65 from Titan
+    Timeout(id + 0x260, 1.2f, "Landslide 2"); // t=733.9; Ability 2C22 from Titan
+    Timeout(id + 0x270, 6.1f, "Rock Buster"); // t=740.0; Ability 2B62 from Titan
+    Timeout(id + 0x280, 4.0f, "Mountain Buster"); // t=744.0; Ability 2B63 from Titan
+    Timeout(id + 0x290, 5.1f, "Weight of the Land 1"); // t=749.1; Ability 2B65 from Titan
+    Timeout(id + 0x2A0, 3.0f, "Weight of the Land 2"); // t=752.1; Ability 2B65 from Titan
+    Timeout(id + 0x2B0, 3.0f, "Weight of the Land 3"); // t=755.1; Ability 2B65 from Titan
+    Timeout(id + 0x2C0, 1.7f, "Tumult x8"); // t=756.8
+    Targetable(id + 0x2D0, false, 15.7f, "--untargetable--"); // t=772.5
+    Timeout(id + 0x2E0, 7.3f, "Earthen Fury Enrage"); // t=779.8; Ability 2B90 from Titan
+}
+
+private void Phase_4__Snacks(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Freefire"); // t=800.0
+    Targetable(id + 0x10, true, 2.0f, "--targetable--"); // t=802.0
+    Condition(id + 0x20, 1.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2B72), "", 5f, 0.0f); // t=803.0; StartsUsing 2B72 from Magitek Bit
+    Timeout(id + 0x30, 12.0f, "Self-detonate"); // t=815.0; Ability 2B72 from Magitek Bit
+    Timeout(id + 0x40, 0.2f, "Blight"); // t=815.2; Ability 2B73 from Lahabrea; cactbot Ability 2B73 [UWU Healer LB]
+    Condition(id + 0x50, 9.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2B74), "", 5f, 4.0f); // t=824.2; StartsUsing 2B74 from Lahabrea; cactbot StartsUsing 2B74 [UWU Melee LB]
+    Timeout(id + 0x60, 17.0f, "Dark IV"); // t=841.2; Ability 2B74 from Lahabrea; cactbot StartsUsing 2B74 [UWU Melee LB]
+    Condition(id + 0x70, 4.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2B8B), "", 5f, 0.0f); // t=845.4; StartsUsing 2B8B from The Ultima Weapon; cactbot StartsUsing 2B8B [UWU Ultima]
+    Timeout(id + 0x80, 5.0f, "Ultima"); // t=850.4; Ability 2B8B from The Ultima Weapon; cactbot StartsUsing 2B8B [UWU Ultima]
+}
+
+private void Phase_5__Ultima(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Ultima"); // t=960.3; Ability 2B8B from The Ultima Weapon; cactbot StartsUsing 2B8B [UWU Ultima]
+    Condition(id + 0x10, 39.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2B87), "--targetable--", 5f, 34.7f); // t=1000.0; StartsUsing 2B87 from The Ultima Weapon; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker]
+    Timeout(id + 0x20, 4.0f, "Tank Purge"); // t=1004.0; Ability 2B87 from The Ultima Weapon; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker]
+    Timeout(id + 0x30, 2.3f, "--apply viscous--"); // t=1006.3; Ability 2B79 from The Ultima Weapon
+    Timeout(id + 0x40, 6.1f, "Homing Lasers"); // t=1012.4; Ability 2B7B from The Ultima Weapon
+    Timeout(id + 0x50, 5.0f, "Viscous Aetheroplasm"); // t=1017.4; Ability 2B7A from The Ultima Weapon
+    Condition(id + 0x60, 3.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2B76), "", 5f, 0.0f); // t=1020.5; StartsUsing 2B76 from The Ultima Weapon; cactbot StartsUsing 2B76 [UWU Predation]
+    Timeout(id + 0x70, 3.0f, "Ultimate Predation"); // t=1023.5; Ability 2B76 from The Ultima Weapon; cactbot StartsUsing 2B76 [UWU Predation]
+    Targetable(id + 0x80, false, 4.4f, "--untargetable--"); // t=1027.9
+    Timeout(id + 0x90, 10.3f, "Landslide / Crimson Cyclone / Wicked Wheel"); // t=1038.2; Ability 2B70 from Titan | Ability 2B5F from Ifrit | Ability 2B4E from Garuda; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker] | StartsUsing 2B4E [UWU Garuda Wicked Wheel]
+    Timeout(id + 0xA0, 2.0f, "Ceruleum Vent / Landslide / Wicked Tornado"); // t=1040.2; Ability 2B7C from The Ultima Weapon | Ability 2C22 from Titan | Ability 2B4F from Garuda
+    Timeout(id + 0xB0, 5.2f, "Feather Rain"); // t=1045.4; Ability 2B4D from Garuda
+    Targetable(id + 0xC0, true, 2.0f, "--targetable--"); // t=1047.4
+    Timeout(id + 0xD0, 12.4f, "Eruption 1"); // t=1059.8
+    Timeout(id + 0xE0, 2.0f, "Eruption 2"); // t=1061.8
+    Timeout(id + 0xF0, 2.0f, "Eruption 3"); // t=1063.8
+    Timeout(id + 0x100, 1.0f, "Infernal Fetters"); // t=1064.8; Ability 2C19 from Ifrit
+    Timeout(id + 0x110, 1.0f, "Eruption 4"); // t=1065.8
+    Timeout(id + 0x120, 4.1f, "Radiant Plume"); // t=1069.9; Ability 2B7D from The Ultima Weapon
+    Timeout(id + 0x130, 1.0f, "Bury x6"); // t=1070.9
+    Timeout(id + 0x140, 4.0f, "Landslide 1"); // t=1074.9; Ability 2B7E from The Ultima Weapon
+    Timeout(id + 0x150, 1.3f, "Landslide 2"); // t=1076.2; Ability 2C22 from Titan
+    Timeout(id + 0x160, 3.1f, "Tumult x7"); // t=1079.3
+    Timeout(id + 0x170, 3.0f, "--apply viscous--"); // t=1082.3; Ability 2B79 from The Ultima Weapon
+    Timeout(id + 0x180, 5.0f, "Wicked Wheel"); // t=1087.3; Ability 2B4C from Chirada; cactbot StartsUsing 2B4E [UWU Garuda Wicked Wheel]
+    Timeout(id + 0x190, 2.0f, "Mistral Shriek"); // t=1089.3; Ability 2B54 from Garuda
+    Timeout(id + 0x1A0, 3.3f, "Feather Rain"); // t=1092.6; Ability 2B4D from Garuda
+    Timeout(id + 0x1B0, 0.8f, "Viscous Aetheroplasm"); // t=1093.4; Ability 2B7A from The Ultima Weapon
+    Timeout(id + 0x1C0, 1.1f, "Homing Lasers"); // t=1094.5; Ability 2B7B from The Ultima Weapon
+    Timeout(id + 0x1D0, 1.7f, "Feather Rain"); // t=1096.2; Ability 2B4D from Garuda
+    Condition(id + 0x1E0, 2.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2D4C), "", 5f, 0.0f); // t=1098.8; StartsUsing 2D4C from The Ultima Weapon; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker]
+    Timeout(id + 0x1F0, 3.0f, "Ultimate Annihilation"); // t=1101.8; Ability 2D4C from The Ultima Weapon; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker]
+    Targetable(id + 0x200, false, 4.4f, "--untargetable--"); // t=1106.2
+    Targetable(id + 0x210, true, 4.2f, "--targetable--"); // t=1110.4
+    Timeout(id + 0x220, 3.0f, "Weight of the Land 1"); // t=1113.4; Ability 2B65 from Titan
+    Timeout(id + 0x230, 2.0f, "Flaming Crush"); // t=1115.4; Ability 2B5D from Ifrit; cactbot HeadMarker 75 [UWU Ifrit Flaming Crush]
+    Timeout(id + 0x240, 1.0f, "Weight of the Land 2"); // t=1116.4; Ability 2B65 from Titan
+    Timeout(id + 0x250, 0.1f, "Eye of the Storm"); // t=1116.5; Ability 2B52 from Garuda
+    Timeout(id + 0x260, 1.7f, "Aetheroplasm 1"); // t=1118.2
+    Timeout(id + 0x270, 0.4f, "Mesohigh"); // t=1118.6; Ability 2B49 from Garuda; cactbot Tether 4 [UWU Ultima Mesohigh Tether]
+    Timeout(id + 0x280, 0.9f, "Weight of the Land 3 / Inferno Howl"); // t=1119.5; Ability 2B65 from Titan | Ability 2B5B from Ifrit; cactbot StartsUsing 2B5B [UWU Ifrit Searing Wind]
+    Timeout(id + 0x290, 3.7f, "Feather Rain"); // t=1123.2; Ability 2B4D from Garuda
+    Timeout(id + 0x2A0, 0.4f, "Aetheroplasm 2"); // t=1123.6
+    Timeout(id + 0x2B0, 4.1f, "Crimson Cyclone"); // t=1127.7; Ability 2B5F from Ifrit; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker]
+    Timeout(id + 0x2C0, 0.9f, "Landslide 1"); // t=1128.6; Ability 2B70 from Titan
+    Timeout(id + 0x2D0, 2.0f, "Landslide 2"); // t=1130.6; Ability 2C22 from Titan
+    Timeout(id + 0x2E0, 2.0f, "Aetheroplasm 3"); // t=1132.6
+    Timeout(id + 0x2F0, 1.1f, "Eye of the Storm"); // t=1133.7; Ability 2B52 from Garuda
+    Timeout(id + 0x300, 2.2f, "Aetheroplasm 4"); // t=1135.9
+    Timeout(id + 0x310, 0.1f, "Mesohigh"); // t=1136.0; Ability 2B49 from Garuda; cactbot Tether 4 [UWU Ultima Mesohigh Tether]
+    Timeout(id + 0x320, 2.8f, "Tank Purge"); // t=1138.8; Ability 2B87 from The Ultima Weapon; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker]
+    Timeout(id + 0x330, 1.9f, "Feather Rain"); // t=1140.7; Ability 2B4D from Garuda
+    Targetable(id + 0x340, false, 2.2f, "--untargetable--"); // t=1142.9
+    Targetable(id + 0x350, true, 4.2f, "--targetable--"); // t=1147.1
+    Timeout(id + 0x360, 3.4f, "Eye of the Storm"); // t=1150.5; Ability 2B52 from Garuda
+    Timeout(id + 0x370, 3.7f, "Homing Lasers"); // t=1154.2; Ability 2B7B from The Ultima Weapon
+    Timeout(id + 0x380, 8.1f, "Eye of the Storm"); // t=1162.3; Ability 2B52 from Garuda
+    Timeout(id + 0x390, 2.1f, "Radiant Plume"); // t=1164.4; Ability 2B7D from The Ultima Weapon
+    Timeout(id + 0x3A0, 3.1f, "Diffractive Laser"); // t=1167.5; Ability 2B78 from The Ultima Weapon
+    Timeout(id + 0x3B0, 4.1f, "Vulcan Burst").SetHint(StateMachine.StateHint.Knockback); // t=1171.6; Ability 2CF4 from The Ultima Weapon; cactbot StartsUsing 25B7 [UWU Ifrit Vulcan Burst]
+    Timeout(id + 0x3C0, 2.0f, "Eye of the Storm"); // t=1173.6; Ability 2B52 from Garuda
+    Timeout(id + 0x3D0, 5.6f, "Homing Lasers"); // t=1179.2; Ability 2B7B from The Ultima Weapon
+    Timeout(id + 0x3E0, 4.1f, "Vulcan Burst").SetHint(StateMachine.StateHint.Knockback); // t=1183.3; Ability 2CF4 from The Ultima Weapon; cactbot StartsUsing 25B7 [UWU Ifrit Vulcan Burst]
+    Timeout(id + 0x3F0, 2.2f, "Eye of the Storm"); // t=1185.5; Ability 2B52 from Garuda
+    Timeout(id + 0x400, 4.5f, "Diffractive Laser"); // t=1190.0
+    Condition(id + 0x410, 2.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2D4D), "", 5f, 0.0f); // t=1192.0; StartsUsing 2D4D from The Ultima Weapon; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker] | Ability 2D4D [UWU Phase Tracker Finale]
+    Timeout(id + 0x420, 3.0f, "Ultimate Suppression"); // t=1195.0; Ability 2D4D from The Ultima Weapon; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker] | Ability 2D4D [UWU Phase Tracker Finale]
+    Targetable(id + 0x430, false, 4.4f, "--untargetable--"); // t=1199.4
+    Timeout(id + 0x440, 6.3f, "Rock Throw"); // t=1205.7; Ability 2B6B from Titan; cactbot Ability 2B6C/2B6B [UWU Titan Gaols] | Ability 2B6B [UWU Suppression Gaol]
+    Timeout(id + 0x450, 1.0f, "Eruption 1"); // t=1206.7
+    Timeout(id + 0x460, 2.0f, "Eruption 2"); // t=1208.7
+    Timeout(id + 0x470, 1.1f, "Mistral Song"); // t=1209.8; Ability 2B4B from Suparna; cactbot HeadMarker 10 [UWU Garuda Mistral Song Marker] | HeadMarker 10 [UWU Garuda Mistral Song Tank]
+    Timeout(id + 0x480, 0.9f, "Eruption 3"); // t=1210.7
+    Timeout(id + 0x490, 1.0f, "Light Pillar x6"); // t=1211.7; Ability 2B82 from The Ultima Weapon
+    Timeout(id + 0x4A0, 0.3f, "Mistral Song"); // t=1212.0; Ability 2B8E from Garuda; cactbot HeadMarker 10 [UWU Garuda Mistral Song Marker] | HeadMarker 10 [UWU Garuda Mistral Song Tank]
+    Timeout(id + 0x4B0, 0.6f, "Eruption 4"); // t=1212.6
+    Timeout(id + 0x4C0, 1.8f, "Feather Rain 1"); // t=1214.4
+    Timeout(id + 0x4D0, 1.6f, "Great Whirlwind"); // t=1216.0; Ability 2B41 from Suparna
+    Timeout(id + 0x4E0, 0.4f, "Feather Rain 2"); // t=1216.4
+    Timeout(id + 0x4F0, 0.4f, "Aetherochemical Laser"); // t=1216.8
+    Timeout(id + 0x500, 4.2f, "Aetherochemical Laser"); // t=1221.0
+    Timeout(id + 0x510, 3.3f, "Landslide 1"); // t=1224.3; Ability 2B70 from Titan
+    Timeout(id + 0x520, 0.8f, "Aetherochemical Laser"); // t=1225.1
+    Timeout(id + 0x530, 1.2f, "Landslide 2"); // t=1226.3; Ability 2C22 from Titan
+    Timeout(id + 0x540, 0.8f, "Mesohigh"); // t=1227.1; Ability 2B49 from Garuda; cactbot Tether 4 [UWU Ultima Mesohigh Tether]
+    Timeout(id + 0x550, 0.9f, "Flaming Crush"); // t=1228.0; Ability 2B5D from Ifrit; cactbot HeadMarker 75 [UWU Ifrit Flaming Crush]
+    Timeout(id + 0x560, 4.8f, "Feather Rain"); // t=1232.8; Ability 2B4D from Garuda
+    Timeout(id + 0x570, 0.4f, "Tank Purge"); // t=1233.2; Ability 2B87 from The Ultima Weapon; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker]
+    Targetable(id + 0x580, true, 6.3f, "--targetable--"); // t=1239.5
+    Timeout(id + 0x590, 5.0f, "Ultima"); // t=1244.5; Ability 2B8B from The Ultima Weapon; cactbot StartsUsing 2B8B [UWU Ultima]
+    Timeout(id + 0x5A0, 10.2f, "Aetheric Boom"); // t=1254.7; Ability 2B88 from The Ultima Weapon
+    Timeout(id + 0x5B0, 21.2f, "Viscous Aetheroplasm"); // t=1275.9; Ability 2B8F from The Ultima Weapon
+    Timeout(id + 0x5C0, 4.0f, "Summon Random Primal"); // t=1279.9
+    Timeout(id + 0x5D0, 27.3f, "Wicked Wheel"); // t=1307.2; Ability 2B4E from Garuda; cactbot StartsUsing 2B4E [UWU Garuda Wicked Wheel]
+    Timeout(id + 0x5E0, 1.2f, "Viscous Aetheroplasm"); // t=1308.4; Ability 2B7A from The Ultima Weapon
+    Timeout(id + 0x5F0, 0.9f, "Wicked Tornado"); // t=1309.3; Ability 2B4F from Ifrit
+    Timeout(id + 0x600, 4.8f, "Aerial Blast").SetHint(StateMachine.StateHint.Raidwide); // t=1314.1; Ability 2B55 from Garuda; cactbot StartsUsing 2B55 [UWU Garuda Aerial Blast] | StartsUsing 2B55 [UWU Garuda Sisters Location] | StartsUsing 2B55 [UWU Ifrit Possible ID Locator]
+    Timeout(id + 0x610, 4.0f, "Summon Random Primal"); // t=1318.1
+    Timeout(id + 0x620, 3.7f, "Feather Rain"); // t=1321.8; Ability 2B4D from Garuda
+    Timeout(id + 0x630, 85.4f, "Crimson Cyclone / Eruption"); // t=1407.2; Ability 2B5F from Ifrit | Ability 2B5A from Ifrit; cactbot Ability 2B53/2B5F/2CFD/2CF5/2B87/2D4C/2D4D [UWU Phase Tracker]
+    Timeout(id + 0x640, 1.3f, "Viscous Aetheroplasm"); // t=1408.5; Ability 2B7A from Ifrit
+    Timeout(id + 0x650, 6.7f, "Hellfire").SetHint(StateMachine.StateHint.Raidwide); // t=1415.2; Ability 2B5E from Ifrit; cactbot StartsUsing 2B5E [UWU Ifrit Hellfire]
+    Timeout(id + 0x660, 4.9f, "Summon Random Primal"); // t=1420.1
+    Timeout(id + 0x670, 85.0f, "Weight of the Land 1"); // t=1505.1; Ability 2B65 from Titan
+    Timeout(id + 0x680, 3.0f, "Weight of the Land 2"); // t=1508.1; Ability 2B65 from Titan
+    Timeout(id + 0x690, 0.7f, "Viscous Aetheroplasm"); // t=1508.8; Ability 2B7A from Titan
+    Timeout(id + 0x6A0, 2.3f, "Weight of the Land 3"); // t=1511.1; Ability 2B65 from Titan
+    Timeout(id + 0x6B0, 3.1f, "Earthen Fury"); // t=1514.2; Ability 2B90 from Titan
+    Timeout(id + 0x6C0, 5.9f, "Summon Random Primal"); // t=1520.1
+    Timeout(id + 0x6D0, 79.9f, "Enrage"); // t=1600.0; Ability 2B8C from The Ultima Weapon
+    Timeout(id + 0x6E0, 25.0f, "Citadel Siege 1"); // t=1625.0
+    Timeout(id + 0x6F0, 3.0f, "Citadel Siege 2"); // t=1628.0
+    Timeout(id + 0x700, 3.0f, "Citadel Siege 3"); // t=1631.0
+    Timeout(id + 0x710, 3.0f, "Citadel Siege 4"); // t=1634.0
+    Timeout(id + 0x720, 3.0f, "Citadel Siege 5"); // t=1637.0
+    Timeout(id + 0x730, 3.0f, "Citadel Siege 6"); // t=1640.0
+    Timeout(id + 0x740, 3.0f, "Citadel Siege 7"); // t=1643.0
+    Timeout(id + 0x750, 6.0f, "Citadel Siege 8"); // t=1649.0
+    Timeout(id + 0x760, 2.0f, "Sabik Enrage"); // t=1651.0; Ability 2B93 from The Ultima Weapon
+}
+

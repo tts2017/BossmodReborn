@@ -1,0 +1,101 @@
+// Generated development skeleton from e5s.txt (TerritoryType 906).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 19 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e5s.ts.
+
+private void Eden_5__Savage(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 12.0f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=12.0; Ability 4BB5 from Ramuh; cactbot StartsUsing 4BB5 [E5S Judgment Volts]
+    Timeout(id + 0x20, 10.2f, "Stratospear Summons"); // t=22.2; Ability 4BA5 from Ramuh; cactbot Ability 4BA5 [E5S Stratospear Summons]
+    Timeout(id + 0x30, 4.9f, "Impact"); // t=27.1; Ability 4E3B from Ramuh
+    Timeout(id + 0x40, 8.5f, "Judgment Jolt"); // t=35.6; Ability 4BA6 from Ramuh
+    Timeout(id + 0x50, 7.1f, "Executor Summons"); // t=42.7; Ability 4BBC from Ramuh
+    Timeout(id + 0x60, 9.5f, "Fury's Bolt"); // t=52.2; Ability 4BAA from Ramuh; cactbot StartsUsing 4BAA [E5S Fury\]
+    Timeout(id + 0x70, 11.1f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=63.3; Ability 4BB5 from Ramuh; cactbot StartsUsing 4BB5 [E5S Judgment Volts]
+    Timeout(id + 0x80, 6.2f, "Shock Blast"); // t=69.5; Ability 4BBE from Raiden
+    Timeout(id + 0x90, 3.9f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=73.4; Ability 4BCA from Ramuh; cactbot StartsUsing 4BCA [E5S Crippling Blow]
+    Timeout(id + 0xA0, 6.3f, "Stormcloud Summons"); // t=79.7; Ability 4BB8 from Ramuh; cactbot StartsUsing 4BB8 [E5S Stormcloud Summons]
+    Timeout(id + 0xB0, 5.1f, "Chaos Strike"); // t=84.8; Ability 4BBB from Ramuh
+    Timeout(id + 0xC0, 5.1f, "Lightning Bolt"); // t=89.9
+    Timeout(id + 0xD0, 6.3f, "Levinforce").SetHint(StateMachine.StateHint.Knockback); // t=96.2; Ability 4BCC from Ramuh; cactbot StartsUsing 4BCC [E5S Levinforce]
+    Timeout(id + 0xE0, 14.4f, "Fury's Bolt?"); // t=110.6; Ability 4BAA from Ramuh; cactbot StartsUsing 4BAA [E5S Fury\]
+    Timeout(id + 0xF0, 7.1f, "Tribunal Summons"); // t=117.7; Ability 4BAC from Ramuh; cactbot StartsUsing 4BAC [E5S Tribunal Summons]
+    Timeout(id + 0x100, 10.9f, "Gallop"); // t=128.6; Ability 4BB3 from Will Of Ixion
+    Timeout(id + 0x110, 9.5f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=138.1; Ability 4BCA from Ramuh; cactbot StartsUsing 4BCA [E5S Crippling Blow]
+    Timeout(id + 0x120, 10.2f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=148.3; Ability 4BB5 from Ramuh; cactbot StartsUsing 4BB5 [E5S Judgment Volts]
+    Timeout(id + 0x130, 7.2f, "Fury's Bolt"); // t=155.5; Ability 4BAA from Ramuh; cactbot StartsUsing 4BAA [E5S Fury\]
+    Timeout(id + 0x140, 8.1f, "Thunderstorm"); // t=163.6; Ability 4BBF from Ramuh
+    Timeout(id + 0x150, 10.9f, "Volt Strike"); // t=174.5; Ability 4BC3 from Ramuh
+    Timeout(id + 0x160, 8.1f, "Volt Strike"); // t=182.6; Ability 4BC3 from Ramuh
+    Timeout(id + 0x170, 6.5f, "Executor Summons"); // t=189.1; Ability 4BBC from Ramuh
+    Timeout(id + 0x180, 9.4f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=198.5; Ability 4BCA from Ramuh; cactbot StartsUsing 4BCA [E5S Crippling Blow]
+    Timeout(id + 0x190, 11.6f, "Stepped Leader"); // t=210.1; Ability 4BC7 from Ramuh; cactbot StartsUsing 4BC6 [E5S Stepped Leader] | StartsUsing 4BC6 [E5S Stepped Leader Spread] | Ability 4BC6 [E5S Stepped Leader Cast]
+    Timeout(id + 0x1A0, 5.8f, "Shock Blast"); // t=215.9; Ability 4BBE from Raiden
+    Timeout(id + 0x1B0, 5.3f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=221.2; Ability 4BB5 from Ramuh; cactbot StartsUsing 4BB5 [E5S Judgment Volts]
+    Timeout(id + 0x1C0, 9.3f, "Fury's Fourteen"); // t=230.5; Ability 4BAB from Ramuh; cactbot StartsUsing 4BAB [E5S Fury\]
+    Timeout(id + 0x1D0, 14.1f, "Stratospear Summons"); // t=244.6; Ability 4BA5 from Ramuh; cactbot Ability 4BA5 [E5S Stratospear Summons]
+    Timeout(id + 0x1E0, 4.9f, "Impact"); // t=249.5; Ability 4E3B from Ramuh
+    Timeout(id + 0x1F0, 3.5f, "Tribunal Summons"); // t=253.0; Ability 4BAC from Ramuh; cactbot StartsUsing 4BAC [E5S Tribunal Summons]
+    Timeout(id + 0x200, 9.3f, "Centaur's Charge"); // t=262.3; Ability 4BAD from Ramuh; cactbot StartsUsing 4BAD [E5S Centaur\]
+    Timeout(id + 0x210, 5.0f, "Gallop"); // t=267.3; Ability 4BB3 from Will Of Ixion
+    Timeout(id + 0x220, 0.2f, "Judgment Jolt"); // t=267.5; Ability 4BA9 from Will Of Ramuh
+    Timeout(id + 0x230, 11.6f, "Fury's Bolt"); // t=279.1; Ability 4BAA from Ramuh; cactbot StartsUsing 4BAA [E5S Fury\]
+    Timeout(id + 0x240, 8.8f, "Stepped Leader"); // t=287.9; Ability 4BC8 from Ramuh; cactbot StartsUsing 4BC6 [E5S Stepped Leader] | StartsUsing 4BC6 [E5S Stepped Leader Spread] | Ability 4BC6 [E5S Stepped Leader Cast]
+    Timeout(id + 0x250, 9.9f, "Chain Lightning"); // t=297.8; Ability 4BC4 from Ramuh; cactbot StartsUsing 4BC4 [E5S Chain Lightning]
+    Timeout(id + 0x260, 3.8f, "Chain Lightning 1"); // t=301.6
+    Timeout(id + 0x270, 3.6f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=305.2; Ability 4BCA from Ramuh; cactbot StartsUsing 4BCA [E5S Crippling Blow]
+    Timeout(id + 0x280, 0.1f, "Chain Lightning 2"); // t=305.3
+    Timeout(id + 0x290, 3.7f, "Chain Lightning 3"); // t=309.0
+    Timeout(id + 0x2A0, 3.7f, "Chain Lightning 4"); // t=312.7
+    Timeout(id + 0x2B0, 3.7f, "Chain Lightning 5"); // t=316.4
+    Timeout(id + 0x2C0, 1.0f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=317.4; Ability 4BB5 from Ramuh; cactbot StartsUsing 4BB5 [E5S Judgment Volts]
+    Timeout(id + 0x2D0, 2.7f, "Chain Lightning 6"); // t=320.1
+    Timeout(id + 0x2E0, 3.7f, "Chain Lightning 7"); // t=323.8
+    Timeout(id + 0x2F0, 3.7f, "Chain Lightning 8"); // t=327.5
+    Timeout(id + 0x300, 2.1f, "Executor Summons"); // t=329.6; Ability 4BBC from Ramuh
+    Timeout(id + 0x310, 7.4f, "Fury's Bolt"); // t=337.0; Ability 4BAA from Ramuh; cactbot StartsUsing 4BAA [E5S Fury\]
+    Timeout(id + 0x320, 9.2f, "Thunderstorm"); // t=346.2; Ability 4BBF from Ramuh
+    Timeout(id + 0x330, 10.2f, "Shock Blast"); // t=356.4; Ability 4BBE from Raiden
+    Timeout(id + 0x340, 0.7f, "Volt Strike"); // t=357.1; Ability 4BC3 from Ramuh
+    Timeout(id + 0x350, 8.1f, "Volt Strike"); // t=365.2; Ability 4BC3 from Ramuh
+    Timeout(id + 0x360, 2.8f, "Stepped Leader"); // t=368.0; Ability 4BC7 from Ramuh; cactbot StartsUsing 4BC6 [E5S Stepped Leader] | StartsUsing 4BC6 [E5S Stepped Leader Spread] | Ability 4BC6 [E5S Stepped Leader Cast]
+    Timeout(id + 0x370, 12.1f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=380.1; Ability 4BCA from Ramuh; cactbot StartsUsing 4BCA [E5S Crippling Blow]
+    Timeout(id + 0x380, 8.2f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=388.3; Ability 4BB5 from Ramuh; cactbot StartsUsing 4BB5 [E5S Judgment Volts]
+    Timeout(id + 0x390, 7.3f, "Fury's Fourteen"); // t=395.6; Ability 4BAB from Ramuh; cactbot StartsUsing 4BAB [E5S Fury\]
+    Timeout(id + 0x3A0, 16.1f, "Stratospear Summons"); // t=411.7; Ability 4BA5 from Ramuh; cactbot Ability 4BA5 [E5S Stratospear Summons]
+    Timeout(id + 0x3B0, 4.9f, "Impact"); // t=416.6; Ability 4E3B from Ramuh
+    Timeout(id + 0x3C0, 3.5f, "Tribunal Summons"); // t=420.1; Ability 4BAC from Ramuh; cactbot StartsUsing 4BAC [E5S Tribunal Summons]
+    Timeout(id + 0x3D0, 9.3f, "Centaur's Charge"); // t=429.4; Ability 4BAD from Ramuh; cactbot StartsUsing 4BAD [E5S Centaur\]
+    Timeout(id + 0x3E0, 5.0f, "Gallop"); // t=434.4; Ability 4BB3 from Will Of Ixion
+    Timeout(id + 0x3F0, 0.2f, "Judgment Jolt"); // t=434.6; Ability 4BA9 from Will Of Ramuh
+    Timeout(id + 0x400, 5.6f, "Fury's Bolt"); // t=440.2; Ability 4BAA from Ramuh; cactbot StartsUsing 4BAA [E5S Fury\]
+    Timeout(id + 0x410, 10.2f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=450.4; Ability 4BB5 from Ramuh; cactbot StartsUsing 4BB5 [E5S Judgment Volts]
+    Timeout(id + 0x420, 10.1f, "Stormcloud Summons"); // t=460.5; Ability 4BB8 from Ramuh; cactbot StartsUsing 4BB8 [E5S Stormcloud Summons]
+    Timeout(id + 0x430, 5.1f, "Chaos Strike"); // t=465.6; Ability 4BBB from Ramuh
+    Timeout(id + 0x440, 5.1f, "Lightning Bolt"); // t=470.7
+    Timeout(id + 0x450, 6.3f, "Levinforce").SetHint(StateMachine.StateHint.Knockback); // t=477.0; Ability 4BCC from Ramuh; cactbot StartsUsing 4BCC [E5S Levinforce]
+    Timeout(id + 0x460, 10.4f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=487.4; Ability 4BB5 from Ramuh; cactbot StartsUsing 4BB5 [E5S Judgment Volts]
+    Timeout(id + 0x470, 15.2f, "Chain Lightning"); // t=502.6; Ability 4BC4 from Ramuh; cactbot StartsUsing 4BC4 [E5S Chain Lightning]
+    Timeout(id + 0x480, 3.8f, "Chain Lightning 1"); // t=506.4
+    Timeout(id + 0x490, 3.6f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=510.0; Ability 4BCA from Ramuh; cactbot StartsUsing 4BCA [E5S Crippling Blow]
+    Timeout(id + 0x4A0, 0.1f, "Chain Lightning 2"); // t=510.1
+    Timeout(id + 0x4B0, 3.7f, "Chain Lightning 3"); // t=513.8
+    Timeout(id + 0x4C0, 3.7f, "Chain Lightning 4"); // t=517.5
+    Timeout(id + 0x4D0, 3.7f, "Chain Lightning 5"); // t=521.2
+    Timeout(id + 0x4E0, 2.0f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=523.2; Ability 4BB5 from Ramuh; cactbot StartsUsing 4BB5 [E5S Judgment Volts]
+    Timeout(id + 0x4F0, 1.6f, "Chain Lightning 6"); // t=524.8
+    Timeout(id + 0x500, 3.7f, "Chain Lightning 7"); // t=528.5
+    Timeout(id + 0x510, 3.7f, "Chain Lightning 8"); // t=532.2
+    Timeout(id + 0x520, 7.5f, "Stepped Leader"); // t=539.7; Ability 4BC7 from Ramuh; cactbot StartsUsing 4BC6 [E5S Stepped Leader] | StartsUsing 4BC6 [E5S Stepped Leader Spread] | Ability 4BC6 [E5S Stepped Leader Cast]
+    Timeout(id + 0x530, 6.1f, "Fury's Bolt"); // t=545.8; Ability 4BAA from Ramuh; cactbot StartsUsing 4BAA [E5S Fury\]
+    Timeout(id + 0x540, 9.1f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=554.9; Ability 4BB5 from Ramuh; cactbot StartsUsing 4BB5 [E5S Judgment Volts]
+    Timeout(id + 0x550, 11.1f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=566.0; Ability 4BB5 from Ramuh; cactbot StartsUsing 4BB5 [E5S Judgment Volts]
+    Timeout(id + 0x560, 8.1f, "Fury's Bolt"); // t=574.1; Ability 4BAA from Ramuh; cactbot StartsUsing 4BAA [E5S Fury\]
+    Timeout(id + 0x570, 9.1f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=583.2; Ability 4BB5 from Ramuh; cactbot StartsUsing 4BB5 [E5S Judgment Volts]
+    Timeout(id + 0x580, 11.1f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=594.3; Ability 4BB5 from Ramuh; cactbot StartsUsing 4BB5 [E5S Judgment Volts]
+    Timeout(id + 0x590, 11.1f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=605.4; Ability 4BB5 from Ramuh; cactbot StartsUsing 4BB5 [E5S Judgment Volts]
+    Timeout(id + 0x5A0, 6.9f, "Fury's Fourteen"); // t=612.3; Ability 4BAB from Ramuh; cactbot StartsUsing 4BAB [E5S Fury\]
+    Timeout(id + 0x5B0, 16.1f, "Stratospear Summons"); // t=628.4; Ability 4BA5 from Ramuh; cactbot Ability 4BA5 [E5S Stratospear Summons]
+}
+

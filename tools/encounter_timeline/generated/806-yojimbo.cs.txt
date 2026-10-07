@@ -1,0 +1,81 @@
+// Generated development skeleton from yojimbo.txt (TerritoryType 806).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 4 static/dynamic trigger definitions from ui/raidboss/data/04-sb/trial/yojimbo.ts.
+
+private void Mini_guide(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 6.4f, "Wakizashi"); // t=6.4; Ability 3827 from Yojimbo
+    Timeout(id + 0x20, 8.1f, "Inoshikacho"); // t=14.5; Ability 3829 from Yojimbo
+    Timeout(id + 0x30, 14.3f, "Metta-giri"); // t=28.8; Ability 3828 from Yojimbo
+    Targetable(id + 0x40, false, 3.2f, "--untargetable--"); // t=32.0; Ability 382B from Yojimbo
+    Timeout(id + 0x50, 12.0f, "Unveiling"); // t=44.0; Ability 382D from Yojimbo
+    Timeout(id + 0x60, 14.5f, "Yukikaze"); // t=58.5
+    Timeout(id + 0x70, 3.6f, "Yukikaze"); // t=62.1
+    Timeout(id + 0x80, 1.6f, "Gekko"); // t=63.7; Ability 3833 from Yojimbo
+    Timeout(id + 0x90, 4.0f, "Kasha"); // t=67.7; Ability 3834 from Gilgamesh
+    Timeout(id + 0xA0, 6.0f, "Bitter End"); // t=73.7; Ability 31DE from Yojimbo
+    Timeout(id + 0xB0, 10.5f, "Tiny Song"); // t=84.2; Ability 3835 from Yojimbo
+    Timeout(id + 0xC0, 4.6f, "Dragon's Lair"); // t=88.8; Ability 3836 from Yojimbo
+    Timeout(id + 0xD0, 8.6f, "Bitter End"); // t=97.4; Ability 382E from Yojimbo
+    Timeout(id + 0xE0, 6.4f, "Bitter End"); // t=103.8; Ability 382E from Yojimbo
+    Timeout(id + 0xF0, 3.0f, "Dragon Night"); // t=106.8; Ability 3838 from Yojimbo
+    Timeout(id + 0x100, 16.4f, "Tiny Song"); // t=123.2; Ability 3835 from Yojimbo
+    Timeout(id + 0x110, 8.6f, "Yukikaze"); // t=131.8
+    Timeout(id + 0x120, 3.6f, "Yukikaze"); // t=135.4
+    Timeout(id + 0x130, 1.5f, "Gekko"); // t=136.9; Ability 3833 from Yojimbo
+    Timeout(id + 0x140, 4.1f, "Kasha"); // t=141.0; Ability 3834 from Gilgamesh
+    Timeout(id + 0x150, 6.1f, "Bitter End"); // t=147.1; Ability 382E from Yojimbo
+    Timeout(id + 0x160, 4.4f, "Bitter End"); // t=151.5; Ability 382E from Yojimbo
+    Targetable(id + 0x170, false, 5.8f, "--untargetable--"); // t=157.3
+    Timeout(id + 0x180, 3.9f, "Giga Jump"); // t=161.2; Ability 383B from Embodiment; cactbot HeadMarker 57 [Yojimbo Giga Jump]
+    Targetable(id + 0x190, true, 2.8f, "--targetable--"); // t=164.0
+    Timeout(id + 0x1A0, 5.6f, "Bitter End"); // t=169.6
+    Timeout(id + 0x1B0, 5.5f, "Bitter End"); // t=175.1
+    Timeout(id + 0x1C0, 0.2f, "A Giant Me"); // t=175.3; Ability 3830 from Embodiment
+    Timeout(id + 0x1D0, 4.0f, "Gekko"); // t=179.3; Ability 3833 from Yojimbo
+    Timeout(id + 0x1E0, 3.1f, "Bitter End"); // t=182.4
+    Timeout(id + 0x1F0, 1.0f, "Kasha"); // t=183.4; Ability 3834 from Gilgamesh
+    Timeout(id + 0x200, 4.1f, "Bitter End"); // t=187.5
+    Timeout(id + 0x210, 11.4f, "Kasha"); // t=198.9; Ability 3834 from Yojimbo
+    Timeout(id + 0x220, 4.3f, "Gekko"); // t=203.2; Ability 3833 from Yojimbo
+    Timeout(id + 0x230, 2.8f, "Bitter End"); // t=206.0
+    Timeout(id + 0x240, 4.3f, "Bitter End"); // t=210.3
+    Timeout(id + 0x250, 13.4f, "Bitter End"); // t=223.7
+    Timeout(id + 0x260, 5.4f, "Bitter End"); // t=229.1
+    Condition(id + 0x270, 66.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x383D), "", 5f, 61.9f); // t=296.0; StartsUsing 383D from Gilgamesh
+    Timeout(id + 0x280, 4.0f, "Ame-no-Murakumo"); // t=300.0; Ability 383D from Gilgamesh
+    Timeout(id + 0x290, 16.4f, "Giga Jump"); // t=316.4; Ability 383E from Yojimbo; cactbot HeadMarker 57 [Yojimbo Giga Jump]
+    Targetable(id + 0x2A0, true, 0.0f, "--targetable--"); // t=316.4
+    Timeout(id + 0x2B0, 2.6f, "Electrogenetic Force"); // t=319.0; Ability 383F from Yojimbo
+    Timeout(id + 0x2C0, 19.6f, "Enchain"); // t=338.6; Ability 3841 from Yojimbo; cactbot HeadMarker 5 [Yojimbo Enchain]
+    Timeout(id + 0x2D0, 22.5f, "Hell's Gate"); // t=361.1; Ability 3842 from Yojimbo
+    Timeout(id + 0x2E0, 13.4f, "Masamune"); // t=374.5; Ability 3843 from Yojimbo
+    Timeout(id + 0x2F0, 5.9f, "Zanma Zanmai"); // t=380.4; Ability 3844 from Yojimbo
+    Timeout(id + 0x300, 7.6f, "Epic Stormsplitter"); // t=388.0; Ability 3845 from Yojimbo
+    Timeout(id + 0x310, 8.5f, "Dragon's Lair"); // t=396.5; Ability 3836 from Yojimbo
+    Timeout(id + 0x320, 2.5f, "Electrogenetic Force"); // t=399.0; Ability 383F from Yojimbo
+    Timeout(id + 0x330, 15.5f, "Dragon Night"); // t=414.5; Ability 3838 from Yojimbo
+    Timeout(id + 0x340, 2.1f, "Bitter End"); // t=416.6; Ability 382E from Yojimbo
+    Timeout(id + 0x350, 5.4f, "Bitter End"); // t=422.0; Ability 382E from Yojimbo
+    Timeout(id + 0x360, 8.0f, "Yukikaze"); // t=430.0
+    Timeout(id + 0x370, 6.5f, "Yukikaze"); // t=436.5
+    Timeout(id + 0x380, 5.1f, "Gekko"); // t=441.6; Ability 3833 from Yojimbo
+    Timeout(id + 0x390, 4.1f, "Kasha"); // t=445.7; Ability 3834 from Gilgamesh
+    Timeout(id + 0x3A0, 0.1f, "Dragon's Lair"); // t=445.8; Ability 3836 from Yojimbo
+    Timeout(id + 0x3B0, 10.7f, "Tiny Song"); // t=456.5; Ability 3835 from Yojimbo
+    Timeout(id + 0x3C0, 7.3f, "Dragon Night"); // t=463.8; Ability 3838 from Yojimbo
+    Timeout(id + 0x3D0, 5.3f, "Bitter End"); // t=469.1; Ability 382E from Yojimbo
+    Timeout(id + 0x3E0, 8.3f, "Yukikaze"); // t=477.4; Ability 3832 from Yojimbo
+    Timeout(id + 0x3F0, 3.5f, "Yukikaze"); // t=480.9; Ability 3832 from Yojimbo
+    Timeout(id + 0x400, 1.6f, "Gekko"); // t=482.5; Ability 3833 from Yojimbo
+    Timeout(id + 0x410, 4.1f, "Kasha"); // t=486.6; Ability 3834 from Gilgamesh
+    Timeout(id + 0x420, 3.2f, "Bitter End"); // t=489.8; Ability 382E from Yojimbo
+    Timeout(id + 0x430, 15.2f, "Masamune"); // t=505.0; Ability 3843 from Yojimbo
+    Timeout(id + 0x440, 5.9f, "Zanma Zanmai"); // t=510.9
+    Timeout(id + 0x450, 7.6f, "Epic Stormsplitter"); // t=518.5
+    Timeout(id + 0x460, 8.5f, "Dragon's Lair"); // t=527.0
+    Timeout(id + 0x470, 2.5f, "Electrogenetic Force"); // t=529.5
+}
+

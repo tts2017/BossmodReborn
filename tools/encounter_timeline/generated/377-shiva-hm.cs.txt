@@ -1,0 +1,124 @@
+// Generated development skeleton from shiva-hm.txt (TerritoryType 377).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 4 static/dynamic trigger definitions from ui/raidboss/data/02-arr/trial/shiva-hm.ts.
+
+private void Phase_1__Literally_Just_Autos__100_____95(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Phase_2__Staff__95_____85(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Frost Staff"); // t=200.0; Ability 995 from Shiva
+    Timeout(id + 0x10, 8.1f, "Hailstorm"); // t=208.1; Ability 997 from Shiva; cactbot HeadMarker 1D [ShivaHm Hailstorm Marker]
+    Timeout(id + 0x20, 13.6f, "Absolute Zero"); // t=221.7; Ability 99C from Shiva
+    Timeout(id + 0x30, 23.0f, "Absolute Zero"); // t=244.7
+    Timeout(id + 0x40, 23.0f, "Absolute Zero"); // t=267.7
+}
+
+private void Phase_3__Sword__85_____65(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Melt"); // t=400.0; Ability C7F from Shiva
+    Timeout(id + 0x10, 9.2f, "Icicle Impact (cross)"); // t=409.2; Ability 99E from Shiva
+    Timeout(id + 0x20, 8.1f, "Dreams Of Ice"); // t=417.3; Ability 99D from Shiva
+    Timeout(id + 0x30, 10.6f, "Frost Blade"); // t=427.9; Ability 993 from Shiva
+    Timeout(id + 0x40, 5.1f, "Icebrand"); // t=433.0; Ability 996 from Shiva
+    Timeout(id + 0x50, 6.3f, "Heavenly Strike"); // t=439.3; Ability 9A0 from Shiva
+    Timeout(id + 0x60, 12.6f, "Glacier Bash"); // t=451.9; Ability 9A1 from Shiva; cactbot StartsUsing 9A1 [ShivaHm Glacier Bash]
+    Timeout(id + 0x70, 16.8f, "Heavenly Strike"); // t=468.7; Ability 9A0 from Shiva
+    Timeout(id + 0x80, 12.4f, "Glacier Bash"); // t=481.1; Ability 9A1 from Shiva; cactbot StartsUsing 9A1 [ShivaHm Glacier Bash]
+    Timeout(id + 0x90, 16.8f, "Heavenly Strike"); // t=497.9
+}
+
+private void Phase_4__Adds(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Melt"); // t=800.0; Ability 994 from Shiva
+    Timeout(id + 0x10, 6.2f, "--adds targetable--"); // t=806.2
+    Timeout(id + 0x20, 3.7f, "Dreams Of Ice"); // t=809.9; Ability 99D from Shiva
+    Timeout(id + 0x30, 13.7f, "Frost Staff?"); // t=823.6; Ability 995 from Shiva
+    Timeout(id + 0x40, 1.8f, "Frost Blade?"); // t=825.4; Ability 993 from Shiva
+}
+
+private void Phase_4a__Adds__Staff(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Frost Staff"); // t=1023.6; Ability 995 from Shiva
+    Timeout(id + 0x10, 8.1f, "Hailstorm"); // t=1031.7; Ability 997 from Shiva; cactbot HeadMarker 1D [ShivaHm Hailstorm Marker]
+    Timeout(id + 0x20, 12.6f, "Absolute Zero"); // t=1044.3; Ability 99C from Shiva
+    Timeout(id + 0x30, 7.3f, "Melt"); // t=1051.6; Ability C7F from Shiva
+    Targetable(id + 0x40, false, 1.1f, "--untargetable--"); // t=1052.7
+    Timeout(id + 0x50, 11.2f, "--frozen--"); // t=1063.9; Ability C16 from Shiva
+    Timeout(id + 0x60, 4.9f, "Diamond Dust"); // t=1068.8; Ability 98A from Shiva
+    Targetable(id + 0x70, true, 7.2f, "--targetable--"); // t=1076.0
+    Timeout(id + 0x80, 3.1f, "Dreams Of Ice"); // t=1079.1; Ability 99D from Shiva
+    Timeout(id + 0x90, 9.2f, "Icicle Impact (circle)"); // t=1088.3
+    Timeout(id + 0xA0, 7.0f, "Frost Staff? / Frost Blade?"); // t=1095.3; Ability 995 from Shiva | Ability 993 from Shiva
+}
+
+private void Phase_4b__Adds__Blade(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Frost Blade"); // t=1225.4; Ability 993 from Shiva
+    Timeout(id + 0x10, 5.1f, "Icebrand"); // t=1230.5; Ability 996 from Shiva
+    Timeout(id + 0x20, 6.3f, "Heavenly Strike"); // t=1236.8; Ability 9A0 from Shiva
+    Timeout(id + 0x30, 12.4f, "Glacier Bash"); // t=1249.2; Ability 9A1 from Shiva; cactbot StartsUsing 9A1 [ShivaHm Glacier Bash]
+    Timeout(id + 0x40, 7.4f, "Melt"); // t=1256.6; Ability 994 from Shiva
+    Targetable(id + 0x50, false, 1.1f, "--untargetable--"); // t=1257.7
+    Timeout(id + 0x60, 11.2f, "--frozen--"); // t=1268.9; Ability C16 from Shiva
+    Timeout(id + 0x70, 4.9f, "Diamond Dust"); // t=1273.8; Ability 98A from Shiva
+    Targetable(id + 0x80, true, 7.2f, "--targetable--"); // t=1281.0
+    Timeout(id + 0x90, 3.2f, "Dreams Of Ice"); // t=1284.2; Ability 99D from Shiva
+    Timeout(id + 0xA0, 9.2f, "Icicle Impact (circle)"); // t=1293.4
+    Timeout(id + 0xB0, 7.2f, "Frost Staff? / Frost Blade?"); // t=1300.6; Ability 995 from Shiva | Ability 993 from Shiva
+}
+
+private void Phase_5a__Staff(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Frost Staff"); // t=1400.0; Ability 995 from Shiva
+    Timeout(id + 0x10, 8.1f, "Hailstorm"); // t=1408.1; Ability 997 from Shiva; cactbot HeadMarker 1D [ShivaHm Hailstorm Marker]
+    Timeout(id + 0x20, 13.6f, "Absolute Zero"); // t=1421.7; Ability 99C from Shiva
+    Timeout(id + 0x30, 10.5f, "Melt"); // t=1432.2; Ability C7F from Shiva
+    Timeout(id + 0x40, 2.1f, "Permafrost"); // t=1434.3; Ability 999 from Shiva; cactbot StartsUsing 999 [ShivaHm Permafrost]
+    Timeout(id + 0x50, 6.2f, "Dreams Of Ice"); // t=1440.5; Ability 99D from Shiva
+    Timeout(id + 0x60, 10.2f, "Icicle Impact"); // t=1450.7; Ability 99E from Shiva
+    Timeout(id + 0x70, 4.0f, "Frost Staff? / Frost Blade?"); // t=1454.7; Ability 995 from Shiva | Ability 993 from Shiva
+}
+
+private void Phase_5b__Blade(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Frost Blade"); // t=1600.0; Ability 993 from Shiva
+    Timeout(id + 0x10, 5.3f, "Icebrand"); // t=1605.3; Ability 996 from Shiva
+    Timeout(id + 0x20, 6.4f, "Heavenly Strike"); // t=1611.7; Ability 9A0 from Shiva
+    Timeout(id + 0x30, 12.5f, "Glacier Bash"); // t=1624.2; Ability 9A1 from Shiva; cactbot StartsUsing 9A1 [ShivaHm Glacier Bash]
+    Timeout(id + 0x40, 10.6f, "Melt"); // t=1634.8; Ability 994 from Shiva
+    Timeout(id + 0x50, 2.1f, "Permafrost"); // t=1636.9; Ability 999 from Shiva; cactbot StartsUsing 999 [ShivaHm Permafrost]
+    Timeout(id + 0x60, 6.2f, "Dreams Of Ice"); // t=1643.1; Ability 99D from Shiva
+    Timeout(id + 0x70, 10.2f, "Icicle Impact"); // t=1653.3
+    Timeout(id + 0x80, 4.3f, "Frost Staff? / Frost Blade?"); // t=1657.6; Ability 995 from Shiva | Ability 993 from Shiva
+}
+
+private void Phase_6a__Staff(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Frost Staff"); // t=1800.0; Ability 995 from Shiva
+    Timeout(id + 0x10, 8.1f, "Hailstorm"); // t=1808.1; Ability 997 from Shiva; cactbot HeadMarker 1D [ShivaHm Hailstorm Marker]
+    Timeout(id + 0x20, 10.5f, "Absolute Zero"); // t=1818.6; Ability 99C from Shiva
+    Timeout(id + 0x30, 5.3f, "Absolute Zero"); // t=1823.9; Ability 99C from Shiva
+    Timeout(id + 0x40, 5.3f, "Melt"); // t=1829.2; Ability C7F from Shiva
+    Timeout(id + 0x50, 2.1f, "Permafrost"); // t=1831.3; Ability 999 from Shiva; cactbot StartsUsing 999 [ShivaHm Permafrost]
+    Timeout(id + 0x60, 6.2f, "Dreams Of Ice"); // t=1837.5; Ability 99D from Shiva
+    Timeout(id + 0x70, 10.3f, "Icicle Impact"); // t=1847.8; Ability 99E from Shiva
+    Timeout(id + 0x80, 4.0f, "Frost Staff? / Frost Blade?"); // t=1851.8; Ability 995 from Shiva | Ability 993 from Shiva
+}
+
+private void Phase_6b__Blade(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Frost Blade"); // t=2000.0; Ability 993 from Shiva
+    Timeout(id + 0x10, 5.1f, "Icebrand"); // t=2005.1; Ability 996 from Shiva
+    Timeout(id + 0x20, 9.4f, "Heavenly Strike"); // t=2014.5; Ability 9A0 from Shiva
+    Timeout(id + 0x30, 10.4f, "Glacier Bash"); // t=2024.9; Ability 9A1 from Shiva; cactbot StartsUsing 9A1 [ShivaHm Glacier Bash]
+    Timeout(id + 0x40, 5.3f, "Melt"); // t=2030.2; Ability 994 from Shiva
+    Timeout(id + 0x50, 2.1f, "Permafrost"); // t=2032.3; Ability 999 from Shiva; cactbot StartsUsing 999 [ShivaHm Permafrost]
+    Timeout(id + 0x60, 6.2f, "Dreams Of Ice"); // t=2038.5; Ability 99D from Shiva
+    Timeout(id + 0x70, 10.2f, "Icicle Impact"); // t=2048.7
+    Timeout(id + 0x80, 4.8f, "Frost Staff? / Frost Blade?"); // t=2053.5; Ability 995 from Shiva | Ability 993 from Shiva
+}
+

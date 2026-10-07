@@ -1,0 +1,206 @@
+// Generated development skeleton from t13.txt (TerritoryType 196).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 6 static/dynamic trigger definitions from ui/raidboss/data/02-arr/raid/t13.ts.
+
+private void Phase_1__Megaflare_Warmup(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 7.0f, "Flare Breath"); // t=7.0; Ability BAD from Bahamut Prime
+    Timeout(id + 0x20, 8.1f, "Megaflare"); // t=15.1; Ability BAF from Bahamut Prime; cactbot HeadMarker 27 [T13 Megaflare Share]
+    Timeout(id + 0x30, 3.7f, "MF Spread"); // t=18.8
+    Timeout(id + 0x40, 1.7f, "MF Pepperoni"); // t=20.5
+    Timeout(id + 0x50, 2.1f, "MF Share"); // t=22.6; Ability BB2 from Bahamut Prime
+    Timeout(id + 0x60, 2.5f, "Flare Breath"); // t=25.1; Ability BAD from Bahamut Prime
+    Timeout(id + 0x70, 8.0f, "Flatten"); // t=33.1; Ability BAE from Bahamut Prime; cactbot StartsUsing BAE [T13 Flatten]
+    Timeout(id + 0x80, 2.1f, "Flare Breath x3"); // t=35.2
+    Timeout(id + 0x90, 10.2f, "Earth Shaker Marker"); // t=45.4
+    Timeout(id + 0xA0, 5.0f, "Earth Shaker x3"); // t=50.4
+    Timeout(id + 0xB0, 6.2f, "Flare Breath"); // t=56.6; Ability BAD from Bahamut Prime
+    Timeout(id + 0xC0, 8.1f, "Megaflare"); // t=64.7; Ability BAF from Bahamut Prime; cactbot HeadMarker 27 [T13 Megaflare Share]
+    Timeout(id + 0xD0, 3.7f, "MF Spread"); // t=68.4
+    Timeout(id + 0xE0, 1.7f, "MF Pepperoni"); // t=70.1
+    Timeout(id + 0xF0, 2.1f, "MF Share"); // t=72.2
+    Timeout(id + 0x100, 2.5f, "Flare Breath"); // t=74.7
+    Timeout(id + 0x110, 8.0f, "Flatten"); // t=82.7; cactbot StartsUsing BAE [T13 Flatten]
+    Timeout(id + 0x120, 2.1f, "Flare Breath x3"); // t=84.8
+    Timeout(id + 0x130, 10.2f, "Earth Shaker Marker"); // t=95.0
+    Timeout(id + 0x140, 5.0f, "Earth Shaker x3"); // t=100.0
+}
+
+private void Phase_2__75____Flare_Star__Rage_of_Bahamut__Dragons(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xBB9), "", 5f, 0.0f); // t=195.0; StartsUsing BB9 from Bahamut Prime; cactbot StartsUsing BB9 [T13 Gigaflare Phase Change]
+    Timeout(id + 0x10, 5.0f, "Gigaflare"); // t=200.0; Ability BB9 from Bahamut Prime; cactbot StartsUsing BB9 [T13 Gigaflare Phase Change]
+    Timeout(id + 0x20, 3.0f, "Shadow Add (N)"); // t=203.0
+    Timeout(id + 0x30, 9.3f, "Flare Star"); // t=212.3; Ability BBB from Bahamut Prime
+    Timeout(id + 0x40, 1.8f, "(1x Dark Aether Orb)"); // t=214.1
+    Timeout(id + 0x50, 6.4f, "Flare Breath"); // t=220.5; Ability BAD from Bahamut Prime
+    Timeout(id + 0x60, 6.1f, "(3x Dark Aether Orbs)"); // t=226.6
+    Timeout(id + 0x70, 7.9f, "Flatten"); // t=234.5; Ability BAE from Bahamut Prime; cactbot StartsUsing BAE [T13 Flatten]
+    Timeout(id + 0x80, 3.3f, "Flare Breath"); // t=237.8; Ability BAD from Bahamut Prime
+    Timeout(id + 0x90, 0.6f, "(3x Dark Aether Orbs)"); // t=238.4
+    Timeout(id + 0xA0, 14.4f, "Megaflare"); // t=252.8; Ability BAF from Bahamut Prime; cactbot HeadMarker 27 [T13 Megaflare Share]
+    Timeout(id + 0xB0, 3.2f, "MF Spread"); // t=256.0
+    Timeout(id + 0xC0, 2.0f, "MF Pepperoni"); // t=258.0
+    Timeout(id + 0xD0, 2.3f, "MF Share"); // t=260.3
+    Timeout(id + 0xE0, 1.6f, "MF Tower"); // t=261.9; Ability BB3 from Bahamut Prime
+    Timeout(id + 0xF0, 1.1f, "Flare Breath"); // t=263.0; Ability BAD from Bahamut Prime
+    Timeout(id + 0x100, 6.1f, "Rage Of Bahamut"); // t=269.1; Ability BBD from Bahamut Prime
+    Timeout(id + 0x110, 1.0f, "Shadow Add (SW)"); // t=270.1
+    Timeout(id + 0x120, 8.2f, "Flare Star"); // t=278.3; Ability BBB from Bahamut Prime
+    Timeout(id + 0x130, 1.8f, "(3x Dark Aether Orbs)"); // t=280.1
+    Timeout(id + 0x140, 6.4f, "Flare Breath"); // t=286.5; Ability BAD from Bahamut Prime
+    Timeout(id + 0x150, 5.6f, "(3x Dark Aether Orbs)"); // t=292.1
+    Timeout(id + 0x160, 8.4f, "Flatten"); // t=300.5; Ability BAE from Bahamut Prime; cactbot StartsUsing BAE [T13 Flatten]
+    Timeout(id + 0x170, 3.3f, "Flare Breath"); // t=303.8; Ability BAD from Bahamut Prime
+    Timeout(id + 0x180, 0.8f, "(2x Dark Aether Orbs)"); // t=304.6
+    Timeout(id + 0x190, 14.2f, "Megaflare"); // t=318.8; Ability BAF from Bahamut Prime; cactbot HeadMarker 27 [T13 Megaflare Share]
+    Timeout(id + 0x1A0, 3.2f, "MF Spread"); // t=322.0
+    Timeout(id + 0x1B0, 2.0f, "MF Pepperoni"); // t=324.0
+    Timeout(id + 0x1C0, 2.3f, "MF Share"); // t=326.3
+    Timeout(id + 0x1D0, 1.6f, "MF Tower"); // t=327.9; Ability BB3 from Bahamut Prime
+    Timeout(id + 0x1E0, 1.1f, "Flare Breath"); // t=329.0; Ability BAD from Bahamut Prime
+    Timeout(id + 0x1F0, 6.1f, "Rage Of Bahamut"); // t=335.1; Ability BBD from Bahamut Prime
+    Timeout(id + 0x200, 1.0f, "Shadow Add (SE)"); // t=336.1
+    Timeout(id + 0x210, 8.2f, "Flare Star"); // t=344.3; Ability BBB from Bahamut Prime
+    Timeout(id + 0x220, 1.8f, "(3x Dark Aether Orbs)"); // t=346.1
+    Timeout(id + 0x230, 6.4f, "Flare Breath"); // t=352.5; Ability BAD from Bahamut Prime
+    Timeout(id + 0x240, 5.6f, "(3x Dark Aether Orbs)"); // t=358.1
+    Timeout(id + 0x250, 8.4f, "Flatten"); // t=366.5; Ability BAE from Bahamut Prime; cactbot StartsUsing BAE [T13 Flatten]
+    Timeout(id + 0x260, 3.3f, "Flare Breath"); // t=369.8; Ability BAD from Bahamut Prime
+    Timeout(id + 0x270, 0.8f, "(2x Dark Aether Orbs)"); // t=370.6
+    Timeout(id + 0x280, 14.2f, "Megaflare"); // t=384.8; Ability BAF from Bahamut Prime; cactbot HeadMarker 27 [T13 Megaflare Share]
+    Timeout(id + 0x290, 3.2f, "MF Spread"); // t=388.0
+    Timeout(id + 0x2A0, 2.0f, "MF Pepperoni"); // t=390.0
+    Timeout(id + 0x2B0, 2.3f, "MF Share"); // t=392.3
+    Timeout(id + 0x2C0, 1.6f, "MF Tower"); // t=393.9; Ability BB3 from Bahamut Prime
+    Timeout(id + 0x2D0, 1.1f, "Flare Breath"); // t=395.0; Ability BAD from Bahamut Prime
+    Timeout(id + 0x2E0, 6.1f, "Rage Of Bahamut"); // t=401.1; Ability BBD from Bahamut Prime
+    Timeout(id + 0x2F0, 1.0f, "Shadow Add"); // t=402.1
+    Timeout(id + 0x300, 8.2f, "Flare Star"); // t=410.3; Ability BBB from Bahamut Prime
+    Timeout(id + 0x310, 1.8f, "(3x Dark Aether Orbs)"); // t=412.1
+    Timeout(id + 0x320, 6.4f, "Flare Breath"); // t=418.5
+    Timeout(id + 0x330, 5.6f, "(3x Dark Aether Orbs)"); // t=424.1
+    Timeout(id + 0x340, 8.4f, "Flatten"); // t=432.5; cactbot StartsUsing BAE [T13 Flatten]
+    Timeout(id + 0x350, 3.3f, "Flare Breath"); // t=435.8
+    Timeout(id + 0x360, 0.8f, "(2x Dark Aether Orbs)"); // t=436.6
+    Timeout(id + 0x370, 14.2f, "Megaflare"); // t=450.8; cactbot HeadMarker 27 [T13 Megaflare Share]
+    Timeout(id + 0x380, 3.2f, "MF Spread"); // t=454.0
+    Timeout(id + 0x390, 2.0f, "MF Pepperoni"); // t=456.0
+    Timeout(id + 0x3A0, 2.3f, "MF Share"); // t=458.3
+    Timeout(id + 0x3B0, 1.6f, "MF Tower"); // t=459.9
+    Timeout(id + 0x3C0, 1.1f, "Flare Breath"); // t=461.0
+    Timeout(id + 0x3D0, 6.1f, "Rage Of Bahamut"); // t=467.1
+}
+
+private void Phase_3__52____adds__adds__adds(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xBB9), "", 5f, 0.0f); // t=495.0; StartsUsing BB9 from Bahamut Prime; cactbot StartsUsing BB9 [T13 Gigaflare Phase Change]
+    Timeout(id + 0x10, 5.0f, "Gigaflare"); // t=500.0; Ability BB9 from Bahamut Prime; cactbot StartsUsing BB9 [T13 Gigaflare Phase Change]
+    Timeout(id + 0x20, 14.7f, "Megaflare Dive"); // t=514.7; Ability BC0 from Bahamut Prime
+    Timeout(id + 0x30, 1.9f, "Double Dive"); // t=516.6; Ability BC8 from The Storm of Meracydia
+    Timeout(id + 0x40, 2.1f, "MF Spread"); // t=518.7
+    Timeout(id + 0x50, 2.2f, "MF Pepperoni"); // t=520.9
+    Timeout(id + 0x60, 2.1f, "MF Share"); // t=523.0
+    Timeout(id + 0x70, 2.1f, "Blood, Pain Adds (E/W)"); // t=525.1
+    Timeout(id + 0x80, 20.4f, "3x Gust Adds"); // t=545.5
+    Timeout(id + 0x90, 25.7f, "2x Sin Adds (N/S)"); // t=571.2
+    Timeout(id + 0xA0, 34.6f, "Megaflare Dive"); // t=605.8; Ability BC0 from Bahamut Prime
+    Timeout(id + 0xB0, 1.9f, "Double Dive"); // t=607.7; Ability BC8 from The Storm of Meracydia
+    Timeout(id + 0xC0, 2.1f, "MF Spread"); // t=609.8
+    Timeout(id + 0xD0, 2.2f, "MF Pepperoni"); // t=612.0
+    Timeout(id + 0xE0, 2.1f, "MF Share"); // t=614.1
+    Timeout(id + 0xF0, 6.2f, "Storm Add (Center)"); // t=620.3
+    Timeout(id + 0x100, 10.8f, "Blood Add (N)"); // t=631.1
+    Timeout(id + 0x110, 10.0f, "2x Gust Adds (S)"); // t=641.1
+    Timeout(id + 0x120, 10.5f, "Sin Add (E)"); // t=651.6
+    Timeout(id + 0x130, 20.6f, "Pain Add (W)"); // t=672.2
+    Timeout(id + 0x140, 26.7f, "Megaflare Dive"); // t=698.9; Ability BC0 from Bahamut Prime
+    Timeout(id + 0x150, 4.0f, "MF Spread"); // t=702.9
+    Timeout(id + 0x160, 2.2f, "MF Pepperoni"); // t=705.1
+    Timeout(id + 0x170, 2.1f, "MF Share"); // t=707.2
+    Timeout(id + 0x180, 18.2f, "Teraflare"); // t=725.4; Ability BC1 from Bahamut Prime
+}
+
+private void Phase_4__Akh_Morns__Tempest_Wings(uint id)
+{
+    Timeout(id + 0x0, 9.5f, "Akh Morn x2"); // t=745.1; Ability BC2 from Bahamut Prime; cactbot StartsUsing BC2 [T13 Akh Morn]
+    Timeout(id + 0x10, 14.4f, "Megaflare"); // t=759.5; Ability BAF from Bahamut Prime; cactbot HeadMarker 27 [T13 Megaflare Share]
+    Timeout(id + 0x20, 5.1f, "MF Pepperoni"); // t=764.6
+    Timeout(id + 0x30, 2.0f, "Tempest Wing"); // t=766.6; Ability BC4 from Bahamut Prime; cactbot Tether 4 [T13 Tempest Wing]
+    Timeout(id + 0x40, 0.7f, "MF Share"); // t=767.3; Ability BB2 from Bahamut Prime
+    Timeout(id + 0x50, 1.3f, "MF Tower(s)"); // t=768.6; Ability BB3 from Bahamut Prime
+    Timeout(id + 0x60, 13.1f, "Earth Shaker Marker"); // t=781.7
+    Timeout(id + 0x70, 5.0f, "Earth Shaker x3"); // t=786.7
+    Timeout(id + 0x80, 1.0f, "Tempest Wing Tethers"); // t=787.7
+    Timeout(id + 0x90, 6.0f, "Tempest Wing"); // t=793.7; Ability BC4 from Bahamut Prime; cactbot Tether 4 [T13 Tempest Wing]
+    Timeout(id + 0xA0, 2.2f, "Flare Breath"); // t=795.9; Ability BAD from Bahamut Prime
+    Timeout(id + 0xB0, 11.2f, "Akh Morn x3"); // t=807.1; Ability BC2 from Bahamut Prime; cactbot StartsUsing BC2 [T13 Akh Morn]
+    Timeout(id + 0xC0, 15.2f, "Megaflare"); // t=822.3; Ability BAF from Bahamut Prime; cactbot HeadMarker 27 [T13 Megaflare Share]
+    Timeout(id + 0xD0, 5.1f, "MF Pepperoni"); // t=827.4
+    Timeout(id + 0xE0, 2.0f, "Tempest Wing"); // t=829.4; Ability BC4 from Bahamut Prime; cactbot Tether 4 [T13 Tempest Wing]
+    Timeout(id + 0xF0, 0.7f, "MF Share"); // t=830.1; Ability BB2 from Bahamut Prime
+    Timeout(id + 0x100, 1.3f, "MF Tower(s)"); // t=831.4; Ability BB3 from Bahamut Prime
+    Timeout(id + 0x110, 13.1f, "Earth Shaker Marker"); // t=844.5
+    Timeout(id + 0x120, 5.0f, "Earth Shaker x3"); // t=849.5
+    Timeout(id + 0x130, 1.0f, "Tempest Wing Tethers"); // t=850.5
+    Timeout(id + 0x140, 6.0f, "Tempest Wing"); // t=856.5; Ability BC4 from Bahamut Prime; cactbot Tether 4 [T13 Tempest Wing]
+    Timeout(id + 0x150, 2.2f, "Flare Breath"); // t=858.7; Ability BAD from Bahamut Prime
+    Timeout(id + 0x160, 12.7f, "Gigaflare"); // t=871.4; Ability BB9 from Bahamut Prime; cactbot StartsUsing BB9 [T13 Gigaflare Phase Change]
+    Timeout(id + 0x170, 9.4f, "Akh Morn x4"); // t=880.8; Ability BC2 from Bahamut Prime; cactbot StartsUsing BC2 [T13 Akh Morn]
+    Timeout(id + 0x180, 16.4f, "Megaflare"); // t=897.2; Ability BAF from Bahamut Prime; cactbot HeadMarker 27 [T13 Megaflare Share]
+    Timeout(id + 0x190, 5.1f, "MF Pepperoni"); // t=902.3
+    Timeout(id + 0x1A0, 2.0f, "Tempest Wing"); // t=904.3; Ability BC4 from Bahamut Prime; cactbot Tether 4 [T13 Tempest Wing]
+    Timeout(id + 0x1B0, 0.7f, "MF Share"); // t=905.0; Ability BB2 from Bahamut Prime
+    Timeout(id + 0x1C0, 1.3f, "MF Tower(s)"); // t=906.3; Ability BB3 from Bahamut Prime
+    Timeout(id + 0x1D0, 13.1f, "Earth Shaker Marker"); // t=919.4
+    Timeout(id + 0x1E0, 5.0f, "Earth Shaker x3"); // t=924.4
+    Timeout(id + 0x1F0, 1.0f, "Tempest Wing Tethers"); // t=925.4
+    Timeout(id + 0x200, 6.0f, "Tempest Wing"); // t=931.4; Ability BC4 from Bahamut Prime; cactbot Tether 4 [T13 Tempest Wing]
+    Timeout(id + 0x210, 2.2f, "Flare Breath"); // t=933.6; Ability BAD from Bahamut Prime
+    Timeout(id + 0x220, 11.2f, "Akh Morn x5"); // t=944.8; Ability BC2 from Bahamut Prime; cactbot StartsUsing BC2 [T13 Akh Morn]
+    Timeout(id + 0x230, 17.4f, "Megaflare"); // t=962.2; Ability BAF from Bahamut Prime; cactbot HeadMarker 27 [T13 Megaflare Share]
+    Timeout(id + 0x240, 5.1f, "MF Pepperoni"); // t=967.3
+    Timeout(id + 0x250, 2.0f, "Tempest Wing"); // t=969.3; Ability BC4 from Bahamut Prime; cactbot Tether 4 [T13 Tempest Wing]
+    Timeout(id + 0x260, 0.7f, "MF Share"); // t=970.0; Ability BB2 from Bahamut Prime
+    Timeout(id + 0x270, 1.3f, "MF Tower(s)"); // t=971.3; Ability BB3 from Bahamut Prime
+    Timeout(id + 0x280, 13.1f, "Earth Shaker Marker"); // t=984.4
+    Timeout(id + 0x290, 5.0f, "Earth Shaker x3"); // t=989.4
+    Timeout(id + 0x2A0, 1.0f, "Tempest Wing Tethers"); // t=990.4
+    Timeout(id + 0x2B0, 6.0f, "Tempest Wing"); // t=996.4; Ability BC4 from Bahamut Prime; cactbot Tether 4 [T13 Tempest Wing]
+    Timeout(id + 0x2C0, 2.2f, "Flare Breath"); // t=998.6; Ability BAD from Bahamut Prime
+    Timeout(id + 0x2D0, 12.7f, "Gigaflare"); // t=1011.3; Ability BB9 from Bahamut Prime; cactbot StartsUsing BB9 [T13 Gigaflare Phase Change]
+    Timeout(id + 0x2E0, 9.4f, "Akh Morn x6"); // t=1020.7; Ability BC2 from Bahamut Prime; cactbot StartsUsing BC2 [T13 Akh Morn]
+    Timeout(id + 0x2F0, 18.4f, "Megaflare"); // t=1039.1; Ability BAF from Bahamut Prime; cactbot HeadMarker 27 [T13 Megaflare Share]
+    Timeout(id + 0x300, 5.1f, "MF Pepperoni"); // t=1044.2
+    Timeout(id + 0x310, 2.0f, "Tempest Wing"); // t=1046.2; Ability BC4 from Bahamut Prime; cactbot Tether 4 [T13 Tempest Wing]
+    Timeout(id + 0x320, 0.7f, "MF Share"); // t=1046.9; Ability BB2 from Bahamut Prime
+    Timeout(id + 0x330, 1.3f, "MF Tower(s)"); // t=1048.2; Ability BB3 from Bahamut Prime
+    Timeout(id + 0x340, 13.1f, "Earth Shaker Marker"); // t=1061.3
+    Timeout(id + 0x350, 5.0f, "Earth Shaker x3"); // t=1066.3
+    Timeout(id + 0x360, 1.0f, "Tempest Wing Tethers"); // t=1067.3
+    Timeout(id + 0x370, 6.0f, "Tempest Wing"); // t=1073.3; Ability BC4 from Bahamut Prime; cactbot Tether 4 [T13 Tempest Wing]
+    Timeout(id + 0x380, 2.2f, "Flare Breath"); // t=1075.5; Ability BAD from Bahamut Prime
+    Timeout(id + 0x390, 11.2f, "Akh Morn x7"); // t=1086.7; Ability BC2 from Bahamut Prime; cactbot StartsUsing BC2 [T13 Akh Morn]
+    Timeout(id + 0x3A0, 19.4f, "Megaflare"); // t=1106.1; Ability BAF from Bahamut Prime; cactbot HeadMarker 27 [T13 Megaflare Share]
+    Timeout(id + 0x3B0, 5.1f, "MF Pepperoni"); // t=1111.2
+    Timeout(id + 0x3C0, 2.0f, "Tempest Wing"); // t=1113.2; Ability BC4 from Bahamut Prime; cactbot Tether 4 [T13 Tempest Wing]
+    Timeout(id + 0x3D0, 0.7f, "MF Share"); // t=1113.9; Ability BB2 from Bahamut Prime
+    Timeout(id + 0x3E0, 1.3f, "MF Tower(s)"); // t=1115.2; Ability BB3 from Bahamut Prime
+    Timeout(id + 0x3F0, 13.1f, "Earth Shaker Marker"); // t=1128.3
+    Timeout(id + 0x400, 5.0f, "Earth Shaker x3"); // t=1133.3
+    Timeout(id + 0x410, 1.0f, "Tempest Wing Tethers"); // t=1134.3
+    Timeout(id + 0x420, 6.0f, "Tempest Wing"); // t=1140.3; Ability BC4 from Bahamut Prime; cactbot Tether 4 [T13 Tempest Wing]
+    Timeout(id + 0x430, 2.2f, "Flare Breath"); // t=1142.5; Ability BAD from Bahamut Prime
+    Timeout(id + 0x440, 12.7f, "Gigaflare"); // t=1155.2; Ability BB9 from Bahamut Prime; cactbot StartsUsing BB9 [T13 Gigaflare Phase Change]
+}
+
+private void Enrage(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xBBA), "", 5f, 0.0f); // t=2000.0; StartsUsing BBA from Bahamut Prime
+    Timeout(id + 0x10, 10.0f, "Gigaflare Enrage"); // t=2010.0
+    Timeout(id + 0x20, 15.2f, "Gigaflare Enrage"); // t=2025.2
+    Timeout(id + 0x30, 12.2f, "Gigaflare Enrage"); // t=2037.4
+}
+

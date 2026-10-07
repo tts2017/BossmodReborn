@@ -1,0 +1,79 @@
+query {
+  worldData: __type(name: "WorldData") {
+    ...TypeProbe
+  }
+  encounter: __type(name: "Encounter") {
+    ...TypeProbe
+  }
+  character: __type(name: "Character") {
+    ...TypeProbe
+  }
+  characterData: __type(name: "CharacterData") {
+    ...TypeProbe
+  }
+  reportData: __type(name: "ReportData") {
+    ...TypeProbe
+  }
+  report: __type(name: "Report") {
+    ...TypeProbe
+  }
+  reportFight: __type(name: "ReportFight") {
+    ...TypeProbe
+  }
+  fight: __type(name: "Fight") {
+    ...TypeProbe
+  }
+  eventData: __type(name: "EventData") {
+    ...TypeProbe
+  }
+  reportEventPaginator: __type(name: "ReportEventPaginator") {
+    ...TypeProbe
+  }
+  rankings: __type(name: "Rankings") {
+    ...TypeProbe
+  }
+  ranking: __type(name: "Ranking") {
+    ...TypeProbe
+  }
+  encounterRanking: __type(name: "EncounterRanking") {
+    ...TypeProbe
+  }
+  characterRanking: __type(name: "CharacterRanking") {
+    ...TypeProbe
+  }
+  zone: __type(name: "Zone") {
+    ...TypeProbe
+  }
+  partition: __type(name: "Partition") {
+    ...TypeProbe
+  }
+}
+
+fragment TypeProbe on __Type {
+  name
+  fields {
+    name
+    args {
+      name
+      type {
+        ...TypeRef
+      }
+    }
+    type {
+      ...TypeRef
+    }
+  }
+}
+
+fragment TypeRef on __Type {
+  kind
+  name
+  ofType {
+    kind
+    name
+    ofType {
+      kind
+      name
+    }
+  }
+}

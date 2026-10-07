@@ -1,0 +1,88 @@
+// Generated development skeleton from emerald_weapon-ex.txt (TerritoryType 935).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 22 static/dynamic trigger definitions from ui/raidboss/data/05-shb/trial/emerald_weapon-ex.ts.
+
+private void Phase_1(uint id)
+{
+    Condition(id + 0x0, 12.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x55B0), "", 5f, 7.1f); // t=12.1; StartsUsing 55B0 from The Emerald Weapon; cactbot StartsUsing 55B0 [EmeraldEx Emerald Shot]
+    Timeout(id + 0x10, 5.0f, "Emerald Shot").SetHint(StateMachine.StateHint.Tankbuster); // t=17.1; Ability 55B0 from The Emerald Weapon; cactbot StartsUsing 55B0 [EmeraldEx Emerald Shot]
+    Timeout(id + 0x20, 11.1f, "Optimized Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=28.2; Ability 55B1 from The Emerald Weapon; cactbot StartsUsing 55B1/5B10 [EmeraldEx Optimized Ultima]
+    Timeout(id + 0x30, 11.2f, "Aetheroplasm Production"); // t=39.4; Ability 55AA from The Emerald Weapon; cactbot StartsUsing 55AA [EmeraldEx Aetheroplasm Production]
+    Timeout(id + 0x40, 26.2f, "Emerald Beam"); // t=65.6
+    Timeout(id + 0x50, 27.2f, "Magitek Magnetism"); // t=92.8; Ability 5594 from The Emerald Weapon; cactbot StartsUsing 5594 [EmeraldEx Magitek Magnetism]
+    Timeout(id + 0x60, 25.2f, "Magitek Magnetism"); // t=118.0; Ability 5594 from The Emerald Weapon; cactbot StartsUsing 5594 [EmeraldEx Magitek Magnetism]
+    Timeout(id + 0x70, 20.1f, "Emerald Beam"); // t=138.1
+    Timeout(id + 0x80, 22.2f, "Optimized Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=160.3; Ability 55B1 from The Emerald Weapon; cactbot StartsUsing 55B1/5B10 [EmeraldEx Optimized Ultima]
+    Timeout(id + 0x90, 11.1f, "Bit Storm"); // t=171.4; Ability 55A2 from The Emerald Weapon
+    Timeout(id + 0xA0, 7.1f, "Divide Et Impera"); // t=178.5; Ability 5537 from The Emerald Weapon; cactbot StartsUsing 5537 [EmeraldEx Divide Et Impera P1]
+    Timeout(id + 0xB0, 20.1f, "Expire"); // t=198.6; Ability 5591 from The Emerald Weapon; cactbot StartsUsing [EmeraldEx Expire]
+    Timeout(id + 0xC0, 10.0f, "Aire Tam Storm"); // t=208.6; Ability 558F from The Emerald Weapon; cactbot StartsUsing 558F/55D0 [EmeraldEx Aire Tam Storm]
+    Timeout(id + 0xD0, 23.1f, "Photon Ring"); // t=231.7; Ability 55A9 from The Emerald Weapon
+    Timeout(id + 0xE0, 12.2f, "Magitek Magnetism"); // t=243.9; Ability 5594 from The Emerald Weapon; cactbot StartsUsing 5594 [EmeraldEx Magitek Magnetism]
+    Timeout(id + 0xF0, 34.2f, "Optimized Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=278.1; Ability 55B1 from The Emerald Weapon; cactbot StartsUsing 55B1/5B10 [EmeraldEx Optimized Ultima]
+    Timeout(id + 0x100, 13.0f, "Bit Storm"); // t=291.1; Ability 55A2 from The Emerald Weapon
+    Timeout(id + 0x110, 7.1f, "Divide Et Impera"); // t=298.2; Ability 5537 from The Emerald Weapon; cactbot StartsUsing 5537 [EmeraldEx Divide Et Impera P1]
+    Timeout(id + 0x120, 14.3f, "Optimized Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=312.5; Ability 55B2 from The Emerald Weapon; cactbot StartsUsing 55B1/5B10 [EmeraldEx Optimized Ultima]
+    Timeout(id + 0x130, 27.1f, "Enrage"); // t=339.6; Ability 5B16 from The Emerald Weapon
+}
+
+private void Cutscene(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "--cutscene--"); // t=800.0; Ability 5B02 from The Emerald Weapon
+    Targetable(id + 0x10, true, 58.5f, "--targetable--"); // t=858.5
+}
+
+private void Phase_2(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=1000.0
+    Condition(id + 0x10, 10.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x555B), "", 5f, 5.0f); // t=1010.0; StartsUsing 555B from The Emerald Weapon; cactbot StartsUsing 555B [EmeraldEx Divide Et Impera P2]
+    Timeout(id + 0x20, 5.0f, "Divide Et Impera"); // t=1015.0; Ability 555B from The Emerald Weapon; cactbot StartsUsing 555B [EmeraldEx Divide Et Impera P2]
+    Timeout(id + 0x30, 16.3f, "Primus Terminus Est"); // t=1031.3; Ability 55C3 from The Emerald Weapon; cactbot HeadMarker [EmeraldEx Primus Terminus Est] | HeadMarker [EmeraldEx Primus Terminus Est Dodge]
+    Timeout(id + 0x40, 15.1f, "Tertius Terminus Est"); // t=1046.4; Ability 55CC from The Emerald Weapon; cactbot StartsUsing 55CC [EmeraldEx Tertius Terminus Cleanup]
+    Timeout(id + 0x50, 10.0f, "Tertius Terminus Est 1"); // t=1056.4
+    Timeout(id + 0x60, 1.2f, "Tertius Terminus Est 2"); // t=1057.6
+    Timeout(id + 0x70, 1.2f, "Tertius Terminus Est 3"); // t=1058.8
+    Timeout(id + 0x80, 16.8f, "Legio Phantasmatis"); // t=1075.6; Ability 55B4 from The Emerald Weapon
+    Targetable(id + 0x90, false, 2.1f, "--untargetable--"); // t=1077.7
+    Targetable(id + 0xA0, true, 3.1f, "--targetable--"); // t=1080.8
+    Timeout(id + 0xB0, 3.9f, "Mechanized Maneuver"); // t=1084.7; Ability 55BA from Black Wolf's Image
+    Timeout(id + 0xC0, 11.5f, "Heirsbane"); // t=1096.2; Ability 55B9 from Black Wolf's Image
+    Timeout(id + 0xD0, 3.2f, "Bombs Away"); // t=1099.4; Ability 55BB from Black Wolf's Image
+    Targetable(id + 0xE0, false, 5.2f, "--untargetable--"); // t=1104.6
+    Timeout(id + 0xF0, 13.0f, "Magitek Cannon"); // t=1117.6; Ability 55BE from Reaper Image; cactbot StartsUsing 55BE [EmeraldEx Magitek Cannon]
+    Targetable(id + 0x100, true, 9.7f, "--targetable--"); // t=1127.3
+    Timeout(id + 0x110, 8.1f, "Optimized Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1135.4; Ability 5B10 from The Emerald Weapon; cactbot StartsUsing 55B1/5B10 [EmeraldEx Optimized Ultima]
+    Timeout(id + 0x120, 13.2f, "Divide Et Impera"); // t=1148.6; Ability 555B from The Emerald Weapon; cactbot StartsUsing 555B [EmeraldEx Divide Et Impera P2]
+    Timeout(id + 0x130, 13.8f, "Tertius Terminus Est"); // t=1162.4; Ability 55CC from The Emerald Weapon; cactbot StartsUsing 55CC [EmeraldEx Tertius Terminus Cleanup]
+    Timeout(id + 0x140, 5.7f, "Split"); // t=1168.1
+    Timeout(id + 0x150, 6.2f, "Expire / Sidescathe"); // t=1174.3
+    Timeout(id + 0x160, 9.0f, "Aire Tam Storm / Emerald Crusher"); // t=1183.3; Ability 55D0/5585 from The Emerald Weapon; cactbot StartsUsing 558F/55D0 [EmeraldEx Aire Tam Storm]
+    Timeout(id + 0x170, 3.4f, "Tertius Terminus Est 1"); // t=1186.7
+    Timeout(id + 0x180, 1.2f, "Tertius Terminus Est 2"); // t=1187.9
+    Timeout(id + 0x190, 1.1f, "Tertius Terminus Est 3"); // t=1189.0
+    Timeout(id + 0x1A0, 16.5f, "Legio Phantasmatis"); // t=1205.5; Ability 55B4 from The Emerald Weapon
+    Targetable(id + 0x1B0, false, 2.0f, "--untargetable--"); // t=1207.5
+    Targetable(id + 0x1C0, true, 3.2f, "--targetable--"); // t=1210.7
+    Timeout(id + 0x1D0, 4.2f, "Full Rank"); // t=1214.9; Ability 55C0 from Black Wolf's Image; cactbot StartsUsing 55C0 [EmeraldEx Full Rank]
+    Timeout(id + 0x1E0, 11.3f, "Final Formation"); // t=1226.2; Ability 55C1 from Black Wolf's Image
+    Timeout(id + 0x1F0, 6.2f, "Fatal Fire"); // t=1232.4; Ability 55C2 from Black Wolf's Image
+    Targetable(id + 0x200, false, 2.2f, "--untargetable--"); // t=1234.6
+    Timeout(id + 0x210, 3.8f, "Shots Fired 1"); // t=1238.4
+    Timeout(id + 0x220, 2.0f, "Shots Fired 2"); // t=1240.4
+    Timeout(id + 0x230, 2.0f, "Shots Fired 3"); // t=1242.4
+    Timeout(id + 0x240, 5.1f, "Magitek Cannon"); // t=1247.5; Ability 55BE from Reaper Image; cactbot StartsUsing 55BE [EmeraldEx Magitek Cannon]
+    Targetable(id + 0x250, true, 9.7f, "--targetable--"); // t=1257.2
+    Timeout(id + 0x260, 12.2f, "Secundus Terminus Est"); // t=1269.4; Ability 55C8 from The Emerald Weapon; cactbot HeadMarker FD [EmeraldEx Secundus Terminus Est Plus] | HeadMarker FE [EmeraldEx Secundus Terminus Est Cross]
+    Timeout(id + 0x270, 17.1f, "Tertius Terminus Est"); // t=1286.5; Ability 55CC from The Emerald Weapon; cactbot StartsUsing 55CC [EmeraldEx Tertius Terminus Cleanup]
+    Timeout(id + 0x280, 6.2f, "Split"); // t=1292.7
+    Timeout(id + 0x290, 5.8f, "Sidescathe / Expire"); // t=1298.5
+    Timeout(id + 0x2A0, 9.0f, "Emerald Crusher / Aire Tam Storm"); // t=1307.5; Ability 55D0/5585 from The Emerald Weapon; cactbot StartsUsing 558F/55D0 [EmeraldEx Aire Tam Storm]
+    Timeout(id + 0x2B0, 2.9f, "Tertius Terminus Est 1"); // t=1310.4
+    Timeout(id + 0x2C0, 1.2f, "Tertius Terminus Est 2"); // t=1311.6
+    Timeout(id + 0x2D0, 1.2f, "Tertius Terminus Est 3"); // t=1312.8
+    Timeout(id + 0x2E0, 13.7f, "Primus Terminus Est"); // t=1326.5; Ability 55C3 from The Emerald Weapon; cactbot HeadMarker [EmeraldEx Primus Terminus Est] | HeadMarker [EmeraldEx Primus Terminus Est Dodge]
+    Timeout(id + 0x2F0, 16.7f, "Divide Et Impera"); // t=1343.2; Ability 555B from The Emerald Weapon; cactbot StartsUsing 555B [EmeraldEx Divide Et Impera P2]
+    Timeout(id + 0x300, 31.3f, "Enrage"); // t=1374.5; Ability 5B17 from The Emerald Weapon
+}
+

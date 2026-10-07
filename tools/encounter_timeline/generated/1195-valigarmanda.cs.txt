@@ -1,0 +1,123 @@
+// Generated development skeleton from valigarmanda.txt (TerritoryType 1195).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 22 static/dynamic trigger definitions from ui/raidboss/data/07-dt/trial/valigarmanda.ts.
+
+private void Worquor_Lar_Dor__Normal(uint id)
+{
+    Condition(id + 0x0, 10.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8D3F), "", 5f, 5.3f); // t=10.3; StartsUsing 8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil]
+    Timeout(id + 0x10, 6.4f, "Strangling Coil"); // t=16.7; Ability 8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil]
+    Timeout(id + 0x20, 15.2f, "Slithering Strike"); // t=31.9; Ability 8D3D from Valigarmanda; cactbot StartsUsing 8D3D [Valigarmanda Slithering Strike]
+    Timeout(id + 0x30, 15.3f, "Slithering Strike/Strangling Coil"); // t=47.2; Ability 8D3D/8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil] | StartsUsing 8D3D [Valigarmanda Slithering Strike]
+    Timeout(id + 0x40, 14.3f, "Susurrant Breath"); // t=61.5; Ability 8D3B from Valigarmanda; cactbot StartsUsing 8D3B [Valigarmanda Susurrant Breath]
+    Timeout(id + 0x50, 14.3f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=75.8; Ability 8D3B/8D3D/8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil] | StartsUsing 8D3D [Valigarmanda Slithering Strike] | StartsUsing 8D3B [Valigarmanda Susurrant Breath]
+    Timeout(id + 0x60, 8.7f, "Ice Talon"); // t=84.5; Ability 8D58 from Valigarmanda; cactbot StartsUsing 8D58 [Valigarmanda Ice Talon]
+    Timeout(id + 0x70, 17.0f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=101.5; Ability 8D3B/8D3D/8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil] | StartsUsing 8D3D [Valigarmanda Slithering Strike] | StartsUsing 8D3B [Valigarmanda Susurrant Breath]
+    Condition(id + 0x80, 6.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x8D41 or 0x95C2), "", 5f, 1.9f); // t=108.4; StartsUsing 95C2 from Valigarmanda | StartsUsing 8D41 from Valigarmanda; cactbot StartsUsing 8D41/95C2 [Valigarmanda Phase Tracker] | StartsUsing 8D41/95C2 [Valigarmanda Skyruin]
+    Timeout(id + 0x90, 11.4f, "Skyruin (storm/ice phase?)"); // t=119.8
+    Timeout(id + 0xA0, 400.0f, "Skyruin (storm phase)"); // t=519.8; Ability 8D43 from Valigarmanda
+    Timeout(id + 0xB0, 17.0f, "Thunderous Breath"); // t=536.8; Ability 8D4F from Valigarmanda; cactbot StartsUsing 8D4F [Valigarmanda Thunderous Breath]
+    Timeout(id + 0xC0, 9.1f, "Hail of Feathers"); // t=545.9; Ability 8D4A from Valigarmanda
+    Timeout(id + 0xD0, 15.3f, "Blighted Bolt"); // t=561.2; Ability 8D4C from Valigarmanda; cactbot StartsUsing 8D4C [Valigarmanda Blighted Bolt]
+    Timeout(id + 0xE0, 16.2f, "Arcane Lightning"); // t=577.4; Ability 9859 from Arcane Sphere
+    Timeout(id + 0xF0, 5.4f, "Disaster Zone").SetHint(StateMachine.StateHint.Raidwide); // t=582.8; Ability 8D46 from Valigarmanda; cactbot StartsUsing 8D44/8D46 [Valigarmanda Disaster Zone]
+    Timeout(id + 0x100, 11.9f, "Ruinfall (tower)"); // t=594.7; Ability 8D5B from Valigarmanda; cactbot StartsUsing 8D5B [Valigarmanda Ruinfall Tower]
+    Timeout(id + 0x110, 2.3f, "Ruinfall (knockback)").SetHint(StateMachine.StateHint.Knockback); // t=597.0; Ability 8D5D from Valigarmanda; cactbot StartsUsing 8D5D [Valigarmanda Ruinfall Knockback]
+    Timeout(id + 0x120, 1.7f, "Ruinfall (AoEs)"); // t=598.7; Ability 98D9 from Valigarmanda
+    Timeout(id + 0x130, 13.0f, "Skyruin (ice phase)"); // t=611.7; Ability 8D42 from Valigarmanda
+    Timeout(id + 0x140, 20.1f, "Northern Cross"); // t=631.8; Ability 8D48/8D49 from Valigarmanda
+    Timeout(id + 0x150, 7.4f, "Freezing Dust"); // t=639.2; Ability 8D51 from Valigarmanda; cactbot HeadMarker [Valigarmanda Freezing Dust]
+    Timeout(id + 0x160, 13.2f, "Northern Cross"); // t=652.4; Ability 8D48/8D49 from Valigarmanda
+    Timeout(id + 0x170, 12.0f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=664.4; Ability 8D3B/8D3D/8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil] | StartsUsing 8D3D [Valigarmanda Slithering Strike] | StartsUsing 8D3B [Valigarmanda Susurrant Breath]
+    Timeout(id + 0x180, 13.9f, "Chilling Cataclysm"); // t=678.3; Ability 9960 from Arcane Sphere; cactbot AddedCombatant [Valigarmanda Chilling Cataclysm]
+    Timeout(id + 0x190, 8.4f, "Disaster Zone").SetHint(StateMachine.StateHint.Raidwide); // t=686.7; Ability 8D44 from Valigarmanda; cactbot StartsUsing 8D44/8D46 [Valigarmanda Disaster Zone]
+    Timeout(id + 0x1A0, 9.1f, "Ruin Foretold").SetHint(StateMachine.StateHint.Raidwide); // t=695.8; Ability 9691 from Valigarmanda; cactbot StartsUsing 9691 [Valigarmanda Ruin Foretold]
+    Timeout(id + 0x1B0, 324.0f, "Skyruin (ice phase)"); // t=1019.8; Ability 8D42 from Valigarmanda
+    Timeout(id + 0x1C0, 20.1f, "Northern Cross"); // t=1039.9; Ability 8D48/8D49 from Valigarmanda
+    Timeout(id + 0x1D0, 7.3f, "Freezing Dust"); // t=1047.2; Ability 8D51 from Valigarmanda; cactbot HeadMarker [Valigarmanda Freezing Dust]
+    Timeout(id + 0x1E0, 13.1f, "Northern Cross"); // t=1060.3; Ability 8D48/8D49 from Valigarmanda
+    Timeout(id + 0x1F0, 12.0f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=1072.3; Ability 8D3B/8D3D/8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil] | StartsUsing 8D3D [Valigarmanda Slithering Strike] | StartsUsing 8D3B [Valigarmanda Susurrant Breath]
+    Timeout(id + 0x200, 13.8f, "Chilling Cataclysm"); // t=1086.1; Ability 9960 from Arcane Sphere; cactbot AddedCombatant [Valigarmanda Chilling Cataclysm]
+    Timeout(id + 0x210, 8.4f, "Disaster Zone").SetHint(StateMachine.StateHint.Raidwide); // t=1094.5; Ability 8D44 from Valigarmanda; cactbot StartsUsing 8D44/8D46 [Valigarmanda Disaster Zone]
+    Timeout(id + 0x220, 15.7f, "Skyruin (storm phase)"); // t=1110.2; Ability 8D43 from Valigarmanda
+    Timeout(id + 0x230, 17.0f, "Thunderous Breath"); // t=1127.2; Ability 8D4F from Valigarmanda; cactbot StartsUsing 8D4F [Valigarmanda Thunderous Breath]
+    Timeout(id + 0x240, 9.1f, "Hail of Feathers"); // t=1136.3; Ability 8D4A from Valigarmanda
+    Timeout(id + 0x250, 15.2f, "Blighted Bolt"); // t=1151.5; Ability 8D4C from Valigarmanda; cactbot StartsUsing 8D4C [Valigarmanda Blighted Bolt]
+    Timeout(id + 0x260, 16.2f, "Arcane Lightning"); // t=1167.7; Ability 9859 from Arcane Sphere
+    Timeout(id + 0x270, 5.3f, "Disaster Zone").SetHint(StateMachine.StateHint.Raidwide); // t=1173.0; Ability 8D46 from Valigarmanda; cactbot StartsUsing 8D44/8D46 [Valigarmanda Disaster Zone]
+    Timeout(id + 0x280, 12.0f, "Ruinfall (tower)"); // t=1185.0; Ability 8D5B from Valigarmanda; cactbot StartsUsing 8D5B [Valigarmanda Ruinfall Tower]
+    Timeout(id + 0x290, 2.4f, "Ruinfall (knockback)").SetHint(StateMachine.StateHint.Knockback); // t=1187.4; Ability 8D5D from Valigarmanda; cactbot StartsUsing 8D5D [Valigarmanda Ruinfall Knockback]
+    Timeout(id + 0x2A0, 1.7f, "Ruinfall (AoEs)"); // t=1189.1; Ability 98D9 from Valigarmanda
+    Timeout(id + 0x2B0, 6.7f, "Ruin Foretold").SetHint(StateMachine.StateHint.Raidwide); // t=1195.8; Ability 9691 from Valigarmanda; cactbot StartsUsing 9691 [Valigarmanda Ruin Foretold]
+    Timeout(id + 0x2C0, 408.1f, "Calamitous Cry + Calamitous Echo"); // t=1603.9; Ability 8D60 from Valigarmanda
+    Timeout(id + 0x2D0, 6.0f, "Calamitous Cry + Calamitous Echo"); // t=1609.9; Ability 8D61 from Valigarmanda
+    Timeout(id + 0x2E0, 6.0f, "Calamitous Cry + Calamitous Echo"); // t=1615.9; Ability 8D61 from Valigarmanda
+    Timeout(id + 0x2F0, 6.0f, "Calamitous Cry + Calamitous Echo"); // t=1621.9; Ability 8D61 from Valigarmanda
+    Timeout(id + 0x300, 6.0f, "Calamitous Cry + Calamitous Echo"); // t=1627.9; Ability 8D61 from Valigarmanda
+    Timeout(id + 0x310, 6.0f, "Calamitous Cry + Calamitous Echo"); // t=1633.9; Ability 8D61 from Valigarmanda
+    Timeout(id + 0x320, 6.0f, "Calamitous Cry + Calamitous Echo"); // t=1639.9; Ability 8D61 from Valigarmanda
+    Timeout(id + 0x330, 176.1f, "Tulidisaster 1").SetHint(StateMachine.StateHint.Raidwide); // t=1816.0; Ability 8D67 from Valigarmanda; cactbot StartsUsing 8D65 [Valigarmanda Tulidisaster 1]
+    Timeout(id + 0x340, 8.6f, "Tulidisaster 2").SetHint(StateMachine.StateHint.Raidwide); // t=1824.6; Ability 8D68 from Valigarmanda; cactbot StartsUsing 8D65 [Valigarmanda Tulidisaster 2]
+    Timeout(id + 0x350, 8.0f, "Tulidisaster 3").SetHint(StateMachine.StateHint.Raidwide); // t=1832.6; Ability 8D66 from Valigarmanda; cactbot StartsUsing 8D65 [Valigarmanda Tulidisaster 3]
+    Timeout(id + 0x360, 18.9f, "Eruption 1"); // t=1851.5
+    Timeout(id + 0x370, 2.0f, "Eruption 2"); // t=1853.5
+    Timeout(id + 0x380, 2.0f, "Eruption 3"); // t=1855.5
+    Timeout(id + 0x390, 3.8f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=1859.3; Ability 8D3B/8D3D/8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil] | StartsUsing 8D3D [Valigarmanda Slithering Strike] | StartsUsing 8D3B [Valigarmanda Susurrant Breath]
+    Condition(id + 0x3A0, 13.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x8D41 or 0x95C2), "", 5f, 8.2f); // t=1872.5; StartsUsing 95C2 from Valigarmanda | StartsUsing 8D41 from Valigarmanda; cactbot StartsUsing 8D41/95C2 [Valigarmanda Phase Tracker] | StartsUsing 8D41/95C2 [Valigarmanda Skyruin]
+    Timeout(id + 0x3B0, 11.4f, "Skyruin (storm/ice phase?)"); // t=1883.9
+    Timeout(id + 0x3C0, 127.5f, "Skyruin (storm phase)"); // t=2011.4; Ability 8D43 from Valigarmanda
+    Timeout(id + 0x3D0, 13.9f, "Thunderous Breath"); // t=2025.3; Ability 8D4F from Valigarmanda; cactbot StartsUsing 8D4F [Valigarmanda Thunderous Breath]
+    Timeout(id + 0x3E0, 1.0f, "Arcane Lightning"); // t=2026.3; Ability 9859 from Arcane Sphere
+    Timeout(id + 0x3F0, 9.2f, "Hail of Feathers"); // t=2035.5; Ability 8D4A from Valigarmanda
+    Timeout(id + 0x400, 16.4f, "Blighted Bolt"); // t=2051.9; Ability 8D4C from Valigarmanda; cactbot StartsUsing 8D4C [Valigarmanda Blighted Bolt]
+    Timeout(id + 0x410, 21.6f, "Arcane Lightning"); // t=2073.5; Ability 9859 from Arcane Sphere
+    Timeout(id + 0x420, 4.8f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=2078.3; Ability 8D3B/8D3D/8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil] | StartsUsing 8D3D [Valigarmanda Slithering Strike] | StartsUsing 8D3B [Valigarmanda Susurrant Breath]
+    Timeout(id + 0x430, 12.9f, "Disaster Zone").SetHint(StateMachine.StateHint.Raidwide); // t=2091.2; Ability 8D46 from Valigarmanda; cactbot StartsUsing 8D44/8D46 [Valigarmanda Disaster Zone]
+    Timeout(id + 0x440, 9.8f, "Ruinfall (tower)"); // t=2101.0; Ability 8D5B from Valigarmanda; cactbot StartsUsing 8D5B [Valigarmanda Ruinfall Tower]
+    Timeout(id + 0x450, 2.4f, "Ruinfall (knockback)").SetHint(StateMachine.StateHint.Knockback); // t=2103.4; Ability 8D5D from Valigarmanda; cactbot StartsUsing 8D5D [Valigarmanda Ruinfall Knockback]
+    Timeout(id + 0x460, 1.7f, "Ruinfall (AoEs)"); // t=2105.1; Ability 98D9 from Valigarmanda
+    Condition(id + 0x470, 3.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8D41), "", 5f, 0.0f); // t=2108.7; StartsUsing 8D41 from Valigarmanda; cactbot StartsUsing 8D41/95C2 [Valigarmanda Phase Tracker] | StartsUsing 8D41/95C2 [Valigarmanda Skyruin]
+    Timeout(id + 0x480, 11.4f, "Skyruin (ice phase)"); // t=2120.1; Ability 8D42 from Valigarmanda
+    Timeout(id + 0x490, 17.0f, "Chilling Cataclysm"); // t=2137.1; Ability 9960 from Arcane Sphere; cactbot AddedCombatant [Valigarmanda Chilling Cataclysm]
+    Timeout(id + 0x4A0, 2.0f, "Northern Cross"); // t=2139.1; Ability 8D48/8D49 from Valigarmanda
+    Timeout(id + 0x4B0, 8.9f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=2148.0; Ability 8D3B/8D3D/8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil] | StartsUsing 8D3D [Valigarmanda Slithering Strike] | StartsUsing 8D3B [Valigarmanda Susurrant Breath]
+    Timeout(id + 0x4C0, 13.9f, "Freezing Dust"); // t=2161.9; Ability 8D51 from Valigarmanda; cactbot HeadMarker [Valigarmanda Freezing Dust]
+    Timeout(id + 0x4D0, 2.0f, "Chilling Cataclysm"); // t=2163.9; Ability 9960 from Arcane Sphere; cactbot AddedCombatant [Valigarmanda Chilling Cataclysm]
+    Timeout(id + 0x4E0, 10.8f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=2174.7; Ability 8D3B/8D3D/8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil] | StartsUsing 8D3D [Valigarmanda Slithering Strike] | StartsUsing 8D3B [Valigarmanda Susurrant Breath]
+    Timeout(id + 0x4F0, 8.6f, "Northern Cross"); // t=2183.3; Ability 8D48/8D49 from Valigarmanda
+    Timeout(id + 0x500, 13.8f, "Disaster Zone").SetHint(StateMachine.StateHint.Raidwide); // t=2197.1; Ability 8D44 from Valigarmanda; cactbot StartsUsing 8D44/8D46 [Valigarmanda Disaster Zone]
+    Timeout(id + 0x510, 9.4f, "Ice Talon"); // t=2206.5; Ability 8D58 from Valigarmanda; cactbot StartsUsing 8D58 [Valigarmanda Ice Talon]
+    Timeout(id + 0x520, 24.9f, "Eruption 1"); // t=2231.4
+    Timeout(id + 0x530, 2.0f, "Eruption 2"); // t=2233.4
+    Timeout(id + 0x540, 2.0f, "Eruption 3"); // t=2235.4
+    Timeout(id + 0x550, 3.8f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=2239.2; Ability 8D3B/8D3D/8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil] | StartsUsing 8D3D [Valigarmanda Slithering Strike] | StartsUsing 8D3B [Valigarmanda Susurrant Breath]
+    Condition(id + 0x560, 13.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x95C2), "", 5f, 8.2f); // t=2252.4; StartsUsing 95C2 from Valigarmanda; cactbot StartsUsing 8D41/95C2 [Valigarmanda Phase Tracker] | StartsUsing 8D41/95C2 [Valigarmanda Skyruin]
+    Timeout(id + 0x570, 259.0f, "Skyruin (ice phase)"); // t=2511.4; Ability 8D42 from Valigarmanda
+    Timeout(id + 0x580, 17.0f, "Chilling Cataclysm"); // t=2528.4; Ability 9960 from Arcane Sphere; cactbot AddedCombatant [Valigarmanda Chilling Cataclysm]
+    Timeout(id + 0x590, 2.0f, "Northern Cross"); // t=2530.4; Ability 8D48/8D49 from Valigarmanda
+    Timeout(id + 0x5A0, 8.9f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=2539.3; Ability 8D3B/8D3D/8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil] | StartsUsing 8D3D [Valigarmanda Slithering Strike] | StartsUsing 8D3B [Valigarmanda Susurrant Breath]
+    Timeout(id + 0x5B0, 13.8f, "Freezing Dust"); // t=2553.1; Ability 8D51 from Valigarmanda; cactbot HeadMarker [Valigarmanda Freezing Dust]
+    Timeout(id + 0x5C0, 2.0f, "Chilling Cataclysm"); // t=2555.1; Ability 9960 from Arcane Sphere; cactbot AddedCombatant [Valigarmanda Chilling Cataclysm]
+    Timeout(id + 0x5D0, 10.8f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=2565.9; Ability 8D3B/8D3D/8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil] | StartsUsing 8D3D [Valigarmanda Slithering Strike] | StartsUsing 8D3B [Valigarmanda Susurrant Breath]
+    Timeout(id + 0x5E0, 8.7f, "Northern Cross"); // t=2574.6; Ability 8D48/8D49 from Valigarmanda
+    Timeout(id + 0x5F0, 13.7f, "Disaster Zone").SetHint(StateMachine.StateHint.Raidwide); // t=2588.3; Ability 8D44 from Valigarmanda; cactbot StartsUsing 8D44/8D46 [Valigarmanda Disaster Zone]
+    Timeout(id + 0x600, 9.3f, "Ice Talon"); // t=2597.6; Ability 8D58 from Valigarmanda; cactbot StartsUsing 8D58 [Valigarmanda Ice Talon]
+    Condition(id + 0x610, 9.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x95C2), "", 5f, 4.6f); // t=2607.2; StartsUsing 95C2 from Valigarmanda; cactbot StartsUsing 8D41/95C2 [Valigarmanda Phase Tracker] | StartsUsing 8D41/95C2 [Valigarmanda Skyruin]
+    Timeout(id + 0x620, 11.4f, "Skyruin (storm phase)"); // t=2618.6; Ability 8D43 from Valigarmanda
+    Timeout(id + 0x630, 13.9f, "Thunderous Breath"); // t=2632.5; Ability 8D4F from Valigarmanda; cactbot StartsUsing 8D4F [Valigarmanda Thunderous Breath]
+    Timeout(id + 0x640, 1.0f, "Arcane Lightning"); // t=2633.5; Ability 9859 from Arcane Sphere
+    Timeout(id + 0x650, 9.2f, "Hail of Feathers"); // t=2642.7; Ability 8D4A from Valigarmanda
+    Timeout(id + 0x660, 16.3f, "Blighted Bolt"); // t=2659.0; Ability 8D4C from Valigarmanda; cactbot StartsUsing 8D4C [Valigarmanda Blighted Bolt]
+    Timeout(id + 0x670, 21.6f, "Arcane Lightning"); // t=2680.6; Ability 9859 from Arcane Sphere
+    Timeout(id + 0x680, 4.8f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=2685.4; Ability 8D3B/8D3D/8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil] | StartsUsing 8D3D [Valigarmanda Slithering Strike] | StartsUsing 8D3B [Valigarmanda Susurrant Breath]
+    Timeout(id + 0x690, 12.9f, "Disaster Zone").SetHint(StateMachine.StateHint.Raidwide); // t=2698.3; Ability 8D46 from Valigarmanda; cactbot StartsUsing 8D44/8D46 [Valigarmanda Disaster Zone]
+    Timeout(id + 0x6A0, 9.8f, "Ruinfall (tower)"); // t=2708.1; Ability 8D5B from Valigarmanda; cactbot StartsUsing 8D5B [Valigarmanda Ruinfall Tower]
+    Timeout(id + 0x6B0, 2.4f, "Ruinfall (knockback)").SetHint(StateMachine.StateHint.Knockback); // t=2710.5; Ability 8D5D from Valigarmanda; cactbot StartsUsing 8D5D [Valigarmanda Ruinfall Knockback]
+    Timeout(id + 0x6C0, 1.7f, "Ruinfall (AoEs)"); // t=2712.2; Ability 98D9 from Valigarmanda
+    Timeout(id + 0x6D0, 19.0f, "Eruption 1"); // t=2731.2
+    Timeout(id + 0x6E0, 2.0f, "Eruption 2"); // t=2733.2
+    Timeout(id + 0x6F0, 2.0f, "Eruption 3"); // t=2735.2
+    Timeout(id + 0x700, 3.8f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=2739.0; Ability 8D3B/8D3D/8D3F from Valigarmanda; cactbot StartsUsing 8D3F [Valigarmanda Strangling Coil] | StartsUsing 8D3D [Valigarmanda Slithering Strike] | StartsUsing 8D3B [Valigarmanda Susurrant Breath]
+    Condition(id + 0x710, 13.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8D41), "", 5f, 8.2f); // t=2752.2; StartsUsing 8D41 from Valigarmanda; cactbot StartsUsing 8D41/95C2 [Valigarmanda Phase Tracker] | StartsUsing 8D41/95C2 [Valigarmanda Skyruin]
+}
+

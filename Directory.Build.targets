@@ -1,0 +1,15 @@
+<Project>
+  <!--
+    Local customisation layer (not part of upstream BossmodReborn).
+    Everything under Custom/ is compiled into the BossModReborn assembly so the source generators
+    (rotation/boss module registries) see it, without editing upstream's BossModReborn.csproj.
+    Files under Custom/_pending/ are kept for reference but not compiled (they need upstream hooks first).
+  -->
+  <ItemGroup Condition="'$(MSBuildProjectName)' == 'BossModReborn'">
+    <Compile Include="$(MSBuildThisFileDirectory)Custom\**\*.cs"
+             Exclude="$(MSBuildThisFileDirectory)Custom\_pending\**;$(MSBuildThisFileDirectory)Custom\**\bin\**;$(MSBuildThisFileDirectory)Custom\**\obj\**"
+             Link="Custom\%(RecursiveDir)%(Filename)%(Extension)" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Custom\Timeline\External\ExternalTimelines.json"
+                      LogicalName="BossMod.ExternalTimelines.json" />
+  </ItemGroup>
+</Project>

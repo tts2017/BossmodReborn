@@ -1,0 +1,81 @@
+// Generated development skeleton from arkveld.txt (TerritoryType 1300).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+
+private void The_Windward_Wilds(uint id)
+{
+    Timeout(id + 0x0, 5.6f, "Roar (raidwide)").SetHint(StateMachine.StateHint.Raidwide); // t=5.6; Ability AB6E from Guardian Arkveld
+    Timeout(id + 0x10, 10.0f, "Chainblade Blow (1)"); // t=15.6
+    Timeout(id + 0x20, 8.9f, "Chainblade Blow (2)"); // t=24.5
+    Timeout(id + 0x30, 6.5f, "(edge)"); // t=31.0; Ability B077 from Guardian Arkveld
+    Timeout(id + 0x40, 8.2f, "Siegeflight (dash)"); // t=39.2
+    Timeout(id + 0x50, 5.1f, "Guardian Resonance"); // t=44.3; Ability AB3C from Guardian Arkveld
+    Timeout(id + 0x60, 0.5f, "Wyvern's Rattle"); // t=44.8; Ability AB64 from Guardian Arkveld
+    Timeout(id + 0x70, 15.4f, "Siegeflight (dash)"); // t=60.2
+    Timeout(id + 0x80, 5.1f, "Guardian Resonance"); // t=65.3; Ability AB3C from Guardian Arkveld
+    Timeout(id + 0x90, 7.2f, "Chainblade Blow"); // t=72.5
+    Timeout(id + 0xA0, 12.9f, "(edge)"); // t=85.4; Ability B077 from Guardian Arkveld
+    Timeout(id + 0xB0, 8.3f, "Rush (1)"); // t=93.7; Ability AB42 from Guardian Arkveld
+    Timeout(id + 0xC0, 2.2f, "Rush (2)"); // t=95.9
+    Timeout(id + 0xD0, 2.0f, "Rush (3)"); // t=97.9
+    Timeout(id + 0xE0, 15.2f, "Chainblade Charge"); // t=113.1; Ability AF0B from Guardian Arkveld
+    Timeout(id + 0xF0, 8.7f, "Wyvern's Ouroblade"); // t=121.8
+    Timeout(id + 0x100, 10.3f, "(center)"); // t=132.1; Ability AB33 from Guardian Arkveld
+    Timeout(id + 0x110, 16.6f, "Aetheric Resonance"); // t=148.7; Ability AB4C from Guardian Arkveld
+    Timeout(id + 0x120, 1.2f, "Guardian Resonance"); // t=149.9
+    Timeout(id + 0x130, 25.7f, "Wild Energy (aoes)"); // t=175.6; Ability AB5A from Guardian Arkveld
+    Timeout(id + 0x140, 8.2f, "Wild Energy (aoes)"); // t=183.8; Ability AB5A from Guardian Arkveld
+    Timeout(id + 0x150, 8.3f, "Forged Fury"); // t=192.1; Ability AB5D from Guardian Arkveld
+    Timeout(id + 0x160, 14.0f, "(edge)"); // t=206.1; Ability B077 from Guardian Arkveld
+    Timeout(id + 0x170, 7.3f, "Roar (raidwide)").SetHint(StateMachine.StateHint.Raidwide); // t=213.4; Ability B091 from Guardian Arkveld
+    Timeout(id + 0x180, 10.2f, "Wyvern's Weal"); // t=223.6
+    Timeout(id + 0x190, 9.5f, "Wild Energy (aoes)"); // t=233.1; Ability AB5A from Guardian Arkveld
+    Timeout(id + 0x1A0, 12.2f, "Siegeflight (dash)"); // t=245.3
+    Timeout(id + 0x1B0, 5.2f, "Guardian Resonance"); // t=250.5; Ability B00E from Guardian Arkveld
+    Timeout(id + 0x1C0, 6.2f, "Chainblade Blow"); // t=256.7
+    Timeout(id + 0x1D0, 6.8f, "Siegeflight (dash)"); // t=263.5
+    Timeout(id + 0x1E0, 5.0f, "Guardian Resonance"); // t=268.5; Ability B00E from Guardian Arkveld
+    Timeout(id + 0x1F0, 6.5f, "Chainblade Blow"); // t=275.0
+    Timeout(id + 0x200, 10.1f, "(edge)"); // t=285.1; Ability B077 from Guardian Arkveld
+    Timeout(id + 0x210, 3.2f, "Wrathful Rattle"); // t=288.3; Ability AB67 from Guardian Arkveld
+    Timeout(id + 0x220, 12.0f, "Chainblade Blow"); // t=300.3
+    Timeout(id + 0x230, 17.5f, "(edge)"); // t=317.8; Ability B077 from Guardian Arkveld
+    Timeout(id + 0x240, 8.3f, "Rush (1)"); // t=326.1; Ability AB42 from Guardian Arkveld
+    Timeout(id + 0x250, 2.1f, "Rush (2)"); // t=328.2
+    Timeout(id + 0x260, 2.0f, "Rush (3)"); // t=330.2
+    Timeout(id + 0x270, 7.7f, "(center)"); // t=337.9; Ability AB33 from Guardian Arkveld
+    Timeout(id + 0x280, 6.2f, "Wyvern's Ouroblade"); // t=344.1
+    Timeout(id + 0x290, 7.8f, "Steeltail Thrust"); // t=351.9; Ability AF04 from Guardian Arkveld
+    Timeout(id + 0x2A0, 10.5f, "Chainblade Charge"); // t=362.4; Ability AF0B from Guardian Arkveld
+    Timeout(id + 0x2B0, 7.9f, "Chainblade Blow"); // t=370.3
+    Timeout(id + 0x2C0, 9.1f, "(center)"); // t=379.4; Ability AB33 from Guardian Arkveld
+    Timeout(id + 0x2D0, 16.6f, "Aetheric Resonance"); // t=396.0; Ability AB4C from Guardian Arkveld
+    Timeout(id + 0x2E0, 1.2f, "Guardian Resonance"); // t=397.2
+    Timeout(id + 0x2F0, 2.1f, "(edge)"); // t=399.3; Ability B077 from Guardian Arkveld
+    Timeout(id + 0x300, 2.3f, "Wyvern's Rattle"); // t=401.6; Ability AB64 from Guardian Arkveld
+    Timeout(id + 0x310, 10.6f, "Siegeflight (dash)"); // t=412.2
+    Timeout(id + 0x320, 4.9f, "Guardian Resonance"); // t=417.1; Ability B00E from Guardian Arkveld
+    Timeout(id + 0x330, 6.1f, "Chainblade Blow"); // t=423.2
+    Timeout(id + 0x340, 6.8f, "Siegeflight (dash)"); // t=430.0
+    Timeout(id + 0x350, 5.3f, "Guardian Resonance"); // t=435.3; Ability B00E from Guardian Arkveld
+    Timeout(id + 0x360, 6.2f, "Chainblade Blow"); // t=441.5
+    Timeout(id + 0x370, 8.8f, "Roar (raidwide)").SetHint(StateMachine.StateHint.Raidwide); // t=450.3; Ability AB6E from Guardian Arkveld
+    Timeout(id + 0x380, 4.8f, "(edge)"); // t=455.1; Ability B077 from Guardian Arkveld
+    Timeout(id + 0x390, 8.9f, "Wyvern's Weal"); // t=464.0
+    Timeout(id + 0x3A0, 9.5f, "Wild Energy (aoes)"); // t=473.5; Ability AB5A from Guardian Arkveld
+    Timeout(id + 0x3B0, 8.1f, "(edge)"); // t=481.6; Ability B077 from Guardian Arkveld
+    Timeout(id + 0x3C0, 3.3f, "Wrathful Rattle"); // t=484.9; Ability AB67 from Guardian Arkveld
+    Timeout(id + 0x3D0, 12.0f, "Chainblade Blow"); // t=496.9
+    Timeout(id + 0x3E0, 17.2f, "(edge)"); // t=514.1; Ability B077 from Guardian Arkveld
+    Timeout(id + 0x3F0, 8.2f, "Rush (1)"); // t=522.3; Ability AB42 from Guardian Arkveld
+    Timeout(id + 0x400, 2.1f, "Rush (2)"); // t=524.4
+    Timeout(id + 0x410, 1.9f, "Rush (3)"); // t=526.3
+    Timeout(id + 0x420, 7.9f, "(center)"); // t=534.2; Ability AB33 from Guardian Arkveld
+    Timeout(id + 0x430, 6.2f, "Wyvern's Ouroblade"); // t=540.4
+    Timeout(id + 0x440, 7.8f, "Steeltail Thrust"); // t=548.2; Ability AF04 from Guardian Arkveld
+    Timeout(id + 0x450, 10.4f, "Chainblade Charge"); // t=558.6; Ability AF0B from Guardian Arkveld
+    Timeout(id + 0x460, 5.3f, "Chainblade Blow"); // t=563.9
+    Timeout(id + 0x470, 24.4f, "Roar (raidwide)").SetHint(StateMachine.StateHint.Raidwide); // t=588.3; Ability AB6E from Guardian Arkveld
+    Timeout(id + 0x480, 3.8f, "(center)"); // t=592.1; Ability AB33 from Guardian Arkveld
+}
+

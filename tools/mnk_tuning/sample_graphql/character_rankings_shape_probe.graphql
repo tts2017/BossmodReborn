@@ -1,0 +1,26 @@
+query CharacterRankingsShapeProbe(
+  $encounterId: Int!
+  $difficulty: Int
+  $partition: Int
+  $metric: CharacterRankingMetricType
+  $className: String
+  $specName: String
+  $page: Int
+  $size: Int
+) {
+  worldData {
+    encounter(id: $encounterId) {
+      characterRankings(
+        difficulty: $difficulty
+        partition: $partition
+        metric: $metric
+        className: $className
+        specName: $specName
+        page: $page
+        size: $size
+        includeCombatantInfo: true
+        includeOtherPlayers: false
+      )
+    }
+  }
+}

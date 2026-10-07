@@ -1,0 +1,74 @@
+// Generated development skeleton from o8n.txt (TerritoryType 751).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 17 static/dynamic trigger definitions from ui/raidboss/data/04-sb/raid/o8n.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 15.0f, "Hyperdrive").SetHint(StateMachine.StateHint.Tankbuster); // t=15.0; Ability 292E from Kefka; cactbot StartsUsing 292E [O8N Hyper Drive]
+    Timeout(id + 0x10, 8.0f, "Blizzard Blitz"); // t=23.0
+    Timeout(id + 0x20, 13.0f, "Flagrant Fire"); // t=36.0; Ability 291F from Kefka; cactbot HeadMarker 17 [O8N Flagrant Fire Single] | HeadMarker 3E [O8N Flagrant Fire Stack]
+    Timeout(id + 0x30, 2.0f, "Thrumming Thunder"); // t=38.0
+    Timeout(id + 0x40, 16.0f, "Blizzard Blitz"); // t=54.0
+    Timeout(id + 0x50, 8.0f, "Thrumming Thunder"); // t=62.0
+    Timeout(id + 0x60, 20.0f, "Graven Image"); // t=82.0; Ability 2925 from Kefka
+    Timeout(id + 0x70, 12.0f, "Wave Cannon"); // t=94.0; Ability 2928 from Graven Image
+    Timeout(id + 0x80, 1.0f, "Shockwave").SetHint(StateMachine.StateHint.Knockback); // t=95.0; Ability 2927 from Graven Image; cactbot StartsUsing 2927 [O8N Shockwave]
+    Timeout(id + 0x90, 12.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=107.0; Ability 292D from Kefka; cactbot StartsUsing 292D [O8N Ultima Upsurge]
+    Timeout(id + 0xA0, 8.0f, "Hyperdrive").SetHint(StateMachine.StateHint.Tankbuster); // t=115.0; Ability 292E from Kefka; cactbot StartsUsing 292E [O8N Hyper Drive]
+    Timeout(id + 0xB0, 14.0f, "Flagrant Fire"); // t=129.0; Ability 2920 from Kefka; cactbot HeadMarker 17 [O8N Flagrant Fire Single] | HeadMarker 3E [O8N Flagrant Fire Stack]
+    Timeout(id + 0xC0, 2.0f, "Blizzard Blitz"); // t=131.0
+    Timeout(id + 0xD0, 6.0f, "Timely Teleport"); // t=137.0; Ability 2922 from Kefka; cactbot StartsUsing 2921 [O8N Timely Teleport]
+    Targetable(id + 0xE0, false, 0.0f, "--untargetable--"); // t=137.0
+    Targetable(id + 0xF0, true, 3.0f, "--targetable--"); // t=140.0
+    Timeout(id + 0x100, 0.0f, "Aero/Ruin"); // t=140.0
+    Timeout(id + 0x110, 8.0f, "Aero Assault").SetHint(StateMachine.StateHint.Knockback); // t=148.0; Ability 2924 from Kefka; cactbot StartsUsing 2924 [O8N Aero Assault]
+    Timeout(id + 0x120, 12.0f, "Graven Image"); // t=160.0; Ability 2925 from Kefka
+    Timeout(id + 0x130, 10.0f, "Thrumming Thunder"); // t=170.0
+    Timeout(id + 0x140, 2.0f, "Wave Cannon"); // t=172.0; Ability 2928 from Graven Image
+    Timeout(id + 0x150, 1.0f, "Shockwave").SetHint(StateMachine.StateHint.Knockback); // t=173.0; Ability 2927 from Graven Image; cactbot StartsUsing 2927 [O8N Shockwave]
+    Timeout(id + 0x160, 10.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=183.0; Ability 292D from Kefka; cactbot StartsUsing 292D [O8N Ultima Upsurge]
+    Timeout(id + 0x170, 7.0f, "Hyperdrive").SetHint(StateMachine.StateHint.Tankbuster); // t=190.0; Ability 292E from Kefka; cactbot StartsUsing 292E [O8N Hyper Drive]
+    Timeout(id + 0x180, 14.0f, "Graven Image"); // t=204.0; Ability 2925 from Kefka
+    Timeout(id + 0x190, 6.0f, "Half Arena"); // t=210.0; Ability 292A/2929 from Graven Image; cactbot StartsUsing 2929 [O8N Gravitational Wave] | StartsUsing 292A [O8N Intemperate Will]
+    Timeout(id + 0x1A0, 8.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=218.0; Ability 292D from Kefka; cactbot StartsUsing 292D [O8N Ultima Upsurge]
+    Timeout(id + 0x1B0, 10.0f, "Graven Image"); // t=228.0; Ability 2925 from Kefka
+    Timeout(id + 0x1C0, 6.0f, "Half Arena"); // t=234.0; Ability 292A/2929 from Graven Image; cactbot StartsUsing 2929 [O8N Gravitational Wave] | StartsUsing 292A [O8N Intemperate Will]
+    Timeout(id + 0x1D0, 6.0f, "Flagrant Fire"); // t=240.0; Ability 291F from Kefka; cactbot HeadMarker 17 [O8N Flagrant Fire Single] | HeadMarker 3E [O8N Flagrant Fire Stack]
+    Timeout(id + 0x1E0, 2.0f, "Thrumming Thunder"); // t=242.0
+    Timeout(id + 0x1F0, 6.0f, "Timely Teleport"); // t=248.0; Ability 2922 from Kefka; cactbot StartsUsing 2921 [O8N Timely Teleport]
+    Targetable(id + 0x200, false, 0.0f, "--untargetable--"); // t=248.0
+    Targetable(id + 0x210, true, 3.0f, "--targetable--"); // t=251.0
+    Timeout(id + 0x220, 0.0f, "Aero/Ruin"); // t=251.0
+    Timeout(id + 0x230, 17.0f, "Graven Image"); // t=268.0; Ability 2925 from Kefka
+    Timeout(id + 0x240, 6.0f, "Half Arena"); // t=274.0
+    Timeout(id + 0x250, 1.0f, "Thrumming Thunder"); // t=275.0
+    Timeout(id + 0x260, 7.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=282.0; Ability 292D from Kefka; cactbot StartsUsing 292D [O8N Ultima Upsurge]
+    Timeout(id + 0x270, 7.0f, "Hyperdrive").SetHint(StateMachine.StateHint.Tankbuster); // t=289.0; Ability 292E from Kefka; cactbot StartsUsing 292E [O8N Hyper Drive]
+    Timeout(id + 0x280, 13.0f, "Graven Image"); // t=302.0; Ability 2925 from Kefka
+    Timeout(id + 0x290, 6.0f, "Statue Gaze"); // t=308.0; Ability 292C from Graven Image; cactbot StartsUsing 292C [O8N Indolent Will]
+    Timeout(id + 0x2A0, 10.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=318.0; Ability 292D from Kefka; cactbot StartsUsing 292D [O8N Ultima Upsurge]
+    Timeout(id + 0x2B0, 7.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=325.0; Ability 292D from Kefka; cactbot StartsUsing 292D [O8N Ultima Upsurge]
+    Timeout(id + 0x2C0, 10.0f, "Graven Image"); // t=335.0; Ability 2925 from Kefka
+    Timeout(id + 0x2D0, 6.0f, "Statue Gaze"); // t=341.0
+    Timeout(id + 0x2E0, 1.0f, "Thrumming Thunder"); // t=342.0
+    Timeout(id + 0x2F0, 6.0f, "Timely Teleport"); // t=348.0; Ability 2922 from Kefka; cactbot StartsUsing 2921 [O8N Timely Teleport]
+    Targetable(id + 0x300, false, 0.0f, "--untargetable--"); // t=348.0
+    Targetable(id + 0x310, true, 3.0f, "--targetable--"); // t=351.0
+    Timeout(id + 0x320, 0.0f, "Aero/Ruin"); // t=351.0
+    Timeout(id + 0x330, 15.0f, "Hyperdrive").SetHint(StateMachine.StateHint.Tankbuster); // t=366.0; Ability 292E from Kefka; cactbot StartsUsing 292E [O8N Hyper Drive]
+    Timeout(id + 0x340, 8.0f, "Graven Image"); // t=374.0; Ability 2925 from Kefka
+    Timeout(id + 0x350, 6.0f, "Statue Gaze"); // t=380.0
+    Timeout(id + 0x360, 6.0f, "Flagrant Fire"); // t=386.0; Ability 291F from Kefka; cactbot HeadMarker 17 [O8N Flagrant Fire Single] | HeadMarker 3E [O8N Flagrant Fire Stack]
+    Timeout(id + 0x370, 2.0f, "Blizzard Blitz"); // t=388.0
+    Timeout(id + 0x380, 13.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=401.0; Ability 292D from Kefka; cactbot StartsUsing 292D [O8N Ultima Upsurge]
+    Timeout(id + 0x390, 7.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=408.0; Ability 292D from Kefka; cactbot StartsUsing 292D [O8N Ultima Upsurge]
+    Timeout(id + 0x3A0, 10.0f, "Graven Image"); // t=418.0; Ability 2925 from Kefka
+    Timeout(id + 0x3B0, 6.0f, "Statue Gaze"); // t=424.0
+    Timeout(id + 0x3C0, 1.0f, "Thrumming Thunder"); // t=425.0
+    Timeout(id + 0x3D0, 6.0f, "Timely Teleport"); // t=431.0; cactbot StartsUsing 2921 [O8N Timely Teleport]
+    Targetable(id + 0x3E0, false, 0.0f, "--untargetable--"); // t=431.0
+    Targetable(id + 0x3F0, true, 3.0f, "--targetable--"); // t=434.0
+    Timeout(id + 0x400, 0.0f, "Aero/Ruin"); // t=434.0
+}
+

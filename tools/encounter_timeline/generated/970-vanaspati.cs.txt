@@ -1,0 +1,100 @@
+// Generated development skeleton from vanaspati.txt (TerritoryType 970).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 15 static/dynamic trigger definitions from ui/raidboss/data/06-ew/dungeon/vanaspati.ts.
+
+private void Timeline(uint id)
+{
+    Condition(id + 0x0, 7.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6238), "", 5f, 2.1f); // t=7.1; StartsUsing 6238 from Terminus Snatcher; cactbot StartsUsing 6238 [Vanaspati Terminus Snatcher Note of Despair]
+    Timeout(id + 0x10, 5.0f, "Note of Despair").SetHint(StateMachine.StateHint.Raidwide); // t=12.1; Ability 6238 from Terminus Snatcher; cactbot StartsUsing 6238 [Vanaspati Terminus Snatcher Note of Despair]
+    Timeout(id + 0x20, 7.5f, "Mouth Off"); // t=19.6; Ability 6231 from Terminus Snatcher; cactbot StartsUsing 6231 [Vanaspati Terminus Snatcher Mouth Off]
+    Timeout(id + 0x30, 11.8f, "Vitriol"); // t=31.4; Ability 6232 from Terminus Snatcher
+    Timeout(id + 0x40, 9.6f, "Last Gasp").SetHint(StateMachine.StateHint.Tankbuster); // t=41.0; Ability 6235 from Terminus Snatcher; cactbot StartsUsing 6235 [Vanaspati Terminus Snatcher Last Gasp]
+    Timeout(id + 0x50, 7.7f, "Mouth Off"); // t=48.7; Ability 6231 from Terminus Snatcher; cactbot StartsUsing 6231 [Vanaspati Terminus Snatcher Mouth Off]
+    Timeout(id + 0x60, 11.1f, "What Is Left/What Is Right"); // t=59.8
+    Timeout(id + 0x70, 0.7f, "Vitriol"); // t=60.5; Ability 6232 from Terminus Snatcher
+    Timeout(id + 0x80, 11.6f, "Note of Despair").SetHint(StateMachine.StateHint.Raidwide); // t=72.1; Ability 6238 from Terminus Snatcher; cactbot StartsUsing 6238 [Vanaspati Terminus Snatcher Note of Despair]
+    Timeout(id + 0x90, 8.3f, "Lost Hope"); // t=80.4; Ability 6237 from Terminus Snatcher
+    Timeout(id + 0xA0, 5.1f, "Mouth Off"); // t=85.5; Ability 6231 from Terminus Snatcher; cactbot StartsUsing 6231 [Vanaspati Terminus Snatcher Mouth Off]
+    Timeout(id + 0xB0, 11.8f, "Vitriol"); // t=97.3; Ability 6232 from Terminus Snatcher
+    Timeout(id + 0xC0, 9.7f, "Last Gasp").SetHint(StateMachine.StateHint.Tankbuster); // t=107.0; Ability 6235 from Terminus Snatcher; cactbot StartsUsing 6235 [Vanaspati Terminus Snatcher Last Gasp]
+    Timeout(id + 0xD0, 7.8f, "Mouth Off"); // t=114.8; Ability 6231 from Terminus Snatcher; cactbot StartsUsing 6231 [Vanaspati Terminus Snatcher Mouth Off]
+    Timeout(id + 0xE0, 11.1f, "What Is Left/What Is Right"); // t=125.9
+    Timeout(id + 0xF0, 0.7f, "Vitriol"); // t=126.6; Ability 6232 from Terminus Snatcher
+    Timeout(id + 0x100, 10.5f, "What Is Left/What Is Right"); // t=137.1
+    Timeout(id + 0x110, 1.1f, "Wallow"); // t=138.2; Ability 6236 from Terminus Snatcher; cactbot StartsUsing 6236 [Vanaspati Terminus Snatcher Wallow]
+    Timeout(id + 0x120, 11.1f, "Note of Despair").SetHint(StateMachine.StateHint.Raidwide); // t=149.3; Ability 6238 from Terminus Snatcher; cactbot StartsUsing 6238 [Vanaspati Terminus Snatcher Note of Despair]
+    Timeout(id + 0x130, 8.3f, "Lost Hope"); // t=157.6
+    Timeout(id + 0x140, 5.1f, "Mouth Off"); // t=162.7; cactbot StartsUsing 6231 [Vanaspati Terminus Snatcher Mouth Off]
+    Timeout(id + 0x150, 11.8f, "Vitriol"); // t=174.5
+    Timeout(id + 0x160, 9.7f, "Last Gasp"); // t=184.2; cactbot StartsUsing 6235 [Vanaspati Terminus Snatcher Last Gasp]
+    Condition(id + 0x170, 822.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6241), "", 5f, 817.0f); // t=1006.2; StartsUsing 6241 from Terminus Wrecker; cactbot StartsUsing 6241 [Vanaspati Terminus Wrecker Meaningless Destruction]
+    Timeout(id + 0x180, 5.0f, "Meaningless Destruction").SetHint(StateMachine.StateHint.Raidwide); // t=1011.2; Ability 6241 from Terminus Wrecker; cactbot StartsUsing 6241 [Vanaspati Terminus Wrecker Meaningless Destruction]
+    Timeout(id + 0x190, 10.2f, "Unholy Water"); // t=1021.4; Ability 6CCC from Terminus Wrecker
+    Timeout(id + 0x1A0, 5.4f, "Aether Siphon"); // t=1026.8; Ability 623A from Terminus Wrecker
+    Timeout(id + 0x1B0, 9.4f, "Aether Spray (Knockback)").SetHint(StateMachine.StateHint.Knockback); // t=1036.2; Ability 623C from Terminus Wrecker; cactbot StartsUsing 623C [Vanaspati Terminus Wrecker Aether Spray Knockback]
+    Timeout(id + 0x1C0, 12.3f, "Total Wreck").SetHint(StateMachine.StateHint.Tankbuster); // t=1048.5; Ability 6242 from Terminus Wrecker; cactbot StartsUsing 6242 [Vanaspati Terminus Wrecker Total Wreck]
+    Timeout(id + 0x1D0, 5.3f, "Unholy Water"); // t=1053.8; Ability 6CCC from Terminus Wrecker
+    Timeout(id + 0x1E0, 5.4f, "Aether Siphon"); // t=1059.2; Ability 6239 from Terminus Wrecker
+    Timeout(id + 0x1F0, 9.3f, "Aether Spray (Bubble)"); // t=1068.5; Ability 623B from Terminus Wrecker; cactbot StartsUsing 623B [Vanaspati Terminus Wrecker Aether Spray Bubble]
+    Timeout(id + 0x200, 12.2f, "Meaningless Destruction").SetHint(StateMachine.StateHint.Raidwide); // t=1080.7; Ability 6241 from Terminus Wrecker; cactbot StartsUsing 6241 [Vanaspati Terminus Wrecker Meaningless Destruction]
+    Timeout(id + 0x210, 10.3f, "Unholy Water"); // t=1091.0; Ability 6CCC from Terminus Wrecker
+    Timeout(id + 0x220, 5.4f, "Aether Siphon"); // t=1096.4; Ability 623A from Terminus Wrecker
+    Timeout(id + 0x230, 9.4f, "Aether Spray (Knockback)").SetHint(StateMachine.StateHint.Knockback); // t=1105.8; Ability 623C from Terminus Wrecker; cactbot StartsUsing 623C [Vanaspati Terminus Wrecker Aether Spray Knockback]
+    Timeout(id + 0x240, 12.2f, "Poison Heart"); // t=1118.0; Ability 6CCB from Terminus Wrecker
+    Timeout(id + 0x250, 7.2f, "Total Wreck").SetHint(StateMachine.StateHint.Tankbuster); // t=1125.2; Ability 6242 from Terminus Wrecker; cactbot StartsUsing 6242 [Vanaspati Terminus Wrecker Total Wreck]
+    Timeout(id + 0x260, 10.3f, "Unholy Water"); // t=1135.5; Ability 6CCC from Terminus Wrecker
+    Timeout(id + 0x270, 5.4f, "Aether Siphon"); // t=1140.9; Ability 6239 from Terminus Wrecker
+    Timeout(id + 0x280, 9.3f, "Aether Spray (Bubble)"); // t=1150.2; Ability 623B from Terminus Wrecker; cactbot StartsUsing 623B [Vanaspati Terminus Wrecker Aether Spray Bubble]
+    Timeout(id + 0x290, 12.2f, "Meaningless Destruction").SetHint(StateMachine.StateHint.Raidwide); // t=1162.4; Ability 6241 from Terminus Wrecker; cactbot StartsUsing 6241 [Vanaspati Terminus Wrecker Meaningless Destruction]
+    Timeout(id + 0x2A0, 10.3f, "Unholy Water"); // t=1172.7
+    Timeout(id + 0x2B0, 5.4f, "Aether Siphon"); // t=1178.1
+    Timeout(id + 0x2C0, 9.4f, "Aether Spray (Knockback)"); // t=1187.5; cactbot StartsUsing 623C [Vanaspati Terminus Wrecker Aether Spray Knockback]
+    Timeout(id + 0x2D0, 12.2f, "Poison Heart"); // t=1199.7
+    Timeout(id + 0x2E0, 7.2f, "Total Wreck"); // t=1206.9; cactbot StartsUsing 6242 [Vanaspati Terminus Wrecker Total Wreck]
+    Timeout(id + 0x2F0, 10.3f, "Unholy Water"); // t=1217.2
+    Timeout(id + 0x300, 5.4f, "Aether Siphon"); // t=1222.6
+    Timeout(id + 0x310, 9.3f, "Aether Spray (Bubble)"); // t=1231.9; cactbot StartsUsing 623B [Vanaspati Terminus Wrecker Aether Spray Bubble]
+    Condition(id + 0x320, 773.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6252), "", 5f, 768.2f); // t=2005.1; StartsUsing 6252 from Svarbhanu; cactbot StartsUsing 6252 [Vanaspati Svarbanu Flames of Decay]
+    Timeout(id + 0x330, 5.0f, "Flames of Decay").SetHint(StateMachine.StateHint.Raidwide); // t=2010.1; Ability 6252 from Svarbhanu; cactbot StartsUsing 6252 [Vanaspati Svarbanu Flames of Decay]
+    Timeout(id + 0x340, 7.9f, "Chaotic Pulse"); // t=2018.0; Ability 6B61 from Svarbhanu
+    Timeout(id + 0x350, 9.0f, "Aetherial Disruption"); // t=2027.0; Ability 6248 from Svarbhanu; cactbot StartsUsing 6248 [Vanaspati Svarbhanu Aetherial Disruption]
+    Timeout(id + 0x360, 0.9f, "Chaotic Undercurrent"); // t=2027.9; Ability 624A from Svarbhanu
+    Timeout(id + 0x370, 6.7f, "Chaotic Pulse"); // t=2034.6; Ability 6B61 from Svarbhanu
+    Timeout(id + 0x380, 5.1f, "Crumbling Sky"); // t=2039.7; Ability 624E from Svarbhanu
+    Timeout(id + 0x390, 9.1f, "Aetherial Disruption"); // t=2048.8; Ability 6248 from Svarbhanu; cactbot StartsUsing 6248 [Vanaspati Svarbhanu Aetherial Disruption]
+    Timeout(id + 0x3A0, 0.5f, "Cosmic Kiss (Spread)"); // t=2049.3; Ability 6250 from Svarbhanu; cactbot StartsUsing 6250 [Vanaspati Svarbhanu Cosmic Kiss Spread]
+    Timeout(id + 0x3B0, 0.4f, "Chaotic Undercurrent"); // t=2049.7; Ability 624B from Svarbhanu
+    Timeout(id + 0x3C0, 11.4f, "Gnashing of Teeth").SetHint(StateMachine.StateHint.Tankbuster); // t=2061.1; Ability 6253 from Svarbhanu; cactbot StartsUsing 6253 [Vanaspati Svarbhanu Gnashing Of Teeth]
+    Timeout(id + 0x3D0, 7.1f, "Chaotic Pulse"); // t=2068.2; Ability 6B61 from Svarbhanu
+    Timeout(id + 0x3E0, 5.1f, "Crumbling Sky"); // t=2073.3; Ability 624E from Svarbhanu
+    Timeout(id + 0x3F0, 7.1f, "Cosmic Kiss (Knockback)").SetHint(StateMachine.StateHint.Knockback); // t=2080.4; Ability 6251 from Svarbhanu
+    Timeout(id + 0x400, 2.0f, "Aetherial Disruption"); // t=2082.4; Ability 6248 from Svarbhanu; cactbot StartsUsing 6248 [Vanaspati Svarbhanu Aetherial Disruption]
+    Timeout(id + 0x410, 0.9f, "Chaotic Undercurrent"); // t=2083.3; Ability 624A from Svarbhanu
+    Timeout(id + 0x420, 11.1f, "Crumbling Sky"); // t=2094.4; Ability 624E from Svarbhanu
+    Targetable(id + 0x430, false, 2.0f, "--untargetable--"); // t=2096.4
+    Timeout(id + 0x440, 14.3f, "--meteor 1--"); // t=2110.7; Ability 631E from Svarbhanu
+    Timeout(id + 0x450, 3.8f, "Cosmic Kiss"); // t=2114.5; Ability 624F from Svarbhanu; cactbot StartsUsing 6250 [Vanaspati Svarbhanu Cosmic Kiss Spread]
+    Timeout(id + 0x460, 1.3f, "--meteor 2--"); // t=2115.8; Ability 631E from Svarbhanu
+    Timeout(id + 0x470, 3.7f, "Cosmic Kiss"); // t=2119.5; Ability 624F from Svarbhanu; cactbot StartsUsing 6250 [Vanaspati Svarbhanu Cosmic Kiss Spread]
+    Timeout(id + 0x480, 1.4f, "--meteor 3--"); // t=2120.9; Ability 631E from Svarbhanu
+    Timeout(id + 0x490, 2.6f, "Cosmic Kiss"); // t=2123.5; Ability 624F from Svarbhanu; cactbot StartsUsing 6250 [Vanaspati Svarbhanu Cosmic Kiss Spread]
+    Targetable(id + 0x4A0, true, 1.6f, "--targetable--"); // t=2125.1
+    Timeout(id + 0x4B0, 11.1f, "Flames of Decay").SetHint(StateMachine.StateHint.Raidwide); // t=2136.2; Ability 6252 from Svarbhanu; cactbot StartsUsing 6252 [Vanaspati Svarbanu Flames of Decay]
+    Timeout(id + 0x4C0, 7.2f, "Chaotic Pulse"); // t=2143.4; Ability 6B61 from Svarbhanu
+    Timeout(id + 0x4D0, 5.1f, "Crumbling Sky"); // t=2148.5; Ability 624E from Svarbhanu
+    Timeout(id + 0x4E0, 7.1f, "Cosmic Kiss (Knockback)").SetHint(StateMachine.StateHint.Knockback); // t=2155.6; Ability 6251 from Svarbhanu
+    Timeout(id + 0x4F0, 2.0f, "Aetherial Disruption"); // t=2157.6; Ability 6248 from Svarbhanu; cactbot StartsUsing 6248 [Vanaspati Svarbhanu Aetherial Disruption]
+    Timeout(id + 0x500, 0.9f, "Chaotic Undercurrent"); // t=2158.5; Ability 624A from Svarbhanu
+    Timeout(id + 0x510, 1.1f, "Cosmic Kiss (Spread)"); // t=2159.6; Ability 6250 from Svarbhanu; cactbot StartsUsing 6250 [Vanaspati Svarbhanu Cosmic Kiss Spread]
+    Timeout(id + 0x520, 10.2f, "Gnashing of Teeth").SetHint(StateMachine.StateHint.Tankbuster); // t=2169.8; Ability 6253 from Svarbhanu; cactbot StartsUsing 6253 [Vanaspati Svarbhanu Gnashing Of Teeth]
+    Timeout(id + 0x530, 17.9f, "Flames of Decay").SetHint(StateMachine.StateHint.Raidwide); // t=2187.7; Ability 6252 from Svarbhanu; cactbot StartsUsing 6252 [Vanaspati Svarbanu Flames of Decay]
+    Timeout(id + 0x540, 7.2f, "Chaotic Pulse"); // t=2194.9
+    Timeout(id + 0x550, 5.1f, "Crumbling Sky"); // t=2200.0
+    Timeout(id + 0x560, 7.1f, "Cosmic Kiss (Knockback)"); // t=2207.1
+    Timeout(id + 0x570, 2.0f, "Aetherial Disruption"); // t=2209.1; cactbot StartsUsing 6248 [Vanaspati Svarbhanu Aetherial Disruption]
+    Timeout(id + 0x580, 0.9f, "Chaotic Undercurrent"); // t=2210.0
+    Timeout(id + 0x590, 1.1f, "Cosmic Kiss (Spread)"); // t=2211.1; cactbot StartsUsing 6250 [Vanaspati Svarbhanu Cosmic Kiss Spread]
+    Timeout(id + 0x5A0, 10.2f, "Gnashing of Teeth"); // t=2221.3; cactbot StartsUsing 6253 [Vanaspati Svarbhanu Gnashing Of Teeth]
+}
+

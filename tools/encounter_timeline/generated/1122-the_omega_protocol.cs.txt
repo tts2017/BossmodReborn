@@ -1,0 +1,242 @@
+// Generated development skeleton from the_omega_protocol.txt (TerritoryType 1122).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 64 static/dynamic trigger definitions from ui/raidboss/data/06-ew/ultimate/the_omega_protocol.ts.
+
+private void The_Omega_Protocol(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void P1__Beetle(uint id)
+{
+    Condition(id + 0x0, 11.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7B03), "", 5f, 6.0f); // t=11.0; StartsUsing 7B03 from Omega; cactbot StartsUsing 7B03/7B0B [TOP In Line Debuff Cleanup]
+    Timeout(id + 0x10, 4.0f, "Program Loop"); // t=15.0; Ability 7B03 from Omega; cactbot StartsUsing 7B03/7B0B [TOP In Line Debuff Cleanup]
+    Condition(id + 0x20, 6.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7B07), "", 5f, 1.0f); // t=21.0; StartsUsing 7B07 from Omega; cactbot StartsUsing 7B07 [TOP Program Loop First Debuffs]
+    Timeout(id + 0x30, 8.1f, "Storage Violation 1 / Blaster 1"); // t=29.1; Ability 7B04 from Omega | Ability 7B08 from Omega; cactbot Ability 7B08 [TOP Program Loop Other Debuffs] | Ability 7B04 [TOP P5 Sigma Debuffs]
+    Timeout(id + 0x40, 9.0f, "Storage Violation 2 / Blaster 2"); // t=38.1; Ability 7B04 from Omega | Ability 7B08 from Omega; cactbot Ability 7B08 [TOP Program Loop Other Debuffs] | Ability 7B04 [TOP P5 Sigma Debuffs]
+    Timeout(id + 0x50, 9.0f, "Storage Violation 3 / Blaster 3"); // t=47.1; Ability 7B04 from Omega | Ability 7B08 from Omega; cactbot Ability 7B08 [TOP Program Loop Other Debuffs] | Ability 7B04 [TOP P5 Sigma Debuffs]
+    Timeout(id + 0x60, 9.0f, "Storage Violation 4 / Blaster 4"); // t=56.1; Ability 7B04 from Omega | Ability 7B09 from Omega; cactbot Ability 7B04 [TOP P5 Sigma Debuffs]
+    Condition(id + 0x70, 8.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7B0B), "", 5f, 3.1f); // t=64.2; StartsUsing 7B0B from Omega; cactbot StartsUsing 7B03/7B0B [TOP In Line Debuff Cleanup]
+    Timeout(id + 0x80, 5.0f, "Pantokrator"); // t=69.2; Ability 7B0B from Omega; cactbot StartsUsing 7B03/7B0B [TOP In Line Debuff Cleanup]
+    Timeout(id + 0x90, 6.1f, "Flame Thrower"); // t=75.3; Ability 7B0D from Omega; cactbot StartsUsing 7B0D [TOP Pantokrator First Debuffs]
+    Timeout(id + 0xA0, 6.0f, "Condensed Wave Cannon Kyrios 1 / Guided Missile Kyrios 1"); // t=81.3; Ability 7B0F from Omega | Ability 7B0E from Omega; cactbot Ability 7B0E [TOP Pantokrator Other Debuffs]
+    Timeout(id + 0xB0, 6.0f, "Condensed Wave Cannon Kyrios 2 / Guided Missile Kyrios 2"); // t=87.3; Ability 7B0F from Omega | Ability 7B0E from Omega; cactbot Ability 7B0E [TOP Pantokrator Other Debuffs]
+    Timeout(id + 0xC0, 6.0f, "Condensed Wave Cannon Kyrios 3 / Guided Missile Kyrios 3"); // t=93.3; Ability 7B0F from Omega | Ability 7B0E from Omega; cactbot Ability 7B0E [TOP Pantokrator Other Debuffs]
+    Timeout(id + 0xD0, 6.0f, "Condensed Wave Cannon Kyrios 4 / Guided Missile Kyrios 4"); // t=99.3; Ability 7B0F from Omega | Ability 7B0E from Omega; cactbot Ability 7B0E [TOP Pantokrator Other Debuffs]
+    Timeout(id + 0xE0, 8.7f, "Diffuse Wave Cannon Kyrios x5 / Wave Cannon Kyrios 1"); // t=108.0; Ability 7B11 from Omega
+    Timeout(id + 0xF0, 8.8f, "Wave Cannon Kyrios 2"); // t=116.8; Ability 7B11 from Omega
+    Condition(id + 0x100, 5.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7AF8), "", 5f, 0.9f); // t=122.7; StartsUsing 7AF8 from Omega
+    Timeout(id + 0x110, 5.0f, "Atomic Ray Enrage"); // t=127.7; Ability 7AF8 from Omega
+}
+
+private void P2__M_F(uint id)
+{
+    Targetable(id + 0x0, true, 2.3f, "--targetable--"); // t=202.3
+    Condition(id + 0x10, 1.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7B40), "", 5f, 0.0f); // t=203.4; StartsUsing 7B40 from Omega; cactbot StartsUsing 7B40/8014/8015 [TOP Phase Tracker]
+    Timeout(id + 0x20, 3.0f, "Firewall"); // t=206.4; Ability 7B40 from Omega; cactbot StartsUsing 7B40/8014/8015 [TOP Phase Tracker]
+    Timeout(id + 0x30, 8.1f, "Solar Ray"); // t=214.5; Ability 7E6A from Omega; cactbot StartsUsing 7E6A/7E6B [TOP Solar Ray You]
+    Timeout(id + 0x40, 16.4f, "Party Synergy"); // t=230.9; Ability 7B3E from Omega; cactbot Ability 7B3E [TOP Party Synergy]
+    Targetable(id + 0x50, false, 3.0f, "--untargetable--"); // t=233.9
+    Timeout(id + 0x60, 7.4f, "Superliminal Steel/Optimized Blizzard III / Efficient Bladework/Beyond Strength"); // t=241.3; Ability 7B2A/7B2D from Omega-F | Ability 7B25/7B26 from Omega-M
+    Timeout(id + 0x70, 6.4f, "Optimized Fire III"); // t=247.7; Ability 7B2F from Omega
+    Timeout(id + 0x80, 0.3f, "Optical Laser"); // t=248.0; Ability 7B21 from Optical Unit
+    Timeout(id + 0x90, 6.9f, "Discharger"); // t=254.9; Ability 7B2E from Omega; cactbot Ability 7B2E [TOP Sigma Superliminal/Blizzard]
+    Timeout(id + 0xA0, 4.2f, "Spotlight x2 / Efficient Bladework"); // t=259.1; Ability 7B30 from Omega-M | Ability 7B26 from Omega-M
+    Targetable(id + 0xB0, true, 3.0f, "--targetable--"); // t=262.1
+    Timeout(id + 0xC0, 10.1f, "Synthetic Shield"); // t=272.2; Ability 7E71 from Omega
+    Timeout(id + 0xD0, 10.2f, "Limitless Synergy"); // t=282.4; Ability 7B38 from Omega
+    Timeout(id + 0xE0, 5.0f, "Optimized Passage of Arms"); // t=287.4; Ability 7B44 from Omega
+    Timeout(id + 0xF0, 1.2f, "Synthetic Shield"); // t=288.6; Ability 7E71 from Omega-M
+    Timeout(id + 0x100, 7.0f, "Optimized Bladedance x2"); // t=295.6; Ability 7B34 from Omega-M
+    Timeout(id + 0x110, 0.1f, "Optimized Sagittarius Arrow"); // t=295.7; Ability 7B33 from Omega-M
+    Timeout(id + 0x120, 11.0f, "Beyond Defense"); // t=306.7; Ability 7B27 from Omega-M; cactbot Ability 7B28 [TOP Beyond Defense]
+    Timeout(id + 0x130, 3.0f, "Optimized Meteor"); // t=309.7; Ability 7B31 from Omega-F; cactbot HeadMarker [TOP Optimized Meteor]
+    Timeout(id + 0x140, 0.3f, "Pile Pitch"); // t=310.0; Ability 7B29 from Omega-M
+    Timeout(id + 0x150, 8.8f, "Cosmo Memory").SetHint(StateMachine.StateHint.Raidwide); // t=318.8; Ability 7B22 from Omega-M; cactbot StartsUsing 7B22 [TOP P2 Cosmo Memory]
+    Timeout(id + 0x160, 28.6f, "Laser Shower Enrage"); // t=347.4; Ability 7B45 from Omega
+}
+
+private void P3___Final__Omega(uint id)
+{
+    Timeout(id + 0x0, 14.3f, "Wave Repeater 1"); // t=414.3; Ability 7B4F from Omega
+    Timeout(id + 0x10, 2.1f, "Wave Repeater 2"); // t=416.4; Ability 7B50 from Omega
+    Timeout(id + 0x20, 2.0f, "Wave Repeater 3"); // t=418.4; Ability 7B51 from Omega
+    Timeout(id + 0x30, 2.0f, "Wave Repeater 4"); // t=420.4; Ability 7B52 from Omega
+    Timeout(id + 0x40, 2.0f, "Wave Repeater 1"); // t=422.4; Ability 7B4F from Omega
+    Timeout(id + 0x50, 2.1f, "Wave Repeater 2"); // t=424.5; Ability 7B50 from Omega
+    Timeout(id + 0x60, 1.9f, "Colossal Blow"); // t=426.4; Ability 7B4E from Left Arm Unit/Right Arm Unit
+    Timeout(id + 0x70, 0.2f, "Wave Repeater 3"); // t=426.6; Ability 7B51 from Omega
+    Timeout(id + 0x80, 0.7f, "High-powered Sniper Cannon x2"); // t=427.3
+    Timeout(id + 0x90, 1.1f, "Sniper Cannon x4"); // t=428.4
+    Timeout(id + 0xA0, 0.3f, "Wave Repeater 4"); // t=428.7; Ability 7B52 from Omega
+    Timeout(id + 0xB0, 0.2f, "Colossal Blow"); // t=428.9; Ability 7B4E from Left Arm Unit/Right Arm Unit
+    Targetable(id + 0xC0, true, 3.4f, "--targetable--"); // t=432.3
+    Condition(id + 0xD0, 4.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7B55), "", 5f, 0.0f); // t=436.3; StartsUsing 7B55 from Omega
+    Timeout(id + 0xE0, 5.0f, "Hello, World"); // t=441.3; Ability 7B55 from Omega
+    Condition(id + 0xF0, 14.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7B6F), "", 5f, 9.1f); // t=455.4; StartsUsing 7B6F from Omega; cactbot StartsUsing 7B6F [TOP Latent Defect Tower]
+    Timeout(id + 0x100, 9.0f, "Latent Defect 1"); // t=464.4; Ability 7B6F from Omega; cactbot StartsUsing 7B6F [TOP Latent Defect Tower]
+    Timeout(id + 0x110, 2.5f, "Patch x2"); // t=466.9
+    Condition(id + 0x120, 9.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7B6F), "", 5f, 4.5f); // t=476.4; StartsUsing 7B6F from Omega; cactbot StartsUsing 7B6F [TOP Latent Defect Tower]
+    Timeout(id + 0x130, 9.0f, "Latent Defect 2"); // t=485.4; Ability 7B6F from Omega; cactbot StartsUsing 7B6F [TOP Latent Defect Tower]
+    Timeout(id + 0x140, 2.5f, "Patch x2"); // t=487.9
+    Condition(id + 0x150, 9.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7B6F), "", 5f, 4.6f); // t=497.5; StartsUsing 7B6F from Omega; cactbot StartsUsing 7B6F [TOP Latent Defect Tower]
+    Timeout(id + 0x160, 9.0f, "Latent Defect 3"); // t=506.5; Ability 7B6F from Omega; cactbot StartsUsing 7B6F [TOP Latent Defect Tower]
+    Timeout(id + 0x170, 2.5f, "Patch x2"); // t=509.0
+    Condition(id + 0x180, 9.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7B6F), "", 5f, 4.8f); // t=518.8; StartsUsing 7B6F from Omega; cactbot StartsUsing 7B6F [TOP Latent Defect Tower]
+    Timeout(id + 0x190, 8.7f, "Patch"); // t=527.5
+    Timeout(id + 0x1A0, 0.3f, "Latent Defect 4"); // t=527.8; Ability 7B6F from Omega; cactbot StartsUsing 7B6F [TOP Latent Defect Tower]
+    Timeout(id + 0x1B0, 5.7f, "Patch"); // t=533.5
+    Condition(id + 0x1C0, 8.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7B64), "", 5f, 3.6f); // t=542.1; StartsUsing 7B64 from Omega
+    Timeout(id + 0x1D0, 8.0f, "Critical Error"); // t=550.1; Ability 7B64 from Omega
+    Timeout(id + 0x1E0, 21.3f, "Oversampled Wave Cannon"); // t=571.4; Ability 7B6B/7B6C from Omega; cactbot StartsUsing 7B6B [TOP Oversampled Wave Cannon East] | StartsUsing 7B6C [TOP Oversampled Wave Cannon West]
+    Condition(id + 0x1F0, 6.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7B48), "", 5f, 1.0f); // t=577.4; StartsUsing 7B48 from Omega
+    Timeout(id + 0x200, 10.0f, "Ion Efflux Enrage"); // t=587.4; Ability 7B48 from Omega
+}
+
+private void P4__Blue_Screen(uint id)
+{
+    Targetable(id + 0x0, false, 0.0f, "--untargetable--"); // t=600.0
+    Targetable(id + 0x10, true, 7.1f, "--targetable--"); // t=607.1
+    Timeout(id + 0x20, 14.3f, "Wave Cannon A"); // t=621.4; Ability 7B81 from Omega
+    Timeout(id + 0x30, 5.3f, "Wave Cannon B"); // t=626.7; Ability 7F16 from Omega
+    Timeout(id + 0x40, 0.3f, "Wave Cannon (stacks)"); // t=627.0; Ability 7B7F from Omega
+    Timeout(id + 0x50, 2.4f, "Wave Repeater 1"); // t=629.4; Ability 7B4F from Omega
+    Timeout(id + 0x60, 2.1f, "Wave Repeater 2 / Wave Cannon A"); // t=631.5; Ability 7B50 from Omega | Ability 7F16 from Omega
+    Timeout(id + 0x70, 2.0f, "Wave Repeater 3"); // t=633.5; Ability 7B51 from Omega
+    Timeout(id + 0x80, 2.0f, "Wave Repeater 4"); // t=635.5; Ability 7B52 from Omega
+    Timeout(id + 0x90, 1.1f, "Wave Cannon B"); // t=636.6; Ability 7B82 from Omega
+    Timeout(id + 0xA0, 0.2f, "Wave Cannon (stacks)"); // t=636.8; Ability 7B7F from Omega
+    Timeout(id + 0xB0, 4.8f, "Wave Cannon A"); // t=641.6; Ability 7B83 from Omega
+    Timeout(id + 0xC0, 5.0f, "Wave Repeater 1"); // t=646.6; Ability 7B4F from Omega
+    Timeout(id + 0xD0, 0.1f, "Wave Cannon B"); // t=646.7; Ability 7B84 from Omega
+    Timeout(id + 0xE0, 0.2f, "Wave Cannon (stacks)"); // t=646.9; Ability 7B7F from Omega
+    Timeout(id + 0xF0, 1.7f, "Wave Repeater 2"); // t=648.6; Ability 7B50 from Omega
+    Timeout(id + 0x100, 2.0f, "Wave Repeater 3"); // t=650.6; Ability 7B51 from Omega
+    Timeout(id + 0x110, 2.0f, "Wave Repeater 4"); // t=652.6; Ability 7B52 from Omega
+    Timeout(id + 0x120, 9.0f, "Blue Screen Enrage"); // t=661.6; Ability 7B7B from Omega
+    Targetable(id + 0x130, false, 0.0f, "--untargetable--"); // t=661.6
+}
+
+private void P5__Run__Dynamis(uint id)
+{
+    Targetable(id + 0x0, true, 15.6f, "--targetable--"); // t=715.6
+    Timeout(id + 0x10, 8.0f, "Solar Ray 1"); // t=723.6; Ability 81AC from Omega-M
+    Timeout(id + 0x20, 3.2f, "Solar Ray 2"); // t=726.8; Ability 7B01 from Omega-M
+    Timeout(id + 0x30, 13.2f, "Run: ****mi* (Delta Version)"); // t=740.0; Ability 7B88 from Omega-M
+    Targetable(id + 0x40, false, 3.0f, "--untargetable--"); // t=743.0
+    Timeout(id + 0x50, 7.2f, "Peripheral Synthesis"); // t=750.2; Ability 7B8C from Omega
+    Timeout(id + 0x60, 3.0f, "Archive Peripheral"); // t=753.2; Ability 7F76 from Omega
+    Timeout(id + 0x70, 8.0f, "Patch"); // t=761.2
+    Timeout(id + 0x80, 2.0f, "Optical Laser"); // t=763.2; Ability 7B21 from Optical Unit
+    Timeout(id + 0x90, 1.7f, "Patch"); // t=764.9
+    Timeout(id + 0xA0, 1.5f, "Explosion"); // t=766.4; Ability 7AFA from Rocket Punch
+    Timeout(id + 0xB0, 2.1f, "Beyond Defense"); // t=768.5; Ability 7B27 from Omega-M; cactbot Ability 7B28 [TOP Beyond Defense]
+    Timeout(id + 0xC0, 2.6f, "Hyper Pulse"); // t=771.1; Ability 7B70 from Right Arm Unit
+    Timeout(id + 0xD0, 0.7f, "Hyper Pulse"); // t=771.8
+    Timeout(id + 0xE0, 0.6f, "Hyper Pulse"); // t=772.4
+    Timeout(id + 0xF0, 0.6f, "Hyper Pulse"); // t=773.0
+    Timeout(id + 0x100, 0.6f, "Hyper Pulse / Oversampled Wave Cannon"); // t=773.6; Ability 7B6D from Omega; cactbot Ability 7B6D [TOP P5 Delta Debuffs]
+    Timeout(id + 0x110, 0.4f, "Pile Pitch / Hyper Pulse"); // t=774.0; Ability 7B29 from Omega-M
+    Timeout(id + 0x120, 8.0f, "Patch"); // t=782.0
+    Timeout(id + 0x130, 2.0f, "Patch"); // t=784.0
+    Timeout(id + 0x140, 2.4f, "Swivel Cannon"); // t=786.4; Ability 7B94/7B95 from Omega; cactbot StartsUsing 7B94/7B95 [TOP Swivel Cannon]
+    Timeout(id + 0x150, 0.6f, "Hello, Distant World 1 / Hello, Near World 1"); // t=787.0; Ability 8110 from Omega-M | Ability 7B89 from Omega-M
+    Timeout(id + 0x160, 1.0f, "Hello, Distant World 2 / Hello, Near World 2"); // t=788.0
+    Timeout(id + 0x170, 1.0f, "Hello, Distant World 3 / Hello, Near World 3"); // t=789.0
+    Targetable(id + 0x180, true, 2.1f, "--targetable--"); // t=791.1
+    Timeout(id + 0x190, 14.1f, "Solar Ray 1"); // t=805.2; Ability 81AC from Omega-M
+    Timeout(id + 0x1A0, 3.3f, "Solar Ray 2"); // t=808.5; Ability 7B01 from Omega-M
+    Timeout(id + 0x1B0, 13.2f, "Run: ****mi* (Sigma Version)"); // t=821.7; Ability 8014 from Omega-M; cactbot StartsUsing 7B40/8014/8015 [TOP Phase Tracker] | Ability 8014 [TOP Sigma Omega-M Location]
+    Targetable(id + 0x1C0, false, 3.0f, "--untargetable--"); // t=824.7
+    Timeout(id + 0x1D0, 14.3f, "Subject Simulation F"); // t=839.0; Ability 7F2F from Omega-M
+    Timeout(id + 0x1E0, 1.4f, "Program Loop"); // t=840.4; Ability 7B98 from Omega; cactbot StartsUsing 7B07 [TOP Program Loop First Debuffs] | Ability 7B08 [TOP Program Loop Other Debuffs]
+    Timeout(id + 0x1F0, 3.4f, "Hyper Pulse"); // t=843.8; Ability 7B72 from Right Arm Unit
+    Timeout(id + 0x200, 0.2f, "Wave Cannon"); // t=844.0; Ability 7B73 from Omega; cactbot HeadMarker [TOP Diffuse Wave Cannon Kyrios] | HeadMarker [TOP Wave Cannon Kyrios] | GainsEffect D7C/D7D [TOP Oversampled Wave Cannon Loading] | Ability 5779 [TOP Wave Cannon Stack Collector] | Ability 5779 [TOP Wave Cannon Stack]
+    Timeout(id + 0x210, 8.4f, "Discharger"); // t=852.4; Ability 7B2E from Omega-M; cactbot Ability 7B2E [TOP Sigma Superliminal/Blizzard]
+    Timeout(id + 0x220, 4.0f, "Storage Violation x5 / Storage Violation x6"); // t=856.4
+    Timeout(id + 0x230, 14.2f, "Rear Lasers x14"); // t=870.6; Ability 7B8F from Rear Power Unit
+    Timeout(id + 0x240, 3.1f, "Superliminal Steel/Optimized Blizzard III"); // t=873.7; Ability 7B2A/7B2D from Omega-M
+    Timeout(id + 0x250, 6.9f, "Hello, Near World 1 / Hello, Distant World 1 / Hyper Pulse"); // t=880.6; Ability 7B89 from Omega-F | Ability 8110 from Omega-F | Ability 7B72 from Right Arm Unit
+    Timeout(id + 0x260, 1.0f, "Hello, Near World 2 / Hello, Distant World 2"); // t=881.6
+    Timeout(id + 0x270, 1.0f, "Hello, Near World 3 / Hello, Distant World 3"); // t=882.6
+    Targetable(id + 0x280, true, 2.7f, "--targetable--"); // t=885.3
+    Timeout(id + 0x290, 9.0f, "Solar Ray 1"); // t=894.3; Ability 81AD from Omega-M
+    Timeout(id + 0x2A0, 3.1f, "Solar Ray 2"); // t=897.4; Ability 7B02 from Omega-M
+    Timeout(id + 0x2B0, 13.3f, "Run: ****mi* (Omega Version)"); // t=910.7; Ability 8015 from Omega-M; cactbot StartsUsing 7B40/8014/8015 [TOP Phase Tracker] | Ability 8015 [TOP Omega Pre-Safe Spot]
+    Timeout(id + 0x2C0, 17.1f, "Diffuse Wave Cannon"); // t=927.8; Ability 7B9B/7B9C from Omega; cactbot StartsUsing 7B9B/7B9C [TOP Omega Safe Spots] | StartsUsing 7B9B/7B9C [TOP Omega Safe Spot 2 Reminder]
+    Timeout(id + 0x2D0, 4.1f, "Diffuse Wave Cannon"); // t=931.9; Ability 7B78/7B77 from Omega; cactbot HeadMarker [TOP Diffuse Wave Cannon Kyrios]
+    Targetable(id + 0x2E0, false, 3.7f, "--untargetable--"); // t=935.6
+    Timeout(id + 0x2F0, 9.8f, "Hello, Distant World 1 / Hello, Near World 1"); // t=945.4; Ability 8110 from Omega-F | Ability 7B89 from Omega-F
+    Timeout(id + 0x300, 0.4f, "Oversampled Wave Cannon"); // t=945.8; Ability 7B6D from Omega; cactbot Ability 7B6D [TOP P5 Delta Debuffs]
+    Timeout(id + 0x310, 0.6f, "Hello, Distant World 2 / Hello, Near World 2"); // t=946.4
+    Timeout(id + 0x320, 1.0f, "Hello, Distant World 3 / Hello, Near World 3"); // t=947.4
+    Timeout(id + 0x330, 14.2f, "Blaster x2"); // t=961.6; Ability 7E75 from Omega-F
+    Timeout(id + 0x340, 1.8f, "Hello, Distant World 1 / Hello, Near World 1"); // t=963.4; Ability 8110 from Omega-F | Ability 7B89 from Omega-F
+    Timeout(id + 0x350, 1.0f, "Hello, Distant World 2 / Hello, Near World 2"); // t=964.4
+    Timeout(id + 0x360, 1.0f, "Hello, Distant World 3 / Hello, Near World 3"); // t=965.4
+    Targetable(id + 0x370, true, 2.3f, "--targetable--"); // t=967.7
+    Timeout(id + 0x380, 9.1f, "Solar Ray 1"); // t=976.8; Ability 81AD from Omega-M
+    Timeout(id + 0x390, 3.1f, "Solar Ray 2"); // t=979.9; Ability 7B02 from Omega-M
+    Timeout(id + 0x3A0, 18.6f, "Blind Faith"); // t=998.5; Ability 7B87 from Omega-M
+    Timeout(id + 0x3B0, 1.2f, "Blind Faith Enrage"); // t=999.7; Ability 7F73 from Omega-F
+}
+
+private void P6__Alpha_Omega(uint id)
+{
+    Targetable(id + 0x0, true, 54.7f, "--targetable--"); // t=1154.7
+    Timeout(id + 0x10, 13.1f, "Cosmo Memory"); // t=1167.8; Ability 7BA1 from Alpha Omega; cactbot StartsUsing 7BA1 [TOP P6 Cosmo Memory]
+    Timeout(id + 0x20, 5.0f, "Flash Gale 1"); // t=1172.8; Ability 7DDF from Omega-F
+    Timeout(id + 0x30, 3.2f, "Flash Gale 2"); // t=1176.0; Ability 7DDF from Alpha Omega
+    Timeout(id + 0x40, 6.2f, "Cosmo Arrow"); // t=1182.2; Ability 7BA2 from Alpha Omega; cactbot StartsUsing 7BA3 [TOP Cosmo Arrow In/Out Collect] | StartsUsing 7BA3 [TOP Cosmo Arrow In/Out First] | Ability 7BA3 [TOP Cosmo Arrow In/Out Wait] | Ability 7BA4 [TOP Cosmo Arrow Dodges]
+    Timeout(id + 0x50, 14.7f, "Cosmo Dive"); // t=1196.9; Ability 7BA6 from Alpha Omega; cactbot StartsUsing 7BA6 [TOP Cosmo Dive]
+    Timeout(id + 0x60, 2.4f, "Cosmo Dive Far / Cosmo Dive Near x2"); // t=1199.3
+    Timeout(id + 0x70, 7.7f, "Flash Gale 1"); // t=1207.0; Ability 7DDF from Alpha Omega
+    Timeout(id + 0x80, 3.2f, "Flash Gale 2"); // t=1210.2; Ability 7DDF from Alpha Omega
+    Timeout(id + 0x90, 5.2f, "Unlimited Wave Cannon"); // t=1215.4; Ability 7BAC from Alpha Omega; cactbot StartsUsing 7BAC [TOP Unlimited Wave Cannon] | StartsUsing 7BAC [TOP Unlimited Wave Cannon Dodges]
+    Timeout(id + 0xA0, 8.0f, "Wave Cannon Puddle 1"); // t=1223.4
+    Timeout(id + 0xB0, 1.8f, "Wave Cannon Puddle 2"); // t=1225.2
+    Timeout(id + 0xC0, 1.9f, "Wave Cannon Puddle 3"); // t=1227.1
+    Timeout(id + 0xD0, 1.9f, "Wave Cannon Puddle 4"); // t=1229.0
+    Timeout(id + 0xE0, 1.9f, "Wave Cannon Puddle 5"); // t=1230.9
+    Timeout(id + 0xF0, 2.0f, "Wave Cannon Puddle 6"); // t=1232.9
+    Timeout(id + 0x100, 3.1f, "Wave Cannon 1"); // t=1236.0
+    Timeout(id + 0x110, 2.0f, "Wave Cannon 2"); // t=1238.0
+    Timeout(id + 0x120, 6.3f, "Wave Cannon (Wild Charge)"); // t=1244.3; cactbot StartsUsing 7BA9 [TOP Wave Cannon Wild Charge]
+    Timeout(id + 0x130, 5.0f, "Flash Gale 1"); // t=1249.3; Ability 7DDF from Alpha Omega
+    Timeout(id + 0x140, 3.2f, "Flash Gale 2"); // t=1252.5; Ability 7DDF from Alpha Omega
+    Timeout(id + 0x150, 6.2f, "Cosmo Arrow"); // t=1258.7; Ability 7BA2 from Alpha Omega; cactbot StartsUsing 7BA3 [TOP Cosmo Arrow In/Out Collect] | StartsUsing 7BA3 [TOP Cosmo Arrow In/Out First] | Ability 7BA3 [TOP Cosmo Arrow In/Out Wait] | Ability 7BA4 [TOP Cosmo Arrow Dodges]
+    Timeout(id + 0x160, 11.2f, "Wave Cannon 1"); // t=1269.9
+    Timeout(id + 0x170, 2.0f, "Wave Cannon 2"); // t=1271.9
+    Timeout(id + 0x180, 6.3f, "Wave Cannon (Wild Charge)"); // t=1278.2; cactbot StartsUsing 7BA9 [TOP Wave Cannon Wild Charge]
+    Timeout(id + 0x190, 5.0f, "Flash Gale 1"); // t=1283.2; Ability 7DDF from Alpha Omega
+    Timeout(id + 0x1A0, 3.2f, "Flash Gale 2"); // t=1286.4; Ability 7DDF from Alpha Omega
+    Timeout(id + 0x1B0, 5.3f, "Unlimited Wave Cannon"); // t=1291.7; Ability 7BAC from Alpha Omega; cactbot StartsUsing 7BAC [TOP Unlimited Wave Cannon] | StartsUsing 7BAC [TOP Unlimited Wave Cannon Dodges]
+    Timeout(id + 0x1C0, 8.0f, "Wave Cannon Puddle 1"); // t=1299.7
+    Timeout(id + 0x1D0, 1.8f, "Wave Cannon Puddle 2"); // t=1301.5
+    Timeout(id + 0x1E0, 1.9f, "Wave Cannon Puddle 3"); // t=1303.4
+    Timeout(id + 0x1F0, 1.9f, "Wave Cannon Puddle 4"); // t=1305.3
+    Timeout(id + 0x200, 1.9f, "Wave Cannon Puddle 5"); // t=1307.2
+    Timeout(id + 0x210, 2.0f, "Wave Cannon Puddle 6"); // t=1309.2
+    Timeout(id + 0x220, 0.8f, "Cosmo Dive"); // t=1310.0; Ability 7BA6 from Alpha Omega; cactbot StartsUsing 7BA6 [TOP Cosmo Dive]
+    Timeout(id + 0x230, 2.4f, "Cosmo Dive Far / Cosmo Dive Near x2"); // t=1312.4
+    Timeout(id + 0x240, 7.7f, "Flash Gale 1"); // t=1320.1; Ability 7DDF from Alpha Omega
+    Timeout(id + 0x250, 3.1f, "Flash Gale 2"); // t=1323.2; Ability 7DDF from Alpha Omega
+    Timeout(id + 0x260, 8.4f, "Cosmo Meteor"); // t=1331.6; Ability 7BB0 from Alpha Omega; cactbot StartsUsing 7BB0 [TOP Cosmo Meteor]
+    Timeout(id + 0x270, 4.0f, "Cosmo Meteor Baits"); // t=1335.6; Ability 7BB2 from Alpha Omega
+    Timeout(id + 0x280, 1.1f, "Cosmo Meteor 1 x4"); // t=1336.7
+    Timeout(id + 0x290, 1.0f, "Cosmo Meteor 2 x4"); // t=1337.7
+    Timeout(id + 0x2A0, 1.6f, "--adds targetable--"); // t=1339.3
+    Timeout(id + 0x2B0, 3.4f, "Cosmo Meteor 1 x4"); // t=1342.7
+    Timeout(id + 0x2C0, 1.0f, "Cosmo Meteor 2 x4"); // t=1343.7
+    Timeout(id + 0x2D0, 11.0f, "Cosmo Meteor Stack / Cosmo Meteor Flare x3"); // t=1354.7; Ability 7BB3 from Alpha Omega | Ability 7BB4 from Alpha Omega
+    Timeout(id + 0x2E0, 1.0f, "Cosmo Meteor"); // t=1355.7; Ability 7BB1 from Alpha Omega; cactbot StartsUsing 7BB0 [TOP Cosmo Meteor]
+    Timeout(id + 0x2F0, 1.3f, "Cosmo Meteor Enrage"); // t=1357.0; Ability 7BB5 from Cosmo Meteor
+    Condition(id + 0x300, 4.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7BB6), "", 5f, 0.0f); // t=1361.7; StartsUsing 7BB6 from Alpha Omega
+    Timeout(id + 0x310, 5.0f, "Magic Number"); // t=1366.7; Ability 7BB6 from Alpha Omega
+    Condition(id + 0x320, 11.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7BB6), "", 5f, 6.1f); // t=1377.8; StartsUsing 7BB6 from Alpha Omega
+    Timeout(id + 0x330, 5.0f, "Magic Number"); // t=1382.8; Ability 7BB6 from Alpha Omega
+    Condition(id + 0x340, 9.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7BA0), "", 5f, 4.1f); // t=1391.9; StartsUsing 7BA0 from Alpha Omega
+    Timeout(id + 0x350, 30.0f, "Run: ****mi* Enrage"); // t=1421.9; Ability 7BA0 from Alpha Omega
+}
+

@@ -1,0 +1,87 @@
+// Generated development skeleton from smileton.txt (TerritoryType 976).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 16 static/dynamic trigger definitions from ui/raidboss/data/06-ew/dungeon/smileton.ts.
+
+private void Smileton(uint id)
+{
+    Timeout(id + 0x0, 1009.0f, "Lines of Fire"); // t=1009.0; Ability 6735 from Face
+    Timeout(id + 0x10, 9.1f, "Mixed Feelings"); // t=1018.1; Ability 6738 from Face; cactbot StartsUsing 6738 [Smileton Face MixedFeelings]
+    Timeout(id + 0x20, 5.1f, "Lines of Fire"); // t=1023.2; Ability 6735 from Face
+    Timeout(id + 0x30, 9.1f, "Mixed Feelings"); // t=1032.3; Ability 6738 from Face; cactbot StartsUsing 6738 [Smileton Face MixedFeelings]
+    Timeout(id + 0x40, 11.1f, "Off My Lawn"); // t=1043.4; Ability 673E from Face; cactbot StartsUsing 673E [Smileton Face Off My Lawn]
+    Timeout(id + 0x50, 1.0f, "Temper, Temper"); // t=1044.4; Ability 6740 from Face
+    Timeout(id + 0x60, 10.2f, "Temper's Flare").SetHint(StateMachine.StateHint.Raidwide); // t=1054.6; Ability 6743 from Face; cactbot StartsUsing 6743 [Smileton Face Temper\]
+    Timeout(id + 0x70, 9.2f, "Upside Down"); // t=1063.8; Ability 6739 from Face
+    Timeout(id + 0x80, 8.2f, "Lines of Fire"); // t=1072.0; Ability 6735 from Face
+    Timeout(id + 0x90, 7.1f, "Off My Lawn"); // t=1079.1; Ability 673E from Face; cactbot StartsUsing 673E [Smileton Face Off My Lawn]
+    Timeout(id + 0xA0, 2.0f, "Mixed Feelings"); // t=1081.1; Ability 6738 from Face; cactbot StartsUsing 6738 [Smileton Face MixedFeelings]
+    Timeout(id + 0xB0, 10.2f, "Upside Down"); // t=1091.3; Ability 6739 from Face
+    Timeout(id + 0xC0, 8.2f, "Lines of Fire"); // t=1099.5; Ability 6735 from Face
+    Timeout(id + 0xD0, 7.2f, "Temper, Temper"); // t=1106.7; Ability 6740 from Face
+    Timeout(id + 0xE0, 2.0f, "Mixed Feelings"); // t=1108.7; Ability 6738 from Face; cactbot StartsUsing 6738 [Smileton Face MixedFeelings]
+    Timeout(id + 0xF0, 4.0f, "Lines of Fire"); // t=1112.7; Ability 6735 from Face
+    Timeout(id + 0x100, 7.1f, "Off My Lawn"); // t=1119.8; Ability 673E from Face; cactbot StartsUsing 673E [Smileton Face Off My Lawn]
+    Timeout(id + 0x110, 2.0f, "Mixed Feelings"); // t=1121.8; Ability 6738 from Face; cactbot StartsUsing 6738 [Smileton Face MixedFeelings]
+    Timeout(id + 0x120, 11.2f, "Heart on Fire IV").SetHint(StateMachine.StateHint.Tankbuster); // t=1133.0; Ability 6742 from Face; cactbot StartsUsing 6742 [Smileton Face Heart on Fire IV]
+    Timeout(id + 0x130, 7.2f, "Temper's Flare").SetHint(StateMachine.StateHint.Raidwide); // t=1140.2; Ability 6743 from Face; cactbot StartsUsing 6743 [Smileton Face Temper\]
+    Timeout(id + 0x140, 10.2f, "Upside Down"); // t=1150.4; Ability 6739 from Face
+    Timeout(id + 0x150, 8.2f, "Lines of Fire"); // t=1158.6
+    Timeout(id + 0x160, 7.1f, "Off My Lawn"); // t=1165.7; cactbot StartsUsing 673E [Smileton Face Off My Lawn]
+    Timeout(id + 0x170, 2.0f, "Mixed Feelings"); // t=1167.7; cactbot StartsUsing 6738 [Smileton Face MixedFeelings]
+    Timeout(id + 0x180, 10.2f, "Upside Down"); // t=1177.9
+    Timeout(id + 0x190, 8.2f, "Lines of Fire"); // t=1186.1
+    Timeout(id + 0x1A0, 824.9f, "Circular Saw").SetHint(StateMachine.StateHint.Raidwide); // t=2011.0; Ability 6745 from Frameworker; cactbot StartsUsing 6745 [Smileton Frameworker Circular Saw]
+    Timeout(id + 0x1B0, 11.8f, "Leap Forward"); // t=2022.8; Ability 6746 from Frameworker
+    Timeout(id + 0x1C0, 9.2f, "Print Workers"); // t=2032.0; Ability 6DBC from Frameworker
+    Timeout(id + 0x1D0, 12.2f, "Leap Forward"); // t=2044.2; Ability 6747 from Printed Worker
+    Timeout(id + 0x1E0, 15.0f, "Omnidimensional Onslaught"); // t=2059.2; Ability 6748 from Frameworker
+    Timeout(id + 0x1F0, 11.2f, "Print Workers"); // t=2070.4; Ability 6DBC from Frameworker
+    Timeout(id + 0x200, 11.7f, "Leap Forward"); // t=2082.1; Ability 6747 from Printed Worker
+    Timeout(id + 0x210, 13.5f, "Print Workers"); // t=2095.6; Ability 6DBC from Frameworker
+    Timeout(id + 0x220, 11.7f, "Leap Forward"); // t=2107.3; Ability 6747 from Printed Worker
+    Timeout(id + 0x230, 4.7f, "Leap Forward"); // t=2112.0; Ability 6746 from Frameworker
+    Timeout(id + 0x240, 10.2f, "Print Workers"); // t=2122.2; Ability 6DBC from Frameworker
+    Timeout(id + 0x250, 11.7f, "Leap Forward"); // t=2133.9; Ability 6747 from Printed Worker
+    Timeout(id + 0x260, 2.5f, "Omnidimensional Onslaught"); // t=2136.4; Ability 6748 from Frameworker
+    Timeout(id + 0x270, 4.2f, "Steel Beam").SetHint(StateMachine.StateHint.Tankbuster); // t=2140.6; Ability 6744 from Frameworker; cactbot StartsUsing 6744 [Smileton Frameworker Steel Beam]
+    Timeout(id + 0x280, 868.4f, "Explosives Distribution"); // t=3009.0; Ability 674E from The Big Cheese
+    Timeout(id + 0x290, 13.2f, "Iron Kiss"); // t=3022.2; Ability 674D from Bomb
+    Timeout(id + 0x2A0, 6.0f, "Piercing Missile").SetHint(StateMachine.StateHint.Tankbuster); // t=3028.2; Ability 6751 from The Big Cheese; cactbot StartsUsing 6751 [Smileton The Big Cheese Piercing Missile]
+    Timeout(id + 0x2B0, 8.2f, "Dispense Explosives"); // t=3036.4; Ability 6C30 from The Big Cheese
+    Timeout(id + 0x2C0, 5.2f, "Explosives Distribution"); // t=3041.6; Ability 674E from The Big Cheese
+    Timeout(id + 0x2D0, 13.2f, "Iron Kiss"); // t=3054.8; Ability 674D from Bomb
+    Timeout(id + 0x2E0, 4.0f, "Explosive Power"); // t=3058.8; Ability 6C31 from The Big Cheese
+    Timeout(id + 0x2F0, 1.2f, "Excavated"); // t=3060.0; Ability 6C32 from Excavation Bomb
+    Timeout(id + 0x300, 4.0f, "Explosives Distribution"); // t=3064.0; Ability 674E from The Big Cheese
+    Timeout(id + 0x310, 13.1f, "Left Disassembler/Right Disassembler / Iron Kiss"); // t=3077.1; Ability 674F/6750 from The Big Cheese | Ability 674D from Bomb; cactbot StartsUsing 674F [Smileton The Big Cheese Right Disassembler] | StartsUsing 6750 [Smileton The Big Cheese Left Disassembler]
+    Timeout(id + 0x320, 9.1f, "Dispense Explosives"); // t=3086.2; Ability 6C30 from The Big Cheese
+    Timeout(id + 0x330, 5.2f, "Explosives Distribution"); // t=3091.4; Ability 674E from The Big Cheese
+    Timeout(id + 0x340, 13.2f, "Iron Kiss"); // t=3104.6; Ability 674D from Bomb
+    Timeout(id + 0x350, 4.0f, "Electric Arc"); // t=3108.6; Ability 6753 from The Big Cheese; cactbot StartsUsing 6753 [Smileton The Big Cheese Electric Arc]
+    Timeout(id + 0x360, 12.6f, "Iron Kiss"); // t=3121.2; Ability 674D from Bomb
+    Timeout(id + 0x370, 3.5f, "Left Disassembler/Right Disassembler"); // t=3124.7; Ability 674F/6750 from The Big Cheese; cactbot StartsUsing 674F [Smileton The Big Cheese Right Disassembler] | StartsUsing 6750 [Smileton The Big Cheese Left Disassembler]
+    Timeout(id + 0x380, 13.1f, "Iron Kiss"); // t=3137.8; Ability 674D from Bomb
+    Timeout(id + 0x390, 4.1f, "Leveling Missile"); // t=3141.9; Ability 6754 from The Big Cheese; cactbot StartsUsing 6755 [Smileton The Big Cheese Leveling Missile]
+    Timeout(id + 0x3A0, 5.1f, "Explosive Power"); // t=3147.0; Ability 6C31 from The Big Cheese
+    Timeout(id + 0x3B0, 1.2f, "Excavated"); // t=3148.2; Ability 6C32 from Excavation Bomb
+    Timeout(id + 0x3C0, 10.0f, "Piercing Missile").SetHint(StateMachine.StateHint.Tankbuster); // t=3158.2; Ability 6751 from The Big Cheese; cactbot StartsUsing 6751 [Smileton The Big Cheese Piercing Missile]
+    Timeout(id + 0x3D0, 7.1f, "Violent Discharge").SetHint(StateMachine.StateHint.Raidwide); // t=3165.3; Ability 6752 from The Big Cheese; cactbot StartsUsing 6752 [Smileton The Big Cheese Violent Discharge]
+    Timeout(id + 0x3E0, 8.1f, "Explosives Distribution"); // t=3173.4; Ability 674E from The Big Cheese
+    Timeout(id + 0x3F0, 13.1f, "Left Disassembler/Right Disassembler / Iron Kiss"); // t=3186.5; Ability 674F/6750 from The Big Cheese | Ability 674D from Bomb; cactbot StartsUsing 674F [Smileton The Big Cheese Right Disassembler] | StartsUsing 6750 [Smileton The Big Cheese Left Disassembler]
+    Timeout(id + 0x400, 10.1f, "Dispense Explosives"); // t=3196.6; Ability 6C30 from The Big Cheese
+    Timeout(id + 0x410, 5.2f, "Explosives Distribution"); // t=3201.8; Ability 674E from The Big Cheese
+    Timeout(id + 0x420, 13.2f, "Iron Kiss"); // t=3215.0; Ability 674D from Bomb
+    Timeout(id + 0x430, 4.0f, "Electric Arc"); // t=3219.0; Ability 6753 from The Big Cheese; cactbot StartsUsing 6753 [Smileton The Big Cheese Electric Arc]
+    Timeout(id + 0x440, 12.6f, "Iron Kiss"); // t=3231.6; Ability 674D from Bomb
+    Timeout(id + 0x450, 2.9f, "Excavated"); // t=3234.5; Ability 6C32 from Excavation Bomb
+    Timeout(id + 0x460, 0.6f, "Left Disassembler/Right Disassembler"); // t=3235.1; Ability 674F/6750 from The Big Cheese; cactbot StartsUsing 674F [Smileton The Big Cheese Right Disassembler] | StartsUsing 6750 [Smileton The Big Cheese Left Disassembler]
+    Timeout(id + 0x470, 13.2f, "Iron Kiss"); // t=3248.3
+    Timeout(id + 0x480, 4.0f, "Leveling Missile"); // t=3252.3; cactbot StartsUsing 6755 [Smileton The Big Cheese Leveling Missile]
+    Timeout(id + 0x490, 5.1f, "Explosive Power"); // t=3257.4
+    Timeout(id + 0x4A0, 1.2f, "Excavated"); // t=3258.6
+    Timeout(id + 0x4B0, 10.0f, "Piercing Missile"); // t=3268.6; cactbot StartsUsing 6751 [Smileton The Big Cheese Piercing Missile]
+    Timeout(id + 0x4C0, 7.1f, "Violent Discharge"); // t=3275.7; cactbot StartsUsing 6752 [Smileton The Big Cheese Violent Discharge]
+    Timeout(id + 0x4D0, 8.1f, "Explosives Distribution"); // t=3283.8
+}
+

@@ -1,0 +1,163 @@
+// Generated development skeleton from barbariccia-ex.txt (TerritoryType 1072).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 27 static/dynamic trigger definitions from ui/raidboss/data/06-ew/trial/barbariccia-ex.ts.
+
+private void Barbariccia_Extreme(uint id)
+{
+    Condition(id + 0x0, 10.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7570), "", 5f, 5.1f); // t=10.1; StartsUsing 7570 from Barbariccia; cactbot StartsUsing 7570 [BarbaricciaEx Void Aero IV]
+    Timeout(id + 0x10, 5.0f, "Void Aero IV").SetHint(StateMachine.StateHint.Raidwide); // t=15.1; Ability 7570 from Barbariccia; cactbot StartsUsing 7570 [BarbaricciaEx Void Aero IV]
+    Timeout(id + 0x20, 7.2f, "Raging Storm"); // t=22.3; Ability 7572 from Barbariccia
+    Condition(id + 0x30, 3.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x7464 or 0x7465 or 0x7466 or 0x7489 or 0x748B or 0x7573), "", 5f, 0.0f); // t=25.7; StartsUsing 7573/7464/7465/7466/7489/748B from Barbariccia
+    Timeout(id + 0x40, 7.0f, "Savage Barbery (line/donut)"); // t=32.7; Ability 7574/757A from Barbariccia; cactbot StartsUsing 7574 [BarbaricciaEx Savage Barbery Donut] | StartsUsing 757A [BarbaricciaEx Savage Barbery Line]
+    Timeout(id + 0x50, 2.1f, "Savage Barbery (out)"); // t=34.8; Ability 7575/757B from Barbariccia
+    Timeout(id + 0x60, 1.0f, "Brush with Death"); // t=35.8; Ability 75A4 from Barbariccia
+    Timeout(id + 0x70, 11.1f, "Hair Raid"); // t=46.9; Ability 757D/757F from Barbariccia; cactbot Ability 757F [BarbaricciaEx Hair Raid Donut Move] | Ability 757D [BarbaricciaEx Hair Raid Wall Move]
+    Timeout(id + 0x80, 2.2f, "Hair Spray/Deadly Twist"); // t=49.1; Ability 75A6/75A7 from Barbariccia; cactbot StartsUsing 75A6 [BarbaricciaEx Hair Spray] | StartsUsing 75A7 [BarbaricciaEx Deadly Twist]
+    Timeout(id + 0x90, 1.9f, "Raging Storm"); // t=51.0; Ability 7572 from Barbariccia
+    Condition(id + 0xA0, 3.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x7464 or 0x7465 or 0x7466 or 0x7489 or 0x748B or 0x7573), "", 5f, 0.0f); // t=54.4; StartsUsing 7573/7464/7465/7466/7489/748B from Barbariccia
+    Timeout(id + 0xB0, 7.0f, "Savage Barbery (donut/line)"); // t=61.4; Ability 757A/7574 from Barbariccia; cactbot StartsUsing 7574 [BarbaricciaEx Savage Barbery Donut] | StartsUsing 757A [BarbaricciaEx Savage Barbery Line]
+    Timeout(id + 0xC0, 2.1f, "Savage Barbery (out)"); // t=63.5; Ability 757B/7575 from Barbariccia
+    Timeout(id + 0xD0, 1.0f, "Brush with Death"); // t=64.5; Ability 75A4 from Barbariccia
+    Timeout(id + 0xE0, 11.1f, "Hair Raid"); // t=75.6; Ability 757F/757D from Barbariccia; cactbot Ability 757F [BarbaricciaEx Hair Raid Donut Move] | Ability 757D [BarbaricciaEx Hair Raid Wall Move]
+    Timeout(id + 0xF0, 2.3f, "Deadly Twist/Hair Spray"); // t=77.9; Ability 75A7/75A6 from Barbariccia; cactbot StartsUsing 75A6 [BarbaricciaEx Hair Spray] | StartsUsing 75A7 [BarbaricciaEx Deadly Twist]
+    Timeout(id + 0x100, 7.9f, "Void Aero IV").SetHint(StateMachine.StateHint.Raidwide); // t=85.8; Ability 7570 from Barbariccia; cactbot StartsUsing 7570 [BarbaricciaEx Void Aero IV]
+    Timeout(id + 0x110, 7.1f, "Void Aero III").SetHint(StateMachine.StateHint.Tankbuster); // t=92.9; Ability 7571 from Barbariccia; cactbot StartsUsing 7571 [BarbaricciaEx Void Aero III]
+    Timeout(id + 0x120, 7.2f, "Raging Storm"); // t=100.1; Ability 7572 from Barbariccia
+    Timeout(id + 0x130, 7.1f, "Teasing Tangles"); // t=107.2; Ability 75A9 from Barbariccia
+    Timeout(id + 0x140, 0.8f, "Fetters"); // t=108.0; Ability 75B0 from Barbariccia
+    Timeout(id + 0x150, 2.3f, "Brush with Death"); // t=110.3; Ability 75A3 from Barbariccia
+    Timeout(id + 0x160, 8.8f, "Upbraid"); // t=119.1; Ability 75A8 from Barbariccia; cactbot StartsUsing 75A8 [BarbaricciaEx Upbraid] | StartsUsing 75A8 [BarbaricciaEx Upbraid Untargeted]
+    Timeout(id + 0x170, 0.5f, "Secret Breeze (ground)"); // t=119.6
+    Timeout(id + 0x180, 2.0f, "Secret Breeze (protean)"); // t=121.6
+    Timeout(id + 0x190, 9.1f, "Void Aero IV").SetHint(StateMachine.StateHint.Raidwide); // t=130.7; Ability 7570 from Barbariccia; cactbot StartsUsing 7570 [BarbaricciaEx Void Aero IV]
+    Timeout(id + 0x1A0, 7.2f, "Raging Storm"); // t=137.9; Ability 7572 from Barbariccia
+    Timeout(id + 0x1B0, 14.1f, "Voidstrom"); // t=152.0
+    Timeout(id + 0x1C0, 2.5f, "Curling Iron"); // t=154.5; Ability 75B3 from Barbariccia; cactbot StartsUsing 75B2 [BarbaricciaEx Curling Iron Cleanup]
+    Targetable(id + 0x1D0, false, 6.1f, "--untargetable--"); // t=160.6
+    Timeout(id + 0x1E0, 11.1f, "Catabasis"); // t=171.7; Ability 7576 from Barbariccia
+}
+
+private void Phase_2(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=171.8
+    Timeout(id + 0x10, 4.1f, "Brutal Rush 1"); // t=175.9
+    Timeout(id + 0x20, 1.8f, "Brutal Rush 2"); // t=177.7
+    Timeout(id + 0x30, 1.7f, "Brutal Rush 3"); // t=179.4
+    Timeout(id + 0x40, 1.8f, "Brutal Rush 4"); // t=181.2; Ability 7584 from Barbariccia; cactbot Ability 7583/7584 [BarbaricciaEx Brutal Rush Move]
+    Timeout(id + 0x50, 8.9f, "Winding Gale"); // t=190.1; Ability 7486 from Barbariccia
+    Timeout(id + 0x60, 0.8f, "Boulder Break").SetHint(StateMachine.StateHint.Tankbuster); // t=190.9; Ability 7383 from Barbariccia; cactbot StartsUsing 7383 [BarbaricciaEx Boulder Break] | Ability 7383 [BarbaricciaEx Brittle Boulder 1]
+    Timeout(id + 0x70, 1.8f, "Brush with Death"); // t=192.7; Ability 75A5 from Barbariccia
+    Timeout(id + 0x80, 11.1f, "Brittle Boulder"); // t=203.8; Ability 759E from Barbariccia; cactbot Ability 7383 [BarbaricciaEx Brittle Boulder 1]
+    Timeout(id + 0x90, 0.8f, "Winding Gale"); // t=204.6; Ability 7486 from Barbariccia
+    Timeout(id + 0xA0, 0.2f, "Boulder"); // t=204.8; Ability 759D from Barbariccia; cactbot Ability 7383 [BarbaricciaEx Brittle Boulder 1] | HeadMarker 173 [BarbaricciaEx Boulder]
+    Timeout(id + 0xB0, 3.6f, "Tornado Chain (out)"); // t=208.4; Ability 758C from Barbariccia
+    Timeout(id + 0xC0, 2.5f, "Tornado Chain (in)"); // t=210.9; Ability 758D from Barbariccia
+    Timeout(id + 0xD0, 1.1f, "Upbraid"); // t=212.0; Ability 75A8 from Barbariccia; cactbot StartsUsing 75A8 [BarbaricciaEx Upbraid] | StartsUsing 75A8 [BarbaricciaEx Upbraid Untargeted]
+    Timeout(id + 0xE0, 2.9f, "Brutal Rush 1"); // t=214.9
+    Timeout(id + 0xF0, 1.6f, "Brutal Rush 2"); // t=216.5
+    Timeout(id + 0x100, 1.8f, "Brutal Rush 3"); // t=218.3
+    Timeout(id + 0x110, 1.6f, "Brutal Rush 4"); // t=219.9; Ability 7584 from Barbariccia; cactbot Ability 7583/7584 [BarbaricciaEx Brutal Rush Move]
+    Timeout(id + 0x120, 5.3f, "Knuckle Drum"); // t=225.2
+    Timeout(id + 0x130, 9.6f, "Blow Away"); // t=234.8; Ability 7595 from Barbariccia; cactbot Ability 7595 [BarbaricciaEx Blow Away Reset]
+    Timeout(id + 0x140, 3.7f, "Brutal Rush 1"); // t=238.5
+    Timeout(id + 0x150, 1.6f, "Brutal Rush 2"); // t=240.1
+    Timeout(id + 0x160, 1.6f, "Brutal Rush 3"); // t=241.7
+    Timeout(id + 0x170, 1.6f, "Brutal Rush 4"); // t=243.3; Ability 7584 from Barbariccia; cactbot Ability 7583/7584 [BarbaricciaEx Brutal Rush Move]
+    Timeout(id + 0x180, 6.8f, "Impact").SetHint(StateMachine.StateHint.Knockback); // t=250.1; Ability 759F from Barbariccia; cactbot StartsUsing 75A0 [BarbaricciaEx Impact]
+    Timeout(id + 0x190, 2.8f, "Bold Boulder"); // t=252.9; Ability 759B from Barbariccia; cactbot StartsUsing 759B [BarbaricciaEx Bold Boulder] | StartsUsing 759B [BarbaricciaEx Trample]
+    Timeout(id + 0x1A0, 0.4f, "Trample"); // t=253.3; Ability 75A2 from Barbariccia; cactbot StartsUsing 759B [BarbaricciaEx Trample]
+    Timeout(id + 0x1B0, 5.8f, "Brutal Rush 1"); // t=259.1
+    Timeout(id + 0x1C0, 1.6f, "Brutal Rush 2"); // t=260.7
+    Timeout(id + 0x1D0, 1.6f, "Brutal Rush 3"); // t=262.3
+    Timeout(id + 0x1E0, 1.7f, "Brutal Rush 4"); // t=264.0; Ability 7584 from Barbariccia; cactbot Ability 7583/7584 [BarbaricciaEx Brutal Rush Move]
+    Timeout(id + 0x1F0, 2.7f, "Teasing Tangles"); // t=266.7; Ability 75AA from Barbariccia
+    Timeout(id + 0x200, 0.8f, "Fetters"); // t=267.5; Ability 75B0 from Barbariccia
+    Timeout(id + 0x210, 3.3f, "Blustery Ruler"); // t=270.8; Ability 7591 from Barbariccia
+    Timeout(id + 0x220, 7.2f, "Brush with Death"); // t=278.0; Ability 75A5 from Barbariccia
+    Timeout(id + 0x230, 1.1f, "Dry Blows"); // t=279.1
+    Timeout(id + 0x240, 6.6f, "Tornado Chain (out)"); // t=285.7; Ability 758C from Barbariccia
+    Timeout(id + 0x250, 2.4f, "Tornado Chain (in)"); // t=288.1; Ability 758D from Barbariccia
+    Timeout(id + 0x260, 1.9f, "Upbraid"); // t=290.0; Ability 75A8 from Barbariccia; cactbot StartsUsing 75A8 [BarbaricciaEx Upbraid] | StartsUsing 75A8 [BarbaricciaEx Upbraid Untargeted]
+    Timeout(id + 0x270, 3.3f, "Knuckle Drum"); // t=293.3
+    Timeout(id + 0x280, 16.1f, "Voidstrom"); // t=309.4
+    Timeout(id + 0x290, 3.0f, "Iron Out"); // t=312.4; Ability 7455 from Barbariccia
+    Timeout(id + 0x2A0, 6.1f, "Raging Storm"); // t=318.5; Ability 7572 from Barbariccia
+    Timeout(id + 0x2B0, 7.1f, "Entanglement"); // t=325.6; Ability 75AD from Barbariccia
+    Timeout(id + 0x2C0, 0.8f, "Fetters"); // t=326.4; Ability 75B0 from Barbariccia
+    Timeout(id + 0x2D0, 9.7f, "Secret Breeze (ground)"); // t=336.1
+    Timeout(id + 0x2E0, 2.1f, "Secret Breeze (protean)"); // t=338.2
+    Condition(id + 0x2F0, 3.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x7464 or 0x7465 or 0x7466 or 0x7489 or 0x748B or 0x7573), "", 5f, 0.0f); // t=341.4; StartsUsing 7573/7464/7465/7466/7489/748B from Barbariccia
+    Timeout(id + 0x300, 7.0f, "Savage Barbery (line/donut)"); // t=348.4; Ability 7574/757A from Barbariccia; cactbot StartsUsing 7574 [BarbaricciaEx Savage Barbery Donut] | StartsUsing 757A [BarbaricciaEx Savage Barbery Line]
+    Timeout(id + 0x310, 2.1f, "Savage Barbery (out)"); // t=350.5; Ability 7575/757B from Barbariccia
+    Timeout(id + 0x320, 1.0f, "Brush with Death"); // t=351.5; Ability 75A4 from Barbariccia
+    Timeout(id + 0x330, 11.1f, "Hair Raid"); // t=362.6; Ability 757D/757F from Barbariccia; cactbot Ability 757F [BarbaricciaEx Hair Raid Donut Move] | Ability 757D [BarbaricciaEx Hair Raid Wall Move]
+    Timeout(id + 0x340, 2.3f, "Deadly Twist/Hair Spray"); // t=364.9; Ability 75A7/75A6 from Barbariccia; cactbot StartsUsing 75A6 [BarbaricciaEx Hair Spray] | StartsUsing 75A7 [BarbaricciaEx Deadly Twist]
+    Timeout(id + 0x350, 8.9f, "Void Aero IV").SetHint(StateMachine.StateHint.Raidwide); // t=373.8; Ability 7570 from Barbariccia; cactbot StartsUsing 7570 [BarbaricciaEx Void Aero IV]
+    Timeout(id + 0x360, 7.1f, "Void Aero III").SetHint(StateMachine.StateHint.Tankbuster); // t=380.9; Ability 7571 from Barbariccia; cactbot StartsUsing 7571 [BarbaricciaEx Void Aero III]
+    Timeout(id + 0x370, 7.2f, "Raging Storm"); // t=388.1; Ability 7572 from Barbariccia
+    Timeout(id + 0x380, 7.1f, "Entanglement"); // t=395.2; Ability 75AD from Barbariccia
+    Timeout(id + 0x390, 0.8f, "Fetters"); // t=396.0; Ability 75B0 from Barbariccia
+    Timeout(id + 0x3A0, 4.4f, "Brush with Death"); // t=400.4; Ability 75A3 from Barbariccia
+    Timeout(id + 0x3B0, 8.8f, "Upbraid"); // t=409.2; Ability 75A8 from Barbariccia; cactbot StartsUsing 75A8 [BarbaricciaEx Upbraid] | StartsUsing 75A8 [BarbaricciaEx Upbraid Untargeted]
+    Condition(id + 0x3C0, 1.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x7464 or 0x7465 or 0x7466 or 0x7489 or 0x748B or 0x7573), "", 5f, 0.0f); // t=410.7; StartsUsing 7573/7464/7465/7466/7489/748B from Barbariccia
+    Timeout(id + 0x3D0, 7.0f, "Savage Barbery (donut/line)"); // t=417.7; Ability 757A/7574 from Barbariccia; cactbot StartsUsing 7574 [BarbaricciaEx Savage Barbery Donut] | StartsUsing 757A [BarbaricciaEx Savage Barbery Line]
+    Timeout(id + 0x3E0, 2.1f, "Savage Barbery (out)"); // t=419.8; Ability 757B/7575 from Barbariccia
+    Timeout(id + 0x3F0, 9.0f, "Hair Raid"); // t=428.8; Ability 757D/757F from Barbariccia; cactbot Ability 757F [BarbaricciaEx Hair Raid Donut Move] | Ability 757D [BarbaricciaEx Hair Raid Wall Move]
+    Timeout(id + 0x400, 1.9f, "Hair Spray/Deadly Twist"); // t=430.7; Ability 75A6/75A7 from Barbariccia; cactbot StartsUsing 75A6 [BarbaricciaEx Hair Spray] | StartsUsing 75A7 [BarbaricciaEx Deadly Twist]
+    Timeout(id + 0x410, 9.2f, "Void Aero IV").SetHint(StateMachine.StateHint.Raidwide); // t=439.9; Ability 7570 from Barbariccia; cactbot StartsUsing 7570 [BarbaricciaEx Void Aero IV]
+    Timeout(id + 0x420, 7.2f, "Raging Storm"); // t=447.1; Ability 7572 from Barbariccia
+    Timeout(id + 0x430, 13.6f, "Voidstrom"); // t=460.7
+    Timeout(id + 0x440, 3.0f, "Curling Iron"); // t=463.7; Ability 75B3 from Barbariccia; cactbot StartsUsing 75B2 [BarbaricciaEx Curling Iron Cleanup]
+    Timeout(id + 0x450, 5.1f, "Brutal Rush 1"); // t=468.8
+    Timeout(id + 0x460, 1.8f, "Brutal Rush 2"); // t=470.6
+    Timeout(id + 0x470, 1.7f, "Brutal Rush 3"); // t=472.3
+    Timeout(id + 0x480, 1.8f, "Brutal Rush 4"); // t=474.1; Ability 7584 from Barbariccia; cactbot Ability 7583/7584 [BarbaricciaEx Brutal Rush Move]
+    Timeout(id + 0x490, 5.3f, "Knuckle Drum"); // t=479.4
+    Timeout(id + 0x4A0, 9.6f, "Blow Away"); // t=489.0; Ability 7595 from Barbariccia; cactbot Ability 7595 [BarbaricciaEx Blow Away Reset]
+    Timeout(id + 0x4B0, 11.5f, "Brutal Rush 1"); // t=500.5
+    Timeout(id + 0x4C0, 1.6f, "Brutal Rush 2"); // t=502.1
+    Timeout(id + 0x4D0, 1.0f, "Brittle Boulder"); // t=503.1; Ability 759E from Barbariccia; cactbot Ability 7383 [BarbaricciaEx Brittle Boulder 1]
+    Timeout(id + 0x4E0, 0.6f, "Brutal Rush 3"); // t=503.7
+    Timeout(id + 0x4F0, 0.4f, "Boulder"); // t=504.1; Ability 759D from Barbariccia; cactbot Ability 7383 [BarbaricciaEx Brittle Boulder 1] | HeadMarker 173 [BarbaricciaEx Boulder]
+    Timeout(id + 0x500, 1.3f, "Brutal Rush 4"); // t=505.4; Ability 7584 from Barbariccia; cactbot Ability 7583/7584 [BarbaricciaEx Brutal Rush Move]
+    Timeout(id + 0x510, 3.8f, "Brush with Death"); // t=509.2; Ability 75A5 from Barbariccia
+    Timeout(id + 0x520, 3.9f, "Tornado Chain (out)"); // t=513.1; Ability 758C from Barbariccia
+    Timeout(id + 0x530, 2.5f, "Tornado Chain (in)"); // t=515.6; Ability 758D from Barbariccia
+    Timeout(id + 0x540, 2.9f, "Impact").SetHint(StateMachine.StateHint.Knockback); // t=518.5; Ability 759F from Barbariccia; cactbot StartsUsing 75A0 [BarbaricciaEx Impact]
+    Timeout(id + 0x550, 2.5f, "Hair Spray"); // t=521.0; Ability 75A6 from Barbariccia; cactbot StartsUsing 75A6 [BarbaricciaEx Hair Spray]
+    Timeout(id + 0x560, 1.8f, "Brutal Rush 1"); // t=522.8
+    Timeout(id + 0x570, 1.6f, "Brutal Rush 2"); // t=524.4
+    Timeout(id + 0x580, 1.8f, "Brutal Rush 3"); // t=526.2
+    Timeout(id + 0x590, 1.7f, "Brutal Rush 4"); // t=527.9; Ability 7584 from Barbariccia; cactbot Ability 7583/7584 [BarbaricciaEx Brutal Rush Move]
+    Timeout(id + 0x5A0, 2.7f, "Blustery Ruler"); // t=530.6; Ability 7591 from Barbariccia
+    Timeout(id + 0x5B0, 8.3f, "Dry Blows"); // t=538.9
+    Timeout(id + 0x5C0, 4.7f, "Tornado Chain (out)"); // t=543.6; Ability 758C from Barbariccia
+    Timeout(id + 0x5D0, 2.6f, "Tornado Chain (in)"); // t=546.2; Ability 758D from Barbariccia
+    Timeout(id + 0x5E0, 2.6f, "Boulder Break").SetHint(StateMachine.StateHint.Tankbuster); // t=548.8; Ability 7383 from Barbariccia; cactbot StartsUsing 7383 [BarbaricciaEx Boulder Break] | Ability 7383 [BarbaricciaEx Brittle Boulder 1]
+    Timeout(id + 0x5F0, 5.4f, "Winding Gale"); // t=554.2; Ability 7486 from Barbariccia
+    Timeout(id + 0x600, 7.7f, "Tornado Chain (out)"); // t=561.9; Ability 758C from Barbariccia
+    Timeout(id + 0x610, 2.5f, "Tornado Chain (in)"); // t=564.4; Ability 758D from Barbariccia
+    Timeout(id + 0x620, 4.8f, "Winding Gale"); // t=569.2; Ability 7486 from Barbariccia
+    Timeout(id + 0x630, 2.8f, "Trample"); // t=572.0; Ability 75A2 from Barbariccia; cactbot StartsUsing 759B [BarbaricciaEx Trample]
+    Timeout(id + 0x640, 0.9f, "Bold Boulder"); // t=572.9; Ability 759B from Barbariccia; cactbot StartsUsing 759B [BarbaricciaEx Bold Boulder] | StartsUsing 759B [BarbaricciaEx Trample]
+    Timeout(id + 0x650, 6.3f, "Knuckle Drum"); // t=579.2
+    Timeout(id + 0x660, 15.0f, "Voidstrom"); // t=594.2
+    Timeout(id + 0x670, 3.0f, "Iron Out"); // t=597.2; Ability 7455 from Barbariccia
+    Timeout(id + 0x680, 6.1f, "Raging Storm"); // t=603.3; Ability 7572 from Barbariccia
+    Timeout(id + 0x690, 7.1f, "Entanglement"); // t=610.4; Ability 75AD from Barbariccia
+    Timeout(id + 0x6A0, 0.8f, "Fetters"); // t=611.2; Ability 75B0 from Barbariccia
+    Timeout(id + 0x6B0, 9.7f, "Secret Breeze (ground)"); // t=620.9
+    Timeout(id + 0x6C0, 2.0f, "Secret Breeze (protean)"); // t=622.9
+    Condition(id + 0x6D0, 3.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x7464 or 0x7465 or 0x7466 or 0x7489 or 0x748B or 0x7573), "", 5f, 0.0f); // t=626.2; StartsUsing 7573/7464/7465/7466/7489/748B from Barbariccia
+    Timeout(id + 0x6E0, 7.0f, "Savage Barbery (line/donut)"); // t=633.2; Ability 7574/757A from Barbariccia; cactbot StartsUsing 7574 [BarbaricciaEx Savage Barbery Donut] | StartsUsing 757A [BarbaricciaEx Savage Barbery Line]
+    Timeout(id + 0x6F0, 2.1f, "Savage Barbery (out)"); // t=635.3; Ability 7575/757B from Barbariccia
+    Timeout(id + 0x700, 1.0f, "Brush with Death"); // t=636.3; Ability 75A4 from Barbariccia
+    Timeout(id + 0x710, 11.1f, "Hair Raid"); // t=647.4; Ability 757D/757F from Barbariccia; cactbot Ability 757F [BarbaricciaEx Hair Raid Donut Move] | Ability 757D [BarbaricciaEx Hair Raid Wall Move]
+    Timeout(id + 0x720, 2.3f, "Hair Spray/Deadly Twist"); // t=649.7; Ability 75A6/75A7 from Barbariccia; cactbot StartsUsing 75A6 [BarbaricciaEx Hair Spray] | StartsUsing 75A7 [BarbaricciaEx Deadly Twist]
+    Timeout(id + 0x730, 8.9f, "Void Aero IV").SetHint(StateMachine.StateHint.Raidwide); // t=658.6; Ability 7570 from Barbariccia; cactbot StartsUsing 7570 [BarbaricciaEx Void Aero IV]
+    Timeout(id + 0x740, 2.1f, "Raging Storm"); // t=660.7; Ability 7572 from Barbariccia
+    Condition(id + 0x750, 3.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x75BE), "", 5f, 0.0f); // t=664.0; StartsUsing 75BE from Barbariccia
+    Timeout(id + 0x760, 9.0f, "Maelstrom (enrage)"); // t=673.0; Ability 75BE from Barbariccia
+}
+

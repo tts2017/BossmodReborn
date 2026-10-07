@@ -1,0 +1,318 @@
+// Generated development skeleton from bozjan_southern_front.txt (TerritoryType 920).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+
+private void The_Bozjan_Southern_Front(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Kill_It_with_Fire(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void The_Baying_of_the_Hound_s(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Vigil_for_the_Lost(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Aces_High(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void The_Shadow_of_Death_s_Hand(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void The_Final_Furlong(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void The_Hunt_for_Red_Choctober(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Beast_of_Man(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Fires_of_War(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Patriot_Games(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Trampled_under_Hoof(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void And_the_Flames_Went_Higher(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Metal_Fox_Chaos(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Rise_of_the_Robots(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Where_Strode_the_Behemoth(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Brionac___4th_Legion_Helldiver(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Brionac(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Electric Anvil"); // t=20014.7; Ability 51DC from Brionac
+}
+
+private void Timeline_4th_Legion_Helldiver(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Chain Cannon"); // t=20022.2
+    Timeout(id + 0x10, 4.602f, "False Thunder"); // t=20026.8
+    Timeout(id + 0x20, 8.199f, "Anti-Warmachina Weaponry"); // t=20035.0; Ability 51CD from Brionac
+    Timeout(id + 0x30, 1.9f, "Mrv Missile"); // t=20036.9
+    Condition(id + 0x40, 98.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x53C4), "", 5f, 93.1f); // t=20135.0; StartsUsing 53C4 from Brionac
+    Timeout(id + 0x50, 4.0f, "Lightning Shower"); // t=20139.0; Ability 53C4 from Brionac
+    Timeout(id + 0x60, 7.1f, "Energy Generation"); // t=20146.1; Ability 51D0 from Brionac
+    Timeout(id + 0x70, 12.1f, "Lightburst"); // t=20158.2; Ability 51D1 from Lightsphere
+    Timeout(id + 0x80, 13.0f, "False Thunder"); // t=20171.2
+    Timeout(id + 0x90, 6.102f, "Energy Generation"); // t=20177.3; Ability 51D0 from Brionac
+    Timeout(id + 0xA0, 12.199f, "Shadow Burst"); // t=20189.5; Ability 51D2 from Shadowsphere
+    Timeout(id + 0xB0, 14.0f, "Electric Anvil"); // t=20203.5; Ability 51DC from Brionac
+    Timeout(id + 0xC0, 15.301f, "Voltstream"); // t=20218.8; Ability 51DB from Brionac
+    Timeout(id + 0xD0, 4.0f, "Voltstream"); // t=20222.8; Ability 51DB from Brionac
+    Timeout(id + 0xE0, 4.1f, "Voltstream"); // t=20226.9; Ability 51DB from Brionac
+    Timeout(id + 0xF0, 4.0f, "Voltstream"); // t=20230.9; Ability 51DB from Brionac
+    Timeout(id + 0x100, 7.9f, "Energy Generation"); // t=20238.8; Ability 51D0 from Brionac
+    Timeout(id + 0x110, 12.1f, "Pole Shift"); // t=20250.9; Ability 51D3 from Brionac
+    Timeout(id + 0x120, 4.0f, "Shadow Burst / Lightburst"); // t=20254.9; Ability 51D2 from Shadowsphere | Ability 51D1 from Lightsphere
+    Timeout(id + 0x130, 8.299f, "Anti-Warmachina Weaponry"); // t=20263.2; Ability 51CD from Brionac
+    Condition(id + 0x140, 100.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x53C4), "", 5f, 95.0f); // t=20363.2; StartsUsing 53C4 from Brionac
+    Timeout(id + 0x150, 4.0f, "Lightning Shower"); // t=20367.2; Ability 53C4 from Brionac
+    Timeout(id + 0x160, 7.102f, "Energy Generation"); // t=20374.3; Ability 51D0 from Brionac
+    Timeout(id + 0x170, 10.1f, "Magitek Magnetism"); // t=20384.4; Ability 51D5 from Brionac
+    Timeout(id + 0x180, 4.199f, "Magnetic Jolt"); // t=20388.6; Ability 51D7 from Brionac
+    Timeout(id + 0x190, 0.801f, "Lightburst / Shadow Burst"); // t=20389.4; Ability 51D1 from Lightsphere | Ability 51D2 from Shadowsphere
+    Timeout(id + 0x1A0, 10.199f, "Voltstream"); // t=20399.6; Ability 51DB from Brionac
+    Timeout(id + 0x1B0, 4.0f, "Voltstream"); // t=20403.6; Ability 51DB from Brionac
+    Timeout(id + 0x1C0, 4.1f, "Voltstream"); // t=20407.7; Ability 51DB from Brionac
+    Timeout(id + 0x1D0, 4.0f, "Voltstream"); // t=20411.7; Ability 51DB from Brionac
+    Timeout(id + 0x1E0, 6.9f, "False Thunder"); // t=20418.6; Ability 51CF from Brionac
+    Timeout(id + 0x1F0, 9.301f, "Anti-Warmachina Weaponry"); // t=20427.9; Ability 51CD from Brionac
+    Condition(id + 0x200, 100.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x51DC), "", 5f, 95.0f); // t=20527.9; StartsUsing 51DC from Brionac
+    Timeout(id + 0x210, 4.0f, "Electric Anvil"); // t=20531.9; Ability 51DC from Brionac
+    Timeout(id + 0x220, 7.1f, "Energy Generation"); // t=20539.0; Ability 51D0 from Brionac
+    Timeout(id + 0x230, 10.1f, "Polar Magnetism"); // t=20549.1; Ability 51D9 from Brionac
+    Timeout(id + 0x240, 5.1f, "Shadow Burst / Lightburst"); // t=20554.2; Ability 51D2 from Shadowsphere | Ability 51D1 from Lightsphere
+    Timeout(id + 0x250, 11.201f, "Energy Generation / Voltstream"); // t=20565.4; Ability 51D0 from Brionac | Ability 51DB from Brionac
+    Timeout(id + 0x260, 9456.799f, "Chain Cannon"); // t=30022.2
+    Timeout(id + 0x270, 14.701f, "Mrv Missile"); // t=30036.9; Ability 51FD from 4Th Legion Helldiver
+    Timeout(id + 0x280, 12.199f, "Command: Lateral Dive"); // t=30049.1; Ability 51EA from 4Th Legion Helldiver
+    Timeout(id + 0x290, 8.0f, "Lateral Dive"); // t=30057.1; Ability 51EB from 4Th Legion Helldiver
+    Timeout(id + 0x2A0, 8.201f, "Command: Suppressive Formation"); // t=30065.3; Ability 51F5 from 4Th Legion Helldiver
+    Timeout(id + 0x2B0, 8.0f, "Command: Suppressive Formation"); // t=30073.3; Ability 51F6 from 4Th Legion Helldiver
+    Timeout(id + 0x2C0, 9.299f, "Magitek Missiles"); // t=30082.6; Ability 51FE from 4Th Legion Helldiver
+    Timeout(id + 0x2D0, 15.201f, "Command: Infrared Blast"); // t=30097.8; Ability 51EC from 4Th Legion Helldiver
+    Timeout(id + 0x2E0, 4.6f, "Infrared Blast"); // t=30102.4; Ability 51EE from 4Th Legion Helldiver
+    Timeout(id + 0x2F0, 4.0f, "Infrared Blast"); // t=30106.4; Ability 51EE from 4Th Legion Helldiver
+    Timeout(id + 0x300, 4.0f, "Infrared Blast"); // t=30110.4; Ability 51EE from 4Th Legion Helldiver
+    Timeout(id + 0x310, 4.0f, "Infrared Blast"); // t=30114.4; Ability 51EE from 4Th Legion Helldiver
+    Timeout(id + 0x320, 19.699f, "Command: Chain Cannon"); // t=30134.1; Ability 51FB from 4Th Legion Helldiver
+    Timeout(id + 0x330, 4.801f, "Chain Cannon"); // t=30138.9
+    Timeout(id + 0x340, 1.9f, "Chain Cannon"); // t=30140.8
+    Timeout(id + 0x350, 2.1f, "Chain Cannon"); // t=30142.9
+    Timeout(id + 0x360, 2.0f, "Chain Cannon"); // t=30144.9
+    Timeout(id + 0x370, 8.5f, "Magitek Missiles"); // t=30153.4; Ability 51FE from 4Th Legion Helldiver
+    Timeout(id + 0x380, 14.199f, "Command: Dive Formation"); // t=30167.6; Ability 51EF from 4Th Legion Helldiver
+    Timeout(id + 0x390, 12.0f, "Dive Formation"); // t=30179.6; Ability 51F0 from 4Th Legion Helldiver
+    Timeout(id + 0x3A0, 4.0f, "Dive Formation"); // t=30183.6; Ability 51F0 from 4Th Legion Helldiver
+    Timeout(id + 0x3B0, 4.0f, "Dive Formation"); // t=30187.6; Ability 51F0 from 4Th Legion Helldiver
+    Timeout(id + 0x3C0, 10.201f, "Command: Lateral Dive"); // t=30197.8; Ability 51EA from 4Th Legion Helldiver
+    Timeout(id + 0x3D0, 6.1f, "Command: Suppressive Formation"); // t=30203.9; Ability 51F5 from 4Th Legion Helldiver
+    Timeout(id + 0x3E0, 1.9f, "Lateral Dive"); // t=30205.8; Ability 51EB from 4Th Legion Helldiver
+    Timeout(id + 0x3F0, 4.0f, "Chain Cannon"); // t=30209.8
+    Timeout(id + 0x400, 2.1f, "Command: Suppressive Formation"); // t=30211.9; Ability 51F6 from 4Th Legion Helldiver
+    Timeout(id + 0x410, 20.699f, "Magitek Missiles"); // t=30232.6; Ability 51FE from 4Th Legion Helldiver
+    Timeout(id + 0x420, 14.201f, "Command: Joint Attack"); // t=30246.8; Ability 51F2 from 4Th Legion Helldiver
+    Timeout(id + 0x430, 8.199f, "Command: Infrared Blast"); // t=30255.0; Ability 51EC from 4Th Legion Helldiver
+    Timeout(id + 0x440, 4.6f, "Infrared Blast"); // t=30259.6; Ability 51EE from 4Th Legion Helldiver
+    Timeout(id + 0x450, 4.0f, "Infrared Blast"); // t=30263.6; Ability 51EE from 4Th Legion Helldiver
+    Timeout(id + 0x460, 1.701f, "Surface Missile"); // t=30265.3; Ability 51F8 from 4Th Legion Helldiver
+    Timeout(id + 0x470, 2.398f, "Infrared Blast"); // t=30267.7; Ability 51EE from 4Th Legion Helldiver
+    Timeout(id + 0x480, 2.701f, "Surface Missile"); // t=30270.4; Ability 51F8 from 4Th Legion Helldiver
+    Timeout(id + 0x490, 1.199f, "Infrared Blast"); // t=30271.6; Ability 51EE from 4Th Legion Helldiver
+    Timeout(id + 0x4A0, 6.6f, "Command: Chain Cannon"); // t=30278.2; Ability 51FB from 4Th Legion Helldiver
+    Timeout(id + 0x4B0, 4.602f, "Chain Cannon"); // t=30282.8
+    Timeout(id + 0x4C0, 1.5f, "Command: Suppressive Formation"); // t=30284.3; Ability 51F5 from 4Th Legion Helldiver
+    Timeout(id + 0x4D0, 0.6f, "Chain Cannon"); // t=30284.9
+    Timeout(id + 0x4E0, 1.9f, "Chain Cannon"); // t=30286.8
+    Timeout(id + 0x4F0, 2.1f, "Chain Cannon"); // t=30288.9
+    Timeout(id + 0x500, 3.4f, "Command: Suppressive Formation"); // t=30292.3; Ability 51F6 from 4Th Legion Helldiver
+}
+
+private void Albeleo_the_Maleficent(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Adrammelech(uint id)
+{
+    Timeout(id + 0x0, 14.301f, "Holy IV"); // t=50014.3; Ability 4F96 from Adrammelech
+    Timeout(id + 0x10, 7.5f, "Curse Of The Fiend"); // t=50021.8; Ability 4F7A from Adrammelech
+    Timeout(id + 0x20, 7.098f, "Accursed Becoming"); // t=50028.9; Ability 4F7B from Adrammelech
+    Timeout(id + 0x30, 7.203f, "Water IV"); // t=50036.1; Ability 53D8 from Adrammelech
+    Timeout(id + 0x40, 8.297f, "Curse Of The Fiend"); // t=50044.4; Ability 4F7A from Adrammelech
+    Timeout(id + 0x50, 7.102f, "Accursed Becoming"); // t=50051.5; Ability 4F7B from Adrammelech
+    Timeout(id + 0x60, 7.199f, "Fire IV/Blizzard IV"); // t=50058.7
+    Timeout(id + 0x70, 8.301f, "Curse Of The Fiend"); // t=50067.0; Ability 4F7A from Adrammelech
+    Timeout(id + 0x80, 7.102f, "Accursed Becoming"); // t=50074.1; Ability 4F7B from Adrammelech
+    Timeout(id + 0x90, 7.199f, "Stone IV/Aero IV/Thunder IV"); // t=50081.3
+    Timeout(id + 0xA0, 10.098f, "Burst II"); // t=50091.4; Ability 4F8A from Adrammelech
+    Timeout(id + 0xB0, 11.102f, "Warped Light"); // t=50102.5; Ability 4F8C from Adrammelech
+    Timeout(id + 0xC0, 3.0f, "Shock"); // t=50105.5; Ability 4F8E from Adrammelech
+    Timeout(id + 0xD0, 10.5f, "Curse Of The Fiend"); // t=50116.0; Ability 4F7A from Adrammelech
+    Timeout(id + 0xE0, 7.102f, "Accursed Becoming"); // t=50123.1; Ability 4F7B from Adrammelech
+    Timeout(id + 0xF0, 7.199f, "Orb 1"); // t=50130.3
+    Timeout(id + 0x100, 1.801f, "Orb 2"); // t=50132.1
+    Timeout(id + 0x110, 12.199f, "Tornado"); // t=50144.3; Ability 4F8F from Adrammelech
+    Timeout(id + 0x120, 7.098f, "Flare"); // t=50151.4; Ability 4F95 from Adrammelech
+    Timeout(id + 0x130, 9.102f, "Holy IV"); // t=50160.5; Ability 4F96 from Adrammelech
+    Timeout(id + 0x140, 8.199f, "Meteor"); // t=50168.7; Ability 4F92 from Adrammelech
+    Condition(id + 0x150, 25.602f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4F7A), "", 5f, 20.602f); // t=50194.3; StartsUsing 4F7A from Adrammelech
+    Timeout(id + 0x160, 3.0f, "Curse Of The Fiend"); // t=50197.3; Ability 4F7A from Adrammelech
+    Timeout(id + 0x170, 7.098f, "Accursed Becoming"); // t=50204.4; Ability 4F7B from Adrammelech
+    Timeout(id + 0x180, 7.203f, "Orb 1"); // t=50211.6
+    Timeout(id + 0x190, 1.797f, "Orb 2"); // t=50213.4
+    Timeout(id + 0x1A0, 0.102f, "Accursed Becoming"); // t=50213.5; Ability 4F7B from Adrammelech
+    Timeout(id + 0x1B0, 7.199f, "Orb 3"); // t=50220.7
+    Timeout(id + 0x1C0, 1.801f, "Orb 4"); // t=50222.5
+    Timeout(id + 0x1D0, 8.199f, "Flare"); // t=50230.7; Ability 4F95 from Adrammelech
+    Timeout(id + 0x1E0, 7.102f, "Tornado"); // t=50237.8; Ability 4F8F from Adrammelech
+    Timeout(id + 0x1F0, 7.098f, "Meteor"); // t=50244.9; Ability 4F92 from Adrammelech
+    Timeout(id + 0x200, 17.703f, "Burst II"); // t=50262.6; Ability 4F8A from Adrammelech
+    Timeout(id + 0x210, 11.199f, "Warped Light"); // t=50273.8; Ability 4F8C from Adrammelech
+    Timeout(id + 0x220, 3.0f, "Shock"); // t=50276.8; Ability 4F8E from Adrammelech
+    Timeout(id + 0x230, 11.199f, "Holy IV"); // t=50288.0; Ability 4F96 from Adrammelech
+    Timeout(id + 0x240, 7.102f, "Holy IV"); // t=50295.1; Ability 4F96 from Adrammelech
+    Timeout(id + 0x250, 9.098f, "Flare"); // t=50304.2; Ability 4F95 from Adrammelech
+    Timeout(id + 0x260, 12.5f, "Curse Of The Fiend"); // t=50316.7; Ability 4F7A from Adrammelech
+    Timeout(id + 0x270, 7.102f, "Accursed Becoming"); // t=50323.8; Ability 4F7B from Adrammelech
+    Timeout(id + 0x280, 7.199f, "Orb 1"); // t=50331.0
+    Timeout(id + 0x290, 1.801f, "Orb 2"); // t=50332.8
+    Timeout(id + 0x2A0, 0.098f, "Accursed Becoming"); // t=50332.9; Ability 4F7B from Adrammelech
+    Timeout(id + 0x2B0, 7.203f, "Orb 3"); // t=50340.1
+    Timeout(id + 0x2C0, 1.797f, "Orb 4"); // t=50341.9
+    Timeout(id + 0x2D0, 8.203f, "Flare"); // t=50350.1; Ability 4F95 from Adrammelech
+    Timeout(id + 0x2E0, 7.098f, "Tornado"); // t=50357.2; Ability 4F8F from Adrammelech
+    Timeout(id + 0x2F0, 7.102f, "Meteor"); // t=50364.3
+    Timeout(id + 0x300, 17.699f, "Burst II"); // t=50382.0
+    Timeout(id + 0x310, 3.0f, "Meteor"); // t=50385.0
+    Timeout(id + 0x320, 8.199f, "Warped Light"); // t=50393.2
+    Timeout(id + 0x330, 3.0f, "Shock"); // t=50396.2
+    Timeout(id + 0x340, 11.199f, "Holy IV"); // t=50407.4
+    Timeout(id + 0x350, 7.102f, "Holy IV"); // t=50414.5
+    Timeout(id + 0x360, 9.102f, "Flare"); // t=50423.6
+}
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 14.301f, "Molting Plumage"); // t=60014.3; Ability 517A from Dawon
+    Timeout(id + 0x10, 11.598f, "Explosion"); // t=60025.9; Ability 5182 from Verdant Plume
+    Timeout(id + 0x20, 7.602f, "Scratch"); // t=60033.5; Ability 517B from Dawon
+    Timeout(id + 0x30, 8.602f, "Fervid Pulse"); // t=60042.1; Ability 5179 from Dawon
+    Timeout(id + 0x40, 8.5f, "Swooping Frenzy"); // t=60050.6; Ability 5175 from Dawon
+    Timeout(id + 0x50, 7.797f, "Frigid Pulse"); // t=60058.4; Ability 5178 from Dawon
+    Timeout(id + 0x60, 9.5f, "Ready x3"); // t=60067.9
+    Timeout(id + 0x70, 7.0f, "Obey"); // t=60074.9; Ability 517C from Dawon
+    Timeout(id + 0x80, 2.102f, "Swooping Frenzy"); // t=60077.0; Ability 517E from Dawon
+    Timeout(id + 0x90, 2.801f, "Frigid Pulse/Fervid Pulse"); // t=60079.8
+    Timeout(id + 0xA0, 2.398f, "Swooping Frenzy"); // t=60082.2; Ability 517E from Dawon
+    Timeout(id + 0xB0, 2.801f, "Frigid Pulse/Fervid Pulse"); // t=60085.0
+    Timeout(id + 0xC0, 2.398f, "Swooping Frenzy"); // t=60087.4; Ability 517E from Dawon
+    Timeout(id + 0xD0, 2.801f, "Frigid Pulse/Fervid Pulse"); // t=60090.2
+    Timeout(id + 0xE0, 11.402f, "Call Beast"); // t=60101.6; Ability 5192 from Lyon The Beast King
+    Timeout(id + 0xF0, 6.0f, "Molting Plumage"); // t=60107.6; Ability 517A from Dawon
+    Timeout(id + 0x100, 11.598f, "Explosion"); // t=60119.2; Ability 5182 from Verdant Plume
+    Timeout(id + 0x110, 9.699f, "Pentagust"); // t=60128.9; Ability 5176 from Dawon
+    Timeout(id + 0x120, 10.703f, "Scratch"); // t=60139.6; Ability 517B from Dawon
+}
+
+private void Phase_2(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "--Lyon Passage--"); // t=60153.6
+    Timeout(id + 0x10, 12.898f, "Raging Winds"); // t=60166.5; Ability 5164 from Lyon The Beast King
+    Timeout(id + 0x20, 6.102f, "Winds' Peak"); // t=60172.6; Ability 516F from Lyon The Beast King
+    Timeout(id + 0x30, 11.199f, "Heart Of Nature"); // t=60183.8; Ability 515E from Lyon The Beast King
+    Timeout(id + 0x40, 5.0f, "Nature's Pulse"); // t=60188.8; Ability 5161 from Lyon The Beast King
+    Timeout(id + 0x50, 1.5f, "Nature's Pulse"); // t=60190.3; Ability 5162 from Lyon The Beast King
+    Timeout(id + 0x60, 1.5f, "Nature's Pulse"); // t=60191.8; Ability 5163 from Lyon The Beast King
+    Timeout(id + 0x70, 6.199f, "Taste Of Blood"); // t=60198.0; Ability 5173 from Lyon The Beast King
+    Timeout(id + 0x80, 12.199f, "Heart Of Nature"); // t=60210.2; Ability 515E from Lyon The Beast King
+    Timeout(id + 0x90, 8.0f, "Nature's Blood"); // t=60218.2; Ability 515F from Lyon The Beast King
+    Timeout(id + 0xA0, 0.102f, "Winds' Peak"); // t=60218.3; Ability 516F from Lyon The Beast King
+    Timeout(id + 0xB0, 10.098f, "Twin Agonies"); // t=60228.4; Ability 5174 from Lyon The Beast King
+    Timeout(id + 0xC0, 13.203f, "Heart Of Nature"); // t=60241.6; Ability 515E from Lyon The Beast King
+    Timeout(id + 0xD0, 7.098f, "The King's Notice"); // t=60248.7; Ability 516E from Lyon The Beast King
+    Timeout(id + 0xE0, 0.902f, "Nature's Blood"); // t=60249.6; Ability 515F from Lyon The Beast King
+    Timeout(id + 0xF0, 7.0f, "Taste Of Blood"); // t=60256.6; Ability 5173 from Lyon The Beast King
+    Timeout(id + 0x100, 19.098f, "Raging Winds Enrage"); // t=60275.7
+}
+
+private void Phase_3(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x517D), "", 5f, 0.0f); // t=61000.0; StartsUsing 517D from Dawon
+    Timeout(id + 0x10, 2.0f, "Ready x4"); // t=61002.0
+    Timeout(id + 0x20, 10.0f, "Obey"); // t=61012.0; Ability 517D from Dawon
+    Timeout(id + 0x30, 2.102f, "Swooping Frenzy"); // t=61014.1; Ability 517E from Dawon
+    Timeout(id + 0x40, 2.797f, "Frigid/Fervid Pulse"); // t=61016.9
+    Timeout(id + 0x50, 2.402f, "Swooping Frenzy"); // t=61019.3; Ability 517E from Dawon
+    Timeout(id + 0x60, 2.801f, "Frigid/Fervid Pulse"); // t=61022.1
+    Timeout(id + 0x70, 2.398f, "Swooping Frenzy"); // t=61024.5; Ability 517E from Dawon
+    Timeout(id + 0x80, 2.801f, "Frigid/Fervid Pulse"); // t=61027.3
+    Timeout(id + 0x90, 2.398f, "Swooping Frenzy"); // t=61029.7; Ability 517E from Dawon
+    Timeout(id + 0xA0, 2.801f, "Frigid/Fervid Pulse"); // t=61032.5
+    Timeout(id + 0xB0, 10.398f, "Call Beast"); // t=61042.9; Ability 5192 from Lyon The Beast King
+    Timeout(id + 0xC0, 6.0f, "Molting Plumage"); // t=61048.9; Ability 517A from Dawon
+    Timeout(id + 0xD0, 11.602f, "Explosion"); // t=61060.5; Ability 5182 from Verdant Plume
+    Timeout(id + 0xE0, 9.5f, "Swooping Frenzy"); // t=61070.0; Ability 5175 from Dawon
+    Timeout(id + 0xF0, 5.801f, "Pentagust"); // t=61075.8; Ability 5176 from Dawon
+    Timeout(id + 0x100, 11.699f, "Scratch"); // t=61087.5; Ability 517B from Dawon
+    Timeout(id + 0x110, 13.199f, "Ready x4"); // t=61100.7
+    Timeout(id + 0x120, 10.0f, "Obey"); // t=61110.7; Ability 517D from Dawon
+    Timeout(id + 0x130, 2.102f, "Swooping Frenzy"); // t=61112.8
+    Timeout(id + 0x140, 2.801f, "Frigid/Fervid Pulse"); // t=61115.6
+    Timeout(id + 0x150, 2.398f, "Swooping Frenzy"); // t=61118.0
+    Timeout(id + 0x160, 2.801f, "Frigid/Fervid Pulse"); // t=61120.8
+    Timeout(id + 0x170, 2.398f, "Swooping Frenzy"); // t=61123.2
+    Timeout(id + 0x180, 2.801f, "Frigid/Fervid Pulse"); // t=61126.0
+    Timeout(id + 0x190, 2.398f, "Swooping Frenzy"); // t=61128.4
+    Timeout(id + 0x1A0, 2.801f, "Frigid/Fervid Pulse"); // t=61131.2
+}
+

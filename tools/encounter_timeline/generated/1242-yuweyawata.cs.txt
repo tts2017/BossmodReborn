@@ -1,0 +1,93 @@
+// Generated development skeleton from yuweyawata.txt (TerritoryType 1242).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 22 static/dynamic trigger definitions from ui/raidboss/data/07-dt/dungeon/yuweyawata.ts.
+
+private void YUWEYAWATA_FIELD_STATION(uint id)
+{
+    Condition(id + 0x0, 1005.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9EBB), "", 5f, 1000.1f); // t=1005.1; StartsUsing 9EBB from Lindblum Zaghnal; cactbot StartsUsing 9EBB [Yuweyawata Lindblum Zaghnal Electrical Overload]
+    Timeout(id + 0x10, 5.0f, "Electrical Overload").SetHint(StateMachine.StateHint.Raidwide); // t=1010.1; Ability 9EBB from Lindblum Zaghnal; cactbot StartsUsing 9EBB [Yuweyawata Lindblum Zaghnal Electrical Overload]
+    Timeout(id + 0x20, 12.6f, "Gore"); // t=1022.7; Ability A132 from Lindblum Zaghnal
+    Timeout(id + 0x30, 9.7f, "Line Voltage"); // t=1032.4; Ability 9EB1 from Lindblum Zaghnal
+    Timeout(id + 0x40, 3.0f, "Line Voltage"); // t=1035.4; Ability 9EB1 from Lindblum Zaghnal
+    Timeout(id + 0x50, 3.0f, "Line Voltage"); // t=1038.4; Ability 9EB1 from Lindblum Zaghnal
+    Timeout(id + 0x60, 5.4f, "Caber Toss"); // t=1043.8; Ability 9EB0 from Lindblum Zaghnal; cactbot StartsUsing 9EB0 [Yuweyawata Lindblum Zaghnal Caber Toss]
+    Timeout(id + 0x70, 2.0f, "Cell Shock"); // t=1045.8; Ability 9EB2 from Lindblum Zaghnal
+    Timeout(id + 0x80, 1.3f, "Line Voltage (multiple)"); // t=1047.1; Ability A0A1 from Lindblum Zaghnal
+    Timeout(id + 0x90, 10.1f, "Lightning Storm"); // t=1057.2; Ability 9EBC from Lindblum Zaghnal; cactbot StartsUsing 9EBD [Yuweyawata Lindblum Zaghnal Lightning Storm]
+    Timeout(id + 0xA0, 11.7f, "Gore"); // t=1068.9; Ability 9EB6 from Lindblum Zaghnal
+    Timeout(id + 0xB0, 2.1f, "Sparking Fissure").SetHint(StateMachine.StateHint.Raidwide); // t=1071.0; Ability A133 from Lindblum Zaghnal; cactbot StartsUsing 9EB7/A133 [Yuweyawata Lindblum Zaghnal Sparking Fissure (small)]
+    Timeout(id + 0xC0, 1.3f, "--adds 1 targetable--"); // t=1072.3
+    Timeout(id + 0xD0, 6.7f, "Sparking Fissure").SetHint(StateMachine.StateHint.Raidwide); // t=1079.0; Ability 9EB7 from Lindblum Zaghnal; cactbot StartsUsing 9EB7/A133 [Yuweyawata Lindblum Zaghnal Sparking Fissure (small)]
+    Timeout(id + 0xE0, 2.0f, "--adds 2 targetable--"); // t=1081.0
+    Timeout(id + 0xF0, 7.1f, "Sparking Fissure").SetHint(StateMachine.StateHint.Raidwide); // t=1088.1; Ability 9EB7 from Lindblum Zaghnal; cactbot StartsUsing 9EB7/A133 [Yuweyawata Lindblum Zaghnal Sparking Fissure (small)]
+    Timeout(id + 0x100, 1.0f, "Lightning Bolt x3"); // t=1089.1
+    Timeout(id + 0x110, 0.4f, "--adds 3 targetable--"); // t=1089.5
+    Timeout(id + 0x120, 10.3f, "Lightning Bolt x3"); // t=1099.8
+    Timeout(id + 0x130, 10.7f, "Sparking Fissure (big)").SetHint(StateMachine.StateHint.Raidwide); // t=1110.5; Ability A12A from Lindblum Zaghnal; cactbot StartsUsing A12A [Yuweyawata Lindblum Zaghnal Sparking Fissure (big)]
+    Timeout(id + 0x140, 11.1f, "Gore"); // t=1121.6; Ability A132 from Lindblum Zaghnal
+    Timeout(id + 0x150, 9.7f, "Line Voltage"); // t=1131.3; Ability 9EB1 from Lindblum Zaghnal
+    Timeout(id + 0x160, 3.0f, "Line Voltage"); // t=1134.3; Ability 9EB1 from Lindblum Zaghnal
+    Timeout(id + 0x170, 3.0f, "Line Voltage"); // t=1137.3; Ability 9EB1 from Lindblum Zaghnal
+    Timeout(id + 0x180, 5.4f, "Caber Toss"); // t=1142.7; Ability 9EB0 from Lindblum Zaghnal; cactbot StartsUsing 9EB0 [Yuweyawata Lindblum Zaghnal Caber Toss]
+    Timeout(id + 0x190, 2.0f, "Cell Shock"); // t=1144.7; Ability 9EB2 from Lindblum Zaghnal
+    Timeout(id + 0x1A0, 1.3f, "Line Voltage (multiple)"); // t=1146.0; Ability A0A1 from Lindblum Zaghnal
+    Timeout(id + 0x1B0, 10.1f, "Lightning Storm"); // t=1156.1; Ability 9EBC from Lindblum Zaghnal; cactbot StartsUsing 9EBD [Yuweyawata Lindblum Zaghnal Lightning Storm]
+    Timeout(id + 0x1C0, 13.6f, "Electrical Overload").SetHint(StateMachine.StateHint.Raidwide); // t=1169.7; Ability 9EBB from Lindblum Zaghnal; cactbot StartsUsing 9EBB [Yuweyawata Lindblum Zaghnal Electrical Overload]
+    Timeout(id + 0x1D0, 12.8f, "Lightning Storm"); // t=1182.5; Ability 9EBC from Lindblum Zaghnal; cactbot StartsUsing 9EBD [Yuweyawata Lindblum Zaghnal Lightning Storm]
+    Timeout(id + 0x1E0, 1.4f, "Lightning Bolt x3"); // t=1183.9
+    Condition(id + 0x1F0, 821.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9ED2), "", 5f, 816.2f); // t=2005.1; StartsUsing 9ED2 from Overseer Kanilokka; cactbot StartsUsing 9ED2 [Yuweyawata Overseer Kanilokka Dark Souls]
+    Timeout(id + 0x200, 5.0f, "Dark Souls").SetHint(StateMachine.StateHint.Tankbuster); // t=2010.1; Ability 9ED2 from Overseer Kanilokka; cactbot StartsUsing 9ED2 [Yuweyawata Overseer Kanilokka Dark Souls]
+    Timeout(id + 0x210, 8.9f, "Free Spirits").SetHint(StateMachine.StateHint.Raidwide); // t=2019.0; Ability 9EBF from Overseer Kanilokka; cactbot StartsUsing 9EC0 [Yuweyawata Overseer Kanilokka Free Spirits]
+    Timeout(id + 0x220, 6.1f, "Soulweave x8"); // t=2025.1
+    Timeout(id + 0x230, 15.3f, "Phantom Flood"); // t=2040.4; Ability 9EC3 from Overseer Kanilokka; cactbot StartsUsing 9EC4 [Yuweyawata Overseer Kanilokka Phantom Flood]
+    Timeout(id + 0x240, 13.1f, "Dark II"); // t=2053.5; Ability 9ECE from Overseer Kanilokka
+    Timeout(id + 0x250, 2.4f, "Dark II"); // t=2055.9; Ability 9ECF from Overseer Kanilokka
+    Timeout(id + 0x260, 6.4f, "Telltale Tears"); // t=2062.3; Ability 9EC9 from Overseer Kanilokka; cactbot StartsUsing 9EC9 [Yuweyawata Overseer Kanilokka Telltale Tears]
+    Timeout(id + 0x270, 7.1f, "Lost Hope"); // t=2069.4; Ability 9EC5 from Overseer Kanilokka; cactbot Ability 9EC5 [Yuweyawata Overseer Kanilokka Lost Hope]
+    Targetable(id + 0x280, false, 0.8f, "--untargetable--"); // t=2070.2
+    Timeout(id + 0x290, 16.3f, "Necrohazard").SetHint(StateMachine.StateHint.Raidwide); // t=2086.5; Ability 9EC6 from Overseer Kanilokka; cactbot StartsUsing 9EC6 [Yuweyawata Overseer Kanilokka Necrohazard]
+    Targetable(id + 0x2A0, true, 1.6f, "--targetable--"); // t=2088.1
+    Timeout(id + 0x2B0, 8.7f, "Bloodburst").SetHint(StateMachine.StateHint.Raidwide); // t=2096.8; Ability 9EC7 from Overseer Kanilokka; cactbot StartsUsing 9EC7 [Yuweyawata Overseer Kanilokka Bloodburst]
+    Timeout(id + 0x2C0, 10.1f, "Free Spirits").SetHint(StateMachine.StateHint.Raidwide); // t=2106.9; Ability 9EBF from Overseer Kanilokka; cactbot StartsUsing 9EC0 [Yuweyawata Overseer Kanilokka Free Spirits]
+    Timeout(id + 0x2D0, 6.1f, "Soulweave x8"); // t=2113.0
+    Timeout(id + 0x2E0, 3.5f, "Telltale Tears"); // t=2116.5; Ability 9EC9 from Overseer Kanilokka; cactbot StartsUsing 9EC9 [Yuweyawata Overseer Kanilokka Telltale Tears]
+    Timeout(id + 0x2F0, 6.6f, "Telltale Tears"); // t=2123.1; Ability 9EC9 from Overseer Kanilokka; cactbot StartsUsing 9EC9 [Yuweyawata Overseer Kanilokka Telltale Tears]
+    Timeout(id + 0x300, 7.5f, "Dark II"); // t=2130.6; Ability 9ECE from Overseer Kanilokka
+    Timeout(id + 0x310, 2.6f, "Dark II"); // t=2133.2; Ability 9ECF from Overseer Kanilokka
+    Timeout(id + 0x320, 0.8f, "Soul Douse"); // t=2134.0; Ability 9ECB from Overseer Kanilokka; cactbot StartsUsing 9ECB [Yuweyawata Overseer Kanilokka Soul Douse]
+    Timeout(id + 0x330, 9.9f, "Dark Souls").SetHint(StateMachine.StateHint.Tankbuster); // t=2143.9; Ability 9ED2 from Overseer Kanilokka; cactbot StartsUsing 9ED2 [Yuweyawata Overseer Kanilokka Dark Souls]
+    Timeout(id + 0x340, 9.7f, "Bloodburst").SetHint(StateMachine.StateHint.Raidwide); // t=2153.6; Ability 9EC7 from Overseer Kanilokka; cactbot StartsUsing 9EC7 [Yuweyawata Overseer Kanilokka Bloodburst]
+    Timeout(id + 0x350, 9.1f, "Bloodburst").SetHint(StateMachine.StateHint.Raidwide); // t=2162.7; Ability 9EC7 from Overseer Kanilokka; cactbot StartsUsing 9EC7 [Yuweyawata Overseer Kanilokka Bloodburst]
+    Timeout(id + 0x360, 11.3f, "Free Spirits").SetHint(StateMachine.StateHint.Raidwide); // t=2174.0; Ability 9EBF from Overseer Kanilokka; cactbot StartsUsing 9EC0 [Yuweyawata Overseer Kanilokka Free Spirits]
+    Condition(id + 0x370, 832.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9EA4), "", 5f, 827.4f); // t=3006.4; StartsUsing 9EA4 from Lunipyati; cactbot StartsUsing 9EA4 [Yuweyawata Lunipyati Raging Claw]
+    Timeout(id + 0x380, 5.0f, "Raging Claw"); // t=3011.4; Ability 9EA4 from Lunipyati; cactbot StartsUsing 9EA4 [Yuweyawata Lunipyati Raging Claw]
+    Timeout(id + 0x390, 16.1f, "Leporine Loaf").SetHint(StateMachine.StateHint.Raidwide); // t=3027.5; Ability 9E9B from Lunipyati; cactbot StartsUsing 9E9B [Yuweyawata Lunipyati Leporine Loaf]
+    Condition(id + 0x3A0, 5.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9E9F), "", 5f, 0.2f); // t=3032.7; StartsUsing 9E9F from Lunipyati
+    Condition(id + 0x3B0, 5.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9E9E), "", 5f, 0.0f); // t=3037.7; StartsUsing 9E9E from Lunipyati
+    Timeout(id + 0x3C0, 63.8f, "Leaping Earth (arcs)"); // t=3101.5
+    Timeout(id + 0x3D0, 11.2f, "Leaping Earth (arcs)"); // t=3112.7
+    Timeout(id + 0x3E0, 10.1f, "Leaping Earth (spiral)"); // t=3122.8
+    Timeout(id + 0x3F0, 16.0f, "Boulder Dance"); // t=3138.8; Ability 9E9F from Lunipyati
+    Timeout(id + 0x400, 13.0f, "Boulder Dance"); // t=3151.8; Ability 9E9F from Lunipyati
+    Timeout(id + 0x410, 7.0f, "Jagged Edge"); // t=3158.8; Ability 9EA7 from Lunipyati; cactbot StartsUsing 9EA7 [Yuweyawata Lunipyati Jagged Edge]
+    Condition(id + 0x420, 3.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9E9C), "", 5f, 0.0f); // t=3161.9; StartsUsing 9E9C from Lunipyati
+    Timeout(id + 0x430, 144.1f, "Boulder Dance"); // t=3306.0; Ability 9E9F from Lunipyati
+    Timeout(id + 0x440, 13.0f, "Boulder Dance"); // t=3319.0; Ability 9E9F from Lunipyati
+    Timeout(id + 0x450, 7.0f, "Jagged Edge"); // t=3326.0; Ability 9EA7 from Lunipyati; cactbot StartsUsing 9EA7 [Yuweyawata Lunipyati Jagged Edge]
+    Timeout(id + 0x460, 11.7f, "Leaping Earth (arcs)"); // t=3337.7
+    Timeout(id + 0x470, 11.1f, "Leaping Earth (arcs)"); // t=3348.8
+    Timeout(id + 0x480, 10.1f, "Leaping Earth (spiral)"); // t=3358.9
+    Condition(id + 0x490, 8.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9E9C), "", 5f, 3.0f); // t=3366.9; StartsUsing 9E9C from Lunipyati
+    Timeout(id + 0x4A0, 140.1f, "Crater Carve"); // t=3507.0; Ability 9E9C from Lunipyati; cactbot StartsUsing 9E9D [Yuweyawata Lunipyati Crater Carve]
+    Timeout(id + 0x4B0, 18.1f, "Beastly Roar"); // t=3525.1; Ability 9EA2 from Lunipyati; cactbot StartsUsing 9EA2 [Yuweyawata Lunipyati Beastly Roar]
+    Timeout(id + 0x4C0, 1.6f, "Rock Blast"); // t=3526.7
+    Timeout(id + 0x4D0, 15.3f, "Raging Claw"); // t=3542.0; Ability 9EA4 from Lunipyati; cactbot StartsUsing 9EA4 [Yuweyawata Lunipyati Raging Claw]
+    Timeout(id + 0x4E0, 5.5f, "Jagged Edge"); // t=3547.5; Ability 9EA7 from Lunipyati; cactbot StartsUsing 9EA7 [Yuweyawata Lunipyati Jagged Edge]
+    Timeout(id + 0x4F0, 6.7f, "Turali Stone IV"); // t=3554.2; Ability 9EA8 from Lunipyati; cactbot StartsUsing 9EA8 [Yuweyawata Lunipyati Turali Stone IV]
+    Timeout(id + 0x500, 8.4f, "Sonic Howl").SetHint(StateMachine.StateHint.Raidwide); // t=3562.6; Ability 9EAA from Lunipyati; cactbot StartsUsing 9EAA [Yuweyawata Lunipyati Sonic Howl]
+    Timeout(id + 0x510, 9.1f, "Sonic Howl").SetHint(StateMachine.StateHint.Raidwide); // t=3571.7; Ability 9EAA from Lunipyati; cactbot StartsUsing 9EAA [Yuweyawata Lunipyati Sonic Howl]
+    Timeout(id + 0x520, 9.1f, "Slabber").SetHint(StateMachine.StateHint.Tankbuster); // t=3580.8; Ability 9EAB from Lunipyati; cactbot StartsUsing 9EAB [Yuweyawata Lunipyati Slabber]
+    Timeout(id + 0x530, 19.1f, "Beastly Roar"); // t=3599.9; Ability 9EA2 from Lunipyati; cactbot StartsUsing 9EA2 [Yuweyawata Lunipyati Beastly Roar]
+}
+

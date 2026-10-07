@@ -1,0 +1,1085 @@
+// Generated development skeleton from delubrum_reginae_savage.txt (TerritoryType 937).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 83 static/dynamic trigger definitions from ui/raidboss/data/05-shb/eureka/delubrum_reginae_savage.ts.
+
+private void Delubrum_Reginae__Savage(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Slimes__The_Barracks__left_side(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Viscous Clot x3"); // t=1000.0
+    Timeout(id + 0x10, 5.3f, "Sanguine Clot x4"); // t=1005.3
+    Timeout(id + 0x20, 6.8f, "Viscous Clot x3"); // t=1012.1
+    Timeout(id + 0x30, 12.0f, "Viscous Clot x3"); // t=1024.1
+    Timeout(id + 0x40, 1.3f, "Sanguine Clot x4"); // t=1025.4
+    Timeout(id + 0x50, 2.1f, "Bozjan Soldier x2"); // t=1027.5
+    Timeout(id + 0x60, 8.6f, "Viscous Clot x3"); // t=1036.1
+    Timeout(id + 0x70, 8.8f, "Sanguine Clot x4"); // t=1044.9
+    Timeout(id + 0x80, 3.3f, "Viscous Clot x3"); // t=1048.2
+    Timeout(id + 0x90, 12.0f, "Viscous Clot x3"); // t=1060.2
+    Timeout(id + 0xA0, 4.9f, "Sanguine Clot x4"); // t=1065.1
+    Timeout(id + 0xB0, 7.3f, "Viscous Clot x3"); // t=1072.4
+    Timeout(id + 0xC0, 4.7f, "Bozjan Soldier x2"); // t=1077.1
+    Timeout(id + 0xD0, 7.2f, "Viscous Clot x3"); // t=1084.3
+    Timeout(id + 0xE0, 0.7f, "Sanguine Clot x4"); // t=1085.0
+    Timeout(id + 0xF0, 11.1f, "Viscous Clot x3"); // t=1096.1
+    Timeout(id + 0x100, 9.1f, "Sanguine Clot x3"); // t=1105.2
+    Timeout(id + 0x110, 3.1f, "Viscous Clot x2"); // t=1108.3
+    Timeout(id + 0x120, 11.7f, "Viscous Clot x3"); // t=1120.0
+    Timeout(id + 0x130, 5.2f, "Sanguine Clot x4"); // t=1125.2
+    Timeout(id + 0x140, 2.2f, "Bozjan Soldier x2"); // t=1127.4
+    Timeout(id + 0x150, 4.8f, "Viscous Clot"); // t=1132.2
+    Timeout(id + 0x160, 12.0f, "Viscous Clot x3"); // t=1144.2
+    Timeout(id + 0x170, 12.0f, "Viscous Clot x3"); // t=1156.2
+    Timeout(id + 0x180, 5.9f, "Viscous Clot"); // t=1162.1
+    Timeout(id + 0x190, 3.3f, "Sanguine Clot x2"); // t=1165.4
+    Timeout(id + 0x1A0, 2.8f, "Viscous Clot x2"); // t=1168.2
+    Timeout(id + 0x1B0, 4.5f, "Sanguine Clot x4"); // t=1172.7
+    Timeout(id + 0x1C0, 4.7f, "Bozjan Soldier x2"); // t=1177.4
+    Timeout(id + 0x1D0, 14.8f, "Viscous Clot"); // t=1192.2
+    Timeout(id + 0x1E0, 12.0f, "Viscous Clot x2"); // t=1204.2
+    Timeout(id + 0x1F0, 20.9f, "Sanguine Clot"); // t=1225.1
+    Timeout(id + 0x200, 2.1f, "Bozjan Soldier x2"); // t=1227.2
+    Timeout(id + 0x210, 5.9f, "Sanguine Clot x4"); // t=1233.1
+    Timeout(id + 0x220, 44.2f, "Bozjan Soldier x2"); // t=1277.3
+    Timeout(id + 0x230, 20.0f, "Grim Reaper Enrage"); // t=1297.3
+    Timeout(id + 0x240, 5.0f, "Death Scythe"); // t=1302.3
+    Timeout(id + 0x250, 3.0f, "Death Scythe"); // t=1305.3
+    Timeout(id + 0x260, 3.0f, "Death Scythe"); // t=1308.3
+    Timeout(id + 0x270, 3.0f, "Death Scythe"); // t=1311.3
+    Timeout(id + 0x280, 3.1f, "Death Scythe"); // t=1314.4
+    Timeout(id + 0x290, 3.0f, "Death Scythe"); // t=1317.4
+    Timeout(id + 0x2A0, 3.0f, "Death Scythe"); // t=1320.4
+    Timeout(id + 0x2B0, 3.1f, "Death Scythe"); // t=1323.5
+    Timeout(id + 0x2C0, 3.0f, "Death Scythe"); // t=1326.5
+    Timeout(id + 0x2D0, 0.8f, "Bozjan Soldier x2"); // t=1327.3
+    Timeout(id + 0x2E0, 2.2f, "Death Scythe"); // t=1329.5
+    Timeout(id + 0x2F0, 3.1f, "Death Scythe"); // t=1332.6
+    Timeout(id + 0x300, 3.0f, "Death Scythe"); // t=1335.6; Ability 5747 from Grim Reaper
+    Timeout(id + 0x310, 3.0f, "Death Scythe"); // t=1338.6
+    Timeout(id + 0x320, 3.1f, "Death Scythe"); // t=1341.7
+    Timeout(id + 0x330, 3.0f, "Death Scythe"); // t=1344.7
+    Timeout(id + 0x340, 3.0f, "Death Scythe"); // t=1347.7
+    Timeout(id + 0x350, 3.1f, "Death Scythe"); // t=1350.8
+    Timeout(id + 0x360, 3.0f, "Death Scythe"); // t=1353.8
+    Timeout(id + 0x370, 3.0f, "Death Scythe"); // t=1356.8
+    Timeout(id + 0x380, 3.0f, "Death Scythe"); // t=1359.8
+}
+
+private void Golems__The_Granary__right_side(uint id)
+{
+    Timeout(id + 0x0, 0.0f, ""); // t=2000.0
+    Timeout(id + 0x10, 25.2f, "Core Combustion"); // t=2025.2; Ability 5745 from Bicolor Golem
+    Timeout(id + 0x20, 0.9f, "--bleed--"); // t=2026.1
+    Timeout(id + 0x30, 3.8f, "Ruins Golem x2"); // t=2029.9
+    Condition(id + 0x40, 2.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5558), "", 5f, 0.0f); // t=2032.1; StartsUsing 5558 from Bicolor Golem
+    Timeout(id + 0x50, 5.0f, "Metamorphose"); // t=2037.1; Ability 5558 from Bicolor Golem
+    Timeout(id + 0x60, 32.8f, "Ruins Golem x2"); // t=2069.9
+    Condition(id + 0x70, 1.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5558), "", 5f, 0.0f); // t=2071.3; StartsUsing 5558 from Bicolor Golem
+    Timeout(id + 0x80, 5.0f, "Metamorphose"); // t=2076.3; Ability 5558 from Bicolor Golem
+    Timeout(id + 0x90, 33.4f, "Ruins Golem x2"); // t=2109.7
+    Timeout(id + 0xA0, 30.4f, "Ruins Golem x2"); // t=2140.1
+    Timeout(id + 0xB0, 20.1f, "Ruins Golem x2"); // t=2160.2
+    Timeout(id + 0xC0, 10.1f, "Ruins Golem x2"); // t=2170.3
+    Timeout(id + 0xD0, 10.0f, "Ruins Golem x2"); // t=2180.3
+    Timeout(id + 0xE0, 9.6f, "Ruins Golem x2"); // t=2189.9
+    Timeout(id + 0xF0, 10.0f, "Ruins Golem x2"); // t=2199.9
+    Timeout(id + 0x100, 10.0f, "Ruins Golem x2"); // t=2209.9
+    Timeout(id + 0x110, 10.1f, "Ruins Golem x2"); // t=2220.0
+    Timeout(id + 0x120, 10.0f, "Ruins Golem x2"); // t=2230.0
+    Timeout(id + 0x130, 10.0f, "Ruins Golem x2"); // t=2240.0
+    Timeout(id + 0x140, 10.1f, "Ruins Golem x2"); // t=2250.1
+    Timeout(id + 0x150, 9.9f, "Ruins Golem x2"); // t=2260.0
+    Timeout(id + 0x160, 10.0f, "Ruins Golem x2"); // t=2270.0
+    Timeout(id + 0x170, 10.1f, "Ruins Golem x2"); // t=2280.1
+    Timeout(id + 0x180, 10.0f, "Ruins Golem x2"); // t=2290.1
+    Timeout(id + 0x190, 9.6f, "Grim Reaper Enrage"); // t=2299.7
+    Timeout(id + 0x1A0, 0.5f, "Ruins Golem x2"); // t=2300.2
+    Timeout(id + 0x1B0, 4.8f, "Death Scythe"); // t=2305.0
+    Timeout(id + 0x1C0, 3.0f, "Death Scythe"); // t=2308.0
+    Timeout(id + 0x1D0, 2.1f, "Ruins Golem x2"); // t=2310.1
+    Timeout(id + 0x1E0, 1.0f, "Death Scythe"); // t=2311.1
+    Timeout(id + 0x1F0, 3.0f, "Death Scythe"); // t=2314.1
+    Timeout(id + 0x200, 3.0f, "Death Scythe"); // t=2317.1; Ability 5747 from Grim Reaper
+    Timeout(id + 0x210, 3.0f, "Death Scythe"); // t=2320.1
+    Timeout(id + 0x220, 3.0f, "Death Scythe"); // t=2323.1
+    Timeout(id + 0x230, 3.0f, "Death Scythe"); // t=2326.1
+    Timeout(id + 0x240, 3.0f, "Death Scythe"); // t=2329.1
+    Timeout(id + 0x250, 3.0f, "Death Scythe"); // t=2332.1
+    Timeout(id + 0x260, 3.0f, "Death Scythe"); // t=2335.1
+    Timeout(id + 0x270, 3.0f, "Death Scythe"); // t=2338.1
+}
+
+private void Trinity_Seeker(uint id)
+{
+    Condition(id + 0x0, 6.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5AD3), "", 5f, 1.4f); // t=4006.4; StartsUsing 5AD3 from Trinity Seeker; cactbot StartsUsing 5AD3 [DelubrumSav Seeker Phase] | StartsUsing 5AD3 [DelubrumSav Seeker Verdant Tempest]
+    Timeout(id + 0x10, 5.0f, "Verdant Tempest").SetHint(StateMachine.StateHint.Raidwide); // t=4011.4; Ability 5AD3 from Trinity Seeker; cactbot StartsUsing 5AD3 [DelubrumSav Seeker Phase] | StartsUsing 5AD3 [DelubrumSav Seeker Verdant Tempest]
+    Timeout(id + 0x20, 4.2f, "--middle--"); // t=4015.6; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x30, 4.4f, "Manifest Avatar"); // t=4020.0; Ability 5ADA from Trinity Seeker
+    Timeout(id + 0x40, 8.2f, "First Mercy"); // t=4028.2; Ability 5B61 from Trinity Seeker; cactbot StartsUsing 5B61 [DelubrumSav Seeker Sword Cleanup] | Ability 5B61 [DelubrumSav Seeker First Mercy]
+    Timeout(id + 0x50, 3.2f, "Second Mercy"); // t=4031.4; Ability 5B62 from Trinity Seeker
+    Timeout(id + 0x60, 3.2f, "Third Mercy"); // t=4034.6; Ability 5B63 from Trinity Seeker
+    Timeout(id + 0x70, 3.2f, "Fourth Mercy"); // t=4037.8; Ability 5B64 from Trinity Seeker
+    Timeout(id + 0x80, 2.4f, "Mercy Fourfold 1"); // t=4040.2
+    Timeout(id + 0x90, 1.9f, "Mercy Fourfold 2"); // t=4042.1
+    Timeout(id + 0xA0, 0.7f, "Seasons Of Mercy"); // t=4042.8; Ability 5AC7 from Seeker Avatar
+    Timeout(id + 0xB0, 1.2f, "Mercy Fourfold 3"); // t=4044.0
+    Timeout(id + 0xC0, 1.9f, "Mercy Fourfold 4"); // t=4045.9
+    Timeout(id + 0xD0, 1.4f, "Merciful Breeze"); // t=4047.3; Ability 5AC8 from Trinity Seeker
+    Timeout(id + 0xE0, 1.5f, "Merciful Moon"); // t=4048.8; Ability 5AC9 from Aetherial Orb; cactbot Ability 5AC9 [DelubrumSav Seeker Merciful Blooms]
+    Timeout(id + 0xF0, 2.5f, "Merciful Breeze"); // t=4051.3; Ability 5AC8 from Trinity Seeker
+    Timeout(id + 0x100, 3.4f, "Merciful Blooms"); // t=4054.7; Ability 5ACA from Trinity Seeker; cactbot StartsUsing 5ACA [DelubrumSav Seeker Merciful Moon]
+    Timeout(id + 0x110, 7.3f, "Verdant Tempest").SetHint(StateMachine.StateHint.Raidwide); // t=4062.0; Ability 5AD3 from Trinity Seeker; cactbot StartsUsing 5AD3 [DelubrumSav Seeker Phase] | StartsUsing 5AD3 [DelubrumSav Seeker Verdant Tempest]
+    Timeout(id + 0x120, 12.2f, "Merciful Arc"); // t=4074.2; Ability 5AD4 from Trinity Seeker; cactbot HeadMarker [DelubrumSav Seeker Merciful Arc]
+    Condition(id + 0x130, 2.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5A98), "", 5f, 0.0f); // t=4076.5; StartsUsing 5A98 from Trinity Seeker; cactbot StartsUsing 5A98 [DelubrumSav Seeker Baleful Swath]
+    Timeout(id + 0x140, 3.0f, "Verdant Path"); // t=4079.5; Ability 5A98 from Trinity Seeker; cactbot StartsUsing 5A98 [DelubrumSav Seeker Baleful Swath]
+    Timeout(id + 0x150, 4.6f, "Baleful Swathe"); // t=4084.1; Ability 5AD0 from Trinity Seeker
+    Timeout(id + 0x160, 8.1f, "Baleful Onslaught"); // t=4092.2; Ability 5AD5 from Trinity Seeker; cactbot StartsUsing 5AD5 [DelubrumSav Seeker Baleful Onslaught Buster]
+    Timeout(id + 0x170, 7.1f, "Phantom Edge"); // t=4099.3; Ability 5ABD from Trinity Seeker
+    Timeout(id + 0x180, 6.2f, "Baleful Onslaught"); // t=4105.5; Ability 5AD6 from Trinity Seeker; cactbot StartsUsing 5AD6 [DelubrumSav Seeker Baleful Onslaught Solo]
+    Timeout(id + 0x190, 10.1f, "Phantom Edge?"); // t=4115.6; Ability 5ABD from Trinity Seeker
+    Timeout(id + 0x1A0, 2.2f, "--middle--"); // t=4117.8; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x1B0, 0.6f, "--chains--"); // t=4118.4; cactbot HeadMarker [DelubrumSav Seeker Burning Chains] | GainsEffect 301 [DelubrumSav Seeker Burning Chains Move]
+    Timeout(id + 0x1C0, 8.5f, "Baleful Blade"); // t=4126.9
+    Timeout(id + 0x1D0, 5.2f, "Manifest Avatar"); // t=4132.1; Ability 5ADA from Trinity Seeker
+    Timeout(id + 0x1E0, 6.7f, "Baleful Comet 1"); // t=4138.8
+    Timeout(id + 0x1F0, 1.0f, "Baleful Comet 2"); // t=4139.8
+    Timeout(id + 0x200, 1.0f, "Baleful Comet 3"); // t=4140.8
+    Timeout(id + 0x210, 1.0f, "Baleful Comet 4"); // t=4141.8
+    Timeout(id + 0x220, 0.4f, "Phantom Edge?"); // t=4142.2; Ability 5ABD from Trinity Seeker
+    Timeout(id + 0x230, 2.2f, "--middle--"); // t=4144.4; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x240, 2.0f, "Baleful Firestorm 1"); // t=4146.4
+    Timeout(id + 0x250, 2.0f, "Baleful Firestorm 2"); // t=4148.4
+    Timeout(id + 0x260, 2.0f, "Baleful Firestorm 3"); // t=4150.4
+    Timeout(id + 0x270, 2.0f, "Baleful Firestorm 4"); // t=4152.4
+    Timeout(id + 0x280, 1.1f, "Baleful Blade"); // t=4153.5
+    Timeout(id + 0x290, 9.1f, "Verdant Tempest").SetHint(StateMachine.StateHint.Raidwide); // t=4162.6; Ability 5AD3 from Trinity Seeker; cactbot StartsUsing 5AD3 [DelubrumSav Seeker Phase] | StartsUsing 5AD3 [DelubrumSav Seeker Verdant Tempest]
+    Condition(id + 0x2A0, 6.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5A99), "", 5f, 1.1f); // t=4168.7; StartsUsing 5A99 from Trinity Seeker; cactbot StartsUsing 5A99 [DelubrumSav Seeker Iron Impact]
+    Timeout(id + 0x2B0, 3.0f, "Verdant Path"); // t=4171.7; Ability 5A99 from Trinity Seeker; cactbot StartsUsing 5A99 [DelubrumSav Seeker Iron Impact]
+    Timeout(id + 0x2C0, 4.9f, "Iron Impact"); // t=4176.6; Ability 5AD2 from Trinity Seeker; cactbot StartsUsing 5A99 [DelubrumSav Seeker Iron Impact]
+    Timeout(id + 0x2D0, 4.1f, "--middle--"); // t=4180.7; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x2E0, 4.2f, "Manifest Avatar"); // t=4184.9; Ability 5ADA from Trinity Seeker
+    Timeout(id + 0x2F0, 11.7f, "--jump--"); // t=4196.6; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x300, 1.1f, "Iron Rose"); // t=4197.7; Ability 5AD9 from Seeker Avatar
+    Timeout(id + 0x310, 5.8f, "Iron Splitter"); // t=4203.5; Ability 5AC0 from Trinity Seeker; cactbot StartsUsing 5AC0 [DelubrumSav Seeker Iron Splitter]
+    Timeout(id + 0x320, 4.2f, "--middle--"); // t=4207.7; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x330, 4.2f, "Manifest Avatar"); // t=4211.9; Ability 5ADA from Trinity Seeker
+    Timeout(id + 0x340, 4.2f, "--jump--"); // t=4216.1; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x350, 6.9f, "Iron Splitter"); // t=4223.0; Ability 5AC0 from Trinity Seeker; cactbot StartsUsing 5AC0 [DelubrumSav Seeker Iron Splitter]
+    Timeout(id + 0x360, 2.2f, "Dead Iron"); // t=4225.2; Ability 5ACC from Seeker Avatar; cactbot Tether 1DB [DelubrumSav Seeker Dead Iron]
+    Timeout(id + 0x370, 3.1f, "--jump--"); // t=4228.3; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x380, 4.2f, "Dead Iron"); // t=4232.5; Ability 5B44 from Seeker Avatar; cactbot Tether 1DB [DelubrumSav Seeker Dead Iron]
+    Timeout(id + 0x390, 2.6f, "Iron Splitter"); // t=4235.1; Ability 5AC0 from Trinity Seeker; cactbot StartsUsing 5AC0 [DelubrumSav Seeker Iron Splitter]
+    Timeout(id + 0x3A0, 4.8f, "Iron Rose"); // t=4239.9; Ability 5AD9 from Seeker Avatar
+    Timeout(id + 0x3B0, 11.4f, "Verdant Tempest").SetHint(StateMachine.StateHint.Raidwide); // t=4251.3; Ability 5AD3 from Trinity Seeker; cactbot StartsUsing 5AD3 [DelubrumSav Seeker Phase] | StartsUsing 5AD3 [DelubrumSav Seeker Verdant Tempest]
+    Condition(id + 0x3C0, 11.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5A97), "", 5f, 6.5f); // t=4262.8; StartsUsing 5A97 from Trinity Seeker; cactbot StartsUsing 5A97 [DelubrumSav Seeker Act Of Mercy]
+    Timeout(id + 0x3D0, 3.0f, "Verdant Path"); // t=4265.8; Ability 5A97 from Trinity Seeker; cactbot StartsUsing 5A97 [DelubrumSav Seeker Act Of Mercy]
+    Timeout(id + 0x3E0, 4.6f, "Act Of Mercy"); // t=4270.4; Ability 5ACF from Trinity Seeker; cactbot StartsUsing 5A97 [DelubrumSav Seeker Act Of Mercy]
+    Timeout(id + 0x3F0, 6.1f, "--middle--"); // t=4276.5; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x400, 4.3f, "Manifest Avatar"); // t=4280.8; Ability 5ADA from Trinity Seeker
+    Timeout(id + 0x410, 6.1f, "Baleful Comet 1"); // t=4286.9
+    Timeout(id + 0x420, 1.0f, "Baleful Comet 2"); // t=4287.9
+    Timeout(id + 0x430, 1.0f, "Baleful Comet 3"); // t=4288.9
+    Timeout(id + 0x440, 1.0f, "Baleful Comet 4"); // t=4289.9
+    Timeout(id + 0x450, 1.0f, "--middle--"); // t=4290.9; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x460, 3.6f, "Baleful Firestorm"); // t=4294.5
+    Timeout(id + 0x470, 0.6f, "First Mercy"); // t=4295.1; Ability 5B61 from Trinity Seeker; cactbot StartsUsing 5B61 [DelubrumSav Seeker Sword Cleanup] | Ability 5B61 [DelubrumSav Seeker First Mercy]
+    Timeout(id + 0x480, 1.4f, "Baleful Firestorm"); // t=4296.5
+    Timeout(id + 0x490, 1.8f, "Second Mercy"); // t=4298.3; Ability 5B62 from Trinity Seeker
+    Timeout(id + 0x4A0, 0.2f, "Baleful Firestorm"); // t=4298.5
+    Timeout(id + 0x4B0, 2.0f, "Baleful Firestorm"); // t=4300.5
+    Timeout(id + 0x4C0, 1.0f, "Third Mercy"); // t=4301.5; Ability 5B63 from Trinity Seeker
+    Timeout(id + 0x4D0, 3.2f, "Fourth Mercy"); // t=4304.7; Ability 5B64 from Trinity Seeker
+    Timeout(id + 0x4E0, 2.4f, "Mercy Fourfold 1"); // t=4307.1
+    Timeout(id + 0x4F0, 1.9f, "Mercy Fourfold 2"); // t=4309.0
+    Timeout(id + 0x500, 0.7f, "Seasons Of Mercy"); // t=4309.7; Ability 5AC7 from Seeker Avatar
+    Timeout(id + 0x510, 1.3f, "Mercy Fourfold 3"); // t=4311.0
+    Timeout(id + 0x520, 1.9f, "Mercy Fourfold 4"); // t=4312.9
+    Timeout(id + 0x530, 1.4f, "Merciful Breeze"); // t=4314.3; Ability 5AC8 from Trinity Seeker
+    Timeout(id + 0x540, 1.5f, "Merciful Moon"); // t=4315.8; Ability 5AC9 from Aetherial Orb; cactbot Ability 5AC9 [DelubrumSav Seeker Merciful Blooms]
+    Timeout(id + 0x550, 2.6f, "Merciful Breeze"); // t=4318.4; Ability 5AC8 from Trinity Seeker
+    Timeout(id + 0x560, 3.4f, "Merciful Blooms"); // t=4321.8; Ability 5ACA from Trinity Seeker; cactbot StartsUsing 5ACA [DelubrumSav Seeker Merciful Moon]
+    Timeout(id + 0x570, 3.3f, "--chains--"); // t=4325.1; cactbot HeadMarker [DelubrumSav Seeker Burning Chains] | GainsEffect 301 [DelubrumSav Seeker Burning Chains Move]
+    Timeout(id + 0x580, 10.1f, "Verdant Tempest").SetHint(StateMachine.StateHint.Raidwide); // t=4335.2; Ability 5AD3 from Trinity Seeker; cactbot StartsUsing 5AD3 [DelubrumSav Seeker Phase] | StartsUsing 5AD3 [DelubrumSav Seeker Verdant Tempest]
+    Timeout(id + 0x590, 11.3f, "Merciful Arc"); // t=4346.5; Ability 5AD4 from Trinity Seeker; cactbot HeadMarker [DelubrumSav Seeker Merciful Arc]
+    Timeout(id + 0x5A0, 3.2f, "--middle--"); // t=4349.7; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x5B0, 4.3f, "Manifest Avatar"); // t=4354.0; Ability 5ADA from Trinity Seeker
+    Timeout(id + 0x5C0, 7.2f, "First Mercy"); // t=4361.2; Ability 5B61 from Trinity Seeker; cactbot StartsUsing 5B61 [DelubrumSav Seeker Sword Cleanup] | Ability 5B61 [DelubrumSav Seeker First Mercy]
+    Timeout(id + 0x5D0, 3.2f, "Second Mercy"); // t=4364.4; Ability 5B62 from Trinity Seeker
+    Timeout(id + 0x5E0, 1.0f, "--jump--"); // t=4365.4; Ability 5A9A from Seeker Avatar
+    Timeout(id + 0x5F0, 2.2f, "Third Mercy"); // t=4367.6; Ability 5B63 from Trinity Seeker
+    Timeout(id + 0x600, 3.2f, "Fourth Mercy"); // t=4370.8; Ability 5B64 from Trinity Seeker
+    Timeout(id + 0x610, 0.8f, "Iron Splitter"); // t=4371.6; Ability 5AC0 from Seeker Avatar; cactbot StartsUsing 5AC0 [DelubrumSav Seeker Iron Splitter]
+    Timeout(id + 0x620, 1.6f, "Mercy Fourfold 1"); // t=4373.2
+    Timeout(id + 0x630, 1.9f, "Mercy Fourfold 2"); // t=4375.1
+    Timeout(id + 0x640, 1.9f, "Mercy Fourfold 3"); // t=4377.0
+    Timeout(id + 0x650, 1.9f, "Mercy Fourfold 4"); // t=4378.9
+    Timeout(id + 0x660, 1.7f, "Iron Splitter"); // t=4380.6; Ability 5AC0 from Seeker Avatar; cactbot StartsUsing 5AC0 [DelubrumSav Seeker Iron Splitter]
+    Timeout(id + 0x670, 2.2f, "--jump--"); // t=4382.8; Ability 5A9A from Seeker Avatar
+    Timeout(id + 0x680, 6.7f, "Iron Splitter"); // t=4389.5; Ability 5AC0 from Seeker Avatar; cactbot StartsUsing 5AC0 [DelubrumSav Seeker Iron Splitter]
+    Timeout(id + 0x690, 0.8f, "Seasons Of Mercy"); // t=4390.3; Ability 5AC7 from Trinity Seeker
+    Timeout(id + 0x6A0, 4.5f, "Merciful Breeze"); // t=4394.8; Ability 5AC8 from Trinity Seeker
+    Timeout(id + 0x6B0, 1.5f, "Merciful Moon"); // t=4396.3; Ability 5AC9 from Aetherial Orb; cactbot Ability 5AC9 [DelubrumSav Seeker Merciful Blooms]
+    Timeout(id + 0x6C0, 2.6f, "Merciful Breeze"); // t=4398.9; Ability 5AC8 from Trinity Seeker
+    Timeout(id + 0x6D0, 2.0f, "Iron Rose"); // t=4400.9; Ability 5AD9 from Seeker Avatar
+    Timeout(id + 0x6E0, 1.3f, "Merciful Blooms"); // t=4402.2; Ability 5ACA from Trinity Seeker; cactbot StartsUsing 5ACA [DelubrumSav Seeker Merciful Moon]
+    Timeout(id + 0x6F0, 10.1f, "Verdant Tempest").SetHint(StateMachine.StateHint.Raidwide); // t=4412.3; Ability 5AD3 from Trinity Seeker; cactbot StartsUsing 5AD3 [DelubrumSav Seeker Phase] | StartsUsing 5AD3 [DelubrumSav Seeker Verdant Tempest]
+    Condition(id + 0x700, 10.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5A98), "", 5f, 5.2f); // t=4422.5; StartsUsing 5A98 from Trinity Seeker; cactbot StartsUsing 5A98 [DelubrumSav Seeker Baleful Swath]
+    Timeout(id + 0x710, 3.0f, "Verdant Path"); // t=4425.5; Ability 5A98 from Trinity Seeker; cactbot StartsUsing 5A98 [DelubrumSav Seeker Baleful Swath]
+    Timeout(id + 0x720, 4.7f, "Baleful Swathe"); // t=4430.2; Ability 5AD0 from Trinity Seeker
+    Timeout(id + 0x730, 3.2f, "--middle--"); // t=4433.4; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x740, 4.4f, "Manifest Avatar"); // t=4437.8; Ability 5ADA from Trinity Seeker
+    Timeout(id + 0x750, 10.2f, "Phantom Edge"); // t=4448.0; Ability 5ABD from Trinity Seeker
+    Timeout(id + 0x760, 2.2f, "--middle--"); // t=4450.2; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x770, 0.9f, "First Mercy"); // t=4451.1; Ability 5B61 from Seeker Avatar; cactbot StartsUsing 5B61 [DelubrumSav Seeker Sword Cleanup] | Ability 5B61 [DelubrumSav Seeker First Mercy]
+    Timeout(id + 0x780, 3.2f, "Second Mercy"); // t=4454.3; Ability 5B62 from Seeker Avatar
+    Timeout(id + 0x790, 3.2f, "Third Mercy"); // t=4457.5; Ability 5B63 from Seeker Avatar
+    Timeout(id + 0x7A0, 1.7f, "Baleful Blade").SetHint(StateMachine.StateHint.Knockback); // t=4459.2; Ability 5ABF from Trinity Seeker; cactbot StartsUsing 5ABF [DelubrumSav Seeker Baleful Blade Knockback]
+    Timeout(id + 0x7B0, 1.5f, "Fourth Mercy"); // t=4460.7; Ability 5B64 from Seeker Avatar
+    Timeout(id + 0x7C0, 2.4f, "Mercy Fourfold 1"); // t=4463.1
+    Timeout(id + 0x7D0, 1.9f, "Mercy Fourfold 2"); // t=4465.0
+    Timeout(id + 0x7E0, 1.9f, "Mercy Fourfold 3"); // t=4466.9
+    Timeout(id + 0x7F0, 1.9f, "Mercy Fourfold 4"); // t=4468.8
+    Timeout(id + 0x800, 3.4f, "--chains--"); // t=4472.2; cactbot HeadMarker [DelubrumSav Seeker Burning Chains] | GainsEffect 301 [DelubrumSav Seeker Burning Chains Move]
+    Timeout(id + 0x810, 10.2f, "Verdant Tempest").SetHint(StateMachine.StateHint.Raidwide); // t=4482.4; Ability 5AD3 from Trinity Seeker; cactbot StartsUsing 5AD3 [DelubrumSav Seeker Phase] | StartsUsing 5AD3 [DelubrumSav Seeker Verdant Tempest]
+    Timeout(id + 0x820, 2.2f, "--middle--"); // t=4484.6; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x830, 4.2f, "Manifest Avatar"); // t=4488.8; Ability 5ADA from Trinity Seeker
+    Timeout(id + 0x840, 9.6f, "Phantom Edge?"); // t=4498.4; Ability 5ABD from Trinity Seeker
+    Timeout(id + 0x850, 1.7f, "--jump--"); // t=4500.1; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x860, 4.8f, "Iron Splitter"); // t=4504.9; Ability 5AC0 from Seeker Avatar; cactbot StartsUsing 5AC0 [DelubrumSav Seeker Iron Splitter]
+    Timeout(id + 0x870, 4.3f, "Baleful Blade"); // t=4509.2
+    Timeout(id + 0x880, 5.3f, "--middle--"); // t=4514.5; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x890, 4.2f, "Manifest Avatar"); // t=4518.7; Ability 5ADA from Trinity Seeker
+    Timeout(id + 0x8A0, 12.2f, "First Mercy"); // t=4530.9; Ability 5B61 from Seeker Avatar; cactbot StartsUsing 5B61 [DelubrumSav Seeker Sword Cleanup] | Ability 5B61 [DelubrumSav Seeker First Mercy]
+    Timeout(id + 0x8B0, 3.2f, "Second Mercy"); // t=4534.1; Ability 5B62 from Seeker Avatar
+    Timeout(id + 0x8C0, 0.6f, "--chains--"); // t=4534.7; cactbot HeadMarker [DelubrumSav Seeker Burning Chains] | GainsEffect 301 [DelubrumSav Seeker Burning Chains Move]
+    Timeout(id + 0x8D0, 2.6f, "Third Mercy"); // t=4537.3; Ability 5B63 from Seeker Avatar
+    Timeout(id + 0x8E0, 3.2f, "Fourth Mercy"); // t=4540.5; Ability 5B64 from Seeker Avatar
+    Timeout(id + 0x8F0, 1.3f, "Phantom Edge?"); // t=4541.8; Ability 5ABD from Trinity Seeker
+    Timeout(id + 0x900, 1.2f, "Mercy Fourfold 1"); // t=4543.0
+    Timeout(id + 0x910, 1.0f, "--middle--"); // t=4544.0; Ability 5A9A from Trinity Seeker
+    Timeout(id + 0x920, 0.9f, "Mercy Fourfold 2"); // t=4544.9
+    Timeout(id + 0x930, 1.9f, "Mercy Fourfold 3"); // t=4546.8
+    Timeout(id + 0x940, 1.9f, "Mercy Fourfold 4"); // t=4548.7
+    Timeout(id + 0x950, 4.4f, "Baleful Blade"); // t=4553.1
+    Timeout(id + 0x960, 9.2f, "Phantom Edge?"); // t=4562.3; Ability 5ABD from Trinity Seeker
+    Timeout(id + 0x970, 6.1f, "Baleful Onslaught"); // t=4568.4
+    Condition(id + 0x980, 12.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5BBA), "", 5f, 7.5f); // t=4580.9; StartsUsing 5BBA from Trinity Seeker
+    Timeout(id + 0x990, 10.0f, "Verdant Tempest Enrage"); // t=4590.9; Ability 5BBA from Trinity Seeker
+    Timeout(id + 0x9A0, 2.1f, "Verdant Tempest").SetHint(StateMachine.StateHint.Raidwide); // t=4593.0; Ability 5BBB from Trinity Seeker; cactbot StartsUsing 5AD3 [DelubrumSav Seeker Verdant Tempest]
+    Timeout(id + 0x9B0, 2.0f, "Verdant Tempest").SetHint(StateMachine.StateHint.Raidwide); // t=4595.0; Ability 5BBB from Trinity Seeker; cactbot StartsUsing 5AD3 [DelubrumSav Seeker Verdant Tempest]
+    Timeout(id + 0x9C0, 2.0f, "Verdant Tempest").SetHint(StateMachine.StateHint.Raidwide); // t=4597.0; Ability 5BBB from Trinity Seeker; cactbot StartsUsing 5AD3 [DelubrumSav Seeker Verdant Tempest]
+}
+
+private void Dahu(uint id)
+{
+    Timeout(id + 0x0, 8.4f, "Reverberating Roar"); // t=6008.4; Ability 576D from Dahu
+    Timeout(id + 0x10, 6.1f, "Reverberating Roar"); // t=6014.5; Ability 576D from Dahu
+    Timeout(id + 0x20, 8.2f, "Hot Charge 1"); // t=6022.7; Ability 5773 from Dahu; cactbot StartsUsing 5773 [DelubrumSav Dahu Hot Charge]
+    Timeout(id + 0x30, 4.8f, "Hot Charge 2"); // t=6027.5; Ability 5773 from Dahu; cactbot StartsUsing 5773 [DelubrumSav Dahu Hot Charge]
+    Timeout(id + 0x40, 6.8f, "Firebreathe"); // t=6034.3; Ability 5774 from Dahu
+    Timeout(id + 0x50, 17.5f, "Head Down"); // t=6051.8; Ability 5768 from Marchosias
+    Timeout(id + 0x60, 5.7f, "Head Down"); // t=6057.5; Ability 5768 from Marchosias
+    Timeout(id + 0x70, 3.9f, "Spit Flame"); // t=6061.4; Ability 5776 from Dahu; cactbot HeadMarker [DelubrumSav Dahu Spit Flame]
+    Timeout(id + 0x80, 0.2f, "Spit Flame 1"); // t=6061.6
+    Timeout(id + 0x90, 1.1f, "Spit Flame 2"); // t=6062.7
+    Timeout(id + 0xA0, 1.1f, "Spit Flame 3"); // t=6063.8
+    Timeout(id + 0xB0, 1.2f, "Spit Flame 4"); // t=6065.0
+    Timeout(id + 0xC0, 4.1f, "Head Down"); // t=6069.1; Ability 5768 from Marchosias
+    Timeout(id + 0xD0, 2.0f, "Right-Sided Shockwave/Left-Sided Shockwave"); // t=6071.1
+    Timeout(id + 0xE0, 2.6f, "Left-Sided Shockwave/Right-Sided Shockwave"); // t=6073.7
+    Timeout(id + 0xF0, 1.1f, "Head Down"); // t=6074.8; Ability 5768 from Marchosias
+    Timeout(id + 0x100, 6.6f, "Feral Howl"); // t=6081.4; Ability 5767 from Dahu; cactbot StartsUsing 5767 [DelubrumSav Dahu Feral Howl]
+    Timeout(id + 0x110, 2.1f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=6083.5; Ability 5B35 from Dahu; cactbot StartsUsing 5ABF [DelubrumSav Seeker Baleful Blade Knockback]
+    Timeout(id + 0x120, 1.4f, "Hunter's Claw"); // t=6084.9; Ability 5769 from Marchosias
+    Timeout(id + 0x130, 6.6f, "Firebreathe x5"); // t=6091.5; Ability 576B from Dahu
+    Timeout(id + 0x140, 51.0f, "Reverberating Roar"); // t=6142.5; Ability 576D from Dahu
+    Timeout(id + 0x150, 5.1f, "Falling Rock x6"); // t=6147.6
+    Timeout(id + 0x160, 0.1f, "Head Down"); // t=6147.7; Ability 5768 from Marchosias
+    Timeout(id + 0x170, 3.9f, "Right-Sided Shockwave/Left-Sided Shockwave"); // t=6151.6
+    Timeout(id + 0x180, 1.8f, "Head Down"); // t=6153.4; Ability 5768 from Marchosias
+    Timeout(id + 0x190, 0.7f, "Left-Sided Shockwave/Right-Sided Shockwave"); // t=6154.1
+    Timeout(id + 0x1A0, 5.0f, "Head Down"); // t=6159.1; Ability 5768 from Marchosias
+    Timeout(id + 0x1B0, 5.6f, "Spit Flame"); // t=6164.7; Ability 5776 from Dahu; cactbot HeadMarker [DelubrumSav Dahu Spit Flame]
+    Timeout(id + 0x1C0, 0.3f, "Spit Flame 1"); // t=6165.0
+    Timeout(id + 0x1D0, 1.1f, "Spit Flame 2"); // t=6166.1
+    Timeout(id + 0x1E0, 1.2f, "Spit Flame 3"); // t=6167.3
+    Timeout(id + 0x1F0, 1.1f, "Spit Flame 4"); // t=6168.4
+    Timeout(id + 0x200, 6.2f, "Hysteric Assault"); // t=6174.6; Ability 5778 from Dahu; cactbot StartsUsing 5778 [DelubrumSav Dahu Hysteric Assault]
+    Timeout(id + 0x210, 0.9f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=6175.5; Ability 5B43 from Dahu; cactbot StartsUsing 5ABF [DelubrumSav Seeker Baleful Blade Knockback]
+    Timeout(id + 0x220, 2.2f, "Burn x2"); // t=6177.7; Ability 5463 from Dahu
+    Timeout(id + 0x230, 0.4f, "Hunter's Claw"); // t=6178.1; Ability 5769 from Marchosias
+    Timeout(id + 0x240, 9.5f, "Head Down"); // t=6187.6; Ability 5768 from Marchosias
+    Timeout(id + 0x250, 1.3f, "Firebreathe x5"); // t=6188.9; Ability 576B from Dahu
+    Timeout(id + 0x260, 21.0f, "Right-Sided Shockwave/Left-Sided Shockwave"); // t=6209.9
+    Timeout(id + 0x270, 2.6f, "Left-Sided Shockwave/Right-Sided Shockwave"); // t=6212.5
+    Timeout(id + 0x280, 8.9f, "Hot Charge 1"); // t=6221.4; Ability 5773 from Dahu; cactbot StartsUsing 5773 [DelubrumSav Dahu Hot Charge]
+    Timeout(id + 0x290, 4.8f, "Hot Charge 2?"); // t=6226.2; Ability 5773 from Dahu; cactbot StartsUsing 5773 [DelubrumSav Dahu Hot Charge]
+    Condition(id + 0x2A0, 1.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5774), "", 5f, 0.0f); // t=6228.0; StartsUsing 5774 from Dahu
+    Timeout(id + 0x2B0, 5.0f, "Firebreathe"); // t=6233.0; Ability 5774 from Dahu
+    Timeout(id + 0x2C0, 19.2f, "Reverberating Roar"); // t=6252.2; Ability 576D from Dahu
+    Timeout(id + 0x2D0, 9.1f, "Reverberating Roar"); // t=6261.3; Ability 576D from Dahu
+    Timeout(id + 0x2E0, 28.2f, "Reverberating Roar"); // t=6289.5; Ability 576D from Dahu
+    Timeout(id + 0x2F0, 5.2f, "Head Down"); // t=6294.7; Ability 5768 from Marchosias
+    Timeout(id + 0x300, 3.9f, "Right-Sided Shockwave/Left-Sided Shockwave"); // t=6298.6
+    Timeout(id + 0x310, 1.8f, "Head Down"); // t=6300.4; Ability 5768 from Marchosias
+    Timeout(id + 0x320, 0.7f, "Left-Sided Shockwave/Right-Sided Shockwave"); // t=6301.1
+    Timeout(id + 0x330, 4.9f, "Head Down"); // t=6306.0; Ability 5768 from Marchosias | Ability 5768 from Marchosias
+    Timeout(id + 0x340, 5.7f, "Spit Flame 1"); // t=6311.7; Ability 5776 from Dahu
+    Timeout(id + 0x350, 0.4f, "Spit Flame 2"); // t=6312.1; Ability 5777 from Dahu
+    Timeout(id + 0x360, 1.2f, "Spit Flame 3"); // t=6313.3; Ability 5777 from Dahu
+    Timeout(id + 0x370, 1.1f, "Spit Flame 4"); // t=6314.4; Ability 5777 from Dahu
+    Timeout(id + 0x380, 6.2f, "Hysteric Assault"); // t=6320.6; Ability 5778 from Dahu; cactbot StartsUsing 5778 [DelubrumSav Dahu Hysteric Assault]
+    Timeout(id + 0x390, 0.9f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=6321.5; Ability 5B43 from Dahu; cactbot StartsUsing 5ABF [DelubrumSav Seeker Baleful Blade Knockback]
+    Timeout(id + 0x3A0, 2.2f, "Burn x2"); // t=6323.7; Ability 5463 from Dahu
+    Timeout(id + 0x3B0, 0.4f, "Hunter's Claw"); // t=6324.1; Ability 5769 from Marchosias
+    Timeout(id + 0x3C0, 10.3f, "Head Down"); // t=6334.4; Ability 5768 from Marchosias
+    Timeout(id + 0x3D0, 0.8f, "Firebreathe"); // t=6335.2; Ability 576B from Dahu
+    Timeout(id + 0x3E0, 21.0f, "Right-Sided Shockwave/Left-Sided Shockwave"); // t=6356.2
+    Timeout(id + 0x3F0, 2.6f, "Left-Sided Shockwave/Right-Sided Shockwave"); // t=6358.8
+    Timeout(id + 0x400, 9.0f, "Hot Charge 1"); // t=6367.8; Ability 5773 from Dahu; cactbot StartsUsing 5773 [DelubrumSav Dahu Hot Charge]
+    Timeout(id + 0x410, 4.8f, "Hot Charge 2?"); // t=6372.6; Ability 5773 from Dahu; cactbot StartsUsing 5773 [DelubrumSav Dahu Hot Charge]
+    Condition(id + 0x420, 1.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5774), "", 5f, 0.0f); // t=6374.4; StartsUsing 5774 from Dahu
+    Timeout(id + 0x430, 5.0f, "Firebreathe"); // t=6379.4; Ability 5774 from Dahu
+    Timeout(id + 0x440, 19.2f, "Reverberating Roar"); // t=6398.6
+    Timeout(id + 0x450, 9.1f, "Reverberating Roar"); // t=6407.7
+    Timeout(id + 0x460, 28.2f, "Reverberating Roar"); // t=6435.9
+}
+
+private void Stygimoloch_Warrior(uint id)
+{
+    Condition(id + 0x0, 9.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5796), "", 5f, 4.1f); // t=8009.1; StartsUsing 5796 from Stygimoloch Warrior
+    Timeout(id + 0x10, 3.0f, "Surge of Vigor"); // t=8012.1; Ability 5796 from Stygimoloch Warrior
+    Timeout(id + 0x20, 12.2f, "Unrelenting Charge x3"); // t=8024.3; Ability 5799 from Stygimoloch Warrior
+    Timeout(id + 0x30, 11.1f, "--north--"); // t=8035.4; Ability 577C from Stygimoloch Warrior
+    Timeout(id + 0x40, 4.3f, "Entrapment"); // t=8039.7; Ability 577D from Stygimoloch Warrior
+    Timeout(id + 0x50, 0.8f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=8040.5; Ability 577E from Stygimoloch Warrior; cactbot StartsUsing 5ABF [DelubrumSav Seeker Baleful Blade Knockback]
+    Timeout(id + 0x60, 21.3f, "Lethal Blow"); // t=8061.8; Ability 577F from Stygimoloch Warrior
+    Timeout(id + 0x70, 6.1f, "Vicious Swipe"); // t=8067.9; Ability 5797 from Stygimoloch Warrior
+    Timeout(id + 0x80, 2.0f, "--knockback-- / Crazed Rampage").SetHint(StateMachine.StateHint.Knockback); // t=8069.9; Ability 5798 from Stygimoloch Warrior
+    Timeout(id + 0x90, 11.1f, "Focused Tremor"); // t=8081.0; Ability 578E from Stygimoloch Warrior
+    Timeout(id + 0xA0, 2.2f, "--corner--"); // t=8083.2; Ability 577C from Stygimoloch Warrior
+    Timeout(id + 0xB0, 6.6f, "Focused Tremor 1"); // t=8089.8
+    Timeout(id + 0xC0, 2.0f, "Focused Tremor 2"); // t=8091.8
+    Timeout(id + 0xD0, 2.0f, "Focused Tremor 3"); // t=8093.8
+    Timeout(id + 0xE0, 2.0f, "Focused Tremor 4"); // t=8095.8
+    Timeout(id + 0xF0, 3.6f, "Forceful Strike"); // t=8099.4; Ability 5792 from Stygimoloch Warrior
+    Timeout(id + 0x100, 10.1f, "--middle--"); // t=8109.5; Ability 577C from Stygimoloch Warrior
+    Timeout(id + 0x110, 4.2f, "Inescapable Entrapment"); // t=8113.7; Ability 5780 from Stygimoloch Warrior
+    Timeout(id + 0x120, 20.1f, "Surging Flames/Withering Curse?"); // t=8133.8
+    Timeout(id + 0x130, 2.6f, "Devour?"); // t=8136.4; Ability 5789 from Stygimoloch Warrior
+    Condition(id + 0x140, 10.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5796), "", 5f, 5.2f); // t=8146.6; StartsUsing 5796 from Stygimoloch Warrior
+    Timeout(id + 0x150, 3.0f, "Surge of Vigor"); // t=8149.6; Ability 5796 from Stygimoloch Warrior
+    Timeout(id + 0x160, 14.1f, "Focused Tremor x16"); // t=8163.7; Ability 578E from Stygimoloch Warrior
+    Timeout(id + 0x170, 4.1f, "--middle--"); // t=8167.8; Ability 577C from Stygimoloch Warrior
+    Timeout(id + 0x180, 10.4f, "Flailing Strike x7"); // t=8178.2; Ability 578C from Stygimoloch Warrior
+    Timeout(id + 0x190, 13.5f, "Vicious Swipe"); // t=8191.7; Ability 5797 from Stygimoloch Warrior
+    Timeout(id + 0x1A0, 2.0f, "--knockback-- / Crazed Rampage").SetHint(StateMachine.StateHint.Knockback); // t=8193.7; Ability 5798 from Stygimoloch Warrior
+    Timeout(id + 0x1B0, 9.2f, "--middle--"); // t=8202.9; Ability 577C from Stygimoloch Warrior
+    Timeout(id + 0x1C0, 4.3f, "Inescapable Entrapment"); // t=8207.2; Ability 5780 from Stygimoloch Warrior
+    Timeout(id + 0x1D0, 16.2f, "Surging Flames/Withering Curse?"); // t=8223.4
+    Timeout(id + 0x1E0, 2.399f, "Devour?"); // t=8225.8; Ability 5789 from Stygimoloch Warrior
+    Condition(id + 0x1F0, 4.101f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5783), "", 5f, 0.0f); // t=8229.9; StartsUsing 5783 from Stygimoloch Warrior
+    Timeout(id + 0x200, 10.0f, "Surging Flood"); // t=8239.9; Ability 5783 from Stygimoloch Warrior
+    Timeout(id + 0x210, 8.199f, "Leaping Spark x3"); // t=8248.1; Ability 578A from Stygimoloch Warrior
+    Timeout(id + 0x220, 15.0f, "Coerce"); // t=8263.1
+    Timeout(id + 0x230, 6.0f, "Surge of Vigor"); // t=8269.1; Ability 5796 from Stygimoloch Warrior
+    Timeout(id + 0x240, 14.9f, "Focused Tremor"); // t=8284.0; Ability 578E from Stygimoloch Warrior
+    Timeout(id + 0x250, 2.3f, "--corner--"); // t=8286.3; Ability 577C from Stygimoloch Warrior
+    Timeout(id + 0x260, 6.5f, "Focused Tremor 1"); // t=8292.8; Ability 578F from Stygimoloch Warrior
+    Timeout(id + 0x270, 2.0f, "Focused Tremor 2"); // t=8294.8
+    Timeout(id + 0x280, 2.0f, "Focused Tremor 3"); // t=8296.8
+    Timeout(id + 0x290, 2.0f, "Focused Tremor 4"); // t=8298.8
+    Timeout(id + 0x2A0, 3.601f, "Forceful Strike"); // t=8302.4; Ability 5792 from Stygimoloch Warrior
+    Timeout(id + 0x2B0, 12.699f, "Surge of Vigor"); // t=8315.1; Ability 5796 from Stygimoloch Warrior
+    Timeout(id + 0x2C0, 12.2f, "Unrelenting Charge x3"); // t=8327.3; Ability 5799 from Stygimoloch Warrior
+    Timeout(id + 0x2D0, 9.0f, "Vicious Swipe"); // t=8336.3; Ability 5797 from Stygimoloch Warrior
+    Timeout(id + 0x2E0, 2.0f, "--knockback-- / Crazed Rampage").SetHint(StateMachine.StateHint.Knockback); // t=8338.3; Ability 5798 from Stygimoloch Warrior
+    Timeout(id + 0x2F0, 10.0f, "--middle--"); // t=8348.3; Ability 577C from Stygimoloch Warrior
+    Timeout(id + 0x300, 10.8f, "Sun's Ire (Enrage)"); // t=8359.1; Ability 577A from Stygimoloch Warrior
+}
+
+private void Queen_s_Guard(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Phase_1__aoes__to_80(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5831), "", 5f, 0.0f); // t=10011.5; StartsUsing 5831 from Queen's Warrior; cactbot StartsUsing 5831/5821 [DelubrumSav Guard Blood And Bone Warrior and Knight]
+    Timeout(id + 0x10, 5.1f, "Blood And Bone").SetHint(StateMachine.StateHint.Raidwide); // t=10016.6; Ability 5831 from Queen's Warrior; cactbot StartsUsing 5831/5821 [DelubrumSav Guard Blood And Bone Warrior and Knight]
+    Timeout(id + 0x20, 9.0f, "Blood And Bone").SetHint(StateMachine.StateHint.Raidwide); // t=10025.6; Ability 5841 from Queen's Soldier; cactbot StartsUsing 5854/5841 [DelubrumSav Guard Queen\]
+    Targetable(id + 0x30, false, 5.0f, "--untargetable--"); // t=10030.6
+}
+
+private void Phase_2__Warrior___Knight_section(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=10033.9
+    Condition(id + 0x10, 17.199f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5825), "", 5f, 12.199f); // t=10051.1; StartsUsing 5825 from Queen's Warrior
+    Timeout(id + 0x20, 5.0f, "Relentless Battery"); // t=10056.1; Ability 5825 from Queen's Warrior
+    Timeout(id + 0x30, 6.101f, "Shield Omen/Sword Omen"); // t=10062.2
+    Timeout(id + 0x40, 1.0f, "Bombslinger"); // t=10063.2; Ability 5AFE from Queen's Warrior; cactbot StartsUsing 5AFE/5B3F [DelubrumSav Guard/Queen Bombslinger]
+    Timeout(id + 0x50, 3.1f, "--tethers--"); // t=10066.3
+    Targetable(id + 0x60, false, 3.0f, "--untargetable--"); // t=10069.3
+    Timeout(id + 0x70, 1.0f, "Reversal Of Forces"); // t=10070.3; Ability 5829 from Queen's Warrior; cactbot StartsUsing 5829/5A0E [DelubrumSav Guard/Queen Reversal Of Forces]
+    Timeout(id + 0x80, 9.2f, "Optimal Offensive"); // t=10079.5
+    Timeout(id + 0x90, 1.6f, "Unlucky Lot"); // t=10081.1
+    Timeout(id + 0xA0, 0.301f, "Above Board"); // t=10081.4; Ability 5826 from Queen's Warrior; cactbot StartsUsing 5826/5A0B [DelubrumSav Guard Above Board Warning]
+    Timeout(id + 0xB0, 1.0f, "--stunned--"); // t=10082.4
+    Timeout(id + 0xC0, 2.1f, "Lots Cast"); // t=10084.5
+    Timeout(id + 0xD0, 3.0f, "Lots Cast"); // t=10087.5
+    Timeout(id + 0xE0, 1.2f, "Lots Cast"); // t=10088.7
+    Timeout(id + 0xF0, 0.7f, "--unstunned--"); // t=10089.4
+    Timeout(id + 0x100, 8.199f, "Boost"); // t=10097.6; Ability 582D from Queen's Warrior; cactbot StartsUsing 582D [DelubrumSav Guard Boost]
+    Timeout(id + 0x110, 8.2f, "Blood And Bone").SetHint(StateMachine.StateHint.Raidwide); // t=10105.8; Ability 5831 from Queen's Warrior; cactbot StartsUsing 5831/5821 [DelubrumSav Guard Blood And Bone Warrior and Knight]
+    Timeout(id + 0x120, 15.2f, "Relentless Battery"); // t=10121.0; Ability 5825 from Queen's Warrior
+    Timeout(id + 0x130, 3.1f, "--tethers--"); // t=10124.1
+    Timeout(id + 0x140, 4.0f, "Reversal Of Forces"); // t=10128.1; Ability 5829 from Queen's Warrior; cactbot StartsUsing 5829/5A0E [DelubrumSav Guard/Queen Reversal Of Forces]
+    Timeout(id + 0x150, 8.101f, "Shield Omen/Sword Omen"); // t=10136.2
+    Timeout(id + 0x160, 1.1f, "Winds Of Weight / Winds Of Fate / Weight Of Fortune"); // t=10137.3; Ability 582A from Queen's Warrior | Ability 582C from Queen's Warrior | Ability 582B from Queen's Warrior
+    Timeout(id + 0x170, 7.101f, "Optimal Play"); // t=10144.4
+    Timeout(id + 0x180, 2.0f, "Boost"); // t=10146.4; Ability 582D from Queen's Warrior; cactbot StartsUsing 582D [DelubrumSav Guard Boost]
+    Timeout(id + 0x190, 8.199f, "Blood And Bone").SetHint(StateMachine.StateHint.Raidwide); // t=10154.6; Ability 5831 from Queen's Warrior; cactbot StartsUsing 5831/5821 [DelubrumSav Guard Blood And Bone Warrior and Knight]
+    Timeout(id + 0x1A0, 9.101f, "Rapid Sever"); // t=10163.7; Ability 5832 from Queen's Warrior
+    Timeout(id + 0x1B0, 22.2f, "Relentless Battery"); // t=10185.9; Ability 5825 from Queen's Warrior
+    Timeout(id + 0x1C0, 6.199f, "Shield Omen/Sword Omen"); // t=10192.1
+    Timeout(id + 0x1D0, 0.9f, "Bombslinger"); // t=10193.0; Ability 5AFE from Queen's Warrior; cactbot StartsUsing 5AFE/5B3F [DelubrumSav Guard/Queen Bombslinger]
+    Timeout(id + 0x1E0, 3.1f, "--tethers--"); // t=10196.1
+    Targetable(id + 0x1F0, false, 3.0f, "--untargetable--"); // t=10199.1
+    Timeout(id + 0x200, 1.0f, "Reversal Of Forces"); // t=10200.1; Ability 5829 from Queen's Warrior; cactbot StartsUsing 5829/5A0E [DelubrumSav Guard/Queen Reversal Of Forces]
+    Timeout(id + 0x210, 9.301f, "Optimal Offensive"); // t=10209.4
+    Timeout(id + 0x220, 1.6f, "Unlucky Lot"); // t=10211.0
+    Timeout(id + 0x230, 0.2f, "Above Board"); // t=10211.2; Ability 5826 from Queen's Warrior; cactbot StartsUsing 5826/5A0B [DelubrumSav Guard Above Board Warning]
+    Timeout(id + 0x240, 1.0f, "--stunned--"); // t=10212.2
+    Timeout(id + 0x250, 2.0f, "Lots Cast"); // t=10214.2
+    Timeout(id + 0x260, 3.0f, "Lots Cast"); // t=10217.2
+    Timeout(id + 0x270, 1.2f, "Lots Cast"); // t=10218.4
+    Timeout(id + 0x280, 0.8f, "--unstunned--"); // t=10219.2
+    Timeout(id + 0x290, 8.1f, "Boost"); // t=10227.3; Ability 582D from Queen's Warrior; cactbot StartsUsing 582D [DelubrumSav Guard Boost]
+    Timeout(id + 0x2A0, 8.2f, "Blood And Bone").SetHint(StateMachine.StateHint.Raidwide); // t=10235.5; Ability 5831 from Queen's Warrior; cactbot StartsUsing 5831/5821 [DelubrumSav Guard Blood And Bone Warrior and Knight]
+    Timeout(id + 0x2B0, 15.2f, "Relentless Battery"); // t=10250.7; Ability 5825 from Queen's Warrior
+    Timeout(id + 0x2C0, 3.1f, "--tethers--"); // t=10253.8
+    Timeout(id + 0x2D0, 4.0f, "Reversal Of Forces"); // t=10257.8; Ability 5829 from Queen's Warrior; cactbot StartsUsing 5829/5A0E [DelubrumSav Guard/Queen Reversal Of Forces]
+    Timeout(id + 0x2E0, 8.101f, "Shield Omen/Sword Omen"); // t=10265.9
+    Timeout(id + 0x2F0, 1.1f, "Winds Of Weight / Winds Of Fate / Weight Of Fortune"); // t=10267.0; Ability 582A from Queen's Warrior | Ability 582C from Queen's Warrior | Ability 582C from Queen's Warrior | Ability 582B from Queen's Warrior
+    Timeout(id + 0x300, 7.1f, "Optimal Play"); // t=10274.1
+    Timeout(id + 0x310, 2.0f, "Boost"); // t=10276.1; Ability 582D from Queen's Warrior; cactbot StartsUsing 582D [DelubrumSav Guard Boost]
+    Timeout(id + 0x320, 8.2f, "Blood And Bone").SetHint(StateMachine.StateHint.Raidwide); // t=10284.3; Ability 5831 from Queen's Warrior; cactbot StartsUsing 5831/5821 [DelubrumSav Guard Blood And Bone Warrior and Knight]
+    Timeout(id + 0x330, 9.101f, "Rapid Sever"); // t=10293.4; Ability 5832 from Queen's Warrior
+    Condition(id + 0x340, 9.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x5823 or 0x5833), "", 5f, 4.5f); // t=10302.9; StartsUsing 5823 from Queen's Knight | StartsUsing 5833 from Queen's Warrior
+    Timeout(id + 0x350, 10.0f, "Blood and Bone Enrage"); // t=10312.9; Ability 5833 from Queen's Warrior
+    Timeout(id + 0x360, 3.1f, "Blood and Bone Enrage"); // t=10316.0; Ability 5B9D from Queen's Knight
+    Timeout(id + 0x370, 3.1f, "Blood and Bone Enrage"); // t=10319.1; Ability 5B9D from Queen's Knight
+    Timeout(id + 0x380, 3.101f, "Blood and Bone Enrage"); // t=10322.2; Ability 5B9D from Queen's Knight
+}
+
+private void Phase_3__Soldier___Gunner_section(uint id)
+{
+    Condition(id + 0x0, 12.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5844), "", 5f, 7.0f); // t=10612.0; StartsUsing 5844 from Queen's Gunner
+    Timeout(id + 0x10, 5.0f, "Relentless Battery"); // t=10617.0; Ability 5844 from Queen's Gunner
+    Timeout(id + 0x20, 6.2f, "Great Ball Of Fire"); // t=10623.2; Ability 583B from Queen's Soldier
+    Timeout(id + 0x30, 9.1f, "Fool's Gambit"); // t=10632.3; Ability 583C from Queen's Soldier
+    Timeout(id + 0x40, 2.9f, "Automatic Turret"); // t=10635.2; Ability 584A from Queen's Gunner
+    Timeout(id + 0x50, 6.1f, "Reading"); // t=10641.3; Ability 584B from Queen's Gunner
+    Timeout(id + 0x60, 6.601f, "Burn"); // t=10647.9; Ability 583E from Immolating Flame
+    Timeout(id + 0x70, 3.6f, "Queen's Shot"); // t=10651.5; Ability 584C from Queen's Gunner; cactbot StartsUsing 584C [DelubrumSav Guard Queen\] | Ability 584C/5A2D [DelubrumSav Guard Queen\]
+    Timeout(id + 0x80, 3.5f, "Turret's Tour"); // t=10655.0; Ability 584E from Automatic Turret
+    Timeout(id + 0x90, 10.6f, "Rapid Sever / Shot In The Dark"); // t=10665.6; Ability 5842 from Queen's Soldier | Ability 5855 from Queen's Gunner
+    Timeout(id + 0xA0, 9.101f, "Blood And Bone").SetHint(StateMachine.StateHint.Raidwide); // t=10674.7; Ability 5841 from Queen's Soldier; cactbot StartsUsing 5854/5841 [DelubrumSav Guard Queen\]
+    Timeout(id + 0xB0, 15.2f, "Relentless Battery"); // t=10689.9; Ability 5844 from Queen's Gunner
+    Timeout(id + 0xC0, 6.1f, "Gun Turret"); // t=10696.0; Ability 584F from Queen's Gunner
+    Targetable(id + 0xD0, true, 0.8f, "--targetable--"); // t=10696.8
+    Timeout(id + 0xE0, 6.3f, "Higher Power"); // t=10703.1; Ability 5853 from Queen's Gunner; cactbot StartsUsing 5853 [DelubrumSav Guard Higher Power]
+    Timeout(id + 0xF0, 7.0f, "Sniper Shot"); // t=10710.1; Ability 5850 from Gun Turret
+    Timeout(id + 0x100, 4.9f, "Blood And Bone").SetHint(StateMachine.StateHint.Raidwide); // t=10715.0; Ability 5841 from Queen's Soldier; cactbot StartsUsing 5854/5841 [DelubrumSav Guard Queen\]
+    Timeout(id + 0x110, 13.4f, "--gun turret enrage--"); // t=10728.4
+    Timeout(id + 0x120, 3.8f, "Icy Portent/Fiery Portent"); // t=10732.2; Ability 583F/5840 from Queen's Soldier; cactbot StartsUsing 583F [DelubrumSav Guard Fiery Portent] | StartsUsing 5840 [DelubrumSav Guard Icy Portent]
+    Timeout(id + 0x130, 15.2f, "Relentless Battery"); // t=10747.4; Ability 5844 from Queen's Gunner
+    Timeout(id + 0x140, 6.1f, "Double Gambit"); // t=10753.5; Ability 5837 from Queen's Soldier
+    Timeout(id + 0x150, 8.0f, "Automatic Turret"); // t=10761.5; Ability 584A from Queen's Gunner
+    Timeout(id + 0x160, 0.2f, "Secrets Revealed"); // t=10761.7; Ability 5B6F from Queen's Soldier
+    Timeout(id + 0x170, 6.0f, "Reading"); // t=10767.7; Ability 584B from Queen's Gunner
+    Timeout(id + 0x180, 10.2f, "Queen's Shot"); // t=10777.9; Ability 584C from Queen's Gunner; cactbot StartsUsing 584C [DelubrumSav Guard Queen\] | Ability 584C/5A2D [DelubrumSav Guard Queen\]
+    Timeout(id + 0x190, 0.399f, "Pawn Off"); // t=10778.3; Ability 5839 from Soldier Avatar
+    Timeout(id + 0x1A0, 3.101f, "Turret's Tour"); // t=10781.4; Ability 584E from Automatic Turret
+    Timeout(id + 0x1B0, 10.699f, "Blood And Bone").SetHint(StateMachine.StateHint.Raidwide); // t=10792.1; Ability 5841 from Queen's Soldier; cactbot StartsUsing 5854/5841 [DelubrumSav Guard Queen\]
+    Timeout(id + 0x1C0, 9.2f, "Shot In The Dark / Rapid Sever"); // t=10801.3; Ability 5855 from Queen's Gunner | Ability 5842 from Queen's Soldier
+    Timeout(id + 0x1D0, 15.2f, "Relentless Battery"); // t=10816.5; Ability 5844 from Queen's Gunner
+    Timeout(id + 0x1E0, 6.1f, "Automatic Turret"); // t=10822.6; Ability 5845 from Queen's Gunner
+    Timeout(id + 0x1F0, 8.2f, "Turret's Tour 1"); // t=10830.8; Ability 5846 from Queen's Gunner
+    Timeout(id + 0x200, 0.601f, "Turret's Tour 2"); // t=10831.4; Ability 5848 from Automatic Turret
+    Timeout(id + 0x210, 6.199f, "Fiery Portent/Icy Portent"); // t=10837.6; Ability 583F/5840 from Queen's Soldier; cactbot StartsUsing 583F [DelubrumSav Guard Fiery Portent] | StartsUsing 5840 [DelubrumSav Guard Icy Portent]
+    Timeout(id + 0x220, 10.2f, "Blood And Bone").SetHint(StateMachine.StateHint.Raidwide); // t=10847.8; Ability 5841 from Queen's Soldier; cactbot StartsUsing 5854/5841 [DelubrumSav Guard Queen\]
+    Timeout(id + 0x230, 9.101f, "Rapid Sever / Shot In The Dark"); // t=10856.9; Ability 5842 from Queen's Soldier | Ability 5855 from Queen's Gunner
+    Condition(id + 0x240, 8.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x5843 or 0x5856), "", 5f, 3.8f); // t=10865.7; StartsUsing 5843 from Queen's Soldier | StartsUsing 5856 from Queen's Gunner
+    Timeout(id + 0x250, 10.0f, "Blood And Bone Enrage"); // t=10875.7; Ability 5843 from Queen's Soldier
+    Timeout(id + 0x260, 3.1f, "Blood And Bone Enrage"); // t=10878.8; Ability 5B9F from Queen's Soldier
+    Timeout(id + 0x270, 3.101f, "Blood And Bone Enrage"); // t=10881.9; Ability 5B9F from Queen's Soldier
+    Timeout(id + 0x280, 3.1f, "Blood And Bone Enrage"); // t=10885.0; Ability 5B9F from Queen's Soldier
+    Timeout(id + 0x290, 3.1f, "Blood And Bone Enrage"); // t=10888.1; Ability 5B9F from Queen's Soldier
+}
+
+private void Phase_4__Aetherial_Wards(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x581E), "", 5f, 0.0f); // t=11000.0; StartsUsing 581E from Queen's Knight
+    Timeout(id + 0x10, 5.0f, "Strongpoint Defense / Spiteful Spirit"); // t=11005.0; Ability 581E from Queen's Knight | Ability 582E from Queen's Warrior
+    Timeout(id + 0x20, 1.0f, "--2x Aura Sphere--"); // t=11006.0
+    Timeout(id + 0x30, 1.9f, "--12x Spiritual Sphere--"); // t=11007.9
+    Timeout(id + 0x40, 6.899f, "Coat Of Arms"); // t=11014.8; Ability 5820 from Aetherial Ward; cactbot StartsUsing 5820 [DelubrumSav Guard Coat of Arms]
+    Timeout(id + 0x50, 1.2f, "Fracture 1"); // t=11016.0; Ability 5B95 from Spiritual Sphere
+    Timeout(id + 0x60, 4.0f, "Fracture 2 / --Spite Check--"); // t=11020.0; Ability 5B95 from Spiritual Sphere
+    Timeout(id + 0x70, 12.0f, "Coat Of Arms"); // t=11032.0; Ability 5820 from Aetherial Ward; cactbot StartsUsing 5820 [DelubrumSav Guard Coat of Arms]
+    Timeout(id + 0x80, 5.9f, "--12x Spiritual Sphere--"); // t=11037.9
+    Timeout(id + 0x90, 2.0f, "--2x Aura Sphere--"); // t=11039.9
+    Timeout(id + 0xA0, 6.1f, "Fracture 1"); // t=11046.0; Ability 5B95 from Spiritual Sphere
+    Timeout(id + 0xB0, 3.0f, "Coat Of Arms"); // t=11049.0; Ability 5820 from Aetherial Ward; cactbot StartsUsing 5820 [DelubrumSav Guard Coat of Arms]
+    Timeout(id + 0xC0, 1.0f, "Fracture 2"); // t=11050.0; Ability 5B95 from Spiritual Sphere
+    Timeout(id + 0xD0, 4.1f, "--Spite Check--"); // t=11054.1
+    Timeout(id + 0xE0, 12.0f, "Coat Of Arms"); // t=11066.1; Ability 5820 from Aetherial Ward; cactbot StartsUsing 5820 [DelubrumSav Guard Coat of Arms]
+    Timeout(id + 0xF0, 11.9f, "Blood And Bone Enrage"); // t=11078.0; Ability 5909 from Queen's Knight
+}
+
+private void Bozjan_Phantom(uint id)
+{
+    Condition(id + 0x0, 7.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x57BD), "", 5f, 2.1f); // t=12007.1; StartsUsing 57BD from Bozjan Phantom; cactbot StartsUsing 57BD [DelubrumSav Phantom Malediction Of Agony]
+    Timeout(id + 0x10, 4.0f, "Malediction of Agony").SetHint(StateMachine.StateHint.Raidwide); // t=12011.1; Ability 57BD from Bozjan Phantom; cactbot StartsUsing 57BD [DelubrumSav Phantom Malediction Of Agony]
+    Timeout(id + 0x20, 8.101f, "Weave Miasma"); // t=12019.2; Ability 57B2 from Bozjan Phantom; cactbot StartsUsing 57B2 [DelubrumSav Phantom Weave Miasma]
+    Timeout(id + 0x30, 16.2f, "Manipulate Miasma"); // t=12035.4; Ability 57B3 from Bozjan Phantom
+    Timeout(id + 0x40, 1.0f, "Swirling Miasma 1"); // t=12036.4; Ability 57B8 from Bozjan Phantom
+    Timeout(id + 0x50, 1.6f, "Swirling Miasma 2"); // t=12038.0
+    Timeout(id + 0x60, 1.6f, "Swirling Miasma 3"); // t=12039.6
+    Timeout(id + 0x70, 1.601f, "Swirling Miasma 4"); // t=12041.2
+    Timeout(id + 0x80, 1.6f, "Swirling Miasma 5"); // t=12042.8
+    Timeout(id + 0x90, 1.601f, "Swirling Miasma 6"); // t=12044.4
+    Timeout(id + 0xA0, 1.6f, "Swirling Miasma 7"); // t=12046.0
+    Timeout(id + 0xB0, 0.4f, "Creeping Miasma 1"); // t=12046.4; Ability 57B4 from Bozjan Phantom
+    Timeout(id + 0xC0, 1.199f, "Swirling Miasma 8"); // t=12047.6
+    Timeout(id + 0xD0, 0.301f, "Creeping Miasma 2"); // t=12047.9
+    Timeout(id + 0xE0, 1.6f, "Creeping Miasma 3"); // t=12049.5
+    Timeout(id + 0xF0, 1.6f, "Lingering Miasma"); // t=12051.1
+    Timeout(id + 0x100, 1.601f, "Lingering Miasma"); // t=12052.7
+    Timeout(id + 0x110, 1.6f, "Lingering Miasma"); // t=12054.3
+    Timeout(id + 0x120, 1.601f, "Lingering Miasma"); // t=12055.9
+    Timeout(id + 0x130, 1.6f, "Lingering Miasma"); // t=12057.5
+    Timeout(id + 0x140, 6.0f, "Weave Miasma"); // t=12063.5; Ability 57B2 from Bozjan Phantom; cactbot StartsUsing 57B2 [DelubrumSav Phantom Weave Miasma]
+    Timeout(id + 0x150, 16.1f, "Invert Miasma"); // t=12079.6; Ability 59EE from Bozjan Phantom
+    Timeout(id + 0x160, 1.0f, "Creeping Miasma 1"); // t=12080.6; Ability 57B4 from Bozjan Phantom
+    Timeout(id + 0x170, 1.601f, "Creeping Miasma 2"); // t=12082.2
+    Timeout(id + 0x180, 1.6f, "Creeping Miasma 3"); // t=12083.8
+    Timeout(id + 0x190, 1.601f, "Lingering Miasma"); // t=12085.4
+    Timeout(id + 0x1A0, 1.6f, "Lingering Miasma"); // t=12087.0
+    Timeout(id + 0x1B0, 1.6f, "Lingering Miasma"); // t=12088.6
+    Timeout(id + 0x1C0, 1.601f, "Lingering Miasma"); // t=12090.2
+    Timeout(id + 0x1D0, 0.399f, "Creeping Miasma 1"); // t=12090.6; Ability 57B4 from Bozjan Phantom
+    Timeout(id + 0x1E0, 1.2f, "Lingering Miasma"); // t=12091.8
+    Timeout(id + 0x1F0, 0.2f, "Creeping Miasma 2"); // t=12092.0
+    Timeout(id + 0x200, 1.6f, "Creeping Miasma 3"); // t=12093.6
+    Timeout(id + 0x210, 1.601f, "Lingering Miasma"); // t=12095.2
+    Timeout(id + 0x220, 1.6f, "Lingering Miasma"); // t=12096.8
+    Timeout(id + 0x230, 1.601f, "Lingering Miasma"); // t=12098.4
+    Timeout(id + 0x240, 1.6f, "Lingering Miasma"); // t=12100.0
+    Timeout(id + 0x250, 0.7f, "--middle--"); // t=12100.7; Ability 57AD from Bozjan Phantom
+    Timeout(id + 0x260, 0.899f, "Lingering Miasma"); // t=12101.6
+    Timeout(id + 0x270, 3.5f, "Summon Adds"); // t=12105.1; Ability 57C0 from Bozjan Phantom
+    Timeout(id + 0x280, 0.7f, "1x Misty Wraith / 2x Bloody Wraith"); // t=12105.8
+    Targetable(id + 0x290, false, 0.3f, "--untargetable--"); // t=12106.1
+    Timeout(id + 0x2A0, 9.7f, "2x Misty Wraith / 2x Bloody Wraith"); // t=12115.8
+    Timeout(id + 0x2B0, 12.2f, "3x Misty Wraith / 3x Bloody Wraith"); // t=12128.0
+    Timeout(id + 0x2C0, 27.2f, "Malediction of Ruin Enrage"); // t=12155.2; Ability 57C1 from Bozjan Phantom
+    Targetable(id + 0x2D0, true, 2.0f, "--targetable--"); // t=12157.2
+    Condition(id + 0x2E0, 5.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x57B2), "", 5f, 0.1f); // t=12162.3; StartsUsing 57B2 from Bozjan Phantom; cactbot StartsUsing 57B2 [DelubrumSav Phantom Weave Miasma]
+    Timeout(id + 0x2F0, 3.0f, "Weave Miasma"); // t=12165.3; Ability 57B2 from Bozjan Phantom; cactbot StartsUsing 57B2 [DelubrumSav Phantom Weave Miasma]
+    Timeout(id + 0x300, 6.2f, "Summon"); // t=12171.5; Ability 57BA from Bozjan Phantom
+    Timeout(id + 0x310, 16.1f, "Undying Hatred"); // t=12187.6; Ability 57C2 from Stuffy Wraith
+    Timeout(id + 0x320, 3.9f, "Manipulate Miasma? / Invert Miasma?"); // t=12191.5; Ability 57B3 from Bozjan Phantom | Ability 59EE from Bozjan Phantom
+    Timeout(id + 0x330, 108.5f, "Manipulate Miasma"); // t=12300.0; Ability 57B3 from Bozjan Phantom
+    Timeout(id + 0x340, 1.0f, "Swirling Miasma 1"); // t=12301.0
+    Timeout(id + 0x350, 1.7f, "Swirling Miasma 2"); // t=12302.7
+    Timeout(id + 0x360, 1.6f, "Swirling Miasma 3"); // t=12304.3
+    Timeout(id + 0x370, 1.601f, "Swirling Miasma 4"); // t=12305.9
+    Timeout(id + 0x380, 1.6f, "Swirling Miasma 5"); // t=12307.5
+    Timeout(id + 0x390, 1.6f, "Swirling Miasma 6"); // t=12309.1
+    Timeout(id + 0x3A0, 1.601f, "Swirling Miasma 7"); // t=12310.7
+    Timeout(id + 0x3B0, 0.3f, "Creeping Miasma 1"); // t=12311.0; Ability 57B4 from Bozjan Phantom
+    Timeout(id + 0x3C0, 1.2f, "Swirling Miasma 8"); // t=12312.2
+    Timeout(id + 0x3D0, 0.2f, "Creeping Miasma 2"); // t=12312.4
+    Timeout(id + 0x3E0, 1.6f, "Creeping Miasma 3 / Lingering Miasma"); // t=12314.0
+    Timeout(id + 0x3F0, 1.6f, "Lingering Miasma"); // t=12315.6
+    Timeout(id + 0x400, 1.4f, "--middle--"); // t=12317.0; Ability 57AD from Bozjan Phantom
+    Timeout(id + 0x410, 0.2f, "Lingering Miasma"); // t=12317.2
+    Timeout(id + 0x420, 1.6f, "Lingering Miasma"); // t=12318.8
+    Timeout(id + 0x430, 1.601f, "Lingering Miasma"); // t=12320.4
+    Timeout(id + 0x440, 1.6f, "Lingering Miasma"); // t=12322.0
+    Timeout(id + 0x450, 2.3f, "Vile Wave"); // t=12324.3; Ability 57BF from Bozjan Phantom; cactbot StartsUsing 57BF [DelubrumSav Phantom Vile Wave]
+    Timeout(id + 0x460, 16.101f, "Ice Spikes"); // t=12340.4; Ability 57BC from Bozjan Phantom; cactbot StartsUsing 57BC [DelubrumSav Phantom Ice Spikes]
+    Timeout(id + 0x470, 11.1f, "Excruciation").SetHint(StateMachine.StateHint.Tankbuster); // t=12351.5; Ability 57BE from Bozjan Phantom; cactbot StartsUsing 57BE [DelubrumSav Phantom Excruciation]
+    Timeout(id + 0x480, 6.1f, "Malediction of Agony").SetHint(StateMachine.StateHint.Raidwide); // t=12357.6; Ability 57BD from Bozjan Phantom; cactbot StartsUsing 57BD [DelubrumSav Phantom Malediction Of Agony]
+    Timeout(id + 0x490, 11.301f, "Weave Miasma"); // t=12368.9; Ability 57B2 from Bozjan Phantom; cactbot StartsUsing 57B2 [DelubrumSav Phantom Weave Miasma]
+    Timeout(id + 0x4A0, 6.1f, "Summon"); // t=12375.0
+    Timeout(id + 0x4B0, 16.1f, "Undying Hatred"); // t=12391.1
+    Timeout(id + 0x4C0, 3.9f, "Manipulate Miasma? / Invert Miasma?"); // t=12395.0
+    Timeout(id + 0x4D0, 105.0f, "Invert Miasma"); // t=12500.0; Ability 59EE from Bozjan Phantom
+    Timeout(id + 0x4E0, 1.0f, "Creeping Miasma 1"); // t=12501.0; Ability 57B4 from Bozjan Phantom
+    Timeout(id + 0x4F0, 1.6f, "Creeping Miasma 2"); // t=12502.6
+    Timeout(id + 0x500, 1.601f, "Creeping Miasma 3"); // t=12504.2
+    Timeout(id + 0x510, 1.6f, "Lingering Miasma"); // t=12505.8
+    Timeout(id + 0x520, 1.601f, "Lingering Miasma"); // t=12507.4
+    Timeout(id + 0x530, 1.6f, "Lingering Miasma"); // t=12509.0
+    Timeout(id + 0x540, 1.6f, "Lingering Miasma"); // t=12510.6
+    Timeout(id + 0x550, 0.4f, "Creeping Miasma 1"); // t=12511.0; Ability 57B4 from Bozjan Phantom
+    Timeout(id + 0x560, 1.5f, "Creeping Miasma 2"); // t=12512.5
+    Timeout(id + 0x570, 1.6f, "Creeping Miasma 3"); // t=12514.1
+    Timeout(id + 0x580, 1.601f, "Lingering Miasma"); // t=12515.7
+    Timeout(id + 0x590, 1.399f, "--middle--"); // t=12517.1; Ability 57AD from Bozjan Phantom
+    Timeout(id + 0x5A0, 0.2f, "Lingering Miasma"); // t=12517.3
+    Timeout(id + 0x5B0, 1.601f, "Lingering Miasma"); // t=12518.9
+    Timeout(id + 0x5C0, 1.6f, "Lingering Miasma"); // t=12520.5
+    Timeout(id + 0x5D0, 1.6f, "Lingering Miasma"); // t=12522.1
+    Timeout(id + 0x5E0, 2.301f, "Vile Wave"); // t=12524.4; Ability 57BF from Bozjan Phantom; cactbot StartsUsing 57BF [DelubrumSav Phantom Vile Wave]
+    Timeout(id + 0x5F0, 16.1f, "Ice Spikes"); // t=12540.5; Ability 57BC from Bozjan Phantom; cactbot StartsUsing 57BC [DelubrumSav Phantom Ice Spikes]
+    Timeout(id + 0x600, 11.1f, "Excruciation").SetHint(StateMachine.StateHint.Tankbuster); // t=12551.6; Ability 57BE from Bozjan Phantom; cactbot StartsUsing 57BE [DelubrumSav Phantom Excruciation]
+    Timeout(id + 0x610, 6.101f, "Malediction of Agony").SetHint(StateMachine.StateHint.Raidwide); // t=12557.7; Ability 57BD from Bozjan Phantom; cactbot StartsUsing 57BD [DelubrumSav Phantom Malediction Of Agony]
+    Timeout(id + 0x620, 11.2f, "Weave Miasma"); // t=12568.9; Ability 57B2 from Bozjan Phantom; cactbot StartsUsing 57B2 [DelubrumSav Phantom Weave Miasma]
+    Timeout(id + 0x630, 6.199f, "Summon"); // t=12575.1
+    Timeout(id + 0x640, 16.101f, "Undying Hatred"); // t=12591.2
+    Timeout(id + 0x650, 3.899f, "Manipulate Miasma? / Invert Miasma?"); // t=12595.1
+}
+
+private void Trinity_Avowed(uint id)
+{
+    Condition(id + 0x0, 6.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x594E), "", 5f, 1.7f); // t=14006.7; StartsUsing 594E from Trinity Avowed; cactbot StartsUsing 594E [DelubrumSav Avowed Wrath Of Bozja]
+    Timeout(id + 0x10, 5.1f, "Wrath Of Bozja"); // t=14011.8; Ability 594E from Trinity Avowed; cactbot StartsUsing 594E [DelubrumSav Avowed Wrath Of Bozja]
+    Timeout(id + 0x20, 8.101f, "Glory Of Bozja"); // t=14019.9; Ability 594F from Trinity Avowed
+    Timeout(id + 0x30, 9.3f, "Allegiant Arsenal"); // t=14029.2
+    Timeout(id + 0x40, 5.2f, "Flashvane/Fury Of Bozja/Infernal Slash"); // t=14034.4; Ability 594B/594C/594A from Trinity Avowed
+    Timeout(id + 0x50, 8.199f, "Allegiant Arsenal"); // t=14042.6
+    Timeout(id + 0x60, 5.2f, "Flashvane/Fury Of Bozja/Infernal Slash"); // t=14047.8; Ability 594B/594C/594A from Trinity Avowed
+    Condition(id + 0x70, 5.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x5985 or 0x5986 or 0x5987), "", 5f, 0.2f); // t=14053.0; StartsUsing 5985 from Trinity Avowed | StartsUsing 5986 from Trinity Avowed | StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja] | StartsUsing 5986 [DelubrumSav Avowed Flashvane] | StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x80, 3.0f, "Allegiant Arsenal"); // t=14056.0
+    Timeout(id + 0x90, 5.2f, "Infernal Slash? / Flashvane? / Fury Of Bozja?"); // t=14061.2
+    Condition(id + 0xA0, 38.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5985), "", 5f, 33.8f); // t=14100.0; StartsUsing 5985 from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0xB0, 3.0f, "Allegiant Arsenal"); // t=14103.0; Ability 5985 from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0xC0, 5.2f, "Infernal Slash"); // t=14108.2; Ability 594A from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0xD0, 7.399f, "Hot And Cold"); // t=14115.6; Ability 5BAF from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0xE0, 7.101f, "Unwavering Apparition"); // t=14122.7; Ability 5B3A from Trinity Avowed
+    Targetable(id + 0xF0, false, 6.0f, "--untargetable--"); // t=14128.7
+    Timeout(id + 0x100, 10.1f, "Blade Of Entropy 1"); // t=14138.8
+    Timeout(id + 0x110, 13.7f, "Blade Of Entropy 2"); // t=14152.5
+    Targetable(id + 0x120, true, 3.1f, "--targetable--"); // t=14155.6
+    Timeout(id + 0x130, 11.801f, "Glory Of Bozja"); // t=14167.4; Ability 594F from Trinity Avowed
+    Condition(id + 0x140, 7.899f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x5986 or 0x5987), "", 5f, 2.899f); // t=14175.3; StartsUsing 5986 from Trinity Avowed | StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja] | StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x150, 8.2f, "Flashvane? / Fury Of Bozja?"); // t=14183.5
+    Condition(id + 0x160, 116.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5985), "", 5f, 111.5f); // t=14300.0; StartsUsing 5985 from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x170, 3.0f, "Allegiant Arsenal"); // t=14303.0; Ability 5985 from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x180, 5.2f, "Infernal Slash"); // t=14308.2; Ability 594A from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x190, 7.399f, "Hot And Cold"); // t=14315.6; Ability 5BAF from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0x1A0, 7.101f, "Unwavering Apparition"); // t=14322.7; Ability 5B3A from Trinity Avowed
+    Targetable(id + 0x1B0, false, 6.0f, "--untargetable--"); // t=14328.7
+    Timeout(id + 0x1C0, 10.1f, "Blade Of Entropy 1"); // t=14338.8
+    Timeout(id + 0x1D0, 13.7f, "Blade Of Entropy 2"); // t=14352.5
+    Targetable(id + 0x1E0, true, 3.1f, "--targetable--"); // t=14355.6
+    Timeout(id + 0x1F0, 11.801f, "Glory Of Bozja"); // t=14367.4; Ability 594F from Trinity Avowed
+    Condition(id + 0x200, 7.899f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5987), "", 5f, 2.899f); // t=14375.3; StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0x210, 3.0f, "Allegiant Arsenal"); // t=14378.3; Ability 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0x220, 5.2f, "Fury Of Bozja"); // t=14383.5; Ability 594C from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0x230, 6.1f, "Hot And Cold"); // t=14389.6; Ability 597B from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0x240, 7.101f, "Quick March"); // t=14396.7; Ability 5981 from Trinity Avowed
+    Timeout(id + 0x250, 6.2f, "Freedom Of Bozja"); // t=14402.9; Ability 597C from Trinity Avowed; cactbot StartsUsing 597C [DelubrumSav Avowed Hot And Cold Freedom Of Bozja]
+    Timeout(id + 0x260, 7.399f, "Elemental Impact"); // t=14410.3; Ability 4F52 from Tempestuous Orb
+    Timeout(id + 0x270, 9.8f, "Elemental Blast"); // t=14420.1; Ability 592E from Tempestuous Orb
+    Timeout(id + 0x280, 12.9f, "Glory Of Bozja"); // t=14433.0; Ability 594F from Trinity Avowed
+    Condition(id + 0x290, 8.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x5985 or 0x5986 or 0x5987), "", 5f, 3.5f); // t=14441.5; StartsUsing 5985 from Trinity Avowed | StartsUsing 5986 from Trinity Avowed | StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja] | StartsUsing 5986 [DelubrumSav Avowed Flashvane] | StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x2A0, 3.0f, "Allegiant Arsenal"); // t=14444.5
+    Timeout(id + 0x2B0, 5.2f, "Infernal Slash? / Flashvane? / Fury Of Bozja?"); // t=14449.7
+    Condition(id + 0x2C0, 50.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5985), "", 5f, 45.3f); // t=14500.0; StartsUsing 5985 from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x2D0, 3.0f, "Allegiant Arsenal"); // t=14503.0; Ability 5985 from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x2E0, 5.2f, "Infernal Slash"); // t=14508.2; Ability 594A from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x2F0, 7.399f, "Hot And Cold"); // t=14515.6; Ability 5BAF from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0x300, 7.101f, "Unwavering Apparition"); // t=14522.7; Ability 5B3A from Trinity Avowed
+    Targetable(id + 0x310, false, 6.0f, "--untargetable--"); // t=14528.7
+    Timeout(id + 0x320, 10.1f, "Blade Of Entropy 1"); // t=14538.8
+    Timeout(id + 0x330, 13.7f, "Blade Of Entropy 2"); // t=14552.5
+    Targetable(id + 0x340, true, 3.1f, "--targetable--"); // t=14555.6
+    Timeout(id + 0x350, 11.801f, "Glory Of Bozja"); // t=14567.4; Ability 594F from Trinity Avowed
+    Condition(id + 0x360, 7.899f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5986), "", 5f, 2.899f); // t=14575.3; StartsUsing 5986 from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x370, 3.0f, "Allegiant Arsenal"); // t=14578.3; Ability 5986 from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x380, 5.2f, "Flashvane"); // t=14583.5; Ability 594B from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x390, 6.1f, "Quick March"); // t=14589.6; Ability 5BB3 from Trinity Avowed
+    Timeout(id + 0x3A0, 8.301f, "Wrath Of Bozja"); // t=14597.9; Ability 5BB5 from Trinity Avowed; cactbot StartsUsing 594E [DelubrumSav Avowed Wrath Of Bozja]
+    Timeout(id + 0x3B0, 6.1f, "Flames Of Bozja"); // t=14604.0; Ability 597E from Trinity Avowed
+    Timeout(id + 0x3C0, 10.1f, "Flames Of Bozja"); // t=14614.1; Ability 5939 from Trinity Avowed
+    Timeout(id + 0x3D0, 3.2f, "Hot And Cold"); // t=14617.3; Ability 5BB0 from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0x3E0, 7.8f, "Shimmering Shot"); // t=14625.1; Ability 597F from Trinity Avowed; cactbot StartsUsing 597F [DelubrumSav Avowed Hot And Cold Shimmering Shot]
+    Timeout(id + 0x3F0, 16.301f, "Elemental Arrow"); // t=14641.4; Ability 593A from Spark Arrow
+    Timeout(id + 0x400, 12.399f, "Glory Of Bozja"); // t=14653.8; Ability 594F from Trinity Avowed
+    Condition(id + 0x410, 7.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x5985 or 0x5986 or 0x5987), "", 5f, 2.4f); // t=14661.2; StartsUsing 5985 from Trinity Avowed | StartsUsing 5986 from Trinity Avowed | StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja] | StartsUsing 5986 [DelubrumSav Avowed Flashvane] | StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x420, 3.0f, "Allegiant Arsenal"); // t=14664.2
+    Timeout(id + 0x430, 5.2f, "Infernal Slash? / Flashvane? / Fury Of Bozja?"); // t=14669.4
+    Condition(id + 0x440, 30.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5986), "", 5f, 25.6f); // t=14700.0; StartsUsing 5986 from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x450, 3.0f, "Allegiant Arsenal"); // t=14703.0; Ability 5986 from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x460, 5.2f, "Flashvane"); // t=14708.2; Ability 594B from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x470, 6.1f, "Quick March"); // t=14714.3; Ability 5BB3 from Trinity Avowed
+    Timeout(id + 0x480, 8.3f, "Wrath Of Bozja"); // t=14722.6; Ability 5BB5 from Trinity Avowed; cactbot StartsUsing 594E [DelubrumSav Avowed Wrath Of Bozja]
+    Timeout(id + 0x490, 6.101f, "Flames Of Bozja"); // t=14728.7; Ability 597E from Trinity Avowed
+    Timeout(id + 0x4A0, 10.1f, "Flames Of Bozja"); // t=14738.8; Ability 5939 from Trinity Avowed
+    Timeout(id + 0x4B0, 3.2f, "Hot And Cold"); // t=14742.0; Ability 5BB0 from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0x4C0, 7.8f, "Shimmering Shot"); // t=14749.8; Ability 597F from Trinity Avowed; cactbot StartsUsing 597F [DelubrumSav Avowed Hot And Cold Shimmering Shot]
+    Timeout(id + 0x4D0, 16.3f, "Elemental Arrow"); // t=14766.1; Ability 593A from Spark Arrow
+    Timeout(id + 0x4E0, 12.4f, "Glory Of Bozja"); // t=14778.5; Ability 594F from Trinity Avowed
+    Condition(id + 0x4F0, 7.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x5985 or 0x5987), "", 5f, 2.4f); // t=14785.9; StartsUsing 5985 from Trinity Avowed | StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja] | StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x500, 3.0f, "Allegiant Arsenal"); // t=14788.9
+    Timeout(id + 0x510, 5.199f, "Infernal Slash? / Fury Of Bozja?"); // t=14794.1
+    Condition(id + 0x520, 105.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5986), "", 5f, 100.9f); // t=14900.0; StartsUsing 5986 from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x530, 3.0f, "Allegiant Arsenal"); // t=14903.0; Ability 5986 from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x540, 5.2f, "Flashvane"); // t=14908.2; Ability 594B from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x550, 6.1f, "Quick March"); // t=14914.3; Ability 5BB3 from Trinity Avowed
+    Timeout(id + 0x560, 8.3f, "Wrath Of Bozja"); // t=14922.6; Ability 5BB5 from Trinity Avowed; cactbot StartsUsing 594E [DelubrumSav Avowed Wrath Of Bozja]
+    Timeout(id + 0x570, 6.101f, "Flames Of Bozja"); // t=14928.7; Ability 597E from Trinity Avowed
+    Timeout(id + 0x580, 10.1f, "Flames Of Bozja"); // t=14938.8; Ability 5939 from Trinity Avowed
+    Timeout(id + 0x590, 3.2f, "Hot And Cold"); // t=14942.0; Ability 5BB0 from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0x5A0, 7.8f, "Shimmering Shot"); // t=14949.8; Ability 597F from Trinity Avowed; cactbot StartsUsing 597F [DelubrumSav Avowed Hot And Cold Shimmering Shot]
+    Timeout(id + 0x5B0, 16.3f, "Elemental Arrow"); // t=14966.1; Ability 593A from Spark Arrow
+    Timeout(id + 0x5C0, 12.4f, "Glory Of Bozja"); // t=14978.5; Ability 594F from Trinity Avowed
+    Condition(id + 0x5D0, 7.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5987), "", 5f, 2.4f); // t=14985.9; StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0x5E0, 3.0f, "Allegiant Arsenal"); // t=14988.9; Ability 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0x5F0, 5.199f, "Fury Of Bozja"); // t=14994.1; Ability 594C from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0x600, 6.101f, "Hot And Cold"); // t=15000.2; Ability 597B from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0x610, 7.1f, "Quick March"); // t=15007.3; Ability 5981 from Trinity Avowed
+    Timeout(id + 0x620, 6.2f, "Freedom Of Bozja"); // t=15013.5; Ability 597C from Trinity Avowed; cactbot StartsUsing 597C [DelubrumSav Avowed Hot And Cold Freedom Of Bozja]
+    Timeout(id + 0x630, 7.4f, "Elemental Impact"); // t=15020.9; Ability 4F52 from Tempestuous Orb
+    Timeout(id + 0x640, 9.8f, "Elemental Blast"); // t=15030.7; Ability 592E from Tempestuous Orb
+    Timeout(id + 0x650, 12.899f, "Glory Of Bozja"); // t=15043.6; Ability 594F from Trinity Avowed
+    Condition(id + 0x660, 8.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x5985 or 0x5986 or 0x5987), "", 5f, 3.5f); // t=15052.1; StartsUsing 5985 from Trinity Avowed | StartsUsing 5986 from Trinity Avowed | StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja] | StartsUsing 5986 [DelubrumSav Avowed Flashvane] | StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x670, 3.0f, "Allegiant Arsenal"); // t=15055.1
+    Timeout(id + 0x680, 5.2f, "Infernal Slash? / Flashvane? / Fury Of Bozja?"); // t=15060.3
+    Condition(id + 0x690, 39.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5986), "", 5f, 34.7f); // t=15100.0; StartsUsing 5986 from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x6A0, 3.0f, "Allegiant Arsenal"); // t=15103.0; Ability 5986 from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x6B0, 5.2f, "Flashvane"); // t=15108.2; Ability 594B from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x6C0, 6.1f, "Quick March"); // t=15114.3; Ability 5BB3 from Trinity Avowed
+    Timeout(id + 0x6D0, 8.3f, "Wrath Of Bozja"); // t=15122.6; Ability 5BB5 from Trinity Avowed; cactbot StartsUsing 594E [DelubrumSav Avowed Wrath Of Bozja]
+    Timeout(id + 0x6E0, 6.101f, "Flames Of Bozja"); // t=15128.7; Ability 597E from Trinity Avowed
+    Timeout(id + 0x6F0, 10.1f, "Flames Of Bozja"); // t=15138.8; Ability 5939 from Trinity Avowed
+    Timeout(id + 0x700, 3.2f, "Hot And Cold"); // t=15142.0; Ability 5BB0 from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0x710, 7.8f, "Shimmering Shot"); // t=15149.8; Ability 597F from Trinity Avowed; cactbot StartsUsing 597F [DelubrumSav Avowed Hot And Cold Shimmering Shot]
+    Timeout(id + 0x720, 16.3f, "Elemental Arrow"); // t=15166.1; Ability 593A from Spark Arrow
+    Timeout(id + 0x730, 12.4f, "Glory Of Bozja"); // t=15178.5; Ability 594F from Trinity Avowed
+    Condition(id + 0x740, 7.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5985), "", 5f, 2.4f); // t=15185.9; StartsUsing 5985 from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x750, 3.0f, "Allegiant Arsenal"); // t=15188.9; Ability 5985 from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x760, 5.199f, "Infernal Slash"); // t=15194.1; Ability 594A from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x770, 7.4f, "Hot And Cold"); // t=15201.5; Ability 5BAF from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0x780, 7.1f, "Unwavering Apparition"); // t=15208.6; Ability 5B3A from Trinity Avowed
+    Targetable(id + 0x790, false, 6.0f, "--untargetable--"); // t=15214.6
+    Timeout(id + 0x7A0, 10.101f, "Blade Of Entropy 1"); // t=15224.7
+    Timeout(id + 0x7B0, 13.7f, "Blade Of Entropy 2"); // t=15238.4
+    Targetable(id + 0x7C0, true, 3.1f, "--targetable--"); // t=15241.5
+    Timeout(id + 0x7D0, 11.8f, "Glory Of Bozja"); // t=15253.3; Ability 594F from Trinity Avowed
+    Condition(id + 0x7E0, 7.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x5985 or 0x5986 or 0x5987), "", 5f, 2.9f); // t=15261.2; StartsUsing 5985 from Trinity Avowed | StartsUsing 5986 from Trinity Avowed | StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja] | StartsUsing 5986 [DelubrumSav Avowed Flashvane] | StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x7F0, 8.2f, "Infernal Slash? / Flashvane? / Fury Of Bozja?"); // t=15269.4
+    Condition(id + 0x800, 30.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5987), "", 5f, 25.6f); // t=15300.0; StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0x810, 3.0f, "Allegiant Arsenal"); // t=15303.0; Ability 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0x820, 5.2f, "Fury Of Bozja"); // t=15308.2; Ability 594C from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0x830, 6.1f, "Hot And Cold"); // t=15314.3; Ability 597B from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0x840, 7.101f, "Quick March"); // t=15321.4; Ability 5981 from Trinity Avowed
+    Timeout(id + 0x850, 6.199f, "Freedom Of Bozja"); // t=15327.6; Ability 597C from Trinity Avowed; cactbot StartsUsing 597C [DelubrumSav Avowed Hot And Cold Freedom Of Bozja]
+    Timeout(id + 0x860, 7.4f, "Elemental Impact"); // t=15335.0; Ability 4F52 from Tempestuous Orb
+    Timeout(id + 0x870, 9.8f, "Elemental Blast"); // t=15344.8; Ability 592E from Tempestuous Orb
+    Timeout(id + 0x880, 12.9f, "Glory Of Bozja"); // t=15357.7; Ability 594F from Trinity Avowed
+    Condition(id + 0x890, 8.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x5985 or 0x5986), "", 5f, 3.5f); // t=15366.2; StartsUsing 5985 from Trinity Avowed | StartsUsing 5986 from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane] | StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0x8A0, 3.0f, "Allegiant Arsenal"); // t=15369.2
+    Timeout(id + 0x8B0, 5.2f, "Infernal Slash? / Flashvane?"); // t=15374.4
+    Condition(id + 0x8C0, 125.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5987), "", 5f, 120.6f); // t=15500.0; StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0x8D0, 3.0f, "Allegiant Arsenal"); // t=15503.0; Ability 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0x8E0, 5.2f, "Fury Of Bozja"); // t=15508.2; Ability 594C from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0x8F0, 6.1f, "Hot And Cold"); // t=15514.3; Ability 597B from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0x900, 7.101f, "Quick March"); // t=15521.4; Ability 5981 from Trinity Avowed
+    Timeout(id + 0x910, 6.199f, "Freedom Of Bozja"); // t=15527.6; Ability 597C from Trinity Avowed; cactbot StartsUsing 597C [DelubrumSav Avowed Hot And Cold Freedom Of Bozja]
+    Timeout(id + 0x920, 7.4f, "Elemental Impact"); // t=15535.0; Ability 4F52 from Tempestuous Orb
+    Timeout(id + 0x930, 9.8f, "Elemental Blast"); // t=15544.8; Ability 592E from Tempestuous Orb
+    Timeout(id + 0x940, 12.9f, "Glory Of Bozja"); // t=15557.7; Ability 594F from Trinity Avowed
+    Condition(id + 0x950, 8.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5986), "", 5f, 3.5f); // t=15566.2; StartsUsing 5986 from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x960, 3.0f, "Allegiant Arsenal"); // t=15569.2; Ability 5986 from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x970, 5.2f, "Flashvane"); // t=15574.4; Ability 594B from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0x980, 6.1f, "Quick March"); // t=15580.5; Ability 5BB3 from Trinity Avowed
+    Timeout(id + 0x990, 8.3f, "Wrath Of Bozja"); // t=15588.8; Ability 5BB5 from Trinity Avowed; cactbot StartsUsing 594E [DelubrumSav Avowed Wrath Of Bozja]
+    Timeout(id + 0x9A0, 6.101f, "Flames Of Bozja"); // t=15594.9; Ability 597E from Trinity Avowed
+    Timeout(id + 0x9B0, 10.1f, "Flames Of Bozja"); // t=15605.0; Ability 5939 from Trinity Avowed
+    Timeout(id + 0x9C0, 3.2f, "Hot And Cold"); // t=15608.2; Ability 5BB0 from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0x9D0, 7.8f, "Shimmering Shot"); // t=15616.0; Ability 597F from Trinity Avowed; cactbot StartsUsing 597F [DelubrumSav Avowed Hot And Cold Shimmering Shot]
+    Timeout(id + 0x9E0, 16.3f, "Elemental Arrow"); // t=15632.3; Ability 593A from Spark Arrow
+    Timeout(id + 0x9F0, 12.4f, "Glory Of Bozja"); // t=15644.7; Ability 594F from Trinity Avowed
+    Condition(id + 0xA00, 7.399f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x5985 or 0x5986 or 0x5987), "", 5f, 2.399f); // t=15652.1; StartsUsing 5985 from Trinity Avowed | StartsUsing 5986 from Trinity Avowed | StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja] | StartsUsing 5986 [DelubrumSav Avowed Flashvane] | StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0xA10, 3.0f, "Allegiant Arsenal"); // t=15655.1
+    Timeout(id + 0xA20, 5.2f, "Infernal Slash? / Flashvane? / Fury Of Bozja?"); // t=15660.3
+    Condition(id + 0xA30, 39.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5987), "", 5f, 34.7f); // t=15700.0; StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0xA40, 3.0f, "Allegiant Arsenal"); // t=15703.0; Ability 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0xA50, 5.2f, "Fury Of Bozja"); // t=15708.2; Ability 594C from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0xA60, 6.1f, "Hot And Cold"); // t=15714.3; Ability 597B from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0xA70, 7.101f, "Quick March"); // t=15721.4; Ability 5981 from Trinity Avowed
+    Timeout(id + 0xA80, 6.199f, "Freedom Of Bozja"); // t=15727.6; Ability 597C from Trinity Avowed; cactbot StartsUsing 597C [DelubrumSav Avowed Hot And Cold Freedom Of Bozja]
+    Timeout(id + 0xA90, 7.4f, "Elemental Impact"); // t=15735.0; Ability 4F52 from Tempestuous Orb
+    Timeout(id + 0xAA0, 9.8f, "Elemental Blast"); // t=15744.8; Ability 592E from Tempestuous Orb
+    Timeout(id + 0xAB0, 12.9f, "Glory Of Bozja"); // t=15757.7; Ability 594F from Trinity Avowed
+    Condition(id + 0xAC0, 8.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5985), "", 5f, 3.5f); // t=15766.2; StartsUsing 5985 from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0xAD0, 3.0f, "Allegiant Arsenal"); // t=15769.2; Ability 5985 from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0xAE0, 5.2f, "Infernal Slash"); // t=15774.4; Ability 594A from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0xAF0, 7.399f, "Hot And Cold"); // t=15781.8; Ability 5BAF from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0xB00, 7.101f, "Unwavering Apparition"); // t=15788.9; Ability 5B3A from Trinity Avowed
+    Targetable(id + 0xB10, false, 6.0f, "--untargetable--"); // t=15794.9
+    Timeout(id + 0xB20, 10.1f, "Blade Of Entropy 1"); // t=15805.0
+    Timeout(id + 0xB30, 13.7f, "Blade Of Entropy 2"); // t=15818.7
+    Targetable(id + 0xB40, true, 3.1f, "--targetable--"); // t=15821.8
+    Timeout(id + 0xB50, 11.8f, "Glory Of Bozja"); // t=15833.6; Ability 594F from Trinity Avowed
+    Condition(id + 0xB60, 7.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x5985 or 0x5986 or 0x5987), "", 5f, 2.9f); // t=15841.5; StartsUsing 5985 from Trinity Avowed | StartsUsing 5986 from Trinity Avowed | StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja] | StartsUsing 5986 [DelubrumSav Avowed Flashvane] | StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0xB70, 3.0f, "Allegiant Arsenal"); // t=15844.5
+    Timeout(id + 0xB80, 5.2f, "Infernal Slash? / Flashvane? / Fury Of Bozja?"); // t=15849.7
+    Condition(id + 0xB90, 50.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5985), "", 5f, 45.3f); // t=15900.0; StartsUsing 5985 from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0xBA0, 3.0f, "Allegiant Arsenal"); // t=15903.0; Ability 5985 from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0xBB0, 5.2f, "Infernal Slash"); // t=15908.2; Ability 594A from Trinity Avowed; cactbot StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0xBC0, 7.2f, "Hot And Cold"); // t=15915.4; Ability 5BAF from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0xBD0, 7.1f, "Elemental Brand"); // t=15922.5; Ability 5BB1 from Trinity Avowed
+    Timeout(id + 0xBE0, 6.1f, "Unwavering Apparition"); // t=15928.6; Ability 5B3A from Trinity Avowed
+    Targetable(id + 0xBF0, false, 6.0f, "--untargetable--"); // t=15934.6
+    Timeout(id + 0xC00, 10.101f, "Blade Of Entropy 1"); // t=15944.7
+    Timeout(id + 0xC10, 14.0f, "Blade Of Entropy 2"); // t=15958.7
+    Targetable(id + 0xC20, true, 3.1f, "--targetable--"); // t=15961.8
+    Timeout(id + 0xC30, 11.5f, "Glory Of Bozja"); // t=15973.3; Ability 594F from Trinity Avowed
+    Condition(id + 0xC40, 8.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x5986 or 0x5987), "", 5f, 3.3f); // t=15981.6; StartsUsing 5986 from Trinity Avowed | StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja] | StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0xC50, 3.0f, "Allegiant Arsenal"); // t=15984.6
+    Timeout(id + 0xC60, 5.2f, "Flashvane? / Fury Of Bozja?"); // t=15989.8
+    Condition(id + 0xC70, 110.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5986), "", 5f, 105.2f); // t=16100.0; StartsUsing 5986 from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0xC80, 3.0f, "Allegiant Arsenal"); // t=16103.0; Ability 5986 from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0xC90, 5.2f, "Flashvane"); // t=16108.2; Ability 594B from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane]
+    Timeout(id + 0xCA0, 6.1f, "Unseen Eye"); // t=16114.3; Ability 5BB4 from Trinity Avowed
+    Timeout(id + 0xCB0, 6.2f, "Flames Of Bozja"); // t=16120.5; Ability 597E from Trinity Avowed
+    Timeout(id + 0xCC0, 5.1f, "Gleaming Arrow"); // t=16125.6; Ability 594D from Avowed Avatar; cactbot StartsUsing 594D [DelubrumSav Avowed Gleaming Arrow Collect] | StartsUsing 594D [DelubrumSav Avowed Gleaming Arrow]
+    Timeout(id + 0xCD0, 5.0f, "Flames Of Bozja"); // t=16130.6; Ability 5939 from Trinity Avowed
+    Timeout(id + 0xCE0, 3.301f, "Hot And Cold"); // t=16133.9; Ability 5BB0 from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0xCF0, 7.1f, "Elemental Brand"); // t=16141.0; Ability 5BB2 from Trinity Avowed
+    Timeout(id + 0xD00, 6.2f, "Quick March"); // t=16147.2; Ability 5BB3 from Trinity Avowed
+    Timeout(id + 0xD10, 6.8f, "Shimmering Shot"); // t=16154.0; Ability 597F from Trinity Avowed; cactbot StartsUsing 597F [DelubrumSav Avowed Hot And Cold Shimmering Shot]
+    Timeout(id + 0xD20, 17.3f, "Elemental Arrow"); // t=16171.3; Ability 593A from Spark Arrow
+    Timeout(id + 0xD30, 12.5f, "Glory Of Bozja"); // t=16183.8; Ability 594F from Trinity Avowed
+    Timeout(id + 0xD40, 8.5f, "Wrath Of Bozja"); // t=16192.3; Ability 594E from Trinity Avowed; cactbot StartsUsing 594E [DelubrumSav Avowed Wrath Of Bozja]
+    Condition(id + 0xD50, 7.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x5985 or 0x5987), "", 5f, 2.7f); // t=16200.0; StartsUsing 5985 from Trinity Avowed | StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja] | StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0xD60, 3.0f, "Allegiant Arsenal"); // t=16203.0; Ability 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0xD70, 5.2f, "Infernal Slash? / Fury Of Bozja?"); // t=16208.2
+    Condition(id + 0xD80, 91.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5987), "", 5f, 86.8f); // t=16300.0; StartsUsing 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0xD90, 3.0f, "Allegiant Arsenal"); // t=16303.0; Ability 5987 from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0xDA0, 5.2f, "Fury Of Bozja"); // t=16308.2; Ability 594C from Trinity Avowed; cactbot StartsUsing 5987 [DelubrumSav Avowed Fury Of Bozja]
+    Timeout(id + 0xDB0, 6.1f, "Hot And Cold"); // t=16314.3; Ability 597B from Trinity Avowed; cactbot StartsUsing 5BB0/5BAF/597B [DelubrumSav Avowed Hot And Cold Cleanup]
+    Timeout(id + 0xDC0, 7.101f, "Elemental Brand"); // t=16321.4; Ability 597D from Trinity Avowed
+    Timeout(id + 0xDD0, 6.199f, "Freedom Of Bozja"); // t=16327.6; Ability 597C from Trinity Avowed; cactbot StartsUsing 597C [DelubrumSav Avowed Hot And Cold Freedom Of Bozja]
+    Timeout(id + 0xDE0, 6.101f, "Unseen Eye"); // t=16333.7; Ability 5980 from Trinity Avowed
+    Timeout(id + 0xDF0, 1.3f, "Elemental Impact"); // t=16335.0; Ability 4F52 from Tempestuous Orb
+    Timeout(id + 0xE00, 9.8f, "Elemental Blast"); // t=16344.8; Ability 592E from Tempestuous Orb
+    Timeout(id + 0xE10, 0.2f, "Gleaming Arrow"); // t=16345.0; Ability 594D from Avowed Avatar; cactbot StartsUsing 594D [DelubrumSav Avowed Gleaming Arrow Collect] | StartsUsing 594D [DelubrumSav Avowed Gleaming Arrow]
+    Timeout(id + 0xE20, 12.6f, "Glory Of Bozja"); // t=16357.6; Ability 594F from Trinity Avowed
+    Condition(id + 0xE30, 8.801f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x5985 or 0x5986), "", 5f, 3.801f); // t=16366.4; StartsUsing 5985 from Trinity Avowed | StartsUsing 5986 from Trinity Avowed; cactbot StartsUsing 5986 [DelubrumSav Avowed Flashvane] | StartsUsing 5985 [DelubrumSav Avowed Infernal Slash]
+    Timeout(id + 0xE40, 3.0f, "Allegiant Arsenal"); // t=16369.4
+    Timeout(id + 0xE50, 5.199f, "Infernal Slash? / Flashvane?"); // t=16374.6
+    Condition(id + 0xE60, 125.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5954), "", 5f, 120.4f); // t=16500.0; StartsUsing 5954 from Trinity Avowed
+    Timeout(id + 0xE70, 12.0f, "Glory Of Bozja Enrage"); // t=16512.0; Ability 5954 from Trinity Avowed
+    Targetable(id + 0xE80, false, 0.0f, "--untargetable--"); // t=16512.0
+}
+
+private void Stygimoloch_Lord(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Phase_1(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x57D7), "", 5f, 0.0f); // t=18008.3; StartsUsing 57D7 from Stygimoloch Lord; cactbot StartsUsing 57D7 [DelubrumSav Lord Foe Splitter]
+    Timeout(id + 0x10, 7.0f, "Foe Splitter"); // t=18015.3; Ability 57D7 from Stygimoloch Lord; cactbot StartsUsing 57D7 [DelubrumSav Lord Foe Splitter]
+    Timeout(id + 0x20, 8.1f, "Vicious Swipe"); // t=18023.4; Ability 5552 from Stygimoloch Lord
+    Timeout(id + 0x30, 5.1f, "Whack 1"); // t=18028.5
+    Timeout(id + 0x40, 2.0f, "Whack 2"); // t=18030.5
+    Timeout(id + 0x50, 2.0f, "Whack 3"); // t=18032.5
+    Timeout(id + 0x60, 10.301f, "1111-Tonze Swing"); // t=18042.8; Ability 57D8 from Stygimoloch Lord; cactbot StartsUsing 57D8 [DelubrumSav Lord 1111-Tonze Swing]
+    Timeout(id + 0x70, 13.199f, "Rapid Bolts"); // t=18056.0; Ability 57CD from Stygimoloch Lord; cactbot HeadMarker [DelubrumSav Lord Rapid Bolts]
+    Timeout(id + 0x80, 7.1f, "Rapid Bolts"); // t=18063.1; Ability 57CD from Stygimoloch Lord; cactbot HeadMarker [DelubrumSav Lord Rapid Bolts]
+    Timeout(id + 0x90, 7.301f, "Rush"); // t=18070.4; Ability 57D9 from Stygimoloch Lord
+    Timeout(id + 0xA0, 4.299f, "Rush"); // t=18074.7; Ability 57D9 from Stygimoloch Lord
+}
+
+private void Phase_2__Adds__70(uint id)
+{
+    Targetable(id + 0x0, false, 0.0f, "--untargetable--"); // t=18200.0; Ability 57DA from Stygimoloch Lord
+    Condition(id + 0x10, 1.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x57C3), "", 5f, 0.0f); // t=18201.5; StartsUsing 57C3 from Stygimoloch Lord
+    Timeout(id + 0x20, 3.0f, "Memory of the Labyrinth"); // t=18204.5; Ability 57C3 from Stygimoloch Lord
+    Timeout(id + 0x30, 0.6f, "--adds--"); // t=18205.1
+    Timeout(id + 0x40, 10.301f, "Mana Flame"); // t=18215.4; Ability 57DE from Ball Of Fire
+    Timeout(id + 0x50, 7.799f, "Entrapment"); // t=18223.2; Ability 57DB from Stygimoloch Monk
+    Timeout(id + 0x60, 9.602f, "Labyrinthine Fate"); // t=18232.8; Ability 57C7 from Stygimoloch Lord; cactbot GainsEffect [DelubrumSav Lord Labyrinthine Fate Collect]
+    Timeout(id + 0x70, 0.6f, "Mana Flame"); // t=18233.4; Ability 57DE from Ball Of Fire
+    Timeout(id + 0x80, 7.699f, "Fateful Words"); // t=18241.1; Ability 57C9 from Stygimoloch Lord; cactbot StartsUsing 57C9 [DelubrumSav Lord Fateful Words]
+    Timeout(id + 0x90, 10.201f, "Mana Flame"); // t=18251.3; Ability 57DE from Ball Of Fire
+    Timeout(id + 0xA0, 0.398f, "Devastating Bolt"); // t=18251.7; Ability 57C5 from Stygimoloch Lord; cactbot StartsUsing 57C5 [DelubrumSav Lord Devastating Bolt]
+    Timeout(id + 0xB0, 5.801f, "Rending Bolt"); // t=18257.5; Ability 57CB from Stygimoloch Lord
+    Timeout(id + 0xC0, 11.801f, "Mana Flame"); // t=18269.3; Ability 57DE from Ball Of Fire
+    Timeout(id + 0xD0, 2.398f, "Labyrinthine Fate"); // t=18271.7; Ability 57C7 from Stygimoloch Lord; cactbot GainsEffect [DelubrumSav Lord Labyrinthine Fate Collect]
+    Timeout(id + 0xE0, 10.701f, "Devastating Bolt"); // t=18282.4; Ability 57C5 from Stygimoloch Lord; cactbot StartsUsing 57C5 [DelubrumSav Lord Devastating Bolt]
+    Timeout(id + 0xF0, 4.799f, "Mana Flame"); // t=18287.2; Ability 57DE from Ball Of Fire
+    Timeout(id + 0x100, 1.102f, "Rending Bolt"); // t=18288.3; Ability 57CB from Stygimoloch Lord
+    Timeout(id + 0x110, 8.1f, "Mana Flame"); // t=18296.4; Ability 57DE from Ball Of Fire
+    Timeout(id + 0x120, 0.199f, "Fateful Words"); // t=18296.6; Ability 57C9 from Stygimoloch Lord; cactbot StartsUsing 57C9 [DelubrumSav Lord Fateful Words]
+    Timeout(id + 0x130, 8.1f, "Rending Bolt"); // t=18304.7; Ability 57CB from Stygimoloch Lord
+    Timeout(id + 0x140, 0.5f, "Mana Flame"); // t=18305.2; Ability 57DE from Ball Of Fire
+    Timeout(id + 0x150, 8.4f, "Devastating Bolt"); // t=18313.6; Ability 57C5 from Stygimoloch Lord; cactbot StartsUsing 57C5 [DelubrumSav Lord Devastating Bolt]
+    Timeout(id + 0x160, 9.701f, "Mana Flame"); // t=18323.3; Ability 57DE from Ball Of Fire
+    Timeout(id + 0x170, 4.1f, "Labyrinthine Fate"); // t=18327.4; Ability 57C7 from Stygimoloch Lord; cactbot GainsEffect [DelubrumSav Lord Labyrinthine Fate Collect]
+    Timeout(id + 0x180, 10.799f, "Devastating Bolt"); // t=18338.2; Ability 57C5 from Stygimoloch Lord; cactbot StartsUsing 57C5 [DelubrumSav Lord Devastating Bolt]
+    Timeout(id + 0x190, 3.102f, "Mana Flame"); // t=18341.3; Ability 57DE from Ball Of Fire
+    Timeout(id + 0x1A0, 2.699f, "Rending Bolt"); // t=18344.0; Ability 57CB from Stygimoloch Lord
+    Timeout(id + 0x1B0, 8.301f, "Fateful Words"); // t=18352.3; Ability 57C9 from Stygimoloch Lord; cactbot StartsUsing 57C9 [DelubrumSav Lord Fateful Words]
+    Timeout(id + 0x1C0, 7.0f, "Mana Flame"); // t=18359.3; Ability 57DE from Ball Of Fire
+    Timeout(id + 0x1D0, 1.199f, "Rending Bolt"); // t=18360.5; Ability 57CB from Stygimoloch Lord
+    Timeout(id + 0x1E0, 8.801f, "Devastating Bolt"); // t=18369.3; Ability 57C5 from Stygimoloch Lord; cactbot StartsUsing 57C5 [DelubrumSav Lord Devastating Bolt]
+    Timeout(id + 0x1F0, 8.1f, "Mana Flame"); // t=18377.4; Ability 57DE from Ball Of Fire
+    Timeout(id + 0x200, 5.699f, "Labyrinthine Fate"); // t=18383.1; Ability 57C7 from Stygimoloch Lord; cactbot GainsEffect [DelubrumSav Lord Labyrinthine Fate Collect]
+    Timeout(id + 0x210, 10.801f, "Devastating Bolt"); // t=18393.9; Ability 57C5 from Stygimoloch Lord; cactbot StartsUsing 57C5 [DelubrumSav Lord Devastating Bolt]
+    Timeout(id + 0x220, 1.5f, "Mana Flame"); // t=18395.4; Ability 57DE from Ball Of Fire
+    Timeout(id + 0x230, 4.299f, "Rending Bolt"); // t=18399.7; Ability 57CB from Stygimoloch Lord
+    Timeout(id + 0x240, 8.301f, "Fateful Words"); // t=18408.0; Ability 57C9 from Stygimoloch Lord; cactbot StartsUsing 57C9 [DelubrumSav Lord Fateful Words]
+    Timeout(id + 0x250, 8.199f, "Rending Bolt"); // t=18416.2; Ability 57CB from Stygimoloch Lord
+    Timeout(id + 0x260, 8.801f, "Devastating Bolt"); // t=18425.0; Ability 57C5 from Stygimoloch Lord; cactbot StartsUsing 57C5 [DelubrumSav Lord Devastating Bolt]
+    Timeout(id + 0x270, 13.801f, "Labyrinthine Fate"); // t=18438.8; Ability 57C7 from Stygimoloch Lord; cactbot GainsEffect [DelubrumSav Lord Labyrinthine Fate Collect]
+    Timeout(id + 0x280, 10.799f, "Devastating Bolt"); // t=18449.6; Ability 57C5 from Stygimoloch Lord; cactbot StartsUsing 57C5 [DelubrumSav Lord Devastating Bolt]
+    Timeout(id + 0x290, 5.801f, "Rending Bolt"); // t=18455.4; Ability 57CB from Stygimoloch Lord
+    Timeout(id + 0x2A0, 8.299f, "Fateful Words"); // t=18463.7; Ability 57C9 from Stygimoloch Lord; cactbot StartsUsing 57C9 [DelubrumSav Lord Fateful Words]
+    Timeout(id + 0x2B0, 8.201f, "Rending Bolt"); // t=18471.9
+    Timeout(id + 0x2C0, 8.799f, "Devastating Bolt"); // t=18480.7; cactbot StartsUsing 57C5 [DelubrumSav Lord Devastating Bolt]
+    Timeout(id + 0x2D0, 13.801f, "Labyrinthine Fate"); // t=18494.5; cactbot GainsEffect [DelubrumSav Lord Labyrinthine Fate Collect]
+    Timeout(id + 0x2E0, 10.801f, "Devastating Bolt"); // t=18505.3; cactbot StartsUsing 57C5 [DelubrumSav Lord Devastating Bolt]
+    Timeout(id + 0x2F0, 5.799f, "Rending Bolt"); // t=18511.1
+}
+
+private void Phase_3__Victory_Lap__once_adds_are_dead(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=19000.0
+    Condition(id + 0x10, 8.199f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x57D2), "", 5f, 3.199f); // t=19008.2; StartsUsing 57D2 from Stygimoloch Lord
+    Timeout(id + 0x20, 5.0f, "Thunderous Discharge"); // t=19013.2; Ability 57D2 from Stygimoloch Lord
+    Timeout(id + 0x30, 15.201f, "Rapid Bolts 1"); // t=19028.4; Ability 57CD from Stygimoloch Lord
+    Timeout(id + 0x40, 12.1f, "1111-Tonze Swing"); // t=19040.5; Ability 57D8 from Stygimoloch Lord; cactbot StartsUsing 57D8 [DelubrumSav Lord 1111-Tonze Swing]
+    Timeout(id + 0x50, 11.1f, "Rapid Bolts 2"); // t=19051.6; Ability 57CD from Stygimoloch Lord
+    Timeout(id + 0x60, 7.1f, "Rapid Bolts 3"); // t=19058.7; Ability 57CD from Stygimoloch Lord
+    Timeout(id + 0x70, 7.102f, "Crushing Hoof"); // t=19065.8; Ability 57D5 from Stygimoloch Lord
+    Timeout(id + 0x80, 6.199f, "Whack 1"); // t=19072.0
+    Timeout(id + 0x90, 2.0f, "Whack 2"); // t=19074.0
+    Timeout(id + 0xA0, 2.0f, "Whack 3"); // t=19076.0
+    Timeout(id + 0xB0, 16.5f, "Foe Splitter"); // t=19092.5; Ability 57D7 from Stygimoloch Lord; cactbot StartsUsing 57D7 [DelubrumSav Lord Foe Splitter]
+    Timeout(id + 0xC0, 5.199f, "Vicious Swipe"); // t=19097.7; Ability 5552 from Stygimoloch Lord
+    Timeout(id + 0xD0, 5.102f, "Whack 1"); // t=19102.8
+    Timeout(id + 0xE0, 2.0f, "Whack 2"); // t=19104.8
+    Timeout(id + 0xF0, 2.0f, "Whack 3"); // t=19106.8
+    Timeout(id + 0x100, 14.5f, "Thunderous Discharge"); // t=19121.3; Ability 57D2 from Stygimoloch Lord
+    Timeout(id + 0x110, 15.199f, "Rapid Bolts 1"); // t=19136.5
+    Timeout(id + 0x120, 12.1f, "1111-Tonze Swing"); // t=19148.6; cactbot StartsUsing 57D8 [DelubrumSav Lord 1111-Tonze Swing]
+    Timeout(id + 0x130, 11.1f, "Rapid Bolts 2"); // t=19159.7
+    Timeout(id + 0x140, 7.102f, "Rapid Bolts 3"); // t=19166.8
+}
+
+private void The_Queen(uint id)
+{
+    Condition(id + 0x0, 10.301f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x59F9), "", 5f, 5.301f); // t=20010.3; StartsUsing 59F9 from The Queen
+    Timeout(id + 0x10, 5.0f, "Empyrean Iniquity"); // t=20015.3; Ability 59F9 from The Queen
+    Timeout(id + 0x20, 18.6f, "Queen's Will"); // t=20033.9; Ability 59E6 from The Queen
+    Timeout(id + 0x30, 6.1f, "Northswain's Glow"); // t=20040.0; Ability 59F3 from The Queen
+    Timeout(id + 0x40, 8.199f, "Beck And Call To Arms"); // t=20048.2; Ability 5B99 from The Queen
+    Timeout(id + 0x50, 2.602f, "Northswain's Glow"); // t=20050.8; Ability 59F4 from The Queen
+    Timeout(id + 0x60, 1.699f, "The Means / The Ends"); // t=20052.5; Ability 59E8 from Queen's Warrior | Ability 59E7 from Queen's Knight
+    Timeout(id + 0x70, 3.801f, "Beck And Call To Arms"); // t=20056.3; Ability 5B9A from The Queen
+    Timeout(id + 0x80, 4.299f, "The Means / The Ends"); // t=20060.6; Ability 59EA from Queen's Gunner | Ability 59E9 from Queen's Soldier
+    Timeout(id + 0x90, 15.9f, "Cleansing Slash 1"); // t=20076.5; Ability 59F5 from The Queen; cactbot StartsUsing 59F5 [DelubrumSav Queen Cleansing Slash]
+    Timeout(id + 0xA0, 3.199f, "Cleansing Slash 2"); // t=20079.7; Ability 5BB8 from The Queen
+    Timeout(id + 0xB0, 9.102f, "Empyrean Iniquity"); // t=20088.8; Ability 59F9 from The Queen
+    Timeout(id + 0xC0, 16.398f, "Queen's Edict"); // t=20105.2; Ability 59EC from The Queen
+    Targetable(id + 0xD0, false, 3.102f, "--untargetable--"); // t=20108.3
+    Timeout(id + 0xE0, 16.398f, "Beck And Call To Arms"); // t=20124.7; Ability 5B9B from The Queen
+    Timeout(id + 0xF0, 4.301f, "The Means / The Ends"); // t=20129.0; Ability 59E8 from Queen's Warrior | Ability 59E7 from Queen's Knight
+    Timeout(id + 0x100, 7.5f, "Beck And Call To Arms"); // t=20136.5; Ability 5B9C from The Queen
+    Timeout(id + 0x110, 4.301f, "The Means / The Ends"); // t=20140.8; Ability 59EA from Queen's Gunner | Ability 59E9 from Queen's Soldier
+    Timeout(id + 0x120, 0.199f, "Queen's Justice"); // t=20141.0; Ability 59EB from The Queen
+    Timeout(id + 0x130, 15.0f, "Queen's Justice"); // t=20156.0; Ability 59EB from The Queen
+    Timeout(id + 0x140, 1.6f, "Gunnhildr's Blades"); // t=20157.6; Ability 5B21 from The Queen
+    Targetable(id + 0x150, true, 3.1f, "--targetable--"); // t=20160.7
+    Timeout(id + 0x160, 17.701f, "Gods Save The Queen"); // t=20178.4; Ability 59FA from The Queen
+    Timeout(id + 0x170, 24.699f, "Unlucky Lot x5"); // t=20203.1
+    Timeout(id + 0x180, 6.9f, "Maelstrom's Bolt"); // t=20210.0; Ability 59EF from The Queen
+    Timeout(id + 0x190, 14.199f, "Relentless Play 1"); // t=20224.2; Ability 59FC from The Queen
+    Timeout(id + 0x1A0, 3.102f, "--tethers--"); // t=20227.3
+    Timeout(id + 0x1B0, 4.0f, "Reversal Of Forces / Automatic Turret"); // t=20231.3; Ability 5A0E from Queen's Warrior | Ability 5A2B from Queen's Gunner; cactbot StartsUsing 5829/5A0E [DelubrumSav Guard/Queen Reversal Of Forces]
+    Timeout(id + 0x1C0, 4.0f, "Northswain's Glow"); // t=20235.3; Ability 59F3 from The Queen
+    Timeout(id + 0x1D0, 2.1f, "Reading"); // t=20237.4; Ability 5A2C from Queen's Gunner
+    Timeout(id + 0x1E0, 8.6f, "Northswain's Glow"); // t=20246.0; Ability 59F4 from The Queen
+    Timeout(id + 0x1F0, 0.301f, "Winds Of Weight / Winds Of Fate / Weight Of Fortune"); // t=20246.3; Ability 5A0F from Queen's Warrior | Ability 5A11 from Queen's Warrior | Ability 5A10 from Queen's Warrior
+    Timeout(id + 0x200, 1.199f, "Queen's Shot"); // t=20247.5; Ability 5A2D from Queen's Gunner; cactbot StartsUsing 5A2D [DelubrumSav Queen Queen\] | Ability 584C/5A2D [DelubrumSav Guard Queen\]
+    Timeout(id + 0x210, 3.5f, "Turret's Tour"); // t=20251.0; Ability 5A2F from Automatic Turret
+    Timeout(id + 0x220, 9.4f, "Cleansing Slash 1"); // t=20260.4; Ability 59F5 from The Queen; cactbot StartsUsing 59F5 [DelubrumSav Queen Cleansing Slash]
+    Timeout(id + 0x230, 3.199f, "Cleansing Slash 2"); // t=20263.6; Ability 5BB8 from The Queen
+    Timeout(id + 0x240, 13.201f, "Relentless Play 2"); // t=20276.8; Ability 59FC from The Queen
+    Timeout(id + 0x250, 6.1f, "Sword Omen/Shield Omen"); // t=20282.9
+    Targetable(id + 0x260, false, 5.0f, "--untargetable--"); // t=20287.9
+    Timeout(id + 0x270, 4.6f, "Double Gambit"); // t=20292.5; Ability 5A1B from Queen's Soldier
+    Timeout(id + 0x280, 3.801f, "Optimal Offensive"); // t=20296.3
+    Timeout(id + 0x290, 1.898f, "Judgment Blade"); // t=20298.2
+    Timeout(id + 0x2A0, 0.701f, "Unlucky Lot"); // t=20298.9; Ability 5A06 from Aetherial Sphere
+    Timeout(id + 0x2B0, 1.799f, "Secrets Revealed"); // t=20300.7; Ability 5B8B from Queen's Soldier
+    Timeout(id + 0x2C0, 9.201f, "Judgment Blade"); // t=20309.9
+    Timeout(id + 0x2D0, 2.699f, "Pawn Off"); // t=20312.6; Ability 5A1D from Soldier Avatar
+    Targetable(id + 0x2E0, true, 2.0f, "--targetable--"); // t=20314.6
+    Timeout(id + 0x2F0, 10.1f, "Empyrean Iniquity"); // t=20324.7; Ability 59F9 from The Queen
+    Timeout(id + 0x300, 16.602f, "Queen's Edict"); // t=20341.3; Ability 59EC from The Queen
+    Targetable(id + 0x310, false, 3.1f, "--untargetable--"); // t=20344.4
+    Timeout(id + 0x320, 16.4f, "Beck And Call To Arms"); // t=20360.8; Ability 5B9B from The Queen
+    Timeout(id + 0x330, 4.299f, "The Means / The Ends"); // t=20365.1; Ability 59E8 from Queen's Warrior | Ability 59E7 from Queen's Knight
+    Timeout(id + 0x340, 7.5f, "Beck And Call To Arms"); // t=20372.6; Ability 5B9C from The Queen
+    Timeout(id + 0x350, 4.301f, "The Means / The Ends"); // t=20376.9; Ability 59EA from Queen's Gunner | Ability 59E9 from Queen's Soldier
+    Timeout(id + 0x360, 0.199f, "Queen's Justice"); // t=20377.1; Ability 59EB from The Queen
+    Timeout(id + 0x370, 15.0f, "Queen's Justice"); // t=20392.1; Ability 59EB from The Queen
+    Timeout(id + 0x380, 1.701f, "Gunnhildr's Blades"); // t=20393.8; Ability 5B21 from The Queen
+    Targetable(id + 0x390, true, 3.1f, "--targetable--"); // t=20396.9
+    Timeout(id + 0x3A0, 7.199f, "Cleansing Slash 1"); // t=20404.1; Ability 59F5 from The Queen; cactbot StartsUsing 59F5 [DelubrumSav Queen Cleansing Slash]
+    Timeout(id + 0x3B0, 3.201f, "Cleansing Slash 2"); // t=20407.3; Ability 5BB8 from The Queen
+    Timeout(id + 0x3C0, 15.199f, "Relentless Play 3"); // t=20422.5; Ability 59FC from The Queen
+    Timeout(id + 0x3D0, 6.1f, "Sword Omen/Shield Omen"); // t=20428.6
+    Timeout(id + 0x3E0, 9.301f, "Automatic Turret"); // t=20437.9; Ability 5A26 from Queen's Gunner
+    Timeout(id + 0x3F0, 2.1f, "Optimal Play"); // t=20440.0; Ability 5A00/59FF from Queen's Knight
+    Timeout(id + 0x400, 6.0f, "Turret's Tour"); // t=20446.0; Ability 5A27 from Queen's Gunner
+    Timeout(id + 0x410, 0.6f, "Turret's Tour"); // t=20446.6
+    Timeout(id + 0x420, 1.0f, "Turret's Tour"); // t=20447.6
+    Timeout(id + 0x430, 7.301f, "Unlucky Lot x5"); // t=20454.9
+    Timeout(id + 0x440, 6.9f, "Maelstrom's Bolt"); // t=20461.8; Ability 59EF from The Queen
+    Timeout(id + 0x450, 13.1f, "Empyrean Iniquity"); // t=20474.9; Ability 59F9 from The Queen
+    Timeout(id + 0x460, 13.199f, "Relentless Play 4"); // t=20488.1; Ability 59FC from The Queen
+    Timeout(id + 0x470, 6.1f, "Bombslinger"); // t=20494.2; Ability 5B3F from Queen's Warrior; cactbot StartsUsing 5AFE/5B3F [DelubrumSav Guard/Queen Bombslinger]
+    Timeout(id + 0x480, 3.102f, "--tethers--"); // t=20497.3
+    Timeout(id + 0x490, 4.0f, "Reversal Of Forces"); // t=20501.3; Ability 5A0E from Queen's Warrior; cactbot StartsUsing 5829/5A0E [DelubrumSav Guard/Queen Reversal Of Forces]
+    Timeout(id + 0x4A0, 1.898f, "Heaven's Wrath"); // t=20503.2; Ability 59F6 from The Queen
+    Timeout(id + 0x4B0, 5.801f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=20509.0; Ability 59F8 from The Queen; cactbot StartsUsing 5ABF [DelubrumSav Seeker Baleful Blade Knockback]
+    Targetable(id + 0x4C0, false, 2.301f, "--untargetable--"); // t=20511.3
+    Timeout(id + 0x4D0, 0.898f, "Icy Portent/Fiery Portent"); // t=20512.2
+    Timeout(id + 0x4E0, 3.301f, "Above Board"); // t=20515.5; Ability 5A0B from Queen's Warrior; cactbot StartsUsing 5826/5A0B [DelubrumSav Guard Above Board Warning]
+    Timeout(id + 0x4F0, 1.0f, "--stunned--"); // t=20516.5
+    Timeout(id + 0x500, 2.0f, "Lots Cast"); // t=20518.5; Ability 5B89/5A0D from Aetherial Burst/Aetherial Bolt
+    Timeout(id + 0x510, 3.0f, "Lots Cast"); // t=20521.5
+    Timeout(id + 0x520, 1.199f, "Lots Cast"); // t=20522.7
+    Timeout(id + 0x530, 0.801f, "--unstunned--"); // t=20523.5
+    Targetable(id + 0x540, true, 2.1f, "--targetable--"); // t=20525.6
+    Timeout(id + 0x550, 5.1f, "Relentless Play 5"); // t=20530.7; Ability 59FC from The Queen
+    Timeout(id + 0x560, 8.102f, "Blood And Bone"); // t=20538.8; Ability 5A08 from Queen's Knight | Ability 5A16 from Queen's Warrior; cactbot StartsUsing 5A16/5A08/5A35/5A23 [DelubrumSav Queen Guard AoEs]
+    Timeout(id + 0x570, 3.0f, "Queen's Shot / Blood And Bone"); // t=20541.8; Ability 5A35 from Queen's Gunner | Ability 5A23 from Queen's Soldier; cactbot StartsUsing 5A16/5A08/5A35/5A23 [DelubrumSav Queen Guard AoEs]
+    Timeout(id + 0x580, 5.1f, "Blood And Bone"); // t=20546.9; Ability 5A08 from Queen's Knight | Ability 5A16 from Queen's Warrior; cactbot StartsUsing 5A16/5A08/5A35/5A23 [DelubrumSav Queen Guard AoEs]
+    Timeout(id + 0x590, 3.0f, "Queen's Shot / Blood And Bone"); // t=20549.9; Ability 5A35 from Queen's Gunner | Ability 5A23 from Queen's Soldier; cactbot StartsUsing 5A16/5A08/5A35/5A23 [DelubrumSav Queen Guard AoEs]
+    Timeout(id + 0x5A0, 2.799f, "Empyrean Iniquity"); // t=20552.7; Ability 59F9 from The Queen
+    Timeout(id + 0x5B0, 6.201f, "Blood And Bone"); // t=20558.9; Ability 5A08 from Queen's Knight; cactbot StartsUsing 5A16/5A08/5A35/5A23 [DelubrumSav Queen Guard AoEs]
+    Timeout(id + 0x5C0, 3.0f, "Blood And Bone"); // t=20561.9; Ability 5A16 from Queen's Warrior; cactbot StartsUsing 5A16/5A08/5A35/5A23 [DelubrumSav Queen Guard AoEs]
+    Timeout(id + 0x5D0, 3.1f, "Blood And Bone"); // t=20565.0; Ability 5A23 from Queen's Soldier; cactbot StartsUsing 5A16/5A08/5A35/5A23 [DelubrumSav Queen Guard AoEs]
+    Timeout(id + 0x5E0, 2.9f, "Queen's Shot"); // t=20567.9; Ability 5A35 from Queen's Gunner; cactbot StartsUsing 5A16/5A08/5A35/5A23 [DelubrumSav Queen Guard AoEs]
+    Timeout(id + 0x5F0, 18.799f, "Gods Save The Queen Enrage"); // t=20586.7; Ability 5B5A from The Queen
+    Targetable(id + 0x600, false, 0.0f, "--untargetable--"); // t=20586.7
+}
+

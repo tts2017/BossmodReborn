@@ -1,0 +1,92 @@
+// Generated development skeleton from o6s.txt (TerritoryType 753).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 6 static/dynamic trigger definitions from ui/raidboss/data/04-sb/raid/o6s.ts.
+
+private void Timeline(uint id)
+{
+    Targetable(id + 0x0, true, 18.0f, "--targetable--"); // t=18.0
+    Timeout(id + 0x10, 3.0f, "Demonic Howl"); // t=21.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0x20, 10.0f, "Demonic Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=31.0; Ability 2829 from Demon Chadarnook; cactbot StartsUsing 2829 [O6S Demonic Shear]
+    Timeout(id + 0x30, 26.0f, "Possession"); // t=57.0; Ability 2803 from Demon Chadarnook
+    Timeout(id + 0x40, 5.0f, "Flash Fire"); // t=62.0; Ability 280A from Portrayal of Fire
+    Timeout(id + 0x50, 9.0f, "Flash Gale"); // t=71.0; Ability 2ABA from Portrayal of Wind
+    Timeout(id + 0x60, 2.0f, "Demonic Howl"); // t=73.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0x70, 14.0f, "Poltergeist"); // t=87.0; Ability 2824 from Goddess Chadarnook
+    Timeout(id + 0x80, 5.0f, "Demonic Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=92.0; Ability 2829 from Demon Chadarnook; cactbot StartsUsing 2829 [O6S Demonic Shear]
+    Timeout(id + 0x90, 6.0f, "Divine Lure"); // t=98.0; Ability 2822 from Goddess Chadarnook
+    Timeout(id + 0xA0, 2.0f, "Demonic Howl"); // t=100.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0xB0, 9.0f, "Demonic Pain"); // t=109.0; Ability 2AEC from Demon Chadarnook
+    Timeout(id + 0xC0, 12.0f, "Demonic Howl"); // t=121.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0xD0, 9.0f, "Release"); // t=130.0; Ability 2804 from Demon Chadarnook
+    Timeout(id + 0xE0, 13.0f, "Possession"); // t=143.0; Ability 2803 from Demon Chadarnook
+    Timeout(id + 0xF0, 7.0f, "Easterlies"); // t=150.0
+    Timeout(id + 0x100, 3.0f, "Rock Hard"); // t=153.0; Ability 2812 from Portrayal of Earth
+    Timeout(id + 0x110, 2.0f, "Demonic Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=155.0; Ability 2829 from Demon Chadarnook; cactbot StartsUsing 2829 [O6S Demonic Shear]
+    Timeout(id + 0x120, 9.0f, "Demonic Howl"); // t=164.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0x130, 2.0f, "Featherlance"); // t=166.0; Ability 283E from Easterly
+    Timeout(id + 0x140, 5.0f, "Demonic Howl"); // t=171.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0x150, 13.0f, "Last Kiss"); // t=184.0; Ability 2826 from Demon Chadarnook; cactbot HeadMarker 17 [O6S Last Kiss Tracker] | HeadMarker 17 [O6S Last Kiss Marker] | GainsEffect 5BF [O6S Last Kiss]
+    Timeout(id + 0x160, 11.0f, "The Price"); // t=195.0; Ability 2827 from Demon Chadarnook
+    Timeout(id + 0x170, 3.0f, "Demonic Howl"); // t=198.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0x180, 2.0f, "Poltergeist"); // t=200.0; Ability 2824 from Goddess Chadarnook
+    Timeout(id + 0x190, 8.0f, "Demonic Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=208.0; Ability 2829 from Demon Chadarnook; cactbot StartsUsing 2829 [O6S Demonic Shear]
+    Timeout(id + 0x1A0, 3.0f, "Divine Lure"); // t=211.0; Ability 2822 from Goddess Chadarnook
+    Timeout(id + 0x1B0, 5.0f, "Demonic Storm"); // t=216.0; Ability 2840 from Demon Chadarnook
+    Timeout(id + 0x1C0, 9.0f, "Demonic Howl"); // t=225.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0x1D0, 13.0f, "Release"); // t=238.0; Ability 2804 from Demon Chadarnook
+    Timeout(id + 0x1E0, 13.0f, "Possession"); // t=251.0; Ability 2803 from Demon Chadarnook
+    Timeout(id + 0x1F0, 5.0f, "Earthquake / Flash Fire"); // t=256.0; Ability 2810 from Portrayal of Earth | Ability 280A from Portrayal of Fire
+    Timeout(id + 0x200, 5.0f, "Flash Torrent"); // t=261.0; Ability 2AB9 from Portrayal of Water
+    Timeout(id + 0x210, 9.0f, "Materialize"); // t=270.0; Ability 282D from Demon Chadarnook
+    Timeout(id + 0x220, 11.0f, "Demonic Pain"); // t=281.0; Ability 2AEC from Haunt
+    Timeout(id + 0x230, 5.0f, "Lullaby"); // t=286.0; Ability 2828 from Goddess Chadarnook
+    Timeout(id + 0x240, 8.0f, "Demonic Howl"); // t=294.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0x250, 6.0f, "Demonic Howl"); // t=300.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0x260, 6.0f, "Demonic Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=306.0; Ability 2829 from Demon Chadarnook; cactbot StartsUsing 2829 [O6S Demonic Shear]
+    Timeout(id + 0x270, 13.0f, "Demonic Stone"); // t=319.0; cactbot HeadMarker 1 [O6S Demonic Stone]
+    Timeout(id + 0x280, 10.0f, "Last Kiss"); // t=329.0; Ability 2826 from Demon Chadarnook; cactbot HeadMarker 17 [O6S Last Kiss Tracker] | HeadMarker 17 [O6S Last Kiss Marker] | GainsEffect 5BF [O6S Last Kiss]
+    Timeout(id + 0x290, 4.0f, "Demonic Howl"); // t=333.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0x2A0, 7.0f, "The Price"); // t=340.0; Ability 2827 from Demon Chadarnook
+    Timeout(id + 0x2B0, 12.0f, "Release"); // t=352.0; Ability 2804 from Demon Chadarnook
+    Timeout(id + 0x2C0, 13.0f, "Possession"); // t=365.0; Ability 2803 from Demon Chadarnook
+    Timeout(id + 0x2D0, 8.0f, "Easterlies"); // t=373.0
+    Timeout(id + 0x2E0, 2.0f, "Rock Hard"); // t=375.0; Ability 2812 from Portrayal of Earth
+    Timeout(id + 0x2F0, 1.0f, "Demonic Wave"); // t=376.0; Ability 2830 from Portrayal of Water
+    Timeout(id + 0x300, 8.0f, "Demonic Howl"); // t=384.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0x310, 4.0f, "Featherlance"); // t=388.0; Ability 283E from Easterly
+    Timeout(id + 0x320, 8.0f, "Materialize"); // t=396.0; Ability 282D from Demon Chadarnook
+    Timeout(id + 0x330, 7.0f, "Demonic Spout"); // t=403.0; Ability 2834 from Demon Chadarnook
+    Timeout(id + 0x340, 5.0f, "Demonic Storm / Demonic Spout"); // t=408.0; Ability 2840 from Demon Chadarnook | Ability 2836 from Demon Chadarnook
+    Timeout(id + 0x350, 17.0f, "Demonic Howl"); // t=425.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0x360, 13.0f, "Demonic Pain"); // t=438.0; Ability 2AEC from Demon Chadarnook
+    Timeout(id + 0x370, 5.0f, "Last Kiss"); // t=443.0; Ability 2826 from Demon Chadarnook; cactbot HeadMarker 17 [O6S Last Kiss Tracker] | HeadMarker 17 [O6S Last Kiss Marker] | GainsEffect 5BF [O6S Last Kiss]
+    Timeout(id + 0x380, 4.0f, "Flash Torrent"); // t=447.0; Ability 280C from Demon Chadarnook
+    Timeout(id + 0x390, 2.0f, "Flash Flood"); // t=449.0; Ability 2AEA from Haunt
+    Timeout(id + 0x3A0, 5.0f, "The Price / Demonic Howl"); // t=454.0; Ability 2827 from Demon Chadarnook | Ability 282B from Demon Chadarnook
+    Timeout(id + 0x3B0, 15.0f, "Demonic Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=469.0; Ability 2829 from Demon Chadarnook; cactbot StartsUsing 2829 [O6S Demonic Shear]
+    Timeout(id + 0x3C0, 13.0f, "Release"); // t=482.0; Ability 2804 from Demon Chadarnook
+    Timeout(id + 0x3D0, 13.0f, "Possession"); // t=495.0; Ability 2803 from Demon Chadarnook
+    Timeout(id + 0x3E0, 5.0f, "Earthquake / Flash Fire"); // t=500.0; Ability 2810 from Portrayal of Earth | Ability 280A from Portrayal of Fire
+    Timeout(id + 0x3F0, 9.0f, "Flash Gale"); // t=509.0; Ability 2ABA from Portrayal of Wind
+    Timeout(id + 0x400, 2.0f, "Demonic Howl"); // t=511.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0x410, 8.0f, "Demonic Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=519.0; Ability 2829 from Demon Chadarnook; cactbot StartsUsing 2829 [O6S Demonic Shear]
+    Timeout(id + 0x420, 12.0f, "Materialize"); // t=531.0; Ability 282D from Demon Chadarnook
+    Timeout(id + 0x430, 7.0f, "Poltergeist"); // t=538.0; Ability 2824 from Goddess Chadarnook
+    Timeout(id + 0x440, 8.0f, "Demonic Stone"); // t=546.0; cactbot HeadMarker 1 [O6S Demonic Stone]
+    Timeout(id + 0x450, 6.0f, "Demonic Howl"); // t=552.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0x460, 2.0f, "Divine Lure"); // t=554.0; Ability 2822 from Goddess Chadarnook
+    Timeout(id + 0x470, 6.0f, "Demonic Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=560.0; Ability 2829 from Demon Chadarnook; cactbot StartsUsing 2829 [O6S Demonic Shear]
+    Timeout(id + 0x480, 13.0f, "Demonic Pain"); // t=573.0; Ability 2AEC from Demon Chadarnook
+    Timeout(id + 0x490, 8.0f, "Demonic Howl"); // t=581.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0x4A0, 9.0f, "Release"); // t=590.0; Ability 2804 from Demon Chadarnook
+    Timeout(id + 0x4B0, 13.0f, "Possession"); // t=603.0; Ability 2803 from Demon Chadarnook
+    Timeout(id + 0x4C0, 8.0f, "Easterlies"); // t=611.0
+    Timeout(id + 0x4D0, 2.0f, "Rock Hard"); // t=613.0; Ability 2812 from Portrayal of Earth
+    Timeout(id + 0x4E0, 1.0f, "Demonic Wave"); // t=614.0; Ability 2830 from Portrayal of Water
+    Timeout(id + 0x4F0, 8.0f, "Demonic Howl"); // t=622.0; Ability 282B from Demon Chadarnook
+    Timeout(id + 0x500, 4.0f, "Featherlance"); // t=626.0; Ability 283E from Easterly
+    Condition(id + 0x510, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x284D), "", 5f, 0.0f); // t=626.0; StartsUsing 284D from Demon Chadarnook
+    Timeout(id + 0x520, 15.0f, "Enrage"); // t=641.0
+}
+

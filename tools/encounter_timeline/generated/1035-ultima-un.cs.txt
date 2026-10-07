@@ -1,0 +1,231 @@
+// Generated development skeleton from ultima-un.txt (TerritoryType 1035).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 7 static/dynamic trigger definitions from ui/raidboss/data/06-ew/trial/ultima-un.ts.
+
+private void The_Minstrel_s_Ballad__Ultima_s_Bane(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Phase_1__100____85(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Viscous Aetheroplasm"); // t=3.2; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x10, 11.9f, "Vulcan Burst"); // t=15.1; Ability 6EFD from The Ultima Weapon
+    Timeout(id + 0x20, 1.5f, "Mistral Song"); // t=16.6; Ability 6EFC from Ultima Garuda
+    Timeout(id + 0x30, 9.8f, "Homing Lasers"); // t=26.4; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x40, 3.3f, "Ceruleum Vent"); // t=29.7; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0x50, 3.3f, "Viscous Aetheroplasm"); // t=33.0; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x60, 8.3f, "Eye of the Storm"); // t=41.3; Ability 6EFE from The Ultima Weapon
+    Timeout(id + 0x70, 2.6f, "Geocrush"); // t=43.9; Ability 6EFF from Ultima Titan
+    Timeout(id + 0x80, 4.5f, "Homing Lasers"); // t=48.4; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x90, 3.3f, "Ceruleum Vent"); // t=51.7; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0xA0, 3.3f, "Viscous Aetheroplasm"); // t=55.0; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0xB0, 11.9f, "Vulcan Burst"); // t=66.9
+    Timeout(id + 0xC0, 1.5f, "Mistral Song"); // t=68.4
+    Timeout(id + 0xD0, 9.8f, "Homing Lasers"); // t=78.2
+    Timeout(id + 0xE0, 3.3f, "Ceruleum Vent"); // t=81.5
+    Timeout(id + 0xF0, 3.3f, "Viscous Aetheroplasm"); // t=84.8; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+}
+
+private void Phase_2__84_9____65(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F00), "", 5f, 0.0f); // t=98.3; StartsUsing 6F00 from The Ultima Weapon
+    Timeout(id + 0x10, 1.7f, "Radiant Plume"); // t=100.0; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0x20, 3.0f, "Weight of the Land"); // t=103.0; Ability 6F01 from The Ultima Weapon
+    Timeout(id + 0x30, 4.1f, "Viscous Aetheroplasm"); // t=107.1; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x40, 8.8f, "Tank Purge").SetHint(StateMachine.StateHint.Raidwide); // t=115.9; Ability 6EF9 from The Ultima Weapon; cactbot StartsUsing 6EF9 [Ultima Unreal Tank Purge]
+    Timeout(id + 0x50, 3.4f, "Homing Lasers"); // t=119.3; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x60, 6.3f, "Radiant Plume"); // t=125.6; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0x70, 4.0f, "Weight of the Land"); // t=129.6; Ability 6F01 from The Ultima Weapon
+    Timeout(id + 0x80, 1.1f, "Ceruleum Vent"); // t=130.7; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0x90, 3.3f, "Viscous Aetheroplasm"); // t=134.0; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0xA0, 7.3f, "Homing Lasers"); // t=141.3; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0xB0, 7.3f, "Radiant Plume"); // t=148.6; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0xC0, 3.0f, "Weight of the Land"); // t=151.6; Ability 6F01 from The Ultima Weapon
+    Timeout(id + 0xD0, 1.1f, "Ceruleum Vent"); // t=152.7; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0xE0, 3.3f, "Viscous Aetheroplasm"); // t=156.0; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0xF0, 8.8f, "Tank Purge").SetHint(StateMachine.StateHint.Raidwide); // t=164.8; Ability 6EF9 from The Ultima Weapon; cactbot StartsUsing 6EF9 [Ultima Unreal Tank Purge]
+    Timeout(id + 0x100, 3.4f, "Homing Lasers"); // t=168.2; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x110, 7.3f, "Radiant Plume"); // t=175.5; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0x120, 4.0f, "Weight of the Land"); // t=179.5; Ability 6F01 from The Ultima Weapon
+    Timeout(id + 0x130, 0.1f, "Ceruleum Vent"); // t=179.6; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0x140, 3.3f, "Viscous Aetheroplasm"); // t=182.9; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x150, 7.4f, "Homing Lasers"); // t=190.3; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x160, 5.4f, "Ceruleum Vent"); // t=195.7; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0x170, 2.9f, "Radiant Plume"); // t=198.6; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0x180, 3.0f, "Weight of the Land"); // t=201.6; Ability 6F01 from The Ultima Weapon
+    Timeout(id + 0x190, 2.1f, "Viscous Aetheroplasm"); // t=203.7; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x1A0, 8.8f, "Tank Purge").SetHint(StateMachine.StateHint.Raidwide); // t=212.5; Ability 6EF9 from The Ultima Weapon; cactbot StartsUsing 6EF9 [Ultima Unreal Tank Purge]
+    Timeout(id + 0x1B0, 3.4f, "Homing Lasers"); // t=215.9
+    Timeout(id + 0x1C0, 7.3f, "Radiant Plume"); // t=223.2
+    Timeout(id + 0x1D0, 4.0f, "Weight of the Land"); // t=227.2
+    Timeout(id + 0x1E0, 0.1f, "Ceruleum Vent"); // t=227.3
+    Timeout(id + 0x1F0, 3.3f, "Viscous Aetheroplasm"); // t=230.6; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+}
+
+private void Phase_3__64_9___50(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F03), "", 5f, 0.0f); // t=297.3; StartsUsing 6F03 from The Ultima Weapon
+    Timeout(id + 0x10, 2.7f, "Eruption x5"); // t=300.0
+    Timeout(id + 0x20, 6.6f, "Viscous Aetheroplasm"); // t=306.6; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x30, 8.7f, "Tank Purge").SetHint(StateMachine.StateHint.Raidwide); // t=315.3; Ability 6EF9 from The Ultima Weapon; cactbot StartsUsing 6EF9 [Ultima Unreal Tank Purge]
+    Timeout(id + 0x40, 3.3f, "Homing Lasers"); // t=318.6; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x50, 5.3f, "Ceruleum Vent"); // t=323.9; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0x60, 3.3f, "Viscous Aetheroplasm?"); // t=327.2; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Condition(id + 0x70, 5.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F00), "", 5f, 0.2f); // t=332.4; StartsUsing 6F00 from The Ultima Weapon
+    Timeout(id + 0x80, 2.7f, "Radiant Plume"); // t=335.1; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0x90, 2.8f, "Crimson Cyclone"); // t=337.9; Ability 6F04 from Ultima Ifrit
+    Timeout(id + 0xA0, 1.3f, "Radiant Plume"); // t=339.2; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0xB0, 4.0f, "Radiant Plume"); // t=343.2; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0xC0, 2.2f, "Viscous Aetheroplasm"); // t=345.4; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0xD0, 0.5f, "Crimson Cyclone"); // t=345.9; Ability 6F04 from Ultima Ifrit
+    Timeout(id + 0xE0, 1.2f, "Radiant Plume"); // t=347.1; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0xF0, 5.6f, "Homing Lasers"); // t=352.7; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x100, 7.9f, "Eruption x5"); // t=360.6
+    Timeout(id + 0x110, 4.5f, "Ceruleum Vent"); // t=365.1; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0x120, 3.4f, "Viscous Aetheroplasm"); // t=368.5; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x130, 8.7f, "Tank Purge").SetHint(StateMachine.StateHint.Raidwide); // t=377.2; Ability 6EF9 from The Ultima Weapon; cactbot StartsUsing 6EF9 [Ultima Unreal Tank Purge]
+    Timeout(id + 0x140, 3.4f, "Homing Lasers"); // t=380.6; Ability 6EF0 from The Ultima Weapon
+    Condition(id + 0x150, 4.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F00), "", 5f, 0.0f); // t=385.2; StartsUsing 6F00 from The Ultima Weapon
+    Timeout(id + 0x160, 0.7f, "Ceruleum Vent?"); // t=385.9; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0x170, 2.0f, "Radiant Plume?"); // t=387.9
+    Timeout(id + 0x180, 1.3f, "Viscous Aetheroplasm?"); // t=389.2; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x190, 1.5f, "Crimson Cyclone?"); // t=390.7
+    Timeout(id + 0x1A0, 1.3f, "Radiant Plume?"); // t=392.0
+    Timeout(id + 0x1B0, 4.0f, "Radiant Plume?"); // t=396.0
+    Timeout(id + 0x1C0, 0.5f, "Homing Lasers?"); // t=396.5
+    Timeout(id + 0x1D0, 53.5f, "Ceruleum Vent"); // t=450.0; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0x1E0, 3.3f, "Viscous Aetheroplasm"); // t=453.3; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x1F0, 7.3f, "Homing Lasers"); // t=460.6; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x200, 5.4f, "Ceruleum Vent"); // t=466.0; Ability 6EEF from The Ultima Weapon
+    Condition(id + 0x210, 0.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F03), "", 5f, 0.0f); // t=466.5; StartsUsing 6F03 from The Ultima Weapon
+    Timeout(id + 0x220, 2.7f, "Eruption x5"); // t=469.2
+    Timeout(id + 0x230, 5.8f, "Viscous Aetheroplasm"); // t=475.0; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x240, 8.8f, "Tank Purge").SetHint(StateMachine.StateHint.Raidwide); // t=483.8; Ability 6EF9 from The Ultima Weapon; cactbot StartsUsing 6EF9 [Ultima Unreal Tank Purge]
+    Timeout(id + 0x250, 3.3f, "Homing Lasers"); // t=487.1; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x260, 5.4f, "Ceruleum Vent"); // t=492.5; Ability 6EEF from The Ultima Weapon
+    Condition(id + 0x270, 0.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F00), "", 5f, 0.0f); // t=492.7; StartsUsing 6F00 from The Ultima Weapon
+    Timeout(id + 0x280, 2.7f, "Radiant Plume?"); // t=495.4
+    Timeout(id + 0x290, 0.4f, "Viscous Aetheroplasm?"); // t=495.8; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x2A0, 2.4f, "Crimson Cyclone?"); // t=498.2
+    Timeout(id + 0x2B0, 1.3f, "Radiant Plume"); // t=499.5
+    Timeout(id + 0x2C0, 3.6f, "Homing Lasers?"); // t=503.1
+    Timeout(id + 0x2D0, 0.4f, "Radiant Plume?"); // t=503.5
+    Timeout(id + 0x2E0, 2.8f, "Crimson Cyclone?"); // t=506.3
+    Condition(id + 0x2F0, 41.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F00), "", 5f, 36.0f); // t=547.3; StartsUsing 6F00 from The Ultima Weapon
+    Timeout(id + 0x300, 2.7f, "Radiant Plume"); // t=550.0; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0x310, 2.8f, "Crimson Cyclone"); // t=552.8; Ability 6F04 from Ultima Ifrit
+    Timeout(id + 0x320, 1.3f, "Radiant Plume"); // t=554.1; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0x330, 4.0f, "Radiant Plume"); // t=558.1; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0x340, 2.8f, "Crimson Cyclone"); // t=560.9; Ability 6F04 from Ultima Ifrit
+    Timeout(id + 0x350, 0.2f, "Ceruleum Vent?"); // t=561.1
+    Timeout(id + 0x360, 1.0f, "Radiant Plume"); // t=562.1; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0x370, 2.3f, "Viscous Aetheroplasm"); // t=564.4; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x380, 7.3f, "Homing Lasers"); // t=571.7; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x390, 5.4f, "Ceruleum Vent"); // t=577.1; Ability 6EEF from The Ultima Weapon
+    Condition(id + 0x3A0, 0.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F03), "", 5f, 0.0f); // t=577.4; StartsUsing 6F03 from The Ultima Weapon
+    Timeout(id + 0x3B0, 2.7f, "Eruption x5?"); // t=580.1
+    Timeout(id + 0x3C0, 0.3f, "Viscous Aetheroplasm?"); // t=580.4; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x3D0, 5.5f, "Viscous Aetheroplasm?"); // t=585.9; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x3E0, 1.8f, "Homing Lasers?"); // t=587.7
+    Timeout(id + 0x3F0, 5.3f, "Ceruleum Vent?"); // t=593.0
+    Timeout(id + 0x400, 1.7f, "Tank Purge"); // t=594.7; cactbot StartsUsing 6EF9 [Ultima Unreal Tank Purge]
+    Timeout(id + 0x410, 55.3f, "Viscous Aetheroplasm"); // t=650.0; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x420, 8.7f, "Tank Purge?"); // t=658.7; cactbot StartsUsing 6EF9 [Ultima Unreal Tank Purge]
+    Timeout(id + 0x430, 3.3f, "Homing Lasers"); // t=662.0; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x440, 5.3f, "Ceruleum Vent"); // t=667.3; Ability 6EEF from The Ultima Weapon
+    Condition(id + 0x450, 2.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F00), "", 5f, 0.0f); // t=669.9; StartsUsing 6F00 from The Ultima Weapon
+    Timeout(id + 0x460, 0.8f, "Viscous Aetheroplasm?"); // t=670.7; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Condition(id + 0x470, 0.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F03), "", 5f, 0.0f); // t=671.0; StartsUsing 6F03 from The Ultima Weapon
+    Timeout(id + 0x480, 1.6f, "Radiant Plume?"); // t=672.6
+    Timeout(id + 0x490, 1.1f, "Eruption x5?"); // t=673.7
+    Timeout(id + 0x4A0, 1.7f, "Crimson Cyclone?"); // t=675.4
+    Timeout(id + 0x4B0, 1.3f, "Radiant Plume?"); // t=676.7
+    Timeout(id + 0x4C0, 1.3f, "Homing Lasers?"); // t=678.0; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x4D0, 2.7f, "Radiant Plume?"); // t=680.7
+    Timeout(id + 0x4E0, 3.6f, "Tank Purge?"); // t=684.3; cactbot StartsUsing 6EF9 [Ultima Unreal Tank Purge]
+    Condition(id + 0x4F0, 13.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F00), "", 5f, 8.0f); // t=697.3; StartsUsing 6F00 from The Ultima Weapon
+    Timeout(id + 0x500, 2.7f, "Radiant Plume"); // t=700.0; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0x510, 2.8f, "Crimson Cyclone"); // t=702.8; Ability 6F04 from Ultima Ifrit
+    Timeout(id + 0x520, 1.3f, "Radiant Plume"); // t=704.1; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0x530, 4.0f, "Radiant Plume"); // t=708.1; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0x540, 2.8f, "Crimson Cyclone"); // t=710.9; Ability 6F04 from Ultima Ifrit
+    Timeout(id + 0x550, 1.2f, "Radiant Plume"); // t=712.1; Ability 6F00 from The Ultima Weapon
+    Timeout(id + 0x560, 4.0f, "Homing Lasers"); // t=716.1; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x570, 5.3f, "Ceruleum Vent"); // t=721.4; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0x580, 3.3f, "Viscous Aetheroplasm"); // t=724.7; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Condition(id + 0x590, 2.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F03), "", 5f, 0.0f); // t=727.3; StartsUsing 6F03 from The Ultima Weapon
+    Timeout(id + 0x5A0, 2.7f, "Eruption x5?"); // t=730.0
+    Timeout(id + 0x5B0, 2.0f, "Homing Lasers?"); // t=732.0; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x5C0, 5.3f, "Ceruleum Vent?"); // t=737.3
+    Timeout(id + 0x5D0, 3.3f, "Viscous Aetheroplasm? / Tank Purge?"); // t=740.6
+    Timeout(id + 0x5E0, 3.3f, "Homing Lasers?"); // t=743.9
+    Condition(id + 0x5F0, 53.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F03), "", 5f, 48.4f); // t=797.3; StartsUsing 6F03 from The Ultima Weapon
+    Timeout(id + 0x600, 2.7f, "Eruption x5"); // t=800.0
+    Timeout(id + 0x610, 10.6f, "Tank Purge").SetHint(StateMachine.StateHint.Raidwide); // t=810.6; Ability 6EF9 from The Ultima Weapon; cactbot StartsUsing 6EF9 [Ultima Unreal Tank Purge]
+    Timeout(id + 0x620, 3.3f, "Homing Lasers"); // t=813.9; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x630, 5.3f, "Ceruleum Vent"); // t=819.2; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0x640, 3.3f, "Viscous Aetheroplasm"); // t=822.5; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Condition(id + 0x650, 2.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F00), "", 5f, 0.0f); // t=825.1; StartsUsing 6F00 from The Ultima Weapon
+    Timeout(id + 0x660, 2.7f, "Radiant Plume?"); // t=827.8
+    Timeout(id + 0x670, 2.0f, "Homing Lasers?"); // t=829.8; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x680, 0.8f, "Crimson Cyclone?"); // t=830.6
+    Timeout(id + 0x690, 1.3f, "Radiant Plume?"); // t=831.9
+    Timeout(id + 0x6A0, 3.2f, "Ceruleum Vent?"); // t=835.1
+    Timeout(id + 0x6B0, 0.8f, "Radiant Plume?"); // t=835.9
+    Timeout(id + 0x6C0, 2.5f, "Viscous Aetheroplasm?"); // t=838.4; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x6D0, 61.6f, "Homing Lasers"); // t=900.0; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x6E0, 5.3f, "Ceruleum Vent"); // t=905.3; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0x6F0, 3.3f, "Viscous Aetheroplasm"); // t=908.6; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Condition(id + 0x700, 3.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F03), "", 5f, 0.0f); // t=912.3; StartsUsing 6F03 from The Ultima Weapon
+    Condition(id + 0x710, 0.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6F00), "", 5f, 0.0f); // t=913.2; StartsUsing 6F00 from The Ultima Weapon
+    Timeout(id + 0x720, 1.8f, "Eruption x5?"); // t=915.0
+    Timeout(id + 0x730, 0.9f, "Radiant Plume?"); // t=915.9
+    Timeout(id + 0x740, 2.8f, "Crimson Cyclone?"); // t=918.7
+    Timeout(id + 0x750, 1.3f, "Radiant Plume?"); // t=920.0
+    Timeout(id + 0x760, 4.0f, "Radiant Plume?"); // t=924.0
+    Timeout(id + 0x770, 0.1f, "Tank Purge?"); // t=924.1; cactbot StartsUsing 6EF9 [Ultima Unreal Tank Purge]
+    Timeout(id + 0x780, 3.3f, "Homing Lasers?"); // t=927.4
+}
+
+private void Phase_4_seems_to_have_a_single_rotation_block(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Aetheric Boom").SetHint(StateMachine.StateHint.Knockback); // t=1000.0; Ability 6EF6 from The Ultima Weapon; cactbot StartsUsing 6EF6 [Ultima Unreal Aetheric Boom Orbs] | StartsUsing 6EF6 [Ultima Unreal Aetheric Boom Knockback]
+    Timeout(id + 0x10, 11.3f, "Viscous Aetheroplasm"); // t=1011.3; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x20, 4.3f, "Homing Lasers"); // t=1015.6; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x30, 4.3f, "Ceruleum Vent"); // t=1019.9; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0x40, 3.2f, "Viscous Aetheroplasm"); // t=1023.1; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x50, 11.0f, "Magitek Ray 1"); // t=1034.1; Ability 6EF2/6EF3/6EF4 from The Ultima Weapon
+    Timeout(id + 0x60, 3.0f, "Magitek Ray 2"); // t=1037.1; Ability 6EF2/6EF3/6EF4 from The Ultima Weapon
+    Timeout(id + 0x70, 3.0f, "Magitek Ray 3"); // t=1040.1; Ability 6EF2/6EF3/6EF4 from The Ultima Weapon
+    Condition(id + 0x80, 2.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6EF9), "", 5f, 0.0f); // t=1042.7; StartsUsing 6EF9 from The Ultima Weapon; cactbot StartsUsing 6EF9 [Ultima Unreal Tank Purge]
+    Timeout(id + 0x90, 3.2f, "Tank Purge").SetHint(StateMachine.StateHint.Raidwide); // t=1045.9; Ability 6EF9 from The Ultima Weapon; cactbot StartsUsing 6EF9 [Ultima Unreal Tank Purge]
+    Timeout(id + 0xA0, 3.3f, "Viscous Aetheroplasm"); // t=1049.2; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0xB0, 3.3f, "Diffractive Laser"); // t=1052.5; Ability 6EF1 from The Ultima Weapon
+    Timeout(id + 0xC0, 2.3f, "Homing Lasers"); // t=1054.8; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0xD0, 4.3f, "Ceruleum Vent"); // t=1059.1; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0xE0, 3.3f, "Viscous Aetheroplasm"); // t=1062.4; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0xF0, 8.1f, "Magitek Ray 1"); // t=1070.5; Ability 6EF2/6EF3/6EF4 from The Ultima Weapon
+    Timeout(id + 0x100, 3.0f, "Magitek Ray 2"); // t=1073.5; Ability 6EF2/6EF3/6EF4 from The Ultima Weapon
+    Timeout(id + 0x110, 3.0f, "Magitek Ray 3"); // t=1076.5; Ability 6EF2/6EF3/6EF4 from The Ultima Weapon
+    Timeout(id + 0x120, 4.3f, "Viscous Aetheroplasm"); // t=1080.8; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x130, 3.3f, "Diffractive Laser"); // t=1084.1; Ability 6EF1 from The Ultima Weapon
+    Timeout(id + 0x140, 2.3f, "Homing Lasers"); // t=1086.4; Ability 6EF0 from The Ultima Weapon
+    Timeout(id + 0x150, 4.3f, "Ceruleum Vent"); // t=1090.7; Ability 6EEF from The Ultima Weapon
+    Timeout(id + 0x160, 3.3f, "Viscous Aetheroplasm"); // t=1094.0; Ability 6EEE from The Ultima Weapon; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x170, 11.1f, "Magitek Ray 1"); // t=1105.1; Ability 6EF2/6EF3/6EF4 from The Ultima Weapon
+    Timeout(id + 0x180, 3.0f, "Magitek Ray 2"); // t=1108.1; Ability 6EF2/6EF3/6EF4 from The Ultima Weapon
+    Timeout(id + 0x190, 2.9f, "Magitek Ray 3"); // t=1111.0; Ability 6EF2/6EF3/6EF4 from The Ultima Weapon
+    Condition(id + 0x1A0, 2.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6EF9), "", 5f, 0.0f); // t=1113.6; StartsUsing 6EF9 from The Ultima Weapon; cactbot StartsUsing 6EF9 [Ultima Unreal Tank Purge]
+    Timeout(id + 0x1B0, 3.2f, "Tank Purge"); // t=1116.8; cactbot StartsUsing 6EF9 [Ultima Unreal Tank Purge]
+    Timeout(id + 0x1C0, 3.4f, "Viscous Aetheroplasm"); // t=1120.2; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x1D0, 3.3f, "Diffractive Laser"); // t=1123.5
+    Timeout(id + 0x1E0, 2.3f, "Homing Lasers"); // t=1125.8
+    Timeout(id + 0x1F0, 4.3f, "Ceruleum Vent"); // t=1130.1
+    Timeout(id + 0x200, 3.3f, "Viscous Aetheroplasm"); // t=1133.4; cactbot GainsEffect 171 [Ultima Unreal Viscous Aetheroplasm]
+    Timeout(id + 0x210, 8.1f, "Magitek Ray 1"); // t=1141.5
+    Condition(id + 0x220, 8847.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6EFB), "", 5f, 8842.8f); // t=9989.3; StartsUsing 6EFB from The Ultima Weapon
+    Timeout(id + 0x230, 10.7f, "Ultima Enrage"); // t=10000.0; Ability 6EFB from The Ultima Weapon
+}
+

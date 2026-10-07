@@ -1,0 +1,25 @@
+{
+  "burstUseTimesMedian": [],
+  "contentId": 0,
+  "downtimeEndsMedian": [],
+  "downtimeStartsMedian": [],
+  "encounterId": 101,
+  "gaugeSpendTimesMedian": [],
+  "job": "MNK",
+  "killTimeMedian": 505.855,
+  "majorBuffUseTimesMedian": [],
+  "potionUseTimesMedian": [],
+  "profileCandidates": [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+  ],
+  "sampleCount": 10
+}

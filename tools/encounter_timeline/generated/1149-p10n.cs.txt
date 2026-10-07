@@ -1,0 +1,53 @@
+// Generated development skeleton from p10n.txt (TerritoryType 1149).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 13 static/dynamic trigger definitions from ui/raidboss/data/06-ew/raid/p10n.ts.
+
+private void P10N__Anabaseios__The_Tenth_Circle(uint id)
+{
+    Condition(id + 0x0, 7.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8259), "", 5f, 2.9f); // t=7.9; StartsUsing 8259 from Pand\\u00e6monium
+    Timeout(id + 0x10, 3.0f, "Silkspit (marked)"); // t=10.9; Ability 8259 from Pand\\u00e6monium
+    Timeout(id + 0x20, 12.1f, "Silkspit (resolves)"); // t=23.0; Ability 825A from Pand\\u00e6monium
+    Timeout(id + 0x30, 12.4f, "Pandaemoniac Pillars"); // t=35.4; Ability 825D from Pand\\u00e6monium; cactbot StartsUsing 825D [P10N Pandaemonic Pillars]
+    Timeout(id + 0x40, 8.0f, "Imprisonment"); // t=43.4; Ability 8262 from Pand\\u00e6monium; cactbot StartsUsing 8262 [P10N Imprisonment]
+    Timeout(id + 0x50, 6.7f, "Ultima"); // t=50.1; Ability 827B from Pand\\u00e6monium; cactbot StartsUsing 827B [P10N Ultima]
+    Timeout(id + 0x60, 9.8f, "Pandaemoniac Pillars"); // t=59.9; Ability 825D from Pand\\u00e6monium; cactbot StartsUsing 825D [P10N Pandaemonic Pillars]
+    Timeout(id + 0x70, 7.9f, "Cannonspawn"); // t=67.8; Ability 8264 from Pand\\u00e6monium; cactbot StartsUsing 8264 [P10N Cannonspawn]
+    Timeout(id + 0x80, 12.2f, "Pandaemoniac Meltdown"); // t=80.0; Ability 8276 from Pand\\u00e6monium; cactbot Ability 87A2 [P10N Pandaemoniac Meltdown]
+    Timeout(id + 0x90, 10.1f, "Soul Grasp").SetHint(StateMachine.StateHint.Tankbuster); // t=90.1; Ability 8278 from Pand\\u00e6monium; cactbot StartsUsing 8278 [P10N Soul Grasp]
+    Timeout(id + 0xA0, 11.2f, "Entangling Web"); // t=101.3; Ability 8721 from Pand\\u00e6monium
+    Timeout(id + 0xB0, 13.4f, "Silkspit (marked)"); // t=114.7; Ability 8259 from Pand\\u00e6monium
+    Timeout(id + 0xC0, 12.0f, "Silkspit (resolves)"); // t=126.7; Ability 825A from Pand\\u00e6monium
+    Timeout(id + 0xD0, 13.7f, "Pandaemoniac Ray"); // t=140.4; cactbot StartsUsing [P10N Pandaemoniac Ray]
+    Timeout(id + 0xE0, 10.2f, "Parted Plumes"); // t=150.6; Ability 8270 from Pand\\u00e6monium
+    Timeout(id + 0xF0, 19.9f, "Pandaemoniac Meltdown"); // t=170.5; Ability 8276 from Pand\\u00e6monium; cactbot Ability 87A2 [P10N Pandaemoniac Meltdown]
+    Timeout(id + 0x100, 9.2f, "Soul Grasp").SetHint(StateMachine.StateHint.Tankbuster); // t=179.7; Ability 8278 from Pand\\u00e6monium; cactbot StartsUsing 8278 [P10N Soul Grasp]
+    Timeout(id + 0x110, 11.3f, "Entangling Web"); // t=191.0; Ability 8721 from Pand\\u00e6monium
+    Timeout(id + 0x120, 19.5f, "Pandaemoniac Ray"); // t=210.5; cactbot StartsUsing [P10N Pandaemoniac Ray]
+    Timeout(id + 0x130, 14.1f, "Touchdown"); // t=224.6; Ability 8268 from Pand\\u00e6monium; cactbot StartsUsing 8268 [P10N Touchdown]
+    Timeout(id + 0x140, 9.2f, "Ultima"); // t=233.8; Ability 827B from Pand\\u00e6monium; cactbot StartsUsing 827B [P10N Ultima]
+    Timeout(id + 0x150, 11.9f, "Pandaemoniac Pillars"); // t=245.7; Ability 825D from Pand\\u00e6monium; cactbot StartsUsing 825D [P10N Pandaemonic Pillars]
+    Timeout(id + 0x160, 7.8f, "Imprisonment/Cannonspawn"); // t=253.5
+    Timeout(id + 0x170, 11.2f, "Pandaemoniac Meltdown"); // t=264.7; Ability 8276 from Pand\\u00e6monium; cactbot Ability 87A2 [P10N Pandaemoniac Meltdown]
+    Timeout(id + 0x180, 8.1f, "Harrowing Hell (x8)").SetHint(StateMachine.StateHint.Raidwide); // t=272.8; Ability 826A from Pand\\u00e6monium; cactbot StartsUsing 826A [P10N Harrowing Hell x8]
+    Timeout(id + 0x190, 16.2f, "Harrowing Hell (knockback)").SetHint(StateMachine.StateHint.Knockback); // t=289.0; Ability 826F from Pand\\u00e6monium; cactbot StartsUsing 826F [P10N Harrowing Hell Knockback]
+    Timeout(id + 0x1A0, 15.2f, "Parted Plumes"); // t=304.2; Ability 8270 from Pand\\u00e6monium
+    Timeout(id + 0x1B0, 18.5f, "Wicked Step"); // t=322.7; Ability 8272 from Pand\\u00e6monium; cactbot StartsUsing 8272 [P10N Wicked Step]
+    Timeout(id + 0x1C0, 16.8f, "Pandaemoniac Pillars"); // t=339.5; Ability 825D from Pand\\u00e6monium; cactbot StartsUsing 825D [P10N Pandaemonic Pillars]
+    Timeout(id + 0x1D0, 7.9f, "Imprisonment/Cannonspawn"); // t=347.4
+    Timeout(id + 0x1E0, 5.8f, "Entangling Web"); // t=353.2; Ability 8721 from Pand\\u00e6monium
+    Timeout(id + 0x1F0, 21.2f, "Touchdown"); // t=374.4; Ability 8268 from Pand\\u00e6monium; cactbot StartsUsing 8268 [P10N Touchdown]
+    Timeout(id + 0x200, 11.4f, "Pandaemoniac Meltdown"); // t=385.8; Ability 8276 from Pand\\u00e6monium; cactbot Ability 87A2 [P10N Pandaemoniac Meltdown]
+    Timeout(id + 0x210, 6.2f, "Silkspit (marked)"); // t=392.0; Ability 8259 from Pand\\u00e6monium
+    Timeout(id + 0x220, 12.0f, "Silkspit (resolves)"); // t=404.0; Ability 825A from Pand\\u00e6monium
+    Timeout(id + 0x230, 13.7f, "Pandaemoniac Ray"); // t=417.7; cactbot StartsUsing [P10N Pandaemoniac Ray]
+    Timeout(id + 0x240, 6.1f, "Parted Plumes"); // t=423.8; Ability 8270 from Pand\\u00e6monium
+    Timeout(id + 0x250, 18.6f, "Soul Grasp").SetHint(StateMachine.StateHint.Tankbuster); // t=442.4; Ability 8278 from Pand\\u00e6monium; cactbot StartsUsing 8278 [P10N Soul Grasp]
+    Timeout(id + 0x260, 15.2f, "Ultima"); // t=457.6; Ability 827B from Pand\\u00e6monium; cactbot StartsUsing 827B [P10N Ultima]
+    Timeout(id + 0x270, 27.4f, "Pandaemoniac Pillars"); // t=485.0; Ability 825D from Pand\\u00e6monium; cactbot StartsUsing 825D [P10N Pandaemonic Pillars]
+    Timeout(id + 0x280, 7.9f, "Imprisonment/Cannonspawn"); // t=492.9
+    Timeout(id + 0x290, 5.8f, "Entangling Web"); // t=498.7; Ability 8721 from Pand\\u00e6monium
+    Timeout(id + 0x2A0, 21.2f, "Touchdown"); // t=519.9; Ability 8268 from Pand\\u00e6monium; cactbot StartsUsing 8268 [P10N Touchdown]
+    Timeout(id + 0x2B0, 11.4f, "Pandaemoniac Meltdown"); // t=531.3; Ability 8276 from Pand\\u00e6monium; cactbot Ability 87A2 [P10N Pandaemoniac Meltdown]
+}
+

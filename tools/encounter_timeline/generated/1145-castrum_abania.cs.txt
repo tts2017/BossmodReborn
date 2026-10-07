@@ -1,0 +1,140 @@
+// Generated development skeleton from castrum_abania.txt (TerritoryType 1145).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 10 static/dynamic trigger definitions from ui/raidboss/data/04-sb/dungeon/castrum_abania.ts.
+
+private void Magna_Roader(uint id)
+{
+    Timeout(id + 0x0, 13.5f, "Magitek Fire II"); // t=13.5; Ability 1F15 from Magna Roader
+    Timeout(id + 0x10, 5.1f, "Magitek Fire II"); // t=18.6; Ability 1F15 from Magna Roader
+    Timeout(id + 0x20, 7.1f, "Magitek Fire III").SetHint(StateMachine.StateHint.Raidwide); // t=25.7; Ability 1F16 from Magna Roader; cactbot StartsUsing 1F16 [CastrumAbania Magna Roader Fire III]
+    Targetable(id + 0x30, false, 9.8f, "--untargetable--"); // t=35.5
+    Timeout(id + 0x40, 0.1f, "Wild Speed 1"); // t=35.6
+    Timeout(id + 0x50, 1.0f, "Wild Speed 2"); // t=36.6
+    Timeout(id + 0x60, 1.0f, "Wild Speed 3"); // t=37.6
+    Timeout(id + 0x70, 1.0f, "Wild Speed 4"); // t=38.6
+    Timeout(id + 0x80, 7.2f, "Wild Speed 1"); // t=45.8
+    Timeout(id + 0x90, 1.0f, "Wild Speed 2"); // t=46.8
+    Timeout(id + 0xA0, 1.0f, "Wild Speed 3"); // t=47.8
+    Timeout(id + 0xB0, 1.0f, "Wild Speed 4"); // t=48.8
+    Timeout(id + 0xC0, 7.2f, "Wild Speed 1"); // t=56.0
+    Timeout(id + 0xD0, 1.0f, "Wild Speed 2"); // t=57.0
+    Timeout(id + 0xE0, 1.0f, "Wild Speed 3"); // t=58.0
+    Timeout(id + 0xF0, 1.0f, "Wild Speed 4"); // t=59.0
+    Timeout(id + 0x100, 7.2f, "Wild Speed 1"); // t=66.2
+    Timeout(id + 0x110, 1.0f, "Wild Speed 2"); // t=67.2
+    Timeout(id + 0x120, 1.0f, "Wild Speed 3"); // t=68.2
+    Timeout(id + 0x130, 1.0f, "Wild Speed 4"); // t=69.2
+    Targetable(id + 0x140, true, 1.0f, "--targetable--"); // t=70.2
+    Condition(id + 0x150, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1F16), "", 5f, 0.0f); // t=70.2; StartsUsing 1F16 from Magna Roader; cactbot StartsUsing 1F16 [CastrumAbania Magna Roader Fire III]
+    Timeout(id + 0x160, 3.0f, "Magitek Fire III").SetHint(StateMachine.StateHint.Raidwide); // t=73.2; Ability 1F16 from Magna Roader; cactbot StartsUsing 1F16 [CastrumAbania Magna Roader Fire III]
+    Timeout(id + 0x170, 4.1f, "Wheel"); // t=77.3; Ability 1F14 from Magna Roader
+    Timeout(id + 0x180, 7.5f, "Magitek Fire II"); // t=84.8; Ability 1F15 from Magna Roader
+    Timeout(id + 0x190, 5.1f, "Magitek Fire II"); // t=89.9; Ability 1F15 from Magna Roader
+    Timeout(id + 0x1A0, 4.2f, "Wheel"); // t=94.1; Ability 1F14 from Magna Roader
+    Timeout(id + 0x1B0, 7.5f, "Magitek Fire III").SetHint(StateMachine.StateHint.Raidwide); // t=101.6; Ability 1F16 from Magna Roader; cactbot StartsUsing 1F16 [CastrumAbania Magna Roader Fire III]
+    Timeout(id + 0x1C0, 4.1f, "Wheel"); // t=105.7; Ability 1F14 from Magna Roader
+    Timeout(id + 0x1D0, 7.5f, "Magitek Fire II"); // t=113.2; Ability 1F15 from Magna Roader
+    Timeout(id + 0x1E0, 5.2f, "Magitek Fire II"); // t=118.4; Ability 1F15 from Magna Roader
+    Targetable(id + 0x1F0, false, 14.9f, "--untargetable--"); // t=133.3
+    Timeout(id + 0x200, 0.1f, "Wild Speed 1"); // t=133.4
+    Timeout(id + 0x210, 1.0f, "Wild Speed 2"); // t=134.4
+    Timeout(id + 0x220, 1.0f, "Wild Speed 3"); // t=135.4
+    Timeout(id + 0x230, 1.0f, "Wild Speed 4"); // t=136.4
+    Timeout(id + 0x240, 7.2f, "Wild Speed 1"); // t=143.6
+    Timeout(id + 0x250, 1.0f, "Wild Speed 2"); // t=144.6
+    Timeout(id + 0x260, 1.0f, "Wild Speed 3"); // t=145.6
+    Timeout(id + 0x270, 1.0f, "Wild Speed 4"); // t=146.6
+    Timeout(id + 0x280, 7.2f, "Wild Speed 1"); // t=153.8
+    Timeout(id + 0x290, 1.0f, "Wild Speed 2"); // t=154.8
+    Timeout(id + 0x2A0, 1.0f, "Wild Speed 3"); // t=155.8
+    Timeout(id + 0x2B0, 1.0f, "Wild Speed 4"); // t=156.8
+}
+
+private void Subject_Number_XXIV(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=1000.0
+    Condition(id + 0x10, 8.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x82A8 or 0x82A9 or 0x82AA), "", 5f, 3.3f); // t=1008.3; StartsUsing 82A9 from Subject Number XXIV | StartsUsing 82A8 from Subject Number XXIV | StartsUsing 82AA from Subject Number XXIV
+    Timeout(id + 0x20, 4.9f, "Elemental Overload (Random)"); // t=1013.2
+    Timeout(id + 0x30, 86.8f, "Elemental Overload (Fire)"); // t=1100.0
+    Timeout(id + 0x40, 12.2f, "Triflame"); // t=1112.2; Ability 82B7 from Subject Number XXIV
+    Timeout(id + 0x50, 6.7f, "Fire II").SetHint(StateMachine.StateHint.Raidwide); // t=1118.9; Ability 82B6 from Subject Number XXIV; cactbot StartsUsing 1F16 [CastrumAbania Magna Roader Fire III] | HeadMarker A1 [CastrumAbania Subject Number XXIV Fire II]
+    Timeout(id + 0x60, 11.1f, "Triflame"); // t=1130.0; Ability 82B7 from Subject Number XXIV
+    Timeout(id + 0x70, 2.6f, "Triflame"); // t=1132.6; Ability 82B7 from Subject Number XXIV
+    Timeout(id + 0x80, 1.0f, "Fire II").SetHint(StateMachine.StateHint.Raidwide); // t=1133.6; Ability 82B6 from Subject Number XXIV; cactbot StartsUsing 1F16 [CastrumAbania Magna Roader Fire III] | HeadMarker A1 [CastrumAbania Subject Number XXIV Fire II]
+    Timeout(id + 0x90, 1.0f, "System Error"); // t=1134.6; Ability 82B3 from Subject Number XXIV
+    Timeout(id + 0xA0, 15.1f, "Elemental Overload (Ice)"); // t=1149.7
+    Timeout(id + 0xB0, 11.4f, "Ice Grid"); // t=1161.1; Ability 82B4 from Subject Number XXIV
+    Timeout(id + 0xC0, 6.7f, "Blizzard II"); // t=1167.8; Ability 82B5 from Subject Number XXIV; cactbot HeadMarker 178 [CastrumAbania Subject Number XXIV Blizzard II]
+    Timeout(id + 0xD0, 11.0f, "Ice Grid"); // t=1178.8; Ability 82B4 from Subject Number XXIV
+    Timeout(id + 0xE0, 2.6f, "Ice Grid"); // t=1181.4; Ability 82B4 from Subject Number XXIV
+    Timeout(id + 0xF0, 1.0f, "Blizzard II"); // t=1182.4; Ability 82B5 from Subject Number XXIV; cactbot HeadMarker 178 [CastrumAbania Subject Number XXIV Blizzard II]
+    Timeout(id + 0x100, 1.1f, "System Error"); // t=1183.5; Ability 82B3 from Subject Number XXIV
+    Timeout(id + 0x110, 15.1f, "Elemental Overload (Thunder)"); // t=1198.6
+    Timeout(id + 0x120, 13.0f, "Thunder II"); // t=1211.6; Ability 82B8 from Subject Number XXIV; cactbot StartsUsing 82B8 [CastrumAbania Subject Number XXIV Thunder II]
+    Timeout(id + 0x130, 6.5f, "Sparking Current"); // t=1218.1; Ability 82BA from Subject Number XXIV
+    Timeout(id + 0x140, 12.3f, "Thunder II"); // t=1230.4; Ability 82B8 from Subject Number XXIV; cactbot StartsUsing 82B8 [CastrumAbania Subject Number XXIV Thunder II]
+    Timeout(id + 0x150, 1.7f, "Sparking Current"); // t=1232.1; Ability 82BA from Subject Number XXIV
+    Timeout(id + 0x160, 2.4f, "Thunder II"); // t=1234.5; Ability 82B8 from Subject Number XXIV; cactbot StartsUsing 82B8 [CastrumAbania Subject Number XXIV Thunder II]
+    Timeout(id + 0x170, 1.6f, "System Error"); // t=1236.1; Ability 82B3 from Subject Number XXIV
+    Timeout(id + 0x180, 15.1f, "Elemental Overload (Fire)"); // t=1251.2; Ability 82AC from Subject Number XXIV
+    Timeout(id + 0x190, 11.3f, "Triflame"); // t=1262.5
+    Timeout(id + 0x1A0, 6.7f, "Fire II"); // t=1269.2; cactbot StartsUsing 1F16 [CastrumAbania Magna Roader Fire III] | HeadMarker A1 [CastrumAbania Subject Number XXIV Fire II]
+    Timeout(id + 0x1B0, 11.0f, "Triflame"); // t=1280.2
+    Timeout(id + 0x1C0, 2.6f, "Triflame"); // t=1282.8
+    Timeout(id + 0x1D0, 1.0f, "Fire II"); // t=1283.8; cactbot StartsUsing 1F16 [CastrumAbania Magna Roader Fire III] | HeadMarker A1 [CastrumAbania Subject Number XXIV Fire II]
+    Timeout(id + 0x1E0, 1.1f, "System Error"); // t=1284.9
+}
+
+private void Inferno(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=2000.0
+    Timeout(id + 0x10, 10.4f, "Ketu Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=2010.4; Ability 1F26 from Inferno; cactbot StartsUsing 1F26/208B/208C [CastrumAbania Inferno Ketu Slash]
+    Timeout(id + 0x20, 7.5f, "Rahu Blaster"); // t=2017.9; Ability 1F29 from Inferno
+    Timeout(id + 0x30, 10.9f, "Ketu & Rahu"); // t=2028.8; Ability 1F25 from Inferno
+    Timeout(id + 0x40, 16.2f, "Ketu Cut 1"); // t=2045.0; Ability 2086 from Inferno
+    Timeout(id + 0x50, 9.7f, "Ketu Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=2054.7; Ability 208B from Inferno; cactbot StartsUsing 1F26/208B/208C [CastrumAbania Inferno Ketu Slash]
+    Timeout(id + 0x60, 7.6f, "Rahu Blaster"); // t=2062.3; Ability 1F29 from Inferno
+    Timeout(id + 0x70, 7.5f, "Ketu Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=2069.8; Ability 208B from Inferno; cactbot StartsUsing 1F26/208B/208C [CastrumAbania Inferno Ketu Slash]
+    Timeout(id + 0x80, 10.1f, "Ketu & Rahu"); // t=2079.9; Ability 1F25 from Inferno
+    Timeout(id + 0x90, 8.0f, "Ketu & Rahu"); // t=2087.9; Ability 1F25 from Inferno
+    Timeout(id + 0xA0, 8.9f, "Rahu Blaster"); // t=2096.8; Ability 1F29 from Inferno
+    Timeout(id + 0xB0, 7.5f, "Ketu Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=2104.3; Ability 208B from Inferno; cactbot StartsUsing 1F26/208B/208C [CastrumAbania Inferno Ketu Slash]
+    Timeout(id + 0xC0, 14.9f, "Rahu Cut 1"); // t=2119.2; Ability 2087 from Inferno
+    Timeout(id + 0xD0, 4.1f, "--adds--"); // t=2123.3
+    Timeout(id + 0xE0, 5.5f, "Ketu Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=2128.8; Ability 208B from Inferno; cactbot StartsUsing 1F26/208B/208C [CastrumAbania Inferno Ketu Slash]
+    Timeout(id + 0xF0, 7.5f, "Rahu Blaster"); // t=2136.3; Ability 208E from Inferno
+    Timeout(id + 0x100, 7.6f, "Ketu Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=2143.9; Ability 208B from Inferno; cactbot StartsUsing 1F26/208B/208C [CastrumAbania Inferno Ketu Slash]
+    Timeout(id + 0x110, 7.5f, "Rahu Blaster"); // t=2151.4; Ability 208E from Inferno
+    Timeout(id + 0x120, 8.4f, "Ketu & Rahu"); // t=2159.8; Ability 1F25 from Inferno
+    Timeout(id + 0x130, 8.0f, "Ketu & Rahu"); // t=2167.8; Ability 1F25 from Inferno
+    Timeout(id + 0x140, 7.8f, "Rahu Blaster"); // t=2175.6; Ability 208E from Inferno
+    Timeout(id + 0x150, 7.5f, "Ketu Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=2183.1; Ability 208B from Inferno; cactbot StartsUsing 1F26/208B/208C [CastrumAbania Inferno Ketu Slash]
+    Timeout(id + 0x160, 14.8f, "Ketu Cut 2"); // t=2197.9; Ability 2086 from Inferno
+    Timeout(id + 0x170, 3.9f, "--adds--"); // t=2201.8
+    Timeout(id + 0x180, 5.9f, "Ketu Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=2207.7; Ability 208C from Inferno; cactbot StartsUsing 1F26/208B/208C [CastrumAbania Inferno Ketu Slash]
+    Timeout(id + 0x190, 7.6f, "Rahu Blaster"); // t=2215.3; Ability 208E from Inferno
+    Timeout(id + 0x1A0, 7.6f, "Ketu Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=2222.9; Ability 208C from Inferno; cactbot StartsUsing 1F26/208B/208C [CastrumAbania Inferno Ketu Slash]
+    Timeout(id + 0x1B0, 7.5f, "Rahu Blaster"); // t=2230.4; Ability 208E from Inferno
+    Timeout(id + 0x1C0, 8.1f, "Ketu & Rahu"); // t=2238.5; Ability 1F25 from Inferno
+    Timeout(id + 0x1D0, 8.0f, "Ketu & Rahu"); // t=2246.5; Ability 1F25 from Inferno
+    Timeout(id + 0x1E0, 7.8f, "Rahu Blaster"); // t=2254.3; Ability 208E from Inferno
+    Timeout(id + 0x1F0, 7.6f, "Ketu Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=2261.9; Ability 208C from Inferno; cactbot StartsUsing 1F26/208B/208C [CastrumAbania Inferno Ketu Slash]
+    Timeout(id + 0x200, 14.9f, "Rahu Cut 2"); // t=2276.8; Ability 2087 from Inferno
+    Timeout(id + 0x210, 9.6f, "Ketu Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=2286.4; Ability 208C from Inferno; cactbot StartsUsing 1F26/208B/208C [CastrumAbania Inferno Ketu Slash]
+    Timeout(id + 0x220, 7.6f, "Rahu Blaster"); // t=2294.0; Ability 208F from Inferno
+    Timeout(id + 0x230, 7.5f, "Ketu Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=2301.5; Ability 208C from Inferno; cactbot StartsUsing 1F26/208B/208C [CastrumAbania Inferno Ketu Slash]
+    Timeout(id + 0x240, 7.5f, "Rahu Blaster"); // t=2309.0; Ability 208F from Inferno
+    Timeout(id + 0x250, 8.3f, "Ketu & Rahu"); // t=2317.3; Ability 1F25 from Inferno
+    Timeout(id + 0x260, 8.1f, "Ketu & Rahu"); // t=2325.4; Ability 1F25 from Inferno
+    Timeout(id + 0x270, 7.8f, "Rahu Blaster"); // t=2333.2; Ability 208F from Inferno
+    Timeout(id + 0x280, 7.5f, "Ketu Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=2340.7; Ability 208C from Inferno; cactbot StartsUsing 1F26/208B/208C [CastrumAbania Inferno Ketu Slash]
+    Timeout(id + 0x290, 10.9f, "Ketu & Rahu"); // t=2351.6; Ability 1F25 from Inferno
+    Timeout(id + 0x2A0, 8.1f, "Ketu & Rahu"); // t=2359.7; Ability 1F25 from Inferno
+    Timeout(id + 0x2B0, 7.9f, "Rahu Blaster"); // t=2367.6; Ability 208F from Inferno
+    Timeout(id + 0x2C0, 7.6f, "Ketu Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=2375.2; Ability 208C from Inferno; cactbot StartsUsing 1F26/208B/208C [CastrumAbania Inferno Ketu Slash]
+    Timeout(id + 0x2D0, 10.9f, "Ketu & Rahu"); // t=2386.1
+    Timeout(id + 0x2E0, 8.1f, "Ketu & Rahu"); // t=2394.2
+    Timeout(id + 0x2F0, 7.9f, "Rahu Blaster"); // t=2402.1
+}
+

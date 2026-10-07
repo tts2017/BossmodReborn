@@ -1,0 +1,56 @@
+// Generated development skeleton from t10.txt (TerritoryType 193).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 5 static/dynamic trigger definitions from ui/raidboss/data/02-arr/raid/t10.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 8.0f, "Crackle Hiss"); // t=8.0; Ability B55 from Imdugud
+    Timeout(id + 0x20, 8.0f, "Critical Rip"); // t=16.0; Ability B56 from Imdugud
+    Timeout(id + 0x30, 4.0f, "Crackle Hiss"); // t=20.0; Ability B55 from Imdugud
+    Timeout(id + 0x40, 12.0f, "Wild Charge"); // t=32.0; Ability B5B from Imdugud; cactbot HeadMarker 1F [T10 Wild Charge]
+    Timeout(id + 0x50, 4.0f, "Crackle Hiss"); // t=36.0; Ability B55 from Imdugud
+    Timeout(id + 0x60, 15.0f, "Spike Flail"); // t=51.0
+    Timeout(id + 0x70, 5.0f, "Crackle Hiss"); // t=56.0; Ability B55 from Imdugud
+    Timeout(id + 0x80, 8.0f, "Critical Rip"); // t=64.0; Ability B56 from Imdugud
+    Timeout(id + 0x90, 4.0f, "Crackle Hiss"); // t=68.0
+    Timeout(id + 0xA0, 12.0f, "Wild Charge"); // t=80.0; cactbot HeadMarker 1F [T10 Wild Charge]
+    Timeout(id + 0xB0, 4.0f, "Crackle Hiss"); // t=84.0
+    Timeout(id + 0xC0, 5.0f, "Spike Flail"); // t=89.0
+    Condition(id + 0xD0, 107.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB5D), "", 5f, 102.0f); // t=196.0; StartsUsing B5D from Imdugud; cactbot StartsUsing B5D [T10 Phase Change]
+    Timeout(id + 0xE0, 4.0f, "Electrocharge"); // t=200.0; Ability B5D from Imdugud; cactbot StartsUsing B5D [T10 Phase Change]
+    Timeout(id + 0xF0, 1.0f, "2x Son / 2x Daughter Adds"); // t=201.0
+    Condition(id + 0x100, 296.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB5E), "", 5f, 291.0f); // t=497.0; StartsUsing B5E from Imdugud
+    Timeout(id + 0x110, 3.0f, "Electric Burst"); // t=500.0; Ability B5E from Imdugud
+    Timeout(id + 0x120, 9.2f, "Heat Lightning"); // t=509.2; Ability B5F from Imdugud; cactbot StartsUsing B5F [T10 Heat Lightning]
+    Timeout(id + 0x130, 18.9f, "Crackle Hiss"); // t=528.1; Ability B55 from Imdugud
+    Timeout(id + 0x140, 7.1f, "Heat Lightning"); // t=535.2; Ability B5F from Imdugud; cactbot StartsUsing B5F [T10 Heat Lightning]
+    Timeout(id + 0x150, 6.7f, "Wild Charge"); // t=541.9; Ability B5B from Imdugud; cactbot HeadMarker 1F [T10 Wild Charge]
+    Timeout(id + 0x160, 3.4f, "Crackle Hiss"); // t=545.3; Ability B55 from Imdugud
+    Timeout(id + 0x170, 13.0f, "Critical Rip"); // t=558.3; Ability B56 from Imdugud
+    Timeout(id + 0x180, 3.2f, "Crackle Hiss"); // t=561.5; Ability B55 from Imdugud
+    Timeout(id + 0x190, 8.3f, "Heat Lightning"); // t=569.8; Ability B5F from Imdugud; cactbot StartsUsing B5F [T10 Heat Lightning]
+    Timeout(id + 0x1A0, 18.9f, "Crackle Hiss"); // t=588.7
+    Timeout(id + 0x1B0, 7.1f, "Heat Lightning"); // t=595.8; cactbot StartsUsing B5F [T10 Heat Lightning]
+    Timeout(id + 0x1C0, 6.7f, "Wild Charge"); // t=602.5; cactbot HeadMarker 1F [T10 Wild Charge]
+    Condition(id + 0x1D0, 93.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB5D), "", 5f, 88.5f); // t=696.0; StartsUsing B5D from Imdugud; cactbot StartsUsing B5D [T10 Phase Change]
+    Timeout(id + 0x1E0, 4.0f, "Electrocharge"); // t=700.0; Ability B5D from Imdugud; cactbot StartsUsing B5D [T10 Phase Change]
+    Timeout(id + 0x1F0, 1.0f, "2x Son / 2x Daughter Adds"); // t=701.0
+    Timeout(id + 0x200, 35.0f, "1x Son / 1x Daughter Adds"); // t=736.0
+    Condition(id + 0x210, 261.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB5E), "", 5f, 256.0f); // t=997.0; StartsUsing B5E from Imdugud
+    Timeout(id + 0x220, 3.0f, "Electric Burst"); // t=1000.0; Ability B5E from Imdugud
+    Timeout(id + 0x230, 9.3f, "Heat Lightning"); // t=1009.3; Ability B5F from Imdugud; cactbot StartsUsing B5F [T10 Heat Lightning]
+    Timeout(id + 0x240, 4.2f, "Cyclonic Chaos"); // t=1013.5; Ability B61 from Imdugud
+    Timeout(id + 0x250, 15.0f, "Crackle Hiss"); // t=1028.5; Ability B55 from Imdugud
+    Timeout(id + 0x260, 7.3f, "Critical Rip"); // t=1035.8; Ability B56 from Imdugud
+    Timeout(id + 0x270, 6.2f, "Crackle Hiss"); // t=1042.0; Ability B55 from Imdugud
+    Timeout(id + 0x280, 16.0f, "Random + Charge"); // t=1058.0
+    Timeout(id + 0x290, 3.2f, "Crackle Hiss"); // t=1061.2; Ability B55 from Imdugud
+    Timeout(id + 0x2A0, 28.0f, "Heat Lightning"); // t=1089.2; Ability B5F from Imdugud; cactbot StartsUsing B5F [T10 Heat Lightning]
+    Timeout(id + 0x2B0, 4.2f, "Cyclonic Chaos"); // t=1093.4
+    Timeout(id + 0x2C0, 15.0f, "Crackle Hiss"); // t=1108.4
+    Timeout(id + 0x2D0, 7.3f, "Critical Rip"); // t=1115.7
+    Timeout(id + 0x2E0, 6.2f, "Crackle Hiss"); // t=1121.9
+}
+

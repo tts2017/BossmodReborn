@@ -1,0 +1,80 @@
+// Generated development skeleton from r3n.txt (TerritoryType 1229).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 16 static/dynamic trigger definitions from ui/raidboss/data/07-dt/raid/r3n.ts.
+
+private void Arcadion__R3N___AAC_Light_heavyweight_M3(uint id)
+{
+    Condition(id + 0x0, 13.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x93D6), "", 5f, 8.0f); // t=13.0; StartsUsing 93D6 from Brute Bomber; cactbot StartsUsing 93D6 [R3N Brutal Impact]
+    Timeout(id + 0x10, 4.7f, "Brutal Impact x4").SetHint(StateMachine.StateHint.Raidwide); // t=17.7; Ability 93D6 from Brute Bomber; cactbot StartsUsing 93D6 [R3N Brutal Impact]
+    Timeout(id + 0x20, 10.3f, "Knuckle Sandwich").SetHint(StateMachine.StateHint.Tankbuster); // t=28.0; Ability 93D5 from Brute Bomber; cactbot StartsUsing 93D5 [R3N Knuckle Sandwich]
+    Timeout(id + 0x30, 7.2f, "--north--"); // t=35.2; Ability 93AB from Brute Bomber
+    Timeout(id + 0x40, 7.9f, "Brutal Lariat (cast)"); // t=43.1; Ability 9AD4/9AD5 from Brute Bomber; cactbot StartsUsing 9AD4 [R3N Brutal Lariat 9AD4] | StartsUsing 9AD5 [R3N Brutal Lariat 9AD5]
+    Timeout(id + 0x50, 1.2f, "Brutal Lariat (damage)"); // t=44.3; Ability 9AD6/9AD7 from Brute Bomber
+    Timeout(id + 0x60, 5.7f, "--north--"); // t=50.0; Ability 93AB from Brute Bomber
+    Timeout(id + 0x70, 7.9f, "Brutal Lariat (cast)"); // t=57.9; Ability 9AD4/9AD5 from Brute Bomber; cactbot StartsUsing 9AD4 [R3N Brutal Lariat 9AD4] | StartsUsing 9AD5 [R3N Brutal Lariat 9AD5]
+    Timeout(id + 0x80, 1.2f, "Brutal Lariat (damage)"); // t=59.1; Ability 9AD6/9AD7 from Brute Bomber
+    Timeout(id + 0x90, 1.7f, "--middle--"); // t=60.8; Ability 93AB from Brute Bomber
+    Timeout(id + 0xA0, 7.7f, "Murderous Mist"); // t=68.5; Ability 93B5 from Brute Bomber; cactbot StartsUsing 93B5 [R3N Murderous Mist]
+    Timeout(id + 0xB0, 10.2f, "Barbarous Barrage"); // t=78.7; Ability 93B2 from Brute Bomber; cactbot StartsUsing 93B2 [R3N Barbarous Barrage]
+    Timeout(id + 0xC0, 10.1f, "--middle--"); // t=88.8; Ability 93AB from Brute Bomber
+    Timeout(id + 0xD0, 1.0f, "Explosion"); // t=89.8; Ability 93B3 from Brute Bomber
+    Timeout(id + 0xE0, 6.9f, "Fire Spin (cast)"); // t=96.7; Ability 93D0/93D1 from Brute Bomber; cactbot StartsUsing 93D0 [R3N Fire Spin Clockwise] | StartsUsing 93D1 [R3N Fire Spin Counterclockwise]
+    Timeout(id + 0xF0, 0.4f, "Fire Spin (cones)"); // t=97.1
+    Timeout(id + 0x100, 15.0f, "Fuses of Fury"); // t=112.1; Ability 93B6 from Brute Bomber; cactbot StartsUsing 93B6 [R3N Fuses of Fury]
+    Timeout(id + 0x110, 7.4f, "Self-destruct (short)"); // t=119.5; Ability 93B8 from Lit Fuse
+    Timeout(id + 0x120, 3.0f, "Self-destruct (long)"); // t=122.5; Ability 93B9 from Lit Fuse
+    Timeout(id + 0x130, 1.0f, "--north--"); // t=123.5; Ability 93AB from Brute Bomber
+    Timeout(id + 0x140, 7.9f, "Brutal Lariat (cast)"); // t=131.4; Ability 9AD4/9AD5 from Brute Bomber; cactbot StartsUsing 9AD4 [R3N Brutal Lariat 9AD4] | StartsUsing 9AD5 [R3N Brutal Lariat 9AD5]
+    Timeout(id + 0x150, 1.2f, "Brutal Lariat (damage)"); // t=132.6; Ability 9AD6/9AD7 from Brute Bomber
+    Timeout(id + 0x160, 9.7f, "Fuses of Fury"); // t=142.3; Ability 93B6 from Brute Bomber; cactbot StartsUsing 93B6 [R3N Fuses of Fury]
+    Timeout(id + 0x170, 7.4f, "Self-destruct (short)"); // t=149.7; Ability 93B8 from Lit Fuse
+    Timeout(id + 0x180, 3.0f, "Self-destruct (long)"); // t=152.7; Ability 93B9 from Lit Fuse
+    Timeout(id + 0x190, 6.0f, "--middle--"); // t=158.7; Ability 93AB from Brute Bomber
+    Timeout(id + 0x1A0, 7.0f, "Doping Draught"); // t=165.7; Ability 93BE from Brute Bomber
+    Timeout(id + 0x1B0, 30.1f, "--north--"); // t=195.8; Ability 93AB from Brute Bomber
+    Timeout(id + 0x1C0, 7.9f, "Lariat Combo (cast)"); // t=203.7; Ability 9ADC/9ADD/9ADE/9ADF from Brute Bomber; cactbot StartsUsing 9ADC [R3N Lariat Combo East to West] | StartsUsing 9ADD [R3N Lariat Combo East to East] | StartsUsing 9ADE [R3N Lariat Combo West to East] | StartsUsing 9ADF [R3N Lariat Combo West to West]
+    Timeout(id + 0x1D0, 1.2f, "Lariat Combo (damage)"); // t=204.9; Ability 9AE4/9AE5 from Brute Bomber
+    Timeout(id + 0x1E0, 4.3f, "Lariat Combo (damage)"); // t=209.2; Ability 9AE6/9AE7 from Brute Bomber
+    Timeout(id + 0x1F0, 2.7f, "--middle--"); // t=211.9; Ability 93AB from Brute Bomber
+    Timeout(id + 0x200, 6.4f, "Brutal Burn (cast)"); // t=218.3; Ability 9428 from Brute Bomber
+    Timeout(id + 0x210, 0.4f, "Brutal Burn (damage)"); // t=218.7; Ability 9429 from Brute Bomber; cactbot StartsUsing 9429 [R3N Brutal Burn]
+    Timeout(id + 0x220, 6.7f, "Brutal Impact x6").SetHint(StateMachine.StateHint.Raidwide); // t=225.4; Ability 93D6 from Brute Bomber; cactbot StartsUsing 93D6 [R3N Brutal Impact]
+    Timeout(id + 0x230, 6.6f, "--north--"); // t=232.0; Ability 93AB from Brute Bomber
+    Timeout(id + 0x240, 7.9f, "Lariat Combo (cast)"); // t=239.9; Ability 9ADC/9ADD/9ADE/9ADF from Brute Bomber; cactbot StartsUsing 9ADC [R3N Lariat Combo East to West] | StartsUsing 9ADD [R3N Lariat Combo East to East] | StartsUsing 9ADE [R3N Lariat Combo West to East] | StartsUsing 9ADF [R3N Lariat Combo West to West]
+    Timeout(id + 0x250, 1.2f, "Lariat Combo (damage)"); // t=241.1; Ability 9AE4/9AE5 from Brute Bomber
+    Timeout(id + 0x260, 4.3f, "Lariat Combo (damage)"); // t=245.4; Ability 9AE6/9AE7 from Brute Bomber
+    Timeout(id + 0x270, 9.8f, "--middle--"); // t=255.2; Ability 93AB from Brute Bomber
+    Timeout(id + 0x280, 7.0f, "Infernal Spin (cast)"); // t=262.2; Ability 9B42/9B43 from Brute Bomber; cactbot StartsUsing 9B42 [R3N Infernal Spin Clockwise] | StartsUsing 9B43 [R3N Infernal Spin Counterclockwise]
+    Timeout(id + 0x290, 0.6f, "Infernal Spin/Explosive Rain"); // t=262.8
+    Timeout(id + 0x2A0, 8.6f, "--north--"); // t=271.4; Ability 93AB from Brute Bomber
+    Timeout(id + 0x2B0, 7.8f, "Lariat Combo (cast)"); // t=279.2; Ability 9ADC/9ADD/9ADE/9ADF from Brute Bomber; cactbot StartsUsing 9ADC [R3N Lariat Combo East to West] | StartsUsing 9ADD [R3N Lariat Combo East to East] | StartsUsing 9ADE [R3N Lariat Combo West to East] | StartsUsing 9ADF [R3N Lariat Combo West to West]
+    Timeout(id + 0x2C0, 1.2f, "Lariat Combo (damage)"); // t=280.4; Ability 9AE4/9AE5 from Brute Bomber
+    Timeout(id + 0x2D0, 4.3f, "Lariat Combo (damage)"); // t=284.7; Ability 9AE6/9AE7 from Brute Bomber
+    Timeout(id + 0x2E0, 2.7f, "--middle--"); // t=287.4; Ability 93AB from Brute Bomber
+    Timeout(id + 0x2F0, 6.3f, "Brutal Burn (cast)"); // t=293.7; Ability 9428 from Brute Bomber
+    Timeout(id + 0x300, 0.6f, "Brutal Burn (damage)"); // t=294.3; Ability 9429 from Brute Bomber; cactbot StartsUsing 9429 [R3N Brutal Burn]
+    Timeout(id + 0x310, 6.7f, "Brutal Impact x6").SetHint(StateMachine.StateHint.Raidwide); // t=301.0; Ability 93D6 from Brute Bomber; cactbot StartsUsing 93D6 [R3N Brutal Impact]
+    Timeout(id + 0x320, 16.6f, "Fuses of Fury"); // t=317.6; Ability 93B6 from Brute Bomber; cactbot StartsUsing 93B6 [R3N Fuses of Fury]
+    Timeout(id + 0x330, 2.4f, "--north--"); // t=320.0; Ability 93AB from Brute Bomber
+    Timeout(id + 0x340, 6.0f, "Self-destruct (short)"); // t=326.0; Ability 93B8 from Lit Fuse
+    Timeout(id + 0x350, 1.8f, "Lariat Combo (cast)"); // t=327.8; Ability 9ADC/9ADD/9ADE/9ADF from Brute Bomber; cactbot StartsUsing 9ADC [R3N Lariat Combo East to West] | StartsUsing 9ADD [R3N Lariat Combo East to East] | StartsUsing 9ADE [R3N Lariat Combo West to East] | StartsUsing 9ADF [R3N Lariat Combo West to West]
+    Timeout(id + 0x360, 1.2f, "Self-destruct (long) / Lariat Combo (damage)"); // t=329.0; Ability 93B9 from Lit Fuse | Ability 9AE4/9AE5 from Brute Bomber
+    Timeout(id + 0x370, 4.3f, "Lariat Combo (damage)"); // t=333.3; Ability 9AE6/9AE7 from Brute Bomber
+    Timeout(id + 0x380, 2.7f, "--middle--"); // t=336.0; Ability 93AB from Brute Bomber
+    Timeout(id + 0x390, 7.0f, "Brutal Impact x6").SetHint(StateMachine.StateHint.Raidwide); // t=343.0; Ability 93D6 from Brute Bomber; cactbot StartsUsing 93D6 [R3N Brutal Impact]
+    Timeout(id + 0x3A0, 14.6f, "Knuckle Sandwich").SetHint(StateMachine.StateHint.Tankbuster); // t=357.6; Ability 93D5 from Brute Bomber; cactbot StartsUsing 93D5 [R3N Knuckle Sandwich]
+    Timeout(id + 0x3B0, 12.1f, "Barbarous Barrage"); // t=369.7; Ability 93B2 from Brute Bomber; cactbot StartsUsing 93B2 [R3N Barbarous Barrage]
+    Timeout(id + 0x3C0, 6.1f, "Fuses of Fury"); // t=375.8; Ability 93B6 from Brute Bomber; cactbot StartsUsing 93B6 [R3N Fuses of Fury]
+    Timeout(id + 0x3D0, 6.6f, "Explosion"); // t=382.4; Ability 93B3 from Brute Bomber
+    Timeout(id + 0x3E0, 3.0f, "--middle--"); // t=385.4; Ability 93AB from Brute Bomber
+    Timeout(id + 0x3F0, 1.0f, "Self-destruct (short)"); // t=386.4; Ability 93B8 from Lit Fuse
+    Timeout(id + 0x400, 3.0f, "Self-destruct (long)"); // t=389.4; Ability 93B9 from Lit Fuse
+    Timeout(id + 0x410, 3.8f, "Murderous Mist"); // t=393.2; Ability 93B5 from Brute Bomber; cactbot StartsUsing 93B5 [R3N Murderous Mist]
+    Timeout(id + 0x420, 7.7f, "Brutal Burn (cast)"); // t=400.9; Ability 9428 from Brute Bomber
+    Timeout(id + 0x430, 0.4f, "Brutal Burn (damage)"); // t=401.3; Ability 9429 from Brute Bomber; cactbot StartsUsing 9429 [R3N Brutal Burn]
+    Timeout(id + 0x440, 6.7f, "Brutal Impact x6").SetHint(StateMachine.StateHint.Raidwide); // t=408.0; Ability 93D6 from Brute Bomber; cactbot StartsUsing 93D6 [R3N Brutal Impact]
+    Timeout(id + 0x450, 14.7f, "Knuckle Sandwich").SetHint(StateMachine.StateHint.Tankbuster); // t=422.7; Ability 93D5 from Brute Bomber; cactbot StartsUsing 93D5 [R3N Knuckle Sandwich]
+    Timeout(id + 0x460, 12.1f, "--middle--"); // t=434.8; Ability 93AB from Brute Bomber
+}
+

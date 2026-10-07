@@ -1,0 +1,68 @@
+// Generated development skeleton from e2n.txt (TerritoryType 850).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 20 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e2n.ts.
+
+private void Eden_2__Normal(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 10.7f, "Doomvoid Guillotine"); // t=10.7; Ability 3E3B from Voidwalker
+    Timeout(id + 0x20, 17.0f, "Doomvoid Slicer"); // t=27.7; Ability 3E3C from Voidwalker; cactbot StartsUsing 3E3C [E2N Doomvoid Slicer]
+    Timeout(id + 0x30, 19.0f, "Shadowflame").SetHint(StateMachine.StateHint.Tankbuster); // t=46.7; Ability 3E4D from Voidwalker; cactbot StartsUsing 3E4D [E2N Shadowflame Tank] | StartsUsing 3E4D [E2N Shadowflame Healer]
+    Timeout(id + 0x40, 12.7f, "Dark Fire III"); // t=59.4; Ability 3E43 from Voidwalker
+    Timeout(id + 0x50, 8.0f, "Unholy Darkness"); // t=67.4; Ability 3E40 from Voidwalker; cactbot HeadMarker 3E [E2N Unholy Darkness No Waiting] | HeadMarker B4 [E2N Unholy Darkness Collect] | HeadMarker B4 [E2N Unholy Darkness Waiting] | HeadMarker B8 [E2N Countdown Marker Unholy Darkness]
+    Timeout(id + 0x60, 5.3f, "Spell-In-Waiting"); // t=72.7; Ability 3E3E from Voidwalker
+    Timeout(id + 0x70, 18.5f, "Dark Fire III"); // t=91.2; Ability 3E43 from Voidwalker
+    Timeout(id + 0x80, 1.7f, "Spell-In-Waiting"); // t=92.9; Ability 3E3E from Voidwalker
+    Timeout(id + 0x90, 18.5f, "Unholy Darkness"); // t=111.4; Ability 3E40 from Voidwalker; cactbot HeadMarker 3E [E2N Unholy Darkness No Waiting] | HeadMarker B4 [E2N Unholy Darkness Collect] | HeadMarker B4 [E2N Unholy Darkness Waiting] | HeadMarker B8 [E2N Countdown Marker Unholy Darkness]
+    Timeout(id + 0xA0, 1.9f, "Spell-In-Waiting"); // t=113.3; Ability 3E3E from Voidwalker
+    Timeout(id + 0xB0, 14.0f, "Spell-In-Waiting"); // t=127.3; Ability 3E3E from Voidwalker
+    Timeout(id + 0xC0, 19.1f, "Dark Fire III / Unholy Darkness"); // t=146.4; Ability 3E43 from Voidwalker | Ability 3E40 from Voidwalker
+    Timeout(id + 0xD0, 10.4f, "Entropy").SetHint(StateMachine.StateHint.Raidwide); // t=156.8; Ability 3E6E from Voidwalker; cactbot StartsUsing 3E6D [E2N Entropy]
+    Timeout(id + 0xE0, 10.5f, "Empty Hate").SetHint(StateMachine.StateHint.Knockback); // t=167.3; Ability 3E46 from The Hand of Erebos; cactbot StartsUsing 3E46 [E2N Empty Hate]
+    Timeout(id + 0xF0, 7.0f, "Doomvoid Guillotine"); // t=174.3; Ability 3E3B from Voidwalker
+    Timeout(id + 0x100, 10.0f, "Empty Hate").SetHint(StateMachine.StateHint.Knockback); // t=184.3; Ability 3E46 from The Hand of Erebos; cactbot StartsUsing 3E46 [E2N Empty Hate]
+    Timeout(id + 0x110, 7.0f, "Doomvoid Slicer"); // t=191.3; Ability 3E3C from Voidwalker; cactbot StartsUsing 3E3C [E2N Doomvoid Slicer]
+    Timeout(id + 0x120, 15.0f, "Shadowflame").SetHint(StateMachine.StateHint.Tankbuster); // t=206.3; Ability 3E4D from Voidwalker; cactbot StartsUsing 3E4D [E2N Shadowflame Tank] | StartsUsing 3E4D [E2N Shadowflame Healer]
+    Timeout(id + 0x130, 10.5f, "Entropy").SetHint(StateMachine.StateHint.Raidwide); // t=216.8; Ability 3E6E from Voidwalker; cactbot StartsUsing 3E6D [E2N Entropy]
+    Timeout(id + 0x140, 6.5f, "Spell-In-Waiting"); // t=223.3; Ability 3E3E from Voidwalker
+    Timeout(id + 0x150, 7.0f, "Punishing Ray"); // t=230.3; Ability 3E47 from Voidwalker
+    Timeout(id + 0x160, 11.0f, "Spell-In-Waiting"); // t=241.3; Ability 3E3E from Voidwalker
+    Timeout(id + 0x170, 11.1f, "Unholy Darkness"); // t=252.4; Ability 3E40 from Voidwalker; cactbot HeadMarker 3E [E2N Unholy Darkness No Waiting] | HeadMarker B4 [E2N Unholy Darkness Collect] | HeadMarker B4 [E2N Unholy Darkness Waiting] | HeadMarker B8 [E2N Countdown Marker Unholy Darkness]
+    Timeout(id + 0x180, 7.0f, "Dark Fire III"); // t=259.4; Ability 3E43 from Voidwalker
+    Timeout(id + 0x190, 10.9f, "Empty Hate").SetHint(StateMachine.StateHint.Knockback); // t=270.3; Ability 3E46 from The Hand of Erebos; cactbot StartsUsing 3E46 [E2N Empty Hate]
+    Timeout(id + 0x1A0, 7.0f, "Punishing Ray"); // t=277.3; Ability 3E47 from Voidwalker
+    Timeout(id + 0x1B0, 9.5f, "Entropy").SetHint(StateMachine.StateHint.Raidwide); // t=286.8; Ability 3E6E from Voidwalker; cactbot StartsUsing 3E6D [E2N Entropy]
+    Timeout(id + 0x1C0, 9.2f, "Shadoweye"); // t=296.0; Ability 40B7 from Voidwalker; cactbot HeadMarker B3 [E2N Shadoweye No Waiting] | HeadMarker B7 [E2N Shadoweye Collect] | HeadMarker B7 [E2N Shadoweye Waiting] | HeadMarker B8 [E2N Countdown Marker Shadoweye] | HeadMarker B8 [E2N Countdown Marker Shadoweye You]
+    Timeout(id + 0x1D0, 5.3f, "Spell-In-Waiting"); // t=301.3; Ability 3E3E from Voidwalker
+    Timeout(id + 0x1E0, 15.0f, "Doomvoid Guillotine"); // t=316.3; Ability 3E3B from Voidwalker
+    Timeout(id + 0x1F0, 15.0f, "Doomvoid Slicer"); // t=331.3; Ability 3E3C from Voidwalker; cactbot StartsUsing 3E3C [E2N Doomvoid Slicer]
+    Timeout(id + 0x200, 0.1f, "Shadoweye"); // t=331.4; Ability 40B7 from Voidwalker; cactbot HeadMarker B3 [E2N Shadoweye No Waiting] | HeadMarker B7 [E2N Shadoweye Collect] | HeadMarker B7 [E2N Shadoweye Waiting] | HeadMarker B8 [E2N Countdown Marker Shadoweye] | HeadMarker B8 [E2N Countdown Marker Shadoweye You]
+    Timeout(id + 0x210, 20.4f, "Entropy").SetHint(StateMachine.StateHint.Raidwide); // t=351.8; Ability 3E6E from Voidwalker; cactbot StartsUsing 3E6D [E2N Entropy]
+    Timeout(id + 0x220, 8.5f, "Spell-In-Waiting"); // t=360.3; Ability 3E3E from Voidwalker
+    Timeout(id + 0x230, 6.0f, "Empty Hate").SetHint(StateMachine.StateHint.Knockback); // t=366.3; Ability 3E46 from The Hand of Erebos; cactbot StartsUsing 3E46 [E2N Empty Hate]
+    Timeout(id + 0x240, 8.0f, "Punishing Ray"); // t=374.3; Ability 3E47 from Voidwalker
+    Timeout(id + 0x250, 9.0f, "Spell-In-Waiting"); // t=383.3; Ability 3E3E from Voidwalker
+    Timeout(id + 0x260, 11.2f, "Unholy Darkness"); // t=394.5; Ability 3E40 from Voidwalker; cactbot HeadMarker 3E [E2N Unholy Darkness No Waiting] | HeadMarker B4 [E2N Unholy Darkness Collect] | HeadMarker B4 [E2N Unholy Darkness Waiting] | HeadMarker B8 [E2N Countdown Marker Unholy Darkness]
+    Timeout(id + 0x270, 7.0f, "Dark Fire III"); // t=401.5; Ability 3E43 from Voidwalker
+    Timeout(id + 0x280, 6.9f, "Shadowflame").SetHint(StateMachine.StateHint.Tankbuster); // t=408.4; Ability 3E4D from Voidwalker; cactbot StartsUsing 3E4D [E2N Shadowflame Tank] | StartsUsing 3E4D [E2N Shadowflame Healer]
+    Timeout(id + 0x290, 8.0f, "Doomvoid Guillotine"); // t=416.4; Ability 3E3B from Voidwalker
+    Timeout(id + 0x2A0, 10.0f, "Empty Hate").SetHint(StateMachine.StateHint.Knockback); // t=426.4; Ability 3E46 from The Hand of Erebos; cactbot StartsUsing 3E46 [E2N Empty Hate]
+    Timeout(id + 0x2B0, 5.0f, "Doomvoid Slicer"); // t=431.4; Ability 3E3C from Voidwalker; cactbot StartsUsing 3E3C [E2N Doomvoid Slicer]
+    Timeout(id + 0x2C0, 9.7f, "Shadoweye"); // t=441.1; Ability 40B7 from Voidwalker; cactbot HeadMarker B3 [E2N Shadoweye No Waiting] | HeadMarker B7 [E2N Shadoweye Collect] | HeadMarker B7 [E2N Shadoweye Waiting] | HeadMarker B8 [E2N Countdown Marker Shadoweye] | HeadMarker B8 [E2N Countdown Marker Shadoweye You]
+    Timeout(id + 0x2D0, 9.3f, "Shadowflame").SetHint(StateMachine.StateHint.Tankbuster); // t=450.4; Ability 3E4D from Voidwalker; cactbot StartsUsing 3E4D [E2N Shadowflame Tank] | StartsUsing 3E4D [E2N Shadowflame Healer]
+    Timeout(id + 0x2E0, 11.4f, "Entropy").SetHint(StateMachine.StateHint.Raidwide); // t=461.8; Ability 3E6E from Voidwalker; cactbot StartsUsing 3E6D [E2N Entropy]
+    Timeout(id + 0x2F0, 8.5f, "Spell-In-Waiting"); // t=470.3
+    Timeout(id + 0x300, 6.0f, "Empty Hate"); // t=476.3; cactbot StartsUsing 3E46 [E2N Empty Hate]
+    Timeout(id + 0x310, 8.0f, "Punishing Ray"); // t=484.3
+    Timeout(id + 0x320, 9.0f, "Spell-In-Waiting"); // t=493.3
+    Timeout(id + 0x330, 11.2f, "Unholy Darkness"); // t=504.5; cactbot HeadMarker 3E [E2N Unholy Darkness No Waiting] | HeadMarker B4 [E2N Unholy Darkness Collect] | HeadMarker B4 [E2N Unholy Darkness Waiting] | HeadMarker B8 [E2N Countdown Marker Unholy Darkness]
+    Timeout(id + 0x340, 7.0f, "Dark Fire III"); // t=511.5
+    Timeout(id + 0x350, 6.9f, "Shadowflame"); // t=518.4; cactbot StartsUsing 3E4D [E2N Shadowflame Tank] | StartsUsing 3E4D [E2N Shadowflame Healer]
+    Timeout(id + 0x360, 8.0f, "Doomvoid Guillotine"); // t=526.4
+    Timeout(id + 0x370, 10.0f, "Empty Hate"); // t=536.4; cactbot StartsUsing 3E46 [E2N Empty Hate]
+    Timeout(id + 0x380, 5.0f, "Doomvoid Slicer"); // t=541.4; cactbot StartsUsing 3E3C [E2N Doomvoid Slicer]
+    Timeout(id + 0x390, 9.7f, "Shadoweye"); // t=551.1; cactbot HeadMarker B3 [E2N Shadoweye No Waiting] | HeadMarker B7 [E2N Shadoweye Collect] | HeadMarker B7 [E2N Shadoweye Waiting] | HeadMarker B8 [E2N Countdown Marker Shadoweye] | HeadMarker B8 [E2N Countdown Marker Shadoweye You]
+    Timeout(id + 0x3A0, 9.3f, "Shadowflame"); // t=560.4; cactbot StartsUsing 3E4D [E2N Shadowflame Tank] | StartsUsing 3E4D [E2N Shadowflame Healer]
+}
+

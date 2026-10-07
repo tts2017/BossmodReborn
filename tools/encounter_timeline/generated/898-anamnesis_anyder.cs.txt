@@ -1,0 +1,123 @@
+// Generated development skeleton from anamnesis_anyder.txt (TerritoryType 898).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 13 static/dynamic trigger definitions from ui/raidboss/data/05-shb/dungeon/anamnesis_anyder.ts.
+
+private void Unknown(uint id)
+{
+    Timeout(id + 0x0, 13.5f, "Fetid Fang").SetHint(StateMachine.StateHint.Tankbuster); // t=1013.5; Ability 4B69 from Unknown; cactbot StartsUsing 4B69/4B72 [AnAnyder Fetid Fang]
+    Timeout(id + 0x10, 18.8f, "Scrutiny"); // t=1032.3; Ability 4E25 from Unknown; cactbot StartsUsing 4E25 [AnAnyder Scrutiny]
+    Timeout(id + 0x20, 2.0f, "Explosion"); // t=1034.3; Ability 4B6E from Sinister Bubble
+    Timeout(id + 0x30, 7.9f, "Luminous Ray"); // t=1042.2; Ability 4E26 from Unknown; cactbot StartsUsing [AnAnyder Luminous Ray]
+    Condition(id + 0x40, 5.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4B6A), "", 5f, 0.2f); // t=1047.4; StartsUsing 4B6A from Unknown; cactbot StartsUsing 4B6A [AnAnyder Inscrutability]
+    Timeout(id + 0x50, 4.0f, "Inscrutability").SetHint(StateMachine.StateHint.Raidwide); // t=1051.4; Ability 4B6A from Unknown; cactbot StartsUsing 4B6A [AnAnyder Inscrutability]
+    Timeout(id + 0x60, 8.4f, "Unknown Add"); // t=1059.8; Ability 4B77 from Unknown
+    Timeout(id + 0x70, 5.0f, "Ectoplasmic Ray"); // t=1064.8; Ability 4B7A from Unknown
+    Timeout(id + 0x80, 7.3f, "Scrutiny"); // t=1072.1; Ability 4E25 from Unknown; cactbot StartsUsing 4E25 [AnAnyder Scrutiny]
+    Timeout(id + 0x90, 2.0f, "Explosion"); // t=1074.1; Ability 4B6E from Sinister Bubble
+    Timeout(id + 0xA0, 8.2f, "Luminous Ray"); // t=1082.3; Ability 4E27 from Unknown; cactbot StartsUsing [AnAnyder Luminous Ray]
+    Timeout(id + 0xB0, 8.6f, "Inscrutability").SetHint(StateMachine.StateHint.Raidwide); // t=1090.9; Ability 4B6A from Unknown; cactbot StartsUsing 4B6A [AnAnyder Inscrutability]
+    Timeout(id + 0xC0, 9.3f, "Fetid Fang").SetHint(StateMachine.StateHint.Tankbuster); // t=1100.2; Ability 4B69 from Unknown; cactbot StartsUsing 4B69/4B72 [AnAnyder Fetid Fang]
+    Timeout(id + 0xD0, 8.7f, "Clearout"); // t=1108.9; Ability 4B74 from Unknown
+    Timeout(id + 0xE0, 6.0f, "Clearout"); // t=1114.9; Ability 4B6B from Unknown
+    Timeout(id + 0xF0, 5.2f, "Setback"); // t=1120.1; Ability 4B6C from Unknown
+    Timeout(id + 0x100, 11.2f, "Ectoplasmic Ray"); // t=1131.3; Ability 4B79 from Unknown
+    Timeout(id + 0x110, 0.4f, "Ectoplasmic Ray"); // t=1131.7; Ability 4B71 from Unknown
+    Timeout(id + 0x120, 6.5f, "Luminous Ray"); // t=1138.2; Ability 4E27 from Unknown; cactbot StartsUsing [AnAnyder Luminous Ray]
+    Timeout(id + 0x130, 9.6f, "Inscrutability").SetHint(StateMachine.StateHint.Raidwide); // t=1147.8; Ability 4B6A from Unknown; cactbot StartsUsing 4B6A [AnAnyder Inscrutability]
+    Timeout(id + 0x140, 14.1f, "Ectoplasmic Ray"); // t=1161.9; Ability 4B7A from Unknown
+    Timeout(id + 0x150, 7.6f, "Scrutiny"); // t=1169.5; Ability 4E25 from Unknown; cactbot StartsUsing 4E25 [AnAnyder Scrutiny]
+    Timeout(id + 0x160, 2.0f, "Explosion"); // t=1171.5; Ability 4B6E from Sinister Bubble
+    Timeout(id + 0x170, 7.8f, "Luminous Ray"); // t=1179.3; Ability 4E27 from Unknown; cactbot StartsUsing [AnAnyder Luminous Ray]
+    Timeout(id + 0x180, 8.1f, "Inscrutability").SetHint(StateMachine.StateHint.Raidwide); // t=1187.4; Ability 4B6A from Unknown; cactbot StartsUsing 4B6A [AnAnyder Inscrutability]
+    Timeout(id + 0x190, 9.3f, "Fetid Fang").SetHint(StateMachine.StateHint.Tankbuster); // t=1196.7; Ability 4B69 from Unknown; cactbot StartsUsing 4B69/4B72 [AnAnyder Fetid Fang]
+    Timeout(id + 0x1A0, 9.3f, "Clearout"); // t=1206.0; Ability 4B74 from Unknown
+    Timeout(id + 0x1B0, 6.0f, "Clearout"); // t=1212.0; Ability 4B6B from Unknown
+    Timeout(id + 0x1C0, 5.2f, "Setback"); // t=1217.2; Ability 4B6C from Unknown
+    Condition(id + 0x1D0, 92.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4E4B), "", 5f, 87.8f); // t=1310.0; StartsUsing 4E4B from Unknown
+    Timeout(id + 0x1E0, 3.0f, "Plain Weirdness"); // t=1313.0; Ability 4E4B from Unknown
+    Timeout(id + 0x1F0, 6.2f, "Inscrutability").SetHint(StateMachine.StateHint.Raidwide); // t=1319.2; Ability 4B73 from Unknown; cactbot StartsUsing 4B6A [AnAnyder Inscrutability]
+    Timeout(id + 0x200, 15.2f, "Ectoplasmic Ray"); // t=1334.4; Ability 4B7A from Unknown
+    Timeout(id + 0x210, 7.6f, "Luminous Ray"); // t=1342.0; Ability 4E27 from Unknown; cactbot StartsUsing [AnAnyder Luminous Ray]
+    Timeout(id + 0x220, 12.3f, "Fetid Fang").SetHint(StateMachine.StateHint.Tankbuster); // t=1354.3; Ability 4B72 from Unknown; cactbot StartsUsing 4B69/4B72 [AnAnyder Fetid Fang]
+    Timeout(id + 0x230, 8.2f, "Inscrutability").SetHint(StateMachine.StateHint.Raidwide); // t=1362.5; Ability 4B73 from Unknown; cactbot StartsUsing 4B6A [AnAnyder Inscrutability]
+    Timeout(id + 0x240, 21.1f, "Scrutiny"); // t=1383.6; Ability 4E25 from Unknown; cactbot StartsUsing 4E25 [AnAnyder Scrutiny]
+    Timeout(id + 0x250, 2.0f, "Explosion"); // t=1385.6; Ability 4B6E from Sinister Bubble
+    Timeout(id + 0x260, 15.9f, "Inscrutability").SetHint(StateMachine.StateHint.Raidwide); // t=1401.5; Ability 4B73 from Unknown; cactbot StartsUsing 4B6A [AnAnyder Inscrutability]
+}
+
+private void Kyklops(uint id)
+{
+    Timeout(id + 0x0, 11.0f, "The Final Verse").SetHint(StateMachine.StateHint.Raidwide); // t=2011.0; Ability 4B58 from Kyklops; cactbot StartsUsing 4B58 [AnAnyder The Final Verse]
+    Timeout(id + 0x10, 9.6f, "Swing/Swipe/Cyclone"); // t=2020.6
+    Timeout(id + 0x20, 10.3f, "Hammer/Blade Mark"); // t=2030.9
+    Timeout(id + 0x30, 4.6f, "Blade/Hammer Mark"); // t=2035.5
+    Timeout(id + 0x40, 8.7f, "Swing/Swipe/Cyclone"); // t=2044.2
+    Timeout(id + 0x50, 3.7f, "Terrible Hammer/Blade"); // t=2047.9
+    Timeout(id + 0x60, 2.1f, "Terrible Blade/Hammer"); // t=2050.0
+    Timeout(id + 0x70, 4.9f, "Raging Glower"); // t=2054.9; Ability 4B56 from Kyklops; cactbot StartsUsing 4B56 [AnAnyder Raging Glower]
+    Timeout(id + 0x80, 9.6f, "Swing/Swipe/Cyclone"); // t=2064.5
+    Timeout(id + 0x90, 8.7f, "The Final Verse").SetHint(StateMachine.StateHint.Raidwide); // t=2073.2; Ability 4B58 from Kyklops; cactbot StartsUsing 4B58 [AnAnyder The Final Verse]
+    Timeout(id + 0xA0, 9.9f, "Hammer/Blade Mark"); // t=2083.1
+    Timeout(id + 0xB0, 4.6f, "Blade/Hammer Mark"); // t=2087.7
+    Timeout(id + 0xC0, 7.7f, "Pyre/Hearth"); // t=2095.4; Ability 4B5F/4B60 from Kyklops
+    Timeout(id + 0xD0, 4.7f, "Terrible Hammer/Blade"); // t=2100.1
+    Timeout(id + 0xE0, 2.1f, "Terrible Blade/Hammer"); // t=2102.2
+    Timeout(id + 0xF0, 4.8f, "Swing/Swipe/Cyclone"); // t=2107.0
+    Timeout(id + 0x100, 10.5f, "The Final Verse").SetHint(StateMachine.StateHint.Raidwide); // t=2117.5; Ability 4B58 from Kyklops; cactbot StartsUsing 4B58 [AnAnyder The Final Verse]
+    Timeout(id + 0x110, 9.9f, "Hammer/Blade Mark"); // t=2127.4
+    Timeout(id + 0x120, 4.6f, "Blade/Hammer Mark"); // t=2132.0
+    Timeout(id + 0x130, 7.7f, "Pyre/Hearth"); // t=2139.7
+    Timeout(id + 0x140, 4.7f, "Terrible Hammer/Blade"); // t=2144.4
+    Timeout(id + 0x150, 2.1f, "Terrible Blade/Hammer"); // t=2146.5
+    Timeout(id + 0x160, 4.8f, "Swing/Swipe/Cyclone"); // t=2151.3
+}
+
+private void Rukshs_Dheem(uint id)
+{
+    Timeout(id + 0x0, 13.0f, "Bonebreaker").SetHint(StateMachine.StateHint.Tankbuster); // t=3013.0; Ability 4B8C from Rukshs Dheem; cactbot StartsUsing 4B8C [AnAnyder Bonebreaker]
+    Timeout(id + 0x10, 6.2f, "Swift Shift"); // t=3019.2; Ability 4B83 from Rukshs Dheem
+    Timeout(id + 0x20, 7.3f, "Seabed Ceremony"); // t=3026.5; Ability 4B7B from Rukshs Dheem
+    Timeout(id + 0x30, 6.1f, "Depth Grip"); // t=3032.6; Ability 4B84 from Rukshs Dheem; cactbot StartsUsing 4B84 [AnAnyder Depth Grip]
+    Timeout(id + 0x40, 8.1f, "Falling Water"); // t=3040.7; Ability 4B7D from Rukshs Dheem; cactbot StartsUsing 4B7E [AnAnyder Falling Water]
+    Timeout(id + 0x50, 1.7f, "Wavebreaker x4"); // t=3042.4
+    Timeout(id + 0x60, 3.5f, "Rising Tide"); // t=3045.9; Ability 4B8B from Rukshs Dheem
+    Timeout(id + 0x70, 10.3f, "Swift Shift"); // t=3056.2; Ability 4B83 from Rukshs Dheem
+    Timeout(id + 0x80, 7.4f, "Seabed Ceremony"); // t=3063.6; Ability 4B7B from Rukshs Dheem
+    Timeout(id + 0x90, 11.2f, "Falling Water"); // t=3074.8; Ability 4B7D from Rukshs Dheem; cactbot StartsUsing 4B7E [AnAnyder Falling Water]
+    Timeout(id + 0xA0, 12.2f, "Bonebreaker").SetHint(StateMachine.StateHint.Tankbuster); // t=3087.0; Ability 4B8C from Rukshs Dheem; cactbot StartsUsing 4B8C [AnAnyder Bonebreaker]
+    Timeout(id + 0xB0, 12.1f, "Seabed Ceremony"); // t=3099.1; Ability 4B7B from Rukshs Dheem
+    Timeout(id + 0xC0, 6.1f, "Depth Grip"); // t=3105.2; Ability 4B84 from Rukshs Dheem; cactbot StartsUsing 4B84 [AnAnyder Depth Grip]
+    Timeout(id + 0xD0, 10.3f, "Wavebreaker x8"); // t=3115.5
+    Timeout(id + 0xE0, 16.3f, "Bonebreaker").SetHint(StateMachine.StateHint.Tankbuster); // t=3131.8; Ability 4B8C from Rukshs Dheem; cactbot StartsUsing 4B8C [AnAnyder Bonebreaker]
+    Timeout(id + 0xF0, 9.2f, "Swift Shift"); // t=3141.0; Ability 4B83 from Rukshs Dheem
+    Timeout(id + 0x100, 7.4f, "Depth Grip"); // t=3148.4; Ability 4B84 from Rukshs Dheem; cactbot StartsUsing 4B84 [AnAnyder Depth Grip]
+    Timeout(id + 0x110, 10.1f, "Seabed Ceremony"); // t=3158.5; Ability 4B7B from Rukshs Dheem
+    Timeout(id + 0x120, 2.0f, "Wavebreaker"); // t=3160.5
+    Timeout(id + 0x130, 11.1f, "Flying Fount"); // t=3171.6; Ability 4B7F from Rukshs Dheem; cactbot HeadMarker 3E [AnAnyder Open Hearth Flying Fount]
+    Timeout(id + 0x140, 7.2f, "Swift Shift"); // t=3178.8; Ability 4B83 from Rukshs Dheem
+    Timeout(id + 0x150, 8.1f, "Command Current"); // t=3186.9; Ability 4B81 from Rukshs Dheem
+    Timeout(id + 0x160, 6.7f, "Swift Shift"); // t=3193.6; Ability 4B83 from Rukshs Dheem
+    Timeout(id + 0x170, 7.3f, "Seabed Ceremony"); // t=3200.9; Ability 4B7B from Rukshs Dheem
+    Timeout(id + 0x180, 6.1f, "Depth Grip"); // t=3207.0; Ability 4B84 from Rukshs Dheem; cactbot StartsUsing 4B84 [AnAnyder Depth Grip]
+    Timeout(id + 0x190, 8.1f, "Falling Water"); // t=3215.1; Ability 4B7D from Rukshs Dheem; cactbot StartsUsing 4B7E [AnAnyder Falling Water]
+    Timeout(id + 0x1A0, 1.7f, "Wavebreaker x4"); // t=3216.8
+    Timeout(id + 0x1B0, 3.4f, "Rising Tide"); // t=3220.2; Ability 4B8B from Rukshs Dheem
+    Timeout(id + 0x1C0, 9.2f, "Bonebreaker").SetHint(StateMachine.StateHint.Tankbuster); // t=3229.4; Ability 4B8C from Rukshs Dheem; cactbot StartsUsing 4B8C [AnAnyder Bonebreaker]
+    Timeout(id + 0x1D0, 12.3f, "Seabed Ceremony"); // t=3241.7; Ability 4B7B from Rukshs Dheem
+    Timeout(id + 0x1E0, 5.9f, "Depth Grip"); // t=3247.6; Ability 4B84 from Rukshs Dheem; cactbot StartsUsing 4B84 [AnAnyder Depth Grip]
+    Timeout(id + 0x1F0, 10.2f, "Wavebreaker x8"); // t=3257.8
+    Timeout(id + 0x200, 17.3f, "Bonebreaker").SetHint(StateMachine.StateHint.Tankbuster); // t=3275.1; Ability 4B8C from Rukshs Dheem; cactbot StartsUsing 4B8C [AnAnyder Bonebreaker]
+    Timeout(id + 0x210, 7.2f, "Swift Shift"); // t=3282.3; Ability 4B83 from Rukshs Dheem
+    Timeout(id + 0x220, 7.3f, "Seabed Ceremony"); // t=3289.6
+    Timeout(id + 0x230, 6.1f, "Depth Grip"); // t=3295.7; cactbot StartsUsing 4B84 [AnAnyder Depth Grip]
+    Timeout(id + 0x240, 8.1f, "Falling Water"); // t=3303.8; cactbot StartsUsing 4B7E [AnAnyder Falling Water]
+    Timeout(id + 0x250, 1.7f, "Wavebreaker x4"); // t=3305.5
+    Timeout(id + 0x260, 3.4f, "Rising Tide"); // t=3308.9
+    Timeout(id + 0x270, 9.2f, "Bonebreaker"); // t=3318.1; cactbot StartsUsing 4B8C [AnAnyder Bonebreaker]
+    Timeout(id + 0x280, 12.1f, "Seabed Ceremony"); // t=3330.2
+    Timeout(id + 0x290, 6.1f, "Depth Grip"); // t=3336.3; cactbot StartsUsing 4B84 [AnAnyder Depth Grip]
+    Timeout(id + 0x2A0, 10.2f, "Wavebreaker x8"); // t=3346.5
+    Timeout(id + 0x2B0, 17.3f, "Bonebreaker"); // t=3363.8; cactbot StartsUsing 4B8C [AnAnyder Bonebreaker]
+}
+

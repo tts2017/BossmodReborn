@@ -1,0 +1,95 @@
+// Generated development skeleton from swallows_compass.txt (TerritoryType 768).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 19 static/dynamic trigger definitions from ui/raidboss/data/04-sb/dungeon/swallows_compass.ts.
+
+private void THE_SWALLOW_S_COMPASS(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 11.6f, "Clout Of The Tengu").SetHint(StateMachine.StateHint.Raidwide); // t=11.6; Ability 2B95 from Otengu; cactbot StartsUsing 2B95 [Swallows Compass Tengu Clout]
+    Timeout(id + 0x20, 10.9f, "Yama-Kagura"); // t=22.5; Ability 2B96 from Otengu
+    Timeout(id + 0x30, 10.6f, "Might Of The Tengu").SetHint(StateMachine.StateHint.Tankbuster); // t=33.1; Ability 2B94 from Otengu; cactbot StartsUsing 2B94 [Swallows Compass Tengu Might]
+    Timeout(id + 0x40, 20.0f, "Yama-Kagura"); // t=53.1; Ability 2B96 from Otengu
+    Timeout(id + 0x50, 11.1f, "Wile Of The Tengu"); // t=64.2; Ability 2B97 from Otengu; cactbot StartsUsing 2B97 [Swallows Compass Tengu Wile]
+    Timeout(id + 0x60, 12.5f, "Clout Of The Tengu").SetHint(StateMachine.StateHint.Raidwide); // t=76.7; Ability 2B95 from Otengu; cactbot StartsUsing 2B95 [Swallows Compass Tengu Clout]
+    Timeout(id + 0x70, 8.8f, "Flames Of Hate"); // t=85.5; Ability 2B98 from Tengu Ember; cactbot StartsUsing 2898 [Swallows Compass Flames Of Hate]
+    Timeout(id + 0x80, 7.6f, "Might Of The Tengu").SetHint(StateMachine.StateHint.Tankbuster); // t=93.1; Ability 2B94 from Otengu; cactbot StartsUsing 2B94 [Swallows Compass Tengu Might]
+    Timeout(id + 0x90, 13.0f, "Clout Of The Tengu").SetHint(StateMachine.StateHint.Raidwide); // t=106.1; Ability 2B95 from Otengu; cactbot StartsUsing 2B95 [Swallows Compass Tengu Clout]
+    Timeout(id + 0xA0, 18.9f, "Yama-Kagura"); // t=125.0; Ability 2B96 from Otengu
+    Timeout(id + 0xB0, 11.1f, "Wile Of The Tengu"); // t=136.1; Ability 2B97 from Otengu; cactbot StartsUsing 2B97 [Swallows Compass Tengu Wile]
+    Timeout(id + 0xC0, 12.5f, "Clout Of The Tengu").SetHint(StateMachine.StateHint.Raidwide); // t=148.6; Ability 2B95 from Otengu; cactbot StartsUsing 2B95 [Swallows Compass Tengu Clout]
+    Timeout(id + 0xD0, 8.8f, "Flames Of Hate"); // t=157.4; Ability 2B98 from Tengu Ember; cactbot StartsUsing 2898 [Swallows Compass Flames Of Hate]
+    Timeout(id + 0xE0, 7.5f, "Might Of The Tengu").SetHint(StateMachine.StateHint.Tankbuster); // t=164.9; Ability 2B94 from Otengu; cactbot StartsUsing 2B94 [Swallows Compass Tengu Might]
+    Timeout(id + 0xF0, 13.0f, "Clout Of The Tengu").SetHint(StateMachine.StateHint.Raidwide); // t=177.9; Ability 2B95 from Otengu; cactbot StartsUsing 2B95 [Swallows Compass Tengu Clout]
+    Timeout(id + 0x100, 11.9f, "Yama-Kagura"); // t=189.8; Ability 2B96 from Otengu
+    Timeout(id + 0x110, 21.4f, "Yama-Kagura"); // t=211.2; Ability 2B96 from Otengu
+    Timeout(id + 0x120, 11.1f, "Wile Of The Tengu"); // t=222.3
+    Timeout(id + 0x130, 12.5f, "Clout Of The Tengu"); // t=234.8
+    Timeout(id + 0x140, 8.8f, "Flames Of Hate"); // t=243.6; cactbot StartsUsing 2898 [Swallows Compass Flames Of Hate]
+    Timeout(id + 0x150, 756.4f, "Start"); // t=1000.0
+    Timeout(id + 0x160, 11.2f, "Greater Palm"); // t=1011.2
+    Timeout(id + 0x170, 11.9f, "Greater Palm"); // t=1023.1
+    Timeout(id + 0x180, 12.2f, "Tributary"); // t=1035.3; Ability 2BA0 from Daidarabotchi
+    Timeout(id + 0x190, 0.2f, "Mountain Falls"); // t=1035.5; Ability 2BA5 from Daidarabotchi; cactbot HeadMarker 87 [Swallows Compass Mountain Falls]
+    Timeout(id + 0x1A0, 15.9f, "Mirage x5"); // t=1051.4; Ability 2BA1 from Daidarabotchi
+    Timeout(id + 0x1B0, 16.1f, "Mythmaker").SetHint(StateMachine.StateHint.Raidwide); // t=1067.5; Ability 2BA4 from Daidarabotchi; cactbot Ability 2BA3 [Swallows Compass Mythmaker]
+    Timeout(id + 0x1C0, 18.1f, "Mountain Falls"); // t=1085.6; Ability 2BA5 from Daidarabotchi; cactbot HeadMarker 87 [Swallows Compass Mountain Falls]
+    Timeout(id + 0x1D0, 5.5f, "Greater Palm"); // t=1091.1
+    Timeout(id + 0x1E0, 13.3f, "Tributary"); // t=1104.4; Ability 2BA0 from Daidarabotchi
+    Timeout(id + 0x1F0, 17.0f, "Mirage x5"); // t=1121.4; Ability 2BA1 from Daidarabotchi
+    Timeout(id + 0x200, 10.5f, "Greater Palm 1"); // t=1131.9
+    Timeout(id + 0x210, 6.8f, "Greater Palm 2"); // t=1138.7
+    Timeout(id + 0x220, 13.2f, "Tributary"); // t=1151.9; Ability 2BA0 from Daidarabotchi
+    Timeout(id + 0x230, 0.2f, "Mountain Falls"); // t=1152.1; Ability 2BA5 from Daidarabotchi; cactbot HeadMarker 87 [Swallows Compass Mountain Falls]
+    Timeout(id + 0x240, 12.3f, "Greater Palm"); // t=1164.4
+    Timeout(id + 0x250, 17.4f, "Mirage x5"); // t=1181.8; Ability 2BA1 from Daidarabotchi
+    Timeout(id + 0x260, 9.5f, "Greater Palm"); // t=1191.3
+    Timeout(id + 0x270, 17.4f, "Mythmaker"); // t=1208.7; cactbot Ability 2BA3 [Swallows Compass Mythmaker]
+    Timeout(id + 0x280, 18.1f, "Mountain Falls"); // t=1226.8; cactbot HeadMarker 87 [Swallows Compass Mountain Falls]
+    Timeout(id + 0x290, 5.5f, "Greater Palm"); // t=1232.3
+    Timeout(id + 0x2A0, 13.3f, "Tributary"); // t=1245.6
+    Timeout(id + 0x2B0, 17.0f, "Mirage x5"); // t=1262.6
+    Timeout(id + 0x2C0, 737.4f, "Start"); // t=2000.0
+    Timeout(id + 0x2D0, 11.8f, "The Short End").SetHint(StateMachine.StateHint.Tankbuster); // t=2011.8; Ability 2BA6 from Qitian Dasheng; cactbot StartsUsing 2BA6/2D07 [Swallows Compass Short End]
+    Timeout(id + 0x2E0, 13.7f, "Both Ends"); // t=2025.5
+    Timeout(id + 0x2F0, 10.6f, "Mount Huaguo").SetHint(StateMachine.StateHint.Raidwide); // t=2036.1; Ability 2BAA from Qitian Dasheng; cactbot StartsUsing 2BAA/2D08 [Swallows Compass Mount Huaguo]
+    Timeout(id + 0x300, 16.2f, "Both Ends"); // t=2052.3
+    Timeout(id + 0x310, 16.9f, "The Long End"); // t=2069.2; Ability 2BA7 from Qitian Dasheng
+    Timeout(id + 0x320, 7.1f, "Five-Fingered Punishment"); // t=2076.3; Ability 2BAB from Qitian Dasheng; cactbot HeadMarker 3E [Swallows Compass Five Fingered Punishment]
+    Timeout(id + 0x330, 8.6f, "Both Ends"); // t=2084.9
+    Timeout(id + 0x340, 17.8f, "Both Ends"); // t=2102.7
+    Timeout(id + 0x350, 10.6f, "Mount Huaguo").SetHint(StateMachine.StateHint.Raidwide); // t=2113.3; Ability 2BAA from Qitian Dasheng; cactbot StartsUsing 2BAA/2D08 [Swallows Compass Mount Huaguo]
+    Timeout(id + 0x360, 19.3f, "Both Ends"); // t=2132.6
+    Timeout(id + 0x370, 10.6f, "The Short End").SetHint(StateMachine.StateHint.Tankbuster); // t=2143.2; Ability 2BA6 from Qitian Dasheng; cactbot StartsUsing 2BA6/2D07 [Swallows Compass Short End]
+    Timeout(id + 0x380, 19.0f, "Both Ends"); // t=2162.2
+    Timeout(id + 0x390, 10.6f, "Mount Huaguo"); // t=2172.8; cactbot StartsUsing 2BAA/2D08 [Swallows Compass Mount Huaguo]
+    Timeout(id + 0x3A0, 19.3f, "Both Ends"); // t=2192.1
+    Timeout(id + 0x3B0, 10.6f, "The Short End"); // t=2202.7
+    Timeout(id + 0x3C0, 107.6f, "Equal Of Heaven"); // t=2310.3; Ability 2BB4 from Qitian Dasheng
+    Timeout(id + 0x3D0, 14.0f, "Equal Of Heaven"); // t=2324.3; Ability 2BB4 from Qitian Dasheng
+    Timeout(id + 0x3E0, 14.0f, "Equal Of Heaven"); // t=2338.3; Ability 2BB4 from Qitian Dasheng
+    Timeout(id + 0x3F0, 35.6f, "Second Heaven"); // t=2373.9; Ability 2BB1 from Qitian Dasheng
+    Timeout(id + 0x400, 10.0f, "Splitting Hairs"); // t=2383.9; Ability 2BB2 from Qitian Dasheng
+    Timeout(id + 0x410, 8.1f, "Equal Of Heaven"); // t=2392.0; Ability 2BB4 from Qitian Dasheng
+    Timeout(id + 0x420, 4.0f, "Both Ends"); // t=2396.0
+    Timeout(id + 0x430, 11.6f, "Mount Huaguo").SetHint(StateMachine.StateHint.Raidwide); // t=2407.6; Ability 2D08 from Shadow Of The Sage; cactbot StartsUsing 2BAA/2D08 [Swallows Compass Mount Huaguo]
+    Timeout(id + 0x440, 14.3f, "Equal Of Heaven"); // t=2421.9; Ability 2BB4 from Qitian Dasheng
+    Timeout(id + 0x450, 2.1f, "The Long End"); // t=2424.0; Ability 2BAD from Shadow Of The Sage
+    Timeout(id + 0x460, 11.2f, "The Short End").SetHint(StateMachine.StateHint.Tankbuster); // t=2435.2; Ability 2D07 from Shadow Of The Sage; cactbot StartsUsing 2BA6/2D07 [Swallows Compass Short End]
+    Timeout(id + 0x470, 13.9f, "Equal Of Heaven"); // t=2449.1; Ability 2BB4 from Qitian Dasheng
+    Timeout(id + 0x480, 2.0f, "Five-Fingered Punishment"); // t=2451.1; Ability 2BB0 from Shadow Of The Sage; cactbot HeadMarker 3E [Swallows Compass Five Fingered Punishment]
+    Timeout(id + 0x490, 2.0f, "Both Ends"); // t=2453.1
+    Timeout(id + 0x4A0, 11.6f, "Mount Huaguo / The Short End").SetHint(StateMachine.StateHint.Raidwide | StateMachine.StateHint.Tankbuster); // t=2464.7; Ability 2D08 from Shadow Of The Sage | Ability 2D07 from Shadow Of The Sage; cactbot StartsUsing 2BA6/2D07 [Swallows Compass Short End] | StartsUsing 2BAA/2D08 [Swallows Compass Mount Huaguo]
+    Timeout(id + 0x4B0, 14.3f, "Equal Of Heaven"); // t=2479.0; Ability 2BB4 from Qitian Dasheng
+    Timeout(id + 0x4C0, 4.0f, "Both Ends"); // t=2483.0
+    Timeout(id + 0x4D0, 11.6f, "Mount Huaguo"); // t=2494.6; cactbot StartsUsing 2BAA/2D08 [Swallows Compass Mount Huaguo]
+    Timeout(id + 0x4E0, 14.3f, "Equal Of Heaven"); // t=2508.9
+    Timeout(id + 0x4F0, 2.1f, "The Long End"); // t=2511.0
+    Timeout(id + 0x500, 11.2f, "The Short End"); // t=2522.2
+    Condition(id + 0x510, 68.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2BB3), "", 5f, 63.1f); // t=2590.3; StartsUsing 2BB3 from Shadow Of The Sage
+    Timeout(id + 0x520, 9.7f, "Splitting Hairs"); // t=2600.0; Ability 2BB3 from Shadow Of The Sage
+    Timeout(id + 0x530, 8.0f, "Equal Of Heaven"); // t=2608.0; Ability 2BB4 from Qitian Dasheng
+    Timeout(id + 0x540, 2.0f, "Five-Fingered Punishment? / The Long End?"); // t=2610.0; Ability 2BB0 from Shadow Of The Sage | Ability 2BAD from Shadow Of The Sage
+    Timeout(id + 0x550, 2.0f, "Both Ends?"); // t=2612.0
+}
+

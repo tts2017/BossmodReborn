@@ -1,0 +1,165 @@
+// Generated development skeleton from e11s.txt (TerritoryType 948).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 30 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e11s.ts.
+
+private void Eden_11__Savage(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 17.4f, "Elemental Break"); // t=17.4
+    Timeout(id + 0x20, 2.5f, "Sinsmoke/Sinsmite"); // t=19.9
+    Timeout(id + 0x30, 4.0f, "--center--"); // t=23.9; Ability 5908 from Fatebreaker
+    Timeout(id + 0x40, 9.1f, "Burnt Strike"); // t=33.0
+    Timeout(id + 0x50, 1.7f, "Burnout/Blastburn"); // t=34.7
+    Timeout(id + 0x60, 12.0f, "Bound Of Faith"); // t=46.7; cactbot Tether 11 [E11S Bound Of Faith Tether Collector] | Tether 11 [E11S Bound Of Faith Tether Collector Cleanup]
+    Timeout(id + 0x70, 3.4f, "Sinsmoke/Sinsmite"); // t=50.1
+    Timeout(id + 0x80, 9.8f, "Burnished Glory"); // t=59.9; Ability 56A4 from Fatebreaker; cactbot StartsUsing 56A4 [E11S Burnished Glory]
+    Timeout(id + 0x90, 10.5f, "Powder Mark").SetHint(StateMachine.StateHint.Tankbuster); // t=70.4; Ability 56A2 from Fatebreaker; cactbot StartsUsing 56A2 [E11S Powder Mark]
+    Timeout(id + 0xA0, 7.5f, "Turn Of The Heavens"); // t=77.9; Ability 566A from Fatebreaker; cactbot StartsUsing 566A [E11S Turn of the Heavens Fire]
+    Timeout(id + 0xB0, 11.4f, "Burn Mark"); // t=89.3; Ability 56A3 from Fatebreaker
+    Timeout(id + 0xC0, 0.4f, "Brightfire"); // t=89.7
+    Timeout(id + 0xD0, 4.7f, "--center--"); // t=94.4; Ability 5908 from Fatebreaker
+    Timeout(id + 0xE0, 9.5f, "Burnt Strike"); // t=103.9
+    Timeout(id + 0xF0, 1.7f, "Burnout/Blastburn"); // t=105.6
+    Timeout(id + 0x100, 12.0f, "Bound Of Faith"); // t=117.6; cactbot Tether 11 [E11S Bound Of Faith Tether Collector] | Tether 11 [E11S Bound Of Faith Tether Collector Cleanup]
+    Timeout(id + 0x110, 3.7f, "Sinsmoke/Sinsmite"); // t=121.3
+    Timeout(id + 0x120, 11.3f, "Elemental Break"); // t=132.6
+    Timeout(id + 0x130, 2.5f, "Sinsmite/Sinsmoke"); // t=135.1
+    Timeout(id + 0x140, 12.0f, "Shifting Sky"); // t=147.1
+    Targetable(id + 0x150, false, 2.4f, "--untargetable--"); // t=149.5
+    Timeout(id + 0x160, 5.2f, "Ageless Serpent"); // t=154.7; Ability 5687 from Demi-Gukumatz
+    Timeout(id + 0x170, 11.1f, "Resonant Winds"); // t=165.8; Ability 5689 from Demi-Gukumatz
+    Timeout(id + 0x180, 3.6f, "Sinsmoke / Sinsmite"); // t=169.4; Ability 5681 from Fatebreaker's Image | Ability 5684 from Fatebreaker's Image
+    Timeout(id + 0x190, 0.4f, "Bow Shock"); // t=169.8; Ability 5685 from Fatebreaker's Image
+    Timeout(id + 0x1A0, 3.2f, "Burnt Strike "); // t=173.0; Ability 567B from Fatebreaker's Image
+    Timeout(id + 0x1B0, 1.7f, "Burnout"); // t=174.7; Ability 567C from Fatebreaker's Image
+    Timeout(id + 0x1C0, 1.3f, "Burnt Strike"); // t=176.0; Ability 5679 from Fatebreaker's Image
+    Timeout(id + 0x1D0, 2.0f, "Blastburn"); // t=178.0; Ability 567A from Fatebreaker's Image
+    Targetable(id + 0x1E0, true, 2.7f, "--targetable--"); // t=180.7
+}
+
+private void Phase_2__light_sparkles(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Elemental Break"); // t=191.5
+    Timeout(id + 0x10, 2.6f, "Sinsmite/Sinsmoke"); // t=194.1
+    Timeout(id + 0x20, 9.9f, "Burnished Glory"); // t=204.0; Ability 56A4 from Fatebreaker; cactbot StartsUsing 56A4 [E11S Burnished Glory]
+    Timeout(id + 0x30, 17.1f, "Elemental Break"); // t=221.1; Ability 5668 from Fatebreaker; cactbot StartsUsing 5668 [E11S Elemental Break Holy]
+    Timeout(id + 0x40, 2.5f, "Sinsight"); // t=223.6; Ability 5669 from Fatebreaker
+    Timeout(id + 0x50, 4.0f, "--center--"); // t=227.6; Ability 5908 from Fatebreaker
+    Timeout(id + 0x60, 9.4f, "Burnt Strike"); // t=237.0; Ability 5656 from Fatebreaker; cactbot StartsUsing 5656 [E11S Burnt Strike Holy]
+    Timeout(id + 0x70, 5.0f, "Shining Blade"); // t=242.0; Ability 5657 from Fatebreaker
+    Timeout(id + 0x80, 8.7f, "Bound Of Faith"); // t=250.7; Ability 565F from Fatebreaker; cactbot StartsUsing 565F [E11S Bound Of Faith Holy]
+    Timeout(id + 0x90, 3.6f, "Sinsight"); // t=254.3; Ability 5661 from Fatebreaker
+    Timeout(id + 0xA0, 5.6f, "Mortal Burn Mark"); // t=259.9; Ability 5662 from Fatebreaker
+    Timeout(id + 0xB0, 4.2f, "Burnished Glory"); // t=264.1; Ability 56A4 from Fatebreaker; cactbot StartsUsing 56A4 [E11S Burnished Glory]
+    Timeout(id + 0xC0, 10.5f, "Powder Mark").SetHint(StateMachine.StateHint.Tankbuster); // t=274.6; Ability 56A2 from Fatebreaker; cactbot StartsUsing 56A2 [E11S Powder Mark]
+    Timeout(id + 0xD0, 7.5f, "Right Of The Heavens"); // t=282.1
+    Timeout(id + 0xE0, 11.4f, "Burn Mark"); // t=293.5; Ability 56A3 from Fatebreaker
+    Timeout(id + 0xF0, 5.1f, "--center--"); // t=298.6; Ability 5908 from Fatebreaker
+    Timeout(id + 0x100, 9.6f, "Burnt Strike"); // t=308.2
+    Timeout(id + 0x110, 1.7f, "Burnout/Blastburn"); // t=309.9
+    Timeout(id + 0x120, 12.0f, "Bound Of Faith"); // t=321.9; cactbot Tether 11 [E11S Bound Of Faith Tether Collector] | Tether 11 [E11S Bound Of Faith Tether Collector Cleanup]
+    Timeout(id + 0x130, 3.7f, "Sinsmoke/Sinsmite/Sinsight"); // t=325.6
+    Timeout(id + 0x140, 5.6f, "Mortal Burn Mark?"); // t=331.2
+    Timeout(id + 0x150, 5.7f, "Elemental Break"); // t=336.9
+    Timeout(id + 0x160, 2.5f, "Sinsmoke/Sinsmite/Sinsight"); // t=339.4
+    Timeout(id + 0x170, 12.0f, "Sundered Sky"); // t=351.4
+    Targetable(id + 0x180, false, 2.4f, "--untargetable--"); // t=353.8
+    Timeout(id + 0x190, 5.2f, "Ageless Serpent"); // t=359.0; Ability 5687 from Demi-Gukumatz
+    Timeout(id + 0x1A0, 11.5f, "Resounding Crack"); // t=370.5; Ability 5688 from Demi-Gukumatz
+    Timeout(id + 0x1B0, 2.0f, "Sinsmoke"); // t=372.5; Ability 5681 from Fatebreaker's Image
+    Timeout(id + 0x1C0, 0.1f, "Sinsight"); // t=372.6; Ability 5BC7 from Fatebreaker's Image
+    Timeout(id + 0x1D0, 3.9f, "Burnt Strike"); // t=376.5; Ability 567D from Fatebreaker's Image
+    Timeout(id + 0x1E0, 1.7f, "Mortal Burn Mark"); // t=378.2; Ability 5BC8 from Fatebreaker's Image
+    Timeout(id + 0x1F0, 1.9f, "Burnt Strike "); // t=380.1; Ability 567B from Fatebreaker's Image
+    Timeout(id + 0x200, 1.5f, "Shining Blade"); // t=381.6; Ability 567E from Fatebreaker's Image
+    Timeout(id + 0x210, 0.2f, "Burnout"); // t=381.8; Ability 567C from Fatebreaker's Image
+    Timeout(id + 0x220, 1.8f, "Burnt Strike"); // t=383.6; Ability 5679 from Fatebreaker's Image
+    Timeout(id + 0x230, 2.0f, "Blastburn"); // t=385.6; Ability 567A from Fatebreaker's Image
+    Targetable(id + 0x240, true, 0.8f, "--targetable--"); // t=386.4
+    Timeout(id + 0x250, 10.7f, "Elemental Break"); // t=397.1
+    Timeout(id + 0x260, 2.5f, "Sinsight/Sinsmite"); // t=399.6
+    Timeout(id + 0x270, 10.0f, "Burnished Glory"); // t=409.6; Ability 56A4 from Fatebreaker; cactbot StartsUsing 56A4 [E11S Burnished Glory]
+    Timeout(id + 0x280, 17.5f, "Turn Of The Heavens"); // t=427.1
+    Timeout(id + 0x290, 2.5f, "--center--"); // t=429.6; Ability 5908 from Fatebreaker
+    Timeout(id + 0x2A0, 9.0f, "Elemental Break"); // t=438.6
+    Timeout(id + 0x2B0, 2.5f, "Sinsmite/Sinsmoke"); // t=441.1
+    Timeout(id + 0x2C0, 9.5f, "Powder Mark").SetHint(StateMachine.StateHint.Tankbuster); // t=450.6; Ability 56A2 from Fatebreaker; cactbot StartsUsing 56A2 [E11S Powder Mark]
+    Timeout(id + 0x2D0, 7.5f, "Right Of The Heavens"); // t=458.1
+    Timeout(id + 0x2E0, 2.5f, "--center--"); // t=460.6; Ability 5908 from Fatebreaker
+    Timeout(id + 0x2F0, 8.9f, "Burn Mark / Bound Of Faith"); // t=469.5; Ability 56A3 from Fatebreaker
+    Timeout(id + 0x300, 2.1f, "Solemn Charge"); // t=471.6
+    Timeout(id + 0x310, 1.3f, "Sinsight/Sinsmoke"); // t=472.9
+    Timeout(id + 0x320, 5.6f, "Mortal Burn Mark?"); // t=478.5
+    Timeout(id + 0x330, 9.8f, "--center--"); // t=488.3; Ability 5908 from Fatebreaker
+    Timeout(id + 0x340, 5.4f, "Prismatic Deception"); // t=493.7; Ability 5672 from Fatebreaker
+    Targetable(id + 0x350, false, 3.1f, "--untargetable--"); // t=496.8
+    Timeout(id + 0x360, 17.1f, "Blasting Zone"); // t=513.9; Ability 56A5 from Fatebreaker's Image
+    Timeout(id + 0x370, 18.1f, "Blasting Zone"); // t=532.0; Ability 56A5 from Fatebreaker's Image
+    Targetable(id + 0x380, true, 5.9f, "--targetable--"); // t=537.9
+    Timeout(id + 0x390, 11.3f, "Burnished Glory"); // t=549.2; Ability 56A4 from Fatebreaker; cactbot StartsUsing 56A4 [E11S Burnished Glory]
+    Timeout(id + 0x3A0, 12.5f, "--center--"); // t=561.7; Ability 5908 from Fatebreaker
+    Timeout(id + 0x3B0, 9.0f, "Cycle Of Faith"); // t=570.7; Ability 5692 from Fatebreaker; cactbot StartsUsing 5692 [E11S Cycle of Faith Lightning] | StartsUsing 5692 [E11S Cycle of Faith Lightning Tether]
+    Timeout(id + 0x3C0, 0.1f, "Elemental Break"); // t=570.8
+    Timeout(id + 0x3D0, 2.5f, "Sinsight/Sinsmite/Sinsmoke"); // t=573.3
+    Timeout(id + 0x3E0, 1.9f, "Burnt Strike"); // t=575.2
+    Timeout(id + 0x3F0, 0.3f, "Blastburn?"); // t=575.5
+    Timeout(id + 0x400, 4.7f, "Shining Blade? / Floating Fetters"); // t=580.2
+    Timeout(id + 0x410, 110.8f, "--center--"); // t=691.0; Ability 5908 from Fatebreaker
+    Timeout(id + 0x420, 9.0f, "Cycle Of Faith"); // t=700.0; Ability 5692 from Fatebreaker; cactbot StartsUsing 5692 [E11S Cycle of Faith Lightning] | StartsUsing 5692 [E11S Cycle of Faith Lightning Tether]
+    Timeout(id + 0x430, 0.1f, "Elemental Break"); // t=700.1; Ability 5693 from Fatebreaker
+    Timeout(id + 0x440, 2.6f, "Sinsmite"); // t=702.7; Ability 5694 from Fatebreaker
+    Timeout(id + 0x450, 1.8f, "Burnt Strike"); // t=704.5; Ability 5695 from Fatebreaker
+    Timeout(id + 0x460, 1.7f, "Burnout"); // t=706.2; Ability 5696 from Fatebreaker
+    Timeout(id + 0x470, 5.4f, "Solemn Charge"); // t=711.6; Ability 5697 from Fatebreaker
+    Timeout(id + 0x480, 1.5f, "Sinsmite"); // t=713.1; Ability 5698 from Fatebreaker
+    Timeout(id + 0x490, 12.6f, "Burnished Glory"); // t=725.7; Ability 56A4 from Fatebreaker; cactbot StartsUsing 56A4 [E11S Burnished Glory]
+    Timeout(id + 0x4A0, 2.5f, "--center--"); // t=728.2; Ability 5908 from Fatebreaker
+    Timeout(id + 0x4B0, 9.0f, "Cycle Of Faith"); // t=737.2; Ability 568A from Fatebreaker; cactbot StartsUsing 568A [E11S Cycle of Faith Fire] | StartsUsing 568A [E11S Cycle of Faith Fire Tether]
+    Timeout(id + 0x4C0, 0.1f, "Elemental Break"); // t=737.3
+    Timeout(id + 0x4D0, 2.5f, "Sinsight/Sinsmite/Sinsmoke"); // t=739.8
+    Timeout(id + 0x4E0, 1.9f, "Burnt Strike"); // t=741.7
+    Timeout(id + 0x4F0, 0.3f, "Blastburn?"); // t=742.0
+    Timeout(id + 0x500, 4.7f, "Shining Blade?"); // t=746.7
+    Timeout(id + 0x510, 44.3f, "--center--"); // t=791.0; Ability 5908 from Fatebreaker
+    Timeout(id + 0x520, 9.0f, "Cycle Of Faith"); // t=800.0; Ability 569A from Fatebreaker; cactbot StartsUsing 569A [E11S Cycle of Faith Holy] | StartsUsing 569A [E11S Cycle of Faith Holy Tether]
+    Timeout(id + 0x530, 0.1f, "Elemental Break"); // t=800.1
+    Timeout(id + 0x540, 2.6f, "Sinsight"); // t=802.7; Ability 569C from Fatebreaker
+    Timeout(id + 0x550, 1.8f, "Burnt Strike"); // t=804.5; Ability 569D from Fatebreaker
+    Timeout(id + 0x560, 5.0f, "Shining Blade"); // t=809.5; Ability 569E from Fatebreaker
+    Timeout(id + 0x570, 2.1f, "Solemn Charge"); // t=811.6; Ability 569F from Fatebreaker
+    Timeout(id + 0x580, 1.5f, "Sinsight"); // t=813.1; Ability 56A0 from Fatebreaker
+    Timeout(id + 0x590, 5.6f, "Mortal Burn Mark"); // t=818.7; Ability 56A1 from Fatebreaker
+    Timeout(id + 0x5A0, 7.0f, "Burnished Glory"); // t=825.7; Ability 56A4 from Fatebreaker; cactbot StartsUsing 56A4 [E11S Burnished Glory]
+    Timeout(id + 0x5B0, 2.5f, "--center--"); // t=828.2; Ability 5908 from Fatebreaker
+    Timeout(id + 0x5C0, 9.0f, "Cycle Of Faith"); // t=837.2; Ability 5692 from Fatebreaker; cactbot StartsUsing 5692 [E11S Cycle of Faith Lightning] | StartsUsing 5692 [E11S Cycle of Faith Lightning Tether]
+    Timeout(id + 0x5D0, 0.1f, "Elemental Break"); // t=837.3
+    Timeout(id + 0x5E0, 2.5f, "Sinsight/Sinsmite/Sinsmoke"); // t=839.8
+    Timeout(id + 0x5F0, 1.9f, "Burnt Strike"); // t=841.7
+    Timeout(id + 0x600, 0.3f, "Blastburn?"); // t=842.0
+    Timeout(id + 0x610, 4.7f, "Shining Blade?"); // t=846.7
+    Timeout(id + 0x620, 44.3f, "--center--"); // t=891.0; Ability 5908 from Fatebreaker
+    Timeout(id + 0x630, 9.0f, "Cycle Of Faith"); // t=900.0; Ability 568A from Fatebreaker; cactbot StartsUsing 568A [E11S Cycle of Faith Fire] | StartsUsing 568A [E11S Cycle of Faith Fire Tether]
+    Timeout(id + 0x640, 0.1f, "Elemental Break"); // t=900.1; Ability 568B from Fatebreaker
+    Timeout(id + 0x650, 2.6f, "Sinsmoke"); // t=902.7; Ability 568D from Fatebreaker
+    Timeout(id + 0x660, 1.8f, "Burnt Strike"); // t=904.5; Ability 568E from Fatebreaker
+    Timeout(id + 0x670, 2.0f, "Blastburn"); // t=906.5; Ability 568F from Fatebreaker
+    Timeout(id + 0x680, 5.1f, "Solemn Charge"); // t=911.6; Ability 5690 from Fatebreaker
+    Timeout(id + 0x690, 1.5f, "Sinsmoke"); // t=913.1; Ability 5691 from Fatebreaker
+    Timeout(id + 0x6A0, 12.6f, "Burnished Glory"); // t=925.7; Ability 56A4 from Fatebreaker; cactbot StartsUsing 56A4 [E11S Burnished Glory]
+    Timeout(id + 0x6B0, 2.5f, "--center--"); // t=928.2; Ability 5908 from Fatebreaker
+    Timeout(id + 0x6C0, 9.0f, "Cycle Of Faith"); // t=937.2; Ability 5692 from Fatebreaker; cactbot StartsUsing 5692 [E11S Cycle of Faith Lightning] | StartsUsing 5692 [E11S Cycle of Faith Lightning Tether]
+    Timeout(id + 0x6D0, 0.1f, "Elemental Break"); // t=937.3
+    Timeout(id + 0x6E0, 2.5f, "Sinsight/Sinsmite/Sinsmoke"); // t=939.8
+    Timeout(id + 0x6F0, 1.9f, "Burnt Strike"); // t=941.7
+    Timeout(id + 0x700, 0.3f, "Blastburn?"); // t=942.0
+    Timeout(id + 0x710, 4.7f, "Shining Blade?"); // t=946.7
+    Condition(id + 0x720, 45.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5529), "Burnished Glory", 5f, 40.6f); // t=992.3; StartsUsing 5529 from Fatebreaker; cactbot StartsUsing 56A4 [E11S Burnished Glory]
+    Timeout(id + 0x730, 7.7f, "Burnished Glory Enrage"); // t=1000.0; Ability 5529 from Fatebreaker
+}
+

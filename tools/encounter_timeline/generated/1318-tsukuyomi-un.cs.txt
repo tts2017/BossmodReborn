@@ -1,0 +1,150 @@
+// Generated development skeleton from tsukuyomi-un.txt (TerritoryType 1318).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 16 static/dynamic trigger definitions from ui/raidboss/data/07-dt/trial/tsukuyomi-un.ts.
+
+private void Timeline(uint id)
+{
+    Condition(id + 0x0, 11.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB12E), "", 5f, 6.4f); // t=11.4; StartsUsing B12E from Tsukuyomi; cactbot StartsUsing B12E [TsukuyomiUn Reprimand]
+    Timeout(id + 0x10, 4.0f, "Reprimand").SetHint(StateMachine.StateHint.Raidwide); // t=15.4; Ability B12E from Tsukuyomi; cactbot StartsUsing B12E [TsukuyomiUn Reprimand]
+    Condition(id + 0x20, 6.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xB130 or 0xB131), "", 5f, 1.5f); // t=21.9; StartsUsing B130 from Tsukuyomi | StartsUsing B131 from Tsukuyomi; cactbot StartsUsing B130 [TsukuyomiUn Nightfall Gun] | StartsUsing B131 [TsukuyomiUn Nightfall Spear]
+    Timeout(id + 0x30, 3.7f, "Nightfall (gun/spear)"); // t=25.6; Ability B130/B131 from Tsukuyomi; cactbot StartsUsing B130 [TsukuyomiUn Nightfall Gun] | StartsUsing B131 [TsukuyomiUn Nightfall Spear]
+    Timeout(id + 0x40, 6.1f, "Lead Of The Underworld?"); // t=31.7; Ability B132 from Tsukuyomi
+    Timeout(id + 0x50, 0.7f, "Steel Of The Underworld 1?"); // t=32.4; Ability B133 from Tsukuyomi
+    Timeout(id + 0x60, 1.8f, "Steel Of The Underworld 2?"); // t=34.2; Ability B133 from Tsukuyomi
+    Timeout(id + 0x70, 1.8f, "Steel Of The Underworld 3?"); // t=36.0; Ability B133 from Tsukuyomi
+    Condition(id + 0x80, 164.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB130), "", 5f, 159.0f); // t=200.0; StartsUsing B130 from Tsukuyomi; cactbot StartsUsing B130 [TsukuyomiUn Nightfall Gun]
+    Timeout(id + 0x90, 4.0f, "Nightfall (gun)"); // t=204.0; Ability B130 from Tsukuyomi; cactbot StartsUsing B130 [TsukuyomiUn Nightfall Gun]
+    Timeout(id + 0xA0, 6.4f, "Lead Of The Underworld"); // t=210.4; Ability B132 from Tsukuyomi
+    Timeout(id + 0xB0, 11.2f, "Nightfall (spear)"); // t=221.6; Ability B131 from Tsukuyomi; cactbot StartsUsing B131 [TsukuyomiUn Nightfall Spear]
+    Timeout(id + 0xC0, 6.8f, "Steel Of The Underworld 1"); // t=228.4
+    Timeout(id + 0xD0, 1.8f, "Steel Of The Underworld 2"); // t=230.2
+    Timeout(id + 0xE0, 1.8f, "Steel Of The Underworld 3"); // t=232.0
+    Timeout(id + 0xF0, 14.8f, "Reprimand").SetHint(StateMachine.StateHint.Raidwide); // t=246.8; Ability B12E from Tsukuyomi; cactbot StartsUsing B12E [TsukuyomiUn Reprimand]
+    Timeout(id + 0x100, 14.0f, "Nightbloom"); // t=260.8
+    Targetable(id + 0x110, false, 0.8f, "--untargetable--"); // t=261.6
+    Condition(id + 0x120, 238.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB131), "", 5f, 233.4f); // t=500.0; StartsUsing B131 from Tsukuyomi; cactbot StartsUsing B131 [TsukuyomiUn Nightfall Spear]
+    Timeout(id + 0x130, 4.0f, "Nightfall (spear)"); // t=504.0; Ability B131 from Tsukuyomi; cactbot StartsUsing B131 [TsukuyomiUn Nightfall Spear]
+    Timeout(id + 0x140, 6.8f, "Steel Of The Underworld 1"); // t=510.8
+    Timeout(id + 0x150, 2.0f, "Steel Of The Underworld 2"); // t=512.8
+    Timeout(id + 0x160, 1.8f, "Steel Of The Underworld 3"); // t=514.6
+    Timeout(id + 0x170, 10.3f, "Nightfall (gun)"); // t=524.9; Ability B130 from Tsukuyomi; cactbot StartsUsing B130 [TsukuyomiUn Nightfall Gun]
+    Timeout(id + 0x180, 6.4f, "Lead Of The Underworld"); // t=531.3; Ability B132 from Tsukuyomi
+    Timeout(id + 0x190, 15.2f, "Reprimand").SetHint(StateMachine.StateHint.Raidwide); // t=546.5; Ability B12E from Tsukuyomi; cactbot StartsUsing B12E [TsukuyomiUn Reprimand]
+    Timeout(id + 0x1A0, 14.0f, "Nightbloom"); // t=560.5
+    Targetable(id + 0x1B0, false, 0.8f, "--untargetable--"); // t=561.3
+    Condition(id + 0x1C0, 238.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB13B), "", 5f, 233.7f); // t=800.0; StartsUsing B13B from Tsukuyomi
+    Timeout(id + 0x1D0, 5.9f, "Nightbloom"); // t=805.9; Ability B13B from Tsukuyomi
+    Targetable(id + 0x1E0, false, 0.8f, "--untargetable--"); // t=806.7
+    Timeout(id + 0x1F0, 20.5f, "Homeland adds (E->W)"); // t=827.2
+    Timeout(id + 0x200, 60.0f, "Empire adds (SW->NW)"); // t=887.2
+    Timeout(id + 0x210, 34.0f, "Enrage"); // t=921.2
+    Timeout(id + 0x220, 78.8f, "Concentrativity"); // t=1000.0; Ability B13C from Specter of Zenos
+    Timeout(id + 0x230, 6.7f, "Unmoving Troika"); // t=1006.7; Ability B158 from Specter Of Zenos
+    Timeout(id + 0x240, 17.0f, "Dispersivity"); // t=1023.7; Ability B140 from Specter
+    Timeout(id + 0x250, 6.1f, "Dispersivity"); // t=1029.8; Ability B140 from Specter
+    Timeout(id + 0x260, 6.1f, "Dispersivity"); // t=1035.9; Ability B140 from Specter
+    Timeout(id + 0x270, 6.1f, "Dispersivity"); // t=1042.0; Ability B140 from Specter
+    Timeout(id + 0x280, 6.1f, "Dispersivity"); // t=1048.1; Ability B140 from Specter
+    Timeout(id + 0x290, 66.0f, "Nightbloom"); // t=1114.1; Ability B15C from Tsukuyomi
+    Targetable(id + 0x2A0, true, 5.8f, "--targetable--"); // t=1119.9
+    Timeout(id + 0x2B0, 14.8f, "Supreme Selenomancy"); // t=1134.7; Ability B169 from Tsukuyomi; cactbot Ability B169 [TsukuyomiUn Supreme Selenomancy]
+    Timeout(id + 0x2C0, 9.0f, "Lunar Halo"); // t=1143.7; Ability B14A from Moonlight
+    Timeout(id + 0x2D0, 10.3f, "Tsuki-No-Kakera"); // t=1154.0; Ability B144 from Tsukuyomi
+    Timeout(id + 0x2E0, 6.1f, "Nightfall (gun)"); // t=1160.1; Ability B130 from Tsukuyomi; cactbot StartsUsing B130 [TsukuyomiUn Nightfall Gun]
+    Timeout(id + 0x2F0, 6.2f, "Lead Of The Underworld"); // t=1166.3; Ability B132 from Tsukuyomi
+    Timeout(id + 0x300, 12.8f, "Moonfall"); // t=1179.1; Ability B145 from Moondust
+    Timeout(id + 0x310, 1.4f, "Midnight Rain"); // t=1180.5; Ability B142 from Tsukuyomi
+    Timeout(id + 0x320, 8.9f, "Lunar Halo"); // t=1189.4; Ability B14A from Moonlight
+    Timeout(id + 0x330, 5.3f, "Lunar Rays"); // t=1194.7; Ability B147 from Tsukuyomi
+    Timeout(id + 0x340, 1.6f, "Lunar Halo"); // t=1196.3; Ability B14A from Moonlight
+    Timeout(id + 0x350, 0.4f, "Crater / Moonbeam"); // t=1196.7; Ability B160 from Moondust | Ability B148 from Moondust
+    Timeout(id + 0x360, 11.1f, "Antitwilight/Perilune"); // t=1207.8; Ability B14B/B14C from Tsukuyomi
+    Timeout(id + 0x370, 15.1f, "Reprimand").SetHint(StateMachine.StateHint.Raidwide); // t=1222.9; Ability B12E from Tsukuyomi; cactbot StartsUsing B12E [TsukuyomiUn Reprimand]
+    Timeout(id + 0x380, 7.2f, "Zashiki-Asobi"); // t=1230.1; Ability B139 from Tsukuyomi
+    Timeout(id + 0x390, 9.2f, "Nightfall (gun/spear)"); // t=1239.3; Ability B130/B131 from Tsukuyomi; cactbot StartsUsing B130 [TsukuyomiUn Nightfall Gun] | StartsUsing B131 [TsukuyomiUn Nightfall Spear]
+    Timeout(id + 0x3A0, 1.9f, "Tsuki-No-Maiogi"); // t=1241.2; Ability B13A from Dancing Fan
+    Timeout(id + 0x3B0, 3.0f, "Tsuki-No-Maiogi"); // t=1244.2; Ability B13A from Dancing Fan
+    Timeout(id + 0x3C0, 1.6f, "Lead Of The Underworld/Steel Of The Underworld"); // t=1245.8; Ability B132 from Tsukuyomi
+    Condition(id + 0x3D0, 11.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB12F), "", 5f, 6.2f); // t=1257.0; StartsUsing B12F from Tsukuyomi; cactbot StartsUsing B12F/B16A [TsukuyomiUn Torment]
+    Timeout(id + 0x3E0, 5.0f, "Torment Unto Death"); // t=1262.0; Ability B12F from Tsukuyomi; cactbot StartsUsing B12F/B16A [TsukuyomiUn Torment]
+    Timeout(id + 0x3F0, 11.6f, "Supreme Selenomancy"); // t=1273.6; Ability B169 from Tsukuyomi; cactbot Ability B169 [TsukuyomiUn Supreme Selenomancy]
+    Timeout(id + 0x400, 9.0f, "Lunar Halo"); // t=1282.6; Ability B14A from Moonlight
+    Timeout(id + 0x410, 10.0f, "Tsuki-No-Kakera"); // t=1292.6; Ability B144 from Tsukuyomi
+    Timeout(id + 0x420, 6.0f, "Nightfall (spear)"); // t=1298.6; Ability B131 from Tsukuyomi; cactbot StartsUsing B131 [TsukuyomiUn Nightfall Spear]
+    Timeout(id + 0x430, 6.6f, "Steel Of The Underworld 1"); // t=1305.2
+    Timeout(id + 0x440, 1.8f, "Steel Of The Underworld 2"); // t=1307.0
+    Timeout(id + 0x450, 1.6f, "Steel Of The Underworld 3"); // t=1308.6
+    Timeout(id + 0x460, 9.0f, "Moonfall"); // t=1317.6; Ability B145 from Moondust
+    Timeout(id + 0x470, 1.7f, "Midnight Rain"); // t=1319.3; Ability B142 from Tsukuyomi
+    Timeout(id + 0x480, 10.0f, "Lunar Halo"); // t=1329.3; Ability B14A from Moonlight
+    Timeout(id + 0x490, 4.3f, "Lunar Rays"); // t=1333.6; Ability B147 from Tsukuyomi
+    Timeout(id + 0x4A0, 2.0f, "Moonbeam / Crater"); // t=1335.6; Ability B148 from Moondust | Ability B160 from Moondust
+    Timeout(id + 0x4B0, 0.7f, "Lunar Halo"); // t=1336.3; Ability B14A from Moonlight
+    Timeout(id + 0x4C0, 10.4f, "Antitwilight/Perilune"); // t=1346.7; Ability B14B/B14C from Tsukuyomi
+    Timeout(id + 0x4D0, 15.5f, "Dance Of The Dead"); // t=1362.2; Ability B15E from Tsukuyomi
+    Timeout(id + 0x4E0, 17.3f, "Bright Blade/Dark Blade"); // t=1379.5; Ability B14E/B14F from Tsukuyomi; cactbot StartsUsing B14E [TsukuyomiUn Dark Blade] | StartsUsing B14F [TsukuyomiUn Bright Blade]
+    Timeout(id + 0x4F0, 0.9f, "Waning Grudge/Waxing Grudge"); // t=1380.4; Ability B152/B153 from Tsukuyomi
+    Timeout(id + 0x500, 12.5f, "Bright Blade/Dark Blade"); // t=1392.9; Ability B14E/B14F from Tsukuyomi; cactbot StartsUsing B14E [TsukuyomiUn Dark Blade] | StartsUsing B14F [TsukuyomiUn Bright Blade]
+    Timeout(id + 0x510, 1.0f, "Waning Grudge/Waxing Grudge"); // t=1393.9; Ability B152/B153 from Tsukuyomi
+    Timeout(id + 0x520, 10.1f, "Reprimand").SetHint(StateMachine.StateHint.Raidwide); // t=1404.0; Ability B12E from Tsukuyomi; cactbot StartsUsing B12E [TsukuyomiUn Reprimand]
+    Timeout(id + 0x530, 12.2f, "Lunacy x4"); // t=1416.2; Ability B150 from Tsukuyomi
+    Timeout(id + 0x540, 0.8f, "Tsuki-No-Maiogi"); // t=1417.0
+    Timeout(id + 0x550, 1.3f, "Lunacy"); // t=1418.3; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x560, 1.0f, "Lunacy"); // t=1419.3; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x570, 1.0f, "Lunacy"); // t=1420.3; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Condition(id + 0x580, 3.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xB14E or 0xB14F), "", 5f, 0.0f); // t=1423.6; StartsUsing B14E/B14F from Tsukuyomi; cactbot StartsUsing B14E [TsukuyomiUn Dark Blade] | StartsUsing B14F [TsukuyomiUn Bright Blade]
+    Timeout(id + 0x590, 5.0f, "Bright Blade/Dark Blade"); // t=1428.6; Ability B14E/B14F from Tsukuyomi; cactbot StartsUsing B14E [TsukuyomiUn Dark Blade] | StartsUsing B14F [TsukuyomiUn Bright Blade]
+    Timeout(id + 0x5A0, 1.0f, "Waning Grudge/Waxing Grudge"); // t=1429.6; Ability B152/B153 from Tsukuyomi
+    Timeout(id + 0x5B0, 9.4f, "Torment Unto Death"); // t=1439.0; Ability B16A from Tsukuyomi; cactbot StartsUsing B12F/B16A [TsukuyomiUn Torment]
+    Timeout(id + 0x5C0, 13.2f, "Hagetsu"); // t=1452.2; Ability B165 from Tsukuyomi; cactbot HeadMarker 17 [TsukuyomiUn Hagetsu]
+    Timeout(id + 0x5D0, 1.8f, "Tsuki-No-Maiogi"); // t=1454.0; Ability B13A from Dancing Fan
+    Timeout(id + 0x5E0, 3.0f, "Tsuki-No-Maiogi"); // t=1457.0; Ability B13A from Dancing Fan
+    Condition(id + 0x5F0, 0.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xB14E or 0xB14F), "", 5f, 0.0f); // t=1457.9; StartsUsing B14E/B14F from Tsukuyomi; cactbot StartsUsing B14E [TsukuyomiUn Dark Blade] | StartsUsing B14F [TsukuyomiUn Bright Blade]
+    Timeout(id + 0x600, 4.8f, "Bright Blade/Dark Blade"); // t=1462.7; Ability B14E/B14F from Tsukuyomi; cactbot StartsUsing B14E [TsukuyomiUn Dark Blade] | StartsUsing B14F [TsukuyomiUn Bright Blade]
+    Timeout(id + 0x610, 1.0f, "Waning Grudge/Waxing Grudge"); // t=1463.7; Ability B152/B153 from Tsukuyomi
+    Timeout(id + 0x620, 8.0f, "Reprimand").SetHint(StateMachine.StateHint.Raidwide); // t=1471.7; Ability B12E from Tsukuyomi; cactbot StartsUsing B12E [TsukuyomiUn Reprimand]
+    Timeout(id + 0x630, 7.0f, "Reprimand").SetHint(StateMachine.StateHint.Raidwide); // t=1478.7; Ability B12E from Tsukuyomi; cactbot StartsUsing B12E [TsukuyomiUn Reprimand]
+    Timeout(id + 0x640, 12.2f, "Lunacy x5"); // t=1490.9; Ability B150 from Tsukuyomi
+    Timeout(id + 0x650, 0.8f, "Tsuki-No-Maiogi"); // t=1491.7
+    Timeout(id + 0x660, 1.3f, "Lunacy"); // t=1493.0; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x670, 1.0f, "Lunacy"); // t=1494.0; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x680, 1.0f, "Lunacy"); // t=1495.0; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x690, 1.0f, "Lunacy"); // t=1496.0; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Condition(id + 0x6A0, 3.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xB14E or 0xB14F), "", 5f, 0.0f); // t=1499.3; StartsUsing B14E/B14F from Tsukuyomi; cactbot StartsUsing B14E [TsukuyomiUn Dark Blade] | StartsUsing B14F [TsukuyomiUn Bright Blade]
+    Timeout(id + 0x6B0, 5.0f, "Bright Blade/Dark Blade"); // t=1504.3; Ability B14E/B14F from Tsukuyomi; cactbot StartsUsing B14E [TsukuyomiUn Dark Blade] | StartsUsing B14F [TsukuyomiUn Bright Blade]
+    Timeout(id + 0x6C0, 1.0f, "Waning Grudge/Waxing Grudge"); // t=1505.3; Ability B152/B153 from Tsukuyomi
+    Timeout(id + 0x6D0, 9.4f, "Torment Unto Death"); // t=1514.7; Ability B16A from Tsukuyomi; cactbot StartsUsing B12F/B16A [TsukuyomiUn Torment]
+    Timeout(id + 0x6E0, 13.2f, "Hagetsu"); // t=1527.9; Ability B165 from Tsukuyomi; cactbot HeadMarker 17 [TsukuyomiUn Hagetsu]
+    Timeout(id + 0x6F0, 1.8f, "Tsuki-No-Maiogi"); // t=1529.7; Ability B13A from Dancing Fan
+    Timeout(id + 0x700, 3.0f, "Tsuki-No-Maiogi"); // t=1532.7; Ability B13A from Dancing Fan
+    Condition(id + 0x710, 0.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xB14E or 0xB14F), "", 5f, 0.0f); // t=1533.2; StartsUsing B14E/B14F from Tsukuyomi; cactbot StartsUsing B14E [TsukuyomiUn Dark Blade] | StartsUsing B14F [TsukuyomiUn Bright Blade]
+    Timeout(id + 0x720, 4.8f, "Bright Blade/Dark Blade"); // t=1538.0; Ability B14E/B14F from Tsukuyomi; cactbot StartsUsing B14E [TsukuyomiUn Dark Blade] | StartsUsing B14F [TsukuyomiUn Bright Blade]
+    Timeout(id + 0x730, 1.0f, "Waning Grudge/Waxing Grudge"); // t=1539.0; Ability B152/B153 from Tsukuyomi
+    Timeout(id + 0x740, 8.2f, "Reprimand").SetHint(StateMachine.StateHint.Raidwide); // t=1547.2; Ability B12E from Tsukuyomi; cactbot StartsUsing B12E [TsukuyomiUn Reprimand]
+    Timeout(id + 0x750, 7.2f, "Reprimand").SetHint(StateMachine.StateHint.Raidwide); // t=1554.4; Ability B12E from Tsukuyomi; cactbot StartsUsing B12E [TsukuyomiUn Reprimand]
+    Timeout(id + 0x760, 12.2f, "Lunacy x6"); // t=1566.6; Ability B150 from Tsukuyomi
+    Timeout(id + 0x770, 0.8f, "Tsuki-No-Maiogi"); // t=1567.4
+    Timeout(id + 0x780, 1.3f, "Lunacy"); // t=1568.7; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x790, 1.0f, "Lunacy"); // t=1569.7; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x7A0, 1.0f, "Lunacy"); // t=1570.7; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x7B0, 1.0f, "Lunacy"); // t=1571.7; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x7C0, 1.0f, "Lunacy"); // t=1572.7; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Condition(id + 0x7D0, 3.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xB14E or 0xB14F), "", 5f, 0.0f); // t=1575.9; StartsUsing B14E/B14F from Tsukuyomi; cactbot StartsUsing B14E [TsukuyomiUn Dark Blade] | StartsUsing B14F [TsukuyomiUn Bright Blade]
+    Timeout(id + 0x7E0, 5.0f, "Bright Blade/Dark Blade"); // t=1580.9; Ability B14E/B14F from Tsukuyomi; cactbot StartsUsing B14E [TsukuyomiUn Dark Blade] | StartsUsing B14F [TsukuyomiUn Bright Blade]
+    Timeout(id + 0x7F0, 1.0f, "Waning Grudge/Waxing Grudge"); // t=1581.9; Ability B152/B153 from Tsukuyomi
+    Condition(id + 0x800, 6.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB154), "", 5f, 1.5f); // t=1588.4; StartsUsing B154 from Tsukuyomi
+    Timeout(id + 0x810, 5.0f, "Lunacy"); // t=1593.4; Ability B154 from Tsukuyomi; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x820, 2.0f, "Lunacy"); // t=1595.4; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x830, 1.0f, "Lunacy"); // t=1596.4; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x840, 1.0f, "Lunacy"); // t=1597.4; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x850, 1.0f, "Lunacy"); // t=1598.4; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x860, 1.0f, "Lunacy"); // t=1599.4; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x870, 1.0f, "Lunacy"); // t=1600.4; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x880, 1.0f, "Lunacy"); // t=1601.4; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x890, 1.0f, "Lunacy"); // t=1602.4; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x8A0, 1.0f, "Lunacy"); // t=1603.4; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x8B0, 1.0f, "Lunacy"); // t=1604.4; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+    Timeout(id + 0x8C0, 1.0f, "Lunacy"); // t=1605.4; Ability B155 from Tsukuyomi; cactbot HeadMarker 3E [TsukuyomiUn Lunacy]
+}
+

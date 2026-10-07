@@ -1,0 +1,95 @@
+// Generated development skeleton from aetherfont.txt (TerritoryType 1126).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 16 static/dynamic trigger definitions from ui/raidboss/data/06-ew/dungeon/aetherfont.ts.
+
+private void The_Aetherfont(uint id)
+{
+    Condition(id + 0x0, 106.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x823A), "", 5f, 101.3f); // t=106.3; StartsUsing 823A from Lyngbakr; cactbot StartsUsing 823A [Aetherfont Lyngbakr Upsweep]
+    Timeout(id + 0x10, 5.0f, "Upsweep").SetHint(StateMachine.StateHint.Raidwide); // t=111.3; Ability 823A from Lyngbakr; cactbot StartsUsing 823A [Aetherfont Lyngbakr Upsweep]
+    Timeout(id + 0x20, 10.4f, "Tidal Breath"); // t=121.7; Ability 8240 from Lyngbakr; cactbot StartsUsing 8240 [Aetherfont Lyngbakr Tidal Breath]
+    Timeout(id + 0x30, 10.1f, "Body Slam").SetHint(StateMachine.StateHint.Raidwide); // t=131.8; Ability 8237 from Lyngbakr; cactbot StartsUsing 8237 [Aetherfont Lyngbakr Bodyslam]
+    Timeout(id + 0x40, 8.7f, "Upsweep").SetHint(StateMachine.StateHint.Raidwide); // t=140.5; Ability 823A from Lyngbakr; cactbot StartsUsing 823A [Aetherfont Lyngbakr Upsweep]
+    Timeout(id + 0x50, 6.1f, "Resonant Frequency (small)"); // t=146.6; Ability 823B from Lyngbakr
+    Timeout(id + 0x60, 8.2f, "Body Slam").SetHint(StateMachine.StateHint.Raidwide); // t=154.8; Ability 8237 from Lyngbakr; cactbot StartsUsing 8237 [Aetherfont Lyngbakr Bodyslam]
+    Timeout(id + 0x70, 8.7f, "Upsweep").SetHint(StateMachine.StateHint.Raidwide); // t=163.5; Ability 823A from Lyngbakr; cactbot StartsUsing 823A [Aetherfont Lyngbakr Upsweep]
+    Timeout(id + 0x80, 11.0f, "Explosive Frequency (big) / Floodstide"); // t=174.5; Ability 823C from Lyngbakr | Ability 823D from Lyngbakr; cactbot StartsUsing 823D [Aetherfont Lyngbakr Floodstide]
+    Timeout(id + 0x90, 6.0f, "Waterspout"); // t=180.5; Ability 823E from Lyngbakr
+    Timeout(id + 0xA0, 6.0f, "Tidalspout"); // t=186.5; Ability 823F from Lyngbakr; cactbot StartsUsing 823F [Aetherfont Lyngbakr Tidalspout]
+    Timeout(id + 0xB0, 6.1f, "Tidal Breath"); // t=192.6; Ability 8240 from Lyngbakr; cactbot StartsUsing 8240 [Aetherfont Lyngbakr Tidal Breath]
+    Timeout(id + 0xC0, 10.6f, "Body Slam").SetHint(StateMachine.StateHint.Raidwide); // t=203.2; Ability 8237 from Lyngbakr; cactbot StartsUsing 8237 [Aetherfont Lyngbakr Bodyslam]
+    Timeout(id + 0xD0, 8.7f, "Upsweep").SetHint(StateMachine.StateHint.Raidwide); // t=211.9; Ability 823A from Lyngbakr; cactbot StartsUsing 823A [Aetherfont Lyngbakr Upsweep]
+    Timeout(id + 0xE0, 6.1f, "Resonant Frequency (small)"); // t=218.0; Ability 823B from Lyngbakr
+    Timeout(id + 0xF0, 5.0f, "Explosive Frequency (big)"); // t=223.0; Ability 823C from Lyngbakr
+    Timeout(id + 0x100, 6.0f, "Tidal Breath"); // t=229.0; Ability 8240 from Lyngbakr; cactbot StartsUsing 8240 [Aetherfont Lyngbakr Tidal Breath]
+    Timeout(id + 0x110, 8.2f, "Sonic Bloop").SetHint(StateMachine.StateHint.Tankbuster); // t=237.2; Ability 8241 from Lyngbakr; cactbot StartsUsing 8241 [Aetherfont Lyngbakr Sonic Bloop]
+    Timeout(id + 0x120, 8.1f, "Upsweep").SetHint(StateMachine.StateHint.Raidwide); // t=245.3; Ability 823A from Lyngbakr; cactbot StartsUsing 823A [Aetherfont Lyngbakr Upsweep]
+    Timeout(id + 0x130, 7.1f, "Upsweep").SetHint(StateMachine.StateHint.Raidwide); // t=252.4; Ability 823A from Lyngbakr; cactbot StartsUsing 823A [Aetherfont Lyngbakr Upsweep]
+    Timeout(id + 0x140, 12.1f, "Body Slam").SetHint(StateMachine.StateHint.Raidwide); // t=264.5; Ability 8237 from Lyngbakr; cactbot StartsUsing 8237 [Aetherfont Lyngbakr Bodyslam]
+    Timeout(id + 0x150, 8.7f, "Upsweep"); // t=273.2; cactbot StartsUsing 823A [Aetherfont Lyngbakr Upsweep]
+    Timeout(id + 0x160, 11.0f, "Explosive Frequency (big) / Floodstide"); // t=284.2
+    Timeout(id + 0x170, 6.0f, "Waterspout"); // t=290.2
+    Timeout(id + 0x180, 6.0f, "Tidalspout"); // t=296.2; cactbot StartsUsing 823F [Aetherfont Lyngbakr Tidalspout]
+    Condition(id + 0x190, 208.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x872D), "", 5f, 203.8f); // t=505.0; StartsUsing 872D from Arkas; cactbot StartsUsing 872D [Aetherfont Arkas Battle Cry Initial]
+    Timeout(id + 0x1A0, 5.0f, "Battle Cry").SetHint(StateMachine.StateHint.Raidwide); // t=510.0; Ability 872D from Arkas; cactbot StartsUsing 872D [Aetherfont Arkas Battle Cry Initial]
+    Timeout(id + 0x1B0, 11.3f, "Lightning Leap"); // t=521.3; Ability 824E from Arkas
+    Timeout(id + 0x1C0, 7.1f, "Forked Fissures"); // t=528.4; Ability 8251 from Arkas
+    Timeout(id + 0x1D0, 3.0f, "Lightning Leap"); // t=531.4; Ability 824F from Arkas
+    Timeout(id + 0x1E0, 7.1f, "Forked Fissures"); // t=538.5; Ability 8251 from Arkas
+    Timeout(id + 0x1F0, 9.6f, "Ripper Claw").SetHint(StateMachine.StateHint.Tankbuster); // t=548.1; Ability 8258 from Arkas; cactbot StartsUsing 8258 [Aetherfont Arkas Ripper Claw]
+    Timeout(id + 0x200, 10.0f, "Spinning Claw"); // t=558.1; Ability 8252 from Arkas
+    Timeout(id + 0x210, 5.6f, "Spun Lightning"); // t=563.7; Ability 8253 from Arkas
+    Timeout(id + 0x220, 8.6f, "Battle Cry"); // t=572.3; Ability 8254 from Arkas; cactbot StartsUsing 8254 [Aetherfont Arkas Battle Cry]
+    Timeout(id + 0x230, 11.1f, "Lightning Rampage 1"); // t=583.4; Ability 860E from Arkas
+    Timeout(id + 0x240, 5.0f, "Lightning Rampage 2"); // t=588.4; Ability 860F from Arkas
+    Timeout(id + 0x250, 2.0f, "Forked Fissures"); // t=590.4; Ability 8251 from Arkas
+    Timeout(id + 0x260, 4.0f, "Lightning Rampage 3"); // t=594.4; Ability 860F from Arkas
+    Timeout(id + 0x270, 1.0f, "Forked Fissures"); // t=595.4; Ability 8251 from Arkas
+    Timeout(id + 0x280, 5.0f, "Lightning Rampage 4"); // t=600.4; Ability 8610 from Arkas
+    Timeout(id + 0x290, 1.1f, "Forked Fissures"); // t=601.5; Ability 8251 from Arkas
+    Timeout(id + 0x2A0, 6.0f, "Forked Fissures"); // t=607.5; Ability 8251 from Arkas
+    Timeout(id + 0x2B0, 5.7f, "Lightning Claw"); // t=613.2; Ability 8798 from Arkas; cactbot StartsUsing 8798 [Aetherfont Arkas Lightning Claw]
+    Timeout(id + 0x2C0, 7.8f, "Electrify"); // t=621.0; Ability 8257 from Arkas; cactbot Ability 8256 [Aetherfont Arkas Electrify]
+    Timeout(id + 0x2D0, 8.2f, "Ripper Claw").SetHint(StateMachine.StateHint.Tankbuster); // t=629.2; Ability 8258 from Arkas; cactbot StartsUsing 8258 [Aetherfont Arkas Ripper Claw]
+    Timeout(id + 0x2E0, 12.6f, "Electric Eruption"); // t=641.8; Ability 834F from Arkas
+    Timeout(id + 0x2F0, 4.6f, "Shock"); // t=646.4; Ability 8255 from Arkas
+    Timeout(id + 0x300, 5.4f, "Spinning Claw"); // t=651.8; Ability 8252 from Arkas
+    Timeout(id + 0x310, 5.6f, "Spun Lightning"); // t=657.4; Ability 8253 from Arkas
+    Timeout(id + 0x320, 7.6f, "Battle Cry"); // t=665.0; Ability 8254 from Arkas; cactbot StartsUsing 8254 [Aetherfont Arkas Battle Cry]
+    Timeout(id + 0x330, 11.1f, "Lightning Rampage 1"); // t=676.1
+    Timeout(id + 0x340, 5.0f, "Lightning Rampage 2"); // t=681.1
+    Timeout(id + 0x350, 2.0f, "Forked Fissures"); // t=683.1
+    Timeout(id + 0x360, 4.0f, "Lightning Rampage 3"); // t=687.1
+    Timeout(id + 0x370, 1.0f, "Forked Fissures"); // t=688.1
+    Timeout(id + 0x380, 5.0f, "Lightning Rampage 4"); // t=693.1
+    Timeout(id + 0x390, 1.1f, "Forked Fissures"); // t=694.2
+    Timeout(id + 0x3A0, 6.0f, "Forked Fissures"); // t=700.2
+    Condition(id + 0x3B0, 304.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x824C), "", 5f, 299.4f); // t=1004.6; StartsUsing 824C from Octomammoth; cactbot StartsUsing 824C [Aetherfont Octomammoth Tidal Roar]
+    Timeout(id + 0x3C0, 5.0f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=1009.6; Ability 824C from Octomammoth; cactbot StartsUsing 824C [Aetherfont Octomammoth Tidal Roar]
+    Timeout(id + 0x3D0, 23.1f, "Octostroke"); // t=1032.7; Ability 8243 from Octomammoth
+    Timeout(id + 0x3E0, 0.3f, "Clearout"); // t=1033.0; Ability 8244 from Mammoth Tentacle
+    Timeout(id + 0x3F0, 12.0f, "Vivid Eyes"); // t=1045.0; Ability 824B from Octomammoth
+    Timeout(id + 0x400, 8.1f, "Saline Spit"); // t=1053.1; Ability 8248 from Octomammoth; cactbot StartsUsing 8248 [Aetherfont Octomammoth Saline Spit]
+    Timeout(id + 0x410, 18.4f, "Tidal Breath"); // t=1071.5; Ability 824A from Octomammoth; cactbot StartsUsing 824A [Aetherfont Octomammoth Tidal Breath]
+    Timeout(id + 0x420, 7.3f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=1078.8; Ability 824C from Octomammoth; cactbot StartsUsing 824C [Aetherfont Octomammoth Tidal Roar]
+    Timeout(id + 0x430, 12.2f, "Telekinesis (tether)"); // t=1091.0; Ability 8245 from Octomammoth
+    Timeout(id + 0x440, 10.8f, "Telekinesis (explosion)"); // t=1101.8; Ability 8247 from Octomammoth
+    Timeout(id + 0x450, 29.0f, "Clearout / Breathstroke"); // t=1130.8; Ability 8244 from Mammoth Tentacle | Ability 86F7 from Octomammoth; cactbot StartsUsing 86F7 [Aetherfont Octomammoth Breathstroke]
+    Timeout(id + 0x460, 5.3f, "Saline Spit"); // t=1136.1; Ability 8248 from Octomammoth; cactbot StartsUsing 8248 [Aetherfont Octomammoth Saline Spit]
+    Timeout(id + 0x470, 7.1f, "Vivid Eyes"); // t=1143.2; Ability 824B from Octomammoth
+    Timeout(id + 0x480, 1.0f, "Water Drop"); // t=1144.2; Ability 8684 from Octomammoth; cactbot StartsUsing 8684 [Aetherfont Octomamoth Water Drop]
+    Timeout(id + 0x490, 12.3f, "Telekinesis (tether)"); // t=1156.5; Ability 8245 from Octomammoth
+    Timeout(id + 0x4A0, 10.8f, "Telekinesis (explosion)"); // t=1167.3; Ability 8247 from Octomammoth
+    Timeout(id + 0x4B0, 11.1f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=1178.4; Ability 824C from Octomammoth; cactbot StartsUsing 824C [Aetherfont Octomammoth Tidal Roar]
+    Timeout(id + 0x4C0, 29.9f, "Clearout / Breathstroke"); // t=1208.3; Ability 8244 from Mammoth Tentacle | Ability 86F7 from Octomammoth; cactbot StartsUsing 86F7 [Aetherfont Octomammoth Breathstroke]
+    Timeout(id + 0x4D0, 5.3f, "Saline Spit"); // t=1213.6; Ability 8248 from Octomammoth; cactbot StartsUsing 8248 [Aetherfont Octomammoth Saline Spit]
+    Timeout(id + 0x4E0, 7.1f, "Vivid Eyes"); // t=1220.7; Ability 824B from Octomammoth
+    Timeout(id + 0x4F0, 1.0f, "Water Drop"); // t=1221.7; Ability 8684 from Octomammoth; cactbot StartsUsing 8684 [Aetherfont Octomamoth Water Drop]
+    Timeout(id + 0x500, 11.1f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=1232.8; Ability 824C from Octomammoth; cactbot StartsUsing 824C [Aetherfont Octomammoth Tidal Roar]
+    Timeout(id + 0x510, 33.8f, "Clearout / Breathstroke"); // t=1266.6; Ability 8244 from Mammoth Tentacle
+    Timeout(id + 0x520, 5.3f, "Saline Spit"); // t=1271.9; cactbot StartsUsing 8248 [Aetherfont Octomammoth Saline Spit]
+    Timeout(id + 0x530, 7.1f, "Vivid Eyes"); // t=1279.0
+    Timeout(id + 0x540, 1.0f, "Water Drop"); // t=1280.0; cactbot StartsUsing 8684 [Aetherfont Octomamoth Water Drop]
+    Timeout(id + 0x550, 11.1f, "Tidal Roar"); // t=1291.1; cactbot StartsUsing 824C [Aetherfont Octomammoth Tidal Roar]
+}
+

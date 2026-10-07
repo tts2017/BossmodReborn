@@ -1,0 +1,115 @@
+// Generated development skeleton from hades-ex.txt (TerritoryType 885).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 46 static/dynamic trigger definitions from ui/raidboss/data/05-shb/trial/hades-ex.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Condition(id + 0x10, 6.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x47A5), "", 5f, 1.6f); // t=6.6; StartsUsing 47A5 from Hades
+    Timeout(id + 0x20, 3.0f, "Ancient Double"); // t=9.6; Ability 47A5 from Hades
+    Timeout(id + 0x30, 9.1f, "Shadow Spread 1"); // t=18.7; Ability 47A9 from Hades; cactbot StartsUsing 47A8 [HadesEx Shadow Spread 1]
+    Timeout(id + 0x40, 3.0f, "Shadow Spread 2"); // t=21.7; Ability 47AA from Hades; cactbot StartsUsing 47A8 [HadesEx Shadow Spread 2]
+    Timeout(id + 0x50, 7.9f, "Bad Faith 1"); // t=29.6; Ability 47AE/47AD from Hades
+    Timeout(id + 0x60, 3.1f, "Bad Faith 2"); // t=32.7; Ability 47AF/47B0 from Hades
+    Timeout(id + 0x70, 8.2f, "Ravenous Assault 1").SetHint(StateMachine.StateHint.Tankbuster); // t=40.9; Ability 47A6 from Hades; cactbot StartsUsing 47A6 [HadesEx Ravenous Assault]
+    Timeout(id + 0x80, 3.2f, "Ravenous Assault 2"); // t=44.1; Ability 47A7 from Hades
+    Timeout(id + 0x90, 6.1f, "Arcane Utterance"); // t=50.2; Ability 47B3 from Hades
+    Timeout(id + 0xA0, 8.1f, "Arcane Control"); // t=58.3; Ability 47B4 from Hades; cactbot AddedCombatant [HadesEx Arcane Control Orbs] | AddedCombatant [HadesEx Arcane Control Doors]
+    Timeout(id + 0xB0, 0.9f, "Magic Chakram/Spear"); // t=59.2
+    Timeout(id + 0xC0, 8.2f, "Broken Faith"); // t=67.4; Ability 47B1 from Hades
+    Timeout(id + 0xD0, 39.3f, "Arcane Utterance"); // t=106.7; Ability 47B3 from Hades
+    Timeout(id + 0xE0, 8.1f, "Arcane Control"); // t=114.8; Ability 47B4 from Hades; cactbot AddedCombatant [HadesEx Arcane Control Orbs] | AddedCombatant [HadesEx Arcane Control Doors]
+    Timeout(id + 0xF0, 0.9f, "Magic Spear/Chakram"); // t=115.7
+    Timeout(id + 0x100, 13.2f, "Shadow Spread 1"); // t=128.9; Ability 47A9 from Hades; cactbot StartsUsing 47A8 [HadesEx Shadow Spread 1]
+    Timeout(id + 0x110, 3.0f, "Shadow Spread 2"); // t=131.9; Ability 47AA from Hades; cactbot StartsUsing 47A8 [HadesEx Shadow Spread 2]
+    Timeout(id + 0x120, 7.9f, "Bad Faith 1"); // t=139.8; Ability 47AE/47AD from Hades
+    Timeout(id + 0x130, 3.1f, "Bad Faith 2"); // t=142.9; Ability 47AF/47B0 from Hades
+    Timeout(id + 0x140, 8.2f, "Ravenous Assault 1").SetHint(StateMachine.StateHint.Tankbuster); // t=151.1; Ability 47A6 from Hades; cactbot StartsUsing 47A6 [HadesEx Ravenous Assault]
+    Timeout(id + 0x150, 3.2f, "Ravenous Assault 2"); // t=154.3; Ability 47A7 from Hades
+    Timeout(id + 0x160, 14.3f, "Ancient Dark IV"); // t=168.6; Ability 47B7 from Hades
+}
+
+private void Phase_2(uint id)
+{
+    Targetable(id + 0x0, true, 27.9f, "--targetable--"); // t=227.9
+    Condition(id + 0x10, 4.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x47B8), "", 5f, 0.0f); // t=232.0; StartsUsing 47B8 from Nabriales's Shade; cactbot StartsUsing 47B8 [HadesEx Quake III]
+    Timeout(id + 0x20, 6.0f, "Comet 1"); // t=238.0
+    Timeout(id + 0x30, 3.0f, "Comet 2"); // t=241.0
+    Timeout(id + 0x40, 0.2f, "Dark II"); // t=241.2; Ability 47BA from Shadow of the Ancients; cactbot Tether 11 [HadesEx Dark II Tether]
+    Timeout(id + 0x50, 2.7f, "Comet 3"); // t=243.9
+    Timeout(id + 0x60, 3.0f, "Comet 4"); // t=246.9
+    Timeout(id + 0x70, 7.3f, "Ancient Water III / Ancient Darkness"); // t=254.2; Ability 47BC from Shadow of the Ancients | Ability 47BB from Shadow of the Ancients
+    Timeout(id + 0x80, 5.5f, "Quake III").SetHint(StateMachine.StateHint.Raidwide); // t=259.7; Ability 47B8 from Nabriales's Shade; cactbot StartsUsing 47B8 [HadesEx Quake III]
+    Targetable(id + 0x90, true, 12.6f, "--targetable--"); // t=272.3
+    Timeout(id + 0xA0, 5.2f, "Annihilation / Fire Sphere / Blizzard Sphere").SetHint(StateMachine.StateHint.Raidwide); // t=277.5; Ability 47BF from Lahabrea's and Igeyorhm's Shades; cactbot StartsUsing 47BF [HadesEx Annihilation]
+    Timeout(id + 0xB0, 18.1f, "Fire IV / Blizzard IV").SetHint(StateMachine.StateHint.Tankbuster); // t=295.6; Ability 47C2 from Lahabrea's Shade; cactbot StartsUsing 47C2 [HadesEx Fire IV] | StartsUsing 47C3/47C2 [HadesEx Healers Blizzard/Fire IV]
+    Timeout(id + 0xC0, 3.9f, "Dark Flame / Dark Freeze"); // t=299.5; Ability 47C6 from Shadow of the Ancients
+    Timeout(id + 0xD0, 8.1f, "Annihilation / Fire Sphere / Blizzard Sphere").SetHint(StateMachine.StateHint.Raidwide); // t=307.6; Ability 47BF from Lahabrea's and Igeyorhm's Shades; cactbot StartsUsing 47BF [HadesEx Annihilation]
+    Timeout(id + 0xE0, 13.2f, "Fire IV / Blizzard IV").SetHint(StateMachine.StateHint.Tankbuster); // t=320.8; Ability 47C2 from Lahabrea's Shade | Ability 47C3 from Igeyorhm's Shade; cactbot StartsUsing 47C3 [HadesEx Blizzard IV] | StartsUsing 47C2 [HadesEx Fire IV] | StartsUsing 47C3/47C2 [HadesEx Healers Blizzard/Fire IV]
+    Timeout(id + 0xF0, 15.8f, "Fire IV / Blizzard IV").SetHint(StateMachine.StateHint.Tankbuster); // t=336.6; Ability 47C2 from Lahabrea's Shade | Ability 47C3 from Igeyorhm's Shade; cactbot StartsUsing 47C3 [HadesEx Blizzard IV] | StartsUsing 47C2 [HadesEx Fire IV] | StartsUsing 47C3/47C2 [HadesEx Healers Blizzard/Fire IV]
+    Timeout(id + 0x100, 18.6f, "Shadow Flare"); // t=355.2; cactbot StartsUsing 47D0 [HadesEx Shadow Flare]
+}
+
+private void Phase_3(uint id)
+{
+    Targetable(id + 0x0, true, 6.9f, "--targetable--"); // t=499.9
+    Condition(id + 0x10, 0.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x47C8), "", 5f, 0.0f); // t=500.0; StartsUsing 47C8 from Ascian Prime's Shade
+    Timeout(id + 0x20, 10.0f, "Universal Manipulation"); // t=510.0; Ability 47C8 from Ascian Prime's Shade
+    Timeout(id + 0x30, 10.2f, "Ancient Circle"); // t=520.2; Ability 47CA from Ascian Prime's Shade; cactbot GainsEffect 83E [HadesEx Ancient Circle]
+    Timeout(id + 0x40, 2.0f, "Death Shriek"); // t=522.2; Ability 47CB from Ascian Prime's Shade
+    Timeout(id + 0x50, 2.0f, "Forked Lightning"); // t=524.2; Ability 47C9 from Ascian Prime's Shade; cactbot GainsEffect 24B [HadesEx Forked Lightning]
+    Timeout(id + 0x60, 7.0f, "Blight"); // t=531.2; Ability 47CC from Ascian Prime's Shade; cactbot StartsUsing 47CC [HadesEx Blight]
+    Timeout(id + 0x70, 11.4f, "Height Of Chaos"); // t=542.6; Ability 47D1 from Ascian Prime's Shade; cactbot StartsUsing 47D1 [HadesEx Height Of Chaos]
+    Timeout(id + 0x80, 10.2f, "Megiddo Flame"); // t=552.8; Ability 47CD from Ascian Prime's Shade; cactbot StartsUsing 47CD [HadesEx Megiddo Flame]
+    Timeout(id + 0x90, 9.1f, "Shadow Flare").SetHint(StateMachine.StateHint.Raidwide); // t=561.9; Ability 47D0 from Ascian Prime's Shade; cactbot StartsUsing 47D0 [HadesEx Shadow Flare]
+    Timeout(id + 0xA0, 7.5f, "Ancient Eruption"); // t=569.4; Ability 47D2 from Ascian Prime's Shade
+    Timeout(id + 0xB0, 11.4f, "Shadow Flare").SetHint(StateMachine.StateHint.Raidwide); // t=580.8; Ability 47D0 from Ascian Prime's Shade; cactbot StartsUsing 47D0 [HadesEx Shadow Flare]
+    Timeout(id + 0xC0, 28.5f, "Shadow Flare Enrage"); // t=609.3; Ability 47D4 from Ascian Prime's Shade
+}
+
+private void Phase_4(uint id)
+{
+    Targetable(id + 0x0, true, 49.7f, "--targetable--"); // t=799.9
+    Condition(id + 0x10, 0.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x47D5), "", 5f, 0.0f); // t=800.0; StartsUsing 47D5 from Hades
+    Timeout(id + 0x20, 4.0f, "Again The Majestic"); // t=804.0; Ability 47D5 from Hades
+    Timeout(id + 0x30, 6.6f, "Comet 1"); // t=810.6; Ability 4952 from Hades
+    Timeout(id + 0x40, 1.6f, "Captivity"); // t=812.2; cactbot HeadMarker 78 [HadesEx Captivity]
+    Timeout(id + 0x50, 4.4f, "Comet 2"); // t=816.6; Ability 4952 from Hades
+    Timeout(id + 0x60, 6.0f, "Comet 3"); // t=822.6; Ability 4952 from Hades
+    Timeout(id + 0x70, 6.0f, "Comet 4"); // t=828.6; Ability 4952 from Hades
+    Timeout(id + 0x80, 8.6f, "Again The Martyr"); // t=837.2; Ability 47DE from Hades
+    Timeout(id + 0x90, 9.1f, "Wail Of The Lost"); // t=846.3; Ability 47E1 from Hades; cactbot StartsUsing 47E1 [HadesEx Wail Of The Lost]
+    Timeout(id + 0xA0, 2.1f, "Dark Flame / Dark Freeze"); // t=848.4; Ability 47E0 from Hades | Ability 47DF from Hades
+    Timeout(id + 0xB0, 8.1f, "Again The Abyssal Celebrant"); // t=856.5; Ability 47E2 from Hades
+    Timeout(id + 0xC0, 8.1f, "Shadow Spread x3"); // t=864.6
+    Timeout(id + 0xD0, 1.0f, "Megiddo Flame x3 / Nether Blast x3"); // t=865.6
+    Timeout(id + 0xE0, 11.1f, "Dark Seal"); // t=876.7; Ability 47E9 from Hades
+    Timeout(id + 0xF0, 8.1f, "Purgation/Stream"); // t=884.8
+    Timeout(id + 0x100, 8.1f, "Stream/Purgation"); // t=892.9
+    Timeout(id + 0x110, 11.2f, "Dark Seal"); // t=904.1; Ability 47E9 from Hades
+    Timeout(id + 0x120, 8.1f, "Purgation/Stream"); // t=912.2
+    Timeout(id + 0x130, 6.1f, "Stream/Purgation"); // t=918.3
+    Timeout(id + 0x140, 31.9f, "Titanomachy Enrage"); // t=950.2; Ability 47EF from Hades
+}
+
+private void Phase_5(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4948), "", 5f, 0.0f); // t=1200.0; StartsUsing 4948 from Hades
+    Timeout(id + 0x10, 4.0f, "Life In Captivity"); // t=1204.0; Ability 4948 from Hades
+    Targetable(id + 0x20, true, 78.4f, "--targetable--"); // t=1282.4
+    Timeout(id + 0x30, 4.2f, "Dark Current"); // t=1286.6; Ability 47F0 from Hades; cactbot StartsUsing 47F1 [HadesEx Dark Current]
+    Timeout(id + 0x40, 24.6f, "Gigantomachy").SetHint(StateMachine.StateHint.Raidwide); // t=1311.2; Ability 47F3 from Hades; cactbot StartsUsing 47F3 [HadesEx Gigantomachy]
+    Timeout(id + 0x50, 7.6f, "Quadrastrike 1"); // t=1318.8; cactbot StartsUsing 47F4 [HadesEx Quadrastrike 1]
+    Timeout(id + 0x60, 1.4f, "Quadrastrike 2"); // t=1320.2; cactbot StartsUsing 47F6 [HadesEx Quadrastrike 2]
+    Timeout(id + 0x70, 3.6f, "Quadrastrike Tower"); // t=1323.8; Ability 47F6 from Hades; cactbot StartsUsing 47F6 [HadesEx Quadrastrike 2] | Ability 47F6 [HadesEx Quadrastrike 3]
+    Timeout(id + 0x80, 6.8f, "Quadrastrike Bleed"); // t=1330.6; Ability 47F8 from Hades
+    Timeout(id + 0x90, 13.9f, "Dark Current"); // t=1344.5; Ability 47F0 from Hades; cactbot StartsUsing 47F1 [HadesEx Dark Current]
+    Timeout(id + 0xA0, 24.5f, "Gigantomachy").SetHint(StateMachine.StateHint.Raidwide); // t=1369.0; Ability 47F3 from Hades; cactbot StartsUsing 47F3 [HadesEx Gigantomachy]
+    Timeout(id + 0xB0, 7.6f, "Quadrastrike 1"); // t=1376.6; cactbot StartsUsing 47F4 [HadesEx Quadrastrike 1]
+    Timeout(id + 0xC0, 1.4f, "Quadrastrike 2"); // t=1378.0; cactbot StartsUsing 47F6 [HadesEx Quadrastrike 2]
+    Timeout(id + 0xD0, 3.7f, "Quadrastrike Tower"); // t=1381.7; Ability 47F6 from Hades; cactbot StartsUsing 47F6 [HadesEx Quadrastrike 2] | Ability 47F6 [HadesEx Quadrastrike 3]
+    Timeout(id + 0xE0, 6.8f, "Quadrastrike Bleed"); // t=1388.5; Ability 47F8 from Hades
+    Timeout(id + 0xF0, 38.0f, "Gigantomachy Enrage"); // t=1426.5; Ability 47F9 from Hades; cactbot StartsUsing 47F9 [HadesEx Enrage Gigantomachy]
+}
+

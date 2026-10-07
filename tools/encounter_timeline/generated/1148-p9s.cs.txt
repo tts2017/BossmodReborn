@@ -1,0 +1,88 @@
+// Generated development skeleton from p9s.txt (TerritoryType 1148).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 34 static/dynamic trigger definitions from ui/raidboss/data/06-ew/raid/p9s.ts.
+
+private void P9S__Anabaseios__The_Ninth_Circle__Savage(uint id)
+{
+    Condition(id + 0x0, 7.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x814C), "", 5f, 2.2f); // t=7.2; StartsUsing 814C from Kokytos; cactbot StartsUsing 814C [P9S Gluttony\]
+    Timeout(id + 0x10, 5.0f, "Gluttony's Augur").SetHint(StateMachine.StateHint.Raidwide); // t=12.2; Ability 814C from Kokytos; cactbot StartsUsing 814C [P9S Gluttony\]
+    Timeout(id + 0x20, 7.4f, "--middle--"); // t=19.6; Ability 8144 from Kokytos
+    Timeout(id + 0x30, 12.4f, "Soul Surge").SetHint(StateMachine.StateHint.Raidwide); // t=32.0; Ability 811B from Kokytos; cactbot Ability 8118/8119/817B/811A [P9S Soul Surge]
+    Timeout(id + 0x40, 15.0f, "Duality of Death"); // t=47.0; Ability 8151 from Kokytos; cactbot StartsUsing 8151 [P9S Duality of Death]
+    Timeout(id + 0x50, 13.4f, "Dualspell (Fire/Ice)"); // t=60.4; Ability 8154 from Kokytos; cactbot StartsUsing [P9S Dualspell Fire/Ice]
+    Timeout(id + 0x60, 7.7f, "Blizzard III / Pile Pyre"); // t=68.1; Ability 8157/8159 from Kokytos | Ability 8156/8158 from Kokytos
+    Timeout(id + 0x70, 5.3f, "Dualspell (Thunder/Ice)"); // t=73.4; Ability 8155 from Kokytos; cactbot StartsUsing [P9S Dualspell Thunder/Ice]
+    Timeout(id + 0x80, 7.7f, "Blizzard III / Thunder III"); // t=81.1; Ability 8157/8159 from Kokytos | Ability 815A/815B from Kokytos
+    Timeout(id + 0x90, 5.3f, "Dualspell (Fire/Ice)"); // t=86.4; Ability 8154 from Kokytos; cactbot StartsUsing [P9S Dualspell Fire/Ice]
+    Timeout(id + 0xA0, 7.7f, "Blizzard III / Pile Pyre"); // t=94.1; Ability 8157/8159 from Kokytos | Ability 8156/8158 from Kokytos
+    Timeout(id + 0xB0, 7.7f, "Disgorge"); // t=101.8; Ability 8124 from Kokytos
+    Timeout(id + 0xC0, 12.4f, "Ravening (Fighter)").SetHint(StateMachine.StateHint.Raidwide); // t=114.2; Ability 8119 from Kokytos; cactbot Ability 8118/8119/817B/811A [P9S Soul Surge]
+    Timeout(id + 0xD0, 6.7f, "Soul Surge").SetHint(StateMachine.StateHint.Raidwide); // t=120.9; Ability 811B from Kokytos; cactbot Ability 8118/8119/817B/811A [P9S Soul Surge]
+    Timeout(id + 0xE0, 13.1f, "Ascendant Fist").SetHint(StateMachine.StateHint.Tankbuster); // t=134.0; Ability 816F from Kokytos; cactbot StartsUsing 816F [P9S Ascendant Fist]
+    Timeout(id + 0xF0, 12.4f, "Archaic Rockbreaker (cast)"); // t=146.4; Ability 815F from Kokytos; cactbot StartsUsing 815F [P9S Archaic Rockbreaker]
+    Timeout(id + 0x100, 1.6f, "Shockwave"); // t=148.0; Ability 8160 from Kokytos
+    Timeout(id + 0x110, 1.3f, "Archaic Rockbreaker (stacks)"); // t=149.3; Ability 8162 from Kokytos
+    Timeout(id + 0x120, 6.2f, "Front Combination/Rear Combination"); // t=155.5; Ability 8167/8168/8169/816A from Kokytos; cactbot StartsUsing 8167 [P9S Front Inside Combination] | StartsUsing 8168 [P9S Front Outside Combination] | StartsUsing 8169 [P9S Rear Inside Roundhouse] | StartsUsing 816A [P9S Rear Outside Roundhouse]
+    Timeout(id + 0x130, 0.8f, "Inside Roundhouse/Outside Roundhouse"); // t=156.3; Ability 8238/8239 from Kokytos; cactbot Ability 8238/8239 [P9S Roundhouse Followup]
+    Timeout(id + 0x140, 2.4f, "Swinging Kick"); // t=158.7; Ability 816B/816C from Kokytos
+    Timeout(id + 0x150, 3.7f, "Outside Roundhouse/Inside Roundhouse"); // t=162.4; Ability 8239/8238 from Kokytos; cactbot Ability 8238/8239 [P9S Roundhouse Followup]
+    Timeout(id + 0x160, 6.3f, "Archaic Demolish"); // t=168.7; Ability 816D from Kokytos; cactbot StartsUsing 816D [P9S Archaic Demolish]
+    Timeout(id + 0x170, 7.1f, "Gluttony's Augur").SetHint(StateMachine.StateHint.Raidwide); // t=175.8; Ability 814C from Kokytos; cactbot StartsUsing 814C [P9S Gluttony\]
+    Timeout(id + 0x180, 11.3f, "Ascendant Fist").SetHint(StateMachine.StateHint.Tankbuster); // t=187.1; Ability 816F from Kokytos; cactbot StartsUsing 816F [P9S Ascendant Fist]
+    Timeout(id + 0x190, 7.4f, "Disgorge"); // t=194.5; Ability 8125 from Kokytos
+    Timeout(id + 0x1A0, 8.4f, "--middle--"); // t=202.9; Ability 8144 from Kokytos
+    Timeout(id + 0x1B0, 11.9f, "Soul Surge").SetHint(StateMachine.StateHint.Raidwide); // t=214.8; Ability 811B from Kokytos; cactbot Ability 8118/8119/817B/811A [P9S Soul Surge]
+    Timeout(id + 0x1C0, 6.6f, "Levinstrike Summoning"); // t=221.4; Ability 817C from Kokytos
+    Timeout(id + 0x1D0, 12.1f, "Scrambled Succession"); // t=233.5; Ability 817D from Kokytos; cactbot StartsUsing 817D [P9S Limit Cut Levin Orb Start and Rotation] | Ability 817D [P9S Limit Cut First Dash/Tower Combo]
+    Targetable(id + 0x1E0, false, 0.1f, "--untargetable--"); // t=233.6
+    Timeout(id + 0x1F0, 22.9f, "--middle--"); // t=256.5; Ability 8144 from Kokytos
+    Targetable(id + 0x200, true, 1.6f, "--targetable--"); // t=258.1
+    Timeout(id + 0x210, 7.0f, "Two Minds"); // t=265.1; Ability 8184/8185 from Kokytos
+    Timeout(id + 0x220, 1.1f, "Blizzard III / Pile Pyre/Thunder III"); // t=266.2; Ability 8157/8159 from Kokytos | Ability 8156/8158/815A/815B from Kokytos
+    Timeout(id + 0x230, 6.0f, "Gluttony's Augur").SetHint(StateMachine.StateHint.Raidwide); // t=272.2; Ability 814C from Kokytos; cactbot StartsUsing 814C [P9S Gluttony\]
+    Timeout(id + 0x240, 4.1f, "Disgorge"); // t=276.3; Ability 8236 from Kokytos
+    Timeout(id + 0x250, 8.4f, "--middle--"); // t=284.7; Ability 8144 from Kokytos
+    Timeout(id + 0x260, 4.4f, "Ravening (Beast)").SetHint(StateMachine.StateHint.Raidwide); // t=289.1; Ability 811A from Kokytos; cactbot Ability 8118/8119/817B/811A [P9S Soul Surge]
+    Timeout(id + 0x270, 7.9f, "Soul Surge").SetHint(StateMachine.StateHint.Raidwide); // t=297.0; Ability 811B from Kokytos; cactbot Ability 8118/8119/817B/811A [P9S Soul Surge]
+    Timeout(id + 0x280, 5.6f, "Charybdis"); // t=302.6; Ability 8170 from Kokytos; cactbot StartsUsing 8170 [P9S Charybdis]
+    Timeout(id + 0x290, 7.1f, "Comet"); // t=309.7; Ability 8172 from Kokytos
+    Timeout(id + 0x2A0, 9.0f, "Beastly Bile (cast)"); // t=318.7; Ability 8177 from Kokytos
+    Timeout(id + 0x2B0, 22.6f, "Ecliptic Meteor"); // t=341.3; Ability 8175 from Kokytos
+    Timeout(id + 0x2C0, 13.7f, "Beastly Fury").SetHint(StateMachine.StateHint.Raidwide); // t=355.0; Ability 8186 from Kokytos; cactbot StartsUsing 8186 [P9S Beastly Fury]
+    Timeout(id + 0x2D0, 2.2f, "Disgorge"); // t=357.2; Ability 8126 from Kokytos
+    Timeout(id + 0x2E0, 11.7f, "--middle--"); // t=368.9; Ability 8144 from Kokytos
+    Timeout(id + 0x2F0, 11.9f, "Soul Surge").SetHint(StateMachine.StateHint.Raidwide); // t=380.8; Ability 811B from Kokytos; cactbot Ability 8118/8119/817B/811A [P9S Soul Surge]
+    Timeout(id + 0x300, 12.9f, "Duality of Death"); // t=393.7; Ability 8151 from Kokytos; cactbot StartsUsing 8151 [P9S Duality of Death]
+    Timeout(id + 0x310, 9.2f, "Archaic Rockbreaker (cast)"); // t=402.9; Ability 815F from Kokytos; cactbot StartsUsing 815F [P9S Archaic Rockbreaker]
+    Timeout(id + 0x320, 1.6f, "Shockwave"); // t=404.5; Ability 8160 from Kokytos
+    Timeout(id + 0x330, 1.3f, "Archaic Rockbreaker (stacks)"); // t=405.8; Ability 8162 from Kokytos
+    Timeout(id + 0x340, 7.4f, "Dualspell"); // t=413.2; Ability 8154/8155 from Kokytos; cactbot StartsUsing [P9S Dualspell Fire/Ice] | StartsUsing [P9S Dualspell Thunder/Ice]
+    Timeout(id + 0x350, 7.7f, "Blizzard III / Pile Pyre/Thunder III"); // t=420.9; Ability 8157/8159 from Kokytos | Ability 8156/8158/815A/815B from Kokytos
+    Timeout(id + 0x360, 5.3f, "Gluttony's Augur").SetHint(StateMachine.StateHint.Raidwide); // t=426.2; Ability 814C from Kokytos; cactbot StartsUsing 814C [P9S Gluttony\]
+    Timeout(id + 0x370, 12.4f, "Chimeric Succession"); // t=438.6; Ability 81BB from Kokytos; cactbot StartsUsing 81BB [P9S Chimeric Succession]
+    Timeout(id + 0x380, 15.6f, "Front Firestrikes/Rear Firestrikes"); // t=454.2; Ability 878E/878F from Kokytos; cactbot StartsUsing 878E [P9S Front Firestrikes] | StartsUsing 878F [P9S Rear Firestrikes]
+    Timeout(id + 0x390, 0.2f, "Pyremeld"); // t=454.4; Ability 8793/8794 from Kokytos
+    Timeout(id + 0x3A0, 5.3f, "Swinging Kick"); // t=459.7; Ability 8795/8796 from Kokytos
+    Timeout(id + 0x3B0, 2.1f, "--middle--"); // t=461.8; Ability 8144 from Kokytos
+    Timeout(id + 0x3C0, 8.5f, "Two Minds"); // t=470.3; Ability 8184/8185 from Kokytos
+    Timeout(id + 0x3D0, 1.1f, "Blizzard III / Pile Pyre/Thunder III"); // t=471.4; Ability 8157/8159 from Kokytos | Ability 8156/8158/815A/815B from Kokytos
+    Timeout(id + 0x3E0, 1.0f, "Disgorge"); // t=472.4; Ability 8236 from Kokytos
+    Timeout(id + 0x3F0, 8.4f, "--middle--"); // t=480.8; Ability 8144 from Kokytos
+    Timeout(id + 0x400, 11.9f, "Soul Surge").SetHint(StateMachine.StateHint.Raidwide); // t=492.7; Ability 811B from Kokytos; cactbot Ability 8118/8119/817B/811A [P9S Soul Surge]
+    Timeout(id + 0x410, 7.6f, "Dualspell"); // t=500.3; Ability 8154/8155 from Kokytos; cactbot StartsUsing [P9S Dualspell Fire/Ice] | StartsUsing [P9S Dualspell Thunder/Ice]
+    Timeout(id + 0x420, 7.9f, "Blizzard III / Pile Pyre/Thunder III"); // t=508.2; Ability 8157/8159 from Kokytos | Ability 8156/8158/815A/815B from Kokytos
+    Timeout(id + 0x430, 5.3f, "Gluttony's Augur").SetHint(StateMachine.StateHint.Raidwide); // t=513.5; Ability 814C from Kokytos; cactbot StartsUsing 814C [P9S Gluttony\]
+    Timeout(id + 0x440, 7.1f, "Dualspell"); // t=520.6; Ability 8154/8155 from Kokytos; cactbot StartsUsing [P9S Dualspell Fire/Ice] | StartsUsing [P9S Dualspell Thunder/Ice]
+    Timeout(id + 0x450, 7.9f, "Blizzard III / Pile Pyre/Thunder III"); // t=528.5; Ability 8157/8159 from Kokytos | Ability 8156/8158/815A/815B from Kokytos
+    Timeout(id + 0x460, 6.3f, "Duality of Death"); // t=534.8; Ability 8151 from Kokytos; cactbot StartsUsing 8151 [P9S Duality of Death]
+    Timeout(id + 0x470, 9.2f, "Dualspell"); // t=544.0; Ability 8154/8155 from Kokytos; cactbot StartsUsing [P9S Dualspell Fire/Ice] | StartsUsing [P9S Dualspell Thunder/Ice]
+    Timeout(id + 0x480, 7.9f, "Blizzard III / Pile Pyre/Thunder III"); // t=551.9; Ability 8157/8159 from Kokytos | Ability 8156/8158/815A/815B from Kokytos
+    Timeout(id + 0x490, 5.2f, "Gluttony's Augur").SetHint(StateMachine.StateHint.Raidwide); // t=557.1; Ability 814C from Kokytos; cactbot StartsUsing 814C [P9S Gluttony\]
+    Timeout(id + 0x4A0, 7.6f, "Disgorge"); // t=564.7; Ability 8124 from Kokytos
+    Timeout(id + 0x4B0, 8.4f, "--middle--"); // t=573.1; Ability 8144 from Kokytos
+    Timeout(id + 0x4C0, 5.4f, "Ravening (Final)").SetHint(StateMachine.StateHint.Raidwide); // t=578.5; Ability 817B from Kokytos; cactbot Ability 8118/8119/817B/811A [P9S Soul Surge]
+    Timeout(id + 0x4D0, 6.6f, "Soul Surge").SetHint(StateMachine.StateHint.Raidwide); // t=585.1; Ability 811B from Kokytos; cactbot Ability 8118/8119/817B/811A [P9S Soul Surge]
+    Timeout(id + 0x4E0, 12.6f, "Disintegration (enrage)"); // t=597.7; Ability 818A from Kokytos
+}
+

@@ -1,0 +1,98 @@
+// Generated development skeleton from suzaku-un.txt (TerritoryType 1272).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 9 static/dynamic trigger definitions from ui/raidboss/data/07-dt/trial/suzaku-un.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 9.5f, "Screams Of The Damned").SetHint(StateMachine.StateHint.Raidwide); // t=9.5; Ability A7FC from Suzaku; cactbot StartsUsing A7FC [SuzakuUn Screams Of The Damned]
+    Targetable(id + 0x10, false, 7.4f, "--untargetable--"); // t=16.9
+    Timeout(id + 0x20, 5.6f, "Rout"); // t=22.5; Ability A813 from Suzaku
+    Timeout(id + 0x30, 1.9f, "Rekindle"); // t=24.4; Ability A808 from Suzaku; cactbot HeadMarker 8B [SuzakuUn Rekindle]
+    Targetable(id + 0x40, true, 2.8f, "--targetable--"); // t=27.2
+    Timeout(id + 0x50, 6.3f, "Fleeting Summer"); // t=33.5; Ability A7FD from Suzaku
+    Timeout(id + 0x60, 7.5f, "Cremate").SetHint(StateMachine.StateHint.Tankbuster); // t=41.0; Ability A7FB from Suzaku; cactbot StartsUsing A7FB [SuzakuUn Cremate]
+    Timeout(id + 0x70, 11.5f, "Phoenix Down"); // t=52.5; Ability A7F0 from Suzaku
+    Timeout(id + 0x80, 13.5f, "Rekindle"); // t=66.0; Ability A808 from Suzaku; cactbot HeadMarker 8B [SuzakuUn Rekindle]
+    Timeout(id + 0x90, 11.1f, "Cremate").SetHint(StateMachine.StateHint.Tankbuster); // t=77.1; Ability A7FB from Suzaku; cactbot StartsUsing A7FB [SuzakuUn Cremate]
+    Timeout(id + 0xA0, 1.1f, "Wing And A Prayer"); // t=78.2; Ability A7FE from Scarlet Tail Feather
+    Timeout(id + 0xB0, 12.6f, "Screams Of The Damned").SetHint(StateMachine.StateHint.Raidwide); // t=90.8; Ability A7FC from Suzaku; cactbot StartsUsing A7FC [SuzakuUn Screams Of The Damned]
+    Timeout(id + 0xC0, 17.0f, "Eternal Flame"); // t=107.8; Ability A7EF from Suzaku
+    Targetable(id + 0xD0, false, 2.1f, "--untargetable--"); // t=109.9
+    Timeout(id + 0xE0, 26.5f, "Scarlet Hymn"); // t=136.4
+    Timeout(id + 0xF0, 1.1f, "Scarlet Hymn"); // t=137.5
+    Timeout(id + 0x100, 1.1f, "Scarlet Hymn"); // t=138.6
+    Timeout(id + 0x110, 7.7f, "Scarlet Hymn"); // t=146.3
+    Timeout(id + 0x120, 2.1f, "Scarlet Hymn"); // t=148.4
+    Timeout(id + 0x130, 1.1f, "Scarlet Hymn"); // t=149.5
+    Timeout(id + 0x140, 1.1f, "Scarlet Hymn"); // t=150.6
+    Timeout(id + 0x150, 2.2f, "Scarlet Hymn"); // t=152.8
+    Timeout(id + 0x160, 2.1f, "Scarlet Hymn"); // t=154.9
+    Timeout(id + 0x170, 1.2f, "Scarlet Hymn"); // t=156.1
+    Timeout(id + 0x180, 16.9f, "Scarlet Fever"); // t=173.0; Ability A801 from Suzaku
+    Targetable(id + 0x190, true, 5.2f, "--targetable--"); // t=178.2
+    Timeout(id + 0x1A0, 9.5f, "Southron Star").SetHint(StateMachine.StateHint.Raidwide); // t=187.7; Ability A807 from Suzaku; cactbot StartsUsing A807 [SuzakuUn Southron Star]
+    Timeout(id + 0x1B0, 11.1f, "Mesmerizing Melody"); // t=198.8; Ability A802 from Suzaku; cactbot StartsUsing A802 [SuzakuUn Mesmerizing Melody]
+    Timeout(id + 0x1C0, 7.4f, "Well Of Flame"); // t=206.2; Ability A809 from Suzaku
+    Timeout(id + 0x1D0, 0.7f, "Rekindle"); // t=206.9; Ability A808 from Suzaku; cactbot HeadMarker 8B [SuzakuUn Rekindle]
+    Timeout(id + 0x1E0, 6.4f, "Scathing Net"); // t=213.3; Ability A7F8 from Suzaku; cactbot HeadMarker A1 [SuzakuUn Scathing Net]
+    Timeout(id + 0x1F0, 5.0f, "Phantom Flurry"); // t=218.3; Ability A805 from Suzaku; cactbot StartsUsing A804 [SuzakuUn Phantom Flurry Buster] | Ability A804 [SuzakuUn Phantom Flurry Behind]
+    Timeout(id + 0x200, 6.1f, "Phantom Half"); // t=224.4; Ability A806 from Suzaku
+    Timeout(id + 0x210, 4.7f, "Scarlet Hymn"); // t=229.1; Ability A7F3 from Suzaku
+    Timeout(id + 0x220, 21.1f, "Hotspot x8"); // t=250.2
+    Timeout(id + 0x230, 17.8f, "Hotspot x8"); // t=268.0
+    Timeout(id + 0x240, 24.3f, "Ruthless/Mesmerizing"); // t=292.3
+    Timeout(id + 0x250, 11.1f, "Close-Quarter Crescendo"); // t=303.4; Ability A80B from Suzaku
+    Timeout(id + 0x260, 12.1f, "Pay The Piper"); // t=315.5
+    Timeout(id + 0x270, 9.6f, "Well Of Flame"); // t=325.1; Ability A809 from Suzaku
+    Timeout(id + 0x280, 0.8f, "Rekindle"); // t=325.9; Ability A808 from Suzaku; cactbot HeadMarker 8B [SuzakuUn Rekindle]
+    Timeout(id + 0x290, 6.5f, "Scathing Net"); // t=332.4; Ability A7F8 from Suzaku; cactbot HeadMarker A1 [SuzakuUn Scathing Net]
+    Timeout(id + 0x2A0, 4.1f, "Phantom Flurry"); // t=336.5; Ability A805 from Suzaku; cactbot StartsUsing A804 [SuzakuUn Phantom Flurry Buster] | Ability A804 [SuzakuUn Phantom Flurry Behind]
+    Timeout(id + 0x2B0, 6.2f, "Phantom Half"); // t=342.7; Ability A806 from Suzaku
+    Timeout(id + 0x2C0, 5.7f, "Scarlet Hymn"); // t=348.4; Ability A7F3 from Suzaku
+    Timeout(id + 0x2D0, 15.2f, "Ruthless/Mesmerizing"); // t=363.6
+    Timeout(id + 0x2E0, 5.1f, "Hotspot x8"); // t=368.7
+    Timeout(id + 0x2F0, 15.0f, "Southron Star").SetHint(StateMachine.StateHint.Raidwide); // t=383.7; Ability A807 from Suzaku; cactbot StartsUsing A807 [SuzakuUn Southron Star]
+    Timeout(id + 0x300, 5.1f, "Hotspot x8"); // t=388.8
+    Timeout(id + 0x310, 22.6f, "Phantom Flurry"); // t=411.4; Ability A805 from Suzaku; cactbot StartsUsing A804 [SuzakuUn Phantom Flurry Buster] | Ability A804 [SuzakuUn Phantom Flurry Behind]
+    Timeout(id + 0x320, 6.1f, "Phantom Half"); // t=417.5; Ability A806 from Suzaku
+    Timeout(id + 0x330, 10.7f, "Southron Star").SetHint(StateMachine.StateHint.Raidwide); // t=428.2; Ability A807 from Suzaku; cactbot StartsUsing A807 [SuzakuUn Southron Star]
+    Timeout(id + 0x340, 11.6f, "Incandescent Interlude"); // t=439.8; Ability A7F6 from Suzaku
+    Timeout(id + 0x350, 10.1f, "Ruthless Refrain"); // t=449.9; Ability A803 from Suzaku; cactbot StartsUsing A803 [SuzakuUn Ruthless Refrain]
+    Timeout(id + 0x360, 2.5f, "Rekindle"); // t=452.4; Ability A808 from Suzaku; cactbot HeadMarker 8B [SuzakuUn Rekindle]
+    Timeout(id + 0x370, 4.9f, "Well Of Flame"); // t=457.3; Ability A809 from Suzaku
+    Timeout(id + 0x380, 7.2f, "Scarlet Hymn"); // t=464.5; Ability A7F3 from Suzaku
+    Timeout(id + 0x390, 16.9f, "Well Of Flame"); // t=481.4; Ability A809 from Suzaku
+    Timeout(id + 0x3A0, 0.7f, "Rekindle"); // t=482.1; Ability A808 from Suzaku; cactbot HeadMarker 8B [SuzakuUn Rekindle]
+    Timeout(id + 0x3B0, 5.1f, "Hotspot x4"); // t=487.2
+    Timeout(id + 0x3C0, 7.2f, "Close-Quarter Crescendo"); // t=494.4; Ability A80B from Suzaku
+    Timeout(id + 0x3D0, 12.1f, "Pay the Piper"); // t=506.5
+    Timeout(id + 0x3E0, 0.1f, "Hotspot x4"); // t=506.6
+    Timeout(id + 0x3F0, 14.6f, "Ruthless/Mesmerizing"); // t=521.2
+    Timeout(id + 0x400, 5.1f, "Hotspot x4"); // t=526.3
+    Timeout(id + 0x410, 11.1f, "Phantom Flurry"); // t=537.4; Ability A805 from Suzaku; cactbot StartsUsing A804 [SuzakuUn Phantom Flurry Buster] | Ability A804 [SuzakuUn Phantom Flurry Behind]
+    Timeout(id + 0x420, 6.2f, "Phantom Half"); // t=543.6; Ability A806 from Suzaku
+    Timeout(id + 0x430, 2.1f, "Hotspot x4"); // t=545.7
+    Timeout(id + 0x440, 24.6f, "Southron Star").SetHint(StateMachine.StateHint.Raidwide); // t=570.3; Ability A807 from Suzaku; cactbot StartsUsing A807 [SuzakuUn Southron Star]
+    Timeout(id + 0x450, 13.0f, "Ruthless/Mesmerizing"); // t=583.3
+    Timeout(id + 0x460, 12.4f, "Well Of Flame"); // t=595.7; Ability A809 from Suzaku
+    Timeout(id + 0x470, 0.8f, "Rekindle"); // t=596.5; Ability A808 from Suzaku; cactbot HeadMarker 8B [SuzakuUn Rekindle]
+    Timeout(id + 0x480, 6.4f, "Scathing Net"); // t=602.9; Ability A7F8 from Suzaku; cactbot HeadMarker A1 [SuzakuUn Scathing Net]
+    Timeout(id + 0x490, 5.1f, "Phantom Flurry"); // t=608.0; Ability A805 from Suzaku; cactbot StartsUsing A804 [SuzakuUn Phantom Flurry Buster] | Ability A804 [SuzakuUn Phantom Flurry Behind]
+    Timeout(id + 0x4A0, 6.2f, "Phantom Half"); // t=614.2; Ability A806 from Suzaku
+    Timeout(id + 0x4B0, 10.6f, "Southron Star").SetHint(StateMachine.StateHint.Raidwide); // t=624.8; Ability A807 from Suzaku; cactbot StartsUsing A807 [SuzakuUn Southron Star]
+    Timeout(id + 0x4C0, 13.0f, "Ruthless/Mesmerizing"); // t=637.8
+    Timeout(id + 0x4D0, 13.0f, "Southron Star").SetHint(StateMachine.StateHint.Raidwide); // t=650.8; Ability A807 from Suzaku; cactbot StartsUsing A807 [SuzakuUn Southron Star]
+    Timeout(id + 0x4E0, 6.4f, "Phantom Flurry"); // t=657.2; Ability A805 from Suzaku; cactbot StartsUsing A804 [SuzakuUn Phantom Flurry Buster] | Ability A804 [SuzakuUn Phantom Flurry Behind]
+    Timeout(id + 0x4F0, 6.1f, "Phantom Half"); // t=663.3; Ability A806 from Suzaku
+    Timeout(id + 0x500, 9.6f, "Scarlet Hymn"); // t=672.9; Ability A7F3 from Suzaku
+    Timeout(id + 0x510, 14.9f, "Ruthless/Mesmerizing"); // t=687.8
+    Timeout(id + 0x520, 6.0f, "Hotspot x8"); // t=693.8
+    Timeout(id + 0x530, 13.8f, "Southron Star").SetHint(StateMachine.StateHint.Raidwide); // t=707.6; Ability A807 from Suzaku; cactbot StartsUsing A807 [SuzakuUn Southron Star]
+    Timeout(id + 0x540, 5.4f, "Hotspot x8"); // t=713.0
+    Timeout(id + 0x550, 21.9f, "Phantom Flurry"); // t=734.9; Ability A805 from Suzaku; cactbot StartsUsing A804 [SuzakuUn Phantom Flurry Buster] | Ability A804 [SuzakuUn Phantom Flurry Behind]
+    Timeout(id + 0x560, 6.1f, "Phantom Half"); // t=741.0; Ability A806 from Suzaku
+    Timeout(id + 0x570, 1.6f, "Scarlet Hymn"); // t=742.6; Ability A7F3 from Suzaku
+    Timeout(id + 0x580, 22.9f, "Hotspot Enrage"); // t=765.5
+}
+

@@ -1,0 +1,100 @@
+// Generated development skeleton from qitana_ravel.txt (TerritoryType 823).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 14 static/dynamic trigger definitions from ui/raidboss/data/05-shb/dungeon/qitana_ravel.ts.
+
+private void Lozatl(uint id)
+{
+    Timeout(id + 0x0, 13.7f, "Stonefist").SetHint(StateMachine.StateHint.Tankbuster); // t=113.7; Ability 3C89 from Lozatl; cactbot StartsUsing 3C89 [Qitana Stonefist]
+    Timeout(id + 0x10, 7.3f, "Sun Toss"); // t=121.0; Ability 3C8A from Lozatl
+    Timeout(id + 0x20, 6.2f, "Lozatl's Scorn").SetHint(StateMachine.StateHint.Raidwide); // t=127.2; Ability 3C8B from Lozatl; cactbot StartsUsing 3C8B [Qitana Scorn] | StartsUsing 3C8B [Qitana Eerie Pillar]
+    Timeout(id + 0x30, 10.3f, "Sun Toss / Ronkan Light"); // t=137.5; Ability 3C8A from Lozatl | Ability 3D6D/3C8C from Lozatl
+    Timeout(id + 0x40, 7.6f, "Heat Up"); // t=145.1
+    Timeout(id + 0x50, 6.4f, "Lozatl's Fury"); // t=151.5; Ability 3C8F/3C90 from Lozatl
+    Timeout(id + 0x60, 9.7f, "Stonefist").SetHint(StateMachine.StateHint.Tankbuster); // t=161.2; Ability 3C89 from Lozatl; cactbot StartsUsing 3C89 [Qitana Stonefist]
+    Timeout(id + 0x70, 6.9f, "Heat Up"); // t=168.1
+    Timeout(id + 0x80, 5.1f, "Lozatl's Scorn").SetHint(StateMachine.StateHint.Raidwide); // t=173.2; Ability 3C8B from Lozatl; cactbot StartsUsing 3C8B [Qitana Scorn] | StartsUsing 3C8B [Qitana Eerie Pillar]
+    Timeout(id + 0x90, 9.5f, "Lozatl's Fury"); // t=182.7; Ability 3C8F/3C90 from Lozatl
+    Timeout(id + 0xA0, 0.7f, "Ronkan Light"); // t=183.4; Ability 3D6D/3C8C from Lozatl
+    Timeout(id + 0xB0, 8.0f, "Sun Toss"); // t=191.4
+    Timeout(id + 0xC0, 5.3f, "Sun Toss"); // t=196.7
+    Timeout(id + 0xD0, 11.2f, "Stonefist").SetHint(StateMachine.StateHint.Tankbuster); // t=207.9; Ability 3C89 from Lozatl; cactbot StartsUsing 3C89 [Qitana Stonefist]
+    Timeout(id + 0xE0, 15.0f, "Heat Up"); // t=222.9
+    Timeout(id + 0xF0, 5.2f, "Lozatl's Scorn").SetHint(StateMachine.StateHint.Raidwide); // t=228.1; Ability 3C8B from Lozatl; cactbot StartsUsing 3C8B [Qitana Scorn] | StartsUsing 3C8B [Qitana Eerie Pillar]
+    Timeout(id + 0x100, 9.3f, "Lozatl's Fury"); // t=237.4; Ability 3C8F/3C90 from Lozatl
+    Timeout(id + 0x110, 1.1f, "Ronkan Light"); // t=238.5; Ability 3D6D/3C8C from Lozatl
+    Timeout(id + 0x120, 7.7f, "Sun Toss"); // t=246.2
+    Timeout(id + 0x130, 5.3f, "Sun Toss"); // t=251.5
+    Timeout(id + 0x140, 11.4f, "Stonefist").SetHint(StateMachine.StateHint.Tankbuster); // t=262.9; Ability 3C89 from Lozatl; cactbot StartsUsing 3C89 [Qitana Stonefist]
+    Timeout(id + 0x150, 15.0f, "Heat Up"); // t=277.9
+    Timeout(id + 0x160, 5.2f, "Lozatl's Scorn"); // t=283.1
+    Timeout(id + 0x170, 9.3f, "Lozatl's Fury"); // t=292.4
+    Timeout(id + 0x180, 1.1f, "Ronkan Light"); // t=293.5
+    Timeout(id + 0x190, 7.7f, "Sun Toss"); // t=301.2
+    Timeout(id + 0x1A0, 5.3f, "Sun Toss"); // t=306.5
+}
+
+private void Batsquatch(uint id)
+{
+    Timeout(id + 0x0, 14.5f, "Ripper Fang").SetHint(StateMachine.StateHint.Tankbuster); // t=514.5; Ability 3C91 from Batsquatch; cactbot StartsUsing 3C91 [Qitana Ripper Fang]
+    Timeout(id + 0x10, 11.2f, "Soundwave").SetHint(StateMachine.StateHint.Raidwide); // t=525.7; Ability 3C92 from Batsquatch; cactbot StartsUsing 3C92 [Qitana Soundwave]
+    Timeout(id + 0x20, 16.5f, "Subsonics").SetHint(StateMachine.StateHint.Raidwide); // t=542.2; Ability 3C93 from Batsquatch; cactbot StartsUsing 3C93 [Qitana Subsonics]
+    Timeout(id + 0x30, 17.6f, "Soundwave").SetHint(StateMachine.StateHint.Raidwide); // t=559.8; Ability 3C92 from Batsquatch; cactbot StartsUsing 3C92 [Qitana Soundwave]
+    Timeout(id + 0x40, 3.8f, "Towerfall"); // t=563.6; Ability 3C98 from Batsquatch
+    Timeout(id + 0x50, 7.8f, "Ripper Fang").SetHint(StateMachine.StateHint.Tankbuster); // t=571.4; Ability 3C91 from Batsquatch; cactbot StartsUsing 3C91 [Qitana Ripper Fang]
+    Timeout(id + 0x60, 16.6f, "Subsonics").SetHint(StateMachine.StateHint.Raidwide); // t=588.0; Ability 3C93 from Batsquatch; cactbot StartsUsing 3C93 [Qitana Subsonics]
+    Timeout(id + 0x70, 17.6f, "Soundwave").SetHint(StateMachine.StateHint.Raidwide); // t=605.6; Ability 3C92 from Batsquatch; cactbot StartsUsing 3C92 [Qitana Soundwave]
+    Timeout(id + 0x80, 3.8f, "Towerfall"); // t=609.4; Ability 3C98 from Batsquatch
+    Timeout(id + 0x90, 7.1f, "Ripper Fang").SetHint(StateMachine.StateHint.Tankbuster); // t=616.5; Ability 3C91 from Batsquatch; cactbot StartsUsing 3C91 [Qitana Ripper Fang]
+    Timeout(id + 0xA0, 20.4f, "Subsonics").SetHint(StateMachine.StateHint.Raidwide); // t=636.9; Ability 3C93 from Batsquatch; cactbot StartsUsing 3C93 [Qitana Subsonics]
+    Timeout(id + 0xB0, 17.6f, "Soundwave").SetHint(StateMachine.StateHint.Raidwide); // t=654.5; Ability 3C92 from Batsquatch; cactbot StartsUsing 3C92 [Qitana Soundwave]
+    Timeout(id + 0xC0, 3.8f, "Towerfall"); // t=658.3; Ability 3C98 from Batsquatch
+    Timeout(id + 0xD0, 7.8f, "Ripper Fang").SetHint(StateMachine.StateHint.Tankbuster); // t=666.1; Ability 3C91 from Batsquatch; cactbot StartsUsing 3C91 [Qitana Ripper Fang]
+    Timeout(id + 0xE0, 16.6f, "Subsonics"); // t=682.7; cactbot StartsUsing 3C93 [Qitana Subsonics]
+    Timeout(id + 0xF0, 17.6f, "Soundwave"); // t=700.3; cactbot StartsUsing 3C92 [Qitana Soundwave]
+    Timeout(id + 0x100, 3.8f, "Towerfall"); // t=704.1
+    Timeout(id + 0x110, 7.1f, "Ripper Fang"); // t=711.2; cactbot StartsUsing 3C91 [Qitana Ripper Fang]
+    Timeout(id + 0x120, 20.4f, "Subsonics"); // t=731.6; cactbot StartsUsing 3C93 [Qitana Subsonics]
+    Timeout(id + 0x130, 17.6f, "Soundwave"); // t=749.2; cactbot StartsUsing 3C92 [Qitana Soundwave]
+    Timeout(id + 0x140, 3.8f, "Towerfall"); // t=753.0
+}
+
+private void Eros(uint id)
+{
+    Timeout(id + 0x0, 15.0f, "Rend").SetHint(StateMachine.StateHint.Tankbuster); // t=1015.0; Ability 3C99 from Eros; cactbot StartsUsing 3C99 [Qitana Rend]
+    Timeout(id + 0x10, 11.2f, "Hound Out Of Heaven"); // t=1026.2; Ability 3C9A from Eros
+    Timeout(id + 0x20, 9.9f, "Glossolalia").SetHint(StateMachine.StateHint.Raidwide); // t=1036.1; Ability 3C9B from Eros; cactbot StartsUsing 3C9B [Qitana Glossolalia]
+    Timeout(id + 0x30, 12.2f, "Viper Poison"); // t=1048.3; Ability 3C9C from Eros; cactbot HeadMarker AB [Qitana Viper Poison]
+    Timeout(id + 0x40, 2.6f, "Jump"); // t=1050.9; Ability 3C9F from Eros
+    Timeout(id + 0x50, 6.7f, "Inhale"); // t=1057.6; Ability 4310 from Eros
+    Timeout(id + 0x60, 5.6f, "Heaving Breath"); // t=1063.2; Ability 3CA0 from Eros
+    Timeout(id + 0x70, 12.7f, "Rend").SetHint(StateMachine.StateHint.Tankbuster); // t=1075.9; Ability 3C99 from Eros; cactbot StartsUsing 3C99 [Qitana Rend]
+    Timeout(id + 0x80, 7.4f, "Jump"); // t=1083.3; Ability 3C9F from Eros
+    Timeout(id + 0x90, 8.7f, "Confession Of Faith"); // t=1092.0; cactbot HeadMarker 3E [Qitana Confession of Faith Stack] | StartsUsing 3CA1 [Qitana Confession of Faith Spread]
+    Timeout(id + 0xA0, 15.8f, "Hound Out Of Heaven"); // t=1107.8; Ability 3C9A from Eros
+    Timeout(id + 0xB0, 14.8f, "Viper Poison"); // t=1122.6; Ability 3C9C from Eros; cactbot HeadMarker AB [Qitana Viper Poison]
+    Timeout(id + 0xC0, 2.9f, "Jump"); // t=1125.5; Ability 3C9F from Eros
+    Timeout(id + 0xD0, 6.6f, "Inhale"); // t=1132.1; Ability 4310 from Eros
+    Timeout(id + 0xE0, 5.6f, "Heaving Breath"); // t=1137.7; Ability 3CA0 from Eros
+    Timeout(id + 0xF0, 12.8f, "Rend").SetHint(StateMachine.StateHint.Tankbuster); // t=1150.5; Ability 3C99 from Eros; cactbot StartsUsing 3C99 [Qitana Rend]
+    Timeout(id + 0x100, 12.3f, "Hound Out Of Heaven"); // t=1162.8; Ability 3C9A from Eros
+    Timeout(id + 0x110, 7.9f, "Jump"); // t=1170.7; Ability 3C9F from Eros
+    Timeout(id + 0x120, 8.6f, "Confession Of Faith"); // t=1179.3; cactbot HeadMarker 3E [Qitana Confession of Faith Stack] | StartsUsing 3CA1 [Qitana Confession of Faith Spread]
+    Timeout(id + 0x130, 13.8f, "Glossolalia").SetHint(StateMachine.StateHint.Raidwide); // t=1193.1; Ability 3C9B from Eros; cactbot StartsUsing 3C9B [Qitana Glossolalia]
+    Timeout(id + 0x140, 9.2f, "Glossolalia").SetHint(StateMachine.StateHint.Raidwide); // t=1202.3; Ability 3C9B from Eros; cactbot StartsUsing 3C9B [Qitana Glossolalia]
+    Timeout(id + 0x150, 11.2f, "Hound Out Of Heaven"); // t=1213.5; Ability 3C9A from Eros
+    Timeout(id + 0x160, 10.9f, "Rend").SetHint(StateMachine.StateHint.Tankbuster); // t=1224.4; Ability 3C99 from Eros; cactbot StartsUsing 3C99 [Qitana Rend]
+    Timeout(id + 0x170, 13.2f, "Viper Poison"); // t=1237.6; Ability 3C9C from Eros; cactbot HeadMarker AB [Qitana Viper Poison]
+    Timeout(id + 0x180, 2.9f, "Jump"); // t=1240.5
+    Timeout(id + 0x190, 6.6f, "Inhale"); // t=1247.1
+    Timeout(id + 0x1A0, 5.6f, "Heaving Breath"); // t=1252.7
+    Timeout(id + 0x1B0, 12.8f, "Rend"); // t=1265.5
+    Timeout(id + 0x1C0, 12.3f, "Hound Out Of Heaven"); // t=1277.8
+    Timeout(id + 0x1D0, 7.9f, "Jump"); // t=1285.7
+    Timeout(id + 0x1E0, 8.6f, "Confession Of Faith"); // t=1294.3; cactbot HeadMarker 3E [Qitana Confession of Faith Stack] | StartsUsing 3CA1 [Qitana Confession of Faith Spread]
+    Timeout(id + 0x1F0, 13.8f, "Glossolalia"); // t=1308.1; cactbot StartsUsing 3C9B [Qitana Glossolalia]
+    Timeout(id + 0x200, 9.2f, "Glossolalia"); // t=1317.3; cactbot StartsUsing 3C9B [Qitana Glossolalia]
+    Timeout(id + 0x210, 11.2f, "Hound Out Of Heaven"); // t=1328.5
+    Timeout(id + 0x220, 10.9f, "Rend"); // t=1339.4
+}
+

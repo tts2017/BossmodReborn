@@ -1,0 +1,110 @@
+// Generated development skeleton from akadaemia_anyder.txt (TerritoryType 841).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 11 static/dynamic trigger definitions from ui/raidboss/data/05-shb/dungeon/akadaemia_anyder.ts.
+
+private void Cladoselache__Doliodus(uint id)
+{
+    Timeout(id + 0x0, 10.5f, "Protolithic Puncture").SetHint(StateMachine.StateHint.Tankbuster); // t=110.5; Ability 3E04 from Cladoselache; cactbot StartsUsing 3E04 [Anyder Puncture]
+    Timeout(id + 0x10, 9.0f, "Tidal Guillotine"); // t=119.5; Ability 3E08 from Cladoselache; cactbot StartsUsing 3E0A [Anyder Tidal Guillotine]
+    Timeout(id + 0x20, 9.2f, "--2x targetable--"); // t=128.7
+    Timeout(id + 0x30, 1.0f, "--1x targetable--"); // t=129.7
+    Timeout(id + 0x40, 8.8f, "Pelagic Cleaver"); // t=138.5; Ability 3E09 from Doliodus; cactbot StartsUsing 3E0B [Anyder Pelagic Cleaver]
+    Timeout(id + 0x50, 12.0f, "Tidal Guillotine"); // t=150.5; Ability 3E0A from Cladoselache; cactbot StartsUsing 3E0A [Anyder Tidal Guillotine]
+    Timeout(id + 0x60, 2.2f, "--2x targetable--"); // t=152.7
+    Timeout(id + 0x70, 2.0f, "--1x targetable--"); // t=154.7
+    Timeout(id + 0x80, 7.7f, "Aquatic Lance"); // t=162.4; Ability 3E05 from Cladoselache; cactbot HeadMarker 87 [Anyder Aquatic Lance]
+    Timeout(id + 0x90, 11.1f, "Protolithic Puncture").SetHint(StateMachine.StateHint.Tankbuster); // t=173.5; Ability 3E04 from Cladoselache; cactbot StartsUsing 3E04 [Anyder Puncture]
+    Timeout(id + 0xA0, 6.4f, "Pelagic Cleaver"); // t=179.9; Ability 3E0B from Doliodus; cactbot StartsUsing 3E0B [Anyder Pelagic Cleaver]
+    Targetable(id + 0xB0, false, 1.6f, "--untargetable--"); // t=181.5
+    Targetable(id + 0xC0, true, 1.8f, "--targetable--"); // t=183.3
+    Timeout(id + 0xD0, 6.1f, "Marine Mayhem").SetHint(StateMachine.StateHint.Raidwide); // t=189.4; Ability 3E06 from Doliodus; cactbot StartsUsing 3E06 [Anyder Marine Mayhem]
+    Timeout(id + 0xE0, 10.4f, "Protolithic Puncture").SetHint(StateMachine.StateHint.Tankbuster); // t=199.8; Ability 3E04 from Doliodus; cactbot StartsUsing 3E04 [Anyder Puncture]
+    Timeout(id + 0xF0, 1.6f, "Tidal Guillotine"); // t=201.4; Ability 3E0A from Cladoselache; cactbot StartsUsing 3E0A [Anyder Tidal Guillotine]
+    Timeout(id + 0x100, 2.4f, "--2x targetable--"); // t=203.8
+    Timeout(id + 0x110, 1.3f, "--1x targetable--"); // t=205.1
+    Timeout(id + 0x120, 8.1f, "Aquatic Lance"); // t=213.2; Ability 3E05 from Cladoselache; cactbot HeadMarker 87 [Anyder Aquatic Lance]
+    Timeout(id + 0x130, 11.1f, "Protolithic Puncture"); // t=224.3
+    Timeout(id + 0x140, 6.4f, "Pelagic Cleaver"); // t=230.7; cactbot StartsUsing 3E0B [Anyder Pelagic Cleaver]
+    Targetable(id + 0x150, false, 1.6f, "--untargetable--"); // t=232.3
+    Targetable(id + 0x160, true, 1.8f, "--targetable--"); // t=234.1
+    Timeout(id + 0x170, 6.1f, "Marine Mayhem"); // t=240.2; cactbot StartsUsing 3E06 [Anyder Marine Mayhem]
+    Timeout(id + 0x180, 10.4f, "Protolithic Puncture"); // t=250.6
+    Timeout(id + 0x190, 1.6f, "Tidal Guillotine"); // t=252.2; cactbot StartsUsing 3E0A [Anyder Tidal Guillotine]
+    Timeout(id + 0x1A0, 2.4f, "--2x targetable--"); // t=254.6
+    Timeout(id + 0x1B0, 1.3f, "--1x targetable--"); // t=255.9
+    Condition(id + 0x1C0, 44.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x3E07), "", 5f, 39.1f); // t=300.0; StartsUsing 3E07 from Doliodus/Cladoselache
+    Timeout(id + 0x1D0, 2.0f, "Carcharian Verve"); // t=302.0; Ability 3E07 from Doliodus/Cladoselache
+    Timeout(id + 0x1E0, 3.5f, "Marine Mayhem").SetHint(StateMachine.StateHint.Raidwide); // t=305.5; Ability 3E06 from Doliodus/Cladoselache; cactbot StartsUsing 3E06 [Anyder Marine Mayhem]
+}
+
+private void Morbol_Marquis(uint id)
+{
+    Timeout(id + 0x0, 8.5f, "Lash"); // t=508.5; Ability 3E16 from Morbol Marquis
+    Timeout(id + 0x10, 7.6f, "Sap Shower"); // t=516.1; Ability 3E15 from Morbol Marquis; cactbot HeadMarker 78 [Anyder Sap Shower]
+    Timeout(id + 0x20, 8.6f, "Arbor Storm").SetHint(StateMachine.StateHint.Raidwide); // t=524.7; Ability 3E17 from Morbol Marquis; cactbot StartsUsing 3E17 [Anyder Arbor Storm]
+    Condition(id + 0x30, 7.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x3E10), "", 5f, 2.6f); // t=532.3; StartsUsing 3E10 from Morbol Marquis
+    Timeout(id + 0x40, 5.0f, "Extensible Tendrils"); // t=537.3; Ability 3E10 from Morbol Marquis
+    Timeout(id + 0x50, 27.4f, "Putrid Breath"); // t=564.7; Ability 3E12 from Morbol Marquis
+    Timeout(id + 0x60, 4.3f, "Lash"); // t=569.0
+    Timeout(id + 0x70, 6.0f, "Lash"); // t=575.0
+    Timeout(id + 0x80, 6.1f, "Blossom"); // t=581.1; Ability 3E13 from Morbol Marquis
+    Timeout(id + 0x90, 8.6f, "Arbor Storm").SetHint(StateMachine.StateHint.Raidwide); // t=589.7; Ability 3E17 from Morbol Marquis; cactbot StartsUsing 3E17 [Anyder Arbor Storm]
+    Condition(id + 0xA0, 8.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x3E10), "", 5f, 3.6f); // t=598.3; StartsUsing 3E10 from Morbol Marquis
+    Timeout(id + 0xB0, 5.0f, "Extensible Tendrils"); // t=603.3; Ability 3E10 from Morbol Marquis
+    Timeout(id + 0xC0, 8.1f, "Sap Shower"); // t=611.4; Ability 3E15 from Morbol Marquis; cactbot HeadMarker 78 [Anyder Sap Shower]
+    Timeout(id + 0xD0, 19.4f, "Putrid Breath"); // t=630.8; Ability 3E12 from Morbol Marquis
+    Timeout(id + 0xE0, 3.4f, "Lash"); // t=634.2; Ability 3E16 from Morbol Marquis
+    Timeout(id + 0xF0, 12.4f, "Blossom"); // t=646.6; Ability 3E13 from Morbol Marquis
+    Timeout(id + 0x100, 6.7f, "Sap Shower"); // t=653.3; Ability 3E15 from Morbol Marquis; cactbot HeadMarker 78 [Anyder Sap Shower]
+    Timeout(id + 0x110, 3.8f, "Lash"); // t=657.1; Ability 3E16 from Morbol Marquis
+    Condition(id + 0x120, 3.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x3E10), "", 5f, 0.0f); // t=660.3; StartsUsing 3E10 from Morbol Marquis
+    Timeout(id + 0x130, 5.0f, "Extensible Tendrils"); // t=665.3; Ability 3E10 from Morbol Marquis
+    Timeout(id + 0x140, 27.3f, "Putrid Breath"); // t=692.6; Ability 3E12 from Morbol Marquis
+    Timeout(id + 0x150, 6.4f, "Arbor Storm").SetHint(StateMachine.StateHint.Raidwide); // t=699.0; Ability 3E17 from Morbol Marquis; cactbot StartsUsing 3E17 [Anyder Arbor Storm]
+    Timeout(id + 0x160, 8.6f, "Blossom"); // t=707.6; Ability 3E13 from Morbol Marquis
+    Timeout(id + 0x170, 8.5f, "Arbor Storm").SetHint(StateMachine.StateHint.Raidwide); // t=716.1; Ability 3E17 from Morbol Marquis; cactbot StartsUsing 3E17 [Anyder Arbor Storm]
+    Condition(id + 0x180, 8.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x3E10), "", 5f, 3.7f); // t=724.8; StartsUsing 3E10 from Morbol Marquis
+    Timeout(id + 0x190, 5.0f, "Extensible Tendrils"); // t=729.8; Ability 3E10 from Morbol Marquis
+    Timeout(id + 0x1A0, 8.1f, "Sap Shower"); // t=737.9; Ability 3E15 from Morbol Marquis; cactbot HeadMarker 78 [Anyder Sap Shower]
+    Timeout(id + 0x1B0, 19.4f, "Putrid Breath"); // t=757.3; Ability 3E12 from Morbol Marquis
+    Timeout(id + 0x1C0, 3.4f, "Lash"); // t=760.7; Ability 3E16 from Morbol Marquis
+    Timeout(id + 0x1D0, 12.4f, "Blossom"); // t=773.1; Ability 3E13 from Morbol Marquis
+    Timeout(id + 0x1E0, 6.7f, "Sap Shower"); // t=779.8; cactbot HeadMarker 78 [Anyder Sap Shower]
+    Timeout(id + 0x1F0, 3.8f, "Lash"); // t=783.6
+    Timeout(id + 0x200, 8.2f, "Extensible Tendrils"); // t=791.8
+    Timeout(id + 0x210, 27.3f, "Putrid Breath"); // t=819.1
+    Timeout(id + 0x220, 6.4f, "Arbor Storm"); // t=825.5; cactbot StartsUsing 3E17 [Anyder Arbor Storm]
+    Timeout(id + 0x230, 8.6f, "Blossom"); // t=834.1
+    Timeout(id + 0x240, 8.5f, "Arbor Storm"); // t=842.6; cactbot StartsUsing 3E17 [Anyder Arbor Storm]
+}
+
+private void Quetzalcoatl(uint id)
+{
+    Timeout(id + 0x0, 8.2f, "Shockbolt").SetHint(StateMachine.StateHint.Tankbuster); // t=1008.2; Ability 3E23 from Quetzalcoatl; cactbot StartsUsing 3E23 [Anyder Shockbolt]
+    Timeout(id + 0x10, 9.7f, "Thunderbolt").SetHint(StateMachine.StateHint.Raidwide); // t=1017.9; Ability 3E24 from Quetzalcoatl; cactbot StartsUsing 3E24 [Anyder Thunderbolt]
+    Timeout(id + 0x20, 13.5f, "Thunderstorm"); // t=1031.4; Ability 3E1C from Quetzalcoatl; cactbot StartsUsing 3E1A [Anyder Thunderstorm]
+    Timeout(id + 0x30, 13.8f, "Shocking Plumage"); // t=1045.2; Ability 3E21 from Quetzalcoatl
+    Timeout(id + 0x40, 12.3f, "Thunderstorm"); // t=1057.5; Ability 3E1C from Quetzalcoatl; cactbot StartsUsing 3E1A [Anyder Thunderstorm]
+    Timeout(id + 0x50, 10.1f, "Reverse Current"); // t=1067.6; Ability 3E1E from Quetzalcoatl
+    Timeout(id + 0x60, 17.4f, "Winding Current"); // t=1085.0; Ability 3E1F from Quetzalcoatl
+    Timeout(id + 0x70, 14.2f, "Thunderstorm"); // t=1099.2; Ability 3E1C from Quetzalcoatl; cactbot StartsUsing 3E1A [Anyder Thunderstorm]
+    Timeout(id + 0x80, 7.8f, "Shocking Plumage"); // t=1107.0; Ability 3E21 from Quetzalcoatl
+    Timeout(id + 0x90, 6.5f, "Shockbolt").SetHint(StateMachine.StateHint.Tankbuster); // t=1113.5; Ability 3E23 from Quetzalcoatl; cactbot StartsUsing 3E23 [Anyder Shockbolt]
+    Timeout(id + 0xA0, 8.6f, "Thunderbolt").SetHint(StateMachine.StateHint.Raidwide); // t=1122.1; Ability 3E24 from Quetzalcoatl; cactbot StartsUsing 3E24 [Anyder Thunderbolt]
+    Timeout(id + 0xB0, 9.4f, "Thunderstorm"); // t=1131.5; Ability 3E1C from Quetzalcoatl; cactbot StartsUsing 3E1A [Anyder Thunderstorm]
+    Timeout(id + 0xC0, 8.8f, "Shocking Plumage"); // t=1140.3; Ability 3E21 from Quetzalcoatl
+    Timeout(id + 0xD0, 8.5f, "Shocking Plumage"); // t=1148.8; Ability 3E21 from Quetzalcoatl
+    Timeout(id + 0xE0, 6.4f, "Thunderbolt").SetHint(StateMachine.StateHint.Raidwide); // t=1155.2; Ability 3E24 from Quetzalcoatl; cactbot StartsUsing 3E24 [Anyder Thunderbolt]
+    Timeout(id + 0xF0, 8.4f, "Reverse Current"); // t=1163.6; Ability 3E1E from Quetzalcoatl
+    Timeout(id + 0x100, 17.4f, "Winding Current"); // t=1181.0
+    Timeout(id + 0x110, 14.2f, "Thunderstorm"); // t=1195.2; cactbot StartsUsing 3E1A [Anyder Thunderstorm]
+    Timeout(id + 0x120, 7.8f, "Shocking Plumage"); // t=1203.0
+    Timeout(id + 0x130, 6.5f, "Shockbolt"); // t=1209.5; cactbot StartsUsing 3E23 [Anyder Shockbolt]
+    Timeout(id + 0x140, 8.6f, "Thunderbolt"); // t=1218.1; cactbot StartsUsing 3E24 [Anyder Thunderbolt]
+    Timeout(id + 0x150, 9.4f, "Thunderstorm"); // t=1227.5; cactbot StartsUsing 3E1A [Anyder Thunderstorm]
+    Timeout(id + 0x160, 8.8f, "Shocking Plumage"); // t=1236.3
+    Timeout(id + 0x170, 8.5f, "Shocking Plumage"); // t=1244.8
+    Timeout(id + 0x180, 6.4f, "Thunderbolt"); // t=1251.2; cactbot StartsUsing 3E24 [Anyder Thunderbolt]
+}
+

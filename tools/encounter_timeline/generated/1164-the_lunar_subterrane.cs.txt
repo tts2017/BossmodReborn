@@ -1,0 +1,119 @@
+// Generated development skeleton from the_lunar_subterrane.txt (TerritoryType 1164).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 22 static/dynamic trigger definitions from ui/raidboss/data/06-ew/dungeon/the_lunar_subterrane.ts.
+
+private void THE_LUNAR_SUBTERRANE(uint id)
+{
+    Condition(id + 0x0, 1006.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x87D9), "", 5f, 1001.0f); // t=1006.0; StartsUsing 87D9 from Dark Elf
+    Timeout(id + 0x10, 3.0f, "Hexing Staves"); // t=1009.0; Ability 87D9 from Dark Elf
+    Timeout(id + 0x20, 8.1f, "Ruinous Confluence"); // t=1017.1; Ability 8985 from Dark Elf; cactbot StartsUsing 8985 [Lunar Subterrane Dark Elf Ruinous Hex Call]
+    Timeout(id + 0x30, 10.0f, "Shadowy Sigil"); // t=1027.1
+    Timeout(id + 0x40, 0.4f, "Explosion"); // t=1027.5; Ability 87E3 from Dark Elf
+    Timeout(id + 0x50, 6.7f, "Hexing Staves"); // t=1034.2; Ability 87D9 from Dark Elf
+    Timeout(id + 0x60, 10.1f, "Sorcerous Shroud"); // t=1044.3; Ability 87DA from Dark Elf
+    Timeout(id + 0x70, 6.7f, "Void Dark II (cast)"); // t=1051.0; Ability 87DD from Dark Elf
+    Timeout(id + 0x80, 5.6f, "Void Dark II (spread)"); // t=1056.6; Ability 87E4 from Dark Elf; cactbot StartsUsing 87E4 [Lunar Subterrane Dark Elf Void Dark II]
+    Timeout(id + 0x90, 3.7f, "Ruinous Confluence"); // t=1060.3; Ability 8985 from Dark Elf; cactbot StartsUsing 8985 [Lunar Subterrane Dark Elf Ruinous Hex Call]
+    Timeout(id + 0xA0, 6.9f, "Hexing Staves"); // t=1067.2; Ability 87D9 from Dark Elf
+    Timeout(id + 0xB0, 10.1f, "Sorcerous Shroud"); // t=1077.3; Ability 87DA from Dark Elf
+    Timeout(id + 0xC0, 6.7f, "Void Dark II (cast)"); // t=1084.0; Ability 87DD from Dark Elf
+    Timeout(id + 0xD0, 7.6f, "Void Dark II (spread)"); // t=1091.6; Ability 87E4 from Dark Elf; cactbot StartsUsing 87E4 [Lunar Subterrane Dark Elf Void Dark II]
+    Timeout(id + 0xE0, 0.6f, "Shadowy Sigil"); // t=1092.2
+    Timeout(id + 0xF0, 0.6f, "Explosion"); // t=1092.8; Ability 87E3 from Dark Elf
+    Timeout(id + 0x100, 6.6f, "Ruinous Confluence"); // t=1099.4; Ability 8985 from Dark Elf; cactbot StartsUsing 8985 [Lunar Subterrane Dark Elf Ruinous Hex Call]
+    Timeout(id + 0x110, 10.2f, "Staff Smite").SetHint(StateMachine.StateHint.Tankbuster); // t=1109.6; Ability 8984 from Dark Elf; cactbot StartsUsing 8984 [Lunar Subterrane Dark Elf Staff Smite]
+    Timeout(id + 0x120, 11.0f, "Abyssal Outburst").SetHint(StateMachine.StateHint.Raidwide); // t=1120.6; Ability 87DE from Dark Elf; cactbot StartsUsing 87DE [Lunar Subterrane Dark Elf Abyssal Outburst]
+    Timeout(id + 0x130, 9.1f, "Abyssal Outburst").SetHint(StateMachine.StateHint.Raidwide); // t=1129.7; Ability 87DE from Dark Elf; cactbot StartsUsing 87DE [Lunar Subterrane Dark Elf Abyssal Outburst]
+    Timeout(id + 0x140, 10.7f, "Hexing Staves"); // t=1140.4; Ability 87D9 from Dark Elf
+    Condition(id + 0x150, 869.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x87FD), "", 5f, 864.1f); // t=2009.5; StartsUsing 87FD from Damcyan Antlion; cactbot StartsUsing 87FD [Lunar Subterrane Antlion Sandblast]
+    Timeout(id + 0x160, 5.0f, "Sandblast").SetHint(StateMachine.StateHint.Raidwide); // t=2014.5; Ability 87FD from Damcyan Antlion; cactbot StartsUsing 87FD [Lunar Subterrane Antlion Sandblast]
+    Timeout(id + 0x170, 9.1f, "Landslip"); // t=2023.6; Ability 8802 from Damcyan Antlion
+    Timeout(id + 0x180, 5.2f, "--north--"); // t=2028.8; Ability 8808 from Damcyan Antlion
+    Timeout(id + 0x190, 8.2f, "Antlion March"); // t=2037.0; Ability 8800 from Damcyan Antlion
+    Timeout(id + 0x1A0, 12.6f, "Landslip"); // t=2049.6; Ability 8802 from Damcyan Antlion
+    Timeout(id + 0x1B0, 3.3f, "Towerfall 1"); // t=2052.9; Ability 8804 from Stone Pillar
+    Timeout(id + 0x1C0, 3.8f, "--middle--"); // t=2056.7; Ability 8808 from Damcyan Antlion
+    Timeout(id + 0x1D0, 6.1f, "Earthen Geyser"); // t=2062.8; Ability 8805 from Damcyan Antlion; cactbot StartsUsing 8806 [Lunar Subterrane Antlion Earthen Geyser]
+    Timeout(id + 0x1E0, 11.1f, "Pound Sand"); // t=2073.9; Ability 868B from Damcyan Antlion; cactbot Ability 8806 [Lunar Subterrane Antlion Pound Sand]
+    Timeout(id + 0x1F0, 9.1f, "Sandblast").SetHint(StateMachine.StateHint.Raidwide); // t=2083.0; Ability 87FD from Damcyan Antlion; cactbot StartsUsing 87FD [Lunar Subterrane Antlion Sandblast]
+    Timeout(id + 0x200, 6.1f, "--north--"); // t=2089.1; Ability 8808 from Damcyan Antlion
+    Timeout(id + 0x210, 8.2f, "Antlion March"); // t=2097.3; Ability 8800 from Damcyan Antlion
+    Timeout(id + 0x220, 12.6f, "Landslip"); // t=2109.9; Ability 8802 from Damcyan Antlion
+    Timeout(id + 0x230, 3.3f, "Towerfall 2"); // t=2113.2; Ability 8804 from Stone Pillar
+    Timeout(id + 0x240, 3.8f, "--middle--"); // t=2117.0; Ability 8808 from Damcyan Antlion
+    Timeout(id + 0x250, 6.1f, "Earthen Geyser"); // t=2123.1; Ability 8805 from Damcyan Antlion; cactbot StartsUsing 8806 [Lunar Subterrane Antlion Earthen Geyser]
+    Timeout(id + 0x260, 11.1f, "Pound Sand"); // t=2134.2; Ability 868B from Damcyan Antlion; cactbot Ability 8806 [Lunar Subterrane Antlion Pound Sand]
+    Timeout(id + 0x270, 9.1f, "Sandblast").SetHint(StateMachine.StateHint.Raidwide); // t=2143.3; Ability 87FD from Damcyan Antlion; cactbot StartsUsing 87FD [Lunar Subterrane Antlion Sandblast]
+    Timeout(id + 0x280, 6.1f, "--north--"); // t=2149.4; Ability 8808 from Damcyan Antlion
+    Timeout(id + 0x290, 8.2f, "Antlion March"); // t=2157.6; Ability 8800 from Damcyan Antlion
+    Timeout(id + 0x2A0, 12.6f, "Landslip"); // t=2170.2; Ability 8802 from Damcyan Antlion
+    Timeout(id + 0x2B0, 3.3f, "Towerfall 3"); // t=2173.5; Ability 8804 from Stone Pillar
+    Timeout(id + 0x2C0, 3.8f, "--middle--"); // t=2177.3; Ability 8808 from Damcyan Antlion
+    Timeout(id + 0x2D0, 6.1f, "Earthen Geyser"); // t=2183.4; Ability 8805 from Damcyan Antlion; cactbot StartsUsing 8806 [Lunar Subterrane Antlion Earthen Geyser]
+    Timeout(id + 0x2E0, 11.1f, "Pound Sand"); // t=2194.5; Ability 868B from Damcyan Antlion; cactbot Ability 8806 [Lunar Subterrane Antlion Pound Sand]
+    Timeout(id + 0x2F0, 9.1f, "Sandblast").SetHint(StateMachine.StateHint.Raidwide); // t=2203.6; Ability 87FD from Damcyan Antlion; cactbot StartsUsing 87FD [Lunar Subterrane Antlion Sandblast]
+    Timeout(id + 0x300, 6.1f, "--north--"); // t=2209.7; Ability 8808 from Damcyan Antlion
+    Timeout(id + 0x310, 8.2f, "Antlion March"); // t=2217.9; Ability 8800 from Damcyan Antlion
+    Timeout(id + 0x320, 12.6f, "Landslip"); // t=2230.5; Ability 8802 from Damcyan Antlion
+    Timeout(id + 0x330, 3.3f, "Towerfall 4"); // t=2233.8; Ability 8804 from Stone Pillar
+    Timeout(id + 0x340, 3.8f, "--middle--"); // t=2237.6; Ability 8808 from Damcyan Antlion
+    Timeout(id + 0x350, 6.1f, "Earthen Geyser"); // t=2243.7; Ability 8805 from Damcyan Antlion; cactbot StartsUsing 8806 [Lunar Subterrane Antlion Earthen Geyser]
+    Timeout(id + 0x360, 11.1f, "Pound Sand"); // t=2254.8; Ability 868B from Damcyan Antlion; cactbot Ability 8806 [Lunar Subterrane Antlion Pound Sand]
+    Timeout(id + 0x370, 9.1f, "Sandblast").SetHint(StateMachine.StateHint.Raidwide); // t=2263.9; Ability 87FD from Damcyan Antlion; cactbot StartsUsing 87FD [Lunar Subterrane Antlion Sandblast]
+    Timeout(id + 0x380, 6.1f, "--north--"); // t=2270.0; Ability 8808 from Damcyan Antlion
+    Timeout(id + 0x390, 8.2f, "Antlion March"); // t=2278.2; Ability 8800 from Damcyan Antlion
+    Timeout(id + 0x3A0, 12.6f, "Landslip"); // t=2290.8; Ability 8802 from Damcyan Antlion
+    Timeout(id + 0x3B0, 7.1f, "--middle--"); // t=2297.9; Ability 8808 from Damcyan Antlion
+    Timeout(id + 0x3C0, 6.1f, "Earthen Geyser"); // t=2304.0; Ability 8805 from Damcyan Antlion; cactbot StartsUsing 8806 [Lunar Subterrane Antlion Earthen Geyser]
+    Timeout(id + 0x3D0, 11.1f, "Pound Sand"); // t=2315.1; Ability 868B from Damcyan Antlion; cactbot Ability 8806 [Lunar Subterrane Antlion Pound Sand]
+    Timeout(id + 0x3E0, 9.1f, "Sandblast").SetHint(StateMachine.StateHint.Raidwide); // t=2324.2; Ability 87FD from Damcyan Antlion; cactbot StartsUsing 87FD [Lunar Subterrane Antlion Sandblast]
+    Timeout(id + 0x3F0, 6.1f, "--north--"); // t=2330.3; Ability 8808 from Damcyan Antlion
+    Condition(id + 0x400, 677.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x88C3), "", 5f, 672.0f); // t=3007.3; StartsUsing 88C3 from Durante; cactbot StartsUsing 88C3 [Lunar Subterrane Durante Old Magic]
+    Timeout(id + 0x410, 5.0f, "Old Magic").SetHint(StateMachine.StateHint.Raidwide); // t=3012.3; Ability 88C3 from Durante; cactbot StartsUsing 88C3 [Lunar Subterrane Durante Old Magic]
+    Timeout(id + 0x420, 2.1f, "--middle--"); // t=3014.4; Ability 88AF from Durante
+    Timeout(id + 0x430, 8.3f, "Duplicitous Battery"); // t=3022.7; Ability 8CD9 from Durante
+    Timeout(id + 0x440, 12.8f, "Forsaken Fount"); // t=3035.5; Ability 88BB from Durante; cactbot Ability 88BB [Lunar Subterrane Durante Forsaken Fount 1] | Ability 88BB [Lunar Subterrane Durante Forsaken Fount 2]
+    Timeout(id + 0x450, 8.8f, "Explosion"); // t=3044.3; Ability 88BE from Aetheric Charge
+    Timeout(id + 0x460, 4.3f, "--middle--"); // t=3048.6; Ability 88AF from Durante
+    Timeout(id + 0x470, 9.4f, "Duplicitous Battery"); // t=3058.0; Ability 8CD9 from Durante
+    Timeout(id + 0x480, 6.6f, "Fallen Grace"); // t=3064.6; Ability 8C2A from Durante; cactbot StartsUsing 8C2A [Lunar Subterrane Durante Fallen Grace]
+    Timeout(id + 0x490, 6.1f, "--north--"); // t=3070.7; Ability 88AF from Durante
+    Timeout(id + 0x4A0, 5.4f, "Forsaken Fount"); // t=3076.1; Ability 88BB from Durante; cactbot Ability 88BB [Lunar Subterrane Durante Forsaken Fount 1] | Ability 88BB [Lunar Subterrane Durante Forsaken Fount 2]
+    Timeout(id + 0x4B0, 5.1f, "Contrapasso"); // t=3081.2; Ability 8C41 from Durante
+    Timeout(id + 0x4C0, 0.9f, "Splinter"); // t=3082.1; Ability 88BC from Aetheric Charge
+    Timeout(id + 0x4D0, 12.0f, "Explosion"); // t=3094.1; Ability 88BD from Durante
+    Timeout(id + 0x4E0, 0.4f, "--north--"); // t=3094.5; Ability 88AF from Durante
+    Timeout(id + 0x4F0, 5.3f, "Forsaken Fount"); // t=3099.8; Ability 88BB from Durante; cactbot Ability 88BB [Lunar Subterrane Durante Forsaken Fount 1] | Ability 88BB [Lunar Subterrane Durante Forsaken Fount 2]
+    Timeout(id + 0x500, 5.1f, "Contrapasso"); // t=3104.9; Ability 8C41 from Durante
+    Timeout(id + 0x510, 0.9f, "Splinter"); // t=3105.8; Ability 88BC from Aetheric Charge
+    Timeout(id + 0x520, 12.0f, "Explosion"); // t=3117.8; Ability 88BD from Durante
+    Timeout(id + 0x530, 5.4f, "Old Magic").SetHint(StateMachine.StateHint.Raidwide); // t=3123.2; Ability 88C3 from Durante; cactbot StartsUsing 88C3 [Lunar Subterrane Durante Old Magic]
+    Timeout(id + 0x540, 5.2f, "--middle--"); // t=3128.4; Ability 88AF from Durante
+    Timeout(id + 0x550, 7.0f, "Antipodal Assault"); // t=3135.4; Ability 88BF from Durante; cactbot Ability 38FC [Lunar Subterrane Durante Antipodal Assault]
+    Timeout(id + 0x560, 7.5f, "Hard Slash"); // t=3142.9; Ability 88C1 from Durante; cactbot Ability 88C0 [Lunar Subterrane Durante Hard Slash]
+    Timeout(id + 0x570, 2.3f, "--middle--"); // t=3145.2; Ability 88AF from Durante
+    Timeout(id + 0x580, 9.2f, "Twilight Phase"); // t=3154.4; Ability 8CD7 from Durante; cactbot StartsUsing 8CD8 [Lunar Subterrane Durante Twilight Phase]
+    Timeout(id + 0x590, 11.2f, "Dark Impact"); // t=3165.6; Ability 88BA from Durante; cactbot StartsUsing 88BA [Lunar Subterrane Durante Dark Impact]
+    Timeout(id + 0x5A0, 6.7f, "--middle--"); // t=3172.3; Ability 88AF from Durante
+    Timeout(id + 0x5B0, 8.3f, "Death's Journey"); // t=3180.6; Ability 88B3 from Durante
+    Timeout(id + 0x5C0, 5.1f, "--north--"); // t=3185.7; Ability 88AF from Durante
+    Timeout(id + 0x5D0, 5.3f, "Forsaken Fount"); // t=3191.0; Ability 88BB from Durante; cactbot Ability 88BB [Lunar Subterrane Durante Forsaken Fount 1] | Ability 88BB [Lunar Subterrane Durante Forsaken Fount 2]
+    Timeout(id + 0x5E0, 5.1f, "Contrapasso"); // t=3196.1; Ability 8C41 from Durante
+    Timeout(id + 0x5F0, 0.9f, "Splinter"); // t=3197.0; Ability 88BC from Aetheric Charge
+    Timeout(id + 0x600, 12.0f, "Explosion"); // t=3209.0; Ability 88BD from Durante
+    Timeout(id + 0x610, 3.3f, "Old Magic").SetHint(StateMachine.StateHint.Raidwide); // t=3212.3; Ability 88C3 from Durante; cactbot StartsUsing 88C3 [Lunar Subterrane Durante Old Magic]
+    Timeout(id + 0x620, 5.1f, "--middle--"); // t=3217.4; Ability 88AF from Durante
+    Timeout(id + 0x630, 9.4f, "Duplicitous Battery"); // t=3226.8; Ability 8CD9 from Durante
+    Timeout(id + 0x640, 6.4f, "Fallen Grace"); // t=3233.2; Ability 8C2A from Durante; cactbot StartsUsing 8C2A [Lunar Subterrane Durante Fallen Grace]
+    Timeout(id + 0x650, 8.1f, "--middle--"); // t=3241.3; Ability 88AF from Durante
+    Timeout(id + 0x660, 7.1f, "Antipodal Assault"); // t=3248.4; Ability 88BF from Durante; cactbot Ability 38FC [Lunar Subterrane Durante Antipodal Assault]
+    Timeout(id + 0x670, 7.4f, "Hard Slash"); // t=3255.8; Ability 88C1 from Durante; cactbot Ability 88C0 [Lunar Subterrane Durante Hard Slash]
+    Timeout(id + 0x680, 2.1f, "--middle--"); // t=3257.9; Ability 88AF from Durante
+    Timeout(id + 0x690, 9.2f, "Twilight Phase"); // t=3267.1; Ability 8CD7 from Durante; cactbot StartsUsing 8CD8 [Lunar Subterrane Durante Twilight Phase]
+    Timeout(id + 0x6A0, 11.2f, "Dark Impact"); // t=3278.3; Ability 88BA from Durante; cactbot StartsUsing 88BA [Lunar Subterrane Durante Dark Impact]
+    Timeout(id + 0x6B0, 8.9f, "Arcane Edge").SetHint(StateMachine.StateHint.Tankbuster); // t=3287.2; Ability 88C2 from Durante; cactbot StartsUsing 88C2 [Lunar Subterrane Durante Arcane Edge]
+    Timeout(id + 0x6C0, 8.2f, "--middle--"); // t=3295.4; Ability 88AF from Durante
+    Timeout(id + 0x6D0, 8.3f, "Death's Journey"); // t=3303.7; Ability 88B3 from Durante
+}
+

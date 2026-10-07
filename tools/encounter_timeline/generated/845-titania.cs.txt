@@ -1,0 +1,98 @@
+// Generated development skeleton from titania.txt (TerritoryType 845).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 16 static/dynamic trigger definitions from ui/raidboss/data/05-shb/trial/titania.ts.
+
+private void Phase_1(uint id)
+{
+    Condition(id + 0x0, 8.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x3D5C), "", 5f, 3.5f); // t=8.5; StartsUsing 3D5C from Titania; cactbot StartsUsing 3D5C [Titania Bright Sabbath]
+    Timeout(id + 0x10, 4.0f, "Bright Sabbath").SetHint(StateMachine.StateHint.Raidwide); // t=12.5; Ability 3D5C from Titania; cactbot StartsUsing 3D5C [Titania Bright Sabbath]
+    Timeout(id + 0x20, 14.2f, "Phantom Rune"); // t=26.7
+    Timeout(id + 0x30, 11.2f, "Divination Rune"); // t=37.9; Ability 3D5B from Titania; cactbot StartsUsing 3D5B [Titania Divination]
+    Timeout(id + 0x40, 9.2f, "Mist Rune"); // t=47.1; Ability 3D45 from Titania; cactbot StartsUsing 3D45 [Titania Mist]
+    Timeout(id + 0x50, 20.2f, "Flame Rune"); // t=67.3; Ability 3D47 from Titania; cactbot StartsUsing 3D47 [Titania Flame]
+    Timeout(id + 0x60, 14.1f, "Flame Hammer"); // t=81.4; Ability 4373 from Spirit of Flame
+    Timeout(id + 0x70, 10.0f, "Phantom Rune"); // t=91.4
+    Timeout(id + 0x80, 12.3f, "Midsummer Night's Dream"); // t=103.7; Ability 3D30 from Titania
+    Timeout(id + 0x90, 13.1f, "Growth Rune"); // t=116.8; Ability 3D2E from Titania; cactbot StartsUsing 3D2E [Titania Growth Rune]
+    Timeout(id + 0xA0, 27.2f, "Phantom Rune"); // t=144.0
+    Timeout(id + 0xB0, 7.1f, "Bright Sabbath").SetHint(StateMachine.StateHint.Raidwide); // t=151.1; Ability 3D5C from Titania; cactbot StartsUsing 3D5C [Titania Bright Sabbath]
+    Timeout(id + 0xC0, 10.3f, "Frost Rune"); // t=161.4; Ability 3D2A from Titania; cactbot StartsUsing 3D2A [Titania Frost Rune 1] | StartsUsing 3D2A [Titania Frost Rune 2]
+    Timeout(id + 0xD0, 9.0f, "Frost Rune Middle"); // t=170.4
+    Timeout(id + 0xE0, 6.3f, "Uplift"); // t=176.7; Ability 421F from Titania; cactbot HeadMarker 8B [Titania Uplift Markers]
+    Timeout(id + 0xF0, 6.1f, "Phantom Rune"); // t=182.8
+}
+
+private void Phase_2a(uint id)
+{
+    Targetable(id + 0x0, false, 0.0f, "--untargetable--"); // t=193.5; Ability 3D31 from Titania; cactbot Ability 3D31 [Titania Mini Add Phase]
+    Targetable(id + 0x10, true, 2.5f, "--targetable--"); // t=196.0
+    Timeout(id + 0x20, 12.5f, "Gentle Breeze / Leafstorm"); // t=208.5; Ability 3F83 from Puck | Ability 3D38 from Mustardseed
+    Timeout(id + 0x30, 2.3f, "Peasebomb / Pease"); // t=210.8; Ability 3D34 from Peaseblossom | Ability 3D52 from Peaseblossom
+    Timeout(id + 0x40, 8.9f, "Pummel"); // t=219.7; Ability 3D54 from Puck
+    Timeout(id + 0x50, 1.2f, "Leafstorm"); // t=220.9; Ability 3D38 from Mustardseed
+    Timeout(id + 0x60, 1.2f, "Hard Swipe"); // t=222.1; Ability 3D53 from Peaseblossom
+    Timeout(id + 0x70, 16.4f, "Gentle Breeze"); // t=238.5; Ability 3F83 from Puck
+    Timeout(id + 0x80, 0.1f, "Peasebomb / Pease"); // t=238.6; Ability 3D34 from Peaseblossom | Ability 3D52 from Peaseblossom
+    Timeout(id + 0x90, 11.2f, "Pummel"); // t=249.8; Ability 3D54 from Puck
+    Timeout(id + 0xA0, 0.9f, "Hard Swipe"); // t=250.7; Ability 3D53 from Peaseblossom
+}
+
+private void Phase_2b__bigger_is_better(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Love-In-Idleness"); // t=500.0; Ability 3D3D from Titania
+    Targetable(id + 0x10, true, 18.1f, "--targetable--"); // t=518.1
+    Timeout(id + 0x20, 10.4f, "Leafstorm"); // t=528.5; Ability 3D3E from Mustardseed
+    Timeout(id + 0x30, 0.5f, "Peasebomb / War And Pease"); // t=529.0; Ability 3D3F from Peaseblossom | Ability 3DAD from Peaseblossom
+    Timeout(id + 0x40, 7.0f, "Puck's Breath"); // t=536.0; Ability 3D57 from Puck; cactbot HeadMarker A1 [Titania Pucks Breath Markers]
+    Timeout(id + 0x50, 10.0f, "Puck's Rebuke").SetHint(StateMachine.StateHint.Knockback); // t=546.0; Ability 3D59 from Puck; cactbot StartsUsing 3D59 [Titania Puck\]
+    Timeout(id + 0x60, 5.5f, "Leafstorm"); // t=551.5; Ability 3D3E from Mustardseed
+    Timeout(id + 0x70, 8.5f, "Peasebomb / War And Pease"); // t=560.0; Ability 3D3F from Peaseblossom | Ability 3DAD from Peaseblossom
+    Timeout(id + 0x80, 7.0f, "Puck's Caprice"); // t=567.0; Ability 3D56 from Puck
+    Timeout(id + 0x90, 16.5f, "Leafstorm"); // t=583.5; Ability 3D3E from Mustardseed
+    Timeout(id + 0xA0, 0.5f, "Peasebomb / War And Pease"); // t=584.0
+    Timeout(id + 0xB0, 7.0f, "Puck's Breath"); // t=591.0; cactbot HeadMarker A1 [Titania Pucks Breath Markers]
+    Timeout(id + 0xC0, 10.0f, "Puck's Rebuke"); // t=601.0
+}
+
+private void Phase_3(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Being Mortal"); // t=800.0; Ability 3D32 from Titania
+    Timeout(id + 0x10, 8.5f, "Being Mortal"); // t=808.5; Ability 3D51 from Titania
+    Targetable(id + 0x20, true, 5.5f, "--targetable--"); // t=814.0
+    Timeout(id + 0x30, 11.0f, "Mist Rune"); // t=825.0; Ability 3D45 from Titania; cactbot StartsUsing 3D45 [Titania Mist]
+    Timeout(id + 0x40, 8.0f, "Uplift"); // t=833.0; Ability 421F from Titania; cactbot HeadMarker 8B [Titania Uplift Markers]
+    Timeout(id + 0x50, 5.3f, "Flame Rune"); // t=838.3; Ability 3D47 from Titania; cactbot StartsUsing 3D47 [Titania Flame]
+    Timeout(id + 0x60, 8.0f, "Phantom Rune"); // t=846.3; Ability 3D5E from Titania; cactbot StartsUsing 3D5E [Titania Phantom In]
+    Timeout(id + 0x70, 6.1f, "Flame Hammer"); // t=852.4; Ability 4373 from Spirit of Flame
+    Timeout(id + 0x80, 3.9f, "Growth Rune"); // t=856.3; Ability 3D2E from Titania; cactbot StartsUsing 3D2E [Titania Growth Rune]
+    Timeout(id + 0x90, 8.0f, "Phantom Rune"); // t=864.3; Ability 3D5D from Titania; cactbot StartsUsing 3D5D [Titania Phantom Out]
+    Timeout(id + 0xA0, 14.0f, "Divination Rune"); // t=878.3; Ability 3D5B from Titania; cactbot StartsUsing 3D5B [Titania Divination]
+    Timeout(id + 0xB0, 9.0f, "Frost Rune"); // t=887.3; Ability 3D2A from Titania; cactbot StartsUsing 3D2A [Titania Frost Rune 1] | StartsUsing 3D2A [Titania Frost Rune 2]
+    Timeout(id + 0xC0, 9.0f, "Frost Rune Middle"); // t=896.3
+    Timeout(id + 0xD0, 7.0f, "Bright Sabbath").SetHint(StateMachine.StateHint.Raidwide); // t=903.3; Ability 3D5C from Titania; cactbot StartsUsing 3D5C [Titania Bright Sabbath]
+    Timeout(id + 0xE0, 12.0f, "Phantom Rune"); // t=915.3; Ability 3D5E from Titania; cactbot StartsUsing 3D5E [Titania Phantom In]
+    Timeout(id + 0xF0, 8.0f, "Phantom Rune"); // t=923.3; Ability 3D5D from Titania; cactbot StartsUsing 3D5D [Titania Phantom Out]
+    Timeout(id + 0x100, 14.0f, "Divination Rune"); // t=937.3; Ability 3D5B from Titania; cactbot StartsUsing 3D5B [Titania Divination]
+    Timeout(id + 0x110, 12.0f, "Bright Sabbath").SetHint(StateMachine.StateHint.Raidwide); // t=949.3; Ability 3D5C from Titania; cactbot StartsUsing 3D5C [Titania Bright Sabbath]
+    Timeout(id + 0x120, 7.0f, "Bright Sabbath").SetHint(StateMachine.StateHint.Raidwide); // t=956.3; Ability 3D5C from Titania; cactbot StartsUsing 3D5C [Titania Bright Sabbath]
+    Timeout(id + 0x130, 14.0f, "Mist Rune"); // t=970.3; Ability 3D45 from Titania; cactbot StartsUsing 3D45 [Titania Mist]
+    Timeout(id + 0x140, 8.0f, "Uplift"); // t=978.3; Ability 421F from Titania; cactbot HeadMarker 8B [Titania Uplift Markers]
+    Timeout(id + 0x150, 7.0f, "Flame Rune"); // t=985.3; Ability 3D47 from Titania; cactbot StartsUsing 3D47 [Titania Flame]
+    Timeout(id + 0x160, 8.0f, "Phantom Rune"); // t=993.3
+    Timeout(id + 0x170, 6.1f, "Flame Hammer"); // t=999.4
+    Timeout(id + 0x180, 3.9f, "Growth Rune"); // t=1003.3; cactbot StartsUsing 3D2E [Titania Growth Rune]
+    Timeout(id + 0x190, 8.0f, "Phantom Rune"); // t=1011.3
+    Timeout(id + 0x1A0, 14.0f, "Divination Rune"); // t=1025.3
+    Timeout(id + 0x1B0, 9.0f, "Frost Rune"); // t=1034.3; cactbot StartsUsing 3D2A [Titania Frost Rune 1] | StartsUsing 3D2A [Titania Frost Rune 2] | Ability 3D4E [Titania Frost Rune 3]
+    Timeout(id + 0x1C0, 9.0f, "Frost Rune Middle"); // t=1043.3
+    Timeout(id + 0x1D0, 7.0f, "Bright Sabbath"); // t=1050.3; cactbot StartsUsing 3D5C [Titania Bright Sabbath]
+    Timeout(id + 0x1E0, 12.0f, "Phantom Rune"); // t=1062.3
+    Timeout(id + 0x1F0, 8.0f, "Phantom Rune"); // t=1070.3
+    Timeout(id + 0x200, 14.0f, "Divination Rune"); // t=1084.3
+    Timeout(id + 0x210, 12.0f, "Bright Sabbath"); // t=1096.3; cactbot StartsUsing 3D5C [Titania Bright Sabbath]
+    Timeout(id + 0x220, 7.0f, "Bright Sabbath"); // t=1103.3; cactbot StartsUsing 3D5C [Titania Bright Sabbath]
+    Timeout(id + 0x230, 14.0f, "Mist Rune"); // t=1117.3
+    Timeout(id + 0x240, 8.0f, "Uplift"); // t=1125.3; cactbot HeadMarker 8B [Titania Uplift Markers]
+}
+

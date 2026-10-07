@@ -1,0 +1,169 @@
+// Generated development skeleton from e8s.txt (TerritoryType 909).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 53 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e8s.ts.
+
+private void Eden_8__Savage(uint id)
+{
+    Timeout(id + 0x0, 16.0f, "Absolute Zero").SetHint(StateMachine.StateHint.Raidwide); // t=16.0; Ability 4DCC from Shiva; cactbot StartsUsing 4DCC [E8S Absolute Zero]
+    Timeout(id + 0x10, 11.2f, "Mirror, Mirror"); // t=27.2; Ability 4D5A from Shiva; cactbot StartsUsing 4D5A [E8S Mirror Mirror]
+    Timeout(id + 0x20, 12.1f, "Biting/Driving Frost"); // t=39.3
+    Timeout(id + 0x30, 5.1f, "Reflected Frost (G)"); // t=44.4
+    Timeout(id + 0x40, 5.0f, "Reflected Frost (R)"); // t=49.4
+}
+
+private void Diamond_Frost(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "--middle--"); // t=57.5; Ability 4D58 from Shiva
+    Timeout(id + 0x10, 6.2f, "Diamond Frost").SetHint(StateMachine.StateHint.Raidwide); // t=63.7; Ability 4D6C from Shiva; cactbot StartsUsing 4D6C [E8S Diamond Frost]
+    Timeout(id + 0x20, 8.2f, "Frigid Stone"); // t=71.9; Ability 4D9B from Shiva
+    Timeout(id + 0x30, 3.0f, "Icicle Impact"); // t=74.9; Ability 4DA0 from Shiva; cactbot Ability 4DA0 [E8S Icicle Impact Backup]
+    Timeout(id + 0x40, 2.0f, "Heavenly Strike"); // t=76.9; Ability 4D61 from Shiva
+    Timeout(id + 0x50, 2.0f, "Icicle Impact"); // t=78.9; Ability 4DA0 from Shiva; cactbot Ability 4DA0 [E8S Icicle Impact Backup]
+    Timeout(id + 0x60, 2.0f, "Frigid Needle / Frigid Water"); // t=80.9; Ability 4D9D from Shiva | Ability 4D9E from Shiva
+    Timeout(id + 0x70, 2.0f, "Icicle Impact"); // t=82.9; Ability 4DA0 from Shiva; cactbot Ability 4DA0 [E8S Icicle Impact Backup]
+    Timeout(id + 0x80, 1.0f, "Frigid Eruption 1"); // t=83.9
+    Timeout(id + 0x90, 2.0f, "Frigid Eruption 2"); // t=85.9
+    Timeout(id + 0xA0, 2.0f, "Frigid Eruption 3"); // t=87.9
+    Timeout(id + 0xB0, 5.0f, "Driving/Biting Frost"); // t=92.9
+    Timeout(id + 0xC0, 8.8f, "Double Slap").SetHint(StateMachine.StateHint.Tankbuster); // t=101.7; Ability 4D65 from Shiva; cactbot StartsUsing 4D65 [E8S Double Slap]
+    Timeout(id + 0xD0, 13.3f, "Shining Armor"); // t=115.0; Ability 4DD1 from Shiva
+    Timeout(id + 0xE0, 8.0f, "Axe/Scythe Kick"); // t=123.0
+}
+
+private void Light_Rampant(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "--middle--"); // t=131.2; Ability 4D58 from Shiva
+    Timeout(id + 0x10, 6.2f, "Light Rampant").SetHint(StateMachine.StateHint.Raidwide); // t=137.4; Ability 4D73 from Shiva; cactbot StartsUsing 4D73 [E8S Light Rampant]
+    Timeout(id + 0x20, 11.2f, "Bright Hunger 4x1 / The Path Of Light 1"); // t=148.6; Ability 4DA2 from Shiva | Ability 4D63 from Shiva; cactbot Ability 4D63 [E8S Path of Light Counter]
+    Timeout(id + 0x30, 8.0f, "Bright Hunger 2x2"); // t=156.6; Ability 4DA2 from Shiva
+    Timeout(id + 0x40, 3.2f, "The Path Of Light 2"); // t=159.8; Ability 4D63 from Shiva; cactbot Ability 4D63 [E8S Path of Light Counter]
+    Timeout(id + 0x50, 4.9f, "Bright Hunger 1x4"); // t=164.7; Ability 4DA2 from Shiva
+    Timeout(id + 0x60, 8.3f, "Mirror, Mirror"); // t=173.0; Ability 4D5A from Shiva; cactbot StartsUsing 4D5A [E8S Mirror Mirror]
+    Timeout(id + 0x70, 12.2f, "Scythe/Axe Kick"); // t=185.2
+    Timeout(id + 0x80, 5.0f, "Reflected Kick (G)"); // t=190.2
+    Timeout(id + 0x90, 3.1f, "Banish III"); // t=193.3
+}
+
+private void Adds_Phase(uint id)
+{
+    Targetable(id + 0x0, false, 0.0f, "--untargetable--"); // t=201.5
+    Timeout(id + 0x10, 11.5f, "Shattered World"); // t=213.0; Ability 4D74 from Shiva
+    Timeout(id + 0x20, 16.2f, "Heart Asunder"); // t=229.2; Ability 4DAC from Mothercrystal; cactbot Ability 4DAC [E8S Heart Asunder Side Tracker] | Ability 4DAC [E8S Aqueous Aether]
+    Timeout(id + 0x30, 9.7f, "Rush 1"); // t=238.9; Ability 4D86 from Luminous Aether
+    Timeout(id + 0x40, 4.4f, "Heart Asunder"); // t=243.3; Ability 4DAC from Mothercrystal; cactbot Ability 4DAC [E8S Heart Asunder Side Tracker] | Ability 4DAC [E8S Aqueous Aether]
+    Timeout(id + 0x50, 9.7f, "Rush 2"); // t=253.0; Ability 4D86 from Luminous Aether
+    Timeout(id + 0x60, 4.4f, "Heart Asunder"); // t=257.4; Ability 4DAC from Mothercrystal; cactbot Ability 4DAC [E8S Heart Asunder Side Tracker] | Ability 4DAC [E8S Aqueous Aether]
+    Timeout(id + 0x70, 9.7f, "Rush 3"); // t=267.1; Ability 4D86 from Luminous Aether
+    Timeout(id + 0x80, 4.4f, "Heart Asunder"); // t=271.5; Ability 4DAC from Mothercrystal; cactbot Ability 4DAC [E8S Heart Asunder Side Tracker] | Ability 4DAC [E8S Aqueous Aether]
+    Timeout(id + 0x90, 9.7f, "Rush 4"); // t=281.2; Ability 4D86 from Luminous Aether
+    Timeout(id + 0xA0, 11.4f, "Skyfall"); // t=292.6; Ability 4DAD from Shiva
+}
+
+private void Wing_Mirrors(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=350.5
+    Condition(id + 0x10, 13.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4D79), "", 5f, 8.7f); // t=364.2; StartsUsing 4D79 from Shiva; cactbot StartsUsing 4D98/4D79 [E8S Akh Morn] | StartsUsing 4D98/4D79 [E8S Akh Morn Cleanup]
+    Timeout(id + 0x20, 4.4f, "Akh Morn x3"); // t=368.6; Ability 4D79 from Shiva; cactbot StartsUsing 4D98/4D79 [E8S Akh Morn] | StartsUsing 4D98/4D79 [E8S Akh Morn Cleanup]
+    Timeout(id + 0x30, 9.4f, "Morn Afah"); // t=378.0; Ability 4D7B from Shiva; cactbot StartsUsing 4D7B [E8S Morn Afah]
+    Timeout(id + 0x40, 11.4f, "Mirror, Mirror"); // t=389.4; Ability 4D5A from Shiva; cactbot StartsUsing 4D5A [E8S Mirror Mirror]
+    Timeout(id + 0x50, 13.8f, "Hallowed Wings 1 / Reflected Wings (B)"); // t=403.2
+    Timeout(id + 0x60, 5.0f, "Reflected Wings (G)"); // t=408.2
+    Timeout(id + 0x70, 5.0f, "Hallowed Wings 2 / Reflected Wings (R)"); // t=413.2
+}
+
+private void Wyrm_s_Lament(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "--middle--"); // t=421.7; Ability 4D58 from Shiva
+    Timeout(id + 0x10, 6.2f, "Wyrm's Lament").SetHint(StateMachine.StateHint.Raidwide); // t=427.9; Ability 4D7C from Shiva; cactbot StartsUsing 4D7C [E8S Wyrm\] | StartsUsing 4D7C [E8S Wyrm\]
+    Timeout(id + 0x20, 13.1f, "Hallowed Wings 1"); // t=441.0
+    Timeout(id + 0x30, 8.1f, "Hallowed Wings 2"); // t=449.1
+    Timeout(id + 0x40, 8.1f, "Hallowed Wings 3"); // t=457.2
+    Timeout(id + 0x50, 8.1f, "Hallowed Wings 4"); // t=465.3
+    Timeout(id + 0x60, 8.2f, "Frost Armor"); // t=473.5; Ability 4DD0 from Shiva
+    Timeout(id + 0x70, 7.9f, "Twin Silence/Stillness"); // t=481.4
+    Timeout(id + 0x80, 2.1f, "Twin Stillness/Silence"); // t=483.5
+    Timeout(id + 0x90, 8.1f, "Double Slap").SetHint(StateMachine.StateHint.Tankbuster); // t=491.6; Ability 4D65 from Shiva; cactbot StartsUsing 4D65 [E8S Double Slap]
+    Timeout(id + 0xA0, 13.2f, "Drachen Armor"); // t=504.8; Ability 4DD2 from Shiva; cactbot Ability 4DD2 [E8S Drachen Armor]
+    Timeout(id + 0xB0, 2.5f, "Akh Rhai"); // t=507.3; Ability 4D99 from Shiva
+}
+
+private void Stack_Mirrors(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Mirror, Mirror"); // t=516.1; Ability 4D5A from Shiva; cactbot StartsUsing 4D5A [E8S Mirror Mirror]
+    Timeout(id + 0x10, 7.5f, "--teleport--"); // t=523.6; Ability 4D58 from Shiva
+    Timeout(id + 0x20, 6.4f, "Hallowed Wings").SetHint(StateMachine.StateHint.Knockback); // t=530.0; Ability 4D77 from Shiva; cactbot StartsUsing 4D77 [E8S Hallowed Wings Knockback]
+    Timeout(id + 0x30, 5.1f, "Reflected Wings (G)"); // t=535.1; Ability 4DBD from Frozen Mirror
+    Timeout(id + 0x40, 5.0f, "Reflected Wings (R)"); // t=540.1; Ability 4DC9 from Frozen Mirror
+}
+
+private void Lookaway_Mirrors(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Mirror, Mirror"); // t=554.1; Ability 4D5A from Shiva; cactbot StartsUsing 4D5A [E8S Mirror Mirror]
+    Timeout(id + 0x10, 12.5f, "Shining Armor / Reflected Armor (B)"); // t=566.6; Ability 4DD1 from Shiva | Ability 4D8A from Frozen Mirror
+    Timeout(id + 0x20, 5.1f, "Reflected Armor (G)"); // t=571.7; Ability 4DB5 from Frozen Mirror
+    Timeout(id + 0x30, 5.0f, "Reflected Armor (R)"); // t=576.7; Ability 4DC1 from Frozen Mirror
+    Timeout(id + 0x40, 0.9f, "Holy"); // t=577.6
+    Timeout(id + 0x50, 8.1f, "Embittered/Spiteful Dance"); // t=585.7
+    Timeout(id + 0x60, 4.1f, "Spiteful/Embittered Dance"); // t=589.8
+}
+
+private void Akh_Rhai_Mirrors(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Mirror, Mirror"); // t=600.9; Ability 4D5A from Shiva; cactbot StartsUsing 4D5A [E8S Mirror Mirror]
+    Timeout(id + 0x10, 7.2f, "Drachen Armor"); // t=608.1; Ability 4DD2 from Shiva; cactbot Ability 4DD2 [E8S Drachen Armor]
+    Timeout(id + 0x20, 2.5f, "Akh Rhai"); // t=610.6; Ability 4D99 from Shiva
+    Timeout(id + 0x30, 7.6f, "Reflected Drachen"); // t=618.2; Ability 4DC2 from Frozen Mirror; cactbot Ability 4DC2 [E8S Reflected Drachen Armor]
+    Timeout(id + 0x40, 2.2f, "Akh Morn x4"); // t=620.4; Ability 4D79 from Shiva; cactbot StartsUsing 4D98/4D79 [E8S Akh Morn] | StartsUsing 4D98/4D79 [E8S Akh Morn Cleanup]
+    Timeout(id + 0x50, 0.3f, "Akh Rhai"); // t=620.7; Ability 4D99 from Shiva
+    Timeout(id + 0x60, 10.1f, "Morn Afah"); // t=630.8; Ability 4D7B from Shiva; cactbot StartsUsing 4D7B [E8S Morn Afah]
+}
+
+private void Icelit_Dragonsong(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "--middle--"); // t=648.8; Ability 4D58 from Shiva
+    Timeout(id + 0x10, 6.6f, "Icelit Dragonsong"); // t=655.4; Ability 4D7D from Shiva; cactbot Ability 4D7D [E8S Icelit Dragonsong Cleanse]
+    Timeout(id + 0x20, 8.2f, "Frigid Stone"); // t=663.6; Ability 4D9B from Shiva
+    Timeout(id + 0x30, 3.0f, "Bright Hunger 4x1"); // t=666.6; Ability 4DA2 from Shiva
+    Timeout(id + 0x40, 2.0f, "Draconic Strike"); // t=668.6; Ability 4D62 from Shiva
+    Timeout(id + 0x50, 0.7f, "--knockback--"); // t=669.3; cactbot StartsUsing 4D77 [E8S Hallowed Wings Knockback]
+    Timeout(id + 0x60, 3.4f, "Frigid Needle"); // t=672.7; Ability 4D9D from Shiva; cactbot HeadMarker 60 [E8S Diamond Frost Frigid Needle Star]
+    Timeout(id + 0x70, 2.0f, "Bright Hunger 3x1"); // t=674.7; Ability 4DA2 from Shiva
+    Timeout(id + 0x80, 2.0f, "Frigid Eruption 1"); // t=676.7
+    Timeout(id + 0x90, 0.1f, "Banish"); // t=676.8
+    Timeout(id + 0xA0, 1.9f, "Frigid Eruption 2"); // t=678.7
+    Timeout(id + 0xB0, 2.1f, "Frigid Eruption 3"); // t=680.8
+    Timeout(id + 0xC0, 1.9f, "Inescapable Illumination"); // t=682.7; Ability 4DA3 from Shiva
+    Timeout(id + 0xD0, 5.3f, "The House Of Light"); // t=688.0; Ability 4D64 from Shiva; cactbot StartsUsing 4D64 [E8S The House of Light]
+    Timeout(id + 0xE0, 0.9f, "The Path Of Light"); // t=688.9; Ability 4DA1 from Shiva
+}
+
+private void Ice_Mirror(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Mirror, Mirror"); // t=699.6; Ability 4D5A from Shiva; cactbot StartsUsing 4D5A [E8S Mirror Mirror]
+    Timeout(id + 0x10, 10.3f, "Frost Armor"); // t=709.9; Ability 4DD0 from Shiva
+    Timeout(id + 0x20, 10.0f, "Reflected Frost Armor (R)"); // t=719.9; Ability 4DC0 from Frozen Mirror
+    Timeout(id + 0x30, 0.5f, "Drachen Armor"); // t=720.4; Ability 4DD2 from Shiva; cactbot Ability 4DD2 [E8S Drachen Armor]
+    Timeout(id + 0x40, 2.5f, "Akh Rhai"); // t=722.9; Ability 4D99 from Shiva
+}
+
+private void Wyrm_s_Lament_Take_2(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "--middle--"); // t=732.1; Ability 4D58 from Shiva
+    Timeout(id + 0x10, 6.2f, "Wyrm's Lament").SetHint(StateMachine.StateHint.Raidwide); // t=738.3; Ability 4D7C from Shiva; cactbot StartsUsing 4D7C [E8S Wyrm\] | StartsUsing 4D7C [E8S Wyrm\]
+    Timeout(id + 0x20, 7.2f, "Akh Morn x5"); // t=745.5; Ability 4D79 from Shiva; cactbot StartsUsing 4D98/4D79 [E8S Akh Morn] | StartsUsing 4D98/4D79 [E8S Akh Morn Cleanup]
+    Timeout(id + 0x30, 11.6f, "Morn Afah"); // t=757.1; Ability 4D7B from Shiva; cactbot StartsUsing 4D7B [E8S Morn Afah]
+    Timeout(id + 0x40, 7.2f, "Akh Morn x6"); // t=764.3; Ability 4D79 from Shiva; cactbot StartsUsing 4D98/4D79 [E8S Akh Morn] | StartsUsing 4D98/4D79 [E8S Akh Morn Cleanup]
+    Timeout(id + 0x50, 12.7f, "Morn Afah"); // t=777.0; Ability 4D7B from Shiva; cactbot StartsUsing 4D7B [E8S Morn Afah]
+    Timeout(id + 0x60, 7.3f, "Akh Morn x7"); // t=784.3; Ability 4D79 from Shiva; cactbot StartsUsing 4D98/4D79 [E8S Akh Morn] | StartsUsing 4D98/4D79 [E8S Akh Morn Cleanup]
+    Timeout(id + 0x70, 13.8f, "Morn Afah"); // t=798.1; Ability 4D7B from Shiva; cactbot StartsUsing 4D7B [E8S Morn Afah]
+}
+
+private void Enrage_Mirrors(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Mirror, Mirror"); // t=817.1; Ability 4D5A from Shiva; cactbot StartsUsing 4D5A [E8S Mirror Mirror]
+    Timeout(id + 0x10, 2.1f, "--teleport--"); // t=819.2; Ability 4D58 from Shiva
+    Timeout(id + 0x20, 11.4f, "Hallowed Wings").SetHint(StateMachine.StateHint.Knockback); // t=830.6; Ability 4D78 from Shiva; cactbot StartsUsing 4D77 [E8S Hallowed Wings Knockback]
+    Timeout(id + 0x30, 10.2f, "Enrage"); // t=840.8
+}
+

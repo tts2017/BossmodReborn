@@ -1,0 +1,166 @@
+// Generated development skeleton from varis-ex.txt (TerritoryType 913).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 18 static/dynamic trigger definitions from ui/raidboss/data/05-shb/trial/varis-ex.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 19.0f, "Altius"); // t=19.0; Ability 4CCA from Varis Yae Galvus; cactbot StartsUsing 4CCA [VarisEx Altius]
+    Timeout(id + 0x10, 9.5f, "Alea Iacta Est"); // t=28.5; Ability 4CD2 from Varis Yae Galvus; cactbot StartsUsing 4CD2 [VarisEx Alea Iacta Est]
+    Timeout(id + 0x20, 5.6f, "Terminus Est"); // t=34.1; Ability 4CB4 from Terminus Est; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0x30, 11.0f, "Citius"); // t=45.1; Ability 4CF0 from Varis Yae Galvus; cactbot StartsUsing 4CF0 [VarisEx Citius]
+    Timeout(id + 0x40, 19.1f, "Ignis Est / Festina Lente"); // t=64.2; Ability 4CB6 from Ignis Est | Ability 4CC9 from Varis Yae Galvus; cactbot Ability 4CC9 [VarisEx Festina Lente Cleanup]
+    Timeout(id + 0x50, 18.2f, "Electrified Gunshield").SetHint(StateMachine.StateHint.Knockback); // t=82.4; Ability 4CD7 from Varis Yae Galvus; cactbot Ability 4CD7 [VarisEx Electrified Gunshield]
+    Timeout(id + 0x60, 9.1f, "Altius"); // t=91.5; Ability 4CCA from Varis Yae Galvus; cactbot StartsUsing 4CCA [VarisEx Altius]
+    Timeout(id + 0x70, 10.1f, "Terminus Est"); // t=101.6; Ability 4CB4 from Terminus Est; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0x80, 6.9f, "Ignis Est"); // t=108.5; Ability 4CB6 from Ignis Est
+    Timeout(id + 0x90, 1.1f, "Magitek Shock"); // t=109.6; Ability 4CDA from Varis Yae Galvus
+    Timeout(id + 0xA0, 11.1f, "Reinforced Gunshield"); // t=120.7; Ability 4CD9 from Varis Yae Galvus; cactbot Ability 4CD9 [VarisEx Reinforced Gunshield]
+    Timeout(id + 0xB0, 8.2f, "Citius"); // t=128.9; Ability 4CF0 from Varis Yae Galvus; cactbot StartsUsing 4CF0 [VarisEx Citius]
+    Timeout(id + 0xC0, 3.1f, "Magitek Shielding"); // t=132.0
+    Timeout(id + 0xD0, 15.2f, "Loaded Gunshield"); // t=147.2; Ability 4CD8 from Varis Yae Galvus; cactbot Ability 4CDE [VarisEx Loaded Gunshield Final Warning]
+    Timeout(id + 0xE0, 17.0f, "Ventus Est"); // t=164.2; Ability 4CC7 from Ventus Est
+    Timeout(id + 0xF0, 2.5f, "Magitek Burst"); // t=166.7; Ability 4CDF from Varis Yae Galvus
+}
+
+private void Phase_2__Susano_Remix(uint id)
+{
+    Targetable(id + 0x0, false, 0.0f, "--untargetable--"); // t=177.1
+    Timeout(id + 0x10, 0.0f, "Vivere Militare Est"); // t=177.1; Ability 4CCC from Varis Yae Galvus; cactbot Ability 4CCC [VarisEx Phase 2]
+    Timeout(id + 0x20, 15.2f, "Blade's Pulse x2"); // t=192.3
+    Targetable(id + 0x30, true, 7.8f, "--targetable--"); // t=200.1
+    Timeout(id + 0x40, 3.0f, "Shockwave"); // t=203.1
+    Timeout(id + 0x50, 57.0f, "Vivere Militare Est"); // t=260.1; Ability 4CCF from Bladesblood
+}
+
+private void Phase_3__Random_Groups(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=269.1
+    Condition(id + 0x10, 5.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x4CD7 or 0x4CD8 or 0x4CD9), "", 5f, 0.2f); // t=274.3; StartsUsing 4CD8 from Varis Yae Galvus | StartsUsing 4CD9 from Varis Yae Galvus | StartsUsing 4CD7 from Varis Yae Galvus; cactbot Ability 4CD7 [VarisEx Electrified Gunshield] | Ability 4CD9 [VarisEx Reinforced Gunshield]
+    Timeout(id + 0x20, 5.0f, "Loaded Gunshield? / Reinforced Gunshield? / Electrified Gunshield?"); // t=279.3
+    Timeout(id + 0x30, 5.1f, "Reinforcements?"); // t=284.4; cactbot Ability 4CEA [VarisEx Reinforcements]
+    Timeout(id + 0x40, 4.0f, "Altius?"); // t=288.4; cactbot StartsUsing 4CCA [VarisEx Altius]
+    Timeout(id + 0x50, 1.9f, "--clones appear?--"); // t=290.3
+    Timeout(id + 0x60, 3.2f, "Aetherochemical Grenado?"); // t=293.5
+    Timeout(id + 0x70, 0.5f, "--clones appear?--"); // t=294.0
+    Timeout(id + 0x80, 1.6f, "Magitek Burst?"); // t=295.6
+    Timeout(id + 0x90, 0.7f, "Ignis Est?"); // t=296.3
+    Timeout(id + 0xA0, 2.2f, "Terminus Est"); // t=298.5; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0xB0, 2.1f, "Magitek Shielding"); // t=300.6
+    Timeout(id + 0xC0, 2.6f, "Terminus Est?"); // t=303.2; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0xD0, 0.4f, "Terminus Est?"); // t=303.6; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0xE0, 0.2f, "Festina Lente?"); // t=303.8; cactbot Ability 4CC9 [VarisEx Festina Lente Cleanup]
+    Timeout(id + 0xF0, 1.6f, "Ventus Est"); // t=305.4
+    Timeout(id + 0x100, 0.5f, "Magitek Shock?"); // t=305.9
+    Timeout(id + 0x110, 9.1f, "Citius?"); // t=315.0; cactbot StartsUsing 4CF0 [VarisEx Citius]
+    Timeout(id + 0x120, 0.8f, "Citius"); // t=315.8; cactbot StartsUsing 4CF0 [VarisEx Citius]
+    Timeout(id + 0x130, 1.0f, "Alea Iacta Est?"); // t=316.8; cactbot StartsUsing 4CD2 [VarisEx Alea Iacta Est] | Ability 4CD5 [VarisEx Alea Iacta Est Front]
+    Condition(id + 0x140, 183.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4CD8), "", 5f, 178.2f); // t=500.0; StartsUsing 4CD8 from Varis Yae Galvus
+    Timeout(id + 0x150, 5.0f, "Loaded Gunshield"); // t=505.0; Ability 4CD8 from Varis Yae Galvus; cactbot Ability 4CDE [VarisEx Loaded Gunshield Final Warning]
+    Timeout(id + 0x160, 14.7f, "--clones appear--"); // t=519.7; Ability 4CB3 from Phantom Varis; cactbot Ability 4CB3 [VarisEx Clones]
+    Timeout(id + 0x170, 1.6f, "Magitek Burst"); // t=521.3; Ability 4CDF from Varis Yae Galvus
+    Timeout(id + 0x180, 0.7f, "Ignis Est"); // t=522.0; Ability 4CB6 from Ignis Est
+    Timeout(id + 0x190, 7.3f, "Terminus Est"); // t=529.3; Ability 4CB4 from Terminus Est; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0x1A0, 0.2f, "Festina Lente"); // t=529.5; Ability 4CC9 from Varis Yae Galvus; cactbot Ability 4CC9 [VarisEx Festina Lente Cleanup]
+    Timeout(id + 0x1B0, 11.2f, "Citius"); // t=540.7; Ability 4CF0 from Varis Yae Galvus; cactbot StartsUsing 4CF0 [VarisEx Citius]
+    Condition(id + 0x1C0, 13.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x4CD7 or 0x4CD9), "", 5f, 8.6f); // t=554.3; StartsUsing 4CD9 from Varis Yae Galvus | StartsUsing 4CD7 from Varis Yae Galvus; cactbot Ability 4CD7 [VarisEx Electrified Gunshield] | Ability 4CD9 [VarisEx Reinforced Gunshield]
+    Timeout(id + 0x1D0, 5.0f, "Reinforced Gunshield? / Electrified Gunshield?"); // t=559.3
+    Timeout(id + 0x1E0, 5.1f, "Reinforcements?"); // t=564.4; cactbot Ability 4CEA [VarisEx Reinforcements]
+    Timeout(id + 0x1F0, 4.0f, "Altius?"); // t=568.4; cactbot StartsUsing 4CCA [VarisEx Altius]
+    Timeout(id + 0x200, 1.9f, "--clones appear?--"); // t=570.3
+    Timeout(id + 0x210, 3.2f, "Aetherochemical Grenado?"); // t=573.5
+    Timeout(id + 0x220, 5.0f, "Terminus Est"); // t=578.5; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0x230, 2.1f, "Magitek Shielding"); // t=580.6
+    Timeout(id + 0x240, 2.6f, "Terminus Est?"); // t=583.2; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0x250, 2.2f, "Ventus Est"); // t=585.4
+    Timeout(id + 0x260, 0.5f, "Magitek Shock?"); // t=585.9
+    Timeout(id + 0x270, 9.9f, "Citius"); // t=595.8; cactbot StartsUsing 4CF0 [VarisEx Citius]
+    Timeout(id + 0x280, 1.0f, "Alea Iacta Est?"); // t=596.8; cactbot StartsUsing 4CD2 [VarisEx Alea Iacta Est] | Ability 4CD5 [VarisEx Alea Iacta Est Front]
+    Condition(id + 0x290, 103.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4CD9), "", 5f, 98.2f); // t=700.0; StartsUsing 4CD9 from Varis Yae Galvus; cactbot Ability 4CD9 [VarisEx Reinforced Gunshield]
+    Timeout(id + 0x2A0, 5.0f, "Reinforced Gunshield"); // t=705.0; Ability 4CD9 from Varis Yae Galvus; cactbot Ability 4CD9 [VarisEx Reinforced Gunshield]
+    Timeout(id + 0x2B0, 9.1f, "Altius"); // t=714.1; Ability 4CCA from Varis Yae Galvus; cactbot StartsUsing 4CCA [VarisEx Altius]
+    Timeout(id + 0x2C0, 10.1f, "Terminus Est"); // t=724.2; Ability 4CB4 from Terminus Est; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0x2D0, 2.1f, "Magitek Shielding"); // t=726.3
+    Timeout(id + 0x2E0, 4.8f, "Ventus Est"); // t=731.1; Ability 4CC7 from Ventus Est
+    Timeout(id + 0x2F0, 10.4f, "Citius"); // t=741.5; Ability 4CF0 from Varis Yae Galvus; cactbot StartsUsing 4CF0 [VarisEx Citius]
+    Condition(id + 0x300, 11.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x4CD7 or 0x4CD8), "", 5f, 6.3f); // t=752.8; StartsUsing 4CD8 from Varis Yae Galvus | StartsUsing 4CD7 from Varis Yae Galvus; cactbot Ability 4CD7 [VarisEx Electrified Gunshield]
+    Timeout(id + 0x310, 5.0f, "Loaded Gunshield? / Electrified Gunshield?"); // t=757.8
+    Timeout(id + 0x320, 5.1f, "Reinforcements?"); // t=762.9; cactbot Ability 4CEA [VarisEx Reinforcements]
+    Timeout(id + 0x330, 5.9f, "--clones appear?--"); // t=768.8
+    Timeout(id + 0x340, 3.2f, "Aetherochemical Grenado?"); // t=772.0
+    Timeout(id + 0x350, 0.5f, "--clones appear?--"); // t=772.5
+    Timeout(id + 0x360, 1.6f, "Magitek Burst?"); // t=774.1
+    Timeout(id + 0x370, 0.7f, "Ignis Est?"); // t=774.8
+    Timeout(id + 0x380, 6.9f, "Terminus Est?"); // t=781.7; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0x390, 0.4f, "Terminus Est?"); // t=782.1; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0x3A0, 0.2f, "Festina Lente?"); // t=782.3; cactbot Ability 4CC9 [VarisEx Festina Lente Cleanup]
+    Timeout(id + 0x3B0, 2.1f, "Magitek Shock?"); // t=784.4
+    Timeout(id + 0x3C0, 9.1f, "Citius?"); // t=793.5; cactbot StartsUsing 4CF0 [VarisEx Citius]
+    Timeout(id + 0x3D0, 1.8f, "Alea Iacta Est?"); // t=795.3; cactbot StartsUsing 4CD2 [VarisEx Alea Iacta Est] | Ability 4CD5 [VarisEx Alea Iacta Est Front]
+    Condition(id + 0x3E0, 104.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4CD7), "", 5f, 99.7f); // t=900.0; StartsUsing 4CD7 from Varis Yae Galvus; cactbot Ability 4CD7 [VarisEx Electrified Gunshield]
+    Timeout(id + 0x3F0, 5.0f, "Electrified Gunshield").SetHint(StateMachine.StateHint.Knockback); // t=905.0; Ability 4CD7 from Varis Yae Galvus; cactbot Ability 4CD7 [VarisEx Electrified Gunshield]
+    Timeout(id + 0x400, 5.1f, "Reinforcements"); // t=910.1; Ability 4CEA from Varis Yae Galvus; cactbot Ability 4CEA [VarisEx Reinforcements]
+    Timeout(id + 0x410, 5.9f, "--clones appear--"); // t=916.0; Ability 4CB3 from Phantom Varis; cactbot Ability 4CB3 [VarisEx Clones]
+    Timeout(id + 0x420, 3.2f, "Aetherochemical Grenado"); // t=919.2; Ability 4CED from Magitek Turret II
+    Timeout(id + 0x430, 9.7f, "Terminus Est"); // t=928.9; Ability 4CB4 from Terminus Est; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0x440, 2.7f, "Magitek Shock"); // t=931.6; Ability 4CDA from Varis Yae Galvus
+    Timeout(id + 0x450, 10.9f, "Alea Iacta Est"); // t=942.5; Ability 4CD2 from Varis Yae Galvus; cactbot StartsUsing 4CD2 [VarisEx Alea Iacta Est]
+    Condition(id + 0x460, 16.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x4CD8 or 0x4CD9), "", 5f, 11.2f); // t=958.7; StartsUsing 4CD8 from Varis Yae Galvus | StartsUsing 4CD9 from Varis Yae Galvus; cactbot Ability 4CD9 [VarisEx Reinforced Gunshield]
+    Timeout(id + 0x470, 5.0f, "Loaded Gunshield? / Reinforced Gunshield?"); // t=963.7
+    Timeout(id + 0x480, 9.1f, "Altius?"); // t=972.8; cactbot StartsUsing 4CCA [VarisEx Altius]
+    Timeout(id + 0x490, 5.6f, "--clones appear?--"); // t=978.4
+    Timeout(id + 0x4A0, 1.6f, "Magitek Burst?"); // t=980.0
+    Timeout(id + 0x4B0, 0.7f, "Ignis Est?"); // t=980.7
+    Timeout(id + 0x4C0, 2.2f, "Terminus Est"); // t=982.9; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0x4D0, 2.1f, "Magitek Shielding"); // t=985.0
+    Timeout(id + 0x4E0, 3.0f, "Terminus Est?"); // t=988.0; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0x4F0, 0.2f, "Festina Lente?"); // t=988.2; cactbot Ability 4CC9 [VarisEx Festina Lente Cleanup]
+    Timeout(id + 0x500, 1.6f, "Ventus Est"); // t=989.8
+    Timeout(id + 0x510, 9.6f, "Citius?"); // t=999.4; cactbot StartsUsing 4CF0 [VarisEx Citius]
+    Timeout(id + 0x520, 0.8f, "Citius"); // t=1000.2; cactbot StartsUsing 4CF0 [VarisEx Citius]
+}
+
+private void Phase_4__Stack_Spread_Shield(uint id)
+{
+    Targetable(id + 0x0, false, 0.0f, "--untargetable--"); // t=1200.0
+    Timeout(id + 0x10, 0.1f, "Gunshield"); // t=1200.1; cactbot Ability 4CD7 [VarisEx Electrified Gunshield] | Ability 4CD9 [VarisEx Reinforced Gunshield] | Ability 4CDC [VarisEx Reinforced Gunshield Sides] | Ability 4CDB [VarisEx Reinforced Gunshield Front] | Ability 4CDE [VarisEx Loaded Gunshield Final Warning]
+    Timeout(id + 0x20, 10.3f, "Magitek Spark/Torch"); // t=1210.4; Ability 4CE4/4CE3 from Gunshield
+    Timeout(id + 0x30, 8.7f, "Magitek Torch/Spark"); // t=1219.1; Ability 4CE4/4CE3 from Gunshield
+    Timeout(id + 0x40, 34.9f, "Altius Enrage"); // t=1254.0; Ability 4CE1 from Varis Yae Galvus
+}
+
+private void Phase_5__Fortius(uint id)
+{
+    Targetable(id + 0x0, true, 3.0f, "--targetable--"); // t=1303.0
+    Timeout(id + 0x10, 10.3f, "Loaded Gunshield"); // t=1313.3; Ability 4CD8 from Varis Yae Galvus; cactbot Ability 4CDE [VarisEx Loaded Gunshield Final Warning]
+    Timeout(id + 0x20, 10.0f, "Fortius"); // t=1323.3; Ability 4CE7 from Varis Yae Galvus; cactbot StartsUsing [VarisEx Fortius]
+    Timeout(id + 0x30, 14.7f, "Magitek Burst"); // t=1338.0; Ability 4CDF from Varis Yae Galvus
+    Timeout(id + 0x40, 5.3f, "Festina Lente"); // t=1343.3; Ability 4CC9 from Varis Yae Galvus; cactbot Ability 4CC9 [VarisEx Festina Lente Cleanup]
+    Timeout(id + 0x50, 11.1f, "Citius"); // t=1354.4; Ability 4CF0 from Varis Yae Galvus; cactbot StartsUsing 4CF0 [VarisEx Citius]
+    Timeout(id + 0x60, 8.9f, "--clones appear--"); // t=1363.3; Ability 4CB3 from Phantom Varis; cactbot Ability 4CB3 [VarisEx Clones]
+    Timeout(id + 0x70, 4.7f, "Electrified Gunshield").SetHint(StateMachine.StateHint.Knockback); // t=1368.0; Ability 4CD7 from Varis Yae Galvus; cactbot Ability 4CD7 [VarisEx Electrified Gunshield]
+    Timeout(id + 0x80, 10.0f, "Fortius"); // t=1378.0; Ability 4CE7 from Varis Yae Galvus; cactbot StartsUsing [VarisEx Fortius]
+    Timeout(id + 0x90, 14.2f, "Terminus Est"); // t=1392.2; Ability 4CB4 from Terminus Est; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0xA0, 2.4f, "Magitek Shock"); // t=1394.6; Ability 4CDA from Varis Yae Galvus
+    Timeout(id + 0xB0, 13.9f, "--clones appear--"); // t=1408.5; Ability 4CB3 from Phantom Varis; cactbot Ability 4CB3 [VarisEx Clones]
+    Timeout(id + 0xC0, 4.4f, "Altius"); // t=1412.9; Ability 4CCA from Varis Yae Galvus; cactbot StartsUsing 4CCA [VarisEx Altius]
+    Timeout(id + 0xD0, 8.3f, "Festina Lente"); // t=1421.2; Ability 4CC9 from Varis Yae Galvus; cactbot Ability 4CC9 [VarisEx Festina Lente Cleanup]
+    Timeout(id + 0xE0, 13.9f, "Alea Iacta Est"); // t=1435.1; Ability 4CD2 from Varis Yae Galvus; cactbot StartsUsing 4CD2 [VarisEx Alea Iacta Est]
+    Timeout(id + 0xF0, 5.8f, "Terminus Est / Ventus Est"); // t=1440.9; Ability 4CB4 from Terminus Est | Ability 4CC7 from Ventus Est; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0x100, 10.6f, "Citius"); // t=1451.5; Ability 4CF0 from Varis Yae Galvus; cactbot StartsUsing 4CF0 [VarisEx Citius]
+    Timeout(id + 0x110, 17.3f, "Alea Iacta Est"); // t=1468.8; Ability 4CD2 from Varis Yae Galvus; cactbot StartsUsing 4CD2 [VarisEx Alea Iacta Est]
+    Timeout(id + 0x120, 5.4f, "Ignis Est"); // t=1474.2; Ability 4CB6 from Ignis Est
+    Timeout(id + 0x130, 18.2f, "Loaded Gunshield"); // t=1492.4; Ability 4CD8 from Varis Yae Galvus; cactbot Ability 4CDE [VarisEx Loaded Gunshield Final Warning]
+    Timeout(id + 0x140, 10.0f, "Fortius"); // t=1502.4; Ability 4CE7 from Varis Yae Galvus; cactbot StartsUsing [VarisEx Fortius]
+    Timeout(id + 0x150, 14.8f, "Magitek Burst"); // t=1517.2; Ability 4CDF from Varis Yae Galvus
+    Timeout(id + 0x160, 5.2f, "Festina Lente"); // t=1522.4; Ability 4CC9 from Varis Yae Galvus; cactbot Ability 4CC9 [VarisEx Festina Lente Cleanup]
+    Timeout(id + 0x170, 11.3f, "Citius"); // t=1533.7; Ability 4CF0 from Varis Yae Galvus; cactbot StartsUsing 4CF0 [VarisEx Citius]
+    Timeout(id + 0x180, 8.8f, "--clones appear--"); // t=1542.5; Ability 4CB3 from Phantom Varis; cactbot Ability 4CB3 [VarisEx Clones]
+    Timeout(id + 0x190, 4.5f, "Electrified Gunshield").SetHint(StateMachine.StateHint.Knockback); // t=1547.0; Ability 4CD7 from Varis Yae Galvus; cactbot Ability 4CD7 [VarisEx Electrified Gunshield]
+    Timeout(id + 0x1A0, 10.1f, "Fortius"); // t=1557.1; Ability 4CE7 from Varis Yae Galvus; cactbot StartsUsing [VarisEx Fortius]
+    Timeout(id + 0x1B0, 14.2f, "Terminus Est"); // t=1571.3; Ability 4CB4 from Terminus Est; cactbot StartsUsing 4CB4 [VarisEx Terminus Est Clones]
+    Timeout(id + 0x1C0, 2.3f, "Magitek Shock"); // t=1573.6; Ability 4CDA from Varis Yae Galvus
+    Condition(id + 0x1D0, 6.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4CA9), "", 5f, 1.1f); // t=1579.7; StartsUsing 4CA9 from Varis Yae Galvus
+    Timeout(id + 0x1E0, 10.0f, "Altius Enrage"); // t=1589.7; Ability 4CA9 from Varis Yae Galvus
+}
+

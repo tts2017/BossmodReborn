@@ -1,0 +1,95 @@
+// Generated development skeleton from endsinger-ex.txt (TerritoryType 998).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 24 static/dynamic trigger definitions from ui/raidboss/data/06-ew/trial/endsinger-ex.ts.
+
+private void Timeline(uint id)
+{
+    Condition(id + 0x0, 7.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6FF6), "", 5f, 2.0f); // t=7.0; StartsUsing 6FF6 from The Endsinger; cactbot Ability 6FF6 [EndsingerEx Elegeia]
+    Timeout(id + 0x10, 4.7f, "Elegeia Unforgotten").SetHint(StateMachine.StateHint.Raidwide); // t=11.7; Ability 6FF6 from The Endsinger; cactbot Ability 6FF6 [EndsingerEx Elegeia]
+    Timeout(id + 0x20, 13.4f, "Star Collision"); // t=25.1
+    Timeout(id + 0x30, 1.6f, "Diairesis"); // t=26.7; Ability 6FFC from The Endsinger; cactbot StartsUsing 6FFC/7006/7009/700A [EndsingerEx 5Head Mechanics Collector]
+    Timeout(id + 0x40, 3.2f, "Elegeia Unforgotten").SetHint(StateMachine.StateHint.Raidwide); // t=29.9; Ability 6FF6 from The Endsinger; cactbot Ability 6FF6 [EndsingerEx Elegeia]
+    Timeout(id + 0x50, 13.4f, "Star Collision"); // t=43.3
+    Timeout(id + 0x60, 1.6f, "Diairesis"); // t=44.9; Ability 6FFC from The Endsinger; cactbot StartsUsing 6FFC/7006/7009/700A [EndsingerEx 5Head Mechanics Collector]
+    Timeout(id + 0x70, 10.4f, "Grip of Despair"); // t=55.3; Ability 701D from The Endsinger; cactbot StartsUsing 701D [EndsingerEx Grip of Despair Cast]
+    Timeout(id + 0x80, 9.3f, "Tower Explosion"); // t=64.6
+    Timeout(id + 0x90, 0.8f, "Elenchos"); // t=65.4
+    Timeout(id + 0xA0, 9.1f, "Telos").SetHint(StateMachine.StateHint.Raidwide); // t=74.5; Ability 702E from The Endsinger; cactbot StartsUsing 702E [EndsingerEx Telos]
+    Timeout(id + 0xB0, 10.1f, "Hubris"); // t=84.6; Ability 702C from The Endsinger; cactbot StartsUsing 702C [EndsingerEx Hubris]
+    Timeout(id + 0xC0, 12.2f, "Elegeia Unforgotten").SetHint(StateMachine.StateHint.Raidwide); // t=96.8; Ability 6FF6 from The Endsinger; cactbot Ability 6FF6 [EndsingerEx Elegeia]
+    Timeout(id + 0xD0, 13.4f, "Star Collision"); // t=110.2
+    Timeout(id + 0xE0, 1.6f, "Diairesis"); // t=111.8; Ability 6FFC from The Endsinger; cactbot StartsUsing 6FFC/7006/7009/700A [EndsingerEx 5Head Mechanics Collector]
+    Timeout(id + 0xF0, 2.3f, "Eironeia"); // t=114.1; Ability 702F from The Endsinger; cactbot StartsUsing 702F/7030 [EndsingerEx Eironeia]
+    Timeout(id + 0x100, 8.2f, "Fatalism"); // t=122.3; Ability 6FFD from The Endsinger
+    Timeout(id + 0x110, 10.3f, "Star Collision 1"); // t=132.6
+    Timeout(id + 0x120, 6.5f, "Star Collision 2"); // t=139.1
+    Timeout(id + 0x130, 6.3f, "Elenchos"); // t=145.4
+    Timeout(id + 0x140, 9.2f, "Twinsong's Aporrhoia"); // t=154.6; Ability 7007 from The Endsinger; cactbot Ability 7007/72B1 [EndsingerEx Head Phase Detector] | Ability 7007/72B1 [EndsingerEx Head Phase Cleanup]
+    Timeout(id + 0x150, 11.1f, "Diairesis 1"); // t=165.7; Ability 7006 from The Endsinger; cactbot StartsUsing 6FFC/7006/7009/700A [EndsingerEx 5Head Mechanics Collector]
+    Timeout(id + 0x160, 9.1f, "Diairesis 2"); // t=174.8; Ability 7006 from The Endsinger; cactbot StartsUsing 6FFC/7006/7009/700A [EndsingerEx 5Head Mechanics Collector]
+    Timeout(id + 0x170, 9.1f, "Diairesis 3"); // t=183.9; Ability 6FFC from The Endsinger; cactbot StartsUsing 6FFC/7006/7009/700A [EndsingerEx 5Head Mechanics Collector]
+    Timeout(id + 0x180, 8.1f, "Theological Fatalism"); // t=192.0; Ability 700B from The Endsinger
+    Timeout(id + 0x190, 13.2f, "Elenchos / Eironeia"); // t=205.2; Ability 702F from The Endsinger; cactbot StartsUsing 702F/7030 [EndsingerEx Eironeia]
+    Timeout(id + 0x1A0, 9.2f, "Hubris"); // t=214.4; Ability 702C from The Endsinger; cactbot StartsUsing 702C [EndsingerEx Hubris]
+    Timeout(id + 0x1B0, 10.2f, "Despair Unforgotten"); // t=224.6; Ability 7012 from The Endsinger
+    Timeout(id + 0x1C0, 7.5f, "Benevolence"); // t=232.1; Ability 7016 from The Endsinger; cactbot GainsEffect BB0 [EndsingerEx Echoes of Benevolence]
+    Timeout(id + 0x1D0, 5.7f, "Despair Unforgotten"); // t=237.8; Ability 7012 from The Endsinger
+    Timeout(id + 0x1E0, 7.5f, "Befoulment"); // t=245.3; Ability 7014 from The Endsinger; cactbot GainsEffect BAE [EndsingerEx Echoes of Befoulment]
+    Timeout(id + 0x1F0, 4.7f, "Elenchos"); // t=250.0
+    Timeout(id + 0x200, 8.1f, "Despair Unforgotten"); // t=258.1; Ability 7012 from The Endsinger
+    Timeout(id + 0x210, 7.5f, "Benevolence"); // t=265.6; Ability 7016 from The Endsinger; cactbot GainsEffect BB0 [EndsingerEx Echoes of Benevolence]
+    Timeout(id + 0x220, 6.7f, "Theological Fatalism"); // t=272.3; Ability 700B from The Endsinger
+    Timeout(id + 0x230, 10.2f, "Benevolence"); // t=282.5; Ability 701A from The Endsinger; cactbot GainsEffect BB0 [EndsingerEx Echoes of Benevolence]
+    Timeout(id + 0x240, 7.0f, "Telomania (cast)"); // t=289.5; Ability 72C3 from The Endsinger; cactbot Ability 72C3 [EndsingerEx Telomania]
+    Timeout(id + 0x250, 1.9f, "Telomania (small) x4"); // t=291.4
+    Timeout(id + 0x260, 8.3f, "Telomania (big)"); // t=299.7; Ability 72C5 from The Endsinger
+    Timeout(id + 0x270, 13.9f, "Endsong's Aporrhoia"); // t=313.6; Ability 72B1 from The Endsinger; cactbot Ability 7007/72B1 [EndsingerEx Head Phase Detector] | Ability 7007/72B1 [EndsingerEx Head Phase Cleanup]
+    Timeout(id + 0x280, 8.2f, "Endsong 1"); // t=321.8; Ability 701B from The Endsinger
+    Timeout(id + 0x290, 10.5f, "Endsong 2"); // t=332.3; Ability 701C from The Endsinger
+    Timeout(id + 0x2A0, 9.1f, "Endsong 3"); // t=341.4; Ability 701C from The Endsinger
+    Timeout(id + 0x2B0, 9.1f, "Endsong 4"); // t=350.5; Ability 701C from The Endsinger
+    Timeout(id + 0x2C0, 3.5f, "Elenchos"); // t=354.0
+    Timeout(id + 0x2D0, 9.1f, "Telos").SetHint(StateMachine.StateHint.Raidwide); // t=363.1; Ability 702E from The Endsinger; cactbot StartsUsing 702E [EndsingerEx Telos]
+    Timeout(id + 0x2E0, 10.1f, "Hubris"); // t=373.2; Ability 702C from The Endsinger; cactbot StartsUsing 702C [EndsingerEx Hubris]
+    Timeout(id + 0x2F0, 14.2f, "Elegeia Unforgotten").SetHint(StateMachine.StateHint.Raidwide); // t=387.4; Ability 6FF6 from The Endsinger; cactbot Ability 6FF6 [EndsingerEx Elegeia]
+    Timeout(id + 0x300, 13.4f, "Star Collision"); // t=400.8
+    Timeout(id + 0x310, 1.6f, "Diairesis"); // t=402.4; Ability 6FFC from The Endsinger; cactbot StartsUsing 6FFC/7006/7009/700A [EndsingerEx 5Head Mechanics Collector]
+    Timeout(id + 0x320, 2.3f, "Eironeia"); // t=404.7; Ability 702F from The Endsinger; cactbot StartsUsing 702F/7030 [EndsingerEx Eironeia]
+    Timeout(id + 0x330, 6.1f, "Fatalism"); // t=410.8; Ability 6FFD from The Endsinger
+    Timeout(id + 0x340, 10.1f, "Fatalism"); // t=420.9; Ability 6FFD from The Endsinger
+    Timeout(id + 0x350, 0.2f, "Star Collision 1"); // t=421.1
+    Timeout(id + 0x360, 6.5f, "Star Collision 2"); // t=427.6
+    Timeout(id + 0x370, 3.6f, "Star Collision 3"); // t=431.2
+    Timeout(id + 0x380, 6.5f, "Star Collision 4"); // t=437.7
+    Timeout(id + 0x390, 8.8f, "Tower Explosion"); // t=446.5
+    Timeout(id + 0x3A0, 0.7f, "Elenchos"); // t=447.2
+    Timeout(id + 0x3B0, 9.1f, "Telomania (cast)"); // t=456.3; Ability 72C3 from The Endsinger; cactbot Ability 72C3 [EndsingerEx Telomania]
+    Timeout(id + 0x3C0, 1.9f, "Telomania (small) x4"); // t=458.2
+    Timeout(id + 0x3D0, 8.3f, "Telomania (big)"); // t=466.5; Ability 72C5 from The Endsinger
+    Timeout(id + 0x3E0, 14.0f, "Twinsong's Aporrhoia"); // t=480.5; Ability 7007 from The Endsinger; cactbot Ability 7007/72B1 [EndsingerEx Head Phase Detector] | Ability 7007/72B1 [EndsingerEx Head Phase Cleanup]
+    Timeout(id + 0x3F0, 11.1f, "Diairesis 1"); // t=491.6; Ability 7006 from The Endsinger; cactbot StartsUsing 6FFC/7006/7009/700A [EndsingerEx 5Head Mechanics Collector]
+    Timeout(id + 0x400, 9.1f, "Diairesis 2"); // t=500.7; Ability 7006 from The Endsinger; cactbot StartsUsing 6FFC/7006/7009/700A [EndsingerEx 5Head Mechanics Collector]
+    Timeout(id + 0x410, 9.2f, "Diairesis 3"); // t=509.9; Ability 6FFC from The Endsinger; cactbot StartsUsing 6FFC/7006/7009/700A [EndsingerEx 5Head Mechanics Collector]
+    Timeout(id + 0x420, 8.1f, "Theological Fatalism"); // t=518.0; Ability 700B from The Endsinger
+    Timeout(id + 0x430, 13.1f, "Elenchos / Eironeia"); // t=531.1; Ability 702F from The Endsinger; cactbot StartsUsing 702F/7030 [EndsingerEx Eironeia]
+    Timeout(id + 0x440, 9.1f, "Hubris"); // t=540.2; Ability 702C from The Endsinger; cactbot StartsUsing 702C [EndsingerEx Hubris]
+    Timeout(id + 0x450, 10.2f, "Endsong's Aporrhoia"); // t=550.4; Ability 72B1 from The Endsinger; cactbot Ability 7007/72B1 [EndsingerEx Head Phase Detector] | Ability 7007/72B1 [EndsingerEx Head Phase Cleanup]
+    Timeout(id + 0x460, 8.2f, "Endsong 1"); // t=558.6; Ability 701B from The Endsinger
+    Timeout(id + 0x470, 10.5f, "Endsong 2"); // t=569.1; Ability 701C from The Endsinger
+    Timeout(id + 0x480, 9.0f, "Endsong 3"); // t=578.1; Ability 701C from The Endsinger
+    Timeout(id + 0x490, 9.0f, "Endsong 4"); // t=587.1; Ability 701C from The Endsinger
+    Timeout(id + 0x4A0, 3.6f, "Elenchos"); // t=590.7
+    Timeout(id + 0x4B0, 9.1f, "Telos").SetHint(StateMachine.StateHint.Raidwide); // t=599.8; Ability 702E from The Endsinger; cactbot StartsUsing 702E [EndsingerEx Telos]
+    Timeout(id + 0x4C0, 13.2f, "Fatalism"); // t=613.0; Ability 6FFD from The Endsinger
+    Timeout(id + 0x4D0, 10.1f, "Fatalism"); // t=623.1; Ability 6FFD from The Endsinger
+    Timeout(id + 0x4E0, 0.2f, "Star Collision 1"); // t=623.3
+    Timeout(id + 0x4F0, 6.5f, "Star Collision 2"); // t=629.8
+    Timeout(id + 0x500, 3.6f, "Star Collision 3"); // t=633.4
+    Timeout(id + 0x510, 6.5f, "Star Collision 4"); // t=639.9
+    Timeout(id + 0x520, 7.3f, "Telos").SetHint(StateMachine.StateHint.Raidwide); // t=647.2; Ability 702E from The Endsinger; cactbot StartsUsing 702E [EndsingerEx Telos]
+    Timeout(id + 0x530, 14.2f, "Fatalism"); // t=661.4; Ability 7031 from The Endsinger
+    Targetable(id + 0x540, false, 22.3f, "--untargetable--"); // t=683.7
+    Timeout(id + 0x550, 5.0f, "Ultimate Fate (enrage)"); // t=688.7; Ability 7032 from The Endsinger
+}
+

@@ -1,0 +1,75 @@
+// Generated development skeleton from p6n.txt (TerritoryType 1083).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 11 static/dynamic trigger definitions from ui/raidboss/data/06-ew/raid/p6n.ts.
+
+private void P6N__Abyssos__The_Sixth_Circle(uint id)
+{
+    Timeout(id + 0x0, 10.1f, "Aetheric Polyominoid"); // t=10.1; Ability 7853 from Hegemone
+    Timeout(id + 0x10, 9.9f, "Polyominous Dark IV"); // t=20.0; Ability 7855 from Hegemone
+    Timeout(id + 0x20, 10.9f, "Choros Ixou 1"); // t=30.9; Ability 7857/7858 from Hegemone; cactbot StartsUsing 7858 [P6N Choros Ixou Sides] | StartsUsing 7857 [P6N Choros Ixou Front Back]
+    Timeout(id + 0x30, 10.1f, "Choros Ixou 2"); // t=41.0; Ability 7857/7858 from Hegemone; cactbot StartsUsing 7858 [P6N Choros Ixou Sides] | StartsUsing 7857 [P6N Choros Ixou Front Back]
+    Timeout(id + 0x40, 10.1f, "Choros Ixou 3"); // t=51.1; Ability 7857/7858 from Hegemone; cactbot StartsUsing 7858 [P6N Choros Ixou Sides] | StartsUsing 7857 [P6N Choros Ixou Front Back]
+    Timeout(id + 0x50, 11.5f, "Hemitheos's Dark IV").SetHint(StateMachine.StateHint.Raidwide); // t=62.6; Ability 784E from Hegemone; cactbot StartsUsing 784E [P6N Hemitheos Dark IV]
+    Timeout(id + 0x60, 11.7f, "Transmission 1"); // t=74.3; Ability 784F from Hegemone
+    Timeout(id + 0x70, 9.7f, "Transmission 2"); // t=84.0; Ability 784F from Hegemone
+    Timeout(id + 0x80, 7.1f, "Reek Havoc 1"); // t=91.1; Ability 79ED from Parasitos
+    Timeout(id + 0x90, 9.7f, "Reek Havoc 2"); // t=100.8; Ability 79ED from Parasitos
+    Timeout(id + 0xA0, 9.1f, "Synergy"); // t=109.9; Ability 785B from Hegemone; cactbot HeadMarker 157 [P6N Synergy Collect] | HeadMarker 157 [P6N Synergy Call] | HeadMarker 157 [P6N Synergy Cleanup]
+    Timeout(id + 0xB0, 11.9f, "Aetheric Polyominoid"); // t=121.8; Ability 7853 from Hegemone
+    Timeout(id + 0xC0, 12.9f, "Choros Ixou"); // t=134.7; Ability 7857/7858 from Hegemone; cactbot StartsUsing 7858 [P6N Choros Ixou Sides] | StartsUsing 7857 [P6N Choros Ixou Front Back]
+    Timeout(id + 0xD0, 1.2f, "Polyominous Dark IV"); // t=135.9; Ability 7855 from Hegemone
+    Timeout(id + 0xE0, 13.2f, "Strophe Ixou x8"); // t=149.1; Ability 7A11 from Hegemone
+    Timeout(id + 0xF0, 21.6f, "Hemitheos's Dark IV").SetHint(StateMachine.StateHint.Raidwide); // t=170.7; Ability 784E from Hegemone; cactbot StartsUsing 784E [P6N Hemitheos Dark IV]
+    Timeout(id + 0x100, 14.5f, "Transmission"); // t=185.2; Ability 784F from Hegemone
+    Timeout(id + 0x110, 10.2f, "Choros Ixou"); // t=195.4; Ability 7858 from Hegemone; cactbot StartsUsing 7858 [P6N Choros Ixou Sides]
+    Timeout(id + 0x120, 6.4f, "Reek Havoc 1"); // t=201.8; Ability 79ED from Parasitos
+    Timeout(id + 0x130, 10.0f, "Reek Havoc 2 / Dark Ashes"); // t=211.8; Ability 79ED from Parasitos | Ability 785F from Hegemone
+    Timeout(id + 0x140, 9.6f, "Synergy"); // t=221.4; Ability 785B from Hegemone; cactbot HeadMarker 157 [P6N Synergy Collect] | HeadMarker 157 [P6N Synergy Call] | HeadMarker 157 [P6N Synergy Cleanup]
+    Timeout(id + 0x150, 12.9f, "Hemitheos's Dark IV").SetHint(StateMachine.StateHint.Raidwide); // t=234.3; Ability 784E from Hegemone; cactbot StartsUsing 784E [P6N Hemitheos Dark IV]
+    Timeout(id + 0x160, 9.8f, "Aetherial Exchange"); // t=244.1; Ability 784D from Hegemone; cactbot Ability 784D [P6N Aetherial Exchange]
+    Timeout(id + 0x170, 6.7f, "Polyominoid Sigma"); // t=250.8; Ability 7856 from Hegemone
+    Timeout(id + 0x180, 11.7f, "Polyominous Dark IV"); // t=262.5; Ability 7855 from Hegemone
+    Timeout(id + 0x190, 8.0f, "Aetherial Exchange"); // t=270.5; Ability 784D from Hegemone; cactbot Ability 784D [P6N Aetherial Exchange]
+    Timeout(id + 0x1A0, 6.7f, "Polyominoid Sigma"); // t=277.2; Ability 7856 from Hegemone
+    Timeout(id + 0x1B0, 11.7f, "Polyominous Dark IV"); // t=288.9; Ability 7855 from Hegemone
+    Timeout(id + 0x1C0, 9.0f, "Hemitheos's Dark IV").SetHint(StateMachine.StateHint.Raidwide); // t=297.9; Ability 784E from Hegemone; cactbot StartsUsing 784E [P6N Hemitheos Dark IV]
+    Timeout(id + 0x1D0, 9.8f, "Aetherial Exchange"); // t=307.7; Ability 784D from Hegemone; cactbot Ability 784D [P6N Aetherial Exchange]
+    Timeout(id + 0x1E0, 6.7f, "Polyominoid Sigma"); // t=314.4; Ability 7856 from Hegemone
+    Timeout(id + 0x1F0, 12.4f, "Strophe Ixou x8"); // t=326.8; Ability 7A11 from Hegemone
+    Timeout(id + 0x200, 0.2f, "Polyominous Dark IV"); // t=327.0; Ability 7855 from Hegemone
+    Timeout(id + 0x210, 20.3f, "Synergy"); // t=347.3; Ability 785B from Hegemone; cactbot HeadMarker 157 [P6N Synergy Collect] | HeadMarker 157 [P6N Synergy Call] | HeadMarker 157 [P6N Synergy Cleanup]
+    Timeout(id + 0x220, 12.9f, "Hemitheos's Dark IV").SetHint(StateMachine.StateHint.Raidwide); // t=360.2; Ability 784E from Hegemone; cactbot StartsUsing 784E [P6N Hemitheos Dark IV]
+    Timeout(id + 0x230, 11.8f, "Transmission"); // t=372.0; Ability 784F from Hegemone
+    Timeout(id + 0x240, 9.7f, "Aetheric Polyominoid"); // t=381.7; Ability 7853 from Hegemone
+    Timeout(id + 0x250, 7.0f, "Reek Havoc 1"); // t=388.7; Ability 79ED from Parasitos
+    Timeout(id + 0x260, 5.3f, "Polyominous Dark IV"); // t=394.0; Ability 7855 from Hegemone
+    Timeout(id + 0x270, 4.7f, "Reek Havoc 2"); // t=398.7; Ability 79ED from Parasitos
+    Timeout(id + 0x280, 8.7f, "Aetherial Exchange"); // t=407.4; Ability 784D from Hegemone; cactbot Ability 784D [P6N Aetherial Exchange]
+    Timeout(id + 0x290, 6.7f, "Polyominoid Sigma"); // t=414.1; Ability 7856 from Hegemone
+    Timeout(id + 0x2A0, 12.3f, "Choros Ixou"); // t=426.4; Ability 7857/7858 from Hegemone; cactbot StartsUsing 7858 [P6N Choros Ixou Sides] | StartsUsing 7857 [P6N Choros Ixou Front Back]
+    Timeout(id + 0x2B0, 0.7f, "Polyominous Dark IV"); // t=427.1; Ability 7855 from Hegemone
+    Timeout(id + 0x2C0, 10.1f, "Synergy"); // t=437.2; Ability 785B from Hegemone; cactbot HeadMarker 157 [P6N Synergy Collect] | HeadMarker 157 [P6N Synergy Call] | HeadMarker 157 [P6N Synergy Cleanup]
+    Timeout(id + 0x2D0, 12.9f, "Hemitheos's Dark IV").SetHint(StateMachine.StateHint.Raidwide); // t=450.1; Ability 784E from Hegemone; cactbot StartsUsing 784E [P6N Hemitheos Dark IV]
+    Timeout(id + 0x2E0, 9.8f, "Aetherial Exchange"); // t=459.9; Ability 784D from Hegemone; cactbot Ability 784D [P6N Aetherial Exchange]
+    Timeout(id + 0x2F0, 6.7f, "Polyominoid Sigma"); // t=466.6; Ability 7856 from Hegemone
+    Timeout(id + 0x300, 16.3f, "Polyominous Dark IV"); // t=482.9; Ability 7855 from Hegemone
+    Timeout(id + 0x310, 0.2f, "Dark Ashes"); // t=483.1; Ability 785F from Hegemone; cactbot HeadMarker 65 [P6N Dark Ashes]
+    Timeout(id + 0x320, 8.2f, "Aetherial Exchange"); // t=491.3; Ability 784D from Hegemone; cactbot Ability 784D [P6N Aetherial Exchange]
+    Timeout(id + 0x330, 6.7f, "Polyominoid Sigma"); // t=498.0; Ability 7856 from Hegemone
+    Timeout(id + 0x340, 12.5f, "Strophe Ixou x8"); // t=510.5; Ability 7A11 from Hegemone
+    Timeout(id + 0x350, 0.1f, "Polyominous Dark IV"); // t=510.6; Ability 7855 from Hegemone
+    Timeout(id + 0x360, 20.4f, "Synergy"); // t=531.0; Ability 785B from Hegemone; cactbot HeadMarker 157 [P6N Synergy Collect] | HeadMarker 157 [P6N Synergy Call] | HeadMarker 157 [P6N Synergy Cleanup]
+    Timeout(id + 0x370, 12.9f, "Hemitheos's Dark IV").SetHint(StateMachine.StateHint.Raidwide); // t=543.9; Ability 784E from Hegemone; cactbot StartsUsing 784E [P6N Hemitheos Dark IV]
+    Timeout(id + 0x380, 11.8f, "Transmission"); // t=555.7
+    Timeout(id + 0x390, 9.7f, "Aetheric Polyominoid"); // t=565.4
+    Timeout(id + 0x3A0, 7.0f, "Reek Havoc 1"); // t=572.4
+    Timeout(id + 0x3B0, 5.3f, "Polyominous Dark IV"); // t=577.7
+    Timeout(id + 0x3C0, 4.7f, "Reek Havoc 2"); // t=582.4
+    Timeout(id + 0x3D0, 8.7f, "Aetherial Exchange"); // t=591.1; cactbot Ability 784D [P6N Aetherial Exchange]
+    Timeout(id + 0x3E0, 6.7f, "Polyominoid Sigma"); // t=597.8
+    Timeout(id + 0x3F0, 12.3f, "Choros Ixou"); // t=610.1
+    Timeout(id + 0x400, 0.7f, "Polyominous Dark IV"); // t=610.8
+    Timeout(id + 0x410, 10.1f, "Synergy"); // t=620.9; cactbot HeadMarker 157 [P6N Synergy Collect] | HeadMarker 157 [P6N Synergy Call] | HeadMarker 157 [P6N Synergy Cleanup]
+}
+

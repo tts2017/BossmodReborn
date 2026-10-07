@@ -1,0 +1,17 @@
+{
+  "aggregation": "median",
+  "contentId": 0,
+  "job": "MNK",
+  "profile": {
+    "DowntimeHoldWindow": 45.0,
+    "FightEndCommitWindow": 20.0,
+    "LastMajorBuffWindowLeeway": 70.0,
+    "LastPotionWindowLeeway": 285.0,
+    "MajorBurstSafeGCDs": 5.0,
+    "MinorBurstSafeGCDs": 3.0,
+    "PotionFutureWindowLeeway": 5.0,
+    "TargetAvailableUptimeRequired": 20.0
+  },
+  "sampleCount": 50,
+  "source": "top200_public_logs_aggregated"
+}

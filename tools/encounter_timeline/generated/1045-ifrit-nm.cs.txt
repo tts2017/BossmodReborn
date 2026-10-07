@@ -1,0 +1,54 @@
+// Generated development skeleton from ifrit-nm.txt (TerritoryType 1045).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 1.2f, "Incinerate"); // t=1.2; Ability 1C5 from Ifrit
+    Timeout(id + 0x20, 7.9f, "Vulcan Burst"); // t=9.1; Ability 1C6 from Ifrit
+    Timeout(id + 0x30, 8.0f, "Incinerate"); // t=17.1; Ability 1C5 from Ifrit
+    Timeout(id + 0x40, 12.9f, "Incinerate"); // t=30.0; Ability 1C5 from Ifrit
+    Timeout(id + 0x50, 12.9f, "Incinerate"); // t=42.9; Ability 1C5 from Ifrit
+    Timeout(id + 0x60, 7.8f, "Vulcan Burst"); // t=50.7; Ability 1C6 from Ifrit
+    Timeout(id + 0x70, 8.0f, "Incinerate"); // t=58.7
+    Timeout(id + 0x80, 12.9f, "Incinerate"); // t=71.6
+    Timeout(id + 0x90, 12.9f, "Incinerate"); // t=84.5
+    Timeout(id + 0xA0, 7.8f, "Vulcan Burst"); // t=92.3
+    Timeout(id + 0xB0, 8.0f, "Incinerate"); // t=100.3
+    Timeout(id + 0xC0, 12.9f, "Incinerate"); // t=113.2
+    Timeout(id + 0xD0, 12.9f, "Incinerate"); // t=126.1
+    Timeout(id + 0xE0, 74.9f, "Incinerate"); // t=201.0; Ability 1C5 from Ifrit
+    Timeout(id + 0xF0, 8.0f, "Eruption"); // t=209.0; Ability 1C7 from Ifrit
+    Timeout(id + 0x100, 4.5f, "Vulcan Burst"); // t=213.5; Ability 1C6 from Ifrit
+    Timeout(id + 0x110, 6.9f, "Incinerate"); // t=220.4; Ability 1C5 from Ifrit
+    Timeout(id + 0x120, 8.1f, "Eruption"); // t=228.5; Ability 1C7 from Ifrit
+    Timeout(id + 0x130, 8.6f, "Incinerate"); // t=237.1; Ability 1C5 from Ifrit
+    Timeout(id + 0x140, 8.1f, "Eruption"); // t=245.2
+    Timeout(id + 0x150, 8.6f, "Incinerate"); // t=253.8
+    Timeout(id + 0x160, 8.1f, "Eruption"); // t=261.9
+    Timeout(id + 0x170, 8.6f, "Incinerate"); // t=270.5
+    Timeout(id + 0x180, 8.1f, "Eruption"); // t=278.6
+    Timeout(id + 0x190, 26.4f, "Nail Add"); // t=305.0
+    Timeout(id + 0x1A0, 1.7f, "Incinerate"); // t=306.7; Ability 1C5 from Ifrit
+    Timeout(id + 0x1B0, 7.7f, "Vulcan Burst"); // t=314.4; Ability 1C6 from Ifrit
+    Timeout(id + 0x1C0, 7.9f, "Incinerate"); // t=322.3; Ability 1C5 from Ifrit
+    Timeout(id + 0x1D0, 12.8f, "Incinerate"); // t=335.1; Ability 1C5 from Ifrit
+    Targetable(id + 0x1E0, false, 6.6f, "--untargetable--"); // t=341.7
+    Condition(id + 0x1F0, 2.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1CA), "", 5f, 0.0f); // t=344.3; StartsUsing 1CA from Ifrit
+    Timeout(id + 0x200, 2.0f, "Hellfire"); // t=346.3; Ability 1CA from Ifrit
+    Targetable(id + 0x210, true, 4.4f, "--targetable--"); // t=350.7
+    Timeout(id + 0x220, 1.9f, "Incinerate"); // t=352.6; Ability 1C5 from Ifrit
+    Timeout(id + 0x230, 9.1f, "Eruption"); // t=361.7; Ability 1C7 from Ifrit
+    Timeout(id + 0x240, 8.7f, "Radiant Plume (inner)"); // t=370.4; Ability 1C8 from Ifrit
+    Timeout(id + 0x250, 8.4f, "Radiant Plume (outer)"); // t=378.8; Ability 1C8 from Ifrit
+    Timeout(id + 0x260, 6.2f, "Incinerate"); // t=385.0; Ability 1C5 from Ifrit
+    Timeout(id + 0x270, 9.1f, "Eruption"); // t=394.1
+    Timeout(id + 0x280, 8.7f, "Radiant Plume (inner)"); // t=402.8
+    Timeout(id + 0x290, 8.4f, "Radiant Plume (outer)"); // t=411.2
+    Timeout(id + 0x2A0, 6.2f, "Incinerate"); // t=417.4
+    Timeout(id + 0x2B0, 9.1f, "Eruption"); // t=426.5
+    Timeout(id + 0x2C0, 8.7f, "Radiant Plume (inner)"); // t=435.2
+    Timeout(id + 0x2D0, 8.4f, "Radiant Plume (outer)"); // t=443.6
+}
+

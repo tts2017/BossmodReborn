@@ -1,0 +1,193 @@
+// Generated development skeleton from a4s.txt (TerritoryType 452).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 7 static/dynamic trigger definitions from ui/raidboss/data/03-hw/raid/a4s.ts.
+
+private void Leg_1(uint id)
+{
+    Timeout(id + 0x0, 3.0f, "Hydrothermal Missile"); // t=3.0; Ability F5B from The Manipulator
+    Timeout(id + 0x10, 11.1f, "Discoid"); // t=14.1; Ability F61 from The Manipulator; cactbot HeadMarker AE [A4S Discoid Marker]
+    Timeout(id + 0x20, 7.1f, "Seed Of The Sky / Hydrothermal Missile"); // t=21.2; Ability 13D0 from The Manipulator | Ability F5B from The Manipulator
+    Timeout(id + 0x30, 5.1f, "Seed Of The Sky"); // t=26.3; Ability 13D0 from The Manipulator
+    Timeout(id + 0x40, 0.1f, "--stun--"); // t=26.4
+    Timeout(id + 0x50, 5.8f, "Perpetual Ray x2"); // t=32.2
+    Timeout(id + 0x60, 9.1f, "Emergency Quarantine"); // t=41.3; Ability F62 from The Manipulator
+    Timeout(id + 0x70, 2.1f, "Hydrothermal Missile"); // t=43.4; Ability F5B from The Manipulator
+    Timeout(id + 0x80, 5.1f, "Discoid"); // t=48.5; Ability F61 from The Manipulator; cactbot HeadMarker AE [A4S Discoid Marker]
+    Timeout(id + 0x90, 5.1f, "Seed Of The Sky"); // t=53.6; Ability 13D0 from The Manipulator
+    Timeout(id + 0xA0, 2.0f, "--stun--"); // t=55.6
+    Timeout(id + 0xB0, 3.0f, "Seed Of The Sky"); // t=58.6; Ability 13D0 from The Manipulator
+    Timeout(id + 0xC0, 2.8f, "Perpetual Ray x2"); // t=61.4
+    Timeout(id + 0xD0, 10.1f, "Hydrothermal Missile"); // t=71.5; Ability F5B from The Manipulator
+    Timeout(id + 0xE0, 14.1f, "Hydrothermal Missile"); // t=85.6; Ability F5B from The Manipulator
+    Timeout(id + 0xF0, 11.1f, "Discoid"); // t=96.7; Ability F61 from The Manipulator; cactbot HeadMarker AE [A4S Discoid Marker]
+    Timeout(id + 0x100, 7.1f, "Seed Of The Sky / Hydrothermal Missile"); // t=103.8
+    Timeout(id + 0x110, 5.1f, "Seed Of The Sky"); // t=108.9
+    Timeout(id + 0x120, 0.1f, "--stun--"); // t=109.0
+    Timeout(id + 0x130, 5.8f, "Perpetual Ray x2"); // t=114.8
+    Timeout(id + 0x140, 9.1f, "Emergency Quarantine"); // t=123.9
+    Timeout(id + 0x150, 2.1f, "Hydrothermal Missile"); // t=126.0
+    Timeout(id + 0x160, 5.1f, "Discoid"); // t=131.1; cactbot HeadMarker AE [A4S Discoid Marker]
+    Timeout(id + 0x170, 5.1f, "Seed Of The Sky"); // t=136.2
+    Timeout(id + 0x180, 2.0f, "--stun--"); // t=138.2
+    Timeout(id + 0x190, 3.0f, "Seed Of The Sky"); // t=141.2
+    Timeout(id + 0x1A0, 2.8f, "Perpetual Ray x2"); // t=144.0
+    Timeout(id + 0x1B0, 10.1f, "Hydrothermal Missile"); // t=154.1
+}
+
+private void Leg_2(uint id)
+{
+    Targetable(id + 0x0, false, 12.1f, "--untargetable--"); // t=512.1
+    Condition(id + 0x10, 4.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x13E7), "", 5f, 0.0f); // t=516.2; StartsUsing 13E7 from The Manipulator; cactbot StartsUsing 13E7 [A4S Mortal Revolution]
+    Timeout(id + 0x20, 6.0f, "Mortal Revolution").SetHint(StateMachine.StateHint.Raidwide); // t=522.2; Ability 13E7 from The Manipulator; cactbot StartsUsing 13E7 [A4S Mortal Revolution]
+    Targetable(id + 0x30, true, 2.0f, "--targetable--"); // t=524.2
+    Timeout(id + 0x40, 8.1f, "Emergency Quarantine"); // t=532.3; Ability F62 from The Manipulator
+    Timeout(id + 0x50, 11.1f, "Carnage"); // t=543.4; Ability F63 from The Manipulator; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x60, 2.1f, "Hydrothermal Missile"); // t=545.5; Ability F5B from The Manipulator
+    Timeout(id + 0x70, 2.1f, "--stun--"); // t=547.6
+    Timeout(id + 0x80, 5.8f, "Perpetual Ray x2"); // t=553.4
+    Timeout(id + 0x90, 11.1f, "Carnage"); // t=564.5; Ability F63 from The Manipulator; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0xA0, 2.1f, "Hydrothermal Missile"); // t=566.6; Ability F5B from The Manipulator
+    Timeout(id + 0xB0, 3.0f, "Seed Of The Sky"); // t=569.6; Ability 13D0 from The Manipulator
+    Timeout(id + 0xC0, 9.1f, "Emergency Quarantine"); // t=578.7; Ability F62 from The Manipulator
+    Timeout(id + 0xD0, 2.1f, "--stun--"); // t=580.8
+    Timeout(id + 0xE0, 5.8f, "Perpetual Ray x2"); // t=586.6
+    Timeout(id + 0xF0, 4.1f, "Hydrothermal Missile"); // t=590.7; Ability F5B from The Manipulator
+    Timeout(id + 0x100, 7.1f, "Carnage"); // t=597.8; Ability F63 from The Manipulator; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x110, 5.1f, "Seed Of The Sky"); // t=602.9; Ability 13D0 from The Manipulator
+    Timeout(id + 0x120, 10.0f, "Hydrothermal Missile"); // t=612.9; Ability F5B from The Manipulator
+    Timeout(id + 0x130, 12.1f, "Emergency Quarantine"); // t=625.0; Ability F62 from The Manipulator
+    Timeout(id + 0x140, 11.1f, "Carnage"); // t=636.1; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x150, 2.1f, "Hydrothermal Missile"); // t=638.2
+    Timeout(id + 0x160, 2.1f, "--stun--"); // t=640.3
+    Timeout(id + 0x170, 5.8f, "Perpetual Ray x2"); // t=646.1
+    Timeout(id + 0x180, 11.1f, "Carnage"); // t=657.2; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x190, 2.1f, "Hydrothermal Missile"); // t=659.3
+    Timeout(id + 0x1A0, 3.0f, "Seed Of The Sky"); // t=662.3
+    Timeout(id + 0x1B0, 9.1f, "Emergency Quarantine"); // t=671.4
+    Timeout(id + 0x1C0, 2.1f, "--stun--"); // t=673.5
+    Timeout(id + 0x1D0, 5.8f, "Perpetual Ray x2"); // t=679.3
+    Timeout(id + 0x1E0, 4.1f, "Hydrothermal Missile"); // t=683.4
+    Timeout(id + 0x1F0, 7.1f, "Carnage"); // t=690.5; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x200, 5.1f, "Seed Of The Sky"); // t=695.6
+    Timeout(id + 0x210, 10.0f, "Hydrothermal Missile"); // t=705.6
+}
+
+private void Leg_3(uint id)
+{
+    Targetable(id + 0x0, false, 12.1f, "--untargetable--"); // t=1012.1
+    Condition(id + 0x10, 4.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x13E7), "", 5f, 0.0f); // t=1016.2; StartsUsing 13E7 from The Manipulator; cactbot StartsUsing 13E7 [A4S Mortal Revolution]
+    Timeout(id + 0x20, 6.0f, "Mortal Revolution").SetHint(StateMachine.StateHint.Raidwide); // t=1022.2; Ability 13E7 from The Manipulator; cactbot StartsUsing 13E7 [A4S Mortal Revolution]
+    Targetable(id + 0x30, true, 2.0f, "--targetable--"); // t=1024.2
+    Timeout(id + 0x40, 3.2f, "Hydrothermal Missile"); // t=1027.4; Ability F5B from The Manipulator
+    Timeout(id + 0x50, 7.1f, "Carnage"); // t=1034.5; Ability F63 from The Manipulator; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x60, 5.7f, "Straf Doll x1 / Jagd Doll x3"); // t=1040.2
+    Timeout(id + 0x70, 4.4f, "--stun--"); // t=1044.6
+    Timeout(id + 0x80, 5.8f, "Perpetual Ray x2"); // t=1050.4
+    Timeout(id + 0x90, 7.2f, "Seed Of The Sky"); // t=1057.6; Ability 13D0 from The Manipulator
+    Timeout(id + 0xA0, 5.0f, "Hydrothermal Missile"); // t=1062.6; Ability F5B from The Manipulator
+    Timeout(id + 0xB0, 9.1f, "Carnage"); // t=1071.7; Ability F63 from The Manipulator; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0xC0, 3.7f, "--stun--"); // t=1075.4
+    Timeout(id + 0xD0, 5.8f, "Perpetual Ray x2"); // t=1081.2
+    Timeout(id + 0xE0, 17.7f, "Hydrothermal Missile"); // t=1098.9; Ability F5B from The Manipulator
+    Timeout(id + 0xF0, 8.6f, "Straf Doll x1 / Jagd Doll x3"); // t=1107.5
+    Timeout(id + 0x100, 0.5f, "--stun--"); // t=1108.0
+    Timeout(id + 0x110, 5.8f, "Perpetual Ray x2"); // t=1113.8
+    Timeout(id + 0x120, 7.0f, "Seed Of The Sky"); // t=1120.8; Ability 13D0 from The Manipulator
+    Timeout(id + 0x130, 4.0f, "Carnage"); // t=1124.8; Ability F63 from The Manipulator; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x140, 5.1f, "Seed Of The Sky / Hydrothermal Missile"); // t=1129.9; Ability 13D0 from The Manipulator | Ability F5B from The Manipulator
+    Timeout(id + 0x150, 5.7f, "--stun--"); // t=1135.6
+    Timeout(id + 0x160, 5.8f, "Perpetual Ray x2"); // t=1141.4
+    Timeout(id + 0x170, 18.8f, "Hydrothermal Missile"); // t=1160.2; Ability F5B from The Manipulator
+    Timeout(id + 0x180, 7.1f, "Carnage"); // t=1167.3; Ability F63 from The Manipulator; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x190, 5.7f, "Straf Doll x1 / Jagd Doll x3"); // t=1173.0
+    Timeout(id + 0x1A0, 4.4f, "--stun--"); // t=1177.4
+    Timeout(id + 0x1B0, 5.8f, "Perpetual Ray x2"); // t=1183.2
+    Timeout(id + 0x1C0, 7.2f, "Seed Of The Sky"); // t=1190.4
+    Timeout(id + 0x1D0, 5.0f, "Hydrothermal Missile"); // t=1195.4
+    Timeout(id + 0x1E0, 9.1f, "Carnage"); // t=1204.5; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x1F0, 3.7f, "--stun--"); // t=1208.2
+    Timeout(id + 0x200, 5.8f, "Perpetual Ray x2"); // t=1214.0
+    Timeout(id + 0x210, 17.7f, "Hydrothermal Missile"); // t=1231.7
+    Timeout(id + 0x220, 8.6f, "Straf Doll x1 / Jagd Doll x3"); // t=1240.3
+    Timeout(id + 0x230, 0.5f, "--stun--"); // t=1240.8
+    Timeout(id + 0x240, 5.8f, "Perpetual Ray x2"); // t=1246.6
+    Timeout(id + 0x250, 7.0f, "Seed Of The Sky"); // t=1253.6
+    Timeout(id + 0x260, 4.0f, "Carnage"); // t=1257.6; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x270, 5.1f, "Seed Of The Sky / Hydrothermal Missile"); // t=1262.7
+    Timeout(id + 0x280, 5.7f, "--stun--"); // t=1268.4
+    Timeout(id + 0x290, 5.8f, "Perpetual Ray x2"); // t=1274.2
+}
+
+private void Leg_4(uint id)
+{
+    Targetable(id + 0x0, false, 12.1f, "--untargetable--"); // t=1512.1
+    Condition(id + 0x10, 4.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x13E7), "", 5f, 0.0f); // t=1516.2; StartsUsing 13E7 from The Manipulator; cactbot StartsUsing 13E7 [A4S Mortal Revolution]
+    Timeout(id + 0x20, 6.0f, "Mortal Revolution").SetHint(StateMachine.StateHint.Raidwide); // t=1522.2; Ability 13E7 from The Manipulator; cactbot StartsUsing 13E7 [A4S Mortal Revolution]
+    Targetable(id + 0x30, true, 2.0f, "--targetable--"); // t=1524.2
+    Timeout(id + 0x40, 4.2f, "Judgment Nisi"); // t=1528.4; Ability F64 from The Manipulator; cactbot StartsUsing F64 [A4S Judgment Nisi A]
+    Timeout(id + 0x50, 7.5f, "Straf Doll x1 / Jagd Doll x3"); // t=1535.9
+    Timeout(id + 0x60, 4.7f, "--stun--"); // t=1540.6
+    Timeout(id + 0x70, 5.8f, "Perpetual Ray x2"); // t=1546.4
+    Timeout(id + 0x80, 10.1f, "Seed Of The Sky"); // t=1556.5; Ability 13D0 from The Manipulator
+    Timeout(id + 0x90, 7.0f, "Hydrothermal Missile"); // t=1563.5; Ability F5B from The Manipulator
+    Timeout(id + 0xA0, 10.1f, "Discoid"); // t=1573.6; Ability F61 from The Manipulator; cactbot HeadMarker AE [A4S Discoid Marker]
+    Timeout(id + 0xB0, 9.2f, "Seed Of The Sky"); // t=1582.8; Ability 13D0 from The Manipulator
+    Timeout(id + 0xC0, 5.0f, "Seed Of The Sky"); // t=1587.8; Ability 13D0 from The Manipulator
+    Timeout(id + 0xD0, 2.0f, "Hydrothermal Missile"); // t=1589.8; Ability F5B from The Manipulator
+    Timeout(id + 0xE0, 8.2f, "Straf Doll x1 / Jagd Doll x3"); // t=1598.0
+    Timeout(id + 0xF0, 7.0f, "--stun--"); // t=1605.0
+    Timeout(id + 0x100, 5.8f, "Perpetual Ray x2"); // t=1610.8
+    Timeout(id + 0x110, 5.1f, "Hydrothermal Missile"); // t=1615.9; Ability F5B from The Manipulator
+    Timeout(id + 0x120, 5.1f, "Discoid"); // t=1621.0; Ability F61 from The Manipulator; cactbot HeadMarker AE [A4S Discoid Marker]
+    Timeout(id + 0x130, 9.2f, "Seed Of The Sky"); // t=1630.2
+    Timeout(id + 0x140, 5.0f, "Seed Of The Sky"); // t=1635.2
+    Timeout(id + 0x150, 2.0f, "Hydrothermal Missile"); // t=1637.2
+    Timeout(id + 0x160, 8.2f, "Straf Doll x1 / Jagd Doll x3"); // t=1645.4
+    Timeout(id + 0x170, 7.0f, "--stun--"); // t=1652.4
+    Timeout(id + 0x180, 5.8f, "Perpetual Ray x2"); // t=1658.2
+}
+
+private void Final_Phase(uint id)
+{
+    Targetable(id + 0x0, false, 12.1f, "--untargetable--"); // t=2012.1
+    Condition(id + 0x10, 4.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x13E7), "", 5f, 0.0f); // t=2016.2; StartsUsing 13E7 from The Manipulator; cactbot StartsUsing 13E7 [A4S Mortal Revolution]
+    Timeout(id + 0x20, 6.0f, "Mortal Revolution").SetHint(StateMachine.StateHint.Raidwide); // t=2022.2; Ability 13E7 from The Manipulator; cactbot StartsUsing 13E7 [A4S Mortal Revolution]
+    Targetable(id + 0x30, true, 2.0f, "--targetable--"); // t=2024.2
+    Timeout(id + 0x40, 9.1f, "Carnage Zero"); // t=2033.3; Ability F5E from The Manipulator; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x50, 8.1f, "Discoid"); // t=2041.4; Ability F61 from The Manipulator; cactbot HeadMarker AE [A4S Discoid Marker]
+    Timeout(id + 0x60, 11.1f, "Seed Of The Sky"); // t=2052.5; Ability 13D0 from The Manipulator
+    Timeout(id + 0x70, 1.0f, "Hydrothermal Missile"); // t=2053.5; Ability F5B from The Manipulator
+    Timeout(id + 0x80, 5.1f, "Carnage Zero"); // t=2058.6; Ability F5E from The Manipulator; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x90, 14.2f, "Royal Pentacle"); // t=2072.8; Ability F66 from The Manipulator
+    Timeout(id + 0xA0, 2.1f, "Perpetual Ray x5"); // t=2074.9
+    Timeout(id + 0xB0, 10.5f, "Hydrothermal Missile"); // t=2085.4; Ability F5B from The Manipulator
+    Timeout(id + 0xC0, 20.2f, "Carnage"); // t=2105.6; Ability F63 from The Manipulator; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0xD0, 9.0f, "Straf Doll x1 / Jagd Doll x3"); // t=2114.6
+    Timeout(id + 0xE0, 2.2f, "Hydrothermal Missile"); // t=2116.8; Ability F5B from The Manipulator
+    Timeout(id + 0xF0, 6.1f, "Carnage Zero / Seed Of The Sky"); // t=2122.9; Ability F5E from The Manipulator | Ability 13D0 from The Manipulator; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x100, 5.1f, "Seed Of The Sky"); // t=2128.0; Ability 13D0 from The Manipulator
+    Timeout(id + 0x110, 12.0f, "Carnage Zero"); // t=2140.0; Ability F5E from The Manipulator; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x120, 8.2f, "Hydrothermal Missile"); // t=2148.2; Ability F5B from The Manipulator
+    Timeout(id + 0x130, 13.1f, "Carnage Zero"); // t=2161.3; Ability F5E from The Manipulator; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x140, 8.2f, "Discoid"); // t=2169.5; Ability F61 from The Manipulator; cactbot HeadMarker AE [A4S Discoid Marker]
+    Timeout(id + 0x150, 11.1f, "Seed Of The Sky"); // t=2180.6; Ability 13D0 from The Manipulator
+    Timeout(id + 0x160, 1.0f, "Hydrothermal Missile"); // t=2181.6; Ability F5B from The Manipulator
+    Timeout(id + 0x170, 5.1f, "Carnage Zero"); // t=2186.7; Ability F5E from The Manipulator; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x180, 14.2f, "Royal Pentacle"); // t=2200.9; Ability F66 from The Manipulator
+    Timeout(id + 0x190, 2.1f, "Perpetual Ray x5"); // t=2203.0
+    Timeout(id + 0x1A0, 10.5f, "Hydrothermal Missile"); // t=2213.5
+    Timeout(id + 0x1B0, 20.2f, "Carnage"); // t=2233.7; cactbot StartsUsing F5E [A4S Carnage] | StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x1C0, 11.2f, "Hydrothermal Missile"); // t=2244.9
+    Timeout(id + 0x1D0, 6.1f, "Carnage Zero / Seed Of The Sky"); // t=2251.0
+    Timeout(id + 0x1E0, 5.1f, "Seed Of The Sky"); // t=2256.1
+    Timeout(id + 0x1F0, 12.0f, "Carnage Zero"); // t=2268.1; cactbot StartsUsing F5E [A4S Carnage Zero]
+    Timeout(id + 0x200, 8.2f, "Hydrothermal Missile"); // t=2276.3
+}
+
+private void Enrage(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x13E7), "", 5f, 0.0f); // t=2500.0; StartsUsing 13E7 from The Manipulator; cactbot StartsUsing 13E7 [A4S Mortal Revolution]
+    Timeout(id + 0x10, 6.0f, "Mortal Revolution Enrage").SetHint(StateMachine.StateHint.Raidwide); // t=2506.0; Ability 13E7 from The Manipulator; cactbot StartsUsing 13E7 [A4S Mortal Revolution]
+}
+

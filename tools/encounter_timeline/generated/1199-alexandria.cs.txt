@@ -1,0 +1,89 @@
+// Generated development skeleton from alexandria.txt (TerritoryType 1199).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 29 static/dynamic trigger definitions from ui/raidboss/data/07-dt/dungeon/alexandria.ts.
+
+private void Alexandria(uint id)
+{
+    Timeout(id + 0x0, 1014.1f, "Immune Response (front)"); // t=1014.1; Ability 8E1B from Antivirus X; cactbot StartsUsing 8E1A [Alexandria AntivirusX Immune Response Front]
+    Timeout(id + 0x10, 10.1f, "Immune Response (sides)"); // t=1024.2; Ability 8E1D from Antivirus X
+    Timeout(id + 0x20, 17.2f, "Pathocircuit Purge/Pathocross Purge 1"); // t=1041.4; Ability 8E1E/8E1F from Interferon R/Interferon C
+    Timeout(id + 0x30, 2.6f, "Pathocircuit Purge/Pathocross Purge 2"); // t=1044.0
+    Timeout(id + 0x40, 2.4f, "Pathocircuit Purge/Pathocross Purge 3"); // t=1046.4
+    Timeout(id + 0x50, 2.4f, "Pathocircuit Purge/Pathocross Purge 4"); // t=1048.8
+    Timeout(id + 0x60, 2.4f, "Pathocircuit Purge/Pathocross Purge 5"); // t=1051.2
+    Timeout(id + 0x70, 4.0f, "Immune Response"); // t=1055.2; Ability 8E1B/8E1D from Antivirus X
+    Timeout(id + 0x80, 10.1f, "Quarantine / Disinfection"); // t=1065.3; Ability 8E22 from Antivirus X | Ability 8E21 from Antivirus X
+    Timeout(id + 0x90, 16.1f, "Pathocircuit Purge/Pathocross Purge 1"); // t=1081.4; Ability 8E1E/8E1F from Interferon R/Interferon C
+    Timeout(id + 0xA0, 2.6f, "Pathocircuit Purge/Pathocross Purge 2"); // t=1084.0
+    Timeout(id + 0xB0, 0.4f, "Immune Response"); // t=1084.4; Ability 8E1B/8E1D from Antivirus X
+    Timeout(id + 0xC0, 2.0f, "Pathocircuit Purge/Pathocross Purge 3"); // t=1086.4
+    Timeout(id + 0xD0, 2.4f, "Pathocircuit Purge/Pathocross Purge 4"); // t=1088.8
+    Timeout(id + 0xE0, 2.4f, "Pathocircuit Purge/Pathocross Purge 5"); // t=1091.2
+    Timeout(id + 0xF0, 3.1f, "Immune Response"); // t=1094.3; Ability 8E1B/8E1D from Antivirus X
+    Timeout(id + 0x100, 9.1f, "Quarantine / Disinfection"); // t=1103.4; Ability 8E22 from Antivirus X | Ability 8E21 from Antivirus X
+    Timeout(id + 0x110, 8.1f, "Cytolysis").SetHint(StateMachine.StateHint.Raidwide); // t=1111.5; Ability 8E23 from Antivirus X; cactbot StartsUsing 8E23 [Alexandria AntivirusX Cytolysis]
+    Timeout(id + 0x120, 23.1f, "Pathocircuit Purge/Pathocross Purge"); // t=1134.6; Ability 8E1E/8E1F from Interferon R/Interferon C
+    Timeout(id + 0x130, 876.5f, "Electrowave").SetHint(StateMachine.StateHint.Raidwide); // t=2011.1; Ability 8DF2 from Amalgam; cactbot StartsUsing 8DF1 [Alexandria Amalgam Electrowave]
+    Timeout(id + 0x140, 8.6f, "Disassembly").SetHint(StateMachine.StateHint.Raidwide); // t=2019.7; Ability 8DE3 from Amalgam; cactbot StartsUsing 8DE3 [Alexandria Amalgam Disassembly]
+    Timeout(id + 0x150, 15.1f, "Supercell Matrix"); // t=2034.8; Ability 98E0 from Amalgam; cactbot StartsUsing 98E0 [Alexandria Amalgam Supercell Matrix Triangle]
+    Timeout(id + 0x160, 10.7f, "Centralized Current"); // t=2045.5; Ability 8DE7 from Amalgam; cactbot StartsUsing 8DE7 [Alexandria Amalgam Centralized Current]
+    Timeout(id + 0x170, 7.2f, "Split Current"); // t=2052.7; Ability 8DE9 from Amalgam; cactbot StartsUsing 8DEB [Alexandria Amalgam Split Current]
+    Timeout(id + 0x180, 11.0f, "Disassembly").SetHint(StateMachine.StateHint.Raidwide); // t=2063.7; Ability 8DE3 from Amalgam; cactbot StartsUsing 8DE3 [Alexandria Amalgam Disassembly]
+    Timeout(id + 0x190, 15.1f, "Supercell Matrix (triangle)"); // t=2078.8; Ability 98E0 from Amalgam; cactbot StartsUsing 98E0 [Alexandria Amalgam Supercell Matrix Triangle]
+    Timeout(id + 0x1A0, 0.1f, "Supercell Matrix (lasers)"); // t=2078.9; Ability 98E2 from Amalgam; cactbot StartsUsing 98E2 [Alexandria Amalgam Supercell Matrix Lasers]
+    Timeout(id + 0x1B0, 2.7f, "Static Spark"); // t=2081.6; Ability 8DEE from Amalgam; cactbot HeadMarker 8B [Alexandria Amalgam Static Spark]
+    Timeout(id + 0x1C0, 7.7f, "Centralized Current/Split Current"); // t=2089.3; Ability 8DE7/8DE9 from Amalgam; cactbot StartsUsing 8DE7 [Alexandria Amalgam Centralized Current]
+    Timeout(id + 0x1D0, 9.1f, "Amalgamight"); // t=2098.4; Ability 8DF3 from Amalgam; cactbot HeadMarker DA [Alexandria Amalgam Amalgamight]
+    Timeout(id + 0x1E0, 11.0f, "Disassembly").SetHint(StateMachine.StateHint.Raidwide); // t=2109.4; Ability 8DE3 from Amalgam; cactbot StartsUsing 8DE3 [Alexandria Amalgam Disassembly]
+    Timeout(id + 0x1F0, 4.6f, "Voltburst 1"); // t=2114.0
+    Timeout(id + 0x200, 2.0f, "Voltburst 2"); // t=2116.0
+    Timeout(id + 0x210, 2.0f, "Voltburst 3 "); // t=2118.0
+    Timeout(id + 0x220, 6.7f, "Supercell Matrix"); // t=2124.7; Ability 98E0 from Amalgam; cactbot StartsUsing 98E0 [Alexandria Amalgam Supercell Matrix Triangle]
+    Timeout(id + 0x230, 2.8f, "Static Spark"); // t=2127.5; Ability 8DEE from Amalgam; cactbot HeadMarker 8B [Alexandria Amalgam Static Spark]
+    Timeout(id + 0x240, 10.4f, "Superbolt"); // t=2137.9; Ability 8DED from Amalgam; cactbot HeadMarker A1 [Alexandria Amalgam Superbolt]
+    Timeout(id + 0x250, 11.3f, "Ternary Charge (inner)"); // t=2149.2; Ability 9956 from Amalgam
+    Timeout(id + 0x260, 2.0f, "Ternary Charge (outer)"); // t=2151.2; Ability 9957 from Amalgam
+    Timeout(id + 0x270, 2.0f, "Ternary Charge (corners)"); // t=2153.2; Ability 9958 from Amalgam
+    Timeout(id + 0x280, 3.3f, "Centralized Current/Split Current"); // t=2156.5; Ability 8DE7/8DE9 from Amalgam; cactbot StartsUsing 8DE7 [Alexandria Amalgam Centralized Current]
+    Timeout(id + 0x290, 8.1f, "Electrowave").SetHint(StateMachine.StateHint.Raidwide); // t=2164.6; Ability 8DF2 from Amalgam; cactbot StartsUsing 8DF1 [Alexandria Amalgam Electrowave]
+    Timeout(id + 0x2A0, 7.1f, "Amalgamight"); // t=2171.7; Ability 8DF3 from Amalgam; cactbot HeadMarker DA [Alexandria Amalgam Amalgamight]
+    Timeout(id + 0x2B0, 838.4f, "Disruption").SetHint(StateMachine.StateHint.Raidwide); // t=3010.1; Ability 8F9D from Eliminator; cactbot StartsUsing 8F9D [Alexandria Eliminator Disruption]
+    Timeout(id + 0x2C0, 3.1f, "--center--"); // t=3013.2; Ability 8F9B from Eliminator
+    Timeout(id + 0x2D0, 7.3f, "Partition"); // t=3020.5; Ability 985F from Eliminator; cactbot StartsUsing 985F/9946 [Alexandria Eliminator Partition Right]
+    Timeout(id + 0x2E0, 9.5f, "Partition"); // t=3030.0; Ability 9951 from Eliminator; cactbot StartsUsing 9951 [Alexandria Eliminator Partition Left]
+    Timeout(id + 0x2F0, 7.6f, "--center--"); // t=3037.6; Ability 8F9B from Eliminator
+    Timeout(id + 0x300, 5.2f, "Subroutine"); // t=3042.8; Ability 8FA4 from Eliminator
+    Timeout(id + 0x310, 9.2f, "Terminate / Partition"); // t=3052.0; Ability 9ABF from Eliminator | Ability 9946 from Eliminator; cactbot StartsUsing 985F/9946 [Alexandria Eliminator Partition Right] | StartsUsing 9ABF [Alexandria Eliminator Terminate]
+    Timeout(id + 0x320, 8.4f, "Subroutine"); // t=3060.4; Ability 8FA7 from Eliminator
+    Timeout(id + 0x330, 9.2f, "Halo of Destruction / Partition"); // t=3069.6; Ability 9AC0 from Eliminator | Ability 9946/9951 from Eliminator; cactbot StartsUsing 9951 [Alexandria Eliminator Partition Left] | StartsUsing 985F/9946 [Alexandria Eliminator Partition Right] | StartsUsing 9AC0 [Alexandria Eliminator Halo of Destruction]
+    Timeout(id + 0x340, 3.8f, "Electray"); // t=3073.4; Ability 994B from Eliminator; cactbot HeadMarker DA [Alexandria Eliminator Electray]
+    Timeout(id + 0x350, 7.1f, "Overexposure"); // t=3080.5; Ability 8FAC from Eliminator; cactbot Ability 8FAA [Alexandria Eliminator Overexposure]
+    Timeout(id + 0x360, 9.3f, "Subroutine"); // t=3089.8; Ability 8FAD from Eliminator
+    Timeout(id + 0x370, 2.1f, "--center--"); // t=3091.9; Ability 8F9B from Eliminator
+    Targetable(id + 0x380, false, 0.0f, "--untargetable--"); // t=3091.9
+    Timeout(id + 0x390, 11.9f, "Halo of Destruction"); // t=3103.8; Ability 9AC0 from Eliminator; cactbot StartsUsing 9AC0 [Alexandria Eliminator Halo of Destruction]
+    Timeout(id + 0x3A0, 3.9f, "Terminate"); // t=3107.7; Ability 9ABF from Eliminator; cactbot StartsUsing 9ABF [Alexandria Eliminator Terminate]
+    Timeout(id + 0x3B0, 16.4f, "Light of Salvation"); // t=3124.1; Ability 8FB0 from Eliminator; cactbot HeadMarker 216 [Alexandria Eliminator Light Of Salvation]
+    Timeout(id + 0x3C0, 7.6f, "Light of Devotion"); // t=3131.7; Ability 8FB3 from Eliminator; cactbot Ability 8FB2 [Alexandria Eliminator Light Of Devotion]
+    Timeout(id + 0x3D0, 13.7f, "--center--"); // t=3145.4; Ability 8F9B from Eliminator
+    Targetable(id + 0x3E0, true, 2.0f, "--targetable--"); // t=3147.4
+    Timeout(id + 0x3F0, 9.9f, "Holo Ark").SetHint(StateMachine.StateHint.Raidwide); // t=3157.3; Ability 8FB6 from Eliminator; cactbot Ability 8FB5 [Alexandria Eliminator Holo Ark]
+    Timeout(id + 0x400, 11.3f, "--center--"); // t=3168.6; Ability 8F9B from Eliminator
+    Timeout(id + 0x410, 5.3f, "Subroutine"); // t=3173.9; Ability 8FAD from Eliminator
+    Timeout(id + 0x420, 8.1f, "Impact").SetHint(StateMachine.StateHint.Knockback); // t=3182.0; Ability 8FBA from Eliminator; cactbot StartsUsing 8FBA [Alexandria Eliminator Impact]
+    Timeout(id + 0x430, 5.1f, "Light of Salvation"); // t=3187.1; Ability 8FB0 from Eliminator; cactbot HeadMarker 216 [Alexandria Eliminator Light Of Salvation]
+    Timeout(id + 0x440, 4.8f, "Partition"); // t=3191.9; Ability 9946/9951 from Eliminator; cactbot StartsUsing 9951 [Alexandria Eliminator Partition Left] | StartsUsing 985F/9946 [Alexandria Eliminator Partition Right]
+    Timeout(id + 0x450, 10.7f, "Elimination"); // t=3202.6; Ability 8FBB from Eliminator; cactbot StartsUsing 8FBB [Alexandria Eliminator Elimination]
+    Timeout(id + 0x460, 9.3f, "Explosion 1"); // t=3211.9
+    Timeout(id + 0x470, 1.3f, "Explosion 2"); // t=3213.2
+    Timeout(id + 0x480, 1.3f, "Explosion 3"); // t=3214.5
+    Timeout(id + 0x490, 1.0f, "--center--"); // t=3215.5; Ability 8F9B from Eliminator
+    Timeout(id + 0x4A0, 0.3f, "Explosion 4"); // t=3215.8
+    Timeout(id + 0x4B0, 5.0f, "Subroutine"); // t=3220.8; Ability 8FAD from Eliminator
+    Timeout(id + 0x4C0, 9.2f, "Halo of Destruction / Partition"); // t=3230.0; Ability 9AC0 from Eliminator | Ability 9946/9951 from Eliminator; cactbot StartsUsing 9951 [Alexandria Eliminator Partition Left] | StartsUsing 985F/9946 [Alexandria Eliminator Partition Right] | StartsUsing 9AC0 [Alexandria Eliminator Halo of Destruction]
+    Timeout(id + 0x4D0, 2.0f, "Terminate"); // t=3232.0; Ability 9ABF from Eliminator; cactbot StartsUsing 9ABF [Alexandria Eliminator Terminate]
+    Timeout(id + 0x4E0, 10.6f, "Disruption").SetHint(StateMachine.StateHint.Raidwide); // t=3242.6; Ability 8F9D from Eliminator; cactbot StartsUsing 8F9D [Alexandria Eliminator Disruption]
+    Timeout(id + 0x4F0, 6.1f, "--center--"); // t=3248.7; Ability 8F9B from Eliminator
+}
+

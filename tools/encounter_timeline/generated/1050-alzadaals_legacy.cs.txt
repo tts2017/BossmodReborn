@@ -1,0 +1,80 @@
+// Generated development skeleton from alzadaals_legacy.txt (TerritoryType 1050).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 14 static/dynamic trigger definitions from ui/raidboss/data/06-ew/dungeon/alzadaals_legacy.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 11.0f, "Big Wave"); // t=11.0; Ability 6F60 from Ambujam; cactbot StartsUsing 6F60 [Alzadaal Big Wave]
+    Timeout(id + 0x10, 9.8f, "Tentacle Dig"); // t=20.8; Ability 6F55 from Ambujam; cactbot Ability 6F55 [Alzadaal Tentacle Dig Single]
+    Timeout(id + 0x20, 12.6f, "Toxin Shower"); // t=33.4; Ability 6F5C from Ambujam
+    Timeout(id + 0x30, 14.2f, "Tentacle Dig"); // t=47.6; Ability 6F59 from Ambujam; cactbot Ability 6F59 [Alzadaal Tentacle Dig Multiple]
+    Timeout(id + 0x40, 12.6f, "Corrosive Venom/Toxin Shower"); // t=60.2; Ability 6F5C/71E6 from Ambujam
+    Timeout(id + 0x50, 16.1f, "Corrosive Fountain/Toxic Fountain 1"); // t=76.3; Ability 731A/731B/7374 from Ambujam; cactbot StartsUsing 731A [Alzadaal Fountain]
+    Timeout(id + 0x60, 3.0f, "Corrosive Fountain/Toxic Fountain 2"); // t=79.3; Ability 731A/731B/7374 from Ambujam; cactbot StartsUsing 731A [Alzadaal Fountain]
+    Timeout(id + 0x70, 1.3f, "Corrosive Fountain/Toxic Fountain 3"); // t=80.6; Ability 731A/731B/7374 from Ambujam; cactbot StartsUsing 731A [Alzadaal Fountain]
+    Timeout(id + 0x80, 23.8f, "Big Wave"); // t=104.4; Ability 6F60 from Ambujam; cactbot StartsUsing 6F60 [Alzadaal Big Wave]
+    Timeout(id + 0x90, 9.4f, "Tentacle Dig"); // t=113.8; Ability 6F59 from Ambujam; cactbot Ability 6F59 [Alzadaal Tentacle Dig Multiple]
+    Timeout(id + 0xA0, 12.6f, "Corrosive Venom/Toxin Shower"); // t=126.4
+    Timeout(id + 0xB0, 16.1f, "Corrosive Fountain/Toxic Fountain 1"); // t=142.5
+    Timeout(id + 0xC0, 3.0f, "Corrosive Fountain/Toxic Fountain 2"); // t=145.5
+    Timeout(id + 0xD0, 1.3f, "Corrosive Fountain/Toxic Fountain 3"); // t=146.8
+    Timeout(id + 0xE0, 23.8f, "Big Wave"); // t=170.6; cactbot StartsUsing 6F60 [Alzadaal Big Wave]
+    Timeout(id + 0xF0, 840.4f, "Articulated Bits"); // t=1011.0; Ability 6F19 from Armored Chariot; cactbot StartsUsing 6F19 [Alzadaal Articulated Bits]
+    Timeout(id + 0x100, 2.2f, "Assail"); // t=1013.2; Ability 6F29 from Armored Chariot
+    Timeout(id + 0x110, 8.7f, "Assault Cannon"); // t=1021.9; Ability 6F1B from Armored Drudge
+    Timeout(id + 0x120, 8.1f, "Assault Cannon"); // t=1030.0; Ability 6F1B from Armored Drudge
+    Timeout(id + 0x130, 17.4f, "Diffusion Ray").SetHint(StateMachine.StateHint.Raidwide); // t=1047.4; Ability 6F1E from Armored Chariot; cactbot StartsUsing 6F1E [Alzadaal Diffusion Ray]
+    Timeout(id + 0x140, 9.2f, "Articulated Bits"); // t=1056.6; Ability 6F19 from Armored Chariot; cactbot StartsUsing 6F19 [Alzadaal Articulated Bits]
+    Timeout(id + 0x150, 2.2f, "Assail"); // t=1058.8; Ability 6F28 from Armored Chariot
+    Timeout(id + 0x160, 8.7f, "Assault Cannon"); // t=1067.5; Ability 6F1B from Armored Drudge
+    Timeout(id + 0x170, 15.7f, "Articulated Bits"); // t=1083.2; Ability 6F19 from Armored Chariot; cactbot StartsUsing 6F19 [Alzadaal Articulated Bits]
+    Timeout(id + 0x180, 2.2f, "Assail"); // t=1085.4; Ability 6F29 from Armored Chariot
+    Timeout(id + 0x190, 8.7f, "Assault Cannon"); // t=1094.1; Ability 6F1B from Armored Drudge
+    Timeout(id + 0x1A0, 8.2f, "Assault Cannon"); // t=1102.3; Ability 6F1B from Armored Drudge
+    Timeout(id + 0x1B0, 2.5f, "Graviton Cannon"); // t=1104.8; Ability 7373 from Armored Chariot; cactbot StartsUsing 7373 [Alzadaal Graviton Cannon]
+    Timeout(id + 0x1C0, 13.0f, "Articulated Bits"); // t=1117.8; Ability 6F19 from Armored Chariot; cactbot StartsUsing 6F19 [Alzadaal Articulated Bits]
+    Timeout(id + 0x1D0, 2.2f, "Assail"); // t=1120.0; Ability 6F28 from Armored Chariot
+    Timeout(id + 0x1E0, 8.7f, "Assault Cannon"); // t=1128.7; Ability 6F1B from Armored Drudge
+    Timeout(id + 0x1F0, 16.4f, "Diffusion Ray").SetHint(StateMachine.StateHint.Raidwide); // t=1145.1; Ability 6F1E from Armored Chariot; cactbot StartsUsing 6F1E [Alzadaal Diffusion Ray]
+    Timeout(id + 0x200, 10.1f, "Rail Cannon").SetHint(StateMachine.StateHint.Tankbuster); // t=1155.2; Ability 6F1F from Armored Chariot; cactbot StartsUsing 6F1F [Alzadaal Rail Cannon]
+    Timeout(id + 0x210, 13.2f, "Articulated Bits"); // t=1168.4; Ability 6F19 from Armored Chariot; cactbot StartsUsing 6F19 [Alzadaal Articulated Bits]
+    Timeout(id + 0x220, 2.2f, "Assail"); // t=1170.6; Ability 6F28 from Armored Chariot
+    Timeout(id + 0x230, 8.8f, "Assault Cannon"); // t=1179.4; Ability 6F1B from Armored Drudge
+    Timeout(id + 0x240, 15.5f, "Articulated Bits"); // t=1194.9; Ability 6F19 from Armored Chariot; cactbot StartsUsing 6F19 [Alzadaal Articulated Bits]
+    Timeout(id + 0x250, 2.2f, "Assail"); // t=1197.1; Ability 6F29 from Armored Chariot
+    Timeout(id + 0x260, 8.7f, "Assault Cannon"); // t=1205.8; Ability 6F1B from Armored Drudge
+    Timeout(id + 0x270, 8.1f, "Assault Cannon"); // t=1213.9; Ability 6F1B from Armored Drudge
+    Timeout(id + 0x280, 2.7f, "Graviton Cannon"); // t=1216.6; Ability 7373 from Armored Chariot; cactbot StartsUsing 7373 [Alzadaal Graviton Cannon]
+    Timeout(id + 0x290, 12.7f, "Articulated Bits"); // t=1229.3; Ability 6F19 from Armored Chariot; cactbot StartsUsing 6F19 [Alzadaal Articulated Bits]
+    Timeout(id + 0x2A0, 2.2f, "Assail"); // t=1231.5; Ability 6F28 from Armored Chariot
+    Timeout(id + 0x2B0, 8.7f, "Assault Cannon"); // t=1240.2; Ability 6F1B from Armored Drudge
+    Timeout(id + 0x2C0, 16.4f, "Diffusion Ray").SetHint(StateMachine.StateHint.Raidwide); // t=1256.6; Ability 6F1E from Armored Chariot; cactbot StartsUsing 6F1E [Alzadaal Diffusion Ray]
+    Timeout(id + 0x2D0, 10.1f, "Rail Cannon").SetHint(StateMachine.StateHint.Tankbuster); // t=1266.7; Ability 6F1F from Armored Chariot; cactbot StartsUsing 6F1F [Alzadaal Rail Cannon]
+    Timeout(id + 0x2E0, 13.3f, "Articulated Bits"); // t=1280.0; Ability 6F19 from Armored Chariot; cactbot StartsUsing 6F19 [Alzadaal Articulated Bits]
+    Timeout(id + 0x2F0, 2.2f, "Assail"); // t=1282.2; Ability 6F28 from Armored Chariot
+    Timeout(id + 0x300, 733.0f, "Billowing Bolts").SetHint(StateMachine.StateHint.Raidwide); // t=2015.2; Ability 6F70 from Kapikulu; cactbot StartsUsing 6F70 [Alzadaal Billowing Bolts]
+    Timeout(id + 0x310, 12.6f, "Spin Out"); // t=2027.8; Ability 6F63 from Kapikulu; cactbot StartsUsing 6F63 [Alzadaal Spin Out]
+    Timeout(id + 0x320, 26.5f, "Crewel Slice").SetHint(StateMachine.StateHint.Tankbuster); // t=2054.3; Ability 6F72 from Kapikulu; cactbot StartsUsing 6F72 [Alzadaal Crewel Slice]
+    Timeout(id + 0x330, 7.1f, "Billowing Bolts").SetHint(StateMachine.StateHint.Raidwide); // t=2061.4; Ability 6F70 from Kapikulu; cactbot StartsUsing 6F70 [Alzadaal Billowing Bolts]
+    Timeout(id + 0x340, 13.3f, "Wild Weave"); // t=2074.7; Ability 6F69 from Kapikulu
+    Timeout(id + 0x350, 9.8f, "Power Serge"); // t=2084.5; Ability 6F6A from Kapikulu; cactbot StartsUsing 6F6A [Alzadaal Power Serge]
+    Timeout(id + 0x360, 4.3f, "Mana Explosion"); // t=2088.8; Ability 6F6B from Kapikulu
+    Timeout(id + 0x370, 10.8f, "Magnitude Opus/Rotary Gale"); // t=2099.6; Ability 6F6C/6F6E from Kapikulu
+    Timeout(id + 0x380, 13.2f, "Spin Out"); // t=2112.8; Ability 6F63 from Kapikulu; cactbot StartsUsing 6F63 [Alzadaal Spin Out]
+    Timeout(id + 0x390, 15.1f, "Basting Blade"); // t=2127.9; Ability 6F68 from Kapikulu
+    Timeout(id + 0x3A0, 10.9f, "Basting Blade"); // t=2138.8; Ability 6F68 from Kapikulu
+    Timeout(id + 0x3B0, 12.3f, "Crewel Slice").SetHint(StateMachine.StateHint.Tankbuster); // t=2151.1; Ability 6F72 from Kapikulu; cactbot StartsUsing 6F72 [Alzadaal Crewel Slice]
+    Timeout(id + 0x3C0, 7.1f, "Billowing Bolts").SetHint(StateMachine.StateHint.Raidwide); // t=2158.2; Ability 6F70 from Kapikulu; cactbot StartsUsing 6F70 [Alzadaal Billowing Bolts]
+    Timeout(id + 0x3D0, 13.3f, "Wild Weave"); // t=2171.5; Ability 6F69 from Kapikulu
+    Timeout(id + 0x3E0, 9.6f, "Power Serge"); // t=2181.1; Ability 6F6A from Kapikulu; cactbot StartsUsing 6F6A [Alzadaal Power Serge]
+    Timeout(id + 0x3F0, 4.3f, "Mana Explosion"); // t=2185.4; Ability 6F6B from Kapikulu
+    Timeout(id + 0x400, 2.8f, "Magnitude Opus/Rotary Gale"); // t=2188.2; Ability 6F6C/6F6E from Kapikulu
+    Timeout(id + 0x410, 11.2f, "Crewel Slice").SetHint(StateMachine.StateHint.Tankbuster); // t=2199.4; Ability 6F72 from Kapikulu; cactbot StartsUsing 6F72 [Alzadaal Crewel Slice]
+    Timeout(id + 0x420, 7.1f, "Billowing Bolts").SetHint(StateMachine.StateHint.Raidwide); // t=2206.5; Ability 6F70 from Kapikulu; cactbot StartsUsing 6F70 [Alzadaal Billowing Bolts]
+    Timeout(id + 0x430, 15.3f, "Wild Weave"); // t=2221.8; Ability 6F69 from Kapikulu
+    Timeout(id + 0x440, 9.9f, "Power Serge"); // t=2231.7; Ability 6F6A from Kapikulu; cactbot StartsUsing 6F6A [Alzadaal Power Serge]
+    Timeout(id + 0x450, 4.3f, "Mana Explosion"); // t=2236.0; Ability 6F6B from Kapikulu
+    Timeout(id + 0x460, 2.8f, "Magnitude Opus/Rotary Gale"); // t=2238.8; Ability 6F6C/6F6E from Kapikulu
+}
+

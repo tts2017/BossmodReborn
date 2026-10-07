@@ -1,0 +1,94 @@
+// Generated development skeleton from zoraal-ja-ex.txt (TerritoryType 1201).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 28 static/dynamic trigger definitions from ui/raidboss/data/07-dt/trial/zoraal-ja-ex.ts.
+
+private void Everkeep__Extreme(uint id)
+{
+    Condition(id + 0x0, 11.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9398), "", 5f, 6.2f); // t=11.2; StartsUsing 9398 from Zoraal Ja; cactbot StartsUsing 9398 [Zoraal Ja Ex Actualize]
+    Timeout(id + 0x10, 4.8f, "Actualize").SetHint(StateMachine.StateHint.Raidwide); // t=16.0; Ability 9398 from Zoraal Ja; cactbot StartsUsing 9398 [Zoraal Ja Ex Actualize]
+    Timeout(id + 0x20, 10.3f, "Multidirectional Divide (lines drop)"); // t=26.3; Ability 93A2 from Zoraal Ja; cactbot StartsUsing 9397/938F/938A/93A2 [Zoraal Ja Ex Phase Tracker]
+    Timeout(id + 0x30, 11.0f, "Multidirectional Divide (damage)"); // t=37.3; Ability 93A3 from Zoraal Ja
+    Timeout(id + 0x40, 1.1f, "Half Full / Forward Edge/Backward Edge"); // t=38.4
+    Timeout(id + 0x50, 9.3f, "Multidirectional Divide (lines drop)"); // t=47.7; Ability 93A2 from Zoraal Ja; cactbot StartsUsing 9397/938F/938A/93A2 [Zoraal Ja Ex Phase Tracker]
+    Timeout(id + 0x60, 11.0f, "Multidirectional Divide (damage)"); // t=58.7; Ability 93A3 from Zoraal Ja
+    Timeout(id + 0x70, 0.2f, "Regicidal Rage"); // t=58.9; Ability 993C from Zoraal Ja; cactbot StartsUsing 993B [Zoraal Ja Ex Regicidal Rage]
+    Timeout(id + 0x80, 15.3f, "Dawn Of An Age").SetHint(StateMachine.StateHint.Raidwide); // t=74.2; Ability 9397 from Zoraal Ja; cactbot StartsUsing 9397/938F/938A/93A2 [Zoraal Ja Ex Phase Tracker] | StartsUsing 9397 [Zoraal Ja Ex Dawn Of An Age]
+    Timeout(id + 0x90, 14.1f, "Vollok"); // t=88.3; Ability 9357 from Zoraal Ja
+    Timeout(id + 0xA0, 10.3f, "Sync"); // t=98.6; Ability 9359 from Zoraal Ja
+    Timeout(id + 0xB0, 9.0f, "Chasm Of Vollok"); // t=107.6; Ability 939A from Zoraal Ja
+    Timeout(id + 0xC0, 0.6f, "Half Full"); // t=108.2; cactbot StartsUsing 9368/9369 [Zoraal Ja Ex Chasm Of Vollok + Half Full]
+    Timeout(id + 0xD0, 8.9f, "Greater Gateway"); // t=117.1; Ability 9381 from Zoraal Ja
+    Timeout(id + 0xE0, 8.1f, "Blade Warp"); // t=125.2; Ability 935E from Zoraal Ja
+    Timeout(id + 0xF0, 8.1f, "Forged Track (cast)"); // t=133.3; Ability 935F from Zoraal Ja; cactbot StartsUsing 935F [Zoraal Ja Ex Forged Track]
+    Timeout(id + 0x100, 8.3f, "Fiery Edge/Stormy Edge / Forged Track (damage)"); // t=141.6
+    Timeout(id + 0x110, 4.8f, "Chasm Of Vollok"); // t=146.4; Ability 9389 from Zoraal Ja
+    Timeout(id + 0x120, 5.0f, "Actualize").SetHint(StateMachine.StateHint.Raidwide); // t=151.4; Ability 9398 from Zoraal Ja; cactbot StartsUsing 9398 [Zoraal Ja Ex Actualize]
+    Timeout(id + 0x130, 12.3f, "Projection Of Triumph"); // t=163.7; Ability 938A from Zoraal Ja; cactbot StartsUsing 9397/938F/938A/93A2 [Zoraal Ja Ex Phase Tracker]
+    Timeout(id + 0x140, 10.1f, "Siege Of Vollok/Walls Of Vollok"); // t=173.8
+    Timeout(id + 0x150, 5.0f, "Siege Of Vollok/Walls Of Vollok"); // t=178.8
+    Timeout(id + 0x160, 5.0f, "Siege Of Vollok/Walls Of Vollok"); // t=183.8
+    Timeout(id + 0x170, 5.1f, "Siege Of Vollok/Walls Of Vollok"); // t=188.9
+    Timeout(id + 0x180, 3.5f, "Half Full / Forward Edge/Backward Edge"); // t=192.4
+    Timeout(id + 0x190, 1.5f, "Siege Of Vollok/Walls Of Vollok"); // t=193.9
+    Timeout(id + 0x1A0, 5.0f, "Siege Of Vollok/Walls Of Vollok"); // t=198.9
+    Timeout(id + 0x1B0, 3.5f, "Actualize").SetHint(StateMachine.StateHint.Raidwide); // t=202.4; Ability 9398 from Zoraal Ja; cactbot StartsUsing 9398 [Zoraal Ja Ex Actualize]
+    Timeout(id + 0x1C0, 12.1f, "Projection Of Turmoil"); // t=214.5; Ability 9A88 from Zoraal Ja
+    Timeout(id + 0x1D0, 6.5f, "Might Of Vollok"); // t=221.0
+    Timeout(id + 0x1E0, 43.8f, "Bitter Whirlwind (1)").SetHint(StateMachine.StateHint.Tankbuster); // t=264.8; Ability 993E from Zoraal Ja; cactbot StartsUsing 993E [Zoraal Ja Ex Bitter Whirlwind]
+    Timeout(id + 0x1F0, 3.2f, "Bitter Whirlwind (2)"); // t=268.0; Ability 9940 from Zoraal Ja
+    Timeout(id + 0x200, 3.0f, "Bitter Whirlwind (3)"); // t=271.0; Ability 9940 from Zoraal Ja
+    Timeout(id + 0x210, 15.3f, "Dawn Of An Age").SetHint(StateMachine.StateHint.Raidwide); // t=286.3; Ability 9397 from Zoraal Ja; cactbot StartsUsing 9397/938F/938A/93A2 [Zoraal Ja Ex Phase Tracker] | StartsUsing 9397 [Zoraal Ja Ex Dawn Of An Age]
+    Timeout(id + 0x220, 18.1f, "Drum Of Vollok"); // t=304.4; Ability 938F from Zoraal Ja; cactbot StartsUsing 9397/938F/938A/93A2 [Zoraal Ja Ex Phase Tracker] | StartsUsing 938F [Zoraal Ja Ex Drum Of Vollok Collect] | StartsUsing 938F [Zoraal Ja Ex Drum Of Vollok]
+    Timeout(id + 0x230, 11.1f, "Vollok"); // t=315.5; Ability 9392 from Zoraal Ja
+    Timeout(id + 0x240, 9.1f, "Sync"); // t=324.6; Ability 9359 from Zoraal Ja
+    Timeout(id + 0x250, 9.0f, "Chasm Of Vollok"); // t=333.6; Ability 9389 from Zoraal Ja
+    Timeout(id + 0x260, 0.1f, "Aero III"); // t=333.7; Ability 9390 from Zoraal Ja
+    Timeout(id + 0x270, 16.4f, "Half Full / Forward Edge/Backward Edge"); // t=350.1
+    Timeout(id + 0x280, 6.9f, "Duty's Edge (cast)"); // t=357.0; Ability 9374 from Zoraal Ja; cactbot StartsUsing 9374 [Zoraal Ja Ex Duty\]
+    Timeout(id + 0x290, 0.2f, "Duty's Edge (damage 1)"); // t=357.2
+    Timeout(id + 0x2A0, 2.0f, "Duty's Edge (damage 2)"); // t=359.2
+    Timeout(id + 0x2B0, 2.0f, "Duty's Edge (damage 3)"); // t=361.2
+    Timeout(id + 0x2C0, 2.0f, "Duty's Edge (damage 4)"); // t=363.2
+    Timeout(id + 0x2D0, 7.3f, "Burning Chains (cast)"); // t=370.5; Ability 9395 from Zoraal Ja
+    Timeout(id + 0x2E0, 7.8f, "Burning Chains (damage 1)"); // t=378.3
+    Timeout(id + 0x2F0, 12.2f, "Actualize").SetHint(StateMachine.StateHint.Raidwide); // t=390.5; Ability 9398 from Zoraal Ja; cactbot StartsUsing 9398 [Zoraal Ja Ex Actualize]
+    Timeout(id + 0x300, 13.2f, "Projection Of Triumph"); // t=403.7; Ability 938A from Zoraal Ja; cactbot StartsUsing 9397/938F/938A/93A2 [Zoraal Ja Ex Phase Tracker]
+    Timeout(id + 0x310, 10.0f, "Siege Of Vollok/Walls Of Vollok"); // t=413.7
+    Timeout(id + 0x320, 4.9f, "Siege Of Vollok/Walls Of Vollok"); // t=418.6
+    Timeout(id + 0x330, 5.0f, "Siege Of Vollok/Walls Of Vollok"); // t=423.6
+    Timeout(id + 0x340, 2.3f, "Half Circuit"); // t=425.9; Ability 939F from Zoraal Ja
+    Timeout(id + 0x350, 2.8f, "Siege Of Vollok/Walls Of Vollok"); // t=428.7
+    Timeout(id + 0x360, 5.1f, "Siege Of Vollok/Walls Of Vollok"); // t=433.8
+    Timeout(id + 0x370, 5.0f, "Siege Of Vollok/Walls Of Vollok"); // t=438.8
+    Timeout(id + 0x380, 3.1f, "Regicidal Rage"); // t=441.9; Ability 993C from Zoraal Ja; cactbot StartsUsing 993B [Zoraal Ja Ex Regicidal Rage]
+    Timeout(id + 0x390, 12.1f, "Projection Of Turmoil"); // t=454.0; Ability 9A88 from Zoraal Ja
+    Timeout(id + 0x3A0, 6.5f, "Might Of Vollok"); // t=460.5
+    Timeout(id + 0x3B0, 16.4f, "Half Full"); // t=476.9; cactbot StartsUsing 9368/9369 [Zoraal Ja Ex Chasm Of Vollok + Half Full]
+    Timeout(id + 0x3C0, 9.1f, "Half Full"); // t=486.0; cactbot StartsUsing 9368/9369 [Zoraal Ja Ex Chasm Of Vollok + Half Full]
+    Timeout(id + 0x3D0, 10.3f, "Half Full"); // t=496.3; cactbot StartsUsing 9368/9369 [Zoraal Ja Ex Chasm Of Vollok + Half Full]
+    Timeout(id + 0x3E0, 9.0f, "Bitter Whirlwind (1)").SetHint(StateMachine.StateHint.Tankbuster); // t=505.3; Ability 993E from Zoraal Ja; cactbot StartsUsing 993E [Zoraal Ja Ex Bitter Whirlwind]
+    Timeout(id + 0x3F0, 3.2f, "Bitter Whirlwind (2)"); // t=508.5; Ability 9940 from Zoraal Ja
+    Timeout(id + 0x400, 3.0f, "Bitter Whirlwind (3)"); // t=511.5; Ability 9940 from Zoraal Ja
+    Timeout(id + 0x410, 15.3f, "Dawn Of An Age").SetHint(StateMachine.StateHint.Raidwide); // t=526.8; Ability 9397 from Zoraal Ja; cactbot StartsUsing 9397/938F/938A/93A2 [Zoraal Ja Ex Phase Tracker] | StartsUsing 9397 [Zoraal Ja Ex Dawn Of An Age]
+    Timeout(id + 0x420, 14.1f, "Vollok"); // t=540.9; Ability 9357 from Zoraal Ja
+    Timeout(id + 0x430, 9.1f, "Sync"); // t=550.0; Ability 9359 from Zoraal Ja
+    Timeout(id + 0x440, 9.0f, "Chasm Of Vollok (cast)"); // t=559.0; Ability 939A from Zoraal Ja
+    Timeout(id + 0x450, 3.2f, "Chasm Of Vollok (damage)"); // t=562.2; Ability 9389 from Zoraal Ja
+    Timeout(id + 0x460, 4.9f, "Duty's Edge (cast)"); // t=567.1; Ability 9374 from Zoraal Ja; cactbot StartsUsing 9374 [Zoraal Ja Ex Duty\]
+    Timeout(id + 0x470, 0.4f, "Duty's Edge (damage 1)"); // t=567.5
+    Timeout(id + 0x480, 2.0f, "Duty's Edge (damage 2)"); // t=569.5
+    Timeout(id + 0x490, 2.0f, "Duty's Edge (damage 3)"); // t=571.5
+    Timeout(id + 0x4A0, 2.0f, "Duty's Edge (damage 4)"); // t=573.5
+    Timeout(id + 0x4B0, 9.3f, "Greater Gateway"); // t=582.8; Ability 9381 from Zoraal Ja
+    Timeout(id + 0x4C0, 8.0f, "Blade Warp"); // t=590.8; Ability 935E from Zoraal Ja
+    Timeout(id + 0x4D0, 8.0f, "Forged Track (cast)"); // t=598.8; Ability 935F from Zoraal Ja; cactbot StartsUsing 935F [Zoraal Ja Ex Forged Track]
+    Timeout(id + 0x4E0, 8.2f, "Fiery Edge/Stormy Edge / Forged Track (damage)"); // t=607.0
+    Timeout(id + 0x4F0, 4.9f, "Chasm Of Vollok"); // t=611.9; Ability 9389 from Zoraal Ja
+    Timeout(id + 0x500, 5.0f, "Actualize").SetHint(StateMachine.StateHint.Raidwide); // t=616.9; Ability 9398 from Zoraal Ja; cactbot StartsUsing 9398 [Zoraal Ja Ex Actualize]
+    Timeout(id + 0x510, 13.4f, "Multidirectional Divide (lines drop)"); // t=630.3; Ability 93A2 from Zoraal Ja; cactbot StartsUsing 9397/938F/938A/93A2 [Zoraal Ja Ex Phase Tracker]
+    Timeout(id + 0x520, 11.0f, "Multidirectional Divide (damage)"); // t=641.3; Ability 93A3 from Zoraal Ja
+    Timeout(id + 0x530, 1.2f, "Half Full / Forward Edge/Backward Edge"); // t=642.5
+    Timeout(id + 0x540, 15.1f, "Actualize (enrage)"); // t=657.6; Ability 996A from Zoraal Ja
+}
+

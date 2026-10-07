@@ -1,0 +1,210 @@
+// Generated development skeleton from r8s.txt (TerritoryType 1263).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 46 static/dynamic trigger definitions from ui/raidboss/data/07-dt/raid/r8s.ts.
+
+private void AAC_CRUISERWEIGHT_M4__SAVAGE(uint id)
+{
+    Timeout(id + 0x0, 14.7f, "Extraplanar Pursuit").SetHint(StateMachine.StateHint.Raidwide); // t=14.7; Ability A74F from Howling Blade; cactbot StartsUsing A3DA [R8S Extraplanar Pursuit]
+    Timeout(id + 0x10, 5.8f, "--middle--"); // t=20.5; Ability A38F from Howling Blade
+    Timeout(id + 0x20, 9.0f, "Stonefang/Windfang"); // t=29.5; Ability A39E/A39D/A3A1/A3A2 from Howling Blade; cactbot StartsUsing A39E/A39D/A3A1/A3A2 [R8S Windfang/Stonefang]
+    Timeout(id + 0x30, 10.1f, "Eminent Reign/Revolutionary Reign"); // t=39.6; Ability A911/A912/A913/A914 from Howling Blade; cactbot StartsUsing A911/A912/A913/A914 [R8S Eminent/Revolutionary Reign] | StartsUsing A911/A912/A913/A914 [R8S Eminent/Revolutionary Reign Direction]
+    Timeout(id + 0x40, 3.4f, "Wolves' Reign (circles)"); // t=43.0; Ability A398/A7AF from Howling Blade
+    Timeout(id + 0x50, 3.0f, "Wolves' Reign (cones)"); // t=46.0; Ability A399/A39A from Howling Blade
+    Timeout(id + 0x60, 6.5f, "Extraplanar Pursuit").SetHint(StateMachine.StateHint.Raidwide); // t=52.5; Ability A74F from Howling Blade; cactbot StartsUsing A3DA [R8S Extraplanar Pursuit]
+    Timeout(id + 0x70, 5.8f, "--middle--"); // t=58.3; Ability A38F from Howling Blade
+    Timeout(id + 0x80, 7.7f, "Millennial Decay").SetHint(StateMachine.StateHint.Raidwide); // t=66.0; Ability A3B2 from Howling Blade; cactbot StartsUsing A3B2 [R8S Millenial Decay]
+    Timeout(id + 0x90, 10.8f, "Aero III").SetHint(StateMachine.StateHint.Knockback); // t=76.8; Ability A3B7 from Howling Blade; cactbot StartsUsing A3B7 [R8S Aero III]
+    Timeout(id + 0xA0, 1.4f, "Breath of Decay 1"); // t=78.2
+    Timeout(id + 0xB0, 0.4f, "Gust 1"); // t=78.6; Ability A3B3 from Howling Blade
+    Timeout(id + 0xC0, 1.5f, "Breath of Decay 2"); // t=80.1
+    Timeout(id + 0xD0, 2.0f, "Breath of Decay 3"); // t=82.1
+    Timeout(id + 0xE0, 1.6f, "Gust 2"); // t=83.7; Ability A3B3 from Howling Blade
+    Timeout(id + 0xF0, 0.6f, "Breath of Decay 4"); // t=84.3
+    Timeout(id + 0x100, 2.0f, "Breath of Decay 5"); // t=86.3
+    Timeout(id + 0x110, 6.1f, "Aero III").SetHint(StateMachine.StateHint.Knockback); // t=92.4; Ability A3B7 from Howling Blade; cactbot StartsUsing A3B7 [R8S Aero III]
+    Timeout(id + 0x120, 2.1f, "Prowling Gale (Towers)"); // t=94.5; Ability A3B6 from Howling Blade
+    Timeout(id + 0x130, 0.1f, "Winds of Decay"); // t=94.6; Ability A3B5 from Wolf of Wind
+    Timeout(id + 0x140, 5.8f, "Tracking Tremors"); // t=100.4; Ability A3B9 from Howling Blade; cactbot StartsUsing A3B9 [R8S Tracking Tremors]
+    Timeout(id + 0x150, 0.9f, "Tracking Tremors 1"); // t=101.3
+    Timeout(id + 0x160, 1.0f, "Tracking Tremors 2"); // t=102.3
+    Timeout(id + 0x170, 1.0f, "Tracking Tremors 3"); // t=103.3
+    Timeout(id + 0x180, 1.0f, "Tracking Tremors 4"); // t=104.3
+    Timeout(id + 0x190, 1.0f, "Tracking Tremors 5"); // t=105.3
+    Timeout(id + 0x1A0, 1.1f, "Tracking Tremors 6"); // t=106.4
+    Timeout(id + 0x1B0, 1.0f, "Tracking Tremors 7"); // t=107.4
+    Timeout(id + 0x1C0, 1.0f, "Tracking Tremors 8"); // t=108.4
+    Timeout(id + 0x1D0, 5.9f, "Extraplanar Pursuit").SetHint(StateMachine.StateHint.Raidwide); // t=114.3; Ability A74F from Howling Blade; cactbot StartsUsing A3DA [R8S Extraplanar Pursuit]
+    Timeout(id + 0x1E0, 8.9f, "Great Divide"); // t=123.2; Ability A3D8 from Howling Blade; cactbot HeadMarker [R8S Great Divide]
+    Timeout(id + 0x1F0, 8.1f, "--middle--"); // t=131.3; Ability A38F from Howling Blade
+    Timeout(id + 0x200, 6.6f, "Terrestrial Titans"); // t=137.9; Ability A3C4 from Howling Blade; cactbot ActorControlExtra [R8S Terrestrial Titans Safe Spot]
+    Timeout(id + 0x210, 7.2f, "Titanic Pursuit").SetHint(StateMachine.StateHint.Raidwide); // t=145.1; Ability A751 from Howling Blade; cactbot StartsUsing A3C7 [R8S Titanic Pursuit]
+    Timeout(id + 0x220, 0.8f, "Bare Fangs"); // t=145.9; Ability A4CC from Howling Blade
+    Timeout(id + 0x230, 7.0f, "Towerfall"); // t=152.9; Ability A3C6 from Howling Blade
+    Timeout(id + 0x240, 5.9f, "Eminent Reign/Revolutionary Reign"); // t=158.8; Ability A911/A912/A913/A914 from Howling Blade; cactbot StartsUsing A911/A912/A913/A914 [R8S Eminent/Revolutionary Reign] | StartsUsing A911/A912/A913/A914 [R8S Eminent/Revolutionary Reign Direction]
+    Timeout(id + 0x250, 3.4f, "Wolves' Reign (circles)"); // t=162.2; Ability A398/A7AF from Howling Blade
+    Timeout(id + 0x260, 3.0f, "Wolves' Reign (cones)"); // t=165.2; Ability A399/A39A from Howling Blade
+    Timeout(id + 0x270, 7.2f, "--north--"); // t=172.4; Ability A38F from Howling Blade
+    Timeout(id + 0x280, 5.3f, "Tactical Pack"); // t=177.7; Ability A3C8 from Howling Blade; cactbot StartsUsing A3C8/A3CB/A3C1/A471/A477/A478 [R8S Phase Tracker]
+    Targetable(id + 0x290, false, 2.0f, "--untargetable--"); // t=179.7
+    Timeout(id + 0x2A0, 7.1f, "Howling Havoc").SetHint(StateMachine.StateHint.Raidwide); // t=186.8; Ability A3DC from Wolf of Stone; cactbot StartsUsing A3DD [R8S Howling Havoc]
+    Timeout(id + 0x2B0, 2.0f, "--adds-targetable--"); // t=188.8
+    Timeout(id + 0x2C0, 8.1f, "Pack Predation / --tank/line aoes--"); // t=196.9; Ability A3CC from Wolf of Stone
+    Timeout(id + 0x2D0, 13.9f, "Pack Predation / --tank/line aoes--"); // t=210.8; Ability A3CC from Wolf of Stone
+    Timeout(id + 0x2E0, 14.0f, "Pack Predation / --tank/line aoes--"); // t=224.8; Ability A3CC from Wolf of Stone
+    Timeout(id + 0x2F0, 23.3f, "Forlorn Stone (Enrage) / Forlorn Wind (Enrage)"); // t=248.1; Ability A3D3 from Wolf of Stone | Ability A3D0 from Wolf of Wind
+    Timeout(id + 0x300, 108.7f, "Ravenous Saber 1").SetHint(StateMachine.StateHint.Raidwide); // t=356.8; Ability A749 from Howling Blade; cactbot StartsUsing A749 [R8S Ravenous Saber]
+    Timeout(id + 0x310, 0.1f, "Ravenous Saber 2"); // t=356.9; Ability A74A from Howling Blade
+    Timeout(id + 0x320, 0.3f, "Ravenous Saber 3"); // t=357.2; Ability A74B from Howling Blade
+    Timeout(id + 0x330, 2.0f, "Ravenous Saber 4"); // t=359.2; Ability A9FE from Howling Blade
+    Timeout(id + 0x340, 1.2f, "Ravenous Saber 5"); // t=360.4; Ability A3CB from Howling Blade; cactbot StartsUsing A3C8/A3CB/A3C1/A471/A477/A478 [R8S Phase Tracker]
+    Timeout(id + 0x350, 9.8f, "--middle--"); // t=370.2; Ability A38F from Howling Blade
+    Timeout(id + 0x360, 2.7f, "Bare Fangs"); // t=372.9; Ability A4CB from Howling Blade
+    Timeout(id + 0x370, 5.0f, "Terrestrial Rage"); // t=377.9; Ability A3BE from Howling Blade; cactbot HeadMarker [R8S Terrestrial Rage Spread/Stack]
+    Timeout(id + 0x380, 7.0f, "Fanged Charge"); // t=384.9
+    Timeout(id + 0x390, 1.3f, "Heavensearth / Suspended Stone"); // t=386.2; Ability A3C0 from Howling Blade
+    Timeout(id + 0x3A0, 0.8f, "Shadowchase"); // t=387.0; Ability A3BC from Howling Blade; cactbot StartsUsing A3BD [R8S Shadowchase Rotate]
+    Timeout(id + 0x3B0, 0.4f, "Fanged Charge"); // t=387.4
+    Targetable(id + 0x3C0, false, 0.9f, "--untargetable--"); // t=388.3
+    Timeout(id + 0x3D0, 4.7f, "Heavensearth / Suspended Stone"); // t=393.0; Ability A3C0 from Howling Blade
+    Targetable(id + 0x3E0, true, 2.2f, "--targetable--"); // t=395.2
+    Timeout(id + 0x3F0, 2.7f, "Roaring Wind"); // t=397.9; Ability A78A from Wolf of Wind
+    Timeout(id + 0x400, 4.6f, "Eminent Reign/Revolutionary Reign"); // t=402.5; Ability A911/A912/A913/A914 from Howling Blade; cactbot StartsUsing A911/A912/A913/A914 [R8S Eminent/Revolutionary Reign] | StartsUsing A911/A912/A913/A914 [R8S Eminent/Revolutionary Reign Direction]
+    Timeout(id + 0x410, 3.3f, "Wolves' Reign (circles)"); // t=405.8; Ability A398/A7AF from Howling Blade
+    Timeout(id + 0x420, 3.0f, "Wolves' Reign (cones)"); // t=408.8; Ability A399/A39A from Howling Blade
+    Timeout(id + 0x430, 3.3f, "Weal of Stone"); // t=412.1; Ability A78E from Wolf of Stone; cactbot StartsUsing A78E [R8S Weal of Stone]
+    Timeout(id + 0x440, 10.4f, "Great Divide"); // t=422.5; Ability A3D8 from Howling Blade; cactbot HeadMarker [R8S Great Divide]
+    Timeout(id + 0x450, 8.1f, "--middle--"); // t=430.6; Ability A38F from Howling Blade
+    Timeout(id + 0x460, 6.1f, "Beckon Moonlight"); // t=436.7; Ability A3C1 from Howling Blade; cactbot StartsUsing A3C8/A3CB/A3C1/A471/A477/A478 [R8S Phase Tracker]
+    Timeout(id + 0x470, 2.0f, "--shadow 1--"); // t=438.7
+    Timeout(id + 0x480, 1.0f, "--shadow 2--"); // t=439.7
+    Timeout(id + 0x490, 1.0f, "--shadow 3--"); // t=440.7
+    Timeout(id + 0x4A0, 1.0f, "--shadow 4--"); // t=441.7
+    Timeout(id + 0x4B0, 2.0f, "Terrestrial Rage"); // t=443.7; Ability A3BE from Howling Blade; cactbot HeadMarker [R8S Terrestrial Rage Spread/Stack]
+    Timeout(id + 0x4C0, 5.6f, "Heavensearth / Suspended Stone"); // t=449.3; Ability A3C0 from Howling Blade
+    Timeout(id + 0x4D0, 1.4f, "Moonbeam's Bite 1"); // t=450.7
+    Timeout(id + 0x4E0, 2.0f, "Moonbeam's Bite 2"); // t=452.7
+    Timeout(id + 0x4F0, 2.0f, "Moonbeam's Bite 3"); // t=454.7
+    Timeout(id + 0x500, 2.0f, "Moonbeam's Bite 4"); // t=456.7
+    Timeout(id + 0x510, 1.0f, "Heavensearth / Suspended Stone / --middle--"); // t=457.7; Ability A3C0 from Howling Blade | Ability A38F from Howling Blade
+    Timeout(id + 0x520, 4.2f, "Weal of Stone"); // t=461.9; Ability A792 from Wolf of Stone
+    Timeout(id + 0x530, 4.9f, "Stonefang/Windfang"); // t=466.8; Ability A39E/A39D/A3A1/A3A2 from Howling Blade; cactbot StartsUsing A39E/A39D/A3A1/A3A2 [R8S Windfang/Stonefang]
+    Timeout(id + 0x540, 9.0f, "Tracking Tremors"); // t=475.8; Ability A3B9 from Howling Blade; cactbot StartsUsing A3B9 [R8S Tracking Tremors]
+    Timeout(id + 0x550, 0.9f, "Tracking Tremors 1"); // t=476.7
+    Timeout(id + 0x560, 1.0f, "Tracking Tremors 2"); // t=477.7
+    Timeout(id + 0x570, 1.0f, "Tracking Tremors 3"); // t=478.7
+    Timeout(id + 0x580, 1.0f, "Tracking Tremors 4"); // t=479.7
+    Timeout(id + 0x590, 1.0f, "Tracking Tremors 5"); // t=480.7
+    Timeout(id + 0x5A0, 1.1f, "Tracking Tremors 6"); // t=481.8
+    Timeout(id + 0x5B0, 1.0f, "Tracking Tremors 7"); // t=482.8
+    Timeout(id + 0x5C0, 1.0f, "Tracking Tremors 8"); // t=483.8
+    Timeout(id + 0x5D0, 5.9f, "Extraplanar Pursuit").SetHint(StateMachine.StateHint.Raidwide); // t=489.7; Ability A74F from Howling Blade; cactbot StartsUsing A3DA [R8S Extraplanar Pursuit]
+    Timeout(id + 0x5E0, 14.8f, "Extraplanar Pursuit").SetHint(StateMachine.StateHint.Raidwide); // t=504.5; Ability A74F from Howling Blade; cactbot StartsUsing A3DA [R8S Extraplanar Pursuit]
+    Timeout(id + 0x5F0, 0.7f, "--middle--"); // t=505.2
+    Targetable(id + 0x600, false, 0.0f, "--untargetable--"); // t=505.2
+    Condition(id + 0x610, 0.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA3F1), "", 5f, 0.0f); // t=505.5; StartsUsing A3F1 from Howling Blade
+    Timeout(id + 0x620, 3.7f, "Extraplanar Feast (Enrage)"); // t=509.2; Ability A3F1 from Howling Blade
+}
+
+private void Phase_2(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "--middle--"); // t=605.0; Ability A38F from Howling Blade
+    Targetable(id + 0x10, true, 45.3f, "--targetable--"); // t=650.3
+    Timeout(id + 0x20, 12.0f, "Quake III"); // t=662.3; Ability A45A from Howling Blade; cactbot StartsUsing A45A [R8S Quake III]
+    Timeout(id + 0x30, 12.0f, "Ultraviolent Ray 1 / Gleaming Beam"); // t=674.3; Ability A45C from Howling Blade | Ability A45E from Gleaming Fang
+    Timeout(id + 0x40, 11.0f, "Twinbite").SetHint(StateMachine.StateHint.Tankbuster); // t=685.3; Ability A4CD from Howling Blade; cactbot StartsUsing A4CD [R8S Twinbite]
+    Timeout(id + 0x50, 12.1f, "Hero's Blow"); // t=697.4; Ability A460/A462 from Howling Blade
+    Timeout(id + 0x60, 10.0f, "Ultraviolent Ray 2 / Gleaming Beam"); // t=707.4; Ability A45C from Howling Blade | Ability A45E from Gleaming Fang
+    Timeout(id + 0x70, 11.0f, "Quake III"); // t=718.4; Ability A45A from Howling Blade; cactbot StartsUsing A45A [R8S Quake III]
+    Condition(id + 0x80, 8.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA465), "Mooncleaver", 5f, 3.2f); // t=726.6; StartsUsing A465 from Howling Blade; cactbot StartsUsing A465 [R8S Mooncleaver]
+    Timeout(id + 0x90, 5.0f, "Mooncleaver (Platform)"); // t=731.6; Ability A466 from Howling Blade
+    Timeout(id + 0xA0, 7.0f, "Elemental Purge"); // t=738.6; Ability A467 from Howling Blade; cactbot HeadMarker [R8S Elemental Purge Targets]
+    Timeout(id + 0xB0, 5.1f, "Geotemporal Blast / Aerotemporal Blast / Hunter's Harvest"); // t=743.7
+    Timeout(id + 0xC0, 5.0f, "Prowling Gale"); // t=748.7; Ability A46E from Howling Blade; cactbot Tether [R8S Prowling Gale Tower/Tether]
+    Timeout(id + 0xD0, 8.8f, "Prowling Gale (Towers)"); // t=757.5; Ability A46F from Howling Blade
+    Timeout(id + 0xE0, 2.3f, "Rise of the Howling Wind"); // t=759.8; Ability A82A from Howling Blade
+    Timeout(id + 0xF0, 9.1f, "Twofold Tempest"); // t=768.9; Ability A471 from Howling Blade; cactbot StartsUsing A3C8/A3CB/A3C1/A471/A477/A478 [R8S Phase Tracker]
+    Timeout(id + 0x100, 3.7f, "Wind Surge"); // t=772.6
+    Timeout(id + 0x110, 3.5f, "Twofold Tempest"); // t=776.1; Ability A474 from Howling Blade; cactbot Tether [R8S Twofold Tempest Tether Tracker] | Tether [R8S Twofold Tempest Initial Tether/Bait] | Ability A472 [R8S Twofold Tempest Tether Pass/Bait]
+    Timeout(id + 0x120, 3.7f, "Wind Surge"); // t=779.8
+    Timeout(id + 0x130, 2.9f, "Twofold Tempest"); // t=782.7; Ability A474 from Howling Blade; cactbot Tether [R8S Twofold Tempest Tether Tracker] | Tether [R8S Twofold Tempest Initial Tether/Bait] | Ability A472 [R8S Twofold Tempest Tether Pass/Bait]
+    Timeout(id + 0x140, 3.7f, "Wind Surge"); // t=786.4
+    Timeout(id + 0x150, 2.2f, "Twofold Tempest"); // t=788.6; Ability A474 from Howling Blade; cactbot Tether [R8S Twofold Tempest Tether Tracker] | Tether [R8S Twofold Tempest Initial Tether/Bait] | Ability A472 [R8S Twofold Tempest Tether Pass/Bait]
+    Timeout(id + 0x160, 3.7f, "Wind Surge"); // t=792.3
+    Timeout(id + 0x170, 7.1f, "Bare Fangs"); // t=799.4; Ability A475 from Howling Blade
+    Timeout(id + 0x180, 11.6f, "Champion's Circuit / Gleaming Barrage"); // t=811.0; Ability A477/A478 from Howling Blade; cactbot StartsUsing A3C8/A3CB/A3C1/A471/A477/A478 [R8S Phase Tracker]
+    Timeout(id + 0x190, 4.4f, "Gleaming Barrage"); // t=815.4
+    Timeout(id + 0x1A0, 0.7f, "Champion's Circuit"); // t=816.1; Ability A482 from Howling Blade
+    Timeout(id + 0x1B0, 3.7f, "Gleaming Barrage"); // t=819.8
+    Timeout(id + 0x1C0, 0.6f, "Champion's Circuit"); // t=820.4; Ability A482 from Howling Blade
+    Timeout(id + 0x1D0, 3.7f, "Gleaming Barrage"); // t=824.1
+    Timeout(id + 0x1E0, 0.6f, "Champion's Circuit"); // t=824.7; Ability A482 from Howling Blade
+    Timeout(id + 0x1F0, 3.8f, "Gleaming Barrage"); // t=828.5
+    Timeout(id + 0x200, 0.4f, "Champion's Circuit"); // t=828.9; Ability A482 from Howling Blade
+    Timeout(id + 0x210, 9.8f, "Quake III"); // t=838.7; Ability A45A from Howling Blade; cactbot StartsUsing A45A [R8S Quake III]
+    Timeout(id + 0x220, 14.0f, "Ultraviolent Ray 3 / Gleaming Beam"); // t=852.7; Ability A45C from Howling Blade | Ability A45E from Gleaming Fang
+    Timeout(id + 0x230, 11.0f, "Twinbite").SetHint(StateMachine.StateHint.Tankbuster); // t=863.7; Ability A4CD from Howling Blade; cactbot StartsUsing A4CD [R8S Twinbite]
+    Timeout(id + 0x240, 15.2f, "Rise of the Hunter's Blade"); // t=878.9; Ability A82C from Howling Blade
+    Timeout(id + 0x250, 5.2f, "Lone Wolf's Lament"); // t=884.1; Ability A483 from Howling Blade
+    Timeout(id + 0x260, 10.1f, "Prowling Gale"); // t=894.2; Ability A485 from Howling Blade; cactbot Tether [R8S Prowling Gale Tower/Tether]
+    Timeout(id + 0x270, 8.6f, "Prowling Gale (Towers)"); // t=902.8; Ability A487 from Howling Blade
+    Timeout(id + 0x280, 9.6f, "Hero's Blow"); // t=912.4; Ability A460/A462 from Howling Blade
+    Timeout(id + 0x290, 12.2f, "Ultraviolent Ray 4 / Gleaming Beam"); // t=924.6; Ability A45C from Howling Blade | Ability A45E from Gleaming Fang
+    Timeout(id + 0x2A0, 14.8f, "Howling Eight"); // t=939.4; Ability AA02 from Howling Blade; cactbot StartsUsing AA02/A494 [R8S Howling Eight]
+    Timeout(id + 0x2B0, 1.1f, "Howling Eight 1"); // t=940.5
+    Timeout(id + 0x2C0, 1.0f, "Howling Eight 2"); // t=941.5
+    Timeout(id + 0x2D0, 0.9f, "Howling Eight 3"); // t=942.4
+    Timeout(id + 0x2E0, 0.9f, "Howling Eight 4"); // t=943.3
+    Timeout(id + 0x2F0, 0.7f, "Howling Eight 5"); // t=944.0
+    Timeout(id + 0x300, 0.4f, "Howling Eight 6"); // t=944.4
+    Timeout(id + 0x310, 0.4f, "Howling Eight 7"); // t=944.8
+    Timeout(id + 0x320, 1.8f, "Howling Eight 8"); // t=946.6
+    Condition(id + 0x330, 0.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA74C), "Mooncleaver 1", 5f, 0.0f); // t=946.9; StartsUsing A74C from Howling Blade
+    Timeout(id + 0x340, 4.0f, "Mooncleaver (Platform)"); // t=950.9; Ability A74D from Howling Blade
+    Timeout(id + 0x350, 8.2f, "Howling Eight"); // t=959.1; Ability A494 from Howling Blade; cactbot StartsUsing AA02/A494 [R8S Howling Eight]
+    Timeout(id + 0x360, 1.0f, "Howling Eight 1"); // t=960.1; Ability A495 from Howling Blade
+    Timeout(id + 0x370, 1.0f, "Howling Eight 2"); // t=961.1
+    Timeout(id + 0x380, 0.9f, "Howling Eight 3"); // t=962.0
+    Timeout(id + 0x390, 0.9f, "Howling Eight 4"); // t=962.9
+    Timeout(id + 0x3A0, 0.6f, "Howling Eight 5"); // t=963.5
+    Timeout(id + 0x3B0, 0.6f, "Howling Eight 6"); // t=964.1
+    Timeout(id + 0x3C0, 0.3f, "Howling Eight 7"); // t=964.4
+    Timeout(id + 0x3D0, 1.8f, "Howling Eight 8"); // t=966.2
+    Condition(id + 0x3E0, 0.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA74C), "Mooncleaver 2", 5f, 0.0f); // t=966.4; StartsUsing A74C from Howling Blade
+    Timeout(id + 0x3F0, 4.1f, "Mooncleaver (Platform)"); // t=970.5; Ability A74D from Howling Blade
+    Timeout(id + 0x400, 8.1f, "Howling Eight"); // t=978.6; Ability A494 from Howling Blade; cactbot StartsUsing AA02/A494 [R8S Howling Eight]
+    Timeout(id + 0x410, 1.0f, "Howling Eight 1"); // t=979.6
+    Timeout(id + 0x420, 1.0f, "Howling Eight 2"); // t=980.6
+    Timeout(id + 0x430, 0.9f, "Howling Eight 3"); // t=981.5
+    Timeout(id + 0x440, 0.9f, "Howling Eight 4"); // t=982.4
+    Timeout(id + 0x450, 0.6f, "Howling Eight 5"); // t=983.0
+    Timeout(id + 0x460, 0.6f, "Howling Eight 6"); // t=983.6
+    Timeout(id + 0x470, 0.4f, "Howling Eight 7"); // t=984.0
+    Timeout(id + 0x480, 1.8f, "Howling Eight 8"); // t=985.8
+    Condition(id + 0x490, 0.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA74C), "Mooncleaver 3", 5f, 0.0f); // t=986.1; StartsUsing A74C from Howling Blade
+    Timeout(id + 0x4A0, 4.0f, "Mooncleaver (Platform)"); // t=990.1; Ability A74D from Howling Blade
+    Timeout(id + 0x4B0, 8.1f, "Howling Eight"); // t=998.2; Ability A494 from Howling Blade; cactbot StartsUsing AA02/A494 [R8S Howling Eight]
+    Timeout(id + 0x4C0, 1.0f, "Howling Eight 1"); // t=999.2
+    Timeout(id + 0x4D0, 1.0f, "Howling Eight 2"); // t=1000.2
+    Timeout(id + 0x4E0, 0.9f, "Howling Eight 3"); // t=1001.1
+    Timeout(id + 0x4F0, 0.9f, "Howling Eight 4"); // t=1002.0
+    Timeout(id + 0x500, 0.7f, "Howling Eight 5"); // t=1002.7
+    Timeout(id + 0x510, 0.4f, "Howling Eight 6"); // t=1003.1
+    Timeout(id + 0x520, 0.4f, "Howling Eight 7"); // t=1003.5
+    Timeout(id + 0x530, 1.8f, "Howling Eight 8"); // t=1005.3
+    Condition(id + 0x540, 0.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA74C), "Mooncleaver 4", 5f, 0.0f); // t=1005.7; StartsUsing A74C from Howling Blade
+    Timeout(id + 0x550, 3.9f, "Mooncleaver (Platform)"); // t=1009.6; Ability A74D from Howling Blade
+    Timeout(id + 0x560, 8.2f, "Howling Eight"); // t=1017.8; Ability A494 from Howling Blade; cactbot StartsUsing AA02/A494 [R8S Howling Eight]
+    Timeout(id + 0x570, 1.0f, "Howling Eight 1"); // t=1018.8
+    Timeout(id + 0x580, 1.0f, "Howling Eight 2"); // t=1019.8
+    Timeout(id + 0x590, 0.9f, "Howling Eight 3"); // t=1020.7
+    Timeout(id + 0x5A0, 0.9f, "Howling Eight 4"); // t=1021.6
+    Timeout(id + 0x5B0, 0.7f, "Howling Eight 5"); // t=1022.3
+    Timeout(id + 0x5C0, 0.4f, "Howling Eight 6"); // t=1022.7
+    Timeout(id + 0x5D0, 0.4f, "Howling Eight 7"); // t=1023.1
+    Timeout(id + 0x5E0, 1.8f, "Howling Eight 8"); // t=1024.9
+    Condition(id + 0x5F0, 0.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA49D), "Starcleaver", 5f, 0.0f); // t=1025.2; StartsUsing A49D from Howling Blade
+    Targetable(id + 0x600, false, 10.0f, "--untargetable--"); // t=1035.2
+    Timeout(id + 0x610, 1.0f, "Starcleaver (Enrage)"); // t=1036.2; Ability A49E from Howling Blade
+}
+

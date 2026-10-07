@@ -1,0 +1,97 @@
+// Generated development skeleton from dohn_mheg.txt (TerritoryType 821).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 12 static/dynamic trigger definitions from ui/raidboss/data/05-shb/dungeon/dohn_mheg.ts.
+
+private void Aenc_Thon__Lord_of_the_Lingering_Gaze(uint id)
+{
+    Timeout(id + 0x0, 12.2f, "Candy Cane").SetHint(StateMachine.StateHint.Tankbuster); // t=112.2; Ability 2299 from Aenc Thon, Lord of the Lingering Gaze; cactbot StartsUsing 2299 [Dohn Mheg Candy Cane]
+    Timeout(id + 0x10, 8.2f, "Hydrofall"); // t=120.4; Ability 22A7 from Aenc Thon, Lord of the Lingering Gaze
+    Timeout(id + 0x20, 8.3f, "Laughing Leap"); // t=128.7; Ability 2294 from Aenc Thon, Lord of the Lingering Gaze
+    Timeout(id + 0x30, 5.1f, "Landsblood").SetHint(StateMachine.StateHint.Raidwide); // t=133.8; Ability 1E8E from Aenc Thon, Lord of the Lingering Gaze; cactbot StartsUsing 1E8E [Dohn Mheg Landsblood]
+    Timeout(id + 0x40, 5.8f, "Geyser x6"); // t=139.6
+    Timeout(id + 0x50, 21.5f, "Candy Cane").SetHint(StateMachine.StateHint.Tankbuster); // t=161.1; Ability 2299 from Aenc Thon, Lord of the Lingering Gaze; cactbot StartsUsing 2299 [Dohn Mheg Candy Cane]
+    Timeout(id + 0x60, 9.3f, "Hydrofall"); // t=170.4; Ability 22A7 from Aenc Thon, Lord of the Lingering Gaze
+    Timeout(id + 0x70, 9.3f, "Laughing Leap Stack"); // t=179.7; Ability 2288 from Aenc Thon, Lord of the Lingering Gaze
+    Timeout(id + 0x80, 10.2f, "Candy Cane").SetHint(StateMachine.StateHint.Tankbuster); // t=189.9; Ability 2299 from Aenc Thon, Lord of the Lingering Gaze; cactbot StartsUsing 2299 [Dohn Mheg Candy Cane]
+    Timeout(id + 0x90, 11.2f, "Laughing Leap"); // t=201.1; Ability 2294 from Aenc Thon, Lord of the Lingering Gaze
+    Timeout(id + 0xA0, 5.1f, "Landsblood").SetHint(StateMachine.StateHint.Raidwide); // t=206.2; Ability 1E8E from Aenc Thon, Lord of the Lingering Gaze; cactbot StartsUsing 1E8E [Dohn Mheg Landsblood]
+    Timeout(id + 0xB0, 5.8f, "Geyser x6"); // t=212.0
+    Timeout(id + 0xC0, 21.4f, "Candy Cane").SetHint(StateMachine.StateHint.Tankbuster); // t=233.4; Ability 2299 from Aenc Thon, Lord of the Lingering Gaze; cactbot StartsUsing 2299 [Dohn Mheg Candy Cane]
+    Timeout(id + 0xD0, 9.2f, "Hydrofall"); // t=242.6; Ability 22A7 from Aenc Thon, Lord of the Lingering Gaze
+    Timeout(id + 0xE0, 9.3f, "Laughing Leap Stack"); // t=251.9
+    Timeout(id + 0xF0, 10.2f, "Candy Cane"); // t=262.1; cactbot StartsUsing 2299 [Dohn Mheg Candy Cane]
+    Timeout(id + 0x100, 11.2f, "Laughing Leap"); // t=273.3
+    Timeout(id + 0x110, 5.1f, "Landsblood"); // t=278.4; cactbot StartsUsing 1E8E [Dohn Mheg Landsblood]
+    Timeout(id + 0x120, 5.8f, "Geyser x6"); // t=284.2
+    Timeout(id + 0x130, 21.4f, "Candy Cane"); // t=305.6; cactbot StartsUsing 2299 [Dohn Mheg Candy Cane]
+}
+
+private void Griaule(uint id)
+{
+    Timeout(id + 0x0, 7.5f, "Rake"); // t=507.5; Ability 2873 from Griaule
+    Timeout(id + 0x10, 10.5f, "Swinge"); // t=518.0; Ability 22CA from Griaule
+    Timeout(id + 0x20, 7.4f, "Fodder"); // t=525.4; Ability 22C1 from Griaule
+    Timeout(id + 0x30, 8.1f, "Tiiimbeeer").SetHint(StateMachine.StateHint.Raidwide); // t=533.5; Ability 22D3 from Griaule; cactbot StartsUsing 22D3 [Dohn Mheg Timber]
+    Timeout(id + 0x40, 5.1f, "Feeding Time"); // t=538.6; Ability 22C3 from Painted Sapling
+    Timeout(id + 0x50, 3.1f, "Tiiimbeeer").SetHint(StateMachine.StateHint.Raidwide); // t=541.7; Ability 22D3 from Griaule; cactbot StartsUsing 22D3 [Dohn Mheg Timber]
+    Timeout(id + 0x60, 12.3f, "Swinge"); // t=554.0; Ability 22CA from Griaule
+    Timeout(id + 0x70, 14.3f, "Tiiimbeeer").SetHint(StateMachine.StateHint.Raidwide); // t=568.3; Ability 22D3 from Griaule; cactbot StartsUsing 22D3 [Dohn Mheg Timber]
+    Timeout(id + 0x80, 5.2f, "Coiling Ivy"); // t=573.5; Ability 22C5 from Griaule
+    Timeout(id + 0x90, 7.2f, "Rake"); // t=580.7; Ability 2873 from Griaule
+    Timeout(id + 0xA0, 10.4f, "Swinge"); // t=591.1; Ability 22CA from Griaule
+    Timeout(id + 0xB0, 14.3f, "Tiiimbeeer").SetHint(StateMachine.StateHint.Raidwide); // t=605.4; Ability 22D3 from Griaule; cactbot StartsUsing 22D3 [Dohn Mheg Timber]
+    Timeout(id + 0xC0, 9.1f, "Rake"); // t=614.5; Ability 2873 from Griaule
+    Timeout(id + 0xD0, 9.4f, "Coiling Ivy"); // t=623.9; Ability 22C5 from Griaule
+    Timeout(id + 0xE0, 7.2f, "Fodder"); // t=631.1; Ability 22C1 from Griaule
+    Timeout(id + 0xF0, 8.3f, "Tiiimbeeer").SetHint(StateMachine.StateHint.Raidwide); // t=639.4; Ability 22D3 from Griaule; cactbot StartsUsing 22D3 [Dohn Mheg Timber]
+    Timeout(id + 0x100, 5.2f, "Feeding Time"); // t=644.6; Ability 22C3 from Painted Sapling
+    Timeout(id + 0x110, 3.0f, "Tiiimbeeer").SetHint(StateMachine.StateHint.Raidwide); // t=647.6; Ability 22D3 from Griaule; cactbot StartsUsing 22D3 [Dohn Mheg Timber]
+    Timeout(id + 0x120, 10.5f, "Swinge"); // t=658.1; Ability 22CA from Griaule
+    Timeout(id + 0x130, 7.3f, "Coiling Ivy"); // t=665.4; Ability 22C5 from Griaule
+    Timeout(id + 0x140, 7.2f, "Rake"); // t=672.6; Ability 2873 from Griaule
+    Timeout(id + 0x150, 10.2f, "Swinge"); // t=682.8; Ability 22CA from Griaule
+    Timeout(id + 0x160, 14.3f, "Tiiimbeeer"); // t=697.1
+    Timeout(id + 0x170, 9.1f, "Rake"); // t=706.2
+    Timeout(id + 0x180, 9.4f, "Coiling Ivy"); // t=715.6
+    Timeout(id + 0x190, 7.2f, "Fodder"); // t=722.8
+    Timeout(id + 0x1A0, 8.3f, "Tiiimbeeer"); // t=731.1
+    Timeout(id + 0x1B0, 5.2f, "Feeding Time"); // t=736.3
+    Timeout(id + 0x1C0, 3.0f, "Tiiimbeeer"); // t=739.3
+    Timeout(id + 0x1D0, 10.5f, "Swinge"); // t=749.8
+    Timeout(id + 0x1E0, 7.3f, "Coiling Ivy"); // t=757.1
+    Timeout(id + 0x1F0, 7.2f, "Rake"); // t=764.3
+}
+
+private void Aenc_Thon__Lord_of_the_Lengthsome_Gate(uint id)
+{
+    Timeout(id + 0x0, 11.0f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=1011.0; Ability 35A4 from Aenc Thon, Lord of the Lengthsome Gait; cactbot StartsUsing 35A4 [Dohn Mheg Crippling Blow]
+    Timeout(id + 0x10, 7.2f, "Virtuosic Capriccio").SetHint(StateMachine.StateHint.Raidwide); // t=1018.2; Ability 358C from Aenc Thon, Lord of the Lengthsome Gait; cactbot StartsUsing 358C [Dohn Mheg Virtuosic Cappriccio]
+    Timeout(id + 0x20, 9.3f, "Imp Choir"); // t=1027.5; Ability 34F0 from Aenc Thon, Lord of the Lengthsome Gait; cactbot StartsUsing 34F0 [Dohn Mheg Imp Choir]
+    Timeout(id + 0x30, 6.4f, "Toad Choir"); // t=1033.9; Ability 34EF from Aenc Thon, Lord of the Lengthsome Gait; cactbot StartsUsing 34EF [Dohn Mheg Toad Choir]
+    Timeout(id + 0x40, 10.2f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=1044.1; Ability 35A4 from Aenc Thon, Lord of the Lengthsome Gait; cactbot StartsUsing 35A4 [Dohn Mheg Crippling Blow]
+    Timeout(id + 0x50, 8.6f, "Funambulist's Fantasia / --stun--"); // t=1052.7; Ability 34BA from Aenc Thon, Lord of the Lengthsome Gait | Ability 34CF from Aenc Thon, Lord of the Lengthsome Gait
+    Timeout(id + 0x60, 60.0f, "Enrage"); // t=1112.7
+    Timeout(id + 0x70, 189.4f, "Changeling's Fantasia"); // t=1302.1; Ability 34D1 from Aenc Thon, Lord of the Lengthsome Gait
+    Timeout(id + 0x80, 10.3f, "Malaise"); // t=1312.4; Ability 34ED from Aenc Thon, Lord of the Lengthsome Gait
+    Timeout(id + 0x90, 6.1f, "Bile Bombardment"); // t=1318.5; Ability 34EE from Shade of Fear
+    Timeout(id + 0xA0, 8.2f, "Corrosive Bile"); // t=1326.7; Ability 34EB from Aenc Thon, Lord of the Lengthsome Gait
+    Timeout(id + 0xB0, 11.3f, "Malaise"); // t=1338.0; Ability 34ED from Aenc Thon, Lord of the Lengthsome Gait
+    Timeout(id + 0xC0, 6.1f, "Bile Bombardment"); // t=1344.1; Ability 34EE from Shade of Fear
+    Timeout(id + 0xD0, 1.0f, "Flailing Tentacles"); // t=1345.1; Ability 3680 from Aenc Thon, Lord of the Lengthsome Gait
+    Timeout(id + 0xE0, 9.3f, "Corrosive Bile"); // t=1354.4; Ability 34EB from Aenc Thon, Lord of the Lengthsome Gait
+    Timeout(id + 0xF0, 21.3f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=1375.7; Ability 35A4 from Aenc Thon, Lord of the Lengthsome Gait; cactbot StartsUsing 35A4 [Dohn Mheg Crippling Blow]
+    Timeout(id + 0x100, 13.3f, "Virtuosic Capriccio").SetHint(StateMachine.StateHint.Raidwide); // t=1389.0; Ability 358C from Aenc Thon, Lord of the Lengthsome Gait; cactbot StartsUsing 358C [Dohn Mheg Virtuosic Cappriccio]
+    Timeout(id + 0x110, 7.1f, "Virtuosic Capriccio").SetHint(StateMachine.StateHint.Raidwide); // t=1396.1; Ability 358C from Aenc Thon, Lord of the Lengthsome Gait; cactbot StartsUsing 358C [Dohn Mheg Virtuosic Cappriccio]
+    Timeout(id + 0x120, 7.1f, "Virtuosic Capriccio").SetHint(StateMachine.StateHint.Raidwide); // t=1403.2; Ability 358C from Aenc Thon, Lord of the Lengthsome Gait; cactbot StartsUsing 358C [Dohn Mheg Virtuosic Cappriccio]
+    Timeout(id + 0x130, 11.3f, "Imp Choir"); // t=1414.5; Ability 34F0 from Aenc Thon, Lord of the Lengthsome Gait; cactbot StartsUsing 34F0 [Dohn Mheg Imp Choir]
+    Timeout(id + 0x140, 6.4f, "Toad Choir"); // t=1420.9; Ability 34EF from Aenc Thon, Lord of the Lengthsome Gait; cactbot StartsUsing 34EF [Dohn Mheg Toad Choir]
+    Timeout(id + 0x150, 17.4f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=1438.3; Ability 35A4 from Aenc Thon, Lord of the Lengthsome Gait; cactbot StartsUsing 35A4 [Dohn Mheg Crippling Blow]
+    Timeout(id + 0x160, 13.3f, "Virtuosic Capriccio"); // t=1451.6
+    Timeout(id + 0x170, 7.1f, "Virtuosic Capriccio"); // t=1458.7
+    Timeout(id + 0x180, 7.1f, "Virtuosic Capriccio"); // t=1465.8
+    Timeout(id + 0x190, 11.3f, "Imp Choir"); // t=1477.1; cactbot StartsUsing 34F0 [Dohn Mheg Imp Choir]
+    Timeout(id + 0x1A0, 6.4f, "Toad Choir"); // t=1483.5; cactbot StartsUsing 34EF [Dohn Mheg Toad Choir]
+    Timeout(id + 0x1B0, 318.5f, "Changeling's Fantasia"); // t=1802.0; Ability 34D1 from Aenc Thon, Lord of the Lengthsome Gait
+}
+

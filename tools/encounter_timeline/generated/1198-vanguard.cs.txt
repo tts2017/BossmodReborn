@@ -1,0 +1,83 @@
+// Generated development skeleton from vanguard.txt (TerritoryType 1198).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 16 static/dynamic trigger definitions from ui/raidboss/data/07-dt/dungeon/vanguard.ts.
+
+private void VANGUARD(uint id)
+{
+    Condition(id + 0x0, 1006.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8EDB), "", 5f, 1001.0f); // t=1006.0; StartsUsing 8EDB from Vanguard Commander R8; cactbot StartsUsing 8EDB [Vanguard VC-R8 Electrowave]
+    Timeout(id + 0x10, 5.0f, "Electrowave").SetHint(StateMachine.StateHint.Raidwide); // t=1011.0; Ability 8EDB from Vanguard Commander R8; cactbot StartsUsing 8EDB [Vanguard VC-R8 Electrowave]
+    Timeout(id + 0x20, 16.9f, "Enhanced Mobility"); // t=1027.9; Ability 8ECF/8ED0/98E4/98E5 from Vanguard Commander R8; cactbot StartsUsing 8ECF/98E5 [Vanguard VC-R8 Enhanced Mobility Inside] | StartsUsing 8ED0/98E4 [Vanguard VC-R8 Enhanced Mobility Outside]
+    Timeout(id + 0x30, 1.4f, "Rapid Rotary"); // t=1029.3; Ability 8ED1/8ED2/98E6/98E7 from Vanguard Commander R8
+    Timeout(id + 0x40, 10.4f, "Dispatch"); // t=1039.7; Ability 8ED8 from Vanguard Commander R8
+    Timeout(id + 0x50, 7.6f, "Rush"); // t=1047.3; Ability 8ED9 from Vanguard Sentry R8; cactbot StartsUsing 8ED9 [Vanguard VC-R8 Rush]
+    Timeout(id + 0x60, 6.6f, "Electrowave").SetHint(StateMachine.StateHint.Raidwide); // t=1053.9; Ability 8EDB from Vanguard Commander R8; cactbot StartsUsing 8EDB [Vanguard VC-R8 Electrowave]
+    Timeout(id + 0x70, 6.1f, "Dispatch"); // t=1060.0; Ability 8ED8 from Vanguard Commander R8
+    Timeout(id + 0x80, 10.6f, "Aerial Offensive"); // t=1070.6; Ability 8EDA from Vanguard Sentry R8
+    Timeout(id + 0x90, 14.4f, "Enhanced Mobility"); // t=1085.0; Ability 8ECF/8ED0/98E4/98E5 from Vanguard Commander R8; cactbot StartsUsing 8ECF/98E5 [Vanguard VC-R8 Enhanced Mobility Inside] | StartsUsing 8ED0/98E4 [Vanguard VC-R8 Enhanced Mobility Outside]
+    Timeout(id + 0xA0, 1.4f, "Rapid Rotary"); // t=1086.4; Ability 8ED1/8ED2/98E6/98E7 from Vanguard Commander R8
+    Timeout(id + 0xB0, 10.4f, "Dispatch"); // t=1096.8; Ability 8ED8 from Vanguard Commander R8
+    Timeout(id + 0xC0, 7.1f, "Electrosurge + Rush"); // t=1103.9; Ability 8EDD from Vanguard Commander R8
+    Timeout(id + 0xD0, 7.1f, "Dispatch"); // t=1111.0; Ability 8ED8 from Vanguard Commander R8
+    Timeout(id + 0xE0, 15.6f, "Aerial Offensive (sides)"); // t=1126.6; Ability 8EDA from Vanguard Sentry R8
+    Timeout(id + 0xF0, 4.0f, "Aerial Offensive (corners)"); // t=1130.6; Ability 8EDA from Vanguard Sentry R8
+    Timeout(id + 0x100, 9.4f, "Electrowave").SetHint(StateMachine.StateHint.Raidwide); // t=1140.0; Ability 8EDB from Vanguard Commander R8; cactbot StartsUsing 8EDB [Vanguard VC-R8 Electrowave]
+    Timeout(id + 0x110, 18.9f, "Enhanced Mobility"); // t=1158.9; Ability 8ECF/8ED0/98E4/98E5 from Vanguard Commander R8; cactbot StartsUsing 8ECF/98E5 [Vanguard VC-R8 Enhanced Mobility Inside] | StartsUsing 8ED0/98E4 [Vanguard VC-R8 Enhanced Mobility Outside]
+    Condition(id + 0x120, 847.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9129), "", 5f, 842.2f); // t=2006.1; StartsUsing 9129 from Protector; cactbot StartsUsing 9129 [Vanguard Protector Electrowave]
+    Timeout(id + 0x130, 5.0f, "Electrowave").SetHint(StateMachine.StateHint.Raidwide); // t=2011.1; Ability 9129 from Protector; cactbot StartsUsing 9129 [Vanguard Protector Electrowave]
+    Timeout(id + 0x140, 7.1f, "Search and Destroy"); // t=2018.2; Ability 9122 from Protector
+    Timeout(id + 0x150, 7.2f, "(ground AoEs)"); // t=2025.4
+    Timeout(id + 0x160, 15.9f, "Fulminous Fence"); // t=2041.3; Ability 911D from Protector
+    Timeout(id + 0x170, 8.1f, "Battery Circuit / Electrowhirl"); // t=2049.4; Ability 9127 from Protector | Ability 91E6 from Protector
+    Timeout(id + 0x180, 2.2f, "Bombardment"); // t=2051.6; Ability 9868 from Protector
+    Timeout(id + 0x190, 3.2f, "Electrowhirl + Bombardment"); // t=2054.8; Ability 9128 from Protector
+    Timeout(id + 0x1A0, 3.3f, "Electrowhirl + Bombardment"); // t=2058.1; Ability 9128 from Protector
+    Timeout(id + 0x1B0, 3.2f, "Electrowhirl + Bombardment"); // t=2061.3; Ability 9128 from Protector
+    Timeout(id + 0x1C0, 7.3f, "Rapid Thunder").SetHint(StateMachine.StateHint.Tankbuster); // t=2068.6; Ability 912A from Protector; cactbot StartsUsing 912A [Vanguard Protector Rapid Thunder]
+    Timeout(id + 0x1D0, 7.4f, "Motion Sensor"); // t=2076.0; Ability 911E from Protector
+    Timeout(id + 0x1E0, 7.4f, "Blast Cannon"); // t=2083.4; cactbot StartsUsing 91E1 [Vanguard Protector Heavy Blast Cannon]
+    Timeout(id + 0x1F0, 14.5f, "Search and Destroy"); // t=2097.9; Ability 9122 from Protector
+    Timeout(id + 0x200, 7.2f, "(ground AoEs)"); // t=2105.1
+    Timeout(id + 0x210, 19.6f, "Tracking Bolt/Heavy Blast Cannon"); // t=2124.7; Ability 91E1/91E5 from Protector; cactbot StartsUsing 91E1 [Vanguard Protector Heavy Blast Cannon]
+    Timeout(id + 0x220, 14.2f, "Electrowave").SetHint(StateMachine.StateHint.Raidwide); // t=2138.9; Ability 9129 from Protector; cactbot StartsUsing 9129 [Vanguard Protector Electrowave]
+    Timeout(id + 0x230, 14.4f, "Motion Sensor"); // t=2153.3; Ability 911E from Protector
+    Timeout(id + 0x240, 7.4f, "Blast Cannon"); // t=2160.7; cactbot StartsUsing 91E1 [Vanguard Protector Heavy Blast Cannon]
+    Timeout(id + 0x250, 14.5f, "Search and Destroy"); // t=2175.2; Ability 9122 from Protector
+    Timeout(id + 0x260, 7.2f, "(ground AoEs)"); // t=2182.4
+    Timeout(id + 0x270, 19.7f, "Tracking Bolt/Heavy Blast Cannon"); // t=2202.1; Ability 91E1/91E5 from Protector; cactbot StartsUsing 91E1 [Vanguard Protector Heavy Blast Cannon]
+    Timeout(id + 0x280, 11.2f, "Electrowave").SetHint(StateMachine.StateHint.Raidwide); // t=2213.3; Ability 9129 from Protector; cactbot StartsUsing 9129 [Vanguard Protector Electrowave]
+    Condition(id + 0x290, 792.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8EF2), "", 5f, 787.8f); // t=3006.1; StartsUsing 8EF2 from Zander the Snakeskinner; cactbot StartsUsing 8EF2 [Vanguard Zander Electrothermia]
+    Timeout(id + 0x2A0, 5.0f, "Electrothermia").SetHint(StateMachine.StateHint.Raidwide); // t=3011.1; Ability 8EF2 from Zander the Snakeskinner; cactbot StartsUsing 8EF2 [Vanguard Zander Electrothermia]
+    Timeout(id + 0x2B0, 10.8f, "Soulbane Saber"); // t=3021.9; Ability 8EDE from Zander the Snakeskinner
+    Timeout(id + 0x2C0, 7.0f, "Burst"); // t=3028.9; Ability 8EDF from Zander the Snakeskinner
+    Timeout(id + 0x2D0, 9.1f, "Saber Rush").SetHint(StateMachine.StateHint.Tankbuster); // t=3038.0; Ability 8EF3 from Zander the Snakeskinner; cactbot StartsUsing 8EF3 [Vanguard Zander Saber Rush]
+    Timeout(id + 0x2E0, 9.6f, "Soulbane Saber 1"); // t=3047.6; Ability 8EDE from Zander the Snakeskinner
+    Timeout(id + 0x2F0, 5.2f, "Soulbane Saber 2"); // t=3052.8; Ability 8EDE from Zander the Snakeskinner
+    Timeout(id + 0x300, 1.8f, "Burst 1"); // t=3054.6; Ability 8EDF from Zander the Snakeskinner
+    Timeout(id + 0x310, 3.6f, "Soulbane Saber 3"); // t=3058.2; Ability 8EDE from Zander the Snakeskinner
+    Timeout(id + 0x320, 1.7f, "Soulbane Shock"); // t=3059.9; Ability 9422 from Zander the Snakeskinner; cactbot StartsUsing 9422 [Vanguard Zander Soulbane Shock]
+    Timeout(id + 0x330, 0.1f, "Burst 2"); // t=3060.0; Ability 8EDF from Zander the Snakeskinner
+    Timeout(id + 0x340, 3.6f, "Soulbane Saber 4"); // t=3063.6; Ability 8EDE from Zander the Snakeskinner
+    Timeout(id + 0x350, 1.8f, "Burst 3"); // t=3065.4; Ability 8EDF from Zander the Snakeskinner
+    Timeout(id + 0x360, 5.0f, "Soulbane Shock"); // t=3070.4; Ability 9422 from Zander the Snakeskinner; cactbot StartsUsing 9422 [Vanguard Zander Soulbane Shock]
+    Timeout(id + 0x370, 0.2f, "Burst 4"); // t=3070.6; Ability 8EDF from Zander the Snakeskinner
+    Timeout(id + 0x380, 6.1f, "Electrothermia").SetHint(StateMachine.StateHint.Raidwide); // t=3076.7; Ability 8EF2 from Zander the Snakeskinner; cactbot StartsUsing 8EF2 [Vanguard Zander Electrothermia]
+    Timeout(id + 0x390, 10.2f, "Saber Rush").SetHint(StateMachine.StateHint.Tankbuster); // t=3086.9; Ability 8EF3 from Zander the Snakeskinner; cactbot StartsUsing 8EF3 [Vanguard Zander Saber Rush]
+    Timeout(id + 0x3A0, 17.6f, "Soulbane Saber 1"); // t=3104.5; Ability 8EDE from Zander the Snakeskinner
+    Targetable(id + 0x3B0, true, 419.7f, "--targetable--"); // t=3524.2
+    Timeout(id + 0x3C0, 11.1f, "Syntheslean"); // t=3535.3; Ability 914E from Zander the Snakeskinner
+    Timeout(id + 0x3D0, 10.8f, "Syntheslither"); // t=3546.1; Ability 8EE3/8EE8 from Zander the Snakeskinner
+    Timeout(id + 0x3E0, 8.2f, "Syntheslither"); // t=3554.3; Ability 8EE3/8EE8 from Zander the Snakeskinner
+    Timeout(id + 0x3F0, 10.6f, "Shade Shot").SetHint(StateMachine.StateHint.Tankbuster); // t=3564.9; Ability 8EF5 from Zander the Snakeskinner; cactbot StartsUsing 8EF5 [Vanguard Zander Shade Shot]
+    Timeout(id + 0x400, 8.7f, "Slitherbane Foreguard/Slitherbane Rearguard 1"); // t=3573.6; Ability 8EED/8EEE from Zander the Snakeskinner; cactbot StartsUsing 8EED [Vanguard Zander Slitherbane Foreguard] | StartsUsing 8EEE [Vanguard Zander Slitherbane Rearguard]
+    Timeout(id + 0x410, 6.2f, "Slitherbane Foreguard/Slitherbane Rearguard 2"); // t=3579.8; Ability 8EED/8EEE from Zander the Snakeskinner; cactbot StartsUsing 8EED [Vanguard Zander Slitherbane Foreguard] | StartsUsing 8EEE [Vanguard Zander Slitherbane Rearguard]
+    Timeout(id + 0x420, 0.9f, "Burst 1"); // t=3580.7; Ability 8EEF from Zander the Snakeskinner
+    Timeout(id + 0x430, 5.4f, "Slitherbane Foreguard/Slitherbane Rearguard 3"); // t=3586.1; Ability 8EED/8EEE from Zander the Snakeskinner; cactbot StartsUsing 8EED [Vanguard Zander Slitherbane Foreguard] | StartsUsing 8EEE [Vanguard Zander Slitherbane Rearguard]
+    Timeout(id + 0x440, 0.9f, "Burst 2"); // t=3587.0; Ability 8EEF from Zander the Snakeskinner
+    Timeout(id + 0x450, 5.4f, "Slitherbane Foreguard/Slitherbane Rearguard 4"); // t=3592.4; Ability 8EED/8EEE from Zander the Snakeskinner; cactbot StartsUsing 8EED [Vanguard Zander Slitherbane Foreguard] | StartsUsing 8EEE [Vanguard Zander Slitherbane Rearguard]
+    Timeout(id + 0x460, 0.9f, "Burst 3"); // t=3593.3; Ability 8EEF from Zander the Snakeskinner
+    Timeout(id + 0x470, 6.2f, "Burst 4"); // t=3599.5; Ability 8EEF from Zander the Snakeskinner
+    Timeout(id + 0x480, 12.0f, "Screech").SetHint(StateMachine.StateHint.Raidwide); // t=3611.5; Ability 8EF4 from Zander the Snakeskinner; cactbot StartsUsing 8EF4 [Vanguard Zander Screech]
+    Timeout(id + 0x490, 16.8f, "Syntheslither"); // t=3628.3; Ability 8EE3 from Zander the Snakeskinner
+}
+

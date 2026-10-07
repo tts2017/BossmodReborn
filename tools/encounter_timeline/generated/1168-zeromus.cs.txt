@@ -1,0 +1,72 @@
+// Generated development skeleton from zeromus.txt (TerritoryType 1168).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 18 static/dynamic trigger definitions from ui/raidboss/data/06-ew/trial/zeromus.ts.
+
+private void THE_ABYSSAL_FRACTURE(uint id)
+{
+    Condition(id + 0x0, 6.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8AF7), "", 5f, 1.7f); // t=6.7; StartsUsing 8AF7 from Zeromus; cactbot Ability 8AF7 [Zeromus Abyssal Nox]
+    Timeout(id + 0x10, 5.0f, "Abyssal Nox"); // t=11.7; Ability 8AF7 from Zeromus; cactbot Ability 8AF7 [Zeromus Abyssal Nox]
+    Timeout(id + 0x20, 16.0f, "Abyssal Echoes"); // t=27.7; Ability 8AFA from Zeromus; cactbot Ability 8AF9 [Zeromus Abyssal Echoes]
+    Timeout(id + 0x30, 11.1f, "Sable Thread x5"); // t=38.8; Ability 8AEE from Zeromus
+    Timeout(id + 0x40, 23.0f, "Visceral Whirl"); // t=61.8
+    Timeout(id + 0x50, 11.2f, "Dark Matter x3"); // t=73.0; Ability 8B36 from Zeromus
+    Timeout(id + 0x60, 16.2f, "Flare"); // t=89.2; Ability 8B12 from Zeromus; cactbot StartsUsing 8B12 [Zeromus Flare] | Ability 8B12 [Zeromus Flare Hit]
+    Timeout(id + 0x70, 6.1f, "Nox (cast)"); // t=95.3; Ability 8D27 from Zeromus
+    Timeout(id + 0x80, 2.0f, "Prominence Spine"); // t=97.3; Ability 8B16 from Zeromus
+    Timeout(id + 0x90, 4.0f, "Nox x3"); // t=101.3; Ability 8D29 from Zeromus
+    Timeout(id + 0xA0, 15.3f, "Void Bio"); // t=116.6; Ability 8B17 from Zeromus
+    Timeout(id + 0xB0, 14.2f, "Visceral Whirl"); // t=130.8
+    Condition(id + 0xC0, 5.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8B03), "", 5f, 0.0f); // t=135.8; StartsUsing 8B03 from Zeromus; cactbot StartsUsing 8B03 [Zeromus Big Bang]
+    Timeout(id + 0xD0, 10.0f, "Big Bang").SetHint(StateMachine.StateHint.Raidwide); // t=145.8; Ability 8B03 from Zeromus; cactbot StartsUsing 8B03 [Zeromus Big Bang]
+    Timeout(id + 0xE0, 18.1f, "Visceral Whirl"); // t=163.9
+    Timeout(id + 0xF0, 8.8f, "The Dark Beckons"); // t=172.7; Ability 8B0A from Zeromus; cactbot HeadMarker 64 [Zeromus The Dark Beckons]
+    Timeout(id + 0x100, 5.0f, "The Dark Divides"); // t=177.7; Ability 8B09 from Zeromus; cactbot HeadMarker 178 [Zeromus The Dark Divides]
+    Timeout(id + 0x110, 17.4f, "Meteor Impact"); // t=195.1; Ability 8B0B from Zeromus
+    Timeout(id + 0x120, 15.1f, "Dark Matter x3"); // t=210.2; Ability 8B36 from Zeromus
+    Timeout(id + 0x130, 15.3f, "Black Hole"); // t=225.5; Ability 8D25 from Zeromus
+    Timeout(id + 0x140, 10.1f, "Fractured Eventide"); // t=235.6
+    Timeout(id + 0x150, 21.0f, "Void Meteor"); // t=256.6; Ability 8B0C from Zeromus
+    Timeout(id + 0x160, 1.2f, "Meteor Impact (proximity)"); // t=257.8; Ability 8B11 from Comet
+    Timeout(id + 0x170, 11.9f, "Meteor Impact (cast)"); // t=269.7; Ability 8B0B from Zeromus
+    Timeout(id + 0x180, 4.4f, "Meteor Impact"); // t=274.1; Ability 8B0F from Zeromus
+    Timeout(id + 0x190, 6.0f, "Explosion"); // t=280.1; Ability 8D33 from Comet
+    Timeout(id + 0x1A0, 6.6f, "Black Hole"); // t=286.7; Ability 8D25 from Zeromus
+    Timeout(id + 0x1B0, 10.1f, "Fractured Eventide"); // t=296.8
+    Condition(id + 0x1C0, 13.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8B04), "", 5f, 8.1f); // t=309.9; StartsUsing 8B04 from Zeromus; cactbot StartsUsing 8B04 [Zeromus Big Crunch]
+    Timeout(id + 0x1D0, 10.0f, "Big Crunch").SetHint(StateMachine.StateHint.Raidwide); // t=319.9; Ability 8B04 from Zeromus; cactbot StartsUsing 8B04 [Zeromus Big Crunch]
+    Timeout(id + 0x1E0, 15.2f, "Abyssal Nox"); // t=335.1; Ability 8AF7 from Zeromus; cactbot Ability 8AF7 [Zeromus Abyssal Nox]
+    Timeout(id + 0x1F0, 16.0f, "Abyssal Echoes"); // t=351.1; Ability 8AFA from Zeromus; cactbot Ability 8AF9 [Zeromus Abyssal Echoes]
+    Timeout(id + 0x200, 8.0f, "Sable Thread x5"); // t=359.1; Ability 8AEE from Zeromus
+    Timeout(id + 0x210, 21.0f, "Flare"); // t=380.1; Ability 8B12 from Zeromus; cactbot StartsUsing 8B12 [Zeromus Flare] | Ability 8B12 [Zeromus Flare Hit]
+    Timeout(id + 0x220, 6.0f, "Nox (cast)"); // t=386.1; Ability 8D27 from Zeromus
+    Timeout(id + 0x230, 2.0f, "Prominence Spine"); // t=388.1; Ability 8B16 from Zeromus
+    Timeout(id + 0x240, 4.0f, "Nox x3"); // t=392.1; Ability 8D29 from Zeromus
+    Timeout(id + 0x250, 20.3f, "Dark Matter x3"); // t=412.4; Ability 8B36 from Zeromus
+    Timeout(id + 0x260, 16.3f, "Void Bio"); // t=428.7; Ability 8B17 from Zeromus
+    Timeout(id + 0x270, 14.1f, "Visceral Whirl"); // t=442.8; Ability 8AFB from Zeromus; cactbot StartsUsing 8AFB [Zeromus Visceral Whirl NE Safe]
+    Timeout(id + 0x280, 18.1f, "Abyssal Nox"); // t=460.9; Ability 8AF7 from Zeromus; cactbot Ability 8AF7 [Zeromus Abyssal Nox]
+}
+
+private void Phase_2___25__push(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8B19), "", 5f, 0.0f); // t=1000.0; StartsUsing 8B19 from Zeromus
+    Timeout(id + 0x10, 6.0f, "Rend the Rift"); // t=1006.0; Ability 8B19 from Zeromus
+    Timeout(id + 0x20, 17.3f, "Nostalgia").SetHint(StateMachine.StateHint.Raidwide); // t=1023.3; Ability 8B1A from Zeromus; cactbot StartsUsing 8B1A [Zeromus Nostalgia]
+    Timeout(id + 0x30, 0.8f, "Bury 1"); // t=1024.1; Ability 8B1C from Zeromus
+    Timeout(id + 0x40, 1.0f, "Bury 2"); // t=1025.1; Ability 8B1D from Zeromus
+    Timeout(id + 0x50, 1.0f, "Bury 3"); // t=1026.1; Ability 8B1E from Zeromus
+    Timeout(id + 0x60, 1.0f, "Bury 4"); // t=1027.1; Ability 8B1F from Zeromus
+    Timeout(id + 0x70, 2.0f, "Roar 5"); // t=1029.1; Ability 8B20 from Zeromus
+    Timeout(id + 0x80, 1.0f, "Roar 6"); // t=1030.1; Ability 8B21 from Zeromus
+    Timeout(id + 0x90, 3.0f, "Primal Roar 7"); // t=1033.1; Ability 8B22 from Zeromus
+    Timeout(id + 0xA0, 14.3f, "Flow of the Abyss"); // t=1047.4; Ability 8CF9 from Zeromus
+    Timeout(id + 0xB0, 2.0f, "Dimensional Surge"); // t=1049.4; Ability 8B35 from Zeromus
+    Timeout(id + 0xC0, 14.8f, "Chasmic Nails 1"); // t=1064.2; Ability 8B2C from Zeromus
+    Timeout(id + 0xD0, 0.8f, "Chasmic Nails 2"); // t=1065.0; Ability 8B2D from Zeromus
+    Timeout(id + 0xE0, 0.8f, "Chasmic Nails 3"); // t=1065.8; Ability 8B2E from Zeromus
+    Timeout(id + 0xF0, 0.7f, "Chasmic Nails 4"); // t=1066.5; Ability 8B2F from Zeromus
+    Timeout(id + 0x100, 0.8f, "Chasmic Nails 5"); // t=1067.3; Ability 8B30 from Zeromus
+    Timeout(id + 0x110, 14.8f, "Nostalgia").SetHint(StateMachine.StateHint.Raidwide); // t=1082.1; Ability 8B1A from Zeromus; cactbot StartsUsing 8B1A [Zeromus Nostalgia]
+}
+

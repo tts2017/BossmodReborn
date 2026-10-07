@@ -1,0 +1,120 @@
+// Generated development skeleton from t6.txt (TerritoryType 355).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 11 static/dynamic trigger definitions from ui/raidboss/data/02-arr/raid/t6.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 7.5f, "Bloody Caress"); // t=7.5; Ability 797 from Rafflesia; cactbot Ability 797 [T6 Phase 2]
+    Timeout(id + 0x20, 4.0f, "Thorn Whip"); // t=11.5; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x30, 7.0f, "Briary Growth"); // t=18.5; Ability 884 from Rafflesia
+    Timeout(id + 0x40, 2.1f, "Bloody Caress"); // t=20.6; Ability 797 from Rafflesia; cactbot Ability 797 [T6 Phase 2]
+    Timeout(id + 0x50, 8.0f, "Thorn Whip"); // t=28.6; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x60, 6.7f, "Floral Trap"); // t=35.3; Ability 799 from Rafflesia
+    Timeout(id + 0x70, 2.1f, "Devour"); // t=37.4; Ability 79A from Rafflesia
+    Timeout(id + 0x80, 5.1f, "Spit"); // t=42.5; Ability 79B from Rafflesia
+    Timeout(id + 0x90, 4.1f, "Bloody Caress"); // t=46.6; Ability 797 from Rafflesia; cactbot Ability 797 [T6 Phase 2]
+    Timeout(id + 0xA0, 9.0f, "Thorn Whip"); // t=55.6; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0xB0, 3.1f, "Bloody Caress"); // t=58.7; Ability 797 from Rafflesia; cactbot Ability 797 [T6 Phase 2]
+    Timeout(id + 0xC0, 4.9f, "Briary Growth"); // t=63.6; Ability 884 from Rafflesia
+    Timeout(id + 0xD0, 7.2f, "Bloody Caress"); // t=70.8; Ability 797 from Rafflesia; cactbot Ability 797 [T6 Phase 2]
+    Timeout(id + 0xE0, 2.9f, "Thorn Whip"); // t=73.7; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0xF0, 6.8f, "Floral Trap"); // t=80.5; Ability 799 from Rafflesia
+    Timeout(id + 0x100, 2.0f, "Devour"); // t=82.5; Ability 79A from Rafflesia
+    Timeout(id + 0x110, 5.1f, "Spit"); // t=87.6; Ability 79B from Rafflesia
+    Timeout(id + 0x120, 9.3f, "Bloody Caress"); // t=96.9; Ability 797 from Rafflesia; cactbot Ability 797 [T6 Phase 2]
+    Timeout(id + 0x130, 4.0f, "Thorn Whip"); // t=100.9; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x140, 7.0f, "Briary Growth"); // t=107.9; Ability 884 from Rafflesia
+    Timeout(id + 0x150, 2.1f, "Bloody Caress"); // t=110.0
+    Timeout(id + 0x160, 8.0f, "Thorn Whip"); // t=118.0; cactbot Tether 12 [T6 Thorn Whip Collect] | Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x170, 6.7f, "Floral Trap"); // t=124.7
+    Timeout(id + 0x180, 2.1f, "Devour"); // t=126.8
+    Timeout(id + 0x190, 5.1f, "Spit"); // t=131.9
+    Timeout(id + 0x1A0, 4.1f, "Bloody Caress"); // t=136.0
+}
+
+private void Phase_2(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x79D), "", 5f, 0.0f); // t=200.0; StartsUsing 79D from Rafflesia; cactbot StartsUsing 79D [T6 Blighted]
+    Timeout(id + 0x10, 4.0f, "Blighted Bouquet"); // t=204.0; Ability 79D from Rafflesia; cactbot StartsUsing 79D [T6 Blighted]
+    Timeout(id + 0x20, 5.0f, "Briary Growth"); // t=209.0; Ability 884 from Rafflesia
+    Timeout(id + 0x30, 5.1f, "Bloody Caress"); // t=214.1; Ability 797 from Rafflesia; cactbot Ability 797 [T6 Phase 2]
+    Timeout(id + 0x40, 4.9f, "Thorn Whip"); // t=219.0; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x50, 6.8f, "Floral Trap"); // t=225.8; Ability 799 from Rafflesia
+    Timeout(id + 0x60, 2.0f, "Devour"); // t=227.8; Ability 79A from Rafflesia
+    Timeout(id + 0x70, 5.0f, "Spit"); // t=232.8; Ability 79B from Rafflesia
+    Timeout(id + 0x80, 3.0f, "Viscid Emission"); // t=235.8; Ability 79C from Rafflesia
+    Timeout(id + 0x90, 5.1f, "Bloody Caress"); // t=240.9; Ability 797 from Rafflesia; cactbot Ability 797 [T6 Phase 2]
+    Timeout(id + 0xA0, 4.0f, "Thorn Whip"); // t=244.9; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0xB0, 9.1f, "Blighted Bouquet"); // t=254.0; Ability 79D from Rafflesia; cactbot StartsUsing 79D [T6 Blighted]
+    Timeout(id + 0xC0, 4.2f, "Bloody Caress"); // t=258.2; Ability 797 from Rafflesia; cactbot Ability 797 [T6 Phase 2]
+    Timeout(id + 0xD0, 1.9f, "Briary Growth"); // t=260.1; Ability 884 from Rafflesia
+    Timeout(id + 0xE0, 9.1f, "Thorn Whip"); // t=269.2; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0xF0, 6.3f, "Floral Trap"); // t=275.5; Ability 799 from Rafflesia
+    Timeout(id + 0x100, 2.0f, "Devour"); // t=277.5; Ability 79A from Rafflesia
+    Timeout(id + 0x110, 5.0f, "Spit"); // t=282.5; Ability 79B from Rafflesia
+    Timeout(id + 0x120, 2.8f, "Bloody Caress"); // t=285.3; Ability 797 from Rafflesia; cactbot Ability 797 [T6 Phase 2]
+    Timeout(id + 0x130, 8.9f, "Thorn Whip"); // t=294.2; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x140, 3.3f, "Bloody Caress"); // t=297.5; Ability 797 from Rafflesia; cactbot Ability 797 [T6 Phase 2]
+    Timeout(id + 0x150, 6.9f, "Blighted Bouquet"); // t=304.4; Ability 79D from Rafflesia; cactbot StartsUsing 79D [T6 Blighted]
+    Timeout(id + 0x160, 5.0f, "Briary Growth"); // t=309.4
+    Timeout(id + 0x170, 5.1f, "Bloody Caress"); // t=314.5
+    Timeout(id + 0x180, 4.9f, "Thorn Whip"); // t=319.4; cactbot Tether 12 [T6 Thorn Whip Collect] | Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x190, 6.8f, "Floral Trap"); // t=326.2
+    Timeout(id + 0x1A0, 2.0f, "Devour"); // t=328.2
+    Timeout(id + 0x1B0, 5.0f, "Spit"); // t=333.2
+    Timeout(id + 0x1C0, 3.0f, "Viscid Emission"); // t=336.2
+}
+
+private void Phase_3(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x79E), "", 5f, 0.0f); // t=400.0; StartsUsing 79E from Rafflesia; cactbot StartsUsing 79E [T6 Phase 3]
+    Timeout(id + 0x10, 3.0f, "Leafstorm"); // t=403.0; Ability 79E from Rafflesia; cactbot StartsUsing 79E [T6 Phase 3]
+    Timeout(id + 0x20, 10.1f, "Acid Rain"); // t=413.1; Ability 86C from Rafflesia; cactbot StartsUsing 86C [T6 Swarm Stack]
+    Timeout(id + 0x30, 7.2f, "Thorn Whip"); // t=420.3; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x40, 12.1f, "Swarm"); // t=432.4; Ability 7A0 from Rafflesia; cactbot Ability 7A0 [T6 Swarm]
+    Timeout(id + 0x50, 13.1f, "Thorn Whip"); // t=445.5; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x60, 4.8f, "Rotten Stench"); // t=450.3; Ability 7A2 from Rafflesia; cactbot HeadMarker E [T6 Rotten Stench]
+    Timeout(id + 0x70, 15.2f, "Swarm"); // t=465.5; Ability 7A0 from Rafflesia; cactbot Ability 7A0 [T6 Swarm]
+    Timeout(id + 0x80, 13.0f, "Thorn Whip"); // t=478.5; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x90, 12.2f, "Swarm"); // t=490.7; Ability 7A0 from Rafflesia; cactbot Ability 7A0 [T6 Swarm]
+    Timeout(id + 0xA0, 4.9f, "Thorn Whip"); // t=495.6; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0xB0, 4.5f, "Rotten Stench"); // t=500.1; Ability 7A2 from Rafflesia; cactbot HeadMarker E [T6 Rotten Stench]
+    Timeout(id + 0xC0, 23.1f, "Leafstorm"); // t=523.2; Ability 79E from Rafflesia; cactbot StartsUsing 79E [T6 Phase 3]
+    Timeout(id + 0xD0, 5.2f, "Swarm"); // t=528.4; Ability 7A0 from Rafflesia; cactbot Ability 7A0 [T6 Swarm]
+    Timeout(id + 0xE0, 8.9f, "Acid Rain"); // t=537.3; Ability 86C from Rafflesia; cactbot StartsUsing 86C [T6 Swarm Stack]
+    Timeout(id + 0xF0, 7.1f, "Thorn Whip"); // t=544.4; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x100, 12.3f, "Swarm"); // t=556.7; Ability 7A0 from Rafflesia; cactbot Ability 7A0 [T6 Swarm]
+    Timeout(id + 0x110, 12.9f, "Thorn Whip"); // t=569.6; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x120, 4.8f, "Rotten Stench"); // t=574.4; Ability 7A2 from Rafflesia; cactbot HeadMarker E [T6 Rotten Stench]
+    Timeout(id + 0x130, 15.3f, "Swarm"); // t=589.7; Ability 7A0 from Rafflesia; cactbot Ability 7A0 [T6 Swarm]
+    Timeout(id + 0x140, 13.0f, "Thorn Whip"); // t=602.7; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x150, 12.1f, "Swarm"); // t=614.8; Ability 7A0 from Rafflesia; cactbot Ability 7A0 [T6 Swarm]
+    Timeout(id + 0x160, 4.9f, "Thorn Whip"); // t=619.7; Ability 879 from Rafflesia; cactbot Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x170, 4.8f, "Rotten Stench"); // t=624.5; Ability 7A2 from Rafflesia; cactbot HeadMarker E [T6 Rotten Stench]
+    Timeout(id + 0x180, 23.1f, "Leafstorm"); // t=647.6
+    Timeout(id + 0x190, 5.2f, "Swarm"); // t=652.8
+    Timeout(id + 0x1A0, 8.9f, "Acid Rain"); // t=661.7
+    Timeout(id + 0x1B0, 7.1f, "Thorn Whip"); // t=668.8; cactbot Tether 12 [T6 Thorn Whip Collect] | Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x1C0, 12.3f, "Swarm"); // t=681.1
+    Timeout(id + 0x1D0, 12.9f, "Thorn Whip"); // t=694.0; cactbot Tether 12 [T6 Thorn Whip Collect] | Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x1E0, 4.8f, "Rotten Stench"); // t=698.8; cactbot HeadMarker E [T6 Rotten Stench]
+    Timeout(id + 0x1F0, 15.3f, "Swarm"); // t=714.1
+    Timeout(id + 0x200, 13.0f, "Thorn Whip"); // t=727.1; cactbot Tether 12 [T6 Thorn Whip Collect] | Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x210, 12.1f, "Swarm"); // t=739.2
+    Timeout(id + 0x220, 4.9f, "Thorn Whip"); // t=744.1; cactbot Tether 12 [T6 Thorn Whip Collect] | Ability 879 [T6 Thorn Whip]
+    Timeout(id + 0x230, 4.8f, "Rotten Stench"); // t=748.9; cactbot HeadMarker E [T6 Rotten Stench]
+}
+
+private void Enrage(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x87A), "", 5f, 0.0f); // t=1000.0; StartsUsing 87A from Rafflesia
+    Timeout(id + 0x10, 3.0f, "Leafstorm"); // t=1003.0; Ability 87A from Rafflesia
+    Timeout(id + 0x20, 5.0f, "Leafstorm"); // t=1008.0
+    Timeout(id + 0x30, 5.0f, "Leafstorm"); // t=1013.0
+    Timeout(id + 0x40, 5.0f, "Leafstorm"); // t=1018.0
+    Timeout(id + 0x50, 5.0f, "Leafstorm"); // t=1023.0
+    Timeout(id + 0x60, 5.0f, "Leafstorm"); // t=1028.0
+}
+

@@ -1,0 +1,92 @@
+// Generated development skeleton from sophia-ex.txt (TerritoryType 577).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 19 static/dynamic trigger definitions from ui/raidboss/data/03-hw/trial/sophia-ex.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 12.0f, "Thunder II"); // t=12.0; Ability 19B0 from Sophia; cactbot StartsUsing 19B0 [SophiaEX Thunder 2]
+    Timeout(id + 0x10, 10.4f, "Gnosis"); // t=22.4; Ability 19C2 from Barbelo
+    Timeout(id + 0x20, 19.0f, "Arms Of Wisdom?").SetHint(StateMachine.StateHint.Tankbuster); // t=41.4; Ability 19C4 from Sophia; cactbot StartsUsing 19C4 [SophiaEX Tank Buster]
+    Timeout(id + 0x30, 14.6f, "--clones appear--"); // t=56.0
+    Timeout(id + 0x40, 7.6f, "Thunder II/III"); // t=63.6; Ability 19AC/19B0 from Sophia; cactbot StartsUsing 19B0 [SophiaEX Thunder 2] | StartsUsing 19AC [SophiaEX Thunder 3]
+    Timeout(id + 0x50, 6.1f, "Aero III"); // t=69.7; Ability 19AE from Sophia; cactbot StartsUsing 19AE [SophiaEX Aero 3]
+    Timeout(id + 0x60, 10.1f, "Execute"); // t=79.8; Ability 19AA from Sophia; cactbot StartsUsing 19AA [SophiaEX Execute] | Ability 19AA [SophiaEX Clone Cleanup]
+    Timeout(id + 0x70, 10.4f, "Arms Of Wisdom").SetHint(StateMachine.StateHint.Tankbuster); // t=90.2; Ability 19C4 from Sophia; cactbot StartsUsing 19C4 [SophiaEX Tank Buster]
+    Timeout(id + 0x80, 20.4f, "Cloudy Heavens"); // t=110.6; Ability 19BE from Sophia
+    Targetable(id + 0x90, false, 1.0f, "--untargetable--"); // t=111.6
+    Timeout(id + 0xA0, 0.0f, "--adds spawn--"); // t=111.6
+    Timeout(id + 0xB0, 9.3f, "Horizontal Kenoma/Vertical Kenoma"); // t=120.9; Ability 19BB/19BC from The First Demiurge
+    Timeout(id + 0xC0, 1.0f, "Gnostic Spear"); // t=121.9; Ability 19B9 from The Third Demiurge
+    Timeout(id + 0xD0, 4.0f, "Divine Spark"); // t=125.9; cactbot StartsUsing 19B6 [SophiaEX Divine Spark]
+    Timeout(id + 0xE0, 3.1f, "Ring Of Pain"); // t=129.0; Ability 19BA from The Third Demiurge
+    Timeout(id + 0xF0, 6.1f, "Horizontal Kenoma/Vertical Kenoma"); // t=135.1; Ability 19BB/19BC from The First Demiurge
+    Timeout(id + 0x100, 12.2f, "Gnostic Spear?"); // t=147.3; Ability 19B9 from The Third Demiurge
+    Timeout(id + 0x110, 1.9f, "Horizontal Kenoma/Vertical Kenoma"); // t=149.2; Ability 19BB/19BC from The First Demiurge
+    Timeout(id + 0x120, 42.4f, "Zombification Enrage?"); // t=191.6
+    Timeout(id + 0x130, 58.4f, "The Scales Of Wisdom"); // t=250.0; Ability 1981 from Sophia
+    Timeout(id + 0x140, 17.5f, "The Scales Of Wisdom"); // t=267.5; Ability 1AE1 from Sophia
+    Targetable(id + 0x150, true, 5.4f, "--targetable--"); // t=272.9
+    Timeout(id + 0x160, 7.9f, "Quasar (Snapshot)"); // t=280.8; Ability 196E/19A7 from Sophia
+    Timeout(id + 0x170, 6.0f, "Quasar (Meteor Detonate)"); // t=286.8; Ability 1A87 from Sophia
+    Timeout(id + 0x180, 4.5f, "Aero III/Thunder II/Thunder III"); // t=291.3; Ability 19AC/19AE/19B0 from Sophia; cactbot StartsUsing 19B0 [SophiaEX Thunder 2] | StartsUsing 19AC [SophiaEX Thunder 3] | StartsUsing 19AE [SophiaEX Aero 3]
+    Timeout(id + 0x190, 5.8f, "Quasar Tethers"); // t=297.1; Ability 196E from Sophia
+    Timeout(id + 0x1A0, 8.6f, "Quasar (Tilt)"); // t=305.7; Ability 1A4C from Sophia
+    Timeout(id + 0x1B0, 5.0f, "Cintamani x2"); // t=310.7
+    Timeout(id + 0x1C0, 8.1f, "Arms Of Wisdom").SetHint(StateMachine.StateHint.Tankbuster); // t=318.8; Ability 19C4 from Sophia; cactbot StartsUsing 19C4 [SophiaEX Tank Buster]
+    Timeout(id + 0x1D0, 9.5f, "Thunder II"); // t=328.3; Ability 19B0 from Sophia; cactbot StartsUsing 19B0 [SophiaEX Thunder 2]
+    Timeout(id + 0x1E0, 5.7f, "Quasar Tethers"); // t=334.0; Ability 19A7 from Sophia
+    Targetable(id + 0x1F0, false, 1.0f, "--untargetable--"); // t=335.0
+    Timeout(id + 0x200, 6.2f, "Onrush"); // t=341.2; Ability 19C1 from Sophia
+    Timeout(id + 0x210, 0.6f, "Quasar (Tilt)"); // t=341.8
+    Targetable(id + 0x220, true, 3.6f, "--targetable--"); // t=345.4
+    Timeout(id + 0x230, 16.1f, "Dischordant Cleansing / Cintamani x2"); // t=361.5
+    Timeout(id + 0x240, 9.3f, "Arms Of Wisdom").SetHint(StateMachine.StateHint.Tankbuster); // t=370.8; Ability 19C4 from Sophia; cactbot StartsUsing 19C4 [SophiaEX Tank Buster]
+    Timeout(id + 0x250, 8.2f, "--clones appear--"); // t=379.0
+    Timeout(id + 0x260, 3.0f, "Cintamani x3"); // t=382.0
+    Timeout(id + 0x270, 11.3f, "Thunder II/III"); // t=393.3; Ability 19AC/19B0 from Sophia; cactbot StartsUsing 19B0 [SophiaEX Thunder 2] | StartsUsing 19AC [SophiaEX Thunder 3]
+    Timeout(id + 0x280, 6.1f, "Aero III"); // t=399.4; Ability 19AE from Sophia; cactbot StartsUsing 19AE [SophiaEX Aero 3]
+    Timeout(id + 0x290, 9.1f, "Arms Of Wisdom").SetHint(StateMachine.StateHint.Tankbuster); // t=408.5; Ability 19C4 from Sophia; cactbot StartsUsing 19C4 [SophiaEX Tank Buster]
+    Timeout(id + 0x2A0, 11.3f, "Light Dew"); // t=419.8; Ability 19BF from Barbelo; cactbot Ability 1983 [SophiaEX Light Dew]
+    Timeout(id + 0x2B0, 0.7f, "Execute"); // t=420.5; Ability 19AA from Sophia; cactbot StartsUsing 19AA [SophiaEX Execute] | Ability 19AA [SophiaEX Clone Cleanup]
+    Timeout(id + 0x2C0, 8.8f, "Cintamani x3"); // t=429.3
+    Timeout(id + 0x2D0, 11.4f, "Arms Of Wisdom").SetHint(StateMachine.StateHint.Tankbuster); // t=440.7; Ability 19C4 from Sophia; cactbot StartsUsing 19C4 [SophiaEX Tank Buster]
+    Timeout(id + 0x2E0, 5.8f, "Quasar Tethers"); // t=446.5; Ability 196E from Sophia
+    Timeout(id + 0x2F0, 8.7f, "Quasar (Tilt)"); // t=455.2; Ability 1A4C from Sophia
+    Timeout(id + 0x300, 2.5f, "Light Dew"); // t=457.7; Ability 19BF from Barbelo; cactbot Ability 1983 [SophiaEX Light Dew]
+    Timeout(id + 0x310, 12.3f, "Thunder III"); // t=470.0; Ability 19AC from Sophia; cactbot StartsUsing 19AC [SophiaEX Thunder 3]
+    Timeout(id + 0x320, 8.3f, "Arms Of Wisdom").SetHint(StateMachine.StateHint.Tankbuster); // t=478.3; Ability 19C4 from Sophia; cactbot StartsUsing 19C4 [SophiaEX Tank Buster]
+    Timeout(id + 0x330, 6.2f, "Quasar Tethers"); // t=484.5; Ability 19A7 from Sophia
+    Targetable(id + 0x340, false, 1.0f, "--untargetable--"); // t=485.5
+    Timeout(id + 0x350, 7.7f, "Quasar (Tilt)"); // t=493.2; Ability 1A4C from Sophia
+    Timeout(id + 0x360, 1.5f, "Onrush"); // t=494.7; Ability 19C1 from Sophia
+    Timeout(id + 0x370, 1.0f, "Light Dew"); // t=495.7; Ability 19C0 from Barbelo; cactbot Ability 1983 [SophiaEX Light Dew]
+    Targetable(id + 0x380, true, 3.3f, "--targetable--"); // t=499.0
+    Timeout(id + 0x390, 8.1f, "Cintamani x3"); // t=507.1
+    Timeout(id + 0x3A0, 11.2f, "Arms Of Wisdom").SetHint(StateMachine.StateHint.Tankbuster); // t=518.3; Ability 19C4 from Sophia; cactbot StartsUsing 19C4 [SophiaEX Tank Buster]
+    Timeout(id + 0x3B0, 7.1f, "Thunder II"); // t=525.4; Ability 19B0 from Sophia; cactbot StartsUsing 19B0 [SophiaEX Thunder 2]
+    Timeout(id + 0x3C0, 10.5f, "Dischordant Cleansing"); // t=535.9
+    Timeout(id + 0x3D0, 3.8f, "Gnosis"); // t=539.7; Ability 19C2 from Barbelo
+    Timeout(id + 0x3E0, 12.5f, "Arms Of Wisdom").SetHint(StateMachine.StateHint.Tankbuster); // t=552.2; Ability 19C4 from Sophia; cactbot StartsUsing 19C4 [SophiaEX Tank Buster]
+    Timeout(id + 0x3F0, 14.8f, "Quasar Tethers"); // t=567.0; Ability 196E from Sophia
+    Timeout(id + 0x400, 1.3f, "Dischordant Cleansing"); // t=568.3
+    Timeout(id + 0x410, 7.4f, "Quasar (Tilt)"); // t=575.7
+    Timeout(id + 0x420, 1.8f, "--clones appear--"); // t=577.5
+    Timeout(id + 0x430, 4.0f, "Cintamani x3"); // t=581.5
+    Timeout(id + 0x440, 11.3f, "Arms Of Wisdom").SetHint(StateMachine.StateHint.Tankbuster); // t=592.8; Ability 19C4 from Sophia; cactbot StartsUsing 19C4 [SophiaEX Tank Buster]
+    Timeout(id + 0x450, 7.1f, "Thunder II/III"); // t=599.9; Ability 19AC/19B0 from Sophia; cactbot StartsUsing 19B0 [SophiaEX Thunder 2] | StartsUsing 19AC [SophiaEX Thunder 3]
+    Timeout(id + 0x460, 6.2f, "Aero III"); // t=606.1; Ability 19AE from Sophia; cactbot StartsUsing 19AE [SophiaEX Aero 3]
+    Timeout(id + 0x470, 5.8f, "Quasar (Snapshot)"); // t=611.9; Ability 196E/19A7 from Sophia
+    Timeout(id + 0x480, 6.0f, "Quasar (Meteor Detonate)"); // t=617.9; Ability 1A87 from Sophia
+    Timeout(id + 0x490, 6.5f, "Arms Of Wisdom").SetHint(StateMachine.StateHint.Tankbuster); // t=624.4; Ability 19C4 from Sophia; cactbot StartsUsing 19C4 [SophiaEX Tank Buster]
+    Timeout(id + 0x4A0, 12.2f, "Dischordant Cleansing"); // t=636.6
+    Timeout(id + 0x4B0, 2.4f, "Execute"); // t=639.0; Ability 19AA from Sophia; cactbot StartsUsing 19AA [SophiaEX Execute] | Ability 19AA [SophiaEX Clone Cleanup]
+    Timeout(id + 0x4C0, 11.9f, "Cintamani x3"); // t=650.9
+    Timeout(id + 0x4D0, 11.4f, "Arms Of Wisdom"); // t=662.3
+    Timeout(id + 0x4E0, 5.8f, "Quasar Tethers"); // t=668.1
+    Timeout(id + 0x4F0, 8.8f, "Quasar (Tilt)"); // t=676.9
+    Timeout(id + 0x500, 2.4f, "Light Dew"); // t=679.3; cactbot Ability 1983 [SophiaEX Light Dew]
+    Timeout(id + 0x510, 12.3f, "Thunder III"); // t=691.6
+    Timeout(id + 0x520, 8.3f, "Arms Of Wisdom"); // t=699.9
+}
+

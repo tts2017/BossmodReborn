@@ -1,0 +1,100 @@
+// Generated development skeleton from rubicante-ex.txt (TerritoryType 1096).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 33 static/dynamic trigger definitions from ui/raidboss/data/06-ew/trial/rubicante-ex.ts.
+
+private void Rubicante_Extreme(uint id)
+{
+    Condition(id + 0x0, 7.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7D2C), "", 5f, 2.0f); // t=7.0; StartsUsing 7D2C from Rubicante; cactbot StartsUsing 7D2C [RubicanteEx Inferno Raidwide]
+    Timeout(id + 0x10, 5.0f, "Inferno (aoe)").SetHint(StateMachine.StateHint.Raidwide); // t=12.0; Ability 7D2C from Rubicante; cactbot StartsUsing 7D2C [RubicanteEx Inferno Raidwide]
+    Timeout(id + 0x20, 3.1f, "--middle--"); // t=15.1; Ability 7CBC from Rubicante
+    Timeout(id + 0x30, 2.3f, "Hope Abandon Ye"); // t=17.4; Ability 7F27 from Rubicante
+    Timeout(id + 0x40, 9.4f, "Arcane Revelation"); // t=26.8; Ability 7CBE from Rubicante
+    Timeout(id + 0x50, 22.2f, "Ordeal of Purgation 1"); // t=49.0; Ability 80E9 from Rubicante; cactbot Ability 80E9 [RubicanteEx Circle Spinny Clear] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation Counter] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 1] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 2] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 3] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 4] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 5] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 6]
+    Timeout(id + 0x60, 8.0f, "Fiery Expiation"); // t=57.0; Ability 7CEF/7CF0 from Circle of Purgatory
+    Timeout(id + 0x70, 18.8f, "Ordeal of Purgation 2"); // t=75.8; Ability 80E9 from Rubicante; cactbot Ability 80E9 [RubicanteEx Circle Spinny Clear] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation Counter] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 1] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 2] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 3] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 4] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 5] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 6]
+    Timeout(id + 0x80, 8.0f, "Fiery Expiation"); // t=83.8; Ability 7CF0 from Circle of Purgatory
+    Timeout(id + 0x90, 14.1f, "Shattering Heat").SetHint(StateMachine.StateHint.Tankbuster); // t=97.9; Ability 7D2D from Rubicante; cactbot StartsUsing 7D2D [RubicanteEx Shattering Heat]
+    Timeout(id + 0xA0, 7.2f, "--middle--"); // t=105.1; Ability 7CBC from Rubicante
+    Timeout(id + 0xB0, 8.0f, "Arch Inferno / Inferno Devil x2"); // t=113.1; Ability 7CF9 from Rubicante | Ability 7CFB from Rubicante
+    Timeout(id + 0xC0, 3.1f, "Infernal Slaughter"); // t=116.2; Ability 7D00 from Rubicante
+    Timeout(id + 0xD0, 5.9f, "Spike of Flame/Fourfold Flame/Twinfold Flame 1"); // t=122.1; Ability 7D02/7D03/7D04 from Rubicante; cactbot StartsUsing 7D02 [RubicanteEx Spike of Flame] | StartsUsing 7D03 [RubicanteEx Fourfold Flame] | StartsUsing 7D04 [RubicanteEx Twinfold Flame]
+    Timeout(id + 0xE0, 4.2f, "Conflagration"); // t=126.3; Ability 7CFD from Rubicante
+    Timeout(id + 0xF0, 3.1f, "Infernal Slaughter"); // t=129.4; Ability 7D00 from Rubicante
+    Timeout(id + 0x100, 5.9f, "Spike of Flame/Fourfold Flame/Twinfold Flame 2"); // t=135.3; Ability 7D02/7D03/7D04 from Rubicante; cactbot StartsUsing 7D02 [RubicanteEx Spike of Flame] | StartsUsing 7D03 [RubicanteEx Fourfold Flame] | StartsUsing 7D04 [RubicanteEx Twinfold Flame]
+    Timeout(id + 0x110, 7.2f, "Radial Flagration"); // t=142.5; Ability 7CFE from Rubicante; cactbot StartsUsing 7CFE [RubicanteEx Radial Flagration]
+    Timeout(id + 0x120, 10.1f, "Inferno (aoe)").SetHint(StateMachine.StateHint.Raidwide); // t=152.6; Ability 7D2C from Rubicante; cactbot StartsUsing 7D2C [RubicanteEx Inferno Raidwide]
+    Timeout(id + 0x130, 3.1f, "--middle--"); // t=155.7; Ability 7CBC from Rubicante
+    Timeout(id + 0x140, 2.2f, "Hope Abandon Ye"); // t=157.9; Ability 7F27 from Rubicante
+    Timeout(id + 0x150, 9.4f, "Arcane Revelation"); // t=167.3; Ability 7CBE from Rubicante
+    Timeout(id + 0x160, 23.0f, "Ordeal of Purgation 3"); // t=190.3; Ability 80E9 from Rubicante; cactbot Ability 80E9 [RubicanteEx Circle Spinny Clear] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation Counter] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 1] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 2] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 3] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 4] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 5] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 6]
+    Timeout(id + 0x170, 8.0f, "Fiery Expiation"); // t=198.3; Ability 7CEF from Circle of Purgatory
+    Timeout(id + 0x180, 18.9f, "Ordeal of Purgation 4"); // t=217.2; Ability 80E9 from Rubicante; cactbot Ability 80E9 [RubicanteEx Circle Spinny Clear] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation Counter] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 1] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 2] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 3] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 4] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 5] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 6]
+    Timeout(id + 0x190, 8.0f, "Fiery Expiation"); // t=225.2; Ability 7CF0 from Circle of Purgatory
+    Targetable(id + 0x1A0, false, 5.1f, "--untargetable--"); // t=230.3
+    Timeout(id + 0x1B0, 10.5f, "Ghastly Flame"); // t=240.8; Ability 7D0D from Flamesent
+    Timeout(id + 0x1C0, 4.0f, "Ghastly Torch"); // t=244.8; Ability 7D09 from Greater Flamesent
+    Timeout(id + 0x1D0, 3.0f, "Ghastly Wind"); // t=247.8; Ability 7D0B from Flamesent; cactbot Tether C0 [RubicanteEx Flamesent Ghastly Wind Tether]
+    Timeout(id + 0x1E0, 3.0f, "Ghastly Torch"); // t=250.8; Ability 7D09 from Greater Flamesent
+    Timeout(id + 0x1F0, 9.0f, "Shattering Heat").SetHint(StateMachine.StateHint.Tankbuster); // t=259.8; Ability 7D0A from Flamesent; cactbot StartsUsing 7D2D [RubicanteEx Shattering Heat] | Tether 54 [RubicanteEx Flamesent Shattering Heat Tether]
+    Timeout(id + 0x200, 11.0f, "Ghastly Flame"); // t=270.8; Ability 7D0D from Flamesent
+}
+
+private void Phase_2(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7D06), "", 5f, 0.0f); // t=996.0; StartsUsing 7D06 from Rubicante
+    Timeout(id + 0x10, 13.8f, "Blazing Rapture").SetHint(StateMachine.StateHint.Raidwide); // t=1009.8; Ability 7D07 from Rubicante; cactbot StartsUsing 7D07 [RubicanteEx Blazing Rapture]
+    Timeout(id + 0x20, 24.6f, "--middle--"); // t=1034.4; Ability 7CBD from Rubicante
+    Timeout(id + 0x30, 6.1f, "Flamespire Brand"); // t=1040.5; Ability 7D13 from Rubicante; cactbot GainsEffect [RubicanteEx Flamespire Brand Debuff Collect] | Ability 7D18 [RubicanteEx Flamespire Brand Blooming Welt] | Ability 7D18 [RubicanteEx Flamespire Brand Furious Welt] | Ability 7D1C [RubicanteEx Flamespire Brand Stinging Welt]
+    Timeout(id + 0x40, 10.6f, "Flamerake 1"); // t=1051.1; Ability 7D19 from Rubicante
+    Timeout(id + 0x50, 2.0f, "Flamerake 2"); // t=1053.1; Ability 7D1C from Rubicante; cactbot Ability 7D1C [RubicanteEx Flamespire Brand Stinging Welt]
+    Timeout(id + 0x60, 0.4f, "Blooming Welt / Furious Welt"); // t=1053.5; Ability 7D14 from Rubicante | Ability 7D15 from Rubicante
+    Timeout(id + 0x70, 2.0f, "Flamerake 3"); // t=1055.5; Ability 7D1D from Rubicante
+    Timeout(id + 0x80, 1.0f, "Stinging Welt"); // t=1056.5; Ability 7D16 from Rubicante; cactbot Ability 7D1C [RubicanteEx Flamespire Brand Stinging Welt]
+    Timeout(id + 0x90, 3.4f, "Explosive Pyre"); // t=1059.9; Ability 7D11 from Rubicante
+    Timeout(id + 0xA0, 7.0f, "Inferno (spread)"); // t=1066.9; Ability 7D0F from Rubicante; cactbot StartsUsing 7D0F [RubicanteEx Inferno Spread]
+    Timeout(id + 0xB0, 4.1f, "--middle--"); // t=1071.0; Ability 7CBD from Rubicante
+    Timeout(id + 0xC0, 7.0f, "Scalding Ring/Scalding Signal"); // t=1078.0; Ability 7D25/7D24 from Rubicante; cactbot StartsUsing 7D24 [RubicanteEx Scalding Signal] | StartsUsing 7D25 [RubicanteEx Scalding Ring]
+    Timeout(id + 0xD0, 1.1f, "Scalding Fleet"); // t=1079.1; Ability 7D26 from Rubicante Mirage
+    Timeout(id + 0xE0, 9.0f, "Sweeping Immolation"); // t=1088.1; Ability 7D21 from Rubicante; cactbot StartsUsing 7D21 [RubicanteEx Sweeping Immolation Stack]
+    Timeout(id + 0xF0, 0.4f, "Scalding Fleet / Partial Immolation/Total Immolation"); // t=1088.5; Ability 7D22/7D23 from Rubicante
+    Timeout(id + 0x100, 5.7f, "Explosive Pyre"); // t=1094.2; Ability 7D11 from Rubicante
+    Timeout(id + 0x110, 8.1f, "Dualfire"); // t=1102.3; Ability 7D2E from Rubicante; cactbot StartsUsing 7D2E [RubicanteEx Dualfire Not You]
+    Timeout(id + 0x120, 10.2f, "--middle--"); // t=1112.5; Ability 7CBC from Rubicante
+    Timeout(id + 0x130, 2.2f, "Hope Abandon Ye"); // t=1114.7; Ability 7F27 from Rubicante
+    Timeout(id + 0x140, 9.4f, "Arcane Revelation"); // t=1124.1; Ability 7CBE from Rubicante
+    Timeout(id + 0x150, 22.7f, "Ordeal of Purgation 5"); // t=1146.8; Ability 80E9 from Rubicante; cactbot Ability 80E9 [RubicanteEx Circle Spinny Clear] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation Counter] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 1] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 2] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 3] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 4] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 5] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 6]
+    Timeout(id + 0x160, 8.0f, "Fiery Expiation"); // t=1154.8; Ability 7CEF/7CF0 from Circle of Purgatory
+    Timeout(id + 0x170, 18.3f, "Ordeal of Purgation 6"); // t=1173.1; Ability 80E9 from Rubicante; cactbot Ability 80E9 [RubicanteEx Circle Spinny Clear] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation Counter] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 1] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 2] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 3] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 4] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 5] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 6]
+    Timeout(id + 0x180, 8.0f, "Fiery Expiation"); // t=1181.1; Ability 7CEF/7CF0 from Circle of Purgatory
+    Timeout(id + 0x190, 9.1f, "Inferno (aoe)").SetHint(StateMachine.StateHint.Raidwide); // t=1190.2; Ability 7D2C from Rubicante; cactbot StartsUsing 7D2C [RubicanteEx Inferno Raidwide]
+    Timeout(id + 0x1A0, 9.2f, "--middle--"); // t=1199.4; Ability 7CBD from Rubicante
+    Timeout(id + 0x1B0, 8.4f, "Flamespire Claw 1"); // t=1207.8
+    Timeout(id + 0x1C0, 2.4f, "Flamespire Claw 2"); // t=1210.2
+    Timeout(id + 0x1D0, 2.4f, "Flamespire Claw 3"); // t=1212.6
+    Timeout(id + 0x1E0, 2.8f, "Flamespire Claw 4"); // t=1215.4
+    Timeout(id + 0x1F0, 2.8f, "Flamespire Claw 5"); // t=1218.2
+    Timeout(id + 0x200, 2.8f, "Flamespire Claw 6"); // t=1221.0
+    Timeout(id + 0x210, 2.6f, "Flamespire Claw 7"); // t=1223.6
+    Timeout(id + 0x220, 2.4f, "Flamespire Claw 8"); // t=1226.0
+    Timeout(id + 0x230, 10.0f, "Inferno (spread)"); // t=1236.0; Ability 7D0F from Rubicante; cactbot StartsUsing 7D0F [RubicanteEx Inferno Spread]
+    Timeout(id + 0x240, 4.1f, "--middle--"); // t=1240.1; Ability 7CBD from Rubicante
+    Timeout(id + 0x250, 7.0f, "Scalding Ring/Scalding Signal"); // t=1247.1; Ability 7D25/7D24 from Rubicante; cactbot StartsUsing 7D24 [RubicanteEx Scalding Signal] | StartsUsing 7D25 [RubicanteEx Scalding Ring]
+    Timeout(id + 0x260, 1.1f, "Scalding Fleet"); // t=1248.2; Ability 7D26 from Rubicante Mirage
+    Timeout(id + 0x270, 9.2f, "Sweeping Immolation"); // t=1257.4; Ability 7D20 from Rubicante; cactbot StartsUsing 7D20 [RubicanteEx Sweeping Immolation Spread]
+    Timeout(id + 0x280, 0.3f, "Scalding Fleet"); // t=1257.7; Ability 7D27 from Rubicante Mirage
+    Timeout(id + 0x290, 0.1f, "Partial Immolation/Total Immolation"); // t=1257.8; Ability 7D22/7D23 from Rubicante
+    Timeout(id + 0x2A0, 5.7f, "Explosive Pyre"); // t=1263.5; Ability 7D11 from Rubicante
+    Timeout(id + 0x2B0, 8.0f, "Dualfire"); // t=1271.5; Ability 7D2E from Rubicante; cactbot StartsUsing 7D2E [RubicanteEx Dualfire Not You]
+    Timeout(id + 0x2C0, 10.3f, "--middle--"); // t=1281.8; Ability 7CBC from Rubicante
+    Timeout(id + 0x2D0, 2.3f, "Hope Abandon Ye"); // t=1284.1; Ability 7F27 from Rubicante
+    Timeout(id + 0x2E0, 9.4f, "Arcane Revelation"); // t=1293.5; Ability 7CBE from Rubicante
+    Timeout(id + 0x2F0, 22.3f, "Ordeal of Purgation 7"); // t=1315.8; Ability 80E9 from Rubicante; cactbot Ability 80E9 [RubicanteEx Circle Spinny Clear] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation Counter] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 1] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 2] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 3] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 4] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 5] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 6]
+    Timeout(id + 0x300, 8.0f, "Fiery Expiation"); // t=1323.8; Ability 7CEF from Circle of Purgatory
+    Timeout(id + 0x310, 18.4f, "Ordeal of Purgation 8"); // t=1342.2; Ability 80E9 from Rubicante; cactbot Ability 80E9 [RubicanteEx Circle Spinny Clear] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation Counter] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 1] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 2] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 3] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 4] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 5] | StartsUsing 80E9 [RubicanteEx Ordeal of Purgation 6]
+    Timeout(id + 0x320, 8.0f, "Fiery Expiation"); // t=1350.2; Ability 7CF0 from Circle of Purgatory
+    Timeout(id + 0x330, 9.2f, "--middle--"); // t=1359.4; Ability 7CBC from Rubicante
+    Timeout(id + 0x340, 12.3f, "Inferno Enrage"); // t=1371.7; Ability 7D2B from Rubicante
+    Targetable(id + 0x350, false, 0.0f, "--untargetable--"); // t=1371.7
+}
+

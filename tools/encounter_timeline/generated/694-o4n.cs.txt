@@ -1,0 +1,59 @@
+// Generated development skeleton from o4n.txt (TerritoryType 694).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 13 static/dynamic trigger definitions from ui/raidboss/data/04-sb/raid/o4n.ts.
+
+private void Phase_change_appears_to_be_65__HP(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "The Decisive Battle"); // t=300.0; Ability 2408 from Exdeath; cactbot StartsUsing 2408 [O4N Decisive Battle ]
+    Targetable(id + 0x10, false, 1.4f, "--untargetable--"); // t=301.4
+    Timeout(id + 0x20, 5.6f, "Collision"); // t=307.0; Ability 24CA from Exdeath
+    Timeout(id + 0x30, 5.0f, "Zombie Breath"); // t=312.0; Ability 24CB from Exdeath; cactbot StartsUsing 240A [O4N Zombie Breath]
+    Targetable(id + 0x40, true, 5.0f, "--targetable--"); // t=317.0
+    Timeout(id + 0x50, 5.4f, "Holy"); // t=322.4; Ability 24C4 from Exdeath
+    Timeout(id + 0x60, 7.1f, "Flare"); // t=329.5; Ability 24C2 from Exdeath
+    Timeout(id + 0x70, 9.1f, "Meteor").SetHint(StateMachine.StateHint.Raidwide); // t=338.6; Ability 24C6 from Exdeath; cactbot StartsUsing 24C6 [O4N Meteor]
+    Timeout(id + 0x80, 15.2f, "Black Hole"); // t=353.8; Ability 24C8 from Exdeath; cactbot StartsUsing 24C8 [O4N Black Hole]
+    Timeout(id + 0x90, 11.3f, "Mega Blizzard/Fire/Thunder"); // t=365.1
+    Timeout(id + 0xA0, 5.6f, "Blizzard/Fire III?"); // t=370.7
+    Timeout(id + 0xB0, 1.5f, "Holy?"); // t=372.2; Ability 24C4 from Exdeath
+    Timeout(id + 0xC0, 14.1f, "Meteor").SetHint(StateMachine.StateHint.Raidwide); // t=386.3; Ability 24C6 from Exdeath; cactbot StartsUsing 24C6 [O4N Meteor]
+    Timeout(id + 0xD0, 10.1f, "Thunder III (Buster)"); // t=396.4; Ability 24BD from Exdeath; cactbot StartsUsing 24BD [O4N Standard Thunder]
+    Timeout(id + 0xE0, 14.3f, "Black Hole"); // t=410.7; Ability 24C8 from Exdeath; cactbot StartsUsing 24C8 [O4N Black Hole]
+    Timeout(id + 0xF0, 10.3f, "Mega Blizzard/Fire/Thunder"); // t=421.0
+    Timeout(id + 0x100, 6.1f, "Flare? / Vacuum Wave?").SetHint(StateMachine.StateHint.Knockback); // t=427.1; Ability 24C2 from Exdeath | Ability 24B8 from Exdeath; cactbot StartsUsing 24B8 [O4N Vacuum Wave]
+    Timeout(id + 0x110, 15.2f, "Meteor").SetHint(StateMachine.StateHint.Raidwide); // t=442.3; Ability 24C6 from Exdeath; cactbot StartsUsing 24C6 [O4N Meteor]
+    Timeout(id + 0x120, 10.1f, "Thunder III (Buster)"); // t=452.4; Ability 24BD from Exdeath; cactbot StartsUsing 24BD [O4N Standard Thunder]
+    Timeout(id + 0x130, 14.4f, "The Decisive Battle"); // t=466.8; Ability 2408 from Exdeath; cactbot StartsUsing 2408 [O4N Decisive Battle ]
+    Targetable(id + 0x140, false, 1.4f, "--untargetable--"); // t=468.2
+    Timeout(id + 0x150, 5.5f, "Collision"); // t=473.7; Ability 24CA from Exdeath
+    Timeout(id + 0x160, 1.4f, "Clearout"); // t=475.1; Ability 24CC from Deathly Vine
+    Timeout(id + 0x170, 3.7f, "Zombie Breath"); // t=478.8; Ability 24CB from Exdeath; cactbot StartsUsing 240A [O4N Zombie Breath]
+    Targetable(id + 0x180, true, 5.0f, "--targetable--"); // t=483.8
+    Timeout(id + 0x190, 4.5f, "Vacuum Wave").SetHint(StateMachine.StateHint.Knockback); // t=488.3; Ability 24B8 from Exdeath; cactbot StartsUsing 24B8 [O4N Vacuum Wave]
+    Timeout(id + 0x1A0, 8.2f, "Holy"); // t=496.5; Ability 24C4 from Exdeath
+    Timeout(id + 0x1B0, 7.1f, "Flare"); // t=503.6; Ability 24C2 from Exdeath
+    Timeout(id + 0x1C0, 9.1f, "Meteor").SetHint(StateMachine.StateHint.Raidwide); // t=512.7; Ability 24C6 from Exdeath; cactbot StartsUsing 24C6 [O4N Meteor]
+    Timeout(id + 0x1D0, 15.3f, "Black Hole"); // t=528.0; Ability 24C8 from Exdeath; cactbot StartsUsing 24C8 [O4N Black Hole]
+    Timeout(id + 0x1E0, 10.2f, "Mega Blizzard/Fire/Thunder"); // t=538.2
+    Timeout(id + 0x1F0, 5.6f, "Blizzard/Fire III?"); // t=543.8
+    Timeout(id + 0x200, 1.5f, "Holy?"); // t=545.3; Ability 24C4 from Exdeath
+    Timeout(id + 0x210, 12.2f, "Meteor").SetHint(StateMachine.StateHint.Raidwide); // t=557.5; Ability 24C6 from Exdeath; cactbot StartsUsing 24C6 [O4N Meteor]
+    Timeout(id + 0x220, 10.2f, "Thunder III (Buster)"); // t=567.7; Ability 24BD from Exdeath; cactbot StartsUsing 24BD [O4N Standard Thunder]
+    Timeout(id + 0x230, 14.3f, "Black Hole"); // t=582.0; Ability 24C8 from Exdeath; cactbot StartsUsing 24C8 [O4N Black Hole]
+    Timeout(id + 0x240, 10.3f, "Mega Blizzard/Fire/Thunder"); // t=592.3
+    Timeout(id + 0x250, 7.1f, "Flare? / Vacuum Wave?").SetHint(StateMachine.StateHint.Knockback); // t=599.4; Ability 24C2 from Exdeath | Ability 24B8 from Exdeath; cactbot StartsUsing 24B8 [O4N Vacuum Wave]
+    Timeout(id + 0x260, 14.1f, "Meteor").SetHint(StateMachine.StateHint.Raidwide); // t=613.5; Ability 24C6 from Exdeath; cactbot StartsUsing 24C6 [O4N Meteor]
+    Timeout(id + 0x270, 10.2f, "Thunder III (Buster)"); // t=623.7; Ability 24BD from Exdeath; cactbot StartsUsing 24BD [O4N Standard Thunder]
+    Timeout(id + 0x280, 14.2f, "The Decisive Battle"); // t=637.9; Ability 2408 from Exdeath; cactbot StartsUsing 2408 [O4N Decisive Battle ]
+    Targetable(id + 0x290, false, 1.4f, "--untargetable--"); // t=639.3
+    Timeout(id + 0x2A0, 5.5f, "Collision"); // t=644.8
+    Timeout(id + 0x2B0, 1.4f, "Clearout"); // t=646.2
+    Timeout(id + 0x2C0, 3.7f, "Zombie Breath"); // t=649.9; cactbot StartsUsing 240A [O4N Zombie Breath]
+    Timeout(id + 0x2D0, 9.5f, "Vacuum Wave"); // t=659.4; cactbot StartsUsing 24B8 [O4N Vacuum Wave]
+    Timeout(id + 0x2E0, 8.2f, "Holy"); // t=667.6
+    Timeout(id + 0x2F0, 7.1f, "Flare"); // t=674.7
+    Condition(id + 0x300, 325.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x24C7), "", 5f, 320.3f); // t=1000.0; StartsUsing 24C7 from Exdeath
+    Timeout(id + 0x310, 5.0f, "Meteor Enrage"); // t=1005.0; Ability 24C7 from Exdeath
+}
+

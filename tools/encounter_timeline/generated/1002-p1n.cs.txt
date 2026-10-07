@@ -1,0 +1,63 @@
+// Generated development skeleton from p1n.txt (TerritoryType 1002).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 10 static/dynamic trigger definitions from ui/raidboss/data/06-ew/raid/p1n.ts.
+
+private void P1N__Asphodelos__The_First_Circle(uint id)
+{
+    Condition(id + 0x0, 8.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x6DA2 or 0x6DA3), "", 5f, 3.7f); // t=8.7; StartsUsing 6DA3/6DA2 from Erichthonios; cactbot StartsUsing 6DA2 [P1N Gaoler\] | StartsUsing 6DA3 [P1N Gaoler\]
+    Timeout(id + 0x10, 8.7f, "Gaoler's Flail Left/Gaoler's Flail Right"); // t=17.4; Ability 6DA3/6DA2 from Erichthonios; cactbot StartsUsing 6DA2 [P1N Gaoler\] | StartsUsing 6DA3 [P1N Gaoler\]
+    Timeout(id + 0x20, 11.1f, "Gaoler's Flail Right/Gaoler's Flail Left"); // t=28.5; Ability 6DA2/6DA3 from Erichthonios; cactbot StartsUsing 6DA2 [P1N Gaoler\] | StartsUsing 6DA3 [P1N Gaoler\]
+    Timeout(id + 0x30, 10.5f, "Warder's Wrath").SetHint(StateMachine.StateHint.Raidwide); // t=39.0; Ability 65F4 from Erichthonios; cactbot StartsUsing 65F4 [P1N Warder\]
+    Timeout(id + 0x40, 7.2f, "--knockback stack--").SetHint(StateMachine.StateHint.Knockback); // t=46.2; Ability 6D15 from Erichthonios
+    Timeout(id + 0x50, 5.3f, "Pitiless Flail"); // t=51.5; Ability 65E5 from Erichthonios; cactbot HeadMarker 1 [P1N Pitiless Flail KB] | HeadMarker 3E [P1N Pitiless Flail Stack]
+    Timeout(id + 0x60, 7.1f, "True Holy"); // t=58.6; Ability 65E7 from Erichthonios
+    Timeout(id + 0x70, 11.9f, "Gaoler's Flail Left/Gaoler's Flail Right"); // t=70.5; Ability 6DA3/6DA2 from Erichthonios; cactbot StartsUsing 6DA2 [P1N Gaoler\] | StartsUsing 6DA3 [P1N Gaoler\]
+    Timeout(id + 0x80, 10.6f, "Heavy Hand").SetHint(StateMachine.StateHint.Tankbuster); // t=81.1; Ability 65F3 from Erichthonios; cactbot StartsUsing 65F3 [P1N Heavy Hand]
+    Timeout(id + 0x90, 12.1f, "Intemperance"); // t=93.2; Ability 65EE from Erichthonios; cactbot GainsEffect AB3/AB4 [P1N Intemperance]
+    Timeout(id + 0xA0, 4.1f, "--middle--"); // t=97.3; Ability 65F5 from Erichthonios
+    Timeout(id + 0xB0, 7.8f, "Intemperate Torment"); // t=105.1; Ability 65EF from Erichthonios
+    Timeout(id + 0xC0, 2.6f, "Hot Spell/Cold Spell 1"); // t=107.7; Ability 65F0/54F1 from Erichthonios
+    Timeout(id + 0xD0, 9.0f, "Hot Spell/Cold Spell 2"); // t=116.7; Ability 6CC5/6CC6 from Erichthonios
+    Timeout(id + 0xE0, 9.0f, "Hot Spell/Cold Spell 3"); // t=125.7; Ability 6CC5/6CC6 from Erichthonios
+    Timeout(id + 0xF0, 9.6f, "Warder's Wrath").SetHint(StateMachine.StateHint.Raidwide); // t=135.3; Ability 65F4 from Erichthonios; cactbot StartsUsing 65F4 [P1N Warder\]
+    Timeout(id + 0x100, 12.3f, "Heavy Hand").SetHint(StateMachine.StateHint.Tankbuster); // t=147.6; Ability 65F3 from Erichthonios; cactbot StartsUsing 65F3 [P1N Heavy Hand]
+    Timeout(id + 0x110, 15.1f, "Shining Cells").SetHint(StateMachine.StateHint.Raidwide); // t=162.7; Ability 65E9 from Erichthonios; cactbot StartsUsing 65E9 [P1N Shining Cells]
+    Timeout(id + 0x120, 12.2f, "Aetherchain"); // t=174.9; Ability 65EB from Erichthonios
+    Timeout(id + 0x130, 0.9f, "Powerful Fire/Powerful Light"); // t=175.8; Ability 65EC/65ED from Erichthonios
+    Timeout(id + 0x140, 7.3f, "Aetherchain"); // t=183.1; Ability 65EB from Erichthonios
+    Timeout(id + 0x150, 0.9f, "Powerful Fire/Powerful Light"); // t=184.0; Ability 65EC/65ED from Erichthonios
+    Timeout(id + 0x160, 4.3f, "--middle--"); // t=188.3; Ability 65F5 from Erichthonios
+    Timeout(id + 0x170, 10.4f, "Aetherflail Left/Aetherflail Right"); // t=198.7; Ability 6DA3/6DA2 from Erichthonios; cactbot StartsUsing 6DA2 [P1N Gaoler\] | StartsUsing 6DA3 [P1N Gaoler\]
+    Timeout(id + 0x180, 0.1f, "Powerful Fire/Powerful Light"); // t=198.8; Ability 65EC/65ED from Erichthonios
+    Timeout(id + 0x190, 11.0f, "Aetherflail Right/Aetherflail Left"); // t=209.8; Ability 6DA2/6DA3 from Erichthonios; cactbot StartsUsing 6DA2 [P1N Gaoler\] | StartsUsing 6DA3 [P1N Gaoler\]
+    Timeout(id + 0x1A0, 0.1f, "Powerful Fire/Powerful Light"); // t=209.9; Ability 65EC/65ED from Erichthonios
+    Timeout(id + 0x1B0, 4.4f, "--knockback stack--").SetHint(StateMachine.StateHint.Knockback); // t=214.3; Ability 6D15 from Erichthonios
+    Timeout(id + 0x1C0, 5.3f, "Pitiless Flail"); // t=219.6; Ability 65E5 from Erichthonios; cactbot HeadMarker 1 [P1N Pitiless Flail KB] | HeadMarker 3E [P1N Pitiless Flail Stack]
+    Timeout(id + 0x1D0, 7.1f, "True Holy"); // t=226.7; Ability 65E7 from Erichthonios
+    Timeout(id + 0x1E0, 6.2f, "--middle--"); // t=232.9; Ability 65F5 from Erichthonios
+    Timeout(id + 0x1F0, 10.4f, "Aetherflail Left/Aetherflail Right"); // t=243.3; Ability 6DA3/6DA2 from Erichthonios; cactbot StartsUsing 6DA2 [P1N Gaoler\] | StartsUsing 6DA3 [P1N Gaoler\]
+    Timeout(id + 0x200, 0.1f, "Powerful Fire/Powerful Light"); // t=243.4; Ability 65EC/65ED from Erichthonios
+    Timeout(id + 0x210, 17.4f, "Slam Shut").SetHint(StateMachine.StateHint.Raidwide); // t=260.8; Ability 65EA from Erichthonios; cactbot StartsUsing 65EA [P1N Slam Shut]
+    Timeout(id + 0x220, 9.2f, "Intemperance"); // t=270.0; Ability 65EE from Erichthonios; cactbot GainsEffect AB3/AB4 [P1N Intemperance]
+    Timeout(id + 0x230, 4.1f, "--middle--"); // t=274.1; Ability 65F5 from Erichthonios
+    Timeout(id + 0x240, 7.6f, "Intemperate Torment"); // t=281.7; Ability 65EF from Erichthonios
+    Timeout(id + 0x250, 2.6f, "Hot Spell/Cold Spell 1"); // t=284.3; Ability 65F0/54F1 from Erichthonios
+    Timeout(id + 0x260, 9.0f, "Hot Spell/Cold Spell 2"); // t=293.3; Ability 6CC5/6CC6 from Erichthonios
+    Timeout(id + 0x270, 9.0f, "Hot Spell/Cold Spell 3"); // t=302.3; Ability 6CC5/6CC6 from Erichthonios
+    Timeout(id + 0x280, 3.3f, "Gaoler's Flail Right/Gaoler's Flail Left"); // t=305.6; Ability 6DA2/6DA3 from Erichthonios; cactbot StartsUsing 6DA2 [P1N Gaoler\] | StartsUsing 6DA3 [P1N Gaoler\]
+    Timeout(id + 0x290, 10.5f, "Warder's Wrath").SetHint(StateMachine.StateHint.Raidwide); // t=316.1; Ability 65F4 from Erichthonios; cactbot StartsUsing 65F4 [P1N Warder\]
+    Timeout(id + 0x2A0, 11.2f, "Warder's Wrath").SetHint(StateMachine.StateHint.Raidwide); // t=327.3; Ability 65F4 from Erichthonios; cactbot StartsUsing 65F4 [P1N Warder\]
+    Timeout(id + 0x2B0, 9.3f, "Heavy Hand").SetHint(StateMachine.StateHint.Tankbuster); // t=336.6; Ability 65F3 from Erichthonios; cactbot StartsUsing 65F3 [P1N Heavy Hand]
+    Timeout(id + 0x2C0, 19.2f, "Shining Cells").SetHint(StateMachine.StateHint.Raidwide); // t=355.8; Ability 65E9 from Erichthonios; cactbot StartsUsing 65E9 [P1N Shining Cells]
+    Timeout(id + 0x2D0, 4.2f, "--middle--"); // t=360.0; Ability 65F5 from Erichthonios
+    Timeout(id + 0x2E0, 10.3f, "Aetherflail Left/Aetherflail Right"); // t=370.3
+    Timeout(id + 0x2F0, 0.1f, "Powerful Fire/Powerful Light"); // t=370.4
+    Timeout(id + 0x300, 11.0f, "Aetherflail Right/Aetherflail Left"); // t=381.4
+    Timeout(id + 0x310, 0.1f, "Powerful Fire/Powerful Light"); // t=381.5
+    Timeout(id + 0x320, 4.4f, "--knockback stack--"); // t=385.9
+    Timeout(id + 0x330, 5.3f, "Pitiless Flail"); // t=391.2; cactbot HeadMarker 1 [P1N Pitiless Flail KB] | HeadMarker 3E [P1N Pitiless Flail Stack]
+    Timeout(id + 0x340, 7.1f, "True Holy"); // t=398.3
+    Timeout(id + 0x350, 6.2f, "--middle--"); // t=404.5
+}
+

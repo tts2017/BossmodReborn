@@ -1,0 +1,89 @@
+// Generated development skeleton from ihuykatumu.txt (TerritoryType 1167).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 18 static/dynamic trigger definitions from ui/raidboss/data/07-dt/dungeon/ihuykatumu.ts.
+
+private void IHUYKATUMU(uint id)
+{
+    Timeout(id + 0x0, 1010.1f, "Punutiy Press").SetHint(StateMachine.StateHint.Raidwide); // t=1010.1; Ability 8E8C from Prime Punutiy; cactbot StartsUsing 8E8C [Ihuykatumu Prime Punutiy Punutiy Press]
+    Timeout(id + 0x10, 6.2f, "Hydrowave"); // t=1016.3; Ability 8E8D from Prime Punutiy
+    Timeout(id + 0x20, 13.8f, "Resurface"); // t=1030.1; Ability 8E8E from Prime Punutiy; cactbot StartsUsing 8E8E [Ihuykatumu Prime Punutiy Inhale]
+    Timeout(id + 0x30, 12.1f, "Bury x8"); // t=1042.2
+    Timeout(id + 0x40, 13.0f, "Decay"); // t=1055.2; Ability 8E99 from Ihuykatumu Flytrap; cactbot StartsUsing 8E99 [Ihuykatumu Prime Punutiy Decay]
+    Timeout(id + 0x50, 5.2f, "Hydrowave"); // t=1060.4; Ability 8E8D from Prime Punutiy
+    Timeout(id + 0x60, 12.9f, "Song of the Punutiy"); // t=1073.3; Ability 8E9A from Prime Punutiy
+    Timeout(id + 0x70, 11.6f, "Punutiy Flop/Hydrowave"); // t=1084.9; Ability 8E9D from Punutiy
+    Condition(id + 0x80, 18.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8EA2), "", 5f, 13.0f); // t=1102.9; StartsUsing 8EA2 from Prime Punutiy; cactbot StartsUsing 8EA2 [Ihuykatumu Prime Punutiy Shore Shaker]
+    Timeout(id + 0x90, 4.0f, "Shore Shaker (cast)"); // t=1106.9; Ability 8EA2 from Prime Punutiy; cactbot StartsUsing 8EA2 [Ihuykatumu Prime Punutiy Shore Shaker]
+    Timeout(id + 0xA0, 1.0f, "Shore Shaker (puddle)"); // t=1107.9; Ability 8EA3 from Prime Punutiy
+    Timeout(id + 0xB0, 2.0f, "Shore Shaker (inner ring)"); // t=1109.9; Ability 8EA4 from Prime Punutiy
+    Timeout(id + 0xC0, 2.0f, "Shore Shaker (outer ring)"); // t=1111.9; Ability 8EA5 from Prime Punutiy
+    Timeout(id + 0xD0, 10.8f, "Resurface"); // t=1122.7; Ability 8E8E from Prime Punutiy; cactbot StartsUsing 8E8E [Ihuykatumu Prime Punutiy Inhale]
+    Timeout(id + 0xE0, 12.1f, "Bury x8"); // t=1134.8
+    Timeout(id + 0xF0, 13.0f, "Decay"); // t=1147.8; Ability 8E99 from Ihuykatumu Flytrap; cactbot StartsUsing 8E99 [Ihuykatumu Prime Punutiy Decay]
+    Timeout(id + 0x100, 5.2f, "Hydrowave"); // t=1153.0; Ability 8E8D from Prime Punutiy
+    Timeout(id + 0x110, 12.2f, "Punutiy Press").SetHint(StateMachine.StateHint.Raidwide); // t=1165.2; Ability 8E8C from Prime Punutiy; cactbot StartsUsing 8E8C [Ihuykatumu Prime Punutiy Punutiy Press]
+    Timeout(id + 0x120, 16.3f, "Song of the Punutiy"); // t=1181.5; Ability 8E9A from Prime Punutiy
+    Timeout(id + 0x130, 11.6f, "Punutiy Flop/Hydrowave"); // t=1193.1; Ability 8E9D from Punutiy
+    Condition(id + 0x140, 18.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8EA2), "", 5f, 13.4f); // t=1211.5; StartsUsing 8EA2 from Prime Punutiy; cactbot StartsUsing 8EA2 [Ihuykatumu Prime Punutiy Shore Shaker]
+    Timeout(id + 0x150, 4.0f, "Shore Shaker (cast)"); // t=1215.5; Ability 8EA2 from Prime Punutiy; cactbot StartsUsing 8EA2 [Ihuykatumu Prime Punutiy Shore Shaker]
+    Timeout(id + 0x160, 1.0f, "Shore Shaker (puddle)"); // t=1216.5; Ability 8EA3 from Prime Punutiy
+    Timeout(id + 0x170, 2.0f, "Shore Shaker (inner ring)"); // t=1218.5; Ability 8EA4 from Prime Punutiy
+    Timeout(id + 0x180, 2.0f, "Shore Shaker (outer ring)"); // t=1220.5; Ability 8EA5 from Prime Punutiy
+    Timeout(id + 0x190, 3.4f, "Hydrowave"); // t=1223.9; Ability 8E8D from Prime Punutiy
+    Timeout(id + 0x1A0, 10.1f, "Punutiy Press").SetHint(StateMachine.StateHint.Raidwide); // t=1234.0; Ability 8E8C from Prime Punutiy; cactbot StartsUsing 8E8C [Ihuykatumu Prime Punutiy Punutiy Press]
+    Timeout(id + 0x1B0, 12.2f, "Punutiy Press").SetHint(StateMachine.StateHint.Raidwide); // t=1246.2; Ability 8E8C from Prime Punutiy; cactbot StartsUsing 8E8C [Ihuykatumu Prime Punutiy Punutiy Press]
+    Timeout(id + 0x1C0, 14.3f, "Song of the Punutiy"); // t=1260.5; Ability 8E9A from Prime Punutiy
+    Timeout(id + 0x1D0, 753.9f, "Uppercut").SetHint(StateMachine.StateHint.Tankbuster); // t=2014.4; Ability 98DC from Drowsie; cactbot StartsUsing 98DC [Ihuykatumu Drowsie Uppercut]
+    Timeout(id + 0x1E0, 10.8f, "Sow"); // t=2025.2; Ability 8E7C from Drowsie
+    Timeout(id + 0x1F0, 5.6f, "Drowsy Dance"); // t=2030.8; Ability 8E7D from Drowsie
+    Timeout(id + 0x200, 4.9f, "Arise"); // t=2035.7; Ability 8E7E from Ihuykatumu Ivy
+    Timeout(id + 0x210, 11.0f, "Wallop (small)"); // t=2046.7; Ability 8E7F from Ihuykatumu Ivy; cactbot StartsUsing 8E7F [Ihuykatumu Drowsie Wallop Small]
+    Timeout(id + 0x220, 15.0f, "Wallop (large)"); // t=2061.7; Ability 8E82 from Ihuykatumu Ivy; cactbot StartsUsing 8E82 [Ihuykatumu Drowsie Wallop Large]
+    Timeout(id + 0x230, 5.1f, "Sneeze"); // t=2066.8; Ability 8E7B from Drowsie; cactbot StartsUsing 8E7B [Ihuykatumu Drowsie Sneeze]
+    Timeout(id + 0x240, 13.4f, "Spit"); // t=2080.2; Ability 8E83 from Drowsie
+    Timeout(id + 0x250, 44.3f, "Sneeze"); // t=2124.5; Ability 8E7B from Drowsie; cactbot StartsUsing 8E7B [Ihuykatumu Drowsie Sneeze]
+    Timeout(id + 0x260, 12.3f, "Uppercut").SetHint(StateMachine.StateHint.Tankbuster); // t=2136.8; Ability 98DC from Drowsie; cactbot StartsUsing 98DC [Ihuykatumu Drowsie Uppercut]
+    Timeout(id + 0x270, 12.2f, "Sow"); // t=2149.0; Ability 8E7C from Drowsie
+    Timeout(id + 0x280, 5.6f, "Drowsy Dance"); // t=2154.6; Ability 8E7D from Drowsie
+    Timeout(id + 0x290, 4.9f, "Arise"); // t=2159.5; Ability 8E7E from Ihuykatumu Ivy
+    Timeout(id + 0x2A0, 11.0f, "Wallop (small)"); // t=2170.5; Ability 8E7F from Ihuykatumu Ivy; cactbot StartsUsing 8E7F [Ihuykatumu Drowsie Wallop Small]
+    Timeout(id + 0x2B0, 14.8f, "Wallop (large)"); // t=2185.3; Ability 8E82 from Ihuykatumu Ivy; cactbot StartsUsing 8E82 [Ihuykatumu Drowsie Wallop Large]
+    Timeout(id + 0x2C0, 5.2f, "Sneeze"); // t=2190.5; Ability 8E7B from Drowsie; cactbot StartsUsing 8E7B [Ihuykatumu Drowsie Sneeze]
+    Timeout(id + 0x2D0, 12.4f, "Uppercut").SetHint(StateMachine.StateHint.Tankbuster); // t=2202.9; Ability 98DC from Drowsie; cactbot StartsUsing 98DC [Ihuykatumu Drowsie Uppercut]
+    Timeout(id + 0x2E0, 15.0f, "Sow"); // t=2217.9; Ability 8E7C from Drowsie
+    Timeout(id + 0x2F0, 791.4f, "Razor Zephyr"); // t=3009.3; Ability 8DF4 from Apollyon
+    Timeout(id + 0x300, 9.7f, "Blade").SetHint(StateMachine.StateHint.Tankbuster); // t=3019.0; Ability 8DFB from Apollyon; cactbot StartsUsing 8DFB/8E04 [Ihuykatumu Apollyon Blade]
+    Timeout(id + 0x310, 21.2f, "High Wind").SetHint(StateMachine.StateHint.Raidwide); // t=3040.2; Ability 8DF5 from Apollyon; cactbot StartsUsing 8DF5 [Ihuykatumu Apollyon High Wind]
+    Timeout(id + 0x320, 16.1f, "Swarming Locust"); // t=3056.3; Ability 8DF7 from Apollyon; cactbot Ability 8DF7 [Ihuykatumu Apollyon Swarming Locust First Cleaves] | Ability 8DF7 [Ihuykatumu Apollyon Swarming Locust Second Cleaves]
+    Timeout(id + 0x330, 5.7f, "Blades of Famine"); // t=3062.0; Ability 8DF9 from Apollyon
+    Timeout(id + 0x340, 7.6f, "Blades of Famine"); // t=3069.6; Ability 8DF9 from Apollyon
+    Timeout(id + 0x350, 11.9f, "Levinsickle"); // t=3081.5; Ability 8DFC from Apollyon
+    Timeout(id + 0x360, 9.1f, "Wing of Lightning 1"); // t=3090.6; Ability 8DFF from Apollyon
+    Timeout(id + 0x370, 4.0f, "Wing of Lightning 2"); // t=3094.6; Ability 8DFF from Apollyon
+    Timeout(id + 0x380, 2.4f, "Thunder III"); // t=3097.0; Ability 8E00 from Apollyon; cactbot HeadMarker 6C [Ihuykatumu Apollyon Thunder III]
+    Timeout(id + 0x390, 20.2f, "High Wind").SetHint(StateMachine.StateHint.Raidwide); // t=3117.2; Ability 8DF5 from Apollyon; cactbot StartsUsing 8DF5 [Ihuykatumu Apollyon High Wind]
+    Timeout(id + 0x3A0, 17.8f, "Blade").SetHint(StateMachine.StateHint.Tankbuster); // t=3135.0; Ability 8E04 from Apollyon; cactbot StartsUsing 8DFB/8E04 [Ihuykatumu Apollyon Blade]
+    Timeout(id + 0x3B0, 4.9f, "Wind Sickle"); // t=3139.9; Ability 8E06 from Apollyon; cactbot Ability 8E05 [Ihuykatumu Apollyon Wind Sickle]
+    Timeout(id + 0x3C0, 4.7f, "Razor Storm"); // t=3144.6; Ability 8E03 from Apollyon
+    Timeout(id + 0x3D0, 12.2f, "Windwhistle"); // t=3156.8; Ability 8E07 from Apollyon; cactbot Ability 8E07 [Ihuykatumu Apollyon Windwhistle 1] | Ability 8E07 [Ihuykatumu Apollyon Windwhistle 2] | Ability 8E07 [Ihuykatumu Apollyon Windwhistle 3]
+    Timeout(id + 0x3E0, 10.0f, "Cutting Wind 1"); // t=3166.8; Ability 8E08 from Apollyon
+    Timeout(id + 0x3F0, 3.2f, "Razor Zephyr"); // t=3170.0; Ability 8DF4 from Apollyon
+    Timeout(id + 0x400, 4.9f, "Cutting Wind 2"); // t=3174.9; Ability 8E08 from Apollyon
+    Timeout(id + 0x410, 8.0f, "Cutting Wind 3"); // t=3182.9; Ability 8E08 from Apollyon
+    Timeout(id + 0x420, 1.8f, "Thunder III"); // t=3184.7; Ability 8E00 from Apollyon; cactbot HeadMarker 6C [Ihuykatumu Apollyon Thunder III]
+    Timeout(id + 0x430, 13.0f, "Levinsickle"); // t=3197.7; Ability 8DFC from Apollyon
+    Timeout(id + 0x440, 9.0f, "Wing of Lightning 1"); // t=3206.7; Ability 8DFF from Apollyon
+    Timeout(id + 0x450, 4.0f, "Wing of Lightning 2"); // t=3210.7; Ability 8DFF from Apollyon
+    Timeout(id + 0x460, 5.2f, "Razor Zephyr"); // t=3215.9; Ability 8DF4 from Apollyon
+    Timeout(id + 0x470, 7.1f, "High Wind").SetHint(StateMachine.StateHint.Raidwide); // t=3223.0; Ability 8DF5 from Apollyon; cactbot StartsUsing 8DF5 [Ihuykatumu Apollyon High Wind]
+    Timeout(id + 0x480, 7.4f, "Windwhistle"); // t=3230.4; Ability 8E07 from Apollyon; cactbot Ability 8E07 [Ihuykatumu Apollyon Windwhistle 1] | Ability 8E07 [Ihuykatumu Apollyon Windwhistle 2] | Ability 8E07 [Ihuykatumu Apollyon Windwhistle 3]
+    Timeout(id + 0x490, 10.0f, "Cutting Wind 1"); // t=3240.4; Ability 8E08 from Apollyon
+    Timeout(id + 0x4A0, 3.2f, "Razor Zephyr"); // t=3243.6; Ability 8DF4 from Apollyon
+    Timeout(id + 0x4B0, 4.8f, "Cutting Wind 2"); // t=3248.4; Ability 8E08 from Apollyon
+    Timeout(id + 0x4C0, 8.0f, "Cutting Wind 3"); // t=3256.4; Ability 8E08 from Apollyon
+    Timeout(id + 0x4D0, 2.0f, "Thunder III"); // t=3258.4; Ability 8E00 from Apollyon; cactbot HeadMarker 6C [Ihuykatumu Apollyon Thunder III]
+    Timeout(id + 0x4E0, 11.7f, "Blade").SetHint(StateMachine.StateHint.Tankbuster); // t=3270.1; Ability 8DFB from Apollyon; cactbot StartsUsing 8DFB/8E04 [Ihuykatumu Apollyon Blade]
+    Timeout(id + 0x4F0, 16.0f, "Levinsickle"); // t=3286.1; Ability 8DFC from Apollyon
+}
+

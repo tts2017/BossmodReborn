@@ -1,0 +1,44 @@
+query ReportEventsCollect(
+  $code: String!
+  $fightIDs: [Int]
+  $dataType: EventDataType
+  $startTime: Float
+  $endTime: Float
+  $sourceID: Int
+  $targetID: Int
+  $abilityID: Float
+  $limit: Int
+) {
+  reportData {
+    report(code: $code) {
+      masterData(translate: true) {
+        actors {
+          id
+          gameID
+          type
+          subType
+        }
+        abilities {
+          gameID
+          type
+        }
+      }
+      events(
+        fightIDs: $fightIDs
+        dataType: $dataType
+        startTime: $startTime
+        endTime: $endTime
+        sourceID: $sourceID
+        targetID: $targetID
+        abilityID: $abilityID
+        limit: $limit
+        translate: true
+        useAbilityIDs: true
+        useActorIDs: true
+      ) {
+        data
+        nextPageTimestamp
+      }
+    }
+  }
+}

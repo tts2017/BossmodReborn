@@ -1,0 +1,95 @@
+// Generated development skeleton from e3s.txt (TerritoryType 855).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 29 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e3s.ts.
+
+private void Eden_3__Savage(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 12.8f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=12.8; Ability 3FDC from Leviathan; cactbot StartsUsing 3FDC [E3S Tidal Roar]
+    Timeout(id + 0x20, 11.1f, "Rip Current"); // t=23.9; Ability 3FE0 from Leviathan; cactbot HeadMarker 17 [E3S Rip Current]
+    Timeout(id + 0x30, 19.4f, "Undersea Quake"); // t=43.3; Ability 3FEF from Leviathan; cactbot StartsUsing 3FEF [E3S Undersea Quake Outside]
+    Timeout(id + 0x40, 2.8f, "Tidal Wave").SetHint(StateMachine.StateHint.Knockback); // t=46.1; Ability 3FF2 from Leviathan; cactbot StartsUsing 3FF1 [E3S Tidal Wave Look] | StartsUsing 3FF1 [E3S Tidal Wave Knockback]
+    Timeout(id + 0x50, 6.3f, "Temporary Current"); // t=52.4; Ability 3FEB/3FEA from Leviathan; cactbot StartsUsing 3FEB [E3S Front Left Temporary Current] | StartsUsing 3FEA [E3S Front Right Temporary Current] | StartsUsing 3FEA [E3S Front Left Temporary Current 2] | StartsUsing 3FEB [E3S Front Right Temporary Current 2]
+    Timeout(id + 0x60, 9.2f, "Drenching Pulse"); // t=61.6; Ability 3FE2 from Leviathan; cactbot StartsUsing 3FE2 [E3S Drenching Pulse] | StartsUsing 3FE2 [E3S Drenching Pulse Puddles]
+    Timeout(id + 0x70, 4.1f, "Monster Wave"); // t=65.7; Ability 3FE5 from Leviathan
+    Timeout(id + 0x80, 4.0f, "Freak Wave"); // t=69.7; Ability 3FE6 from Leviathan
+    Timeout(id + 0x90, 4.0f, "Temporary Current"); // t=73.7; Ability 3FEB/3FEA from Leviathan; cactbot StartsUsing 3FEB [E3S Front Left Temporary Current] | StartsUsing 3FEA [E3S Front Right Temporary Current] | StartsUsing 3FEA [E3S Front Left Temporary Current 2] | StartsUsing 3FEB [E3S Front Right Temporary Current 2]
+    Timeout(id + 0xA0, 14.2f, "Maelstrom"); // t=87.9; Ability 3FFA from Leviathan
+    Targetable(id + 0xB0, false, 2.1f, "--untargetable--"); // t=90.0
+    Timeout(id + 0xC0, 9.3f, "Spinning Dive 1"); // t=99.3
+    Timeout(id + 0xD0, 2.0f, "Spinning Dive 2"); // t=101.3
+    Targetable(id + 0xE0, true, 4.7f, "--targetable--"); // t=106.0
+    Timeout(id + 0xF0, 5.5f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=111.5; Ability 3FDC from Leviathan; cactbot StartsUsing 3FDC [E3S Tidal Roar]
+    Timeout(id + 0x100, 16.3f, "Tsunami"); // t=127.8; Ability 3FF3 from Leviathan
+    Timeout(id + 0x110, 5.0f, "Tsunami"); // t=132.8; Ability 441C from Leviathan
+    Timeout(id + 0x120, 8.6f, "Sundering Tsunami"); // t=141.4; Ability 3FF6 from Leviathan
+    Timeout(id + 0x130, 4.7f, "Undersea Quake"); // t=146.1; Ability 3FEE from Leviathan; cactbot StartsUsing 3FEE [E3S Undersea Quake Inside]
+    Timeout(id + 0x140, 12.3f, "Temporary Current / Smothering Tsunami / Swirling Tsunami"); // t=158.4; Ability 3FEB/3FEA from Leviathan | Ability 3FF7 from Leviathan | Ability 3FF4 from Leviathan; cactbot StartsUsing 3FEB [E3S Front Left Temporary Current] | StartsUsing 3FEA [E3S Front Right Temporary Current] | StartsUsing 3FEA [E3S Front Left Temporary Current 2] | StartsUsing 3FEB [E3S Front Right Temporary Current 2]
+    Timeout(id + 0x150, 10.3f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=168.7; Ability 3FDC from Leviathan; cactbot StartsUsing 3FDC [E3S Tidal Roar]
+    Timeout(id + 0x160, 7.2f, "Rip Current"); // t=175.9; Ability 3FE0 from Leviathan; cactbot HeadMarker 17 [E3S Rip Current]
+    Timeout(id + 0x170, 10.2f, "Temporary Current"); // t=186.1; Ability 3FEB/3FEA from Leviathan; cactbot StartsUsing 3FEB [E3S Front Left Temporary Current] | StartsUsing 3FEA [E3S Front Right Temporary Current] | StartsUsing 3FEA [E3S Front Left Temporary Current 2] | StartsUsing 3FEB [E3S Front Right Temporary Current 2]
+    Timeout(id + 0x180, 11.2f, "Tidal Roar").SetHint(StateMachine.StateHint.Raidwide); // t=197.3; Ability 3FDC from Leviathan; cactbot StartsUsing 3FDC [E3S Tidal Roar]
+    Timeout(id + 0x190, 13.1f, "Refreshing Shower"); // t=210.4; Ability 400F from Leviathan; cactbot StartsUsing 400F [E3S Refreshed]
+    Timeout(id + 0x1A0, 13.2f, "Tidal Rage").SetHint(StateMachine.StateHint.Raidwide); // t=223.6; Ability 3FDE from Leviathan; cactbot StartsUsing 3FDE [E3S Tidal Rage]
+    Timeout(id + 0x1B0, 12.3f, "Undersea Quake"); // t=235.9; Ability 3FEF from Leviathan; cactbot StartsUsing 3FEF [E3S Undersea Quake Outside]
+    Timeout(id + 0x1C0, 3.0f, "Tidal Wave").SetHint(StateMachine.StateHint.Knockback); // t=238.9; Ability 3FF2 from Leviathan; cactbot StartsUsing 3FF1 [E3S Tidal Wave Look] | StartsUsing 3FF1 [E3S Tidal Wave Knockback]
+    Timeout(id + 0x1D0, 7.1f, "Temporary Current"); // t=246.0; Ability 3FEB/3FEA from Leviathan; cactbot StartsUsing 3FEB [E3S Front Left Temporary Current] | StartsUsing 3FEA [E3S Front Right Temporary Current] | StartsUsing 3FEA [E3S Front Left Temporary Current 2] | StartsUsing 3FEB [E3S Front Right Temporary Current 2]
+    Timeout(id + 0x1E0, 4.1f, "Temporary Current"); // t=250.1; Ability 3FEC/3FED from Leviathan
+    Timeout(id + 0x1F0, 6.1f, "Drenching Pulse"); // t=256.2; Ability 3FE2 from Leviathan; cactbot StartsUsing 3FE2 [E3S Drenching Pulse] | StartsUsing 3FE2 [E3S Drenching Pulse Puddles]
+    Timeout(id + 0x200, 4.1f, "Monster Wave"); // t=260.3; Ability 3FE9 from Leviathan
+    Timeout(id + 0x210, 4.0f, "Freak Wave"); // t=264.3; Ability 3FE6 from Leviathan
+    Timeout(id + 0x220, 5.1f, "Temporary Current"); // t=269.4; Ability 3FEB/3FEA from Leviathan; cactbot StartsUsing 3FEB [E3S Front Left Temporary Current] | StartsUsing 3FEA [E3S Front Right Temporary Current] | StartsUsing 3FEA [E3S Front Left Temporary Current 2] | StartsUsing 3FEB [E3S Front Right Temporary Current 2]
+    Timeout(id + 0x230, 4.1f, "Temporary Current"); // t=273.5; Ability 3FEC/3FED from Leviathan
+    Timeout(id + 0x240, 14.3f, "Maelstrom"); // t=287.8; Ability 3FFA from Leviathan
+    Targetable(id + 0x250, false, 2.2f, "--untargetable--"); // t=290.0
+    Timeout(id + 0x260, 11.2f, "Spinning Dive 1"); // t=301.2
+    Timeout(id + 0x270, 1.9f, "Spinning Dive 2"); // t=303.1
+    Timeout(id + 0x280, 2.0f, "Spinning Dive 3"); // t=305.1
+    Targetable(id + 0x290, true, 4.9f, "--targetable--"); // t=310.0
+    Timeout(id + 0x2A0, 6.4f, "Tidal Rage").SetHint(StateMachine.StateHint.Raidwide); // t=316.4; Ability 3FDE from Leviathan; cactbot StartsUsing 3FDE [E3S Tidal Rage]
+    Timeout(id + 0x2B0, 7.1f, "Rip Current"); // t=323.5; Ability 3FE0 from Leviathan; cactbot HeadMarker 17 [E3S Rip Current]
+    Timeout(id + 0x2C0, 16.2f, "Stormy Horizon"); // t=339.7; Ability 3FFE from Leviathan; cactbot StartsUsing 3FFE [E3S Stormy Horizon]
+    Timeout(id + 0x2D0, 7.1f, "Monster Wave x4"); // t=346.8
+    Timeout(id + 0x2E0, 6.0f, "Backbreaking Wave"); // t=352.8; Ability 4001 from Leviathan
+    Timeout(id + 0x2F0, 1.1f, "Temporary Current"); // t=353.9; Ability 3FEB/3FEA from Leviathan; cactbot StartsUsing 3FEB [E3S Front Left Temporary Current] | StartsUsing 3FEA [E3S Front Right Temporary Current] | StartsUsing 3FEA [E3S Front Left Temporary Current 2] | StartsUsing 3FEB [E3S Front Right Temporary Current 2]
+    Timeout(id + 0x300, 4.2f, "Temporary Current"); // t=358.1; Ability 3FEC/3FED from Leviathan
+    Timeout(id + 0x310, 4.9f, "Plunging Wave x5"); // t=363.0
+    Timeout(id + 0x320, 10.2f, "Tidal Rage").SetHint(StateMachine.StateHint.Raidwide); // t=373.2; Ability 3FDE from Leviathan; cactbot StartsUsing 3FDE [E3S Tidal Rage]
+    Timeout(id + 0x330, 10.3f, "Tidal Rage").SetHint(StateMachine.StateHint.Raidwide); // t=383.5; Ability 3FDE from Leviathan; cactbot StartsUsing 3FDE [E3S Tidal Rage]
+    Timeout(id + 0x340, 18.8f, "Drenching Pulse"); // t=402.3; Ability 3FE2 from Leviathan; cactbot StartsUsing 3FE2 [E3S Drenching Pulse] | StartsUsing 3FE2 [E3S Drenching Pulse Puddles]
+    Timeout(id + 0x350, 4.1f, "Monster Wave"); // t=406.4; Ability 3FE9 from Leviathan
+    Timeout(id + 0x360, 4.0f, "Freak Wave"); // t=410.4; Ability 3FE6 from Leviathan
+    Timeout(id + 0x370, 3.0f, "Undersea Quake"); // t=413.4; Ability 3FEF from Leviathan; cactbot StartsUsing 3FEF [E3S Undersea Quake Outside]
+    Timeout(id + 0x380, 9.2f, "Tsunami"); // t=422.6; Ability 3FF3 from Leviathan
+    Timeout(id + 0x390, 5.0f, "Tsunami"); // t=427.6; Ability 441C from Leviathan
+    Timeout(id + 0x3A0, 8.5f, "Surging Tsunami"); // t=436.1; Ability 3FF8 from Leviathan
+    Timeout(id + 0x3B0, 5.0f, "Smothering Tsunami"); // t=441.1; Ability 3FF7 from Leviathan
+    Timeout(id + 0x3C0, 2.0f, "Sweeping Tsunami"); // t=443.1; Ability 3FF5 from Leviathan
+    Timeout(id + 0x3D0, 6.1f, "Sundering Tsunami"); // t=449.2
+    Timeout(id + 0x3E0, 4.0f, "Sundering Tsunami"); // t=453.2
+    Timeout(id + 0x3F0, 3.9f, "Scouring Tsunami"); // t=457.1; Ability 3CE0 from Leviathan
+    Timeout(id + 0x400, 9.7f, "Temporary Current"); // t=466.8; Ability 3FEB/3FEA from Leviathan; cactbot StartsUsing 3FEB [E3S Front Left Temporary Current] | StartsUsing 3FEA [E3S Front Right Temporary Current] | StartsUsing 3FEA [E3S Front Left Temporary Current 2] | StartsUsing 3FEB [E3S Front Right Temporary Current 2]
+    Timeout(id + 0x410, 4.1f, "Temporary Current"); // t=470.9; Ability 3FEC/3FED from Leviathan
+    Timeout(id + 0x420, 12.2f, "Tidal Rage").SetHint(StateMachine.StateHint.Raidwide); // t=483.1; Ability 3FDE from Leviathan; cactbot StartsUsing 3FDE [E3S Tidal Rage]
+    Timeout(id + 0x430, 10.1f, "Tidal Rage").SetHint(StateMachine.StateHint.Raidwide); // t=493.2; Ability 3FDE from Leviathan; cactbot StartsUsing 3FDE [E3S Tidal Rage]
+    Timeout(id + 0x440, 7.1f, "Rip Current"); // t=500.3; Ability 3FE0 from Leviathan; cactbot HeadMarker 17 [E3S Rip Current]
+    Timeout(id + 0x450, 16.2f, "Roiling Pulse"); // t=516.5; Ability 3FE4 from Leviathan; cactbot StartsUsing 3FE4 [E3S Roiling Pulse] | StartsUsing 3FE4 [E3S Roiling Pulse Abilities]
+    Timeout(id + 0x460, 4.1f, "Monster Wave"); // t=520.6; Ability 3FE9 from Leviathan
+    Timeout(id + 0x470, 4.0f, "Breaking Wave / Killer Wave"); // t=524.6; Ability 3FE8 from Leviathan | Ability 3FE7 from Leviathan
+    Timeout(id + 0x480, 1.1f, "Undersea Quake"); // t=525.7; Ability 3FEE from Leviathan; cactbot StartsUsing 3FEE [E3S Undersea Quake Inside]
+    Timeout(id + 0x490, 9.2f, "Black Smokers"); // t=534.9; Ability 4007 from Leviathan
+    Timeout(id + 0x4A0, 2.0f, "Spilling Wave x12"); // t=536.9
+    Timeout(id + 0x4B0, 4.0f, "Hydrothermal Vent x4"); // t=540.9
+    Timeout(id + 0x4C0, 3.5f, "Hot Water x5"); // t=544.4
+    Timeout(id + 0x4D0, 17.5f, "Temporary Current"); // t=561.9; Ability 3FEB/3FEA from Leviathan; cactbot StartsUsing 3FEB [E3S Front Left Temporary Current] | StartsUsing 3FEA [E3S Front Right Temporary Current] | StartsUsing 3FEA [E3S Front Left Temporary Current 2] | StartsUsing 3FEB [E3S Front Right Temporary Current 2]
+    Timeout(id + 0x4E0, 4.0f, "Temporary Current"); // t=565.9; Ability 3FEC/3FED from Leviathan
+    Timeout(id + 0x4F0, 11.0f, "Tidal Rage").SetHint(StateMachine.StateHint.Raidwide); // t=576.9; Ability 3FDE from Leviathan; cactbot StartsUsing 3FDE [E3S Tidal Rage]
+    Timeout(id + 0x500, 11.0f, "Tidal Rage").SetHint(StateMachine.StateHint.Raidwide); // t=587.9; Ability 3FDE from Leviathan; cactbot StartsUsing 3FDE [E3S Tidal Rage]
+    Timeout(id + 0x510, 17.0f, "The Calm"); // t=604.9; Ability 4009 from Leviathan
+    Timeout(id + 0x520, 13.0f, "Tidal Rage").SetHint(StateMachine.StateHint.Raidwide); // t=617.9; Ability 400B from Leviathan; cactbot StartsUsing 3FDE [E3S Tidal Rage]
+    Timeout(id + 0x530, 8.0f, "Tidal Rage").SetHint(StateMachine.StateHint.Raidwide); // t=625.9; Ability 400B from Leviathan; cactbot StartsUsing 3FDE [E3S Tidal Rage]
+    Timeout(id + 0x540, 8.0f, "Tidal Rage").SetHint(StateMachine.StateHint.Raidwide); // t=633.9; Ability 400B from Leviathan; cactbot StartsUsing 3FDE [E3S Tidal Rage]
+    Timeout(id + 0x550, 21.0f, "The Storm"); // t=654.9; Ability 400D from Leviathan
+}
+

@@ -1,0 +1,60 @@
+// Generated development skeleton from paglthan.txt (TerritoryType 938).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 17 static/dynamic trigger definitions from ui/raidboss/data/05-shb/dungeon/paglthan.ts.
+
+private void PAGLTH_AN(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 12.6f, "Critical Rip").SetHint(StateMachine.StateHint.Tankbuster); // t=12.6; Ability 5C4E from Amhuluk; cactbot StartsUsing 5C4E [Paglthan Critical Rip]
+    Timeout(id + 0x20, 17.6f, "Lightning Bolt"); // t=30.2; Ability 5C4B from Amhuluk
+    Timeout(id + 0x30, 6.6f, "Electric Burst").SetHint(StateMachine.StateHint.Raidwide); // t=36.8; Ability 5C4D from Amhuluk; cactbot StartsUsing 5C4D [Paglthan Electric Burst]
+    Timeout(id + 0x40, 11.2f, "Thundercall"); // t=48.0; Ability 5C50 from Amhuluk
+    Timeout(id + 0x50, 0.5f, "--Levin orbs--"); // t=48.5
+    Timeout(id + 0x60, 12.8f, "Wide Blaster"); // t=61.3; Ability 60C5 from Amhuluk
+    Timeout(id + 0x70, 2.6f, "Spike Flail"); // t=63.9; Ability 5C4F from Amhuluk
+    Timeout(id + 0x80, 13.7f, "Lightning Bolt"); // t=77.6; Ability 5C4B from Amhuluk
+    Timeout(id + 0x90, 6.6f, "Electric Burst").SetHint(StateMachine.StateHint.Raidwide); // t=84.2; Ability 5C4D from Amhuluk; cactbot StartsUsing 5C4D [Paglthan Electric Burst]
+    Timeout(id + 0xA0, 11.2f, "Critical Rip").SetHint(StateMachine.StateHint.Tankbuster); // t=95.4; Ability 5C4E from Amhuluk; cactbot StartsUsing 5C4E [Paglthan Critical Rip]
+    Timeout(id + 0xB0, 12.1f, "Thundercall"); // t=107.5; Ability 5C50 from Amhuluk
+    Timeout(id + 0xC0, 0.5f, "--Levin orbs--"); // t=108.0
+    Timeout(id + 0xD0, 13.0f, "Lightning Bolt"); // t=121.0; Ability 5C4B from Amhuluk
+    Timeout(id + 0xE0, 6.6f, "Electric Burst").SetHint(StateMachine.StateHint.Raidwide); // t=127.6; Ability 5C4D from Amhuluk; cactbot StartsUsing 5C4D [Paglthan Electric Burst]
+    Timeout(id + 0xF0, 10.1f, "Wide Blaster"); // t=137.7; Ability 60C5 from Amhuluk
+    Timeout(id + 0x100, 2.6f, "Spike Flail"); // t=140.3; Ability 5C4F from Amhuluk
+    Timeout(id + 0x110, 20.1f, "Critical Rip").SetHint(StateMachine.StateHint.Tankbuster); // t=160.4; Ability 5C4E from Amhuluk; cactbot StartsUsing 5C4E [Paglthan Critical Rip]
+    Timeout(id + 0x120, 12.1f, "Thundercall"); // t=172.5
+    Timeout(id + 0x130, 0.5f, "--Levin orbs--"); // t=173.0
+    Timeout(id + 0x140, 13.0f, "Lightning Bolt"); // t=186.0
+    Timeout(id + 0x150, 6.6f, "Electric Burst"); // t=192.6; cactbot StartsUsing 5C4D [Paglthan Electric Burst]
+    Timeout(id + 0x160, 1807.4f, "Start"); // t=2000.0
+    Timeout(id + 0x170, 10.0f, "Twisted Scream").SetHint(StateMachine.StateHint.Raidwide); // t=2010.0; Ability 5B47 from Lunar Bahamut; cactbot StartsUsing 5B47 [Paglthan Twisted Scream]
+    Timeout(id + 0x180, 5.0f, "Upburst x4"); // t=2015.0
+    Timeout(id + 0x190, 6.6f, "Big Burst x4"); // t=2021.6
+    Timeout(id + 0x1A0, 7.6f, "Perigean Breath"); // t=2029.2; Ability 5B59 from Lunar Bahamut
+    Timeout(id + 0x1B0, 13.2f, "Akh Morn x4"); // t=2042.4; Ability 5B55 from Lunar Bahamut
+    Timeout(id + 0x1C0, 20.4f, "Megaflare x3"); // t=2062.8; Ability 5B4C from Lunar Bahamut
+    Timeout(id + 0x1D0, 8.2f, "Twisted Scream").SetHint(StateMachine.StateHint.Raidwide); // t=2071.0; Ability 5B47 from Lunar Bahamut; cactbot StartsUsing 5B47 [Paglthan Twisted Scream]
+    Timeout(id + 0x1E0, 5.0f, "Upburst x4"); // t=2076.0
+    Timeout(id + 0x1F0, 6.6f, "Big Burst x4"); // t=2082.6
+    Timeout(id + 0x200, 1.3f, "Megaflare Dive"); // t=2083.9; Ability 5B52 from Lunar Bahamut
+    Timeout(id + 0x210, 11.8f, "Kan Rhai"); // t=2095.7; Ability 5B4F from Lunar Bahamut; cactbot Ability 5B4F [Paglthan Kan Rhai Move]
+    Timeout(id + 0x220, 11.7f, "Lunar Flare (circles)"); // t=2107.4; Ability 5B49 from Lunar Bahamut; cactbot Ability 5B49 [Paglthan Lunar Flare Reset]
+    Timeout(id + 0x230, 12.1f, "Lunar Flare (explosions)"); // t=2119.5; Ability 5B4A from Lunar Bahamut
+    Timeout(id + 0x240, 12.1f, "Gigaflare").SetHint(StateMachine.StateHint.Raidwide); // t=2131.6; Ability 5B57 from Lunar Bahamut; cactbot StartsUsing 5B57 [Paglthan Giga Flare]
+    Timeout(id + 0x250, 19.1f, "Akh Morn x4"); // t=2150.7; Ability 5B55 from Lunar Bahamut
+    Timeout(id + 0x260, 17.4f, "Twisted Scream").SetHint(StateMachine.StateHint.Raidwide); // t=2168.1; Ability 5B47 from Lunar Bahamut; cactbot StartsUsing 5B47 [Paglthan Twisted Scream]
+    Timeout(id + 0x270, 5.0f, "Upburst x4"); // t=2173.1
+    Timeout(id + 0x280, 6.6f, "Big Burst x4"); // t=2179.7
+    Timeout(id + 0x290, 11.6f, "Lunar Flare (circles)"); // t=2191.3; Ability 5B49 from Lunar Bahamut; cactbot Ability 5B49 [Paglthan Lunar Flare Reset]
+    Timeout(id + 0x2A0, 12.1f, "Lunar Flare (explosions)"); // t=2203.4; Ability 5B4A/5B4B from Lunar Bahamut
+    Timeout(id + 0x2B0, 12.1f, "Kan Rhai"); // t=2215.5; Ability 5B4F from Lunar Bahamut; cactbot Ability 5B4F [Paglthan Kan Rhai Move]
+    Timeout(id + 0x2C0, 8.0f, "Flatten").SetHint(StateMachine.StateHint.Tankbuster); // t=2223.5; Ability 5B58 from Lunar Bahamut; cactbot StartsUsing 5B58 [Paglthan Flatten]
+    Timeout(id + 0x2D0, 18.1f, "Gigaflare").SetHint(StateMachine.StateHint.Raidwide); // t=2241.6; Ability 5B57 from Lunar Bahamut; cactbot StartsUsing 5B57 [Paglthan Giga Flare]
+    Timeout(id + 0x2E0, 19.1f, "Akh Morn x4"); // t=2260.7
+    Timeout(id + 0x2F0, 17.4f, "Twisted Scream"); // t=2278.1; cactbot StartsUsing 5B47 [Paglthan Twisted Scream]
+    Timeout(id + 0x300, 5.0f, "Upburst x4"); // t=2283.1
+    Timeout(id + 0x310, 6.6f, "Big Burst x4"); // t=2289.7
+    Timeout(id + 0x320, 11.6f, "Lunar Flare (circles)"); // t=2301.3
+}
+

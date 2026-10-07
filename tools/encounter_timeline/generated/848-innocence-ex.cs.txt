@@ -1,0 +1,113 @@
+// Generated development skeleton from innocence-ex.txt (TerritoryType 848).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 21 static/dynamic trigger definitions from ui/raidboss/data/05-shb/trial/innocence-ex.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 17.0f, "Shadowreaver").SetHint(StateMachine.StateHint.Raidwide); // t=17.0; Ability 3EEA from Innocence; cactbot StartsUsing 3EEA [InnoEx Shadowreaver] | StartsUsing 3EEA [InnoEx Starbirth End 1]
+    Timeout(id + 0x20, 11.0f, "Winged Rep Tethers"); // t=28.0; Ability 40BD from Innocence
+    Timeout(id + 0x30, 9.0f, "Duel Descent"); // t=37.0; Ability 3EA9 from Nail of Condemnation
+    Timeout(id + 0x40, 10.0f, "Righteous Bolt").SetHint(StateMachine.StateHint.Tankbuster); // t=47.0; Ability 3ECD from Innocence; cactbot StartsUsing 3ECD [InnoEx Righteous Bolt]
+    Timeout(id + 0x50, 11.0f, "Winged Rep Tethers"); // t=58.0; Ability 40BD from Innocence
+    Timeout(id + 0x60, 7.2f, "Rightful Reprobation"); // t=65.2; Ability 3EDC from Innocence; cactbot StartsUsing 3EDC [InnoEx Reprobation Swords 2]
+    Timeout(id + 0x70, 1.8f, "Duel Descent"); // t=67.0; Ability 3EA9 from Nail of Condemnation
+    Timeout(id + 0x80, 5.1f, "Reprobation"); // t=72.1; Ability 3ECC from Innocence; cactbot StartsUsing 3EDC [InnoEx Reprobation Swords 2] | HeadMarker AC [InnoEx Winged Reprobation Tether]
+    Timeout(id + 0x90, 9.1f, "Winged Rep Rotate"); // t=81.2; Ability 40BD from Innocence
+    Timeout(id + 0xA0, 14.0f, "Drop Of Light"); // t=95.2; Ability 3EEC from Innocence; cactbot HeadMarker 8A [InnoEx Winged Drop Of Light]
+    Timeout(id + 0xB0, 12.6f, "Righteous Bolt").SetHint(StateMachine.StateHint.Tankbuster); // t=107.8; Ability 3ECD from Innocence; cactbot StartsUsing 3ECD [InnoEx Righteous Bolt]
+    Timeout(id + 0xC0, 11.0f, "Winged Rep Trident"); // t=118.8; Ability 40BD from Innocence
+    Timeout(id + 0xD0, 6.0f, "Holy Trinity"); // t=124.8
+    Timeout(id + 0xE0, 1.0f, "Rightful Reprobation"); // t=125.8; Ability 3EDD from Innocence
+    Timeout(id + 0xF0, 3.5f, "Holy Trinity"); // t=129.3
+    Timeout(id + 0x100, 3.3f, "Reprobation"); // t=132.6; Ability 3ECC from Innocence; cactbot StartsUsing 3EDC [InnoEx Reprobation Swords 2] | HeadMarker AC [InnoEx Winged Reprobation Tether]
+    Timeout(id + 0x110, 1.1f, "Holy Trinity"); // t=133.7
+    Timeout(id + 0x120, 3.3f, "Light Pillar"); // t=137.0; Ability 3EED from Innocence; cactbot Ability 38FC [InnoEx Light Pillar]
+    Timeout(id + 0x130, 7.0f, "Shadowreaver").SetHint(StateMachine.StateHint.Raidwide); // t=144.0; Ability 3EEA from Innocence; cactbot StartsUsing 3EEA [InnoEx Shadowreaver] | StartsUsing 3EEA [InnoEx Starbirth End 1]
+    Timeout(id + 0x140, 11.0f, "Winged Rep Tethers"); // t=155.0; Ability 40BD from Innocence
+    Timeout(id + 0x150, 6.0f, "Soul And Body / Duel Descent"); // t=161.0; Ability 3ED7 from Innocence | Ability 3EA9 from Nail of Condemnation; cactbot StartsUsing 3ED7 [InnoEx Soul And Body Left]
+}
+
+private void Phase_2__Adds(uint id)
+{
+    Targetable(id + 0x0, false, 0.0f, "--untargetable--"); // t=178.0; Ability 3EA2 from Innocence
+    Targetable(id + 0x10, true, 2.3f, "--targetable--"); // t=180.3; Ability 42B0 from Innocence; cactbot Ability 42B0 [InnoEx Adds]
+    Timeout(id + 0x20, 10.0f, "Scold's Bridle"); // t=190.3; Ability 3EC8 from Forgiven Shame
+    Timeout(id + 0x30, 5.0f, "Holy Sword").SetHint(StateMachine.StateHint.Tankbuster); // t=195.3; Ability 3EC9 from Forgiven Venery; cactbot StartsUsing 3EC9 [InnoEx Holy Sword Healer] | StartsUsing 3EC9 [InnoEx Holy Sword Me]
+    Timeout(id + 0x40, 2.0f, "Guiding Light"); // t=197.3; Ability 3F46 from Innocence
+    Timeout(id + 0x50, 14.0f, "Holy Sword").SetHint(StateMachine.StateHint.Tankbuster); // t=211.3; Ability 3EC9 from Forgiven Venery; cactbot StartsUsing 3EC9 [InnoEx Holy Sword Healer] | StartsUsing 3EC9 [InnoEx Holy Sword Me]
+    Timeout(id + 0x60, 2.0f, "Guiding Light"); // t=213.3; Ability 3F46 from Innocence
+    Timeout(id + 0x70, 14.0f, "Holy Sword").SetHint(StateMachine.StateHint.Tankbuster); // t=227.3; Ability 3EC9 from Forgiven Venery; cactbot StartsUsing 3EC9 [InnoEx Holy Sword Healer] | StartsUsing 3EC9 [InnoEx Holy Sword Me]
+    Timeout(id + 0x80, 3.0f, "Enrage"); // t=230.3
+}
+
+private void Phase_3__Starbirth(uint id)
+{
+    Targetable(id + 0x0, true, 14.0f, "--targetable--"); // t=314.0
+    Timeout(id + 0x10, 9.0f, "Starbirth Corner"); // t=323.0; Ability 3EEF from Innocence; cactbot StartsUsing 3EEF [InnoEx Starbirth Count] | StartsUsing 3EEF [InnoEx Starbirth Warning] | StartsUsing 3EEF [InnoEx Starbirth Avoid]
+    Timeout(id + 0x20, 13.0f, "Shadowreaver").SetHint(StateMachine.StateHint.Raidwide); // t=336.0; Ability 3EEA from Innocence; cactbot StartsUsing 3EEA [InnoEx Shadowreaver] | StartsUsing 3EEA [InnoEx Starbirth End 1]
+    Timeout(id + 0x30, 1.0f, "Explosion"); // t=337.0; Ability 3EF0 from Innocence
+    Timeout(id + 0x40, 10.0f, "Winged Rep Rotate"); // t=347.0; Ability 40BD from Innocence
+    Timeout(id + 0x50, 6.0f, "Soul And Body"); // t=353.0; Ability 3ED9 from Innocence; cactbot StartsUsing 3ED9 [InnoEx Soul And Body Right]
+    Timeout(id + 0x60, 10.0f, "Rightful Reprobation"); // t=363.0; Ability 3EDD from Innocence
+    Timeout(id + 0x70, 4.0f, "--jump--"); // t=367.0; Ability 3EA2 from Innocence
+    Timeout(id + 0x80, 2.8f, "Reprobation"); // t=369.8; Ability 3ECC from Innocence; cactbot StartsUsing 3EDC [InnoEx Reprobation Swords 2] | HeadMarker AC [InnoEx Winged Reprobation Tether]
+    Timeout(id + 0x90, 3.9f, "Beatific Vision"); // t=373.7; Ability 3EEE from Innocence; cactbot StartsUsing 3EEE [InnoEx Charge] | StartsUsing 3EEE [InnoEx Starbirth End 2]
+    Timeout(id + 0xA0, 16.0f, "Righteous Bolt").SetHint(StateMachine.StateHint.Tankbuster); // t=389.7; Ability 3ECD from Innocence; cactbot StartsUsing 3ECD [InnoEx Righteous Bolt]
+    Timeout(id + 0xB0, 11.0f, "Starbirth Avoid"); // t=400.7; Ability 3EEF from Innocence; cactbot StartsUsing 3EEF [InnoEx Starbirth Count] | StartsUsing 3EEF [InnoEx Starbirth Warning] | StartsUsing 3EEF [InnoEx Starbirth Avoid]
+    Timeout(id + 0xC0, 7.0f, "Drop Of Light 1"); // t=407.7
+    Timeout(id + 0xD0, 5.1f, "Drop Of Light 2"); // t=412.8
+    Timeout(id + 0xE0, 6.9f, "Light Pillar"); // t=419.7; Ability 3EED from Innocence; cactbot Ability 38FC [InnoEx Light Pillar]
+    Timeout(id + 0xF0, 2.0f, "--jump--"); // t=421.7; Ability 3EA2 from Innocence
+    Timeout(id + 0x100, 6.6f, "Beatific Vision"); // t=428.3; Ability 3EEE from Innocence; cactbot StartsUsing 3EEE [InnoEx Charge] | StartsUsing 3EEE [InnoEx Starbirth End 2]
+    Timeout(id + 0x110, 17.1f, "Rightful Reprobation"); // t=445.4; Ability 3EDC from Innocence; cactbot StartsUsing 3EDC [InnoEx Reprobation Swords 2]
+    Timeout(id + 0x120, 6.9f, "Reprobation"); // t=452.3; Ability 3ECC from Innocence; cactbot StartsUsing 3EDC [InnoEx Reprobation Swords 2] | HeadMarker AC [InnoEx Winged Reprobation Tether]
+    Timeout(id + 0x130, 0.6f, "God Ray x3"); // t=452.9; Ability 3EE6 from Innocence
+    Timeout(id + 0x140, 17.0f, "Shadowreaver").SetHint(StateMachine.StateHint.Raidwide); // t=469.9; Ability 3EEA from Innocence; cactbot StartsUsing 3EEA [InnoEx Shadowreaver] | StartsUsing 3EEA [InnoEx Starbirth End 1]
+    Timeout(id + 0x150, 11.0f, "Righteous Bolt").SetHint(StateMachine.StateHint.Tankbuster); // t=480.9; Ability 3ECD from Innocence; cactbot StartsUsing 3ECD [InnoEx Righteous Bolt]
+    Timeout(id + 0x160, 9.0f, "Starbirth Explode"); // t=489.9; Ability 3EEF from Innocence; cactbot StartsUsing 3EEF [InnoEx Starbirth Count] | StartsUsing 3EEF [InnoEx Starbirth Warning] | StartsUsing 3EEF [InnoEx Starbirth Avoid]
+    Timeout(id + 0x170, 5.0f, "Winged Rep Trident"); // t=494.9; Ability 40BD from Innocence
+    Timeout(id + 0x180, 6.0f, "Holy Trinity"); // t=500.9
+    Timeout(id + 0x190, 4.5f, "Holy Trinity"); // t=505.4
+    Timeout(id + 0x1A0, 4.5f, "Holy Trinity"); // t=509.9
+    Timeout(id + 0x1B0, 4.3f, "Light Pillar"); // t=514.2; Ability 3EED from Innocence; cactbot Ability 38FC [InnoEx Light Pillar]
+    Timeout(id + 0x1C0, 9.0f, "Shadowreaver").SetHint(StateMachine.StateHint.Raidwide); // t=523.2; Ability 3EEA from Innocence; cactbot StartsUsing 3EEA [InnoEx Shadowreaver] | StartsUsing 3EEA [InnoEx Starbirth End 1]
+    Timeout(id + 0x1D0, 15.1f, "Righteous Bolt").SetHint(StateMachine.StateHint.Tankbuster); // t=538.3; Ability 3ECD from Innocence; cactbot StartsUsing 3ECD [InnoEx Righteous Bolt]
+    Timeout(id + 0x1E0, 9.0f, "Winged Rep Tethers"); // t=547.3; Ability 40BD from Innocence
+    Timeout(id + 0x1F0, 6.0f, "Holy Trinity / Duel Descent"); // t=553.3; Ability 3EA9 from Nail of Condemnation
+    Timeout(id + 0x200, 4.5f, "Holy Trinity"); // t=557.8
+    Timeout(id + 0x210, 3.5f, "Winged Rep Trident"); // t=561.3; Ability 40BD from Innocence
+    Timeout(id + 0x220, 1.0f, "Holy Trinity"); // t=562.3
+    Timeout(id + 0x230, 8.0f, "Starbirth Charge"); // t=570.3; Ability 3EEF from Innocence; cactbot StartsUsing 3EEF [InnoEx Starbirth Count] | StartsUsing 3EEF [InnoEx Starbirth Warning] | StartsUsing 3EEF [InnoEx Starbirth Avoid]
+    Timeout(id + 0x240, 3.0f, "--jump--"); // t=573.3; Ability 3EA2 from Innocence
+    Timeout(id + 0x250, 6.6f, "Beatific Vision"); // t=579.9; Ability 3EEE from Innocence; cactbot StartsUsing 3EEE [InnoEx Charge] | StartsUsing 3EEE [InnoEx Starbirth End 2]
+    Timeout(id + 0x260, 17.2f, "Rightful Reprobation"); // t=597.1; Ability 3EDC from Innocence; cactbot StartsUsing 3EDC [InnoEx Reprobation Swords 2]
+    Timeout(id + 0x270, 1.8f, "Drop Of Light 1"); // t=598.9
+    Timeout(id + 0x280, 5.1f, "Reprobation"); // t=604.0; Ability 3ECC from Innocence; cactbot StartsUsing 3EDC [InnoEx Reprobation Swords 2] | HeadMarker AC [InnoEx Winged Reprobation Tether]
+    Timeout(id + 0x290, 0.8f, "Drop Of Light 2"); // t=604.8
+    Timeout(id + 0x2A0, 8.6f, "Winged Rep Tethers"); // t=613.4; Ability 40BD from Innocence
+    Timeout(id + 0x2B0, 9.0f, "Duel Descent"); // t=622.4; Ability 3EA9 from Nail of Condemnation
+    Timeout(id + 0x2C0, 1.0f, "Righteous Bolt").SetHint(StateMachine.StateHint.Tankbuster); // t=623.4; Ability 3ECD from Innocence; cactbot StartsUsing 3ECD [InnoEx Righteous Bolt]
+    Timeout(id + 0x2D0, 11.0f, "Starbirth Avoid"); // t=634.4; Ability 3EEF from Innocence; cactbot StartsUsing 3EEF [InnoEx Starbirth Count] | StartsUsing 3EEF [InnoEx Starbirth Warning] | StartsUsing 3EEF [InnoEx Starbirth Avoid]
+    Timeout(id + 0x2E0, 7.0f, "Drop Of Light 1"); // t=641.4
+    Timeout(id + 0x2F0, 5.1f, "Drop Of Light 2"); // t=646.5
+    Timeout(id + 0x300, 6.9f, "Light Pillar"); // t=653.4; Ability 3EED from Innocence; cactbot Ability 38FC [InnoEx Light Pillar]
+    Timeout(id + 0x310, 2.0f, "--jump--"); // t=655.4; Ability 3EA2 from Innocence
+    Timeout(id + 0x320, 6.7f, "Beatific Vision"); // t=662.1; Ability 3EEE from Innocence; cactbot StartsUsing 3EEE [InnoEx Charge] | StartsUsing 3EEE [InnoEx Starbirth End 2]
+    Timeout(id + 0x330, 17.3f, "Rightful Reprobation"); // t=679.4; Ability 3EDC from Innocence; cactbot StartsUsing 3EDC [InnoEx Reprobation Swords 2]
+    Timeout(id + 0x340, 6.9f, "Reprobation"); // t=686.3; Ability 3ECC from Innocence; cactbot StartsUsing 3EDC [InnoEx Reprobation Swords 2] | HeadMarker AC [InnoEx Winged Reprobation Tether]
+    Timeout(id + 0x350, 0.6f, "God Ray x3"); // t=686.9; Ability 3EE6 from Innocence
+    Timeout(id + 0x360, 17.0f, "Shadowreaver").SetHint(StateMachine.StateHint.Raidwide); // t=703.9; Ability 3EEA from Innocence; cactbot StartsUsing 3EEA [InnoEx Shadowreaver] | StartsUsing 3EEA [InnoEx Starbirth End 1]
+    Timeout(id + 0x370, 11.0f, "Righteous Bolt").SetHint(StateMachine.StateHint.Tankbuster); // t=714.9; Ability 3ECD from Innocence; cactbot StartsUsing 3ECD [InnoEx Righteous Bolt]
+    Timeout(id + 0x380, 9.0f, "Starbirth Final"); // t=723.9; Ability 3EEF from Innocence; cactbot StartsUsing 3EEF [InnoEx Starbirth Count] | StartsUsing 3EEF [InnoEx Starbirth Warning] | StartsUsing 3EEF [InnoEx Starbirth Avoid]
+    Timeout(id + 0x390, 5.0f, "Winged Rep Trident"); // t=728.9; Ability 40BD from Innocence
+    Timeout(id + 0x3A0, 6.0f, "Holy Trinity"); // t=734.9
+    Timeout(id + 0x3B0, 4.5f, "Holy Trinity"); // t=739.4
+    Condition(id + 0x3C0, 2.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x3EEF), "", 5f, 0.0f); // t=741.7; StartsUsing 3EEF from Innocence; cactbot StartsUsing 3EEF [InnoEx Starbirth Count] | StartsUsing 3EEF [InnoEx Starbirth Warning] | StartsUsing 3EEF [InnoEx Starbirth Avoid]
+    Timeout(id + 0x3D0, 2.2f, "Holy Trinity"); // t=743.9
+    Timeout(id + 0x3E0, 0.8f, "Starbirth Final"); // t=744.7; Ability 3EEF from Innocence; cactbot StartsUsing 3EEF [InnoEx Starbirth Count] | StartsUsing 3EEF [InnoEx Starbirth Warning] | StartsUsing 3EEF [InnoEx Starbirth Avoid]
+    Timeout(id + 0x3F0, 20.0f, "Beatific Vision"); // t=764.7; Ability 3EF1 from Innocence
+    Timeout(id + 0x400, 0.9f, "Explosion Enrage"); // t=765.6; Ability 3EF0 from Innocence
+}
+

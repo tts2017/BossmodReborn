@@ -1,0 +1,103 @@
+// Generated development skeleton from drowned_city_of_skalla.txt (TerritoryType 1172).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 12 static/dynamic trigger definitions from ui/raidboss/data/04-sb/dungeon/drowned_city_of_skalla.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 7.4f, "Torpedo"); // t=7.4; Ability 264F from Kelpie
+    Timeout(id + 0x20, 7.6f, "Rising Seas").SetHint(StateMachine.StateHint.Raidwide); // t=15.0; Ability 2650 from Kelpie; cactbot StartsUsing 2650 [Skalla Rising Seas]
+    Timeout(id + 0x30, 11.7f, "Gallop"); // t=26.7; Ability 2653 from Kelpie
+    Timeout(id + 0x40, 10.3f, "Hydro Pull/Hydro Push").SetHint(StateMachine.StateHint.Knockback); // t=37.0; Ability 2651/2652 from Kelpie; cactbot StartsUsing 2651 [Skalla Hydro Pull] | StartsUsing 2652 [Skalla Hydro Push]
+    Timeout(id + 0x50, 6.5f, "Torpedo"); // t=43.5; Ability 264F from Kelpie
+    Timeout(id + 0x60, 7.6f, "Rising Seas").SetHint(StateMachine.StateHint.Raidwide); // t=51.1; Ability 2650 from Kelpie; cactbot StartsUsing 2650 [Skalla Rising Seas]
+    Timeout(id + 0x70, 11.6f, "Bloody Puddle"); // t=62.7; Ability 2654 from Kelpie; cactbot HeadMarker 2B [Skalla Bloody Puddle]
+    Timeout(id + 0x80, 3.2f, "Gallop"); // t=65.9; Ability 2653 from Kelpie
+    Timeout(id + 0x90, 8.0f, "Bubble Burst"); // t=73.9; Ability 261B from Hydrosphere
+    Timeout(id + 0xA0, 2.3f, "Hydro Pull/Hydro Push").SetHint(StateMachine.StateHint.Knockback); // t=76.2; Ability 2651/2652 from Kelpie; cactbot StartsUsing 2651 [Skalla Hydro Pull] | StartsUsing 2652 [Skalla Hydro Push]
+    Timeout(id + 0xB0, 16.4f, "Rising Seas").SetHint(StateMachine.StateHint.Raidwide); // t=92.6; Ability 2650 from Kelpie; cactbot StartsUsing 2650 [Skalla Rising Seas]
+    Timeout(id + 0xC0, 9.6f, "Torpedo"); // t=102.2; Ability 264F from Kelpie
+    Timeout(id + 0xD0, 5.6f, "Rising Seas").SetHint(StateMachine.StateHint.Raidwide); // t=107.8; Ability 2650 from Kelpie; cactbot StartsUsing 2650 [Skalla Rising Seas]
+    Timeout(id + 0xE0, 9.5f, "Bloody Puddle"); // t=117.3; Ability 2654 from Kelpie; cactbot HeadMarker 2B [Skalla Bloody Puddle]
+    Timeout(id + 0xF0, 3.2f, "Gallop"); // t=120.5; Ability 2653 from Kelpie
+    Timeout(id + 0x100, 8.1f, "Bubble Burst"); // t=128.6; Ability 261B from Hydrosphere
+    Timeout(id + 0x110, 2.1f, "Hydro Pull/Hydro Push").SetHint(StateMachine.StateHint.Knockback); // t=130.7; Ability 2651/2652 from Kelpie; cactbot StartsUsing 2651 [Skalla Hydro Pull] | StartsUsing 2652 [Skalla Hydro Push]
+    Timeout(id + 0x120, 21.5f, "Torpedo"); // t=152.2; Ability 264F from Kelpie
+    Timeout(id + 0x130, 5.6f, "Rising Seas"); // t=157.8; cactbot StartsUsing 2650 [Skalla Rising Seas]
+    Timeout(id + 0x140, 9.5f, "Bloody Puddle"); // t=167.3; cactbot HeadMarker 2B [Skalla Bloody Puddle]
+    Timeout(id + 0x150, 3.2f, "Gallop"); // t=170.5
+    Timeout(id + 0x160, 8.1f, "Bubble Burst"); // t=178.6
+    Timeout(id + 0x170, 2.1f, "Hydro Push/Hydro Pull"); // t=180.7
+    Timeout(id + 0x180, 819.3f, "Start"); // t=1000.0
+    Timeout(id + 0x190, 9.2f, "Mystic Light"); // t=1009.2; Ability 2657 from The Old One
+    Timeout(id + 0x1A0, 5.8f, "Mystic Flame"); // t=1015.0; Ability 2658 from The Old One
+    Condition(id + 0x1B0, 3.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x265B), "Order To Detonate (cast)", 5f, 0.0f); // t=1018.1; StartsUsing 265B from The Old One
+    Timeout(id + 0x1C0, 19.7f, "Order To Detonate?"); // t=1037.8
+    Timeout(id + 0x1D0, 2.8f, "Self-Detonate?"); // t=1040.6
+    Timeout(id + 0x1E0, 7.1f, "Mystic Flame"); // t=1047.7; Ability 2658 from The Old One
+    Timeout(id + 0x1F0, 11.1f, "Mystic Light"); // t=1058.8; Ability 2657 from The Old One
+    Timeout(id + 0x200, 15.9f, "Mystic Flame"); // t=1074.7; Ability 2658 from The Old One
+    Timeout(id + 0x210, 11.1f, "Mystic Light"); // t=1085.8
+    Timeout(id + 0x220, 15.9f, "Mystic Flame"); // t=1101.7
+    Timeout(id + 0x230, 11.1f, "Mystic Light"); // t=1112.8
+    Timeout(id + 0x240, 15.9f, "Mystic Flame"); // t=1128.7
+    Timeout(id + 0x250, 11.1f, "Mystic Light"); // t=1139.8
+    Condition(id + 0x260, 60.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x265A), "", 5f, 55.2f); // t=1200.0; StartsUsing 265A from The Old One
+    Timeout(id + 0x270, 2.7f, "Shifting Light"); // t=1202.7; Ability 265A from The Old One
+    Condition(id + 0x280, 3.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x265B), "Order To Detonate (cast)", 5f, 0.0f); // t=1205.8; StartsUsing 265B from The Old One
+    Timeout(id + 0x290, 22.5f, "Self-Detonate?"); // t=1228.3
+    Condition(id + 0x2A0, 4.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2657), "", 5f, 0.0f); // t=1232.6; StartsUsing 2657 from The Old One
+    Timeout(id + 0x2B0, 3.7f, "Mystic Light"); // t=1236.3; Ability 2657 from The Old One
+    Timeout(id + 0x2C0, 7.8f, "Mystic Flame"); // t=1244.1; Ability 2658 from The Old One
+    Timeout(id + 0x2D0, 8.1f, "Mystic Light"); // t=1252.2; Ability 2657 from The Old One
+    Timeout(id + 0x2E0, 16.8f, "Mystic Light"); // t=1269.0; Ability 2657 from The Old One
+    Timeout(id + 0x2F0, 7.8f, "Mystic Flame"); // t=1276.8
+    Timeout(id + 0x300, 8.1f, "Mystic Light"); // t=1284.9
+    Timeout(id + 0x310, 16.8f, "Mystic Light"); // t=1301.7
+    Timeout(id + 0x320, 7.8f, "Mystic Flame"); // t=1309.5
+    Timeout(id + 0x330, 8.1f, "Mystic Light"); // t=1317.6
+    Condition(id + 0x340, 82.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x265A), "", 5f, 77.4f); // t=1400.0; StartsUsing 265A from The Old One
+    Timeout(id + 0x350, 2.7f, "Shifting Light"); // t=1402.7; Ability 265A from The Old One
+    Condition(id + 0x360, 3.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x265B), "Order To Detonate (cast)", 5f, 0.0f); // t=1405.8; StartsUsing 265B from The Old One
+    Timeout(id + 0x370, 22.5f, "Self-Detonate?"); // t=1428.3
+    Condition(id + 0x380, 4.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2657), "", 5f, 0.0f); // t=1432.6; StartsUsing 2657 from The Old One
+    Timeout(id + 0x390, 3.7f, "Mystic Light"); // t=1436.3; Ability 2657 from The Old One
+    Timeout(id + 0x3A0, 7.8f, "Mystic Flame"); // t=1444.1; Ability 2658 from The Old One
+    Timeout(id + 0x3B0, 8.1f, "Mystic Light"); // t=1452.2; Ability 2657 from The Old One
+    Timeout(id + 0x3C0, 16.8f, "Mystic Light"); // t=1469.0; Ability 2657 from The Old One
+    Timeout(id + 0x3D0, 7.8f, "Mystic Flame"); // t=1476.8
+    Timeout(id + 0x3E0, 8.1f, "Mystic Light"); // t=1484.9
+    Timeout(id + 0x3F0, 16.8f, "Mystic Light"); // t=1501.7
+    Timeout(id + 0x400, 7.8f, "Mystic Flame"); // t=1509.5
+    Timeout(id + 0x410, 8.1f, "Mystic Light"); // t=1517.6
+    Timeout(id + 0x420, 482.4f, "Start"); // t=2000.0
+    Timeout(id + 0x430, 12.6f, "Rusting Claw"); // t=2012.6; Ability 2661 from Hrodric Poisontongue; cactbot StartsUsing 2661 [Skalla Rusting Claw]
+    Timeout(id + 0x440, 13.6f, "Tail Drive"); // t=2026.2; Ability 2663 from Hrodric Poisontongue; cactbot StartsUsing 2663 [Skalla Tail Drive]
+    Timeout(id + 0x450, 9.7f, "The Spin"); // t=2035.9; Ability 2664 from Hrodric Poisontongue; cactbot StartsUsing 2664 [Skalla The Spin]
+    Timeout(id + 0x460, 10.8f, "Ring Of Chaos"); // t=2046.7; Ability 2667 from Hrodric Poisontongue; cactbot HeadMarker 79 [Skalla Ring Of Chaos]
+    Timeout(id + 0x470, 5.5f, "Eye Of The Fire"); // t=2052.2; Ability 2665 from Hrodric Poisontongue; cactbot StartsUsing 2665 [Skalla Eye Of The Fire]
+    Timeout(id + 0x480, 10.8f, "Cross Of Chaos/Circle Of Chaos"); // t=2063.0; Ability 2668/2669 from Hrodric Poisontongue
+    Timeout(id + 0x490, 5.7f, "Words Of Woe"); // t=2068.7; Ability 2662 from Hrodric Poisontongue; cactbot StartsUsing 2662 [Skalla Words Of Woe]
+    Timeout(id + 0x4A0, 5.7f, "Words Of Woe"); // t=2074.4; Ability 2662 from Hrodric Poisontongue; cactbot StartsUsing 2662 [Skalla Words Of Woe]
+    Timeout(id + 0x4B0, 5.8f, "Words Of Woe"); // t=2080.2; Ability 2662 from Hrodric Poisontongue; cactbot StartsUsing 2662 [Skalla Words Of Woe]
+    Timeout(id + 0x4C0, 12.8f, "Ring Of Chaos/Cross Of Chaos"); // t=2093.0; Ability 2667/2668 from Hrodric Poisontongue
+    Timeout(id + 0x4D0, 7.6f, "Ring Of Chaos"); // t=2100.6; Ability 2667 from Hrodric Poisontongue; cactbot HeadMarker 79 [Skalla Ring Of Chaos]
+    Timeout(id + 0x4E0, 2.4f, "Tail Drive"); // t=2103.0; Ability 2663 from Hrodric Poisontongue; cactbot StartsUsing 2663 [Skalla Tail Drive]
+    Timeout(id + 0x4F0, 12.6f, "The Spin"); // t=2115.6; Ability 2664 from Hrodric Poisontongue; cactbot StartsUsing 2664 [Skalla The Spin]
+    Timeout(id + 0x500, 10.7f, "Rusting Claw"); // t=2126.3; Ability 2661 from Hrodric Poisontongue; cactbot StartsUsing 2661 [Skalla Rusting Claw]
+    Timeout(id + 0x510, 10.8f, "Cross Of Chaos/Circle Of Chaos"); // t=2137.1; Ability 2668/2669 from Hrodric Poisontongue
+    Timeout(id + 0x520, 7.6f, "Ring Of Chaos"); // t=2144.7; Ability 2667 from Hrodric Poisontongue; cactbot HeadMarker 79 [Skalla Ring Of Chaos]
+    Timeout(id + 0x530, 0.5f, "Eye Of The Fire"); // t=2145.2; Ability 2665 from Hrodric Poisontongue; cactbot StartsUsing 2665 [Skalla Eye Of The Fire]
+    Timeout(id + 0x540, 10.6f, "Rusting Claw"); // t=2155.8; Ability 2661 from Hrodric Poisontongue; cactbot StartsUsing 2661 [Skalla Rusting Claw]
+    Timeout(id + 0x550, 10.6f, "Tail Drive"); // t=2166.4; Ability 2663 from Hrodric Poisontongue; cactbot StartsUsing 2663 [Skalla Tail Drive]
+    Timeout(id + 0x560, 12.8f, "Ring Of Chaos/Circle Of Chaos"); // t=2179.2; Ability 2667/2669 from Hrodric Poisontongue
+    Timeout(id + 0x570, 7.6f, "Cross Of Chaos"); // t=2186.8; Ability 2668 from Hrodric Poisontongue; cactbot HeadMarker 7A [Skalla Cross Of Chaos]
+    Timeout(id + 0x580, 0.7f, "Words Of Woe"); // t=2187.5; Ability 2662 from Hrodric Poisontongue; cactbot StartsUsing 2662 [Skalla Words Of Woe]
+    Timeout(id + 0x590, 12.8f, "Ring Of Chaos/Cross Of Chaos"); // t=2200.3; Ability 2667/2668 from Hrodric Poisontongue
+    Timeout(id + 0x5A0, 7.6f, "Ring Of Chaos"); // t=2207.9; cactbot HeadMarker 79 [Skalla Ring Of Chaos]
+    Timeout(id + 0x5B0, 2.4f, "Tail Drive"); // t=2210.3; cactbot StartsUsing 2663 [Skalla Tail Drive]
+    Timeout(id + 0x5C0, 12.6f, "The Spin"); // t=2222.9; cactbot StartsUsing 2664 [Skalla The Spin]
+    Timeout(id + 0x5D0, 10.7f, "Rusting Claw"); // t=2233.6; cactbot StartsUsing 2661 [Skalla Rusting Claw]
+}
+

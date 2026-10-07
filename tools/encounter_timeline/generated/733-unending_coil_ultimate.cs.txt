@@ -1,0 +1,301 @@
+// Generated development skeleton from unending_coil_ultimate.txt (TerritoryType 733).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 59 static/dynamic trigger definitions from ui/raidboss/data/04-sb/ultimate/unending_coil_ultimate.ts.
+
+private void Twintania_P1__100_____75(uint id)
+{
+    Timeout(id + 0x0, 6.5f, "Plummet"); // t=6.5; Ability 26A8 from Twintania
+    Timeout(id + 0x10, 6.1f, "Twister"); // t=12.6; Ability 26AA from Twintania; cactbot StartsUsing 26AA [UCU Twisters]
+    Timeout(id + 0x20, 3.2f, "Fireball"); // t=15.8; Ability 26AC from Twintania; cactbot Ability 26C5 [UCU Fireball Counter] | Ability 26B8 [UCU Nael Fireball 1] | Ability 26B8 [UCU Nael Fireball 2] | Ability 26B8 [UCU Nael Fireball 3] | Ability 26B8 [UCU Nael Fireball 4]
+    Timeout(id + 0x30, 8.1f, "Death Sentence").SetHint(StateMachine.StateHint.Tankbuster); // t=23.9; Ability 26A9 from Twintania; cactbot StartsUsing 26A9 [UCU Death Sentence]
+    Timeout(id + 0x40, 3.1f, "Plummet"); // t=27.0; Ability 26A8 from Twintania
+}
+
+private void Twintania_P2__75_____45(uint id)
+{
+    Timeout(id + 0x0, 8.5f, "Liquid Hell x5"); // t=108.5; Ability 26AD from Twintania
+    Timeout(id + 0x10, 8.8f, "Generate"); // t=117.3; Ability 26AE from Twintania
+    Timeout(id + 0x20, 3.3f, "Liquid Hell x5"); // t=120.6; Ability 26AD from Twintania
+    Timeout(id + 0x30, 11.7f, "Death Sentence").SetHint(StateMachine.StateHint.Tankbuster); // t=132.3; Ability 26A9 from Twintania; cactbot StartsUsing 26A9 [UCU Death Sentence]
+    Timeout(id + 0x40, 7.0f, "Generate"); // t=139.3; Ability 26AE from Twintania
+    Timeout(id + 0x50, 3.0f, "Twister"); // t=142.3; Ability 26AA from Twintania; cactbot StartsUsing 26AA [UCU Twisters]
+    Timeout(id + 0x60, 6.0f, "Plummet"); // t=148.3; Ability 26A8 from Twintania
+}
+
+private void Twintania_P3__45_____0(uint id)
+{
+    Timeout(id + 0x0, 8.4f, "Liquid Hell x5"); // t=208.4; Ability 26AD from Twintania
+    Timeout(id + 0x10, 8.8f, "Generate x2"); // t=217.2; Ability 26AE from Twintania
+    Timeout(id + 0x20, 3.2f, "Targeted Fire x5"); // t=220.4; Ability 26AD from Twintania
+    Timeout(id + 0x30, 7.0f, "Fireball"); // t=227.4; Ability 26AC from Twintania; cactbot Ability 26C5 [UCU Fireball Counter] | Ability 26B8 [UCU Nael Fireball 1] | Ability 26B8 [UCU Nael Fireball 2] | Ability 26B8 [UCU Nael Fireball 3] | Ability 26B8 [UCU Nael Fireball 4]
+    Timeout(id + 0x40, 9.0f, "Death Sentence").SetHint(StateMachine.StateHint.Tankbuster); // t=236.4; Ability 26A9 from Twintania; cactbot StartsUsing 26A9 [UCU Death Sentence]
+    Timeout(id + 0x50, 3.0f, "Plummet"); // t=239.4; Ability 26A8 from Twintania
+    Timeout(id + 0x60, 7.0f, "Generate x2"); // t=246.4; Ability 26AE from Twintania
+    Timeout(id + 0x70, 3.0f, "Twister"); // t=249.4; Ability 26AA from Twintania; cactbot StartsUsing 26AA [UCU Twisters]
+    Timeout(id + 0x80, 5.0f, "Plummet"); // t=254.4; Ability 26A8 from Twintania
+    Timeout(id + 0x90, 2.2f, "Liquid Hell x5"); // t=256.6; Ability 26AD from Twintania
+    Condition(id + 0xA0, 5.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x26AE), "", 5f, 0.9f); // t=262.5; StartsUsing 26AE from Twintania
+    Timeout(id + 0xB0, 145.0f, "Heavensfall"); // t=407.5; Ability 26B8 from Ragnarok; cactbot Ability 26B8 [UCU Nael Fireball 1] | Ability 26B8 [UCU Nael Fireball 2] | Ability 26B8 [UCU Nael Fireball 3] | Ability 26B8 [UCU Nael Fireball 4]
+    Timeout(id + 0xC0, 5.5f, "Meteor Stream"); // t=413.0; Ability 26C0 from Nael Geminus
+    Timeout(id + 0xD0, 1.5f, "Thermionic Burst"); // t=414.5; Ability 26B9 from Ragnarok
+    Timeout(id + 0xE0, 1.6f, "Meteor Stream"); // t=416.1; Ability 26C0 from Nael Geminus
+    Timeout(id + 0xF0, 2.5f, "Thermionic Burst"); // t=418.6; Ability 26B9 from Ragnarok
+    Timeout(id + 0x100, 0.5f, "Dalamud Dive"); // t=419.1; Ability 26C1 from Nael deus Darnus
+    Targetable(id + 0x110, true, 2.0f, "--targetable--"); // t=421.1
+    Timeout(id + 0x120, 0.1f, "Bahamut's Claw x5"); // t=421.2; Ability 26B5 from Nael deus Darnus
+    Timeout(id + 0x130, 9.0f, "Bahamut's Favor"); // t=430.2; Ability 26C2 from Nael deus Darnus
+    Timeout(id + 0x140, 13.0f, "Chain Lightning / Lunar Dynamo"); // t=443.2; Ability 26C8 from Thunderwing | Ability 26BC from Nael deus Darnus
+    Timeout(id + 0x150, 3.0f, "Iron Chariot/Thermionic Beam"); // t=446.2; Ability 26BB/26BD from Nael deus Darnus
+    Timeout(id + 0x160, 0.7f, "Doom"); // t=446.9; Ability 26C9 from Tail Of Darkness; cactbot Ability 26C6/26C7/26CA/26C9/26C5 [UCU Dragon Tracker]
+    Timeout(id + 0x170, 2.0f, "Fireball (1)"); // t=448.9; Ability 26C5 from Firehorn; cactbot Ability 26C5 [UCU Fireball Counter] | Ability 26C6/26C7/26CA/26C9/26C5 [UCU Dragon Tracker]
+    Timeout(id + 0x180, 1.0f, "Wings Of Salvation x2"); // t=449.9; Ability 26CA from Fang Of Light; cactbot Ability 26CA [UCU Nael Cleanse Callout] | Ability 26C6/26C7/26CA/26C9/26C5 [UCU Dragon Tracker]
+    Timeout(id + 0x190, 7.4f, "Bahamut's Claw x5"); // t=457.3; Ability 26B5 from Nael deus Darnus
+    Timeout(id + 0x1A0, 6.7f, "Fireball (2)"); // t=464.0; Ability 26C5 from Firehorn; cactbot Ability 26C5 [UCU Fireball Counter] | Ability 26C6/26C7/26CA/26C9/26C5 [UCU Dragon Tracker]
+    Timeout(id + 0x1B0, 4.0f, "Chain Lightning"); // t=468.0; Ability 26C8 from Thunderwing
+    Timeout(id + 0x1C0, 3.3f, "Thermionic Beam"); // t=471.3; Ability 26BD from Nael deus Darnus
+    Timeout(id + 0x1D0, 3.0f, "Lunar Dynamo/Iron Chariot"); // t=474.3; Ability 26BB/26BC from Nael deus Darnus
+    Timeout(id + 0x1E0, 1.4f, "Doom"); // t=475.7; Ability 26C9 from Tail Of Darkness; cactbot Ability 26C6/26C7/26CA/26C9/26C5 [UCU Dragon Tracker]
+    Timeout(id + 0x1F0, 2.0f, "Wings Of Salvation x3"); // t=477.7; Ability 26CA from Fang Of Light; cactbot Ability 26CA [UCU Nael Cleanse Callout] | Ability 26C6/26C7/26CA/26C9/26C5 [UCU Dragon Tracker]
+    Timeout(id + 0x200, 9.1f, "Chain Lightning"); // t=486.8; Ability 26C8 from Thunderwing
+    Timeout(id + 0x210, 3.0f, "Fireball (3)"); // t=489.8; Ability 26C5 from Firehorn; cactbot Ability 26C5 [UCU Fireball Counter] | Ability 26C6/26C7/26CA/26C9/26C5 [UCU Dragon Tracker]
+    Timeout(id + 0x220, 3.4f, "Bahamut's Claw x5"); // t=493.2; Ability 26B5 from Nael deus Darnus
+    Timeout(id + 0x230, 11.3f, "Raven Dive"); // t=504.5; Ability 26BE from Nael deus Darnus
+    Timeout(id + 0x240, 3.0f, "Lunar Dynamo/Iron Chariot"); // t=507.5; Ability 26BB/26BC from Nael deus Darnus
+    Timeout(id + 0x250, 3.3f, "Fireball (4)"); // t=510.8; Ability 26C5 from Firehorn; cactbot Ability 26C5 [UCU Fireball Counter] | Ability 26C6/26C7/26CA/26C9/26C5 [UCU Dragon Tracker]
+    Timeout(id + 0x260, 0.7f, "Doom"); // t=511.5; Ability 26C9 from Tail Of Darkness; cactbot Ability 26C6/26C7/26CA/26C9/26C5 [UCU Dragon Tracker]
+    Timeout(id + 0x270, 2.3f, "Chain Lightning"); // t=513.8; Ability 26C8 from Thunderwing
+    Timeout(id + 0x280, 0.1f, "Wings Of Salvation x3"); // t=513.9; Ability 26CA from Fang Of Light; cactbot Ability 26CA [UCU Nael Cleanse Callout] | Ability 26C6/26C7/26CA/26C9/26C5 [UCU Dragon Tracker]
+    Timeout(id + 0x290, 18.5f, "Ravensbeak").SetHint(StateMachine.StateHint.Tankbuster); // t=532.4; Ability 26B6 from Nael deus Darnus; cactbot StartsUsing 26B6 [UCU Nael Ravensbeak] | Ability 26B6 [UCU Nael Dragon Placement]
+    Timeout(id + 0x2A0, 5.2f, "Marker 1"); // t=537.6
+    Timeout(id + 0x2B0, 4.0f, "Marker 2"); // t=541.6
+    Timeout(id + 0x2C0, 1.2f, "Hypernova x4"); // t=542.8
+    Timeout(id + 0x2D0, 2.8f, "Marker 3"); // t=545.6
+    Timeout(id + 0x2E0, 3.3f, "Cauterize"); // t=548.9
+    Timeout(id + 0x2F0, 51.1f, "Marker 1"); // t=600.0
+    Timeout(id + 0x300, 4.0f, "Marker 2"); // t=604.0
+    Timeout(id + 0x310, 1.2f, "Hypernova x4"); // t=605.2; Ability 26BF from Nael deus Darnus
+    Timeout(id + 0x320, 2.8f, "Marker 3"); // t=608.0
+    Timeout(id + 0x330, 3.3f, "Cauterize"); // t=611.3
+    Targetable(id + 0x340, false, 0.9f, "--untargetable--"); // t=612.2
+    Timeout(id + 0x350, 2.5f, "Meteor Stream"); // t=614.7; Ability 26C0 from Nael Geminus
+    Timeout(id + 0x360, 0.6f, "Cauterize"); // t=615.3
+    Targetable(id + 0x370, true, 2.4f, "--targetable--"); // t=617.7
+    Timeout(id + 0x380, 0.0f, "Dalamud Dive"); // t=617.7; Ability 26C1 from Nael deus Darnus
+    Timeout(id + 0x390, 1.7f, "Cauterize"); // t=619.4
+    Timeout(id + 0x3A0, 2.5f, "Bahamut's Claw x5"); // t=621.9; Ability 26B5 from Nael deus Darnus
+    Timeout(id + 0x3B0, 28.1f, "Marker 1"); // t=650.0
+    Timeout(id + 0x3C0, 4.0f, "Marker 2"); // t=654.0
+    Timeout(id + 0x3D0, 1.2f, "Hypernova x4"); // t=655.2; Ability 26BF from Nael deus Darnus
+    Timeout(id + 0x3E0, 2.8f, "Marker 3"); // t=658.0
+    Targetable(id + 0x3F0, false, 1.2f, "--untargetable--"); // t=659.2
+    Timeout(id + 0x400, 2.1f, "Cauterize"); // t=661.3
+    Targetable(id + 0x410, true, 3.4f, "--targetable--"); // t=664.7
+    Timeout(id + 0x420, 0.0f, "Dalamud Dive"); // t=664.7; Ability 26C1 from Nael deus Darnus
+    Timeout(id + 0x430, 0.6f, "Cauterize"); // t=665.3
+    Timeout(id + 0x440, 1.6f, "Thermionic Beam"); // t=666.9; Ability 26BD from Nael deus Darnus
+    Timeout(id + 0x450, 2.5f, "Cauterize"); // t=669.4
+    Timeout(id + 0x460, 2.5f, "Bahamut's Claw x5"); // t=671.9; Ability 26B5 from Nael deus Darnus
+    Timeout(id + 0x470, 53.1f, "Lunar Dynamo"); // t=725.0; Ability 26BC from Nael deus Darnus
+    Timeout(id + 0x480, 3.0f, "Iron Chariot"); // t=728.0; Ability 26BB from Nael deus Darnus
+    Timeout(id + 0x490, 7.0f, "Lunar Dynamo"); // t=735.0; Ability 26BC from Nael deus Darnus
+    Timeout(id + 0x4A0, 3.0f, "Thermionic Beam"); // t=738.0; Ability 26BD from Nael deus Darnus
+    Timeout(id + 0x4B0, 7.0f, "Thermionic Beam"); // t=745.0; Ability 26BD from Nael deus Darnus
+    Timeout(id + 0x4C0, 3.0f, "Iron Chariot"); // t=748.0; Ability 26BB from Nael deus Darnus
+    Timeout(id + 0x4D0, 7.0f, "Thermionic Beam"); // t=755.0; Ability 26BD from Nael deus Darnus
+    Timeout(id + 0x4E0, 3.0f, "Lunar Dynamo"); // t=758.0; Ability 26BC from Nael deus Darnus
+    Timeout(id + 0x4F0, 7.3f, "Raven Dive"); // t=765.3; Ability 26BE from Nael deus Darnus
+    Timeout(id + 0x500, 3.0f, "Iron Chariot"); // t=768.3; Ability 26BB from Nael deus Darnus
+    Timeout(id + 0x510, 7.0f, "Raven Dive"); // t=775.3; Ability 26BE from Nael deus Darnus
+    Timeout(id + 0x520, 3.0f, "Lunar Dynamo"); // t=778.3; Ability 26BC from Nael deus Darnus
+    Timeout(id + 0x530, 76.7f, "Lunar Dynamo"); // t=855.0; Ability 26BC from Nael deus Darnus
+    Timeout(id + 0x540, 3.0f, "Iron Chariot"); // t=858.0; Ability 26BB from Nael deus Darnus
+    Timeout(id + 0x550, 7.0f, "Lunar Dynamo"); // t=865.0; Ability 26BC from Nael deus Darnus
+    Timeout(id + 0x560, 3.0f, "Thermionic Beam"); // t=868.0; Ability 26BD from Nael deus Darnus
+    Timeout(id + 0x570, 7.0f, "Thermionic Beam"); // t=875.0; Ability 26BD from Nael deus Darnus
+    Timeout(id + 0x580, 3.0f, "Iron Chariot"); // t=878.0; Ability 26BB from Nael deus Darnus
+    Timeout(id + 0x590, 7.0f, "Thermionic Beam"); // t=885.0; Ability 26BD from Nael deus Darnus
+    Timeout(id + 0x5A0, 3.0f, "Lunar Dynamo"); // t=888.0; Ability 26BC from Nael deus Darnus
+    Timeout(id + 0x5B0, 7.3f, "Raven Dive"); // t=895.3; Ability 26BE from Nael deus Darnus
+    Timeout(id + 0x5C0, 3.0f, "Iron Chariot"); // t=898.3; Ability 26BB from Nael deus Darnus
+    Timeout(id + 0x5D0, 7.0f, "Raven Dive"); // t=905.3; Ability 26BE from Nael deus Darnus
+    Timeout(id + 0x5E0, 3.0f, "Lunar Dynamo"); // t=908.3; Ability 26BC from Nael deus Darnus
+    Timeout(id + 0x5F0, 40.0f, "Ravensbeak").SetHint(StateMachine.StateHint.Tankbuster); // t=948.3; Ability 26B6 from Nael deus Darnus; cactbot StartsUsing 26B6 [UCU Nael Ravensbeak] | Ability 26B6 [UCU Nael Dragon Placement]
+    Timeout(id + 0x600, 7.0f, "Bahamut's Claw x5"); // t=955.3; Ability 26B5 from Nael deus Darnus
+    Targetable(id + 0x610, false, 7.5f, "--untargetable--"); // t=962.8
+    Timeout(id + 0x620, 5.0f, "Megaflare Enrage"); // t=967.8; Ability 26BA from Nael deus Darnus
+    Timeout(id + 0x630, 37.5f, "Seventh Umbral Era"); // t=1005.3; Ability 26D1 from Bahamut Prime
+    Timeout(id + 0x640, 3.0f, "Calamitous Flame x3"); // t=1008.3; Ability 26D2 from Bahamut Prime
+    Timeout(id + 0x650, 5.0f, "Calamitous Blaze"); // t=1013.3; Ability 26D3 from Bahamut Prime
+    Targetable(id + 0x660, true, 3.0f, "--targetable--"); // t=1016.3
+    Timeout(id + 0x670, 6.0f, "Flare Breath"); // t=1022.3; Ability 26D4 from Bahamut Prime
+    Timeout(id + 0x680, 8.0f, "Flatten").SetHint(StateMachine.StateHint.Tankbuster); // t=1030.3; Ability 26D5 from Bahamut Prime; cactbot StartsUsing 26D5 [UCU Bahamut Flatten]
+}
+
+private void QUICKMARCH(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Quickmarch Trio"); // t=1037.3; Ability 26E2 from Bahamut Prime; cactbot StartsUsing 26E2 [UCU Quickmarch Phase]
+    Targetable(id + 0x10, false, 2.0f, "--untargetable--"); // t=1039.3
+    Timeout(id + 0x20, 6.3f, "Twisting Dive"); // t=1045.6; Ability 26B2 from Twintania; cactbot Ability 26B2 [UCU Twister Dives] | StartsUsing 26B2 [UCU P3 Twintania Collect]
+    Timeout(id + 0x30, 4.0f, "Spread"); // t=1049.6; Ability 26DC from Bahamut Prime; cactbot StartsUsing 26ED [UCU Morn Afah Enrage Spread Warning]
+    Targetable(id + 0x40, true, 1.0f, "--targetable--"); // t=1050.6
+    Timeout(id + 0x50, 1.0f, "Pepperoni"); // t=1051.6; Ability 26DD from Bahamut Prime
+    Timeout(id + 0x60, 2.0f, "Stack"); // t=1053.6; Ability 26DE from Bahamut Prime
+    Timeout(id + 0x70, 2.3f, "Earth Shaker"); // t=1055.9; Ability 26D9 from Bahamut Prime; cactbot HeadMarker 28 [UCU Earthshaker Me] | HeadMarker 28 [UCU Earthshaker Tracking] | HeadMarker 28 [UCU Earthshaker Not Me]
+    Timeout(id + 0x80, 2.0f, "Tempest Wing"); // t=1057.9; Ability 26D7 from Bahamut Prime
+    Timeout(id + 0x90, 4.1f, "Flare Breath"); // t=1062.0; Ability 26D4 from Bahamut Prime
+    Timeout(id + 0xA0, 8.0f, "Flatten").SetHint(StateMachine.StateHint.Tankbuster); // t=1070.0; Ability 26D5 from Bahamut Prime; cactbot StartsUsing 26D5 [UCU Bahamut Flatten]
+}
+
+private void BLACKFIRE(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Blackfire Trio"); // t=1078.1; Ability 26E3 from Bahamut Prime; cactbot StartsUsing 26E3 [UCU Blackfire Phase]
+    Targetable(id + 0x10, false, 2.0f, "--untargetable--"); // t=1080.1
+    Timeout(id + 0x20, 2.0f, "Liquid Hell x5"); // t=1082.1
+    Timeout(id + 0x30, 3.4f, "Thermionic Beam"); // t=1085.5; Ability 26BD from Nael deus Darnus
+    Timeout(id + 0x40, 1.0f, "Megaflare Dive"); // t=1086.5; Ability 26E1 from Bahamut Prime; cactbot StartsUsing 26E1 [UCU Quickmarch Dive Dir] | StartsUsing 26E1 [UCU P3 Bahamut Collect]
+    Timeout(id + 0x50, 6.1f, "Hypernova x4"); // t=1092.6; Ability 26BF from Nael deus Darnus
+    Timeout(id + 0x60, 1.9f, "Stack"); // t=1094.5; Ability 26DE from Bahamut Prime
+    Timeout(id + 0x70, 2.0f, "Towers"); // t=1096.5; Ability 26DF from Bahamut Prime
+    Targetable(id + 0x80, true, 0.0f, "--targetable--"); // t=1096.5
+    Timeout(id + 0x90, 6.3f, "Gigaflare"); // t=1102.8; Ability 26D6 from Bahamut Prime; cactbot StartsUsing 26D6 [UCU Bahamut Gigaflare]
+    Timeout(id + 0xA0, 9.0f, "Flare Breath 1"); // t=1111.8
+    Timeout(id + 0xB0, 2.0f, "Flare Breath 2"); // t=1113.8
+    Timeout(id + 0xC0, 2.0f, "Flare Breath 3"); // t=1115.8
+}
+
+private void FELLRUIN(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Fellruin Trio"); // t=1129.3; Ability 26E4 from Bahamut Prime; cactbot StartsUsing 26E4 [UCU Fellruin Phase]
+    Targetable(id + 0x10, false, 2.0f, "--untargetable--"); // t=1131.3
+    Timeout(id + 0x20, 7.4f, "Lunar Dynamo/Raven Dive"); // t=1138.7; Ability 26BC/26BE from Nael deus Darnus
+    Timeout(id + 0x30, 3.0f, "Raven Dive/Lunar Dynamo"); // t=1141.7; Ability 26BE/26BC from Nael deus Darnus
+    Timeout(id + 0x40, 3.0f, "Tempest Wing"); // t=1144.7; Ability 26D7 from Bahamut Prime
+    Timeout(id + 0x50, 1.0f, "Aetheric Profusion"); // t=1145.7; Ability 26B1 from Twintania
+    Targetable(id + 0x60, true, 2.0f, "--targetable--"); // t=1147.7
+    Timeout(id + 0x70, 1.3f, "Meteor Stream"); // t=1149.0; Ability 26C0 from Nael Geminus
+    Timeout(id + 0x80, 4.8f, "Gigaflare"); // t=1153.8; Ability 26D6 from Bahamut Prime; cactbot StartsUsing 26D6 [UCU Bahamut Gigaflare]
+    Timeout(id + 0x90, 5.3f, "Flare Breath"); // t=1159.1; Ability 26D4 from Bahamut Prime
+    Timeout(id + 0xA0, 9.0f, "Flatten").SetHint(StateMachine.StateHint.Tankbuster); // t=1168.1; Ability 26D5 from Bahamut Prime; cactbot StartsUsing 26D5 [UCU Bahamut Flatten]
+    Timeout(id + 0xB0, 5.0f, "Flare Breath"); // t=1173.1; Ability 26D4 from Bahamut Prime
+    Timeout(id + 0xC0, 8.0f, "Heavensfall Trio"); // t=1181.1; Ability 26E5 from Bahamut Prime; cactbot StartsUsing 26E5 [UCU Heavensfall Phase]
+    Targetable(id + 0xD0, false, 2.0f, "--untargetable--"); // t=1183.1
+    Timeout(id + 0xE0, 6.4f, "Twisting Dive"); // t=1189.5; Ability 26B2 from Twintania; cactbot Ability 26B2 [UCU Twister Dives] | StartsUsing 26B2 [UCU P3 Twintania Collect]
+    Timeout(id + 0xF0, 5.5f, "Heavensfall"); // t=1195.0; Ability 26B7 from Nael deus Darnus; cactbot StartsUsing 26E5 [UCU Heavensfall Phase] | ActorSetPos [UCU Heavensfall Nael Spot]
+    Timeout(id + 0x100, 0.5f, "Pepperoni"); // t=1195.5; Ability 26DD from Bahamut Prime
+    Timeout(id + 0x110, 1.5f, "Heavensfall"); // t=1197.0; Ability 26B8 from Ragnarok; cactbot Ability 26B8 [UCU Nael Fireball 1] | Ability 26B8 [UCU Nael Fireball 2] | Ability 26B8 [UCU Nael Fireball 3] | Ability 26B8 [UCU Nael Fireball 4]
+    Timeout(id + 0x120, 2.5f, "Towers"); // t=1199.5; Ability 26DF from Bahamut Prime
+    Timeout(id + 0x130, 3.1f, "Hypernova x3"); // t=1202.6; Ability 26BF from Nael deus Darnus
+    Timeout(id + 0x140, 1.5f, "Thermionic Burst x8"); // t=1204.1
+    Targetable(id + 0x150, true, 6.5f, "--targetable--"); // t=1210.6
+    Timeout(id + 0x160, 1.2f, "Fireball"); // t=1211.8; Ability 26AC from Twintania; cactbot Ability 26C5 [UCU Fireball Counter] | Ability 26B8 [UCU Nael Fireball 1] | Ability 26B8 [UCU Nael Fireball 2] | Ability 26B8 [UCU Nael Fireball 3] | Ability 26B8 [UCU Nael Fireball 4]
+    Timeout(id + 0x170, 5.0f, "Gigaflare"); // t=1216.8; Ability 26D6 from Bahamut Prime; cactbot StartsUsing 26D6 [UCU Bahamut Gigaflare]
+    Timeout(id + 0x180, 9.0f, "Flare Breath 1"); // t=1225.8
+    Timeout(id + 0x190, 2.0f, "Flare Breath 2"); // t=1227.8
+    Timeout(id + 0x1A0, 2.0f, "Flare Breath 3"); // t=1229.8
+}
+
+private void TENSTRIKE(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Tenstrike Trio"); // t=1242.3; Ability 26E6 from Bahamut Prime; cactbot StartsUsing 26E6 [UCU Tenstrike Phase]
+    Targetable(id + 0x10, false, 2.0f, "--untargetable--"); // t=1244.3
+    Timeout(id + 0x20, 5.3f, "Generate x3"); // t=1249.6; Ability 26AE from Twintania
+    Timeout(id + 0x30, 1.0f, "Meteor Stream (DPS)"); // t=1250.6
+    Timeout(id + 0x40, 3.0f, "Generate x3"); // t=1253.6; Ability 26AE from Twintania
+    Timeout(id + 0x50, 1.0f, "Meteor Stream (T/H)"); // t=1254.6
+    Targetable(id + 0x60, true, 8.9f, "--targetable--"); // t=1263.5
+    Timeout(id + 0x70, 0.0f, "Earth Shaker"); // t=1263.5; Ability 26D9 from Bahamut Prime; cactbot HeadMarker 28 [UCU Earthshaker Me] | HeadMarker 28 [UCU Earthshaker Tracking] | HeadMarker 28 [UCU Earthshaker Not Me]
+    Timeout(id + 0x80, 5.0f, "Earth Shaker"); // t=1268.5; Ability 26D9 from Bahamut Prime; cactbot HeadMarker 28 [UCU Earthshaker Me] | HeadMarker 28 [UCU Earthshaker Tracking] | HeadMarker 28 [UCU Earthshaker Not Me]
+    Timeout(id + 0x90, 8.0f, "Gigaflare"); // t=1276.5; Ability 26D6 from Bahamut Prime; cactbot StartsUsing 26D6 [UCU Bahamut Gigaflare]
+    Timeout(id + 0xA0, 11.0f, "Flatten").SetHint(StateMachine.StateHint.Tankbuster); // t=1287.5; Ability 26D5 from Bahamut Prime; cactbot StartsUsing 26D5 [UCU Bahamut Flatten]
+    Timeout(id + 0xB0, 3.0f, "Flare Breath"); // t=1290.5; Ability 26D4 from Bahamut Prime
+}
+
+private void GRAND_OCTET(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Grand Octet"); // t=1298.5; Ability 26E7 from Bahamut Prime; cactbot StartsUsing 26E7 [UCU Octet Phase]
+    Targetable(id + 0x10, false, 2.0f, "--untargetable--"); // t=1300.5
+    Timeout(id + 0x20, 6.0f, "Nael Marker"); // t=1306.5; cactbot HeadMarker 77 [UCU Octet Nael Marker]
+    Timeout(id + 0x30, 4.4f, "Lunar Dive 1"); // t=1310.9; Ability 26C3 from Nael deus Darnus; cactbot StartsUsing 26C3 [UCU P3 Nael Collect]
+    Timeout(id + 0x40, 7.0f, "Cauterize 2"); // t=1317.9
+    Timeout(id + 0x50, 2.2f, "Cauterize 3"); // t=1320.1
+    Timeout(id + 0x60, 2.0f, "Cauterize 4"); // t=1322.1
+    Timeout(id + 0x70, 1.8f, "Bahamut Marker"); // t=1323.9
+    Timeout(id + 0x80, 0.2f, "Cauterize 5"); // t=1324.1
+    Timeout(id + 0x90, 2.0f, "Cauterize 6"); // t=1326.1
+    Timeout(id + 0xA0, 2.0f, "Megaflare Dive 7"); // t=1328.1; Ability 26E1 from Bahamut Prime; cactbot StartsUsing 26E1 [UCU Quickmarch Dive Dir] | StartsUsing 26E1 [UCU P3 Bahamut Collect]
+    Timeout(id + 0xB0, 4.8f, "Twin Marker"); // t=1332.9
+    Timeout(id + 0xC0, 3.0f, "Stack"); // t=1335.9; Ability 26DE from Bahamut Prime
+    Timeout(id + 0xD0, 1.1f, "Twisting Dive 8"); // t=1337.0; Ability 26B2 from Twintania; cactbot Ability 26B2 [UCU Twister Dives] | StartsUsing 26B2 [UCU P3 Twintania Collect]
+    Timeout(id + 0xE0, 0.8f, "Towers"); // t=1337.8; Ability 26DF from Bahamut Prime
+    Timeout(id + 0xF0, 165.8f, "Bahamut's Favor"); // t=1503.6; Ability 26E8 from Bahamut Prime
+    Targetable(id + 0x100, true, 1.5f, "--targetable--"); // t=1505.1
+    Timeout(id + 0x110, 8.0f, "Bahamut's Claw x5 / Plummet"); // t=1513.1; Ability 26B5 from Nael deus Darnus
+    Timeout(id + 0x120, 3.1f, "Liquid Hell x5"); // t=1516.2
+    Timeout(id + 0x130, 9.0f, "Generate x3"); // t=1525.2; Ability 26AE from Twintania
+    Timeout(id + 0x140, 4.1f, "Twister"); // t=1529.3; Ability 26AA from Twintania; cactbot StartsUsing 26AA [UCU Twisters]
+    Timeout(id + 0x150, 7.4f, "Lunar Dynamo/Iron Chariot"); // t=1536.7
+    Timeout(id + 0x160, 3.0f, "Raven's Dive/Iron Chariot/Thermionic Beam"); // t=1539.7
+    Timeout(id + 0x170, 3.1f, "Raven's Dive/Thermionic Beam"); // t=1542.8
+    Timeout(id + 0x180, 62.3f, "Iron Chariot"); // t=1605.1; Ability 26BB from Nael deus Darnus
+    Timeout(id + 0x190, 3.0f, "Thermionic Beam"); // t=1608.1; Ability 26BD from Nael deus Darnus
+    Timeout(id + 0x1A0, 3.2f, "Raven Dive"); // t=1611.3; Ability 26BE from Nael deus Darnus
+    Timeout(id + 0x1B0, 43.8f, "Iron Chariot"); // t=1655.1; Ability 26BB from Nael deus Darnus
+    Timeout(id + 0x1C0, 3.0f, "Raven Dive"); // t=1658.1; Ability 26BE from Nael deus Darnus
+    Timeout(id + 0x1D0, 3.2f, "Thermionic Beam"); // t=1661.3; Ability 26BD from Nael deus Darnus
+    Timeout(id + 0x1E0, 43.8f, "Lunar Dynamo"); // t=1705.1; Ability 26BC from Nael deus Darnus
+    Timeout(id + 0x1F0, 3.0f, "Raven Dive"); // t=1708.1; Ability 26BE from Nael deus Darnus
+    Timeout(id + 0x200, 3.2f, "Thermionic Beam"); // t=1711.3; Ability 26BD from Nael deus Darnus
+    Timeout(id + 0x210, 43.8f, "Lunar Dynamo"); // t=1755.1; Ability 26BC from Nael deus Darnus
+    Timeout(id + 0x220, 3.0f, "Iron Chariot"); // t=1758.1; Ability 26BB from Nael deus Darnus
+    Timeout(id + 0x230, 3.2f, "Raven Dive"); // t=1761.3; Ability 26BE from Nael deus Darnus
+    Timeout(id + 0x240, 41.8f, "Twister"); // t=1803.1; Ability 26AA from Twintania; cactbot StartsUsing 26AA [UCU Twisters]
+    Timeout(id + 0x250, 11.0f, "Megaflare"); // t=1814.1; Ability 26BA from Nael deus Darnus; cactbot HeadMarker 27 [UCU Megaflare Stack Me] | HeadMarker 27 [UCU Megaflare Stack Tracking] | HeadMarker 27 [UCU Megaflare Tower] | HeadMarker 27 [UCU Megaflare Twin Tower]
+    Timeout(id + 0x260, 8.1f, "Death Sentence / Ravensbeak").SetHint(StateMachine.StateHint.Tankbuster); // t=1822.2; Ability 26A9 from Twintania; cactbot StartsUsing 26A9 [UCU Death Sentence]
+    Timeout(id + 0x270, 4.0f, "Plummet / Bahamut's Claw x5"); // t=1826.2; Ability 26B5 from Nael deus Darnus
+    Timeout(id + 0x280, 9.1f, "Liquid Hell x5"); // t=1835.3
+    Timeout(id + 0x290, 9.0f, "Generate x3"); // t=1844.3; Ability 26AE from Twintania
+    Timeout(id + 0x2A0, 4.2f, "Twister"); // t=1848.5; Ability 26AA from Twintania; cactbot StartsUsing 26AA [UCU Twisters]
+    Timeout(id + 0x2B0, 7.5f, "Lunar Dynamo"); // t=1856.0
+    Timeout(id + 0x2C0, 3.0f, "Raven's Dive/Iron Chariot"); // t=1859.0
+    Timeout(id + 0x2D0, 3.1f, "Raven's Dive/Thermionic Beam"); // t=1862.1
+    Timeout(id + 0x2E0, 41.0f, "Twister"); // t=1903.1; Ability 26AA from Twintania; cactbot StartsUsing 26AA [UCU Twisters]
+    Timeout(id + 0x2F0, 11.0f, "Megaflare"); // t=1914.1; Ability 26BA from Nael deus Darnus; cactbot HeadMarker 27 [UCU Megaflare Stack Me] | HeadMarker 27 [UCU Megaflare Stack Tracking] | HeadMarker 27 [UCU Megaflare Tower] | HeadMarker 27 [UCU Megaflare Twin Tower]
+    Timeout(id + 0x300, 8.1f, "Death Sentence / Ravensbeak").SetHint(StateMachine.StateHint.Tankbuster); // t=1922.2; Ability 26A9 from Twintania; cactbot StartsUsing 26A9 [UCU Death Sentence]
+    Timeout(id + 0x310, 4.0f, "Plummet / Bahamut's Claw x5"); // t=1926.2; Ability 26B5 from Nael deus Darnus
+    Timeout(id + 0x320, 9.1f, "Liquid Hell x5"); // t=1935.3
+    Timeout(id + 0x330, 9.0f, "Generate x3"); // t=1944.3; Ability 26AE from Twintania
+    Timeout(id + 0x340, 4.2f, "Twister"); // t=1948.5; Ability 26AA from Twintania; cactbot StartsUsing 26AA [UCU Twisters]
+    Timeout(id + 0x350, 7.5f, "Iron Chariot"); // t=1956.0
+    Timeout(id + 0x360, 3.0f, "Raven's Dive/Thermionic Beam"); // t=1959.0
+    Timeout(id + 0x370, 3.1f, "Raven's Dive/Thermionic Beam"); // t=1962.1
+    Timeout(id + 0x380, 43.0f, "Iron Chariot"); // t=2005.1; Ability 26BB from Nael deus Darnus
+    Timeout(id + 0x390, 3.0f, "Thermionic Beam"); // t=2008.1; Ability 26BD from Nael deus Darnus
+    Timeout(id + 0x3A0, 3.2f, "Raven Dive"); // t=2011.3; Ability 26BE from Nael deus Darnus
+    Timeout(id + 0x3B0, 43.8f, "Iron Chariot"); // t=2055.1; Ability 26BB from Nael deus Darnus
+    Timeout(id + 0x3C0, 3.0f, "Raven Dive"); // t=2058.1; Ability 26BE from Nael deus Darnus
+    Timeout(id + 0x3D0, 3.2f, "Thermionic Beam"); // t=2061.3; Ability 26BD from Nael deus Darnus
+    Timeout(id + 0x3E0, 43.8f, "Lunar Dynamo"); // t=2105.1; Ability 26BC from Nael deus Darnus
+    Timeout(id + 0x3F0, 3.0f, "Raven Dive"); // t=2108.1; Ability 26BE from Nael deus Darnus
+    Timeout(id + 0x400, 3.2f, "Thermionic Beam"); // t=2111.3; Ability 26BD from Nael deus Darnus
+    Timeout(id + 0x410, 43.8f, "Lunar Dynamo"); // t=2155.1; Ability 26BC from Nael deus Darnus
+    Timeout(id + 0x420, 3.0f, "Iron Chariot"); // t=2158.1; Ability 26BB from Nael deus Darnus
+    Timeout(id + 0x430, 3.2f, "Raven Dive"); // t=2161.3; Ability 26BE from Nael deus Darnus
+    Timeout(id + 0x440, 41.7f, "Twister"); // t=2203.0; Ability 26AA from Twintania; cactbot StartsUsing 26AA [UCU Twisters]
+    Timeout(id + 0x450, 12.2f, "Death Sentence").SetHint(StateMachine.StateHint.Tankbuster); // t=2215.2; Ability 26A9 from Twintania; cactbot StartsUsing 26A9 [UCU Death Sentence]
+    Timeout(id + 0x460, 0.6f, "Ravensbeak"); // t=2215.8; cactbot StartsUsing 26B6 [UCU Nael Ravensbeak]
+    Timeout(id + 0x470, 12.3f, "Megaflare"); // t=2228.1; Ability 26BA from Nael deus Darnus; cactbot HeadMarker 27 [UCU Megaflare Stack Me] | HeadMarker 27 [UCU Megaflare Stack Tracking] | HeadMarker 27 [UCU Megaflare Tower] | HeadMarker 27 [UCU Megaflare Twin Tower]
+    Timeout(id + 0x480, 11.0f, "Enrage"); // t=2239.1; cactbot StartsUsing 26ED [UCU Morn Afah Enrage Spread Warning]
+    Timeout(id + 0x490, 77.1f, "Teraflare"); // t=2316.2; Ability 26E9 from Bahamut Prime
+    Timeout(id + 0x4A0, 25.1f, "Flames Of Rebirth"); // t=2341.3
+    Targetable(id + 0x4B0, true, 19.9f, "--targetable--"); // t=2361.2
+    Timeout(id + 0x4C0, 207.1f, "Morn Afah Enrage 1"); // t=2568.3; Ability 26ED from Bahamut Prime; cactbot StartsUsing 26ED [UCU Morn Afah Enrage Spread Warning]
+    Timeout(id + 0x4D0, 2.2f, "Morn Afah Enrage 2"); // t=2570.5
+    Timeout(id + 0x4E0, 1.3f, "Morn Afah Enrage 3"); // t=2571.8
+    Timeout(id + 0x4F0, 1.3f, "Morn Afah Enrage 4"); // t=2573.1
+    Timeout(id + 0x500, 1.3f, "Morn Afah Enrage 5"); // t=2574.4
+    Timeout(id + 0x510, 1.3f, "Morn Afah Enrage 6"); // t=2575.7
+    Timeout(id + 0x520, 1.3f, "Morn Afah Enrage 7"); // t=2577.0
+    Timeout(id + 0x530, 1.3f, "Morn Afah Enrage 8"); // t=2578.3
+}
+

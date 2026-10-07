@@ -1,0 +1,350 @@
+// Generated development skeleton from r12s.txt (TerritoryType 1327).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 134 static/dynamic trigger definitions from ui/raidboss/data/07-dt/raid/r12s.ts.
+// Cactbot actor OID candidates (not automatically promoted to primary boss): 0x4B00, 0x4B01.
+
+private void AAC_HEAVYWEIGHT_M4__SAVAGE(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Phase_1__Lindwurm(uint id)
+{
+    Timeout(id + 0x0, 1.0f, ""); // t=1.0
+    Condition(id + 0x10, 9.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB4D7), "", 5f, 4.6f); // t=10.6; StartsUsing B4D7 from Lindwurm; cactbot StartsUsing B4D7 [R12S The Fixer]
+    Timeout(id + 0x20, 5.0f, "The Fixer").SetHint(StateMachine.StateHint.Raidwide); // t=15.6; Ability B4D7 from Lindwurm; cactbot StartsUsing B4D7 [R12S The Fixer]
+    Timeout(id + 0x30, 25.3f, "Mortal Slayer 1"); // t=40.9
+    Timeout(id + 0x40, 3.0f, "Mortal Slayer 2"); // t=43.9
+    Timeout(id + 0x50, 3.0f, "Mortal Slayer 3"); // t=46.9
+    Timeout(id + 0x60, 3.0f, "Mortal Slayer 4"); // t=49.9
+    Timeout(id + 0x70, 20.1f, "Grotesquerie: Act 1"); // t=70.0; Ability BEBD from Lindwurm
+    Timeout(id + 0x80, 9.2f, "Phagocyte Spotlight 1"); // t=79.2
+    Timeout(id + 0x90, 2.0f, "Phagocyte Spotlight 2"); // t=81.2
+    Timeout(id + 0xA0, 2.0f, "Phagocyte Spotlight 3"); // t=83.2
+    Timeout(id + 0xB0, 2.0f, "Phagocyte Spotlight 4"); // t=85.2
+    Timeout(id + 0xC0, 2.5f, "Ravenous Reach"); // t=87.7; Ability B49D from Lindwurm; cactbot Ability B49D [R12S Act 1 Blob Safe Spots (early)]
+    Timeout(id + 0xD0, 0.3f, "Hemorrhagic Projection x8 / Dramatic Lysis x4 / Fourth-wall Fusion"); // t=88.0; Ability B4AE from Lindwurm
+    Timeout(id + 0xE0, 8.7f, "Burst"); // t=96.7; Ability B49F from Lindwurm
+    Timeout(id + 0xF0, 0.6f, "Visceral Burst x2 / Fourth-wall Fusion"); // t=97.3; Ability B9B9 from Lindwurm
+    Timeout(id + 0x100, 10.0f, "The Fixer").SetHint(StateMachine.StateHint.Raidwide); // t=107.3; Ability B4D7 from Lindwurm; cactbot StartsUsing B4D7 [R12S The Fixer]
+    Timeout(id + 0x110, 12.2f, "Grotesquerie: Act 2"); // t=119.5; Ability BEBE from Lindwurm
+    Timeout(id + 0x120, 9.2f, "Phagocyte Spotlight 1"); // t=128.7
+    Timeout(id + 0x130, 2.0f, "Phagocyte Spotlight 2"); // t=130.7
+    Timeout(id + 0x140, 2.0f, "Phagocyte Spotlight 3"); // t=132.7
+    Timeout(id + 0x150, 2.0f, "Cruel Coil / Phagocyte Spotlight 4"); // t=134.7; Ability B4B8/B4B9/B4BA/B4BB from Lindwurm; cactbot StartsUsing B4B8/B4B9/B4BA/B4BB [R12S Cursed Coil Initial Direction Collect]
+    Timeout(id + 0x160, 1.0f, "--bind--"); // t=135.7; Ability B472 from Lindwurm
+    Timeout(id + 0x170, 5.0f, "Skinsplitter 1"); // t=140.7; Ability B4BC from Lindwurm; cactbot Ability B4BC [R12S Skinsplitter Counter] | Ability B4BC [R12S Skinsplitter Out of Coil Reminder]
+    Timeout(id + 0x180, 5.0f, "Skinsplitter 2 / --tether 1--"); // t=145.7; Ability B4BC from Lindwurm; cactbot Ability B4BC [R12S Skinsplitter Counter] | Ability B4BC [R12S Skinsplitter Out of Coil Reminder]
+    Timeout(id + 0x190, 5.0f, "Skinsplitter 3 / --tether 2--"); // t=150.7; Ability B4BC from Lindwurm; cactbot Ability B4BC [R12S Skinsplitter Counter] | Ability B4BC [R12S Skinsplitter Out of Coil Reminder]
+    Timeout(id + 0x1A0, 2.0f, "Roiling Mass 1"); // t=152.7; Ability B4B7 from Blood Vessel; cactbot Ability B4B7 [R12S Blob Tower Followup]
+    Timeout(id + 0x1B0, 3.0f, "Skinsplitter 4 / --tether 3--"); // t=155.7; Ability B4BC from Lindwurm; cactbot Ability B4BC [R12S Skinsplitter Counter] | Ability B4BC [R12S Skinsplitter Out of Coil Reminder]
+    Timeout(id + 0x1C0, 2.0f, "Roiling Mass 2"); // t=157.7; Ability B4B7 from Blood Vessel; cactbot Ability B4B7 [R12S Blob Tower Followup]
+    Timeout(id + 0x1D0, 3.0f, "Skinsplitter 5 / --tether 4--"); // t=160.7; Ability B4BC from Lindwurm; cactbot Ability B4BC [R12S Skinsplitter Counter] | Ability B4BC [R12S Skinsplitter Out of Coil Reminder]
+    Timeout(id + 0x1E0, 2.0f, "Roiling Mass 3"); // t=162.7; Ability B4B7 from Blood Vessel; cactbot Ability B4B7 [R12S Blob Tower Followup]
+    Timeout(id + 0x1F0, 3.0f, "Skinsplitter 6"); // t=165.7; Ability B4BC from Lindwurm; cactbot Ability B4BC [R12S Skinsplitter Counter] | Ability B4BC [R12S Skinsplitter Out of Coil Reminder]
+    Timeout(id + 0x200, 2.0f, "Roiling Mass 4"); // t=167.7; Ability B4B7 from Blood Vessel; cactbot Ability B4B7 [R12S Blob Tower Followup]
+    Timeout(id + 0x210, 3.0f, "Skinsplitter 7"); // t=170.7; Ability B4BC from Lindwurm; cactbot Ability B4BC [R12S Skinsplitter Counter] | Ability B4BC [R12S Skinsplitter Out of Coil Reminder]
+    Timeout(id + 0x220, 6.0f, "Constrictor"); // t=176.7; Ability B4C2 from Lindwurm
+    Timeout(id + 0x230, 9.1f, "Splattershed (castbar)").SetHint(StateMachine.StateHint.Raidwide); // t=185.8; Ability B9C4 from Lindwurm; cactbot StartsUsing B9C3/B9C4 [R12S Splattershed]
+    Timeout(id + 0x240, 2.4f, "Splattershed").SetHint(StateMachine.StateHint.Raidwide); // t=188.2; Ability B9C6 from Lindwurm; cactbot StartsUsing B9C3/B9C4 [R12S Splattershed] | HeadMarker [R12S Splattershed Safe Spot Cleanup]
+    Timeout(id + 0x250, 17.7f, "Grotesquerie: Act 3"); // t=205.9; Ability BEBF from Lindwurm
+    Targetable(id + 0x260, false, 3.1f, "--untargetable--"); // t=209.0
+    Timeout(id + 0x270, 2.0f, "Feral Fission"); // t=211.0; Ability BE09 from Lindwurm
+    Timeout(id + 0x280, 1.0f, "Grand Entrance"); // t=212.0; cactbot StartsUsing B4A1/B4A2 [R12S Grand Entrance Intercards/Cardinals]
+    Timeout(id + 0x290, 3.6f, "Bring Down the House"); // t=215.6; Ability B4A5/B4A4 from Lindwurm
+    Timeout(id + 0x2A0, 2.4f, "Dramatic Lysis x8"); // t=218.0
+    Timeout(id + 0x2B0, 0.2f, "Metamitosis x8"); // t=218.2; Ability B923 from Lindwurm
+    Targetable(id + 0x2C0, true, 2.4f, "--targetable--"); // t=220.6
+    Timeout(id + 0x2D0, 6.3f, "Split Scourge (cast)"); // t=226.9; Ability B4A7 from Lindwurm
+    Timeout(id + 0x2E0, 1.1f, "Split Scourge"); // t=228.0; Ability B4AB from Lindwurm; cactbot Ability B4AB [R12S Venomous Scourge]
+    Timeout(id + 0x2F0, 2.4f, "Venomous Scourge"); // t=230.4; Ability B4A8 from Lindwurm; cactbot Ability B4AB [R12S Venomous Scourge]
+    Timeout(id + 0x300, 9.2f, "The Fixer").SetHint(StateMachine.StateHint.Raidwide); // t=239.6; Ability B4D7 from Lindwurm; cactbot StartsUsing B4D7 [R12S The Fixer]
+    Timeout(id + 0x310, 12.1f, "Grotesquerie: Curtain Call"); // t=251.7; Ability BEC0 from Lindwurm; cactbot StartsUsing BEC0/B4C6/B509 [R12S Phase Tracker] | StartsUsing BEC0 [R12S Grotesquerie: Curtain Call Spreads]
+    Timeout(id + 0x320, 4.0f, "Phagocyte Spotlight 1"); // t=255.7
+    Timeout(id + 0x330, 1.9f, "Phagocyte Spotlight 2"); // t=257.6
+    Timeout(id + 0x340, 2.0f, "Phagocyte Spotlight 3"); // t=259.6
+    Timeout(id + 0x350, 2.0f, "Phagocyte Spotlight 4"); // t=261.6
+    Timeout(id + 0x360, 2.0f, "Phagocyte Spotlight 5"); // t=263.6
+    Timeout(id + 0x370, 2.9f, "Ravenous Reach"); // t=266.5; Ability B49D from Lindwurm; cactbot Ability B49D [R12S Act 1 Blob Safe Spots (early)]
+    Timeout(id + 0x380, 0.1f, "Cell Shedding x4"); // t=266.6
+    Timeout(id + 0x390, 0.2f, "Dramatic Lysis x4"); // t=266.8
+    Timeout(id + 0x3A0, 12.6f, "Burst"); // t=279.4; Ability B49F from Lindwurm
+    Timeout(id + 0x3B0, 6.7f, "Splattershed (castbar)").SetHint(StateMachine.StateHint.Raidwide); // t=286.1; Ability B9C3 from Lindwurm; cactbot StartsUsing B9C3/B9C4 [R12S Splattershed]
+    Timeout(id + 0x3C0, 2.4f, "Splattershed").SetHint(StateMachine.StateHint.Raidwide); // t=288.5; Ability B9C6 from Lindwurm; cactbot StartsUsing B9C3/B9C4 [R12S Splattershed] | HeadMarker [R12S Splattershed Safe Spot Cleanup]
+    Timeout(id + 0x3D0, 25.9f, "Mortal Slayer 1"); // t=314.4
+    Timeout(id + 0x3E0, 3.0f, "Mortal Slayer 2"); // t=317.4
+    Timeout(id + 0x3F0, 3.0f, "Mortal Slayer 3"); // t=320.4
+    Timeout(id + 0x400, 3.0f, "Mortal Slayer 4"); // t=323.4
+    Timeout(id + 0x410, 15.1f, "Slaughtershed 1 (castbar)").SetHint(StateMachine.StateHint.Raidwide); // t=338.5; Ability B4C3/B4C6 from Lindwurm; cactbot StartsUsing BEC0/B4C6/B509 [R12S Phase Tracker] | StartsUsing B4C6/B4C3 [R12S Slaughtershed] | Ability B4C6/B4C3 [R12S Slaughershed Stack/Spread Spots (Early)]
+    Timeout(id + 0x420, 2.4f, "Slaughtershed 1"); // t=340.9; Ability ADC9 from Lindwurm
+    Timeout(id + 0x430, 8.7f, "Dramatic Lysis x4 / Fourth-wall Fusion"); // t=349.6
+    Timeout(id + 0x440, 0.4f, "Burst"); // t=350.0
+    Timeout(id + 0x450, 5.1f, "Serpentine Scourge/Raptor Knuckles?"); // t=355.1
+    Timeout(id + 0x460, 1.0f, "Serpentine Scourge/--knockback--?"); // t=356.1
+    Timeout(id + 0x470, 3.7f, "Serpentine Scourge/Raptor Knuckles?"); // t=359.8
+    Timeout(id + 0x480, 1.0f, "Serpentine Scourge/--knockback--?"); // t=360.8
+    Timeout(id + 0x490, 6.6f, "Slaughtershed 2 (castbar)"); // t=367.4
+    Timeout(id + 0x4A0, 2.4f, "Slaughtershed 2"); // t=369.8
+    Timeout(id + 0x4B0, 79.8f, "Dramatic Lysis x4 / Fourth-wall Fusion"); // t=449.6; Ability B4D5 from Lindwurm; cactbot Ability B4D4/B4D5 [R12S Serpintine Scourge and Raptor Knuckles]
+    Timeout(id + 0x4C0, 0.4f, "Burst"); // t=450.0; Ability B49F from Lindwurm
+    Timeout(id + 0x4D0, 5.1f, "Serpentine Scourge Left"); // t=455.1; Ability B4D1 from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x4E0, 1.0f, "Serpentine Scourge"); // t=456.1; Ability B9BC from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D2 [R12S Serpentine Scourge Right Followup]
+    Timeout(id + 0x4F0, 3.7f, "Serpentine Scourge Right"); // t=459.8; Ability B4D2 from Lindwurm; cactbot Ability B4D2 [R12S Serpentine Scourge Right Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x500, 1.0f, "Serpentine Scourge"); // t=460.8; Ability B9BC from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D2 [R12S Serpentine Scourge Right Followup]
+    Condition(id + 0x510, 3.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xB4C3 or 0xB4C6), "", 5f, 0.0f); // t=464.4; StartsUsing B4C3/B4C6 from Lindwurm; cactbot StartsUsing BEC0/B4C6/B509 [R12S Phase Tracker] | StartsUsing B4C6/B4C3 [R12S Slaughtershed] | Ability B4C6/B4C3 [R12S Slaughershed Stack/Spread Spots (Early)]
+    Timeout(id + 0x520, 83.2f, "Dramatic Lysis x4 / Fourth-wall Fusion"); // t=547.6; Ability B4D5 from Lindwurm; cactbot Ability B4D4/B4D5 [R12S Serpintine Scourge and Raptor Knuckles]
+    Timeout(id + 0x530, 0.4f, "Burst"); // t=548.0; Ability B49F from Lindwurm
+    Timeout(id + 0x540, 5.1f, "Serpentine Scourge Right"); // t=553.1; Ability B4D2 from Lindwurm; cactbot Ability B4D2 [R12S Serpentine Scourge Right Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x550, 1.0f, "Serpentine Scourge"); // t=554.1; Ability B9BC from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D2 [R12S Serpentine Scourge Right Followup]
+    Timeout(id + 0x560, 3.6f, "Serpentine Scourge Left"); // t=557.7; Ability B4D1 from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x570, 1.0f, "Serpentine Scourge"); // t=558.7; Ability B9BC from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D2 [R12S Serpentine Scourge Right Followup]
+    Condition(id + 0x580, 3.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xB4C3 or 0xB4C6), "", 5f, 0.0f); // t=562.4; StartsUsing B4C3/B4C6 from Lindwurm; cactbot StartsUsing BEC0/B4C6/B509 [R12S Phase Tracker] | StartsUsing B4C6/B4C3 [R12S Slaughtershed] | Ability B4C6/B4C3 [R12S Slaughershed Stack/Spread Spots (Early)]
+    Timeout(id + 0x590, 85.7f, "Dramatic Lysis x4 / Fourth-wall Fusion"); // t=648.1; Ability B4D5 from Lindwurm; cactbot Ability B4D4/B4D5 [R12S Serpintine Scourge and Raptor Knuckles]
+    Timeout(id + 0x5A0, 0.4f, "Burst"); // t=648.5; Ability B49F from Lindwurm
+    Timeout(id + 0x5B0, 5.1f, "Raptor Knuckles Northeast"); // t=653.6; Ability B4D0 from Lindwurm; cactbot Ability B4D0 [R12S Raptor Knuckles Northeast Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x5C0, 0.8f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=654.4; Ability B9C7 from Lindwurm; cactbot Ability B4CC/B4CE [R12S Raptor Knuckles Uptime Knockback]
+    Timeout(id + 0x5D0, 3.9f, "Raptor Knuckles Northwest"); // t=658.3; Ability B4CF from Lindwurm; cactbot Ability B4CF [R12S Raptor Knuckles Northwest Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x5E0, 0.8f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=659.1; Ability B9C7 from Lindwurm; cactbot Ability B4CC/B4CE [R12S Raptor Knuckles Uptime Knockback]
+    Condition(id + 0x5F0, 3.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xB4C3 or 0xB4C6), "", 5f, 0.0f); // t=662.9; StartsUsing B4C3/B4C6 from Lindwurm; cactbot StartsUsing BEC0/B4C6/B509 [R12S Phase Tracker] | StartsUsing B4C6/B4C3 [R12S Slaughtershed] | Ability B4C6/B4C3 [R12S Slaughershed Stack/Spread Spots (Early)]
+    Timeout(id + 0x600, 86.8f, "Dramatic Lysis x4 / Fourth-wall Fusion"); // t=749.7; Ability B4D5 from Lindwurm; cactbot Ability B4D4/B4D5 [R12S Serpintine Scourge and Raptor Knuckles]
+    Timeout(id + 0x610, 0.4f, "Burst"); // t=750.1; Ability B49F from Lindwurm
+    Timeout(id + 0x620, 5.1f, "Raptor Knuckles Northwest"); // t=755.2; Ability B4CF from Lindwurm; cactbot Ability B4CF [R12S Raptor Knuckles Northwest Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x630, 0.9f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=756.1; Ability B9C7 from Lindwurm; cactbot Ability B4CC/B4CE [R12S Raptor Knuckles Uptime Knockback]
+    Timeout(id + 0x640, 3.8f, "Raptor Knuckles Northeast"); // t=759.9; Ability B4D0 from Lindwurm; cactbot Ability B4D0 [R12S Raptor Knuckles Northeast Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x650, 0.8f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=760.7; Ability B9C7 from Lindwurm; cactbot Ability B4CC/B4CE [R12S Raptor Knuckles Uptime Knockback]
+    Condition(id + 0x660, 3.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xB4C3 or 0xB4C6), "", 5f, 0.0f); // t=764.5; StartsUsing B4C3/B4C6 from Lindwurm; cactbot StartsUsing BEC0/B4C6/B509 [R12S Phase Tracker] | StartsUsing B4C6/B4C3 [R12S Slaughtershed] | Ability B4C6/B4C3 [R12S Slaughershed Stack/Spread Spots (Early)]
+    Timeout(id + 0x670, 102.9f, "Slaughtershed 2 (castbar)").SetHint(StateMachine.StateHint.Raidwide); // t=867.4; Ability B4C3/B4C6 from Lindwurm; cactbot StartsUsing BEC0/B4C6/B509 [R12S Phase Tracker] | StartsUsing B4C6/B4C3 [R12S Slaughtershed] | Ability B4C6/B4C3 [R12S Slaughershed Stack/Spread Spots (Early)]
+    Timeout(id + 0x680, 2.4f, "Slaughtershed 2"); // t=869.8; Ability ADC9 from Lindwurm
+    Timeout(id + 0x690, 8.7f, "Dramatic Lysis x4 / Fourth-wall Fusion"); // t=878.5; Ability B4D5 from Lindwurm; cactbot Ability B4D4/B4D5 [R12S Serpintine Scourge and Raptor Knuckles]
+    Timeout(id + 0x6A0, 0.4f, "Burst"); // t=878.9; Ability B49F from Lindwurm
+    Timeout(id + 0x6B0, 5.1f, "Serpentine Scourge/Raptor Knuckles?"); // t=884.0
+    Timeout(id + 0x6C0, 0.8f, "Serpentine Scourge/--knockback--?"); // t=884.8
+    Timeout(id + 0x6D0, 3.8f, "Serpentine Scourge/Raptor Knuckles?"); // t=888.6
+    Timeout(id + 0x6E0, 0.8f, "Serpentine Scourge/--knockback--?"); // t=889.4
+    Timeout(id + 0x6F0, 6.9f, "Slaughtershed 3 (castbar)"); // t=896.3
+    Timeout(id + 0x700, 2.4f, "Slaughtershed 3"); // t=898.7
+    Timeout(id + 0x710, 79.9f, "Dramatic Lysis x4 / Fourth-wall Fusion"); // t=978.6; Ability B4D5 from Lindwurm; cactbot Ability B4D4/B4D5 [R12S Serpintine Scourge and Raptor Knuckles]
+    Timeout(id + 0x720, 0.4f, "Burst"); // t=979.0; Ability B49F from Lindwurm
+    Timeout(id + 0x730, 5.1f, "Serpentine Scourge Left"); // t=984.1; Ability B4D1 from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x740, 1.0f, "Serpentine Scourge"); // t=985.1; Ability B9BC from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D2 [R12S Serpentine Scourge Right Followup]
+    Timeout(id + 0x750, 3.6f, "Serpentine Scourge Right"); // t=988.7; Ability B4D2 from Lindwurm; cactbot Ability B4D2 [R12S Serpentine Scourge Right Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x760, 1.0f, "Serpentine Scourge"); // t=989.7; Ability B9BC from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D2 [R12S Serpentine Scourge Right Followup]
+    Condition(id + 0x770, 3.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xB4C3 or 0xB4C6), "", 5f, 0.0f); // t=993.3; StartsUsing B4C3/B4C6 from Lindwurm; cactbot StartsUsing BEC0/B4C6/B509 [R12S Phase Tracker] | StartsUsing B4C6/B4C3 [R12S Slaughtershed] | Ability B4C6/B4C3 [R12S Slaughershed Stack/Spread Spots (Early)]
+    Timeout(id + 0x780, 83.6f, "Dramatic Lysis x4 / Fourth-wall Fusion"); // t=1076.9; Ability B4D5 from Lindwurm; cactbot Ability B4D4/B4D5 [R12S Serpintine Scourge and Raptor Knuckles]
+    Timeout(id + 0x790, 0.4f, "Burst"); // t=1077.3; Ability B49F from Lindwurm
+    Timeout(id + 0x7A0, 5.1f, "Serpentine Scourge Right"); // t=1082.4; Ability B4D2 from Lindwurm; cactbot Ability B4D2 [R12S Serpentine Scourge Right Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x7B0, 1.0f, "Serpentine Scourge"); // t=1083.4; Ability B9BC from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D2 [R12S Serpentine Scourge Right Followup]
+    Timeout(id + 0x7C0, 3.6f, "Serpentine Scourge Left"); // t=1087.0; Ability B4D1 from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x7D0, 1.0f, "Serpentine Scourge"); // t=1088.0; Ability B9BC from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D2 [R12S Serpentine Scourge Right Followup]
+    Condition(id + 0x7E0, 3.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xB4C3 or 0xB4C6), "", 5f, 0.0f); // t=1091.7; StartsUsing B4C3/B4C6 from Lindwurm; cactbot StartsUsing BEC0/B4C6/B509 [R12S Phase Tracker] | StartsUsing B4C6/B4C3 [R12S Slaughtershed] | Ability B4C6/B4C3 [R12S Slaughershed Stack/Spread Spots (Early)]
+    Timeout(id + 0x7F0, 86.8f, "Dramatic Lysis x4 / Fourth-wall Fusion"); // t=1178.5; Ability B4D5 from Lindwurm; cactbot Ability B4D4/B4D5 [R12S Serpintine Scourge and Raptor Knuckles]
+    Timeout(id + 0x800, 0.4f, "Burst"); // t=1178.9; Ability B49F from Lindwurm
+    Timeout(id + 0x810, 5.1f, "Raptor Knuckles Northeast"); // t=1184.0; Ability B4D0 from Lindwurm; cactbot Ability B4D0 [R12S Raptor Knuckles Northeast Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x820, 0.8f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=1184.8; Ability B9C7 from Lindwurm; cactbot Ability B4CC/B4CE [R12S Raptor Knuckles Uptime Knockback]
+    Timeout(id + 0x830, 3.8f, "Raptor Knuckles Northwest"); // t=1188.6; Ability B4CF from Lindwurm; cactbot Ability B4CF [R12S Raptor Knuckles Northwest Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x840, 0.8f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=1189.4; Ability B9C7 from Lindwurm; cactbot Ability B4CC/B4CE [R12S Raptor Knuckles Uptime Knockback]
+    Condition(id + 0x850, 3.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xB4C3 or 0xB4C6), "", 5f, 0.0f); // t=1193.3; StartsUsing B4C3/B4C6 from Lindwurm; cactbot StartsUsing BEC0/B4C6/B509 [R12S Phase Tracker] | StartsUsing B4C6/B4C3 [R12S Slaughtershed] | Ability B4C6/B4C3 [R12S Slaughershed Stack/Spread Spots (Early)]
+    Timeout(id + 0x860, 85.2f, "Dramatic Lysis x4 / Fourth-wall Fusion"); // t=1278.5; Ability B4D5 from Lindwurm; cactbot Ability B4D4/B4D5 [R12S Serpintine Scourge and Raptor Knuckles]
+    Timeout(id + 0x870, 0.4f, "Burst"); // t=1278.9; Ability B49F from Lindwurm
+    Timeout(id + 0x880, 5.1f, "Raptor Knuckles Right"); // t=1284.0; Ability B4CF from Lindwurm; cactbot Ability B4CF [R12S Raptor Knuckles Northwest Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x890, 0.8f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=1284.8; Ability B9C7 from Lindwurm; cactbot Ability B4CC/B4CE [R12S Raptor Knuckles Uptime Knockback]
+    Timeout(id + 0x8A0, 3.8f, "Raptor Knuckles Left"); // t=1288.6; Ability B4D0 from Lindwurm; cactbot Ability B4D0 [R12S Raptor Knuckles Northeast Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x8B0, 0.8f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=1289.4; Ability B9C7 from Lindwurm; cactbot Ability B4CC/B4CE [R12S Raptor Knuckles Uptime Knockback]
+    Condition(id + 0x8C0, 3.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xB4C3 or 0xB4C6), "", 5f, 0.0f); // t=1293.3; StartsUsing B4C3/B4C6 from Lindwurm; cactbot StartsUsing BEC0/B4C6/B509 [R12S Phase Tracker] | StartsUsing B4C6/B4C3 [R12S Slaughtershed] | Ability B4C6/B4C3 [R12S Slaughershed Stack/Spread Spots (Early)]
+    Timeout(id + 0x8D0, 103.0f, "Slaughtershed 3 (castbar)").SetHint(StateMachine.StateHint.Raidwide); // t=1396.3; Ability B4C3/B4C6 from Lindwurm; cactbot StartsUsing BEC0/B4C6/B509 [R12S Phase Tracker] | StartsUsing B4C6/B4C3 [R12S Slaughtershed] | Ability B4C6/B4C3 [R12S Slaughershed Stack/Spread Spots (Early)]
+    Timeout(id + 0x8E0, 2.4f, "Slaughtershed 3"); // t=1398.7; Ability ADC9 from Lindwurm
+    Timeout(id + 0x8F0, 8.7f, "Dramatic Lysis x4 / Fourth-wall Fusion"); // t=1407.4
+    Timeout(id + 0x900, 0.4f, "Burst"); // t=1407.8; Ability B49F from Lindwurm
+    Timeout(id + 0x910, 5.1f, "Serpentine Scourge/Raptor Knuckles?"); // t=1412.9
+    Timeout(id + 0x920, 1.0f, "Serpentine Scourge/--knockback--?"); // t=1413.9
+    Timeout(id + 0x930, 3.7f, "Serpentine Scourge/Raptor Knuckles?"); // t=1417.6
+    Timeout(id + 0x940, 1.0f, "Serpentine Scourge/--knockback--?"); // t=1418.6
+    Timeout(id + 0x950, 12.9f, "The Fixer (Enrage)?"); // t=1431.5
+    Timeout(id + 0x960, 5.2f, "Refreshing Overkill (Enrage)?"); // t=1436.7
+    Timeout(id + 0x970, 69.1f, "Dramatic Lysis x4 / Fourth-wall Fusion"); // t=1505.8; Ability B4D5 from Lindwurm; cactbot Ability B4D4/B4D5 [R12S Serpintine Scourge and Raptor Knuckles]
+    Timeout(id + 0x980, 0.4f, "Burst"); // t=1506.2; Ability B49F from Lindwurm
+    Timeout(id + 0x990, 5.1f, "Serpentine Scourge Left"); // t=1511.3; Ability B4D1 from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x9A0, 1.0f, "Serpentine Scourge"); // t=1512.3; Ability B9BC from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D2 [R12S Serpentine Scourge Right Followup]
+    Timeout(id + 0x9B0, 3.6f, "Serpentine Scourge Right"); // t=1515.9; Ability B4D2 from Lindwurm; cactbot Ability B4D2 [R12S Serpentine Scourge Right Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0x9C0, 1.0f, "Serpentine Scourge"); // t=1516.9; Ability B9BC from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D2 [R12S Serpentine Scourge Right Followup]
+    Condition(id + 0x9D0, 9.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB2C7), "", 5f, 4.6f); // t=1526.5; StartsUsing B2C7 from Lindwurm
+    Timeout(id + 0x9E0, 0.0f, "--untargetable?--"); // t=1526.5
+    Timeout(id + 0x9F0, 5.0f, "The Fixer (Enrage)?"); // t=1531.5
+    Timeout(id + 0xA00, 5.2f, "Refreshing Overkill (Enrage)?"); // t=1536.7
+    Timeout(id + 0xA10, 0.1f, "--untargetable?-- / Refreshing Overkill (Enrage)?"); // t=1536.8
+    Condition(id + 0xA20, 9.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB538), "", 5f, 4.9f); // t=1546.7; StartsUsing B538 from Lindwurm
+    Timeout(id + 0xA30, 60.7f, "Dramatic Lysis x4 / Fourth-wall Fusion"); // t=1607.4; Ability B4D5 from Lindwurm; cactbot Ability B4D4/B4D5 [R12S Serpintine Scourge and Raptor Knuckles]
+    Timeout(id + 0xA40, 0.4f, "Burst"); // t=1607.8; Ability B49F from Lindwurm
+    Timeout(id + 0xA50, 5.1f, "Serpentine Scourge Left/Right"); // t=1612.9; Ability B4D2 from Lindwurm; cactbot Ability B4D2 [R12S Serpentine Scourge Right Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0xA60, 1.0f, "Serpentine Scourge"); // t=1613.9; Ability B9BC from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D2 [R12S Serpentine Scourge Right Followup]
+    Timeout(id + 0xA70, 3.7f, "Serpentine Scourge Right/Left"); // t=1617.6; Ability B4D1 from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0xA80, 1.0f, "Serpentine Scourge"); // t=1618.6; Ability B9BC from Lindwurm; cactbot Ability B4D1 [R12S Serpentine Scourge Left Followup] | Ability B4D2 [R12S Serpentine Scourge Right Followup]
+    Condition(id + 0xA90, 7.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB2C7), "", 5f, 2.9f); // t=1626.5; StartsUsing B2C7 from Lindwurm
+    Timeout(id + 0xAA0, 0.0f, "--untargetable?--"); // t=1626.5
+    Timeout(id + 0xAB0, 5.0f, "The Fixer (Enrage)?"); // t=1631.5
+    Timeout(id + 0xAC0, 5.2f, "Refreshing Overkill (Enrage)?"); // t=1636.7
+    Timeout(id + 0xAD0, 0.1f, "--untargetable?-- / Refreshing Overkill (Enrage)?"); // t=1636.8
+    Condition(id + 0xAE0, 9.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB538), "", 5f, 4.9f); // t=1646.7; StartsUsing B538 from Lindwurm
+    Timeout(id + 0xAF0, 60.7f, "Dramatic Lysis x4 / Fourth-wall Fusion"); // t=1707.4; Ability B4D5 from Lindwurm; cactbot Ability B4D4/B4D5 [R12S Serpintine Scourge and Raptor Knuckles]
+    Timeout(id + 0xB00, 0.4f, "Burst"); // t=1707.8; Ability B49F from Lindwurm
+    Timeout(id + 0xB10, 5.1f, "Raptor Knuckles Northeast"); // t=1712.9; Ability B4D0 from Lindwurm; cactbot Ability B4D0 [R12S Raptor Knuckles Northeast Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0xB20, 0.8f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=1713.7; Ability B9C7 from Lindwurm; cactbot Ability B4CC/B4CE [R12S Raptor Knuckles Uptime Knockback]
+    Timeout(id + 0xB30, 3.8f, "Raptor Knuckles Northwest"); // t=1717.5; Ability B4CF from Lindwurm; cactbot Ability B4CF [R12S Raptor Knuckles Northwest Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0xB40, 0.8f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=1718.3; Ability B9C7 from Lindwurm; cactbot Ability B4CC/B4CE [R12S Raptor Knuckles Uptime Knockback]
+    Condition(id + 0xB50, 8.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB2C7), "", 5f, 3.2f); // t=1726.5; StartsUsing B2C7 from Lindwurm
+    Timeout(id + 0xB60, 0.0f, "--untargetable?--"); // t=1726.5
+    Timeout(id + 0xB70, 5.0f, "The Fixer (Enrage)?"); // t=1731.5
+    Timeout(id + 0xB80, 5.2f, "Refreshing Overkill (Enrage)?"); // t=1736.7
+    Timeout(id + 0xB90, 0.1f, "--untargetable?-- / Refreshing Overkill (Enrage)?"); // t=1736.8
+    Condition(id + 0xBA0, 9.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB538), "", 5f, 4.9f); // t=1746.7; StartsUsing B538 from Lindwurm
+    Timeout(id + 0xBB0, 60.7f, "Dramatic Lysis x4 / Fourth-wall Fusion"); // t=1807.4; Ability B4D5 from Lindwurm; cactbot Ability B4D4/B4D5 [R12S Serpintine Scourge and Raptor Knuckles]
+    Timeout(id + 0xBC0, 0.4f, "Burst"); // t=1807.8; Ability B49F from Lindwurm
+    Timeout(id + 0xBD0, 5.1f, "Raptor Knuckles Northwest"); // t=1812.9; Ability B4CF from Lindwurm; cactbot Ability B4CF [R12S Raptor Knuckles Northwest Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0xBE0, 0.8f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=1813.7; Ability B9C7 from Lindwurm; cactbot Ability B4CC/B4CE [R12S Raptor Knuckles Uptime Knockback]
+    Timeout(id + 0xBF0, 3.8f, "Raptor Knuckles Northeast"); // t=1817.5; Ability B4D0 from Lindwurm; cactbot Ability B4D0 [R12S Raptor Knuckles Northeast Followup] | Ability B4D1/B4D2/B4D0/B4CF [R12S Slaughtershed Cleanup]
+    Timeout(id + 0xC00, 0.8f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=1818.3; Ability B9C7 from Lindwurm; cactbot Ability B4CC/B4CE [R12S Raptor Knuckles Uptime Knockback]
+    Condition(id + 0xC10, 8.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB2C7), "", 5f, 3.2f); // t=1826.5; StartsUsing B2C7 from Lindwurm
+    Timeout(id + 0xC20, 0.0f, "--untargetable?--"); // t=1826.5
+    Timeout(id + 0xC30, 5.0f, "The Fixer (Enrage)?"); // t=1831.5
+    Timeout(id + 0xC40, 5.2f, "Refreshing Overkill (Enrage)?"); // t=1836.7
+    Timeout(id + 0xC50, 0.1f, "--untargetable?-- / Refreshing Overkill (Enrage)?"); // t=1836.8
+    Condition(id + 0xC60, 9.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB538), "", 5f, 4.9f); // t=1846.7; StartsUsing B538 from Lindwurm
+    Timeout(id + 0xC70, 84.8f, "The Fixer (Enrage)"); // t=1931.5; Ability B2C7 from Lindwurm
+    Timeout(id + 0xC80, 105.2f, "Refreshing Overkill (Enrage)?"); // t=2036.7; Ability B538 from Lindwurm
+    Targetable(id + 0xC90, false, 0.1f, "--untargetable--"); // t=2036.8
+    Timeout(id + 0xCA0, 0.0f, "Refreshing Overkill (Enrage)? / Refreshing Overkill").SetHint(StateMachine.StateHint.Raidwide); // t=2036.8; Ability B53A from Lindwurm | Ability B539 from Lindwurm; cactbot Ability B539 [R12S Refreshing Overkill]
+    Timeout(id + 0xCB0, 36.7f, "Down for the Count"); // t=2073.5
+    Targetable(id + 0xCC0, true, 44.2f, "--targetable--"); // t=2117.7
+}
+
+private void Phase_2__Lindwurm_II(uint id)
+{
+    Condition(id + 0x0, 10.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB528), "", 5f, 5.2f); // t=3010.7; StartsUsing B528 from Lindwurm; cactbot StartsUsing B528 [R12S Arcadia Aflame]
+    Timeout(id + 0x10, 5.0f, "Arcadia Aflame").SetHint(StateMachine.StateHint.Raidwide); // t=3015.7; Ability B528 from Lindwurm; cactbot StartsUsing B528 [R12S Arcadia Aflame]
+    Timeout(id + 0x20, 7.2f, "--middle--"); // t=3022.9; Ability B4D9 from Lindwurm; cactbot Ability B4D9 [R12S Top-Tier Slam Actor Collect] | Ability B4D9 [R12S Top-Tier Slam/Mighty Magic Locations]
+    Timeout(id + 0x30, 5.1f, "Replication 1"); // t=3028.0; Ability B4D8 from Lindwurm; cactbot StartsUsing B4D8 [R12S Phase Two Replication Tracker]
+    Timeout(id + 0x40, 11.7f, "Top-tier Slam x2"); // t=3039.7; Ability B4DE from Lindschrat
+    Timeout(id + 0x50, 0.8f, "Winged Scourge x4"); // t=3040.5; Ability B4DC from Lindwurm
+    Timeout(id + 0x60, 0.2f, "Mighty Magic x4"); // t=3040.7
+    Timeout(id + 0x70, 4.6f, "Snaking Kick"); // t=3045.3; Ability B527 from Lindwurm; cactbot StartsUsing B527 [R12S Snaking Kick] | Ability B527 [R12S Replication 1 Follow-up Tracker]
+    Timeout(id + 0x80, 8.4f, "--clones move 1--"); // t=3053.7
+    Timeout(id + 0x90, 1.0f, "--clones move 2--"); // t=3054.7
+    Timeout(id + 0xA0, 6.3f, "Top-tier Slam x2"); // t=3061.0; Ability B4DE from Lindschrat
+    Timeout(id + 0xB0, 0.8f, "Winged Scourge x4"); // t=3061.8; Ability B4DC from Lindwurm
+    Timeout(id + 0xC0, 0.3f, "Mighty Magic x4"); // t=3062.1
+    Timeout(id + 0xD0, 7.3f, "Double Sobat (castbar)"); // t=3069.4; Ability B520 from Lindwurm
+    Timeout(id + 0xE0, 0.6f, "Double Sobat 1"); // t=3070.0; Ability B521/B522/B523/B524 from Lindwurm; cactbot Ability B521/B522/B523/B524 [R12S Double Sobat 2]
+    Timeout(id + 0xF0, 4.6f, "Double Sobat 2"); // t=3074.6; Ability B525 from Lindwurm; cactbot StartsUsing B525 [R12S Esoteric Finisher]
+    Timeout(id + 0x100, 2.4f, "Esoteric Finisher"); // t=3077.0; Ability B526 from Lindwurm; cactbot StartsUsing B525 [R12S Esoteric Finisher]
+    Timeout(id + 0x110, 14.2f, "Staging"); // t=3091.2; Ability B4E1 from Lindwurm; cactbot StartsUsing B4E1 [R12S Phase Two Boss ID Collect]
+    Timeout(id + 0x120, 1.3f, "--clones x2 1--"); // t=3092.5
+    Timeout(id + 0x130, 1.5f, "--clones x2 2--"); // t=3094.0
+    Timeout(id + 0x140, 1.5f, "--clones x2 3--"); // t=3095.5
+    Timeout(id + 0x150, 1.5f, "--clones x2 4--"); // t=3097.0
+    Timeout(id + 0x160, 2.1f, "--locked tethers--"); // t=3099.1
+    Timeout(id + 0x170, 6.3f, "Replication 2"); // t=3105.4; Ability B4D8 from Lindwurm; cactbot StartsUsing B4D8 [R12S Phase Two Replication Tracker]
+    Timeout(id + 0x180, 3.2f, "--boss clones x6--"); // t=3108.6
+    Timeout(id + 0x190, 5.2f, "--tethers--"); // t=3113.8; cactbot Tether [R12S Replication 2 and Replication 4 Ability Tethers Collect] | Tether [R12S Replication 2 Ability Tethers Initial Call] | Tether [R12S Replication 4 Ability Tethers Initial Call]
+    Timeout(id + 0x1A0, 8.0f, "--locked tethers--"); // t=3121.8
+    Timeout(id + 0x1B0, 6.0f, "Firefall Splash"); // t=3127.8; Ability B4E4 from Lindwurm
+    Timeout(id + 0x1C0, 0.7f, "Scalding Waves x4"); // t=3128.5; Ability B4E5 from Lindwurm
+    Timeout(id + 0x1D0, 1.4f, "Mana Burst x3"); // t=3129.9; Ability B4E7 from Lindwurm; cactbot Ability B4E7 [R12S Heavy Slam]
+    Timeout(id + 0x1E0, 5.6f, "Heavy Slam x2"); // t=3135.5; Ability B4E8 from Lindschrat
+    Timeout(id + 0x1F0, 1.2f, "Grotesquerie x2"); // t=3136.7; Ability B4EA from Lindwurm; cactbot Ability B4EA [R12S Grotesquerie]
+    Timeout(id + 0x200, 0.6f, "Hemorrhagic Projection x2"); // t=3137.3; Ability B4EB from Lindwurm
+    Timeout(id + 0x210, 3.8f, "Snaking Kick"); // t=3141.1; Ability B527 from Lindwurm; cactbot StartsUsing B527 [R12S Snaking Kick] | Ability B527 [R12S Replication 1 Follow-up Tracker]
+    Timeout(id + 0x220, 10.2f, "Reenactment 1"); // t=3151.3; Ability B4EC from Lindwurm; cactbot StartsUsing B4EC [R12S Phase Two Reenactment Tracker]
+    Timeout(id + 0x230, 8.1f, "--n/s clones-- / Netherwrath Near/Netherwrath Far"); // t=3159.4; Ability B52E/B52F from Lindwurm; cactbot StartsUsing B52E/B52F [R12S Netherwrath Near/Far and First Clones]
+    Timeout(id + 0x240, 1.2f, "Timeless Spite x2"); // t=3160.6; Ability B530 from Lindwurm
+    Timeout(id + 0x250, 2.7f, "--ne/sw clones--"); // t=3163.3; Ability B4ED/B4EE/B4EF/B4F1 from Lindschrat
+    Timeout(id + 0x260, 4.1f, "--e/w clones--"); // t=3167.4; Ability B4ED/B4EE/B4EF/B4F1 from Lindschrat
+    Timeout(id + 0x270, 4.0f, "--se/nw clones--"); // t=3171.4; Ability B4ED/B4EE/B4EF/B4F1 from Lindschrat
+    Timeout(id + 0x280, 7.2f, "--middle--"); // t=3178.6; Ability B4D9 from Lindwurm; cactbot Ability B4D9 [R12S Top-Tier Slam Actor Collect] | Ability B4D9 [R12S Top-Tier Slam/Mighty Magic Locations]
+    Timeout(id + 0x290, 5.2f, "Mutating Cells"); // t=3183.8; Ability B505 from Lindwurm
+    Timeout(id + 0x2A0, 6.2f, "Blood Mana"); // t=3190.0; Ability B4FB from Lindwurm
+    Timeout(id + 0x2B0, 3.3f, "--black holes--"); // t=3193.3; Ability BCB0 from Mana Sphere
+    Timeout(id + 0x2C0, 0.4f, "--shapes--"); // t=3193.7; Ability B4FD from Mana Sphere; cactbot Ability B4FD [R12S Black Hole and Shapes]
+    Timeout(id + 0x2D0, 7.0f, "Bloody Burst x2"); // t=3200.7
+    Timeout(id + 0x2E0, 1.5f, "Dramatic Lysis x8"); // t=3202.2; Ability B507 from Lindwurm; cactbot Ability B507 [R12S Dramatic Lysis Black Hole 1]
+    Timeout(id + 0x2F0, 1.0f, "--close shapes eaten--"); // t=3203.2; Ability B4FF from Mana Sphere
+    Timeout(id + 0x300, 3.0f, "--far shapes eaten--"); // t=3206.2; Ability B4FF from Mana Sphere
+    Timeout(id + 0x310, 3.0f, "--soaked shapes eaten--"); // t=3209.2; Ability B4FF from Mana Sphere
+    Timeout(id + 0x320, 7.5f, "Blood Wakening"); // t=3216.7; Ability B500 from Lindwurm; cactbot Ability B501/B502/B503/B504 [R12S Blood Wakening Followup]
+    Timeout(id + 0x330, 1.6f, "Black Hole 1"); // t=3218.3; Ability B501/B502/B503/B504 from Lindwurm; cactbot Ability B501/B502/B503/B504 [R12S Blood Wakening Followup]
+    Timeout(id + 0x340, 5.0f, "Black Hole 2"); // t=3223.3; Ability B501/B502/B503/B504 from Lindwurm; cactbot Ability B501/B502/B503/B504 [R12S Blood Wakening Followup]
+    Timeout(id + 0x350, 4.3f, "Netherworld Near/Netherworld Far"); // t=3227.6; Ability B52B/B52C from Lindwurm; cactbot StartsUsing B52B/B52C [R12S Netherworld Near/Far]
+    Timeout(id + 0x360, 1.2f, "Wailing Wave x3"); // t=3228.8; Ability B52D from Lindwurm
+    Timeout(id + 0x370, 3.0f, "Dramatic Lysis x8"); // t=3231.8; Ability B507 from Lindwurm; cactbot Ability B507 [R12S Dramatic Lysis Black Hole 1]
+    Timeout(id + 0x380, 4.0f, "Arcadia Aflame").SetHint(StateMachine.StateHint.Raidwide); // t=3235.8; Ability B528 from Lindwurm; cactbot StartsUsing B528 [R12S Arcadia Aflame]
+    Timeout(id + 0x390, 9.2f, "Double Sobat (castbar)"); // t=3245.0; Ability B520 from Lindwurm
+    Timeout(id + 0x3A0, 0.6f, "Double Sobat 1"); // t=3245.6; Ability B521/B522/B523/B524 from Lindwurm; cactbot Ability B521/B522/B523/B524 [R12S Double Sobat 2]
+    Timeout(id + 0x3B0, 4.6f, "Double Sobat 2"); // t=3250.2; Ability B525 from Lindwurm; cactbot StartsUsing B525 [R12S Esoteric Finisher]
+    Timeout(id + 0x3C0, 2.4f, "Esoteric Finisher"); // t=3252.6; Ability B526 from Lindwurm; cactbot StartsUsing B525 [R12S Esoteric Finisher]
+    Timeout(id + 0x3D0, 8.1f, "--middle--"); // t=3260.7
+    Timeout(id + 0x3E0, 8.1f, "Idyllic Dream").SetHint(StateMachine.StateHint.Raidwide); // t=3268.8; Ability B509 from Lindwurm; cactbot StartsUsing BEC0/B4C6/B509 [R12S Phase Tracker] | StartsUsing B509 [R12S Idyllic Dream]
+    Timeout(id + 0x3F0, 6.2f, "Staging"); // t=3275.0; Ability B4E1 from Lindwurm; cactbot StartsUsing B4E1 [R12S Phase Two Boss ID Collect]
+    Timeout(id + 0x400, 1.3f, "--clones x4 1--"); // t=3276.3
+    Timeout(id + 0x410, 2.0f, "--clones x4 2--"); // t=3278.3
+    Timeout(id + 0x420, 2.1f, "--locked tethers--"); // t=3280.4
+    Timeout(id + 0x430, 9.7f, "Twisted Vision 1"); // t=3290.1; Ability BBE2 from Lindwurm; cactbot StartsUsing BBE2 [R12S Phase Two Twisted Vision Tracker] | StartsUsing BBE2 [R12S Twisted Vision 4 Stack/Defamation 1] | StartsUsing BBE2 [R12S Twisted Vision 5 Towers] | Ability BBE2 [R12S Twisted Vision 6 Light Party Stacks] | StartsUsing BBE2 [R12S Twisted Vision 7 Safe Platform] | StartsUsing BBE2 [R12S Twisted Vision 8 Light Party Stacks]
+    Timeout(id + 0x440, 6.1f, "Replication 3"); // t=3296.2; Ability B4D8 from Lindwurm; cactbot StartsUsing B4D8 [R12S Phase Two Replication Tracker]
+    Timeout(id + 0x450, 3.2f, "--boss clones x3--"); // t=3299.4
+    Timeout(id + 0x460, 9.2f, "Twisted Vision 2"); // t=3308.6; Ability BBE2 from Lindwurm; cactbot StartsUsing BBE2 [R12S Phase Two Twisted Vision Tracker] | StartsUsing BBE2 [R12S Twisted Vision 4 Stack/Defamation 1] | StartsUsing BBE2 [R12S Twisted Vision 5 Towers] | Ability BBE2 [R12S Twisted Vision 6 Light Party Stacks] | StartsUsing BBE2 [R12S Twisted Vision 7 Safe Platform] | StartsUsing BBE2 [R12S Twisted Vision 8 Light Party Stacks]
+    Timeout(id + 0x470, 1.0f, "Power Gusher x2 / Snaking Kick"); // t=3309.6
+    Timeout(id + 0x480, 5.1f, "Replication 4"); // t=3314.7; Ability B4D8 from Lindwurm; cactbot StartsUsing B4D8 [R12S Phase Two Replication Tracker]
+    Timeout(id + 0x490, 3.2f, "--boss clones x2 1--"); // t=3317.9
+    Timeout(id + 0x4A0, 1.0f, "--boss clones x2 2--"); // t=3318.9
+    Timeout(id + 0x4B0, 1.0f, "--boss clones x2 3--"); // t=3319.9
+    Timeout(id + 0x4C0, 1.0f, "--boss clones x2 4--"); // t=3320.9
+    Timeout(id + 0x4D0, 5.2f, "--tethers--"); // t=3326.1; cactbot Tether [R12S Replication 2 and Replication 4 Ability Tethers Collect] | Tether [R12S Replication 2 Ability Tethers Initial Call] | Tether [R12S Replication 4 Ability Tethers Initial Call]
+    Timeout(id + 0x4E0, 8.0f, "--locked tethers--"); // t=3334.1
+    Timeout(id + 0x4F0, 0.2f, "Twisted Vision 3"); // t=3334.3; Ability BBE2 from Lindwurm; cactbot StartsUsing BBE2 [R12S Phase Two Twisted Vision Tracker] | StartsUsing BBE2 [R12S Twisted Vision 4 Stack/Defamation 1] | StartsUsing BBE2 [R12S Twisted Vision 5 Towers] | Ability BBE2 [R12S Twisted Vision 6 Light Party Stacks] | StartsUsing BBE2 [R12S Twisted Vision 7 Safe Platform] | StartsUsing BBE2 [R12S Twisted Vision 8 Light Party Stacks]
+    Timeout(id + 0x500, 4.4f, "Snaking Kick"); // t=3338.7; Ability BE95 from Lindwurm
+    Timeout(id + 0x510, 0.2f, "Power Gusher x4"); // t=3338.9
+    Timeout(id + 0x520, 3.9f, "Lindwurm's Meteor"); // t=3342.8; Ability B4F2 from Lindwurm
+    Timeout(id + 0x530, 6.1f, "Downfall"); // t=3348.9; Ability B4F3 from Lindwurm
+    Timeout(id + 0x540, 6.1f, "Arcadian Arcanum (castbar)"); // t=3355.0; Ability B529 from Lindwurm; cactbot StartsUsing B529 [R12S Arcadian Arcanum]
+    Timeout(id + 0x550, 1.2f, "Arcadian Arcanum"); // t=3356.2; Ability B9D9 from Lindwurm; cactbot StartsUsing B529 [R12S Arcadian Arcanum]
+    Timeout(id + 0x560, 6.8f, "Twisted Vision 4"); // t=3363.0; Ability BBE2 from Lindwurm; cactbot StartsUsing BBE2 [R12S Phase Two Twisted Vision Tracker] | StartsUsing BBE2 [R12S Twisted Vision 4 Stack/Defamation 1] | StartsUsing BBE2 [R12S Twisted Vision 5 Towers] | Ability BBE2 [R12S Twisted Vision 6 Light Party Stacks] | StartsUsing BBE2 [R12S Twisted Vision 7 Safe Platform] | StartsUsing BBE2 [R12S Twisted Vision 8 Light Party Stacks]
+    Timeout(id + 0x570, 6.6f, "Clone 1 Heavy Slam?"); // t=3369.6; Ability B519 from Lindschrat; cactbot Ability B519/B517 [R12S Twisted Vision 4 Stack/Defamation Counter] | Ability B519/B517 [R12S Twisted Vision 4 Stack/Defamation 2-4] | Ability B519/B517 [R12S Twisted Vision 5 Towers (Early)]
+    Timeout(id + 0x580, 1.2f, "Clone 1 Mana Burst?"); // t=3370.8; Ability B518 from Lindwurm
+    Timeout(id + 0x590, 3.8f, "Clone 2 Heavy Slam?"); // t=3374.6; Ability B519 from Lindschrat; cactbot Ability B519/B517 [R12S Twisted Vision 4 Stack/Defamation Counter] | Ability B519/B517 [R12S Twisted Vision 4 Stack/Defamation 2-4] | Ability B519/B517 [R12S Twisted Vision 5 Towers (Early)]
+    Timeout(id + 0x5A0, 1.2f, "Clone 2 Mana Burst?"); // t=3375.8; Ability B518 from Lindwurm
+    Timeout(id + 0x5B0, 3.8f, "Clone 3 Heavy Slam?"); // t=3379.6; Ability B519 from Lindschrat; cactbot Ability B519/B517 [R12S Twisted Vision 4 Stack/Defamation Counter] | Ability B519/B517 [R12S Twisted Vision 4 Stack/Defamation 2-4] | Ability B519/B517 [R12S Twisted Vision 5 Towers (Early)]
+    Timeout(id + 0x5C0, 1.2f, "Clone 3 Mana Burst?"); // t=3380.8; Ability B518 from Lindwurm
+    Timeout(id + 0x5D0, 3.8f, "Clone 4 Heavy Slam?"); // t=3384.6; Ability B519 from Lindschrat; cactbot Ability B519/B517 [R12S Twisted Vision 4 Stack/Defamation Counter] | Ability B519/B517 [R12S Twisted Vision 4 Stack/Defamation 2-4] | Ability B519/B517 [R12S Twisted Vision 5 Towers (Early)]
+    Timeout(id + 0x5E0, 1.2f, "Clone 4 Mana Burst?"); // t=3385.8; Ability B518 from Lindwurm
+    Timeout(id + 0x5F0, 7.8f, "Twisted Vision 5"); // t=3393.6; Ability BBE2 from Lindwurm; cactbot StartsUsing BBE2 [R12S Phase Two Twisted Vision Tracker] | StartsUsing BBE2 [R12S Twisted Vision 4 Stack/Defamation 1] | StartsUsing BBE2 [R12S Twisted Vision 5 Towers] | Ability BBE2 [R12S Twisted Vision 6 Light Party Stacks] | StartsUsing BBE2 [R12S Twisted Vision 7 Safe Platform] | StartsUsing BBE2 [R12S Twisted Vision 8 Light Party Stacks]
+    Timeout(id + 0x600, 4.4f, "Cosmic Kiss x8"); // t=3398.0; Ability B4F4 from Lindwurm; cactbot Ability B4F4 [R12S Cosmic Kiss Tower Collect]
+    Timeout(id + 0x610, 0.6f, "--Hot-blooded x2--"); // t=3398.6
+    Timeout(id + 0x620, 0.1f, "Lindwurm's Dark II x2 / --Doom x2--"); // t=3398.7; Ability B4F6 from Lindwurm; cactbot Ability B4F6 [R12S Avoid Earth Tower (Missing Dooms)]
+    Timeout(id + 0x630, 5.0f, "Lindwurm's Stone III x2"); // t=3403.7
+    Timeout(id + 0x640, 5.0f, "Lindwurm's Thunder II x4 / Lindwurm's Glare x4"); // t=3408.7
+    Timeout(id + 0x650, 8.4f, "Temporal Curtain"); // t=3417.1; Ability B51C from Lindwurm; cactbot Ability B51D [R12S Temporal Curtain Part 1 Collect] | Ability B51D [R12S Temporal Curtain Part 1] | AbilityExtra B4D9 [R12S Temporal Curtain Part 2 Collect] | AbilityExtra B4D9 [R12S Temporal Curtain Part 2]
+    Timeout(id + 0x660, 3.1f, "--clone takes portal--"); // t=3420.2; Ability B51D from Lindschrat; cactbot Ability B51D [R12S Temporal Curtain Part 1 Collect] | Ability B51D [R12S Temporal Curtain Part 1]
+    Timeout(id + 0x670, 3.1f, "--clones on platform--"); // t=3423.3; Ability B4D9 from Lindschrat; cactbot Ability B4D9 [R12S Top-Tier Slam Actor Collect] | Ability B4D9 [R12S Top-Tier Slam/Mighty Magic Locations]
+    Timeout(id + 0x680, 6.3f, "Twisted Vision 6"); // t=3429.6; Ability BBE2 from Lindwurm; cactbot StartsUsing BBE2 [R12S Phase Two Twisted Vision Tracker] | StartsUsing BBE2 [R12S Twisted Vision 4 Stack/Defamation 1] | StartsUsing BBE2 [R12S Twisted Vision 5 Towers] | Ability BBE2 [R12S Twisted Vision 6 Light Party Stacks] | StartsUsing BBE2 [R12S Twisted Vision 7 Safe Platform] | StartsUsing BBE2 [R12S Twisted Vision 8 Light Party Stacks]
+    Timeout(id + 0x690, 1.0f, "Power Gusher / Snaking Kick"); // t=3430.6; Ability B50F/B510 from Lindschrat | Ability BCAF from Lindschrat; cactbot StartsUsing B50F/B510/B511 [R12S Idyllic Dream Power Gusher and Snaking Kick Collect] | StartsUsing B510 [R12S Idyllic Dream Power Gusher Vision]
+    Timeout(id + 0x6A0, 5.1f, "Reenactment 2"); // t=3435.7; Ability B4EC from Lindwurm; cactbot StartsUsing B4EC [R12S Phase Two Reenactment Tracker]
+    Timeout(id + 0x6B0, 3.3f, "Clone Mana Burst x2"); // t=3439.0; Ability BBE3 from Lindwurm; cactbot Ability BBE3 [R12S Reenactment 1 Clone Stacks E/W (Third Clones DN)]
+    Timeout(id + 0x6C0, 0.2f, "Clone Heavy Slam x2"); // t=3439.2; Ability BE5D from Lindwurm; cactbot Ability BE5D [R12S Reenactment 1 Proteans West (Third Clones Banana/Nukemaru)] | Ability BE5D [R12S Reenactment 1 Defamation SE Dodge Reminder (Fourth Clones DN)] | Ability BE5D [R12S Twisted Vision 8 Dodge Cleaves]
+    Timeout(id + 0x6D0, 5.6f, "Twisted Vision 7"); // t=3444.8; Ability BBE2 from Lindwurm; cactbot StartsUsing BBE2 [R12S Phase Two Twisted Vision Tracker] | StartsUsing BBE2 [R12S Twisted Vision 4 Stack/Defamation 1] | StartsUsing BBE2 [R12S Twisted Vision 5 Towers] | Ability BBE2 [R12S Twisted Vision 6 Light Party Stacks] | StartsUsing BBE2 [R12S Twisted Vision 7 Safe Platform] | StartsUsing BBE2 [R12S Twisted Vision 8 Light Party Stacks]
+    Timeout(id + 0x6E0, 4.4f, "Snaking Kick"); // t=3449.2; Ability BE95 from Lindwurm
+    Timeout(id + 0x6F0, 0.2f, "Power Gusher"); // t=3449.4; Ability B516 from Lindwurm
+    Timeout(id + 0x700, 2.9f, "Twisted Vision 8"); // t=3452.3; Ability BBE2 from Lindwurm; cactbot StartsUsing BBE2 [R12S Phase Two Twisted Vision Tracker] | StartsUsing BBE2 [R12S Twisted Vision 4 Stack/Defamation 1] | StartsUsing BBE2 [R12S Twisted Vision 5 Towers] | Ability BBE2 [R12S Twisted Vision 6 Light Party Stacks] | StartsUsing BBE2 [R12S Twisted Vision 7 Safe Platform] | StartsUsing BBE2 [R12S Twisted Vision 8 Light Party Stacks]
+    Timeout(id + 0x710, 7.5f, "Clone Mana Burst x2"); // t=3459.8; Ability BBE3 from Lindwurm; cactbot Ability BBE3 [R12S Reenactment 1 Clone Stacks E/W (Third Clones DN)]
+    Timeout(id + 0x720, 0.2f, "Clone Heavy Slam x2"); // t=3460.0; Ability BE5D from Lindwurm; cactbot Ability BE5D [R12S Reenactment 1 Proteans West (Third Clones Banana/Nukemaru)] | Ability BE5D [R12S Reenactment 1 Defamation SE Dodge Reminder (Fourth Clones DN)] | Ability BE5D [R12S Twisted Vision 8 Dodge Cleaves]
+    Timeout(id + 0x730, 4.8f, "Power Gusher"); // t=3464.8; Ability B516 from Lindwurm
+    Timeout(id + 0x740, 5.9f, "Idyllic Dream").SetHint(StateMachine.StateHint.Raidwide); // t=3470.7; Ability B509 from Lindwurm; cactbot StartsUsing BEC0/B4C6/B509 [R12S Phase Tracker] | StartsUsing B509 [R12S Idyllic Dream]
+    Timeout(id + 0x750, 8.1f, "Double Sobat (castbar)"); // t=3478.8; Ability B520 from Lindwurm
+    Timeout(id + 0x760, 0.8f, "Double Sobat 1"); // t=3479.6; Ability B521/B522/B523/B524 from Lindwurm; cactbot Ability B521/B522/B523/B524 [R12S Double Sobat 2]
+    Timeout(id + 0x770, 4.6f, "Double Sobat 2"); // t=3484.2; Ability B525 from Lindwurm; cactbot StartsUsing B525 [R12S Esoteric Finisher]
+    Timeout(id + 0x780, 2.4f, "Esoteric Finisher"); // t=3486.6; Ability B526 from Lindwurm; cactbot StartsUsing B525 [R12S Esoteric Finisher]
+    Timeout(id + 0x790, 13.2f, "Replication 5"); // t=3499.8; Ability B46C from Lindwurm
+    Timeout(id + 0x7A0, 13.4f, "Arcadian Hell 1 (boss)  / Arcadian Hell 1 x4 (clones)").SetHint(StateMachine.StateHint.Raidwide); // t=3513.2; Ability B533 from Lindwurm; cactbot StartsUsing B533 [R12S Arcadian Hell 1]
+    Timeout(id + 0x7B0, 16.2f, "Arcadian Hell 2 (boss) / Arcadian Hell 2 x8 (clones)").SetHint(StateMachine.StateHint.Raidwide); // t=3529.4; Ability B533 from Lindwurm; cactbot StartsUsing B533 [R12S Arcadian Hell 1]
+    Condition(id + 0x7C0, 12.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB537), "", 5f, 7.9f); // t=3542.3; StartsUsing B537 from Lindwurm
+    Timeout(id + 0x7D0, 10.0f, "Arcadian Hell (Boss Enrage) / Arcadian Hell x16 (Clones Enrage)"); // t=3552.3; Ability B537 from Lindwurm
+}
+

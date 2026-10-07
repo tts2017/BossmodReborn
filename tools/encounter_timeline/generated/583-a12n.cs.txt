@@ -1,0 +1,79 @@
+// Generated development skeleton from a12n.txt (TerritoryType 583).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 7 static/dynamic trigger definitions from ui/raidboss/data/03-hw/raid/a12n.ts.
+
+private void ALEXANDER_PRIME(uint id)
+{
+    Timeout(id + 0x0, 6.4f, "Divine Spear"); // t=6.4; Ability 1AE3 from Alexander Prime
+    Timeout(id + 0x10, 8.1f, "Mega Holy").SetHint(StateMachine.StateHint.Raidwide); // t=14.5; Ability 1AE7 from Alexander Prime; cactbot StartsUsing 1AE7 [A12N Mega Holy]
+    Timeout(id + 0x20, 8.1f, "Punishing Heat").SetHint(StateMachine.StateHint.Tankbuster); // t=22.6; Ability 1AE4 from Alexander Prime; cactbot StartsUsing 1AE4 [A12N Punishing Heat]
+    Timeout(id + 0x30, 9.2f, "Sacrament"); // t=31.8; Ability 1AE5 from Alexander Prime; cactbot StartsUsing 1AE5 [A12N Laser Sacrament]
+    Timeout(id + 0x40, 4.2f, "Divine Spear"); // t=36.0; Ability 1AE3 from Alexander Prime
+    Timeout(id + 0x50, 8.1f, "Mega Holy").SetHint(StateMachine.StateHint.Raidwide); // t=44.1; Ability 1AE7 from Alexander Prime; cactbot StartsUsing 1AE7 [A12N Mega Holy]
+    Timeout(id + 0x60, 9.2f, "Blazing Scourge"); // t=53.3; Ability 1AE9 from Alexander Prime; cactbot HeadMarker 1E [A12N Blazing Scourge]
+    Timeout(id + 0x70, 3.1f, "Divine Spear"); // t=56.4; Ability 1AE3 from Alexander Prime
+    Targetable(id + 0x80, false, 5.0f, "--untargetable--"); // t=61.4
+    Timeout(id + 0x90, 110.2f, "Divine Judgment"); // t=171.6; Ability 1AEF from Alexander
+    Targetable(id + 0xA0, true, 10.8f, "--targetable--"); // t=182.4
+    Timeout(id + 0xB0, 3.0f, "Chronofoil"); // t=185.4; Ability 19FA from Alexander Prime
+    Timeout(id + 0xC0, 14.2f, "Temporal Stasis"); // t=199.6; Ability 1AF0 from Alexander Prime
+    Targetable(id + 0xD0, false, 4.1f, "--untargetable--"); // t=203.7
+    Timeout(id + 0xE0, 0.0f, "Plaint Of Solidarity"); // t=203.7; Ability 1AF2 from Alexander Prime
+    Targetable(id + 0xF0, true, 3.2f, "--targetable--"); // t=206.9
+    Timeout(id + 0x100, 5.1f, "Sacrament"); // t=212.0; Ability 1AE5 from Alexander Prime; cactbot StartsUsing 1AE5 [A12N Laser Sacrament]
+    Timeout(id + 0x110, 5.2f, "Divine Spear"); // t=217.2; Ability 1AE3 from Alexander Prime
+    Timeout(id + 0x120, 6.1f, "Mega Holy").SetHint(StateMachine.StateHint.Raidwide); // t=223.3; Ability 1AE7 from Alexander Prime; cactbot StartsUsing 1AE7 [A12N Mega Holy]
+    Timeout(id + 0x130, 6.3f, "Punishing Heat").SetHint(StateMachine.StateHint.Tankbuster); // t=229.6; Ability 1AE4 from Alexander Prime; cactbot StartsUsing 1AE4 [A12N Punishing Heat]
+    Timeout(id + 0x140, 5.2f, "Divine Spear"); // t=234.8; Ability 1AE3 from Alexander Prime
+    Timeout(id + 0x150, 10.1f, "Temporal Stasis"); // t=244.9; Ability 1AF0 from Alexander Prime
+    Targetable(id + 0x160, false, 4.1f, "--untargetable--"); // t=249.0
+    Timeout(id + 0x170, 0.0f, "Plaint Of Solidarity"); // t=249.0; Ability 1AF2 from Alexander Prime
+    Targetable(id + 0x180, true, 3.2f, "--targetable--"); // t=252.2
+    Timeout(id + 0x190, 5.1f, "Sacrament"); // t=257.3; Ability 1AE5 from Alexander Prime; cactbot StartsUsing 1AE5 [A12N Laser Sacrament]
+    Timeout(id + 0x1A0, 11.4f, "Blazing Scourge"); // t=268.7; Ability 1AE9 from Alexander Prime; cactbot HeadMarker 1E [A12N Blazing Scourge]
+    Timeout(id + 0x1B0, 5.9f, "Mega Holy").SetHint(StateMachine.StateHint.Raidwide); // t=274.6; Ability 1AE7 from Alexander Prime; cactbot StartsUsing 1AE7 [A12N Mega Holy]
+    Timeout(id + 0x1C0, 4.2f, "Divine Spear"); // t=278.8; Ability 1AE3 from Alexander Prime
+    Targetable(id + 0x1D0, false, 4.0f, "--untargetable--"); // t=282.8
+    Targetable(id + 0x1E0, true, 3.3f, "--targetable--"); // t=286.1
+    Timeout(id + 0x1F0, 4.0f, "Timegate"); // t=290.1; Ability 1A03 from Alexander Prime
+    Timeout(id + 0x200, 19.6f, "Divine Spear"); // t=309.7; Ability 1AE3 from Alexander Prime
+    Timeout(id + 0x210, 9.1f, "Punishing Heat").SetHint(StateMachine.StateHint.Tankbuster); // t=318.8; Ability 1AE4 from Alexander Prime; cactbot StartsUsing 1AE4 [A12N Punishing Heat]
+    Timeout(id + 0x220, 9.2f, "Blazing Scourge"); // t=328.0; Ability 1AE9 from Alexander Prime; cactbot HeadMarker 1E [A12N Blazing Scourge]
+    Timeout(id + 0x230, 4.9f, "Sacrament"); // t=332.9; Ability 1AE5 from Alexander Prime; cactbot StartsUsing 1AE5 [A12N Laser Sacrament]
+    Timeout(id + 0x240, 9.2f, "Mega Holy").SetHint(StateMachine.StateHint.Raidwide); // t=342.1; Ability 1AE7 from Alexander Prime; cactbot StartsUsing 1AE7 [A12N Mega Holy]
+    Timeout(id + 0x250, 4.1f, "Divine Spear"); // t=346.2; Ability 1AE3 from Alexander Prime
+    Timeout(id + 0x260, 8.1f, "Punishing Heat").SetHint(StateMachine.StateHint.Tankbuster); // t=354.3; Ability 1AE4 from Alexander Prime; cactbot StartsUsing 1AE4 [A12N Punishing Heat]
+    Timeout(id + 0x270, 21.2f, "Gravitational Anomaly"); // t=375.5; Ability 1AEB from Alexander Prime
+    Timeout(id + 0x280, 1.3f, "Blazing Scourge"); // t=376.8; Ability 1AE9 from Alexander Prime; cactbot HeadMarker 1E [A12N Blazing Scourge]
+    Timeout(id + 0x290, 2.0f, "Divine Spear"); // t=378.8; Ability 1AE3 from Alexander Prime
+    Timeout(id + 0x2A0, 8.1f, "Mega Holy").SetHint(StateMachine.StateHint.Raidwide); // t=386.9; Ability 1AE7 from Alexander Prime; cactbot StartsUsing 1AE7 [A12N Mega Holy]
+    Timeout(id + 0x2B0, 8.1f, "Punishing Heat").SetHint(StateMachine.StateHint.Tankbuster); // t=395.0; Ability 1AE4 from Alexander Prime; cactbot StartsUsing 1AE4 [A12N Punishing Heat]
+    Timeout(id + 0x2C0, 4.2f, "Divine Spear"); // t=399.2; Ability 1AE3 from Alexander Prime
+    Timeout(id + 0x2D0, 9.1f, "Temporal Stasis"); // t=408.3; Ability 1AF0 from Alexander Prime
+    Timeout(id + 0x2E0, 4.1f, "Plaint Of Solidarity"); // t=412.4; Ability 1AF2 from Alexander Prime
+    Timeout(id + 0x2F0, 9.0f, "Gravitational Anomaly"); // t=421.4; Ability 1AEB from Alexander Prime
+    Timeout(id + 0x300, 1.2f, "Sacrament"); // t=422.6; Ability 1AE5 from Alexander Prime; cactbot StartsUsing 1AE5 [A12N Laser Sacrament]
+    Timeout(id + 0x310, 7.2f, "Incinerating Heat"); // t=429.8; Ability 1AF3 from Alexander Prime
+    Timeout(id + 0x320, 6.2f, "Summon Alexander"); // t=436.0; Ability 1A0A from Alexander Prime
+    Timeout(id + 0x330, 10.2f, "Divine Spear"); // t=446.2; Ability 1AE3 from Alexander Prime
+    Timeout(id + 0x340, 8.1f, "Mega Holy").SetHint(StateMachine.StateHint.Raidwide); // t=454.3; Ability 1AE7 from Alexander Prime; cactbot StartsUsing 1AE7 [A12N Mega Holy]
+    Timeout(id + 0x350, 6.9f, "Communion x4"); // t=461.2
+    Timeout(id + 0x360, 9.4f, "Temporal Stasis"); // t=470.6; Ability 1AF0 from Alexander Prime
+    Targetable(id + 0x370, false, 4.1f, "--untargetable--"); // t=474.7
+    Timeout(id + 0x380, 0.0f, "Plaint Of Solidarity"); // t=474.7; Ability 1AF2 from Alexander Prime
+    Targetable(id + 0x390, true, 3.2f, "--targetable--"); // t=477.9
+    Timeout(id + 0x3A0, 3.5f, "Communion x4"); // t=481.4
+    Timeout(id + 0x3B0, 1.6f, "Sacrament"); // t=483.0; Ability 1AE5 from Alexander Prime; cactbot StartsUsing 1AE5 [A12N Laser Sacrament]
+    Timeout(id + 0x3C0, 16.2f, "Punishing Heat").SetHint(StateMachine.StateHint.Tankbuster); // t=499.2; Ability 1AE4 from Alexander Prime; cactbot StartsUsing 1AE4 [A12N Punishing Heat]
+    Timeout(id + 0x3D0, 4.2f, "Divine Spear"); // t=503.4; Ability 1AE3 from Alexander Prime
+    Timeout(id + 0x3E0, 8.1f, "Mega Holy").SetHint(StateMachine.StateHint.Raidwide); // t=511.5; Ability 1AE7 from Alexander Prime; cactbot StartsUsing 1AE7 [A12N Mega Holy]
+    Timeout(id + 0x3F0, 10.2f, "Divine Spear"); // t=521.7; Ability 1AE3 from Alexander Prime
+    Timeout(id + 0x400, 8.1f, "Mega Holy"); // t=529.8; cactbot StartsUsing 1AE7 [A12N Mega Holy]
+    Timeout(id + 0x410, 6.9f, "Communion x4"); // t=536.7
+    Timeout(id + 0x420, 9.4f, "Temporal Stasis"); // t=546.1
+    Targetable(id + 0x430, false, 4.1f, "--untargetable--"); // t=550.2
+    Timeout(id + 0x440, 0.0f, "Plaint Of Solidarity"); // t=550.2
+    Targetable(id + 0x450, true, 3.2f, "--targetable--"); // t=553.4
+}
+

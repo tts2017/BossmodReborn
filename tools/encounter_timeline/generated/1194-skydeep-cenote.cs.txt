@@ -1,0 +1,85 @@
+// Generated development skeleton from skydeep-cenote.txt (TerritoryType 1194).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 21 static/dynamic trigger definitions from ui/raidboss/data/07-dt/dungeon/skydeep-cenote.ts.
+
+private void THE_SKYDEEP_CENOTE(uint id)
+{
+    Condition(id + 0x0, 1006.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8F83), "", 5f, 1001.1f); // t=1006.1; StartsUsing 8F83 from Feather Ray; cactbot StartsUsing 8F83 [SkydeepCenote Feather Ray Immersion]
+    Timeout(id + 0x10, 5.0f, "Immersion").SetHint(StateMachine.StateHint.Raidwide); // t=1011.1; Ability 8F83 from Feather Ray; cactbot StartsUsing 8F83 [SkydeepCenote Feather Ray Immersion]
+    Timeout(id + 0x20, 8.0f, "Troublesome Tail"); // t=1019.1; Ability 8F77 from Feather Ray
+    Timeout(id + 0x30, 9.1f, "Worrisome Wave (boss)"); // t=1028.2; Ability 8F78 from Feather Ray
+    Timeout(id + 0x40, 6.2f, "Worrisome Wave (party)"); // t=1034.4; Ability 8F79 from Feather Ray
+    Timeout(id + 0x50, 10.6f, "Hydro Ring"); // t=1045.0; Ability 8F7D from Feather Ray
+    Timeout(id + 0x60, 6.1f, "Blowing Bubbles"); // t=1051.1; Ability 8F7C from Feather Ray; cactbot Ability 8F7C [SkydeepCenote Feather Ray Blowing Bubbles]
+    Timeout(id + 0x70, 22.7f, "Bubble Bomb"); // t=1073.8; Ability 8F7F from Feather Ray; cactbot Ability 8F7F [SkydeepCenote Feather Ray Bubble Bomb Tracker]
+    Timeout(id + 0x80, 8.1f, "Rolling Current"); // t=1081.9; Ability 8F80/8F81 from Feather Ray; cactbot StartsUsing 8F80/8F81 [SkydeepCenote Feather Ray Rolling Current]
+    Timeout(id + 0x90, 3.4f, "Burst"); // t=1085.3
+    Timeout(id + 0xA0, 8.0f, "Hydro Ring"); // t=1093.3; Ability 8F7D from Feather Ray
+    Timeout(id + 0xB0, 7.1f, "Troublesome Tail"); // t=1100.4; Ability 8F77 from Feather Ray
+    Timeout(id + 0xC0, 6.1f, "Trouble Bubbles"); // t=1106.5; Ability 9783 from Feather Ray; cactbot Ability 9783 [SkydeepCenote Feather Ray Trouble Bubbles]
+    Timeout(id + 0xD0, 29.6f, "Immersion").SetHint(StateMachine.StateHint.Raidwide); // t=1136.1; Ability 8F83 from Feather Ray; cactbot StartsUsing 8F83 [SkydeepCenote Feather Ray Immersion]
+    Timeout(id + 0xE0, 6.3f, "Bubble Bomb"); // t=1142.4; Ability 8F7F from Feather Ray; cactbot Ability 8F7F [SkydeepCenote Feather Ray Bubble Bomb Tracker]
+    Condition(id + 0xF0, 865.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8E60), "", 5f, 860.7f); // t=2008.1; StartsUsing 8E60 from Firearms; cactbot StartsUsing 8E60 [SkydeepCenote Firearms Dynamic Dominance]
+    Timeout(id + 0x100, 5.0f, "Dynamic Dominance").SetHint(StateMachine.StateHint.Raidwide); // t=2013.1; Ability 8E60 from Firearms; cactbot StartsUsing 8E60 [SkydeepCenote Firearms Dynamic Dominance]
+    Timeout(id + 0x110, 10.2f, "Mirror Maneuver"); // t=2023.3; Ability 98E3 from Firearms; cactbot StartsUsing 8E5B [SkydeepCenote Firearms Initial Mirror Maneuver]
+    Timeout(id + 0x120, 2.0f, "--north--"); // t=2025.3; Ability 8E63 from Firearms
+    Timeout(id + 0x130, 12.4f, "Thunderlight Burst"); // t=2037.7; Ability 8E5D from Firearms
+    Timeout(id + 0x140, 5.3f, "--center--"); // t=2043.0; Ability 8E63 from Firearms
+    Timeout(id + 0x150, 4.3f, "Ancient Artillery"); // t=2047.3; Ability 8E5A from Firearms; cactbot Ability 8E5A [SkydeepCenote Firearms Artillery]
+    Timeout(id + 0x160, 8.0f, "Emergent Artillery"); // t=2055.3; Ability 9858 from Firearms
+    Timeout(id + 0x170, 5.4f, "Artillery"); // t=2060.7; Ability 9704 from Firearms; cactbot Ability 8E5A [SkydeepCenote Firearms Artillery]
+    Timeout(id + 0x180, 11.0f, "Pummel").SetHint(StateMachine.StateHint.Tankbuster); // t=2071.7; Ability 8E5F from Firearms; cactbot StartsUsing 8E5F [SkydeepCenote Firearms Pummel]
+    Timeout(id + 0x190, 10.1f, "Mirror Maneuver"); // t=2081.8; Ability 98E3 from Firearms; cactbot StartsUsing 8E5B [SkydeepCenote Firearms Initial Mirror Maneuver]
+    Timeout(id + 0x1A0, 2.0f, "--north--"); // t=2083.8; Ability 8E63 from Firearms
+    Timeout(id + 0x1B0, 12.6f, "Thunderlight Burst"); // t=2096.4; Ability 8E5D from Firearms
+    Timeout(id + 0x1C0, 10.3f, "Dynamic Dominance").SetHint(StateMachine.StateHint.Raidwide); // t=2106.7; Ability 8E60 from Firearms; cactbot StartsUsing 8E60 [SkydeepCenote Firearms Dynamic Dominance]
+    Timeout(id + 0x1D0, 2.1f, "--center--"); // t=2108.8; Ability 8E63 from Firearms
+    Timeout(id + 0x1E0, 4.3f, "Ancient Artillery"); // t=2113.1; Ability 8E5A from Firearms; cactbot Ability 8E5A [SkydeepCenote Firearms Artillery]
+    Timeout(id + 0x1F0, 8.0f, "Emergent Artillery"); // t=2121.1; Ability 9858 from Firearms
+    Timeout(id + 0x200, 5.4f, "Artillery"); // t=2126.5; Ability 9704 from Firearms; cactbot Ability 8E5A [SkydeepCenote Firearms Artillery]
+    Timeout(id + 0x210, 3.0f, "Thunderlight Flurry"); // t=2129.5; Ability 8E62 from Firearms
+    Timeout(id + 0x220, 11.9f, "Mirror Maneuver"); // t=2141.4; Ability 98E3 from Firearms; cactbot StartsUsing 8E5B [SkydeepCenote Firearms Initial Mirror Maneuver]
+    Condition(id + 0x230, 863.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8F3D), "", 5f, 858.8f); // t=3005.2; StartsUsing 8F3D from Maulskull
+    Timeout(id + 0x240, 8.9f, "Stonecarver (first)"); // t=3014.1; Ability 8F3E from Maulskull
+    Timeout(id + 0x250, 2.6f, "Stonecarver (second)"); // t=3016.7
+    Timeout(id + 0x260, 13.7f, "Impact + Skullcrush"); // t=3030.4; Ability 8F45 from Maulskull
+    Timeout(id + 0x270, 4.6f, "Destructive Heat"); // t=3035.0; Ability 8F65 from Maulskull; cactbot StartsUsing 8F65 [SkydeepCenote Maulskull Destructive Heat]
+    Timeout(id + 0x280, 9.3f, "Maulwork"); // t=3044.3; Ability 8F47/8F48/8F49/8F4A from Maulskull; cactbot Ability 8F47/8F48 [SkydeepCenote Maulskull Maulwork + Shatter Middle] | Ability 8F47/8F48 [SkydeepCenote Maulskull Maulwork + Shatter Middle Followup] | Ability 8F49/8F4A [SkydeepCenote Maulskull Maulwork + Shatter Sides] | Ability 8F49/8F4A [SkydeepCenote Maulskull Maulwork + Shatter Sides Followup]
+    Timeout(id + 0x290, 5.1f, "Landing 1"); // t=3049.4; Ability 8F4B from Maulskull
+    Timeout(id + 0x2A0, 4.0f, "Landing 2"); // t=3053.4; Ability 8F4B from Maulskull
+    Timeout(id + 0x2B0, 4.0f, "Landing 3"); // t=3057.4; Ability 8F4B from Maulskull
+    Timeout(id + 0x2C0, 2.0f, "Shatter"); // t=3059.4; Ability 8F4C/8F4D from Maulskull; cactbot Ability 8F47/8F48 [SkydeepCenote Maulskull Maulwork + Shatter Middle] | Ability 8F47/8F48 [SkydeepCenote Maulskull Maulwork + Shatter Middle Followup] | Ability 8F49/8F4A [SkydeepCenote Maulskull Maulwork + Shatter Sides] | Ability 8F49/8F4A [SkydeepCenote Maulskull Maulwork + Shatter Sides Followup]
+    Timeout(id + 0x2D0, 16.1f, "Deep Thunder 1"); // t=3075.5
+    Timeout(id + 0x2E0, 1.1f, "Deep Thunder 2"); // t=3076.6
+    Timeout(id + 0x2F0, 1.0f, "Deep Thunder 3"); // t=3077.6
+    Timeout(id + 0x300, 11.3f, "Ringing Blows"); // t=3088.9; Ability 8F3B from Maulskull
+    Timeout(id + 0x310, 2.1f, "Stonecarver (first)"); // t=3091.0; Ability 8F58 from Maulskull
+    Timeout(id + 0x320, 2.6f, "Stonecarver (second)"); // t=3093.6; Ability 8F59 from Maulskull
+    Timeout(id + 0x330, 8.7f, "Wrought Fire"); // t=3102.3; Ability 98D2 from Maulskull
+    Timeout(id + 0x340, 13.2f, "Colossal Impact"); // t=3115.5; Ability 8F63 from Maulskull; cactbot StartsUsing 8F60/8F61 [SkydeepCenote Maulskull Colossal Impact]
+    Timeout(id + 0x350, 4.0f, "Destructive Heat/Building Heat"); // t=3119.5; Ability 8F65/8F66 from Maulskull; cactbot StartsUsing 8F65 [SkydeepCenote Maulskull Destructive Heat] | StartsUsing 8F66 [SkydeepCenote Maulskull Building Heat]
+    Timeout(id + 0x360, 10.2f, "Colossal Impact"); // t=3129.7; Ability 8F63 from Maulskull; cactbot StartsUsing 8F60/8F61 [SkydeepCenote Maulskull Colossal Impact]
+    Timeout(id + 0x370, 3.8f, "Building Heat/Destructive Heat"); // t=3133.5; Ability 8F65/8F66 from Maulskull; cactbot StartsUsing 8F65 [SkydeepCenote Maulskull Destructive Heat] | StartsUsing 8F66 [SkydeepCenote Maulskull Building Heat]
+    Timeout(id + 0x380, 10.6f, "Ashlayer").SetHint(StateMachine.StateHint.Raidwide); // t=3144.1; Ability 8F68 from Maulskull; cactbot StartsUsing 8F67 [SkydeepCenote Maulskull Ashlayer]
+    Timeout(id + 0x390, 9.1f, "Maulwork"); // t=3153.2; Ability 8F47/8F48/8F49/8F4A from Maulskull; cactbot Ability 8F47/8F48 [SkydeepCenote Maulskull Maulwork + Shatter Middle] | Ability 8F47/8F48 [SkydeepCenote Maulskull Maulwork + Shatter Middle Followup] | Ability 8F49/8F4A [SkydeepCenote Maulskull Maulwork + Shatter Sides] | Ability 8F49/8F4A [SkydeepCenote Maulskull Maulwork + Shatter Sides Followup]
+    Timeout(id + 0x3A0, 5.1f, "Landing 1"); // t=3158.3; Ability 8F4B from Maulskull
+    Timeout(id + 0x3B0, 4.0f, "Landing 2"); // t=3162.3; Ability 8F4B from Maulskull
+    Timeout(id + 0x3C0, 4.0f, "Landing 3"); // t=3166.3; Ability 8F4B from Maulskull
+    Timeout(id + 0x3D0, 2.0f, "Shatter"); // t=3168.3; Ability 8F4C/8F4D from Maulskull; cactbot Ability 8F47/8F48 [SkydeepCenote Maulskull Maulwork + Shatter Middle] | Ability 8F47/8F48 [SkydeepCenote Maulskull Maulwork + Shatter Middle Followup] | Ability 8F49/8F4A [SkydeepCenote Maulskull Maulwork + Shatter Sides] | Ability 8F49/8F4A [SkydeepCenote Maulskull Maulwork + Shatter Sides Followup]
+    Timeout(id + 0x3E0, 11.1f, "Deep Thunder 1"); // t=3179.4
+    Timeout(id + 0x3F0, 1.1f, "Deep Thunder 2"); // t=3180.5
+    Timeout(id + 0x400, 1.1f, "Deep Thunder 3"); // t=3181.6
+    Timeout(id + 0x410, 1.1f, "Deep Thunder 4"); // t=3182.7
+    Timeout(id + 0x420, 1.0f, "Deep Thunder 5"); // t=3183.7
+    Timeout(id + 0x430, 12.3f, "Ringing Blows"); // t=3196.0; Ability 8F3B from Maulskull
+    Timeout(id + 0x440, 2.1f, "Stonecarver (first)"); // t=3198.1; Ability 8F58 from Maulskull
+    Timeout(id + 0x450, 2.6f, "Stonecarver (second)"); // t=3200.7; Ability 8F59 from Maulskull
+    Timeout(id + 0x460, 8.7f, "Wrought Fire"); // t=3209.4; Ability 98D2 from Maulskull
+    Timeout(id + 0x470, 14.1f, "Colossal Impact"); // t=3223.5; Ability 8F63 from Maulskull; cactbot StartsUsing 8F60/8F61 [SkydeepCenote Maulskull Colossal Impact]
+    Timeout(id + 0x480, 3.9f, "Destructive Heat/Building Heat"); // t=3227.4; Ability 8F65/8F66 from Maulskull; cactbot StartsUsing 8F65 [SkydeepCenote Maulskull Destructive Heat] | StartsUsing 8F66 [SkydeepCenote Maulskull Building Heat]
+    Timeout(id + 0x490, 10.3f, "Ashlayer").SetHint(StateMachine.StateHint.Raidwide); // t=3237.7; Ability 8F68 from Maulskull; cactbot StartsUsing 8F67 [SkydeepCenote Maulskull Ashlayer]
+    Timeout(id + 0x4A0, 10.0f, "Colossal Impact"); // t=3247.7; Ability 8F63 from Maulskull; cactbot StartsUsing 8F60/8F61 [SkydeepCenote Maulskull Colossal Impact]
+    Timeout(id + 0x4B0, 4.0f, "Building Heat/Destructive Heat"); // t=3251.7; Ability 8F65/8F66 from Maulskull; cactbot StartsUsing 8F65 [SkydeepCenote Maulskull Destructive Heat] | StartsUsing 8F66 [SkydeepCenote Maulskull Building Heat]
+}
+

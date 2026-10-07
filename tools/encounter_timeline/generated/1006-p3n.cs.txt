@@ -1,0 +1,72 @@
+// Generated development skeleton from p3n.txt (TerritoryType 1006).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 13 static/dynamic trigger definitions from ui/raidboss/data/06-ew/raid/p3n.ts.
+
+private void Timeline(uint id)
+{
+    Condition(id + 0x0, 9.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x6696 or 0x6698), "", 5f, 4.1f); // t=9.1; StartsUsing 6696/6698 from Phoinix; cactbot StartsUsing 6698 [P3N Experimental Fireplume Rotating] | StartsUsing 6696 [P3N Experimental Fireplume Out]
+    Timeout(id + 0x10, 4.7f, "Experimental Fireplume"); // t=13.8; Ability 6696/6698 from Phoinix; cactbot StartsUsing 6698 [P3N Experimental Fireplume Rotating] | StartsUsing 6696 [P3N Experimental Fireplume Out]
+    Timeout(id + 0x20, 5.2f, "--giant fireplume?--"); // t=19.0
+    Timeout(id + 0x30, 12.0f, "Experimental Fireplume"); // t=31.0; Ability 6696/6698 from Phoinix; cactbot StartsUsing 6698 [P3N Experimental Fireplume Rotating] | StartsUsing 6696 [P3N Experimental Fireplume Out]
+    Timeout(id + 0x40, 6.1f, "--giant fireplume?--"); // t=37.1
+    Timeout(id + 0x50, 12.1f, "Scorched Exaltation").SetHint(StateMachine.StateHint.Raidwide); // t=49.2; Ability 66B8 from Phoinix; cactbot StartsUsing 66B8 [P3N Scorched Exaltation]
+    Timeout(id + 0x60, 12.2f, "Heat of Condemnation"); // t=61.4; Ability 66B2 from Phoinix; cactbot StartsUsing 66B2 [P3N Heat of Condemnation]
+    Timeout(id + 0x70, 14.2f, "Darkened Fire"); // t=75.6; Ability 6EDA from Phoinix; cactbot HeadMarker [P3N Darkened Fire Aoe]
+    Timeout(id + 0x80, 30.0f, "Left Cinderwing/Right Cinderwing"); // t=105.6; Ability 66B4/66B5 from Phoinix; cactbot StartsUsing 66B4 [P3N Right Cinderwing] | StartsUsing 66B5 [P3N Left Cinderwing]
+    Targetable(id + 0x90, false, 5.1f, "--untargetable--"); // t=110.7
+    Timeout(id + 0xA0, 7.3f, "Trail of Condemnation"); // t=118.0; Ability 66AD from Phoinix; cactbot StartsUsing 66AD [P3N Trail of Condemnation]
+    Timeout(id + 0xB0, 8.8f, "--adds targetable--"); // t=126.8
+    Timeout(id + 0xC0, 0.2f, "Blazing Rain"); // t=127.0; Ability 66A2 from Phoinix
+    Timeout(id + 0xD0, 8.1f, "Blazing Rain"); // t=135.1; Ability 66A2 from Phoinix
+    Timeout(id + 0xE0, 8.1f, "Blazing Rain"); // t=143.2
+    Timeout(id + 0xF0, 8.1f, "Blazing Rain"); // t=151.3
+    Timeout(id + 0x100, 8.1f, "Blazing Rain"); // t=159.4
+    Timeout(id + 0x110, 8.1f, "Blazing Rain"); // t=167.5
+    Timeout(id + 0x120, 8.1f, "Blazing Rain"); // t=175.6
+    Timeout(id + 0x130, 8.1f, "Blazing Rain"); // t=183.7
+    Timeout(id + 0x140, 16.3f, "Flames of Undeath"); // t=200.0; Ability 66A3 from Phoinix
+    Targetable(id + 0x150, true, 2.0f, "--targetable--"); // t=202.0
+    Timeout(id + 0x160, 1.4f, "Blazing Rain"); // t=203.4; Ability 66A2 from Phoinix
+    Timeout(id + 0x170, 2.8f, "Joint Pyre"); // t=206.2; Ability 66A5 from Sparkfledged
+    Timeout(id + 0x180, 15.0f, "Dead Rebirth").SetHint(StateMachine.StateHint.Raidwide); // t=221.2; Ability 66A9 from Phoinix; cactbot StartsUsing 66A9 [P3N Dead Rebirth]
+    Timeout(id + 0x190, 10.2f, "Left Cinderwing/Right Cinderwing"); // t=231.4; Ability 66B4/66B5 from Phoinix; cactbot StartsUsing 66B4 [P3N Right Cinderwing] | StartsUsing 66B5 [P3N Left Cinderwing]
+    Timeout(id + 0x1A0, 8.2f, "Fledgling Flight"); // t=239.6; Ability 66AA from Phoinix
+    Timeout(id + 0x1B0, 18.1f, "Experimental Charplume"); // t=257.7; Ability 669C from Phoinix
+    Timeout(id + 0x1C0, 5.1f, "Charplume"); // t=262.8; Ability 669D from Phoinix
+    Timeout(id + 0x1D0, 15.1f, "Heat of Condemnation"); // t=277.9; Ability 66B2 from Phoinix; cactbot StartsUsing 66B2 [P3N Heat of Condemnation]
+    Timeout(id + 0x1E0, 13.4f, "Devouring Brand"); // t=291.3; Ability 66A0 from Phoinix; cactbot StartsUsing 669E [P3N Devouring Brand]
+    Timeout(id + 0x1F0, 9.4f, "--fire expands--"); // t=300.7; Ability 6D82 from Phoinix
+    Timeout(id + 0x200, 8.0f, "Searing Breeze"); // t=308.7; Ability 66B7 from Phoinix
+    Timeout(id + 0x210, 8.1f, "Scorched Exaltation").SetHint(StateMachine.StateHint.Raidwide); // t=316.8; Ability 66B8 from Phoinix; cactbot StartsUsing 66B8 [P3N Scorched Exaltation]
+    Timeout(id + 0x220, 9.2f, "Experimental Charplume"); // t=326.0; Ability 669C from Phoinix
+    Timeout(id + 0x230, 5.1f, "Charplume"); // t=331.1; Ability 669D from Phoinix
+    Timeout(id + 0x240, 4.0f, "Experimental Fireplume"); // t=335.1; Ability 6696/6698 from Phoinix; cactbot StartsUsing 6698 [P3N Experimental Fireplume Rotating] | StartsUsing 6696 [P3N Experimental Fireplume Out]
+    Timeout(id + 0x250, 6.1f, "--giant fireplume?--"); // t=341.2
+    Targetable(id + 0x260, false, 8.0f, "--untargetable--"); // t=349.2
+    Timeout(id + 0x270, 7.3f, "Trail of Condemnation"); // t=356.5; Ability 66AD from Phoinix; cactbot StartsUsing 66AD [P3N Trail of Condemnation]
+    Targetable(id + 0x280, true, 4.7f, "--targetable--"); // t=361.2
+    Timeout(id + 0x290, 8.1f, "Heat of Condemnation"); // t=369.3; Ability 66B2 from Phoinix; cactbot StartsUsing 66B2 [P3N Heat of Condemnation]
+    Timeout(id + 0x2A0, 9.2f, "Fledgling Flight"); // t=378.5; Ability 66AA from Phoinix
+    Timeout(id + 0x2B0, 21.2f, "Experimental Fireplume"); // t=399.7; Ability 6696/6698 from Phoinix; cactbot StartsUsing 6698 [P3N Experimental Fireplume Rotating] | StartsUsing 6696 [P3N Experimental Fireplume Out]
+    Timeout(id + 0x2C0, 6.1f, "--giant fireplume?--"); // t=405.8
+    Timeout(id + 0x2D0, 14.3f, "Searing Breeze x3"); // t=420.1
+    Timeout(id + 0x2E0, 2.0f, "Devouring Brand"); // t=422.1; Ability 669E from Phoinix; cactbot StartsUsing 669E [P3N Devouring Brand]
+    Timeout(id + 0x2F0, 11.3f, "Darkened Fire"); // t=433.4; Ability 6EDA from Phoinix; cactbot HeadMarker [P3N Darkened Fire Aoe]
+    Timeout(id + 0x300, 0.4f, "--fire expands--"); // t=433.8; Ability 6D82 from Phoinix
+    Timeout(id + 0x310, 29.8f, "Left Cinderwing/Right Cinderwing"); // t=463.6; Ability 66B4/66B5 from Phoinix; cactbot StartsUsing 66B4 [P3N Right Cinderwing] | StartsUsing 66B5 [P3N Left Cinderwing]
+    Timeout(id + 0x320, 11.1f, "Scorched Exaltation").SetHint(StateMachine.StateHint.Raidwide); // t=474.7; Ability 66B8 from Phoinix; cactbot StartsUsing 66B8 [P3N Scorched Exaltation]
+    Timeout(id + 0x330, 10.2f, "Experimental Charplume"); // t=484.9; Ability 669C from Phoinix
+    Timeout(id + 0x340, 5.1f, "Charplume"); // t=490.0; Ability 669D from Phoinix
+    Timeout(id + 0x350, 4.0f, "Experimental Fireplume"); // t=494.0; Ability 6696/6698 from Phoinix; cactbot StartsUsing 6698 [P3N Experimental Fireplume Rotating] | StartsUsing 6696 [P3N Experimental Fireplume Out]
+    Timeout(id + 0x360, 6.1f, "--giant fireplume?--"); // t=500.1
+    Targetable(id + 0x370, false, 8.0f, "--untargetable--"); // t=508.1
+    Timeout(id + 0x380, 7.3f, "Trail of Condemnation"); // t=515.4; Ability 66AD from Phoinix; cactbot StartsUsing 66AD [P3N Trail of Condemnation]
+    Timeout(id + 0x390, 3.5f, "Flare of Condemnation"); // t=518.9; Ability 66B0 from Phoinix
+    Targetable(id + 0x3A0, true, 1.2f, "--targetable--"); // t=520.1
+    Timeout(id + 0x3B0, 8.1f, "Heat of Condemnation"); // t=528.2; Ability 66B2 from Phoinix; cactbot StartsUsing 66B2 [P3N Heat of Condemnation]
+    Timeout(id + 0x3C0, 9.2f, "Fledgling Flight"); // t=537.4
+    Timeout(id + 0x3D0, 21.2f, "Experimental Fireplume"); // t=558.6
+    Timeout(id + 0x3E0, 6.1f, "--giant fireplume?--"); // t=564.7
+}
+

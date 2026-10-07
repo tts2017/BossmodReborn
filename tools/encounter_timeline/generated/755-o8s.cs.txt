@@ -1,0 +1,163 @@
+// Generated development skeleton from o8s.txt (TerritoryType 755).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 32 static/dynamic trigger definitions from ui/raidboss/data/04-sb/raid/o8s.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 9.0f, "Mana Charge"); // t=13.0; Ability 28D1 from Kefka; cactbot StartsUsing 28D1 [O8S Mana Charge]
+    Timeout(id + 0x10, 6.0f, "Flagrant Fire"); // t=19.0
+    Timeout(id + 0x20, 9.0f, "Hyperdrive").SetHint(StateMachine.StateHint.Tankbuster); // t=28.0; Ability 28E8 from Kefka; cactbot StartsUsing 28E8/2912 [O8S Hyperdrive]
+    Timeout(id + 0x30, 8.0f, "Mana Release"); // t=36.0; Ability 28D2 from Kefka; cactbot StartsUsing 28D2 [O8S Mana Release]
+    Timeout(id + 0x40, 5.0f, "Flagrant Fire"); // t=41.0
+    Timeout(id + 0x50, 3.0f, "Thrumming Thunder"); // t=44.0
+    Timeout(id + 0x60, 6.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=50.0; Ability 28E7 from Kefka; cactbot StartsUsing 28E7 [O8S Ultima Upsurge]
+    Timeout(id + 0x70, 21.0f, "Graven Image"); // t=71.0; Ability 28D7 from Kefka
+    Condition(id + 0x80, 2.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2B34), "--untargetable--", 5f, 0.0f); // t=73.0; StartsUsing 2B34 from Kefka
+    Timeout(id + 0x90, 2.0f, "Inexorable Will"); // t=75.0; Ability 28DA from Graven Image
+    Timeout(id + 0xA0, 1.0f, "Wave Cannon"); // t=76.0; Ability 28DC from Graven Image
+    Timeout(id + 0xB0, 3.0f, "Inexorable Will"); // t=79.0; Ability 28DA from Graven Image
+    Timeout(id + 0xC0, 2.0f, "Wave Cannon"); // t=81.0; Ability 28DC from Graven Image
+    Timeout(id + 0xD0, 2.0f, "Pulse Wave / Inexorable Will").SetHint(StateMachine.StateHint.Knockback); // t=83.0; Ability 28DD from Graven Image | Ability 28DA from Graven Image; cactbot StartsUsing 28DD [O8S Pulse Wave You]
+    Timeout(id + 0xE0, 3.0f, "Indomitable Will"); // t=86.0; Ability 28D9 from Graven Image
+    Timeout(id + 0xF0, 1.0f, "Timely Teleport"); // t=87.0; Ability 28D3 from Kefka
+    Timeout(id + 0x100, 3.0f, "Revolting Ruin"); // t=90.0; Ability 28D5 from Kefka
+    Timeout(id + 0x110, 8.0f, "Light Of Judgment"); // t=98.0; Ability 28D8 from Kefka
+    Timeout(id + 0x120, 10.0f, "Mana Charge"); // t=108.0; Ability 28D1 from Kefka; cactbot StartsUsing 28D1 [O8S Mana Charge]
+    Timeout(id + 0x130, 7.0f, "Thrumming Thunder"); // t=115.0
+    Timeout(id + 0x140, 7.0f, "Blizzard Blitz"); // t=122.0
+    Timeout(id + 0x150, 8.0f, "Graven Image"); // t=130.0; Ability 28D7 from Kefka
+    Timeout(id + 0x160, 9.0f, "Mana Release"); // t=139.0; Ability 28D2 from Kefka; cactbot StartsUsing 28D2 [O8S Mana Release]
+    Timeout(id + 0x170, 1.0f, "Shockwave").SetHint(StateMachine.StateHint.Knockback); // t=140.0; Ability 28DB from Graven Image; cactbot StartsUsing 28DB [O8S Shockwave]
+    Timeout(id + 0x180, 6.0f, "Blizzard+Thunder"); // t=146.0
+    Timeout(id + 0x190, 10.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=156.0; Ability 28E7 from Kefka; cactbot StartsUsing 28E7 [O8S Ultima Upsurge]
+    Timeout(id + 0x1A0, 7.0f, "Hyperdrive").SetHint(StateMachine.StateHint.Tankbuster); // t=163.0; Ability 28E8 from Kefka; cactbot StartsUsing 28E8/2912 [O8S Hyperdrive]
+    Timeout(id + 0x1B0, 15.0f, "Graven Image"); // t=178.0; Ability 28D7 from Kefka
+    Condition(id + 0x1C0, 3.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2B34), "--untargetable--", 5f, 0.0f); // t=181.0; StartsUsing 2B34 from Kefka
+    Timeout(id + 0x1D0, 2.0f, "Gravitas"); // t=183.0; Ability 28E0 from Graven Image
+    Timeout(id + 0x1E0, 3.0f, "Vitrophyre"); // t=186.0; Ability 28E2 from Graven Image
+    Timeout(id + 0x1F0, 4.0f, "Half Arena"); // t=190.0
+    Timeout(id + 0x200, 3.0f, "Gravitas"); // t=193.0; Ability 28E0 from Graven Image
+    Targetable(id + 0x210, true, 2.0f, "--targetable--"); // t=195.0
+    Timeout(id + 0x220, 1.0f, "Vitrophyre"); // t=196.0; Ability 28E2 from Graven Image
+    Timeout(id + 0x230, 4.0f, "Aero Assault"); // t=200.0; Ability 28D6 from Kefka
+    Timeout(id + 0x240, 8.0f, "Light Of Judgment"); // t=208.0; Ability 28D8 from Kefka
+    Timeout(id + 0x250, 10.0f, "Mana Charge"); // t=218.0; Ability 28D1 from Kefka; cactbot StartsUsing 28D1 [O8S Mana Charge]
+    Timeout(id + 0x260, 6.0f, "Flagrant Fire"); // t=224.0
+    Timeout(id + 0x270, 8.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=232.0; Ability 28E7 from Kefka; cactbot StartsUsing 28E7 [O8S Ultima Upsurge]
+    Timeout(id + 0x280, 8.0f, "Graven Image"); // t=240.0; Ability 28D7 from Kefka
+    Timeout(id + 0x290, 5.0f, "Half Arena"); // t=245.0
+    Timeout(id + 0x2A0, 1.0f, "Mana Release"); // t=246.0; Ability 28D2 from Kefka; cactbot StartsUsing 28D2 [O8S Mana Release]
+    Timeout(id + 0x2B0, 5.0f, "Flagrant Fire"); // t=251.0
+    Timeout(id + 0x2C0, 3.0f, "Thrumming Thunder"); // t=254.0
+    Timeout(id + 0x2D0, 7.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=261.0; Ability 28E7 from Kefka; cactbot StartsUsing 28E7 [O8S Ultima Upsurge]
+    Timeout(id + 0x2E0, 7.0f, "Hyperdrive").SetHint(StateMachine.StateHint.Tankbuster); // t=268.0; Ability 28E8 from Kefka; cactbot StartsUsing 28E8/2912 [O8S Hyperdrive]
+    Timeout(id + 0x2F0, 20.0f, "Graven Image"); // t=288.0; Ability 28D7 from Kefka
+    Condition(id + 0x300, 2.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2B34), "--untargetable--", 5f, 0.0f); // t=290.0; StartsUsing 2B34 from Kefka
+    Timeout(id + 0x310, 3.0f, "Inexorable Will / Statue Gaze"); // t=293.0; Ability 28DA from Graven Image
+    Timeout(id + 0x320, 15.0f, "Statue Gaze"); // t=308.0
+    Timeout(id + 0x330, 2.0f, "Timely Teleport"); // t=310.0; Ability 28D3 from Kefka
+    Timeout(id + 0x340, 3.0f, "Revolting Ruin"); // t=313.0; Ability 28D5 from Kefka
+    Timeout(id + 0x350, 9.0f, "Light Of Judgment"); // t=322.0; Ability 28D8 from Kefka
+    Timeout(id + 0x360, 7.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=329.0; Ability 28E7 from Kefka; cactbot StartsUsing 28E7 [O8S Ultima Upsurge]
+    Timeout(id + 0x370, 7.0f, "Mana Charge"); // t=336.0; Ability 28D1 from Kefka; cactbot StartsUsing 28D1 [O8S Mana Charge]
+    Timeout(id + 0x380, 7.0f, "Thrumming Thunder"); // t=343.0
+    Timeout(id + 0x390, 7.0f, "Blizzard Blitz"); // t=350.0
+    Timeout(id + 0x3A0, 8.0f, "Graven Image"); // t=358.0; Ability 28D7 from Kefka
+    Timeout(id + 0x3B0, 5.0f, "Statue Gaze"); // t=363.0
+    Timeout(id + 0x3C0, 1.0f, "Mana Release"); // t=364.0; Ability 28D2 from Kefka; cactbot StartsUsing 28D2 [O8S Mana Release]
+    Timeout(id + 0x3D0, 7.0f, "Blizzard+Thunder"); // t=371.0
+    Timeout(id + 0x3E0, 6.0f, "Hyperdrive").SetHint(StateMachine.StateHint.Tankbuster); // t=377.0; Ability 28E8 from Kefka; cactbot StartsUsing 28E8/2912 [O8S Hyperdrive]
+    Timeout(id + 0x3F0, 7.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=384.0; Ability 28E7 from Kefka; cactbot StartsUsing 28E7 [O8S Ultima Upsurge]
+    Timeout(id + 0x400, 8.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=392.0; Ability 28E7 from Kefka; cactbot StartsUsing 28E7 [O8S Ultima Upsurge]
+    Timeout(id + 0x410, 8.0f, "Ultima Upsurge").SetHint(StateMachine.StateHint.Raidwide); // t=400.0; Ability 28E7 from Kefka; cactbot StartsUsing 28E7 [O8S Ultima Upsurge]
+    Targetable(id + 0x420, false, 4.0f, "--untargetable--"); // t=404.0
+    Timeout(id + 0x430, 4.0f, "Light Of Judgment"); // t=408.0; Ability 2A51 from Kefka
+    Timeout(id + 0x440, 592.0f, "Start"); // t=1000.0
+    Condition(id + 0x450, 6.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x28FA), "", 5f, 1.0f); // t=1006.0; StartsUsing 28FA from Kefka
+    Timeout(id + 0x460, 4.0f, "Heartless Angel"); // t=1010.0; Ability 28FA from Kefka
+    Timeout(id + 0x470, 6.0f, "Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1016.0; Ability 2911 from Kefka; cactbot StartsUsing 2911 [O8S Ultima]
+    Timeout(id + 0x480, 7.0f, "Hyperdrive").SetHint(StateMachine.StateHint.Tankbuster); // t=1023.0; Ability 2912 from Kefka; cactbot StartsUsing 28E8/2912 [O8S Hyperdrive]
+    Timeout(id + 0x490, 9.0f, "Celestriad"); // t=1032.0; Ability 2907 from Kefka
+    Timeout(id + 0x4A0, 2.0f, "Thunder III"); // t=1034.0; Ability 290A from Kefka
+    Timeout(id + 0x4B0, 1.0f, "(DPS) Fire III"); // t=1035.0; Ability 290B from Kefka
+    Timeout(id + 0x4C0, 6.0f, "Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1041.0; Ability 2911 from Kefka; cactbot StartsUsing 2911 [O8S Ultima]
+    Condition(id + 0x4D0, 7.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x28E9), "", 5f, 2.0f); // t=1048.0; StartsUsing 28E9 from Kefka
+    Timeout(id + 0x4E0, 16.0f, "Heartless Archangel"); // t=1064.0; Ability 28FB from Kefka
+    Timeout(id + 0x4F0, 3.0f, "Soak"); // t=1067.0; Ability 28EA from Light Of Consecration
+    Timeout(id + 0x500, 10.0f, "2x Wings Of Destruction"); // t=1077.0; Ability 2900 from Kefka; cactbot StartsUsing 2900 [O8S Wings of Destruction]
+    Timeout(id + 0x510, 6.0f, "Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1083.0; Ability 2911 from Kefka; cactbot StartsUsing 2911 [O8S Ultima]
+    Timeout(id + 0x520, 10.0f, "Heartless Archangel"); // t=1093.0; Ability 28FB from Kefka
+    Timeout(id + 0x530, 3.0f, "Soak"); // t=1096.0; Ability 28EA from Light Of Consecration
+    Timeout(id + 0x540, 12.0f, "Light Of Judgment"); // t=1108.0; Ability 28ED from Kefka
+    Timeout(id + 0x550, 14.0f, "Trine (small)"); // t=1122.0; Ability 290D from Kefka
+    Timeout(id + 0x560, 7.0f, "1x Wings Of Destruction"); // t=1129.0; Ability 28FE from Kefka
+    Timeout(id + 0x570, 11.0f, "2x Wings Of Destruction"); // t=1140.0; Ability 2900 from Kefka; cactbot StartsUsing 2900 [O8S Wings of Destruction]
+    Timeout(id + 0x580, 17.0f, "Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1157.0; Ability 2911 from Kefka; cactbot StartsUsing 2911 [O8S Ultima]
+    Timeout(id + 0x590, 8.0f, "Past/Future"); // t=1165.0
+    Timeout(id + 0x5A0, 10.0f, "Ultimate Embrace"); // t=1175.0; Ability 2910 from Kefka; cactbot StartsUsing 2910 [O8S Ultimate Embrace]
+    Timeout(id + 0x5B0, 7.0f, "Hyperdrive").SetHint(StateMachine.StateHint.Tankbuster); // t=1182.0; Ability 2912 from Kefka; cactbot StartsUsing 28E8/2912 [O8S Hyperdrive]
+    Timeout(id + 0x5C0, 7.0f, "Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1189.0; Ability 2911 from Kefka; cactbot StartsUsing 2911 [O8S Ultima]
+    Condition(id + 0x5D0, 12.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x28E9), "", 5f, 7.0f); // t=1201.0; StartsUsing 28E9 from Kefka
+    Timeout(id + 0x5E0, 13.0f, "Starstrafe"); // t=1214.0; Ability 2902 from Kefka
+    Timeout(id + 0x5F0, 7.0f, "Past/Future End"); // t=1221.0
+    Timeout(id + 0x600, 7.0f, "All Things Ending"); // t=1228.0; Ability 28F6 from Kefka
+    Timeout(id + 0x610, 5.0f, "Meteor"); // t=1233.0; Ability 2905 from Kefka
+    Timeout(id + 0x620, 7.0f, "Light Of Judgment"); // t=1240.0; Ability 28ED from Kefka
+    Timeout(id + 0x630, 16.0f, "Celestriad"); // t=1256.0; Ability 2907 from Kefka
+    Timeout(id + 0x640, 2.0f, "Thunder III"); // t=1258.0; Ability 290A from Kefka
+    Timeout(id + 0x650, 1.0f, "(DPS) Fire III"); // t=1259.0; Ability 290B from Kefka
+    Timeout(id + 0x660, 5.0f, "1x Wings Of Destruction"); // t=1264.0; Ability 28FF from Kefka
+    Timeout(id + 0x670, 7.0f, "Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1271.0; Ability 2911 from Kefka; cactbot StartsUsing 2911 [O8S Ultima]
+    Timeout(id + 0x680, 16.0f, "Trine (big)"); // t=1287.0; Ability 290D from Kefka
+    Timeout(id + 0x690, 10.0f, "Past/Future"); // t=1297.0
+    Timeout(id + 0x6A0, 10.0f, "2x Wings Of Destruction"); // t=1307.0; Ability 2900 from Kefka; cactbot StartsUsing 2900 [O8S Wings of Destruction]
+    Timeout(id + 0x6B0, 6.0f, "Ultimate Embrace"); // t=1313.0; Ability 2910 from Kefka; cactbot StartsUsing 2910 [O8S Ultimate Embrace]
+    Timeout(id + 0x6C0, 7.0f, "Hyperdrive").SetHint(StateMachine.StateHint.Tankbuster); // t=1320.0; Ability 2912 from Kefka; cactbot StartsUsing 28E8/2912 [O8S Hyperdrive]
+    Timeout(id + 0x6D0, 8.0f, "Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1328.0; Ability 2911 from Kefka; cactbot StartsUsing 2911 [O8S Ultima]
+    Condition(id + 0x6E0, 12.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x28E9), "", 5f, 7.0f); // t=1340.0; StartsUsing 28E9 from Kefka
+    Timeout(id + 0x6F0, 18.0f, "Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1358.0; Ability 2911 from Kefka; cactbot StartsUsing 2911 [O8S Ultima]
+    Timeout(id + 0x700, 1.0f, "Knockback Tethers").SetHint(StateMachine.StateHint.Knockback); // t=1359.0; Ability 28DD from Graven Image; cactbot StartsUsing 28DD [O8S Pulse Wave You]
+    Timeout(id + 0x710, 3.0f, "Soak"); // t=1362.0; Ability 28EA from Light Of Consecration
+    Timeout(id + 0x720, 2.0f, "Ultimate Embrace"); // t=1364.0; Ability 2910 from Kefka; cactbot StartsUsing 2910 [O8S Ultimate Embrace]
+    Timeout(id + 0x730, 7.0f, "Sleep/Confuse Tethers"); // t=1371.0
+    Timeout(id + 0x740, 6.0f, "Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1377.0; Ability 2911 from Kefka; cactbot StartsUsing 2911 [O8S Ultima]
+    Timeout(id + 0x750, 9.0f, "Heartless Archangel"); // t=1386.0; Ability 28FB from Kefka
+    Timeout(id + 0x760, 3.0f, "Soak"); // t=1389.0; Ability 28EA from Light Of Consecration
+    Timeout(id + 0x770, 10.0f, "2x Wings Of Destruction"); // t=1399.0; Ability 2900 from Kefka; cactbot StartsUsing 2900 [O8S Wings of Destruction]
+    Timeout(id + 0x780, 1.0f, "Soak"); // t=1400.0
+    Timeout(id + 0x790, 5.0f, "Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1405.0; Ability 2911 from Kefka; cactbot StartsUsing 2911 [O8S Ultima]
+    Timeout(id + 0x7A0, 7.0f, "Statue Half Cleave"); // t=1412.0
+    Timeout(id + 0x7B0, 1.0f, "1x Wings Of Destruction"); // t=1413.0; Ability 28FF from Kefka
+    Timeout(id + 0x7C0, 8.0f, "Light Of Judgment"); // t=1421.0; Ability 28ED from Kefka
+    Timeout(id + 0x7D0, 14.0f, "Trine (small)"); // t=1435.0; Ability 290D from Kefka
+    Timeout(id + 0x7E0, 7.0f, "1x Wings Of Destruction"); // t=1442.0; Ability 28FF from Kefka
+    Timeout(id + 0x7F0, 11.0f, "2x Wings Of Destruction"); // t=1453.0; Ability 2900 from Kefka; cactbot StartsUsing 2900 [O8S Wings of Destruction]
+    Timeout(id + 0x800, 6.0f, "Ultimate Embrace"); // t=1459.0; Ability 2910 from Kefka; cactbot StartsUsing 2910 [O8S Ultimate Embrace]
+    Timeout(id + 0x810, 16.0f, "Trine (big)"); // t=1475.0; Ability 290D from Kefka
+    Timeout(id + 0x820, 10.0f, "Past/Future"); // t=1485.0
+    Timeout(id + 0x830, 11.0f, "Hyperdrive").SetHint(StateMachine.StateHint.Tankbuster); // t=1496.0; Ability 2912 from Kefka; cactbot StartsUsing 28E8/2912 [O8S Hyperdrive]
+    Timeout(id + 0x840, 8.0f, "Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1504.0; Ability 2911 from Kefka; cactbot StartsUsing 2911 [O8S Ultima]
+    Timeout(id + 0x850, 8.0f, "Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1512.0; Ability 2911 from Kefka; cactbot StartsUsing 2911 [O8S Ultima]
+    Condition(id + 0x860, 13.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x28E9), "", 5f, 8.0f); // t=1525.0; StartsUsing 28E9 from Kefka
+    Timeout(id + 0x870, 18.0f, "Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1543.0; Ability 2911 from Kefka; cactbot StartsUsing 2911 [O8S Ultima]
+    Timeout(id + 0x880, 1.0f, "Knockback Tethers").SetHint(StateMachine.StateHint.Knockback); // t=1544.0; Ability 28DD from Graven Image; cactbot StartsUsing 28DD [O8S Pulse Wave You]
+    Timeout(id + 0x890, 3.0f, "Soak"); // t=1547.0; Ability 28EA from Light Of Consecration
+    Timeout(id + 0x8A0, 2.0f, "Ultimate Embrace"); // t=1549.0; Ability 2910 from Kefka; cactbot StartsUsing 2910 [O8S Ultimate Embrace]
+    Timeout(id + 0x8B0, 7.0f, "Sleep/Confuse Tethers"); // t=1556.0
+    Timeout(id + 0x8C0, 6.0f, "Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1562.0; Ability 2911 from Kefka; cactbot StartsUsing 2911 [O8S Ultima]
+    Timeout(id + 0x8D0, 9.0f, "Heartless Archangel"); // t=1571.0; Ability 28FB from Kefka
+    Timeout(id + 0x8E0, 3.0f, "Soak"); // t=1574.0
+    Timeout(id + 0x8F0, 10.0f, "2x Wings Of Destruction"); // t=1584.0; Ability 2900 from Kefka; cactbot StartsUsing 2900 [O8S Wings of Destruction]
+    Timeout(id + 0x900, 2.0f, "Soak"); // t=1586.0
+    Timeout(id + 0x910, 4.0f, "Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=1590.0; Ability 2911 from Kefka; cactbot StartsUsing 2911 [O8S Ultima]
+    Timeout(id + 0x920, 5.0f, "Statue Half Cleave"); // t=1595.0
+    Timeout(id + 0x930, 1.0f, "1x Wings Of Destruction"); // t=1596.0; Ability 28FF from Kefka
+    Timeout(id + 0x940, 6.0f, "Ultima"); // t=1602.0; Ability 283D from Kefka
+    Timeout(id + 0x950, 8.0f, "Ultima"); // t=1610.0; Ability 283D from Kefka
+    Timeout(id + 0x960, 8.0f, "Ultima"); // t=1618.0; Ability 283D from Kefka
+    Timeout(id + 0x970, 8.0f, "Ultima"); // t=1626.0; Ability 283D from Kefka
+    Condition(id + 0x980, 4.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2A52), "", 5f, 0.0f); // t=1630.0; StartsUsing 2A52 from Kefka
+    Timeout(id + 0x990, 10.0f, "Enrage"); // t=1640.0; Ability 2A52 from Kefka
+}
+

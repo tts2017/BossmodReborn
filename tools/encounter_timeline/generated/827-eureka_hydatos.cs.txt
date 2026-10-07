@@ -1,0 +1,126 @@
+// Generated development skeleton from eureka_hydatos.txt (TerritoryType 827).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 46 static/dynamic trigger definitions from ui/raidboss/data/04-sb/eureka/eureka_hydatos.ts.
+
+private void Initial_Star_Form__no_meteor(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Star Form"); // t=5021.5; Ability 37B2 from Proto Ozma; cactbot Ability 37B2 [BA Ozma Star Form] | Ability 37B2 [BA Ozma Star Form 2] | Ability 37B2 [BA Ozma Star Shade]
+    Timeout(id + 0x10, 8.0f, "Mourning Star"); // t=5029.5; Ability 37B5 from Ozma
+    Timeout(id + 0x20, 3.0f, "Soak Attack"); // t=5032.5; Ability 37B6 from Ozma
+    Timeout(id + 0x30, 6.0f, "Soak Attack"); // t=5038.5; Ability 37B6 from Ozma
+    Timeout(id + 0x40, 6.0f, "Soak Attack"); // t=5044.5; Ability 37B6 from Ozma
+    Timeout(id + 0x50, 7.0f, "Shooting Star"); // t=5051.5; Ability 37B7 from Proto Ozma
+    Timeout(id + 0x60, 5.0f, "Soak Attack"); // t=5056.5; Ability 37B6 from Ozma
+    Timeout(id + 0x70, 6.0f, "Soak Attack"); // t=5062.5; Ability 37B6 from Ozma
+    Timeout(id + 0x80, 6.0f, "Soak Attack"); // t=5068.5; Ability 37B6 from Ozma
+    Timeout(id + 0x90, 2.0f, "Sphere Form"); // t=5070.5; Ability 37B3/37A5/379F from Proto Ozma; cactbot Ability 37B3/37A5/379F [BA Ozma Sphere Form]
+    Timeout(id + 0xA0, 9.0f, "Black Hole"); // t=5079.5; Ability 379D from Proto Ozma
+    Timeout(id + 0xB0, 13.0f, "Random Shade"); // t=5092.5; Ability 37A4/37B2/379E from Ozmashade; cactbot Ability 37A4 [BA Ozma Pyramid Form] | Ability 37A4 [BA Ozma Pyramid Form 2] | Ability 37B2 [BA Ozma Star Form] | Ability 37B2 [BA Ozma Star Form 2] | Ability 379E [BA Ozma Cube Form] | Ability 379E [BA Ozma Cube Form 2] | Ability 37A4 [BA Ozma Pyramid Shade] | Ability 37B2 [BA Ozma Star Shade] | Ability 379E [BA Ozma Cube Shade]
+    Timeout(id + 0xC0, 8.5f, "Shade Ability"); // t=5101.0
+    Timeout(id + 0xD0, 20.5f, "Random Shade"); // t=5121.5; Ability 37A4/37B2/379E from Ozmashade; cactbot Ability 37A4 [BA Ozma Pyramid Form] | Ability 37A4 [BA Ozma Pyramid Form 2] | Ability 37B2 [BA Ozma Star Form] | Ability 37B2 [BA Ozma Star Form 2] | Ability 379E [BA Ozma Cube Form] | Ability 379E [BA Ozma Cube Form 2] | Ability 37A4 [BA Ozma Pyramid Shade] | Ability 37B2 [BA Ozma Star Shade] | Ability 379E [BA Ozma Cube Shade]
+    Timeout(id + 0xE0, 4.0f, "Random Form"); // t=5125.5
+    Timeout(id + 0xF0, 4.5f, "Shade Ability"); // t=5130.0
+    Timeout(id + 0x100, 4.2f, "Ozma Ability"); // t=5134.2
+    Timeout(id + 0x110, 2.3f, "Soak Attack? / Acceleration Bomb?"); // t=5136.5
+    Timeout(id + 0x120, 2.0f, "Bleed Attack?"); // t=5138.5
+    Timeout(id + 0x130, 6.0f, "Bleed Attack? / Meteor (Stack)?"); // t=5144.5
+    Timeout(id + 0x140, 3.0f, "Holy?"); // t=5147.5
+    Timeout(id + 0x150, 4.0f, "Meteor (Adds)?"); // t=5151.5
+    Timeout(id + 0x160, 3.0f, "Shooting Star?"); // t=5154.5
+    Timeout(id + 0x170, 3.0f, "Meteor (Adds)?"); // t=5157.5
+}
+
+private void Pyramid_Phase(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Pyramid Form"); // t=5300.0; Ability 37A4 from Proto Ozma; cactbot Ability 37A4 [BA Ozma Pyramid Form] | Ability 37A4 [BA Ozma Pyramid Form 2] | Ability 37A4 [BA Ozma Pyramid Shade]
+    Timeout(id + 0x10, 4.5f, "Shade Ability"); // t=5304.5
+    Timeout(id + 0x20, 4.2f, "Execration"); // t=5308.7; Ability 37A7 from Ozma
+    Timeout(id + 0x30, 2.3f, "Acceleration Bomb"); // t=5311.0; Ability 37AA from Proto Ozma; cactbot Ability 37AA [BA Ozma Acceleration Bomb]
+    Timeout(id + 0x40, 2.0f, "Bleed Attack"); // t=5313.0; Ability 37AD from Ozma
+    Timeout(id + 0x50, 6.0f, "Bleed Attack"); // t=5319.0; Ability 37AD from Ozma
+    Timeout(id + 0x60, 13.0f, "Meteor (Adds)"); // t=5332.0; Ability 37B0 from Arsenal urolith; cactbot Ability 37B0 [BA Ozma Adds]
+    Timeout(id + 0x70, 5.0f, "Bleed Attack"); // t=5337.0; Ability 37AD from Ozma
+    Timeout(id + 0x80, 6.0f, "Bleed Attack"); // t=5343.0; Ability 37AD from Ozma
+    Timeout(id + 0x90, 3.0f, "Random Shade"); // t=5346.0; Ability 37A4/37B2/379E from Ozmashade; cactbot Ability 37A4 [BA Ozma Pyramid Form] | Ability 37A4 [BA Ozma Pyramid Form 2] | Ability 37B2 [BA Ozma Star Form] | Ability 37B2 [BA Ozma Star Form 2] | Ability 379E [BA Ozma Cube Form] | Ability 379E [BA Ozma Cube Form 2] | Ability 37A4 [BA Ozma Pyramid Shade] | Ability 37B2 [BA Ozma Star Shade] | Ability 379E [BA Ozma Cube Shade]
+    Timeout(id + 0xA0, 3.0f, "Acceleration Bomb"); // t=5349.0; Ability 37AA from Proto Ozma; cactbot Ability 37AA [BA Ozma Acceleration Bomb]
+    Timeout(id + 0xB0, 5.5f, "Shade Ability"); // t=5354.5
+    Timeout(id + 0xC0, 9.5f, "Meteor (Stack)"); // t=5364.0; Ability 37A8 from Ozma
+    Timeout(id + 0xD0, 6.0f, "Bleed Attack"); // t=5370.0; Ability 37AD from Ozma
+    Timeout(id + 0xE0, 3.0f, "Sphere Form"); // t=5373.0; Ability 37B3/37A5/379F from Proto Ozma; cactbot Ability 37B3/37A5/379F [BA Ozma Sphere Form]
+    Timeout(id + 0xF0, 9.0f, "Black Hole"); // t=5382.0; Ability 379D from Proto Ozma
+    Timeout(id + 0x100, 13.0f, "Random Shade"); // t=5395.0; Ability 37A4/37B2/379E from Ozmashade; cactbot Ability 37A4 [BA Ozma Pyramid Form] | Ability 37A4 [BA Ozma Pyramid Form 2] | Ability 37B2 [BA Ozma Star Form] | Ability 37B2 [BA Ozma Star Form 2] | Ability 379E [BA Ozma Cube Form] | Ability 379E [BA Ozma Cube Form 2] | Ability 37A4 [BA Ozma Pyramid Shade] | Ability 37B2 [BA Ozma Star Shade] | Ability 379E [BA Ozma Cube Shade]
+    Timeout(id + 0x110, 4.0f, "Random Form"); // t=5399.0
+    Timeout(id + 0x120, 4.5f, "Shade Ability"); // t=5403.5
+    Timeout(id + 0x130, 4.2f, "Ozma Ability"); // t=5407.7
+    Timeout(id + 0x140, 2.3f, "Soak Attack? / Acceleration Bomb?"); // t=5410.0
+    Timeout(id + 0x150, 2.0f, "Bleed Attack?"); // t=5412.0
+    Timeout(id + 0x160, 6.0f, "Bleed Attack? / Meteor (Stack)?"); // t=5418.0
+    Timeout(id + 0x170, 3.0f, "Holy?"); // t=5421.0
+    Timeout(id + 0x180, 4.0f, "Meteor (Adds)?"); // t=5425.0
+    Timeout(id + 0x190, 3.0f, "Shooting Star?"); // t=5428.0
+    Timeout(id + 0x1A0, 3.0f, "Meteor (Adds)?"); // t=5431.0
+}
+
+private void Cube_Phase(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Cube Form"); // t=5600.0; Ability 379E from Proto Ozma; cactbot Ability 379E [BA Ozma Cube Form] | Ability 379E [BA Ozma Cube Form 2] | Ability 379E [BA Ozma Cube Shade]
+    Timeout(id + 0x10, 4.5f, "Shade Ability"); // t=5604.5
+    Timeout(id + 0x20, 4.0f, "Flare Star"); // t=5608.5; Ability 37A1 from Ozma
+    Timeout(id + 0x30, 10.5f, "Meteor (Stack)"); // t=5619.0; Ability 37A8 from Ozma
+    Timeout(id + 0x40, 3.0f, "Holy"); // t=5622.0; Ability 37A9 from Proto Ozma
+    Timeout(id + 0x50, 27.0f, "Random Shade"); // t=5649.0; Ability 37A4/37B2/379E from Ozmashade; cactbot Ability 37A4 [BA Ozma Pyramid Form] | Ability 37A4 [BA Ozma Pyramid Form 2] | Ability 37B2 [BA Ozma Star Form] | Ability 37B2 [BA Ozma Star Form 2] | Ability 379E [BA Ozma Cube Form] | Ability 379E [BA Ozma Cube Form 2] | Ability 37A4 [BA Ozma Pyramid Shade] | Ability 37B2 [BA Ozma Star Shade] | Ability 379E [BA Ozma Cube Shade]
+    Timeout(id + 0x60, 6.0f, "Meteor (Stack)"); // t=5655.0; Ability 37A8 from Ozma
+    Timeout(id + 0x70, 1.0f, "Holy"); // t=5656.0; Ability 37A9 from Proto Ozma
+    Timeout(id + 0x80, 1.5f, "Shade Ability"); // t=5657.5
+    Timeout(id + 0x90, 15.5f, "Sphere Form"); // t=5673.0; Ability 37B3/37A5/379F from Proto Ozma; cactbot Ability 37B3/37A5/379F [BA Ozma Sphere Form]
+    Timeout(id + 0xA0, 9.0f, "Black Hole"); // t=5682.0; Ability 379D from Proto Ozma
+    Timeout(id + 0xB0, 13.0f, "Random Shade"); // t=5695.0; Ability 37A4/37B2/379E from Ozmashade; cactbot Ability 37A4 [BA Ozma Pyramid Form] | Ability 37A4 [BA Ozma Pyramid Form 2] | Ability 37B2 [BA Ozma Star Form] | Ability 37B2 [BA Ozma Star Form 2] | Ability 379E [BA Ozma Cube Form] | Ability 379E [BA Ozma Cube Form 2] | Ability 37A4 [BA Ozma Pyramid Shade] | Ability 37B2 [BA Ozma Star Shade] | Ability 379E [BA Ozma Cube Shade]
+    Timeout(id + 0xC0, 4.0f, "Random Form"); // t=5699.0
+    Timeout(id + 0xD0, 4.5f, "Shade Ability"); // t=5703.5
+    Timeout(id + 0xE0, 4.2f, "Ozma Ability"); // t=5707.7
+    Timeout(id + 0xF0, 2.3f, "Soak Attack? / Acceleration Bomb?"); // t=5710.0
+    Timeout(id + 0x100, 2.0f, "Bleed Attack?"); // t=5712.0
+    Timeout(id + 0x110, 6.0f, "Bleed Attack? / Meteor (Stack)?"); // t=5718.0
+    Timeout(id + 0x120, 3.0f, "Holy?"); // t=5721.0
+    Timeout(id + 0x130, 4.0f, "Meteor (Adds)?"); // t=5725.0
+    Timeout(id + 0x140, 3.0f, "Shooting Star?"); // t=5728.0
+    Timeout(id + 0x150, 3.0f, "Meteor (Adds)?"); // t=5731.0
+}
+
+private void Star_Phase(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Star Form"); // t=5900.0; Ability 37B2 from Proto Ozma; cactbot Ability 37B2 [BA Ozma Star Form] | Ability 37B2 [BA Ozma Star Form 2] | Ability 37B2 [BA Ozma Star Shade]
+    Timeout(id + 0x10, 4.5f, "Shade Ability"); // t=5904.5
+    Timeout(id + 0x20, 3.5f, "Mourning Star"); // t=5908.0; Ability 37B5 from Ozma
+    Timeout(id + 0x30, 3.0f, "Soak Attack"); // t=5911.0; Ability 37B6 from Ozma
+    Timeout(id + 0x40, 15.0f, "Meteor (Adds)"); // t=5926.0; Ability 37B0 from Arsenal urolith; cactbot Ability 37B0 [BA Ozma Adds]
+    Timeout(id + 0x50, 3.0f, "Shooting Star"); // t=5929.0; Ability 37B7 from Proto Ozma
+    Timeout(id + 0x60, 9.0f, "Soak Attack"); // t=5938.0; Ability 37B6 from Ozma
+    Timeout(id + 0x70, 6.0f, "Soak Attack"); // t=5944.0; Ability 37B6 from Ozma
+    Timeout(id + 0x80, 5.0f, "Random Shade"); // t=5949.0; Ability 37A4/37B2/379E from Ozmashade; cactbot Ability 37A4 [BA Ozma Pyramid Form] | Ability 37A4 [BA Ozma Pyramid Form 2] | Ability 37B2 [BA Ozma Star Form] | Ability 37B2 [BA Ozma Star Form 2] | Ability 379E [BA Ozma Cube Form] | Ability 379E [BA Ozma Cube Form 2] | Ability 37A4 [BA Ozma Pyramid Shade] | Ability 37B2 [BA Ozma Star Shade] | Ability 379E [BA Ozma Cube Shade]
+    Timeout(id + 0x90, 5.0f, "Shooting Star"); // t=5954.0; Ability 37B7 from Proto Ozma
+    Timeout(id + 0xA0, 3.5f, "Shade Ability"); // t=5957.5
+    Timeout(id + 0xB0, 1.5f, "Soak Attack"); // t=5959.0; Ability 37B6 from Ozma | Ability 37B6 from Ozma
+    Timeout(id + 0xC0, 6.0f, "Soak Attack"); // t=5965.0; Ability 37B6 from Ozma
+    Timeout(id + 0xD0, 8.0f, "Sphere Form"); // t=5973.0; Ability 37B3/37A5/379F from Proto Ozma; cactbot Ability 37B3/37A5/379F [BA Ozma Sphere Form]
+    Timeout(id + 0xE0, 9.0f, "Black Hole"); // t=5982.0; Ability 379D from Proto Ozma
+    Timeout(id + 0xF0, 13.0f, "Random Shade"); // t=5995.0; Ability 37A4/37B2/379E from Ozmashade; cactbot Ability 37A4 [BA Ozma Pyramid Form] | Ability 37A4 [BA Ozma Pyramid Form 2] | Ability 37B2 [BA Ozma Star Form] | Ability 37B2 [BA Ozma Star Form 2] | Ability 379E [BA Ozma Cube Form] | Ability 379E [BA Ozma Cube Form 2] | Ability 37A4 [BA Ozma Pyramid Shade] | Ability 37B2 [BA Ozma Star Shade] | Ability 379E [BA Ozma Cube Shade]
+    Timeout(id + 0x100, 4.0f, "Random Form"); // t=5999.0
+    Timeout(id + 0x110, 4.5f, "Shade Ability"); // t=6003.5
+    Timeout(id + 0x120, 4.2f, "Ozma Ability"); // t=6007.7
+    Timeout(id + 0x130, 2.3f, "Soak Attack? / Acceleration Bomb?"); // t=6010.0
+    Timeout(id + 0x140, 2.0f, "Bleed Attack?"); // t=6012.0
+    Timeout(id + 0x150, 6.0f, "Bleed Attack? / Meteor (Stack)?"); // t=6018.0
+    Timeout(id + 0x160, 3.0f, "Holy?"); // t=6021.0
+    Timeout(id + 0x170, 4.0f, "Meteor (Adds)?"); // t=6025.0
+    Timeout(id + 0x180, 3.0f, "Shooting Star?"); // t=6028.0
+    Timeout(id + 0x190, 3.0f, "Meteor (Adds)?"); // t=6031.0
+}
+
+private void Star_Form_Enrage(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x396D), "", 5f, 0.0f); // t=6200.0; StartsUsing 396D from Proto Ozma
+    Timeout(id + 0x10, 10.0f, "Shooting Star Enrage"); // t=6210.0; Ability 396D from Proto Ozma
+}
+

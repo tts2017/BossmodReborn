@@ -1,0 +1,104 @@
+// Generated development skeleton from sohm_al.txt (TerritoryType 1064).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 4 static/dynamic trigger definitions from ui/raidboss/data/03-hw/dungeon/sohm_al.ts.
+
+private void Raskovnik(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 6.2f, "Bloody Caress"); // t=6.2; Ability ED1 from Raskovnik
+    Timeout(id + 0x20, 11.7f, "Acid Rain"); // t=17.9; Ability ED7 from Raskovnik
+    Timeout(id + 0x30, 8.5f, "Phytobeam"); // t=26.4; Ability ED5 from Raskovnik
+    Timeout(id + 0x40, 7.2f, "Bloody Caress"); // t=33.6; Ability ED1 from Raskovnik
+    Timeout(id + 0x50, 11.7f, "Acid Rain"); // t=45.3
+    Timeout(id + 0x60, 8.6f, "Phytobeam"); // t=53.9
+    Timeout(id + 0x70, 7.2f, "Bloody Caress"); // t=61.1
+    Condition(id + 0x80, 38.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1395), "", 5f, 33.9f); // t=100.0; StartsUsing 1395 from Raskovnik
+    Timeout(id + 0x90, 3.0f, "Sweet Scent"); // t=103.0; Ability 1395 from Raskovnik
+    Timeout(id + 0xA0, 11.6f, "Floral Trap"); // t=114.6; Ability 1391 from Raskovnik
+    Timeout(id + 0xB0, 5.0f, "Flower Devour"); // t=119.6; Ability 1392 from Raskovnik
+    Timeout(id + 0xC0, 5.8f, "Spit"); // t=125.4; Ability 1393 from Raskovnik
+    Timeout(id + 0xD0, 10.6f, "Floral Trap"); // t=136.0; Ability 1391 from Raskovnik
+    Timeout(id + 0xE0, 5.0f, "Flower Devour"); // t=141.0
+    Timeout(id + 0xF0, 5.8f, "Spit"); // t=146.8
+    Timeout(id + 0x100, 10.3f, "Floral Trap"); // t=157.1
+    Timeout(id + 0x110, 5.0f, "Flower Devour"); // t=162.1
+    Timeout(id + 0x120, 5.8f, "Spit"); // t=167.9
+    Condition(id + 0x130, 32.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1395), "", 5f, 27.1f); // t=200.0; StartsUsing 1395 from Raskovnik
+    Timeout(id + 0x140, 3.0f, "Sweet Scent"); // t=203.0; Ability 1395 from Raskovnik
+    Timeout(id + 0x150, 11.8f, "Floral Trap"); // t=214.8
+    Timeout(id + 0x160, 5.0f, "Flower Devour"); // t=219.8
+    Timeout(id + 0x170, 5.8f, "Spit"); // t=225.6
+    Condition(id + 0x180, 74.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xED6), "", 5f, 69.4f); // t=300.0; StartsUsing ED6 from Raskovnik
+    Timeout(id + 0x190, 3.0f, "Leafstorm"); // t=303.0; Ability ED6 from Raskovnik
+    Timeout(id + 0x1A0, 5.2f, "Bloody Caress"); // t=308.2; Ability ED1 from Raskovnik
+    Timeout(id + 0x1B0, 11.7f, "Acid Rain"); // t=319.9; Ability ED7 from Raskovnik
+    Timeout(id + 0x1C0, 8.6f, "Phytobeam"); // t=328.5; Ability ED5 from Raskovnik
+    Timeout(id + 0x1D0, 5.2f, "Bloody Caress"); // t=333.7; Ability ED1 from Raskovnik
+    Timeout(id + 0x1E0, 9.1f, "Leafstorm"); // t=342.8; Ability ED6 from Raskovnik
+    Timeout(id + 0x1F0, 5.2f, "Bloody Caress"); // t=348.0
+    Timeout(id + 0x200, 11.7f, "Acid Rain"); // t=359.7
+    Timeout(id + 0x210, 8.5f, "Phytobeam"); // t=368.2
+    Timeout(id + 0x220, 5.2f, "Bloody Caress"); // t=373.4
+    Condition(id + 0x230, 126.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1395), "", 5f, 121.6f); // t=500.0; StartsUsing 1395 from Raskovnik
+}
+
+private void Myath(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=1000.0
+    Timeout(id + 0x10, 6.1f, "Third Leg Forward"); // t=1006.1; Ability 1382 from Myath
+    Timeout(id + 0x20, 5.1f, "Overbite"); // t=1011.2; Ability EDB from Myath
+    Timeout(id + 0x30, 8.1f, "Razor Scales"); // t=1019.3; Ability EDC from Myath
+    Timeout(id + 0x40, 5.2f, "Third Leg Forward"); // t=1024.5; Ability 1382 from Myath
+    Timeout(id + 0x50, 7.1f, "Third Leg Forward"); // t=1031.6; Ability 1382 from Myath
+    Timeout(id + 0x60, 5.1f, "Overbite"); // t=1036.7; Ability EDB from Myath
+    Timeout(id + 0x70, 8.1f, "Razor Scales"); // t=1044.8; Ability EDC from Myath
+    Timeout(id + 0x80, 5.2f, "Third Leg Forward"); // t=1050.0
+    Timeout(id + 0x90, 7.1f, "Third Leg Forward"); // t=1057.1
+    Timeout(id + 0xA0, 5.1f, "Overbite"); // t=1062.2
+    Timeout(id + 0xB0, 8.1f, "Razor Scales"); // t=1070.3
+    Timeout(id + 0xC0, 5.2f, "Third Leg Forward"); // t=1075.5
+    Timeout(id + 0xD0, 124.5f, "Primordial Roar"); // t=1200.0; Ability EE2 from Myath
+    Timeout(id + 0xE0, 7.1f, "Third Leg Forward"); // t=1207.1; Ability 1382 from Myath
+    Timeout(id + 0xF0, 7.1f, "Ensnare"); // t=1214.2; Ability EDD from Myath
+    Timeout(id + 0x100, 5.0f, "Mad Dash"); // t=1219.2
+    Timeout(id + 0x110, 2.3f, "Ensnare"); // t=1221.5; Ability EDD from Myath
+    Timeout(id + 0x120, 5.0f, "Mad Dash"); // t=1226.5
+    Timeout(id + 0x130, 2.5f, "Ensnare"); // t=1229.0; Ability EDD from Myath
+    Timeout(id + 0x140, 7.1f, "Mad Dash"); // t=1236.1
+    Timeout(id + 0x150, 2.3f, "Ensnare"); // t=1238.4; Ability EDD from Myath
+    Timeout(id + 0x160, 7.0f, "Mad Dash"); // t=1245.4
+    Timeout(id + 0x170, 4.4f, "Third Leg Forward"); // t=1249.8; Ability 1382 from Myath
+    Timeout(id + 0x180, 5.1f, "Overbite"); // t=1254.9
+    Timeout(id + 0x190, 8.1f, "Razor Scales"); // t=1263.0
+    Timeout(id + 0x1A0, 5.2f, "Third Leg Forward"); // t=1268.2
+    Timeout(id + 0x1B0, 7.1f, "Third Leg Forward"); // t=1275.3
+    Timeout(id + 0x1C0, 5.1f, "Overbite"); // t=1280.4
+}
+
+private void Tioman(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=2000.0
+    Timeout(id + 0x10, 6.0f, "Abyssic Buster"); // t=2006.0; Ability EE3 from Tioman
+    Timeout(id + 0x20, 7.2f, "Chaos Blast"); // t=2013.2; Ability EE5 from Tioman
+    Timeout(id + 0x30, 7.2f, "Abyssic Buster"); // t=2020.4; Ability EE3 from Tioman
+    Timeout(id + 0x40, 9.6f, "Comet"); // t=2030.0; Ability EE6 from Tioman
+    Timeout(id + 0x50, 13.7f, "Meteor Impact"); // t=2043.7; Ability 1387 from Tioman
+    Timeout(id + 0x60, 3.6f, "Abyssic Buster"); // t=2047.3; Ability EE3 from Tioman
+    Timeout(id + 0x70, 7.2f, "Chaos Blast"); // t=2054.5
+    Timeout(id + 0x80, 7.2f, "Abyssic Buster"); // t=2061.7
+    Timeout(id + 0x90, 9.6f, "Comet"); // t=2071.3
+    Timeout(id + 0xA0, 13.6f, "Meteor Impact"); // t=2084.9
+    Timeout(id + 0xB0, 115.1f, "Heavensfall"); // t=2200.0; Ability EE7 from Tioman
+    Timeout(id + 0xC0, 23.5f, "Dark Star"); // t=2223.5; Ability EE4 from Tioman
+    Timeout(id + 0xD0, 23.4f, "Dark Star"); // t=2246.9; Ability EE4 from Tioman
+    Timeout(id + 0xE0, 23.5f, "Dark Star"); // t=2270.4; Ability EE4 from Tioman
+    Timeout(id + 0xF0, 23.4f, "Dark Star"); // t=2293.8; Ability EE4 from Tioman
+    Timeout(id + 0x100, 11.8f, "Abyssic Buster"); // t=2305.6; Ability EE3 from Tioman
+    Timeout(id + 0x110, 7.2f, "Chaos Blast"); // t=2312.8
+    Timeout(id + 0x120, 4.5f, "Dark Star"); // t=2317.3; Ability EE4 from Tioman
+    Timeout(id + 0x130, 2.7f, "Abyssic Buster"); // t=2320.0
+    Timeout(id + 0x140, 9.6f, "Comet"); // t=2329.6
+    Timeout(id + 0x150, 13.6f, "Meteor Impact"); // t=2343.2
+}
+

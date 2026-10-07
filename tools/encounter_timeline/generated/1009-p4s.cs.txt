@@ -1,0 +1,141 @@
+// Generated development skeleton from p4s.txt (TerritoryType 1009).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+
+private void P4S__Asphodelos__The_Fourth_Circle__Savage(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Hesperos_I(uint id)
+{
+    Condition(id + 0x0, 10.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6A09), "", 5f, 5.0f); // t=10.0; StartsUsing 6A09 from Hesperos
+    Timeout(id + 0x10, 5.0f, "Decollation"); // t=15.0; Ability 6A09 from Hesperos
+    Timeout(id + 0x20, 8.2f, "Bloodrake"); // t=23.2; Ability 69D8 from Hesperos
+    Timeout(id + 0x30, 7.1f, "Aetheric Chlamys"); // t=30.3; Ability 69EC from Hesperos
+    Timeout(id + 0x40, 8.2f, "Bloodrake"); // t=38.5; Ability 69D8 from Hesperos
+    Timeout(id + 0x50, 9.2f, "Director's Belone"); // t=47.7; Ability 69E6 from Hesperos
+    Timeout(id + 0x60, 0.8f, "--debuffs--"); // t=48.5; Ability 69E7 from Hesperos
+    Timeout(id + 0x70, 15.4f, "Inversive Chlamys"); // t=63.9; Ability 69ED from Hesperos
+    Timeout(id + 0x80, 0.2f, "Cursed Casting"); // t=64.1; Ability 69E8/69E9 from Hesperos
+    Timeout(id + 0x90, 0.6f, "Inversive Chlamys"); // t=64.7; Ability 69EE/69EF from Hesperos
+    Timeout(id + 0xA0, 8.4f, "Decollation"); // t=73.1; Ability 6A09 from Hesperos
+    Timeout(id + 0xB0, 9.2f, "Elegant Evisceration 1"); // t=82.3; Ability 6A08 from Hesperos
+    Timeout(id + 0xC0, 3.2f, "Elegant Evisceration 2"); // t=85.5; Ability 6819 from Hesperos
+    Timeout(id + 0xD0, 15.2f, "Setting the Scene"); // t=100.7; Ability 69CB from Hesperos
+    Timeout(id + 0xE0, 13.1f, "Pinax"); // t=113.8; Ability 69CF from Hesperos
+    Timeout(id + 0xF0, 10.1f, "Well Pinax/Levinstrike Pinax"); // t=123.9; Ability 69D6/69D7 from Hesperos
+    Timeout(id + 0x100, 2.9f, "Acid Pinax/Lava Pinax"); // t=126.8; Ability 69D4/69D5 from Hesperos
+    Timeout(id + 0x110, 2.1f, "--middle--"); // t=128.9; Ability 69CE from Hesperos
+    Timeout(id + 0x120, 7.9f, "Levinstrike Pinax/Well Pinax"); // t=136.8; Ability 69D7/69D6 from Hesperos
+    Timeout(id + 0x130, 1.6f, "Directional Shift"); // t=138.4; Ability 69FD/69FE/69FF/6A00/6A02/6A03/6A04/6A05 from Hesperos
+    Timeout(id + 0x140, 1.7f, "Shifting Strike"); // t=140.1; Ability 6A01/6A06 from Hesperos
+    Timeout(id + 0x150, 7.6f, "Lava Pinax/Acid Pinax"); // t=147.7; Ability 69D5/69D4 from Hesperos
+    Timeout(id + 0x160, 8.8f, "Elegant Evisceration 1"); // t=156.5; Ability 6A08 from Hesperos
+    Timeout(id + 0x170, 3.2f, "Elegant Evisceration 2"); // t=159.7; Ability 6819 from Hesperos
+    Timeout(id + 0x180, 8.1f, "Bloodrake"); // t=167.8; Ability 69D8 from Hesperos
+    Timeout(id + 0x190, 11.2f, "Setting the Scene"); // t=179.0; Ability 69CB from Hesperos
+    Timeout(id + 0x1A0, 12.1f, "Vengeful Belone"); // t=191.1; Ability 6E22 from Hesperos
+    Timeout(id + 0x1B0, 0.8f, "--role debuffs--"); // t=191.9; Ability 6E23 from Hesperos
+    Timeout(id + 0x1C0, 7.4f, "Elemental Belone"); // t=199.3; Ability 69F2 from Hesperos
+    Timeout(id + 0x1D0, 0.8f, "--element debuffs--"); // t=200.1; Ability 69F3 from Hesperos
+    Timeout(id + 0x1E0, 7.4f, "Bloodrake"); // t=207.5; Ability 69D8 from Hesperos
+    Timeout(id + 0x1F0, 9.2f, "Belone Bursts"); // t=216.7; Ability 69D9 from Hesperos
+    Timeout(id + 0x200, 14.1f, "Periaktoi / Acid Pinax / Well Pinax / Lava Pinax / Levinstrike Pinax"); // t=230.8; Ability 69F4 from Hesperos
+    Timeout(id + 0x210, 12.2f, "Bloodrake"); // t=243.0; Ability 69D8 from Hesperos
+    Timeout(id + 0x220, 7.1f, "Belone Coils"); // t=250.1; Ability 69DD from Hesperos
+    Timeout(id + 0x230, 10.2f, "Inversive Chlamys"); // t=260.3; Ability 69ED from Hesperos
+    Timeout(id + 0x240, 0.6f, "Burst"); // t=260.9; Ability 69DE/69DF/69E0/69E1 from Hesperos
+    Timeout(id + 0x250, 0.2f, "Inversive Chlamys"); // t=261.1
+    Timeout(id + 0x260, 6.3f, "Aetheric Chlamys"); // t=267.4; Ability 69EC from Hesperos
+    Timeout(id + 0x270, 8.2f, "Bloodrake"); // t=275.6; Ability 69D8 from Hesperos
+    Timeout(id + 0x280, 8.1f, "Belone Coils"); // t=283.7; Ability 69DD from Hesperos
+    Timeout(id + 0x290, 10.8f, "Burst"); // t=294.5; Ability 69DE/69DF/69E0/69E1 from Hesperos
+    Timeout(id + 0x2A0, 3.4f, "Director's Belone"); // t=297.9; Ability 69E6 from Hesperos
+    Timeout(id + 0x2B0, 0.8f, "--debuffs--"); // t=298.7; Ability 69E7 from Hesperos
+    Timeout(id + 0x2C0, 15.4f, "Inversive Chlamys"); // t=314.1; Ability 69ED from Hesperos
+    Timeout(id + 0x2D0, 0.2f, "Cursed Casting"); // t=314.3
+    Timeout(id + 0x2E0, 0.6f, "Inversive Chlamys"); // t=314.9; Ability 69EE/69EF from Hesperos
+    Timeout(id + 0x2F0, 8.4f, "Decollation"); // t=323.3; Ability 6A09 from Hesperos
+    Timeout(id + 0x300, 9.2f, "Elegant Evisceration 1"); // t=332.5; Ability 6A08 from Hesperos
+    Timeout(id + 0x310, 3.2f, "Elegant Evisceration 2"); // t=335.7; Ability 6819 from Hesperos
+    Timeout(id + 0x320, 15.2f, "Setting the Scene"); // t=350.9; Ability 69CB from Hesperos
+    Timeout(id + 0x330, 13.2f, "Pinax"); // t=364.1; Ability 69CF from Hesperos
+    Timeout(id + 0x340, 10.1f, "Well Pinax/Levinstrike Pinax"); // t=374.2; Ability 69D6/69D7 from Hesperos
+    Timeout(id + 0x350, 2.9f, "Acid Pinax/Lava Pinax"); // t=377.1; Ability 69D4/69D5 from Hesperos
+    Timeout(id + 0x360, 2.1f, "--middle--"); // t=379.2; Ability 69CE from Hesperos
+    Timeout(id + 0x370, 7.9f, "Levinstrike Pinax/Well Pinax"); // t=387.1; Ability 69D7/69D6 from Hesperos
+    Timeout(id + 0x380, 2.0f, "Directional Shift"); // t=389.1; Ability 69FD/69FE/69FF/6A00/6A02/6A03/6A04/6A05 from Hesperos
+    Timeout(id + 0x390, 1.5f, "Shifting Strike"); // t=390.6; Ability 6A01/6A06 from Hesperos
+    Timeout(id + 0x3A0, 7.5f, "Lava Pinax/Acid Pinax"); // t=398.1; Ability 69D5/69D4 from Hesperos
+    Timeout(id + 0x3B0, 5.1f, "Decollation"); // t=403.2; Ability 6A09 from Hesperos
+    Timeout(id + 0x3C0, 9.2f, "Decollation"); // t=412.4; Ability 6A09 from Hesperos
+    Timeout(id + 0x3D0, 9.2f, "Decollation"); // t=421.6; Ability 6A09 from Hesperos
+    Targetable(id + 0x3E0, false, 10.9f, "--untargetable--"); // t=432.5
+    Timeout(id + 0x3F0, 5.1f, "Decollation (enrage)"); // t=437.6; Ability 6A0B from Hesperos
+}
+
+private void Hesperos_II(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=1000.0
+    Condition(id + 0x10, 11.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6A2D), "", 5f, 6.0f); // t=1011.0; StartsUsing 6A2D from Hesperos
+    Timeout(id + 0x20, 5.0f, "Searing Stream"); // t=1016.0; Ability 6A2D from Hesperos
+    Timeout(id + 0x30, 15.2f, "Akanthai: Act 1"); // t=1031.2; Ability 6A0C from Hesperos
+    Timeout(id + 0x40, 9.2f, "Searing Stream"); // t=1040.4; Ability 6A2D from Hesperos
+    Timeout(id + 0x50, 14.2f, "Wreath of Thorns 1"); // t=1054.6; Ability 6A2F from Hesperos
+    Timeout(id + 0x60, 3.1f, "Hemitheos's Fire IV"); // t=1057.7; Ability 6A0D from Hesperos
+    Timeout(id + 0x70, 3.0f, "Hemitheos's Thunder III"); // t=1060.7; Ability 6A0E from Hesperos
+    Timeout(id + 0x80, 3.0f, "Hemitheos's Fire IV"); // t=1063.7; Ability 6A0D from Hesperos
+    Timeout(id + 0x90, 7.2f, "Nearsight/Farsight"); // t=1070.9; Ability 6A28/6DDB from Hesperos
+    Timeout(id + 0xA0, 12.1f, "Akanthai: Act 2"); // t=1083.0; Ability 6EB4 from Hesperos
+    Timeout(id + 0xB0, 9.2f, "Demigod Double"); // t=1092.2; Ability 6E78 from Hesperos
+    Timeout(id + 0xC0, 10.2f, "Wreath of Thorns 2"); // t=1102.4; Ability 6A30 from Hesperos
+    Timeout(id + 0xD0, 8.0f, "Hemitheos's Dark IV"); // t=1110.4
+    Timeout(id + 0xE0, 3.3f, "Dark Design"); // t=1113.7; Ability 6A2A from Hesperos
+    Timeout(id + 0xF0, 1.8f, "Hemitheos's Fire IV / Hemitheos's Thunder III x2"); // t=1115.5; Ability 6A0D/6A0E from Hesperos
+    Timeout(id + 0x100, 0.4f, "Hemitheos's Fire III x2"); // t=1115.9
+    Timeout(id + 0x110, 6.6f, "Hemitheos's Thunder III x2 / Hemitheos's Fire IV"); // t=1122.5; Ability 6A0D/6A0E from Hesperos
+    Timeout(id + 0x120, 0.7f, "Hemitheos's Fire III x2"); // t=1123.2
+    Timeout(id + 0x130, 1.0f, "Hemitheos's Aero III"); // t=1124.2
+    Timeout(id + 0x140, 5.5f, "Ultimate Impulse"); // t=1129.7; Ability 6A2C from Hesperos
+    Timeout(id + 0x150, 13.2f, "Akanthai: Act 3"); // t=1142.9; Ability 6EB5 from Hesperos
+    Timeout(id + 0x160, 12.2f, "Wreath of Thorns 3"); // t=1155.1; Ability 6A31 from Hesperos
+    Timeout(id + 0x170, 8.2f, "Kothornos Kick 1"); // t=1163.3; Ability 6A23 from Hesperos
+    Timeout(id + 0x180, 4.1f, "Kothornos Quake 1"); // t=1167.4; Ability 6E74 from Hesperos
+    Timeout(id + 0x190, 0.8f, "Hemitheos's Thunder III 1"); // t=1168.2; Ability 6A0E from Hesperos
+    Timeout(id + 0x1A0, 2.0f, "Hemitheos's Water IV"); // t=1170.2; Ability 6A10 from Hesperos
+    Timeout(id + 0x1B0, 3.3f, "Kothornos Kick 2"); // t=1173.5; Ability 6A23 from Hesperos
+    Timeout(id + 0x1C0, 0.7f, "Hemitheos's Thunder III 2"); // t=1174.2; Ability 6A0E from Hesperos
+    Timeout(id + 0x1D0, 3.3f, "Kothornos Quake 2"); // t=1177.5; Ability 6A24 from Hesperos
+    Timeout(id + 0x1E0, 10.2f, "Nearsight/Farsight"); // t=1187.7; Ability 6A28/6DDB from Hesperos
+    Timeout(id + 0x1F0, 14.1f, "Heart Stake"); // t=1201.8; Ability 6A2B from Hesperos
+    Timeout(id + 0x200, 3.2f, "Heart Stake OT"); // t=1205.0; Ability 6E77 from Hesperos
+    Timeout(id + 0x210, 9.1f, "Akanthai: Act 4"); // t=1214.1; Ability 6EB6 from Hesperos
+    Timeout(id + 0x220, 9.2f, "Searing Stream"); // t=1223.3; Ability 6A2D from Hesperos
+    Timeout(id + 0x230, 9.2f, "Wreath of Thorns 4"); // t=1232.5; Ability 6A32 from Hesperos
+    Timeout(id + 0x240, 8.1f, "Searing Stream"); // t=1240.6; Ability 6A2D from Hesperos
+    Timeout(id + 0x250, 35.2f, "Ultimate Impulse"); // t=1275.8; Ability 6A2C from Hesperos
+    Timeout(id + 0x260, 14.3f, "Searing Stream"); // t=1290.1; Ability 6A2D from Hesperos
+    Timeout(id + 0x270, 9.2f, "Akanthai: Finale"); // t=1299.3; Ability 6EB7 from Hesperos
+    Timeout(id + 0x280, 9.2f, "Wreath of Thorns 5"); // t=1308.5; Ability 6A34 from Hesperos
+    Timeout(id + 0x290, 8.0f, "Fleeting Impulse x8"); // t=1316.5; Ability 6EB8 from Hesperos
+    Timeout(id + 0x2A0, 10.8f, "Hemitheos's Aero III"); // t=1327.3; Ability 6A1B from Hesperos
+    Timeout(id + 0x2B0, 8.7f, "Wreath of Thorns 6"); // t=1336.0; Ability 6A35 from Hesperos
+    Timeout(id + 0x2C0, 3.1f, "Hemitheos's Thunder III x8"); // t=1339.1
+    Timeout(id + 0x2D0, 14.2f, "Nearsight/Farsight"); // t=1353.3; Ability 6A28/6DDB from Hesperos
+    Timeout(id + 0x2E0, 12.1f, "Searing Stream"); // t=1365.4; Ability 6A2D from Hesperos
+    Timeout(id + 0x2F0, 9.1f, "Demigod Double"); // t=1374.5; Ability 6E78 from Hesperos
+    Timeout(id + 0x300, 13.2f, "Akanthai: Curtain Call"); // t=1387.7; Ability 6A36 from Hesperos
+    Timeout(id + 0x310, 13.3f, "Hell's Sting 1"); // t=1401.0; Ability 6A20 from Hesperos
+    Timeout(id + 0x320, 3.1f, "Hell's Sting 2"); // t=1404.1; Ability 6A21 from Hesperos
+    Timeout(id + 0x330, 17.1f, "Hell's Sting 1"); // t=1421.2; Ability 6A20 from Hesperos
+    Timeout(id + 0x340, 3.1f, "Hell's Sting 2"); // t=1424.3; Ability 6A21 from Hesperos
+    Timeout(id + 0x350, 16.1f, "Ultimate Impulse"); // t=1440.4; Ability 6A2C from Hesperos
+    Timeout(id + 0x360, 10.1f, "Hell's Sting 1"); // t=1450.5; Ability 6A20 from Hesperos
+    Timeout(id + 0x370, 3.1f, "Hell's Sting 2"); // t=1453.6; Ability 6A21 from Hesperos
+    Timeout(id + 0x380, 17.1f, "Hell's Sting 1"); // t=1470.7; Ability 6A20 from Hesperos
+    Timeout(id + 0x390, 3.1f, "Hell's Sting 2"); // t=1473.8; Ability 6A21 from Hesperos
+    Timeout(id + 0x3A0, 16.1f, "Ultimate Impulse"); // t=1489.9; Ability 6A2C from Hesperos
+    Timeout(id + 0x3B0, 14.9f, "Ultimate Impulse (enrage)"); // t=1504.8; Ability 6A37 from Hesperos
+}
+

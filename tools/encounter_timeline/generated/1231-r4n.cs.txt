@@ -1,0 +1,94 @@
+// Generated development skeleton from r4n.txt (TerritoryType 1231).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 21 static/dynamic trigger definitions from ui/raidboss/data/07-dt/raid/r4n.ts.
+
+private void Arcadion__R4N___AAC_Light_heavyweight_M4(uint id)
+{
+    Condition(id + 0x0, 6.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x92C7), "", 5f, 1.9f); // t=6.9; StartsUsing 92C7 from Wicked Thunder; cactbot StartsUsing 92C7 [R4N Actor Collector] | StartsUsing 92C7 [R4N Wrath of Zeus]
+    Timeout(id + 0x10, 4.7f, "Wrath of Zeus").SetHint(StateMachine.StateHint.Raidwide); // t=11.6; Ability 92C7 from Wicked Thunder; cactbot StartsUsing 92C7 [R4N Actor Collector] | StartsUsing 92C7 [R4N Wrath of Zeus]
+    Timeout(id + 0x20, 13.1f, "Sidewise Spark"); // t=24.7; Ability 92BC/92BD/92BE/92BF from Wicked Thunder; cactbot StartsUsing 92BC/92BD/92BE/92BF [R4N Sidewise Spark Counter] | StartsUsing 92BC/92BE/92BD/92BF [R4N Sidewise Spark]
+    Timeout(id + 0x30, 6.1f, "--middle--"); // t=30.8; Ability 92C9 from Wicked Thunder
+    Timeout(id + 0x40, 4.3f, "Shadows' Sabbath"); // t=35.1; Ability 9BBF from Wicked Thunder
+    Timeout(id + 0x50, 9.2f, "Sidewise Spark (clone)"); // t=44.3; Ability 9A05/9A0F from Wicked Replica
+    Timeout(id + 0x60, 2.0f, "Shadows' Sabbath"); // t=46.3; Ability 9BBF from Wicked Thunder
+    Timeout(id + 0x70, 9.2f, "Sidewise Spark (clone)"); // t=55.5; Ability 9A05/9A0F from Wicked Replica
+    Timeout(id + 0x80, 7.1f, "Wicked Jolt"); // t=62.6; Ability 92C8 from Wicked Thunder; cactbot HeadMarker [R4N Headmarker Wicked Jolt Tankbuster]
+    Timeout(id + 0x90, 6.1f, "--north--"); // t=68.7; Ability 92C9 from Wicked Thunder
+    Timeout(id + 0xA0, 8.5f, "Right Roll/Left Roll"); // t=77.2; Ability 92AB/92AC from Wicked Thunder; cactbot Ability 92AC [R4N Left Roll] | Ability 92AB [R4N Right Roll]
+    Timeout(id + 0xB0, 2.0f, "Stampeding Thunder x7"); // t=79.2; Ability 8A06 from Wicked Thunder
+    Timeout(id + 0xC0, 9.9f, "--east/west--"); // t=89.1; Ability 92C9 from Wicked Thunder
+    Timeout(id + 0xD0, 12.3f, "Threefold Blast"); // t=101.4; Ability 92AD/92B0 from Wicked Thunder; cactbot StartsUsing 92AD/92B0 [R4N Threefold Blast Initializer]
+    Timeout(id + 0xE0, 0.4f, "Wicked Cannon"); // t=101.8; Ability 4E40/92AE/92AF/9BAC/9BBE from Wicked Thunder; cactbot Ability 4E40/9BBE/9A2F/9BAC/92AE [R4N Wicked Cannon]
+    Timeout(id + 0xF0, 1.4f, "Wicked Cannon"); // t=103.2; cactbot Ability 4E40/9BBE/9A2F/9BAC/92AE [R4N Wicked Cannon]
+    Timeout(id + 0x100, 1.9f, "Wicked Cannon"); // t=105.1; cactbot Ability 4E40/9BBE/9A2F/9BAC/92AE [R4N Wicked Cannon]
+    Timeout(id + 0x110, 16.7f, "Fourfold Blast"); // t=121.8; Ability 9B4F/9B55 from Wicked Thunder; cactbot StartsUsing 9B4F/9B55 [R4N Fourfold Blast Initializer]
+    Timeout(id + 0x120, 0.4f, "Wicked Cannon"); // t=122.2; Ability 4E40/92AE/92AF/9BAC/9BBE from Wicked Thunder; cactbot Ability 4E40/9BBE/9A2F/9BAC/92AE [R4N Wicked Cannon]
+    Timeout(id + 0x130, 1.4f, "Wicked Cannon"); // t=123.6; cactbot Ability 4E40/9BBE/9A2F/9BAC/92AE [R4N Wicked Cannon]
+    Timeout(id + 0x140, 1.9f, "Wicked Cannon"); // t=125.5; cactbot Ability 4E40/9BBE/9A2F/9BAC/92AE [R4N Wicked Cannon]
+    Timeout(id + 0x150, 1.9f, "Wicked Cannon"); // t=127.4; cactbot Ability 4E40/9BBE/9A2F/9BAC/92AE [R4N Wicked Cannon]
+    Timeout(id + 0x160, 3.9f, "Thunderslam"); // t=131.3; Ability 92C6 from Wicked Thunder
+    Timeout(id + 0x170, 8.3f, "Wicked Bolt x5"); // t=139.6; Ability 92C2 from Wicked Thunder
+    Timeout(id + 0x180, 9.1f, "--middle--"); // t=148.7; Ability 92C9 from Wicked Thunder
+    Timeout(id + 0x190, 8.4f, "--north--"); // t=157.1; Ability 92C9 from Wicked Thunder
+    Timeout(id + 0x1A0, 7.3f, "Bewitching Flight (cast)"); // t=164.4; Ability 8DE4 from Wicked Thunder; cactbot StartsUsing 8DE4 [R4N Bewitching Flight Right Safe] | StartsUsing 8DE4 [R4N Bewitching Flight South Safe]
+    Timeout(id + 0x1B0, 1.0f, "Bewitching Flight (damage)"); // t=165.4; Ability 92B8 from Wicked Thunder
+    Timeout(id + 0x1C0, 10.0f, "Burst"); // t=175.4; Ability 92B9 from Wicked Thunder
+    Timeout(id + 0x1D0, 3.0f, "Thunderslam"); // t=178.4; Ability 92C6 from Wicked Thunder
+    Timeout(id + 0x1E0, 1.0f, "Burst"); // t=179.4; Ability 92B9 from Wicked Thunder
+    Timeout(id + 0x1F0, 3.0f, "Thunderslam"); // t=182.4; Ability 92C6 from Wicked Thunder
+    Timeout(id + 0x200, 0.9f, "Burst"); // t=183.3; Ability 92B9 from Wicked Thunder
+    Timeout(id + 0x210, 2.1f, "--middle--"); // t=185.4; Ability 92C9 from Wicked Thunder
+    Timeout(id + 0x220, 1.0f, "Thunderslam"); // t=186.4; Ability 92C6 from Wicked Thunder
+    Timeout(id + 0x230, 0.9f, "Burst"); // t=187.3; Ability 92B9 from Wicked Thunder
+    Timeout(id + 0x240, 4.0f, "Burst"); // t=191.3; Ability 92B9 from Wicked Thunder
+    Timeout(id + 0x250, 2.4f, "Sidewise Spark"); // t=193.7; Ability 92BC/92BD/92BE/92BF from Wicked Thunder; cactbot StartsUsing 92BC/92BD/92BE/92BF [R4N Sidewise Spark Counter] | StartsUsing 92BC/92BE/92BD/92BF [R4N Sidewise Spark]
+    Timeout(id + 0x260, 13.2f, "Wrath of Zeus").SetHint(StateMachine.StateHint.Raidwide); // t=206.9; Ability 92C7 from Wicked Thunder; cactbot StartsUsing 92C7 [R4N Actor Collector] | StartsUsing 92C7 [R4N Wrath of Zeus]
+    Timeout(id + 0x270, 7.2f, "--middle--"); // t=214.1; Ability 92C9 from Wicked Thunder
+    Timeout(id + 0x280, 4.1f, "Shadows' Sabbath"); // t=218.2; Ability 9BBF from Wicked Thunder
+    Timeout(id + 0x290, 9.2f, "Sidewise Spark (clone)"); // t=227.4; Ability 9A05/9A0F from Wicked Replica
+    Timeout(id + 0x2A0, 2.0f, "Sidewise Spark (clone)"); // t=229.4
+    Timeout(id + 0x2B0, 2.0f, "Sidewise Spark (clone)"); // t=231.4
+    Timeout(id + 0x2C0, 2.0f, "Sidewise Spark (clone)"); // t=233.4
+    Timeout(id + 0x2D0, 2.0f, "Sidewise Spark"); // t=235.4; Ability 92BC/92BD/92BE/92BF from Wicked Thunder; cactbot StartsUsing 92BC/92BD/92BE/92BF [R4N Sidewise Spark Counter] | StartsUsing 92BC/92BE/92BD/92BF [R4N Sidewise Spark]
+    Timeout(id + 0x2E0, 9.1f, "Wrath of Zeus").SetHint(StateMachine.StateHint.Raidwide); // t=244.5; Ability 92C7 from Wicked Thunder; cactbot StartsUsing 92C7 [R4N Actor Collector] | StartsUsing 92C7 [R4N Wrath of Zeus]
+    Timeout(id + 0x2F0, 8.2f, "Wicked Jolt"); // t=252.7; Ability 92C8 from Wicked Thunder; cactbot HeadMarker [R4N Headmarker Wicked Jolt Tankbuster]
+    Timeout(id + 0x300, 7.1f, "--north--"); // t=259.8; Ability 92C9 from Wicked Thunder
+    Timeout(id + 0x310, 8.4f, "Right Roll/Left Roll"); // t=268.2; Ability 92AB/92AC from Wicked Thunder; cactbot Ability 92AC [R4N Left Roll] | Ability 92AB [R4N Right Roll]
+    Timeout(id + 0x320, 2.0f, "Stampeding Thunder x7"); // t=270.2; Ability 8A06 from Wicked Thunder
+    Timeout(id + 0x330, 27.2f, "Fivefold Blast"); // t=297.4; Ability 9B56 from Wicked Thunder; cactbot StartsUsing 9B56/9B57 [R4N Fivefold Blast Initializer]
+    Timeout(id + 0x340, 0.4f, "Wicked Cannon"); // t=297.8; Ability 4E40/92AE/92AF/9BAC/9BBE from Wicked Thunder; cactbot Ability 4E40/9BBE/9A2F/9BAC/92AE [R4N Wicked Cannon]
+    Timeout(id + 0x350, 1.4f, "Wicked Cannon"); // t=299.2; cactbot Ability 4E40/9BBE/9A2F/9BAC/92AE [R4N Wicked Cannon]
+    Timeout(id + 0x360, 1.9f, "Wicked Cannon"); // t=301.1; cactbot Ability 4E40/9BBE/9A2F/9BAC/92AE [R4N Wicked Cannon]
+    Timeout(id + 0x370, 1.9f, "Wicked Cannon"); // t=303.0; cactbot Ability 4E40/9BBE/9A2F/9BAC/92AE [R4N Wicked Cannon]
+    Timeout(id + 0x380, 1.9f, "Wicked Cannon"); // t=304.9; cactbot Ability 4E40/9BBE/9A2F/9BAC/92AE [R4N Wicked Cannon]
+    Timeout(id + 0x390, 8.9f, "Thunderstorm"); // t=313.8; Ability 92C5 from Wicked Thunder; cactbot HeadMarker [R4N Headmarker Thunderstorm Spread]
+    Timeout(id + 0x3A0, 6.3f, "Wicked Bolt x5"); // t=320.1; Ability 92C2 from Wicked Thunder
+    Timeout(id + 0x3B0, 10.1f, "--middle--"); // t=330.2; Ability 92C9 from Wicked Thunder
+    Timeout(id + 0x3C0, 11.2f, "Shadows' Sabbath"); // t=341.4; Ability 949C from Wicked Thunder
+    Timeout(id + 0x3D0, 4.2f, "--north--"); // t=345.6; Ability 92C9 from Wicked Thunder
+    Timeout(id + 0x3E0, 7.4f, "Bewitching Flight (cast)"); // t=353.0; Ability 8DE4 from Wicked Thunder; cactbot StartsUsing 8DE4 [R4N Bewitching Flight Right Safe] | StartsUsing 8DE4 [R4N Bewitching Flight South Safe]
+    Timeout(id + 0x3F0, 1.0f, "Bewitching Flight (damage)"); // t=354.0
+    Timeout(id + 0x400, 10.0f, "Burst"); // t=364.0; Ability 92B9 from Wicked Thunder
+    Timeout(id + 0x410, 4.0f, "Burst"); // t=368.0; Ability 92B9 from Wicked Thunder
+    Timeout(id + 0x420, 4.0f, "Burst"); // t=372.0; Ability 92B9 from Wicked Thunder
+    Timeout(id + 0x430, 4.0f, "Burst"); // t=376.0; Ability 92B9 from Wicked Thunder
+    Timeout(id + 0x440, 0.1f, "--middle--"); // t=376.1; Ability 92C9 from Wicked Thunder
+    Timeout(id + 0x450, 3.9f, "Burst"); // t=380.0; Ability 92B9 from Wicked Thunder
+    Timeout(id + 0x460, 0.4f, "Witch Hunt"); // t=380.4; Ability 92B4 from Wicked Thunder
+    Timeout(id + 0x470, 18.1f, "Soaring Soulpress (cast)"); // t=398.5; Ability 92C0 from Wicked Thunder
+    Timeout(id + 0x480, 0.4f, "Soaring Soulpress (damage)"); // t=398.9; Ability 92C1 from Wicked Thunder
+    Timeout(id + 0x490, 13.2f, "Wrath of Zeus").SetHint(StateMachine.StateHint.Raidwide); // t=412.1; Ability 92C7 from Wicked Thunder; cactbot StartsUsing 92C7 [R4N Actor Collector] | StartsUsing 92C7 [R4N Wrath of Zeus]
+    Timeout(id + 0x4A0, 8.4f, "Wicked Jolt"); // t=420.5; Ability 92C8 from Wicked Thunder; cactbot HeadMarker [R4N Headmarker Wicked Jolt Tankbuster]
+    Timeout(id + 0x4B0, 7.1f, "--middle--"); // t=427.6; Ability 92C9 from Wicked Thunder
+    Timeout(id + 0x4C0, 4.1f, "Shadows' Sabbath"); // t=431.7; Ability 9BBF from Wicked Thunder
+    Condition(id + 0x4D0, 568.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x92B1), "", 5f, 563.3f); // t=1000.0; StartsUsing 92B1 from Wicked Thunder
+    Timeout(id + 0x4E0, 5.0f, "Wicked Hypercannon x10"); // t=1005.0; Ability 92B1 from Wicked Thunder
+    Timeout(id + 0x4F0, 21.3f, "Thunderslam"); // t=1026.3; Ability 92C6 from Wicked Thunder
+    Timeout(id + 0x500, 3.0f, "Thunderslam"); // t=1029.3; Ability 92C6 from Wicked Thunder
+    Timeout(id + 0x510, 1.0f, "Wicked Hypercannon x10"); // t=1030.3; Ability 92B2 from Wicked Thunder
+    Timeout(id + 0x520, 21.3f, "Thunderslam"); // t=1051.6; Ability 92C6 from Wicked Thunder
+    Timeout(id + 0x530, 3.0f, "Thunderslam"); // t=1054.6; Ability 92C6 from Wicked Thunder
+    Timeout(id + 0x540, 1.0f, "Wicked Hypercannon x10"); // t=1055.6; Ability 92B2 from Wicked Thunder
+}
+

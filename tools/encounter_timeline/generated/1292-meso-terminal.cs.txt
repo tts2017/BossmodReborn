@@ -1,0 +1,83 @@
+// Generated development skeleton from meso-terminal.txt (TerritoryType 1292).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 23 static/dynamic trigger definitions from ui/raidboss/data/07-dt/dungeon/meso-terminal.ts.
+// Cactbot actor OID candidates (not automatically promoted to primary boss): 0x48D2.
+
+private void THE_MESO_TERMINAL(uint id)
+{
+    Timeout(id + 0x0, 1009.1f, "Medicine Field").SetHint(StateMachine.StateHint.Raidwide); // t=1009.1; Ability AB16 from Chirurgeon General; cactbot StartsUsing AB16 [Meso Terminal Chirurgeon Medicine Field]
+    Timeout(id + 0x10, 7.4f, "No Man's Land"); // t=1016.5; Ability AB1C from Chirurgeon General
+    Timeout(id + 0x20, 10.6f, "Pungent Aerosol"); // t=1027.1; Ability AB1F from Chirurgeon General
+    Timeout(id + 0x30, 8.0f, "Sterile Sphere"); // t=1035.1; Ability AB1D from Chirurgeon General; cactbot StartsUsing AB1D [Meso Terminal Chirurgeon Sterile Sphere Call]
+    Timeout(id + 0x40, 6.6f, "Biochemical Front"); // t=1041.7; Ability AB1A from Chirurgeon General; cactbot StartsUsing AB1A [Meso Terminal Chirurgeon Biochemical Front]
+    Timeout(id + 0x50, 2.1f, "No Man's Land"); // t=1043.8; Ability AB1C from Chirurgeon General
+    Timeout(id + 0x60, 8.0f, "Sensory Deprivation"); // t=1051.8; Ability AB15 from Chirurgeon General
+    Timeout(id + 0x70, 11.4f, "Pungent Aerosol"); // t=1063.2; Ability AB1F from Chirurgeon General
+    Timeout(id + 0x80, 6.7f, "Concentrated Dose").SetHint(StateMachine.StateHint.Tankbuster); // t=1069.9; Ability AB17 from Chirurgeon General; cactbot StartsUsing AB17 [Meso Terminal Chirurgeon Concentrated Dose]
+    Timeout(id + 0x90, 2.2f, "No Man's Land"); // t=1072.1; Ability AB1C from Chirurgeon General
+    Timeout(id + 0xA0, 5.0f, "Sensory Deprivation"); // t=1077.1; Ability AB15 from Chirurgeon General
+    Timeout(id + 0xB0, 9.6f, "Sterile Sphere/Pungent Aerosol"); // t=1086.7; Ability AB1D/AB1E/AB1F from Chirurgeon General; cactbot StartsUsing AB1D [Meso Terminal Chirurgeon Sterile Sphere Call]
+    Timeout(id + 0xC0, 8.0f, "Pungent Aerosol/Sterile Sphere"); // t=1094.7; Ability AB1D/AB1E/AB1F from Chirurgeon General; cactbot StartsUsing AB1D [Meso Terminal Chirurgeon Sterile Sphere Call]
+    Timeout(id + 0xD0, 6.6f, "Biochemical Front"); // t=1101.3; Ability AB1A from Chirurgeon General; cactbot StartsUsing AB1A [Meso Terminal Chirurgeon Biochemical Front]
+    Timeout(id + 0xE0, 7.0f, "Medicine Field").SetHint(StateMachine.StateHint.Raidwide); // t=1108.3; Ability AB16 from Chirurgeon General; cactbot StartsUsing AB16 [Meso Terminal Chirurgeon Medicine Field]
+    Timeout(id + 0xF0, 10.0f, "Concentrated Dose").SetHint(StateMachine.StateHint.Tankbuster); // t=1118.3; Ability AB17 from Chirurgeon General; cactbot StartsUsing AB17 [Meso Terminal Chirurgeon Concentrated Dose]
+    Timeout(id + 0x100, 5.3f, "No Man's Land"); // t=1123.6; Ability AB1C from Chirurgeon General
+    Timeout(id + 0x110, 879.6f, "Lawless Pursuit"); // t=2003.2
+    Timeout(id + 0x120, 8.6f, "Head-splitting Roar").SetHint(StateMachine.StateHint.Raidwide); // t=2011.8; Ability AA3B from Hooded Headsman; cactbot StartsUsing AA3B [Meso Terminal Executioners Head-Splitting Roar]
+    Timeout(id + 0x130, 10.7f, "Shackles of Fate"); // t=2022.5; cactbot StartsUsing AA3D [Meso Terminal Executioners Shackles Of Fate Tracking]
+    Timeout(id + 0x140, 4.9f, "Dismemberment (cast)"); // t=2027.4
+    Timeout(id + 0x150, 6.9f, "Dismemberment 1"); // t=2034.3
+    Timeout(id + 0x160, 2.4f, "Peal of Judgment (castbar)"); // t=2036.7
+    Timeout(id + 0x170, 0.7f, "Dismemberment 2"); // t=2037.4
+    Timeout(id + 0x180, 5.4f, "Peal of Judgment (active)"); // t=2042.8
+    Timeout(id + 0x190, 3.0f, "Chopping Block/Execution Wheel"); // t=2045.8
+    Timeout(id + 0x1A0, 4.9f, "Flaying Flail (castbar)"); // t=2050.7
+    Timeout(id + 0x1B0, 5.9f, "Flaying Flail"); // t=2056.6; cactbot Ability AA47 [Meso Terminal Executioners Flaying Flail]
+    Condition(id + 0x1C0, 1.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xAF38), "", 5f, 0.0f); // t=2058.5; StartsUsing AF38 from Pale Headsman; cactbot StartsUsing AF38 [Meso Terminal Executioners Will Breaker]
+    Timeout(id + 0x1D0, 2.5f, "Peal of Judgment"); // t=2061.0
+    Timeout(id + 0x1E0, 2.0f, "Death Penalty / --hellmaker adds--"); // t=2063.0
+    Timeout(id + 0x1F0, 0.9f, "Peal of Judgment (active)"); // t=2063.9
+    Timeout(id + 0x200, 1.1f, "Will Breaker?"); // t=2065.0; cactbot StartsUsing AF38 [Meso Terminal Executioners Will Breaker]
+    Timeout(id + 0x210, 2.2f, "Flaying Flail (castbar)"); // t=2067.2
+    Timeout(id + 0x220, 1.8f, "Relentless Torment"); // t=2069.0; cactbot StartsUsing AA45 [Meso Terminal Executioners Relentless Torment]
+    Timeout(id + 0x230, 2.8f, "Flaying Flail"); // t=2071.8; cactbot Ability AA47 [Meso Terminal Executioners Flaying Flail]
+    Timeout(id + 0x240, 10.0f, "Serial Torture"); // t=2081.8
+    Timeout(id + 0x250, 6.8f, "Dismemberment"); // t=2088.6
+    Timeout(id + 0x260, 2.0f, "Flaying Flail"); // t=2090.6; cactbot Ability AA47 [Meso Terminal Executioners Flaying Flail]
+    Timeout(id + 0x270, 2.0f, "Dismemberment"); // t=2092.6
+    Timeout(id + 0x280, 1.7f, "Chopping Block/Execution Wheel"); // t=2094.3
+    Timeout(id + 0x290, 10.5f, "Head-splitting Roar").SetHint(StateMachine.StateHint.Raidwide); // t=2104.8; Ability AA3B from Hooded Headsman; cactbot StartsUsing AA3B [Meso Terminal Executioners Head-Splitting Roar]
+    Timeout(id + 0x2A0, 9.7f, "Peal of Judgment"); // t=2114.5
+    Timeout(id + 0x2B0, 6.1f, "Chopping Block/Execution Wheel"); // t=2120.6
+    Timeout(id + 0x2C0, 0.7f, "--hellmaker adds--"); // t=2121.3; cactbot AddedCombatant OID=0x48D2 [Meso Terminal Executioners Hellmaker Adds]
+    Timeout(id + 0x2D0, 0.9f, "Peal of Judgment (active)"); // t=2122.2
+    Timeout(id + 0x2E0, 2.0f, "Will Breaker?"); // t=2124.2; cactbot StartsUsing AF38 [Meso Terminal Executioners Will Breaker]
+    Timeout(id + 0x2F0, 7.0f, "Death Penalty"); // t=2131.2; Ability AA44 from Bloody Headsman; cactbot GainsEffect 11F2/1441 [Meso Terminal Executioners Death Penalty]
+    Timeout(id + 0x300, 11.8f, "Serial Torture"); // t=2143.0
+    Timeout(id + 0x310, 867.1f, "Recollection").SetHint(StateMachine.StateHint.Raidwide); // t=3010.1; Ability AB31 from Immortal Remains; cactbot StartsUsing AB31 [Meso Terminal Immortal Remains Recollection]
+    Timeout(id + 0x320, 9.8f, "Memento"); // t=3019.9; Ability AB21 from Immortal Remains
+    Timeout(id + 0x330, 19.4f, "Electray 1"); // t=3039.3
+    Timeout(id + 0x340, 3.0f, "Electray 2"); // t=3042.3
+    Timeout(id + 0x350, 4.8f, "Memory of the Storm"); // t=3047.1; Ability AB2D from Immortal Remains; cactbot StartsUsing AB2D [Meso Terminal Immortal Remains Memory Of The Storm]
+    Timeout(id + 0x360, 10.1f, "Memento"); // t=3057.2; Ability AB21 from Immortal Remains
+    Timeout(id + 0x370, 16.1f, "Bombardment").SetHint(StateMachine.StateHint.Knockback); // t=3073.3; Ability AB23 from Immortal Remains; cactbot GainsEffect 9F8 [Meso Terminal Immortal Remains First Bombardment Collect] | GainsEffect 9F8 [Meso Terminal Immortal Remains Bombardment No Knockback] | Ability AB29 [Meso Terminal Immortal Remains Bombardment Knockback]
+    Timeout(id + 0x380, 6.4f, "Turmoil"); // t=3079.7; Ability AB28 from Immortal Remains; cactbot Ability AB26 [Meso Terminal Immortal Remains Turmoil Left] | Ability AB27 [Meso Terminal Immortal Remains Turmoil Right]
+    Timeout(id + 0x390, 13.8f, "Impression"); // t=3093.5; Ability AB2A from Immortal Remains
+    Timeout(id + 0x3A0, 3.0f, "Bombardment").SetHint(StateMachine.StateHint.Knockback); // t=3096.5; Ability AB23 from Immortal Remains; cactbot GainsEffect 9F8 [Meso Terminal Immortal Remains First Bombardment Collect] | GainsEffect 9F8 [Meso Terminal Immortal Remains Bombardment No Knockback] | Ability AB29 [Meso Terminal Immortal Remains Bombardment Knockback]
+    Timeout(id + 0x3B0, 9.1f, "Memory of the Pyre").SetHint(StateMachine.StateHint.Tankbuster); // t=3105.6; Ability AB2F from Immortal Remains; cactbot StartsUsing AB30 [Meso Terminal Immortal Remains Memory Of The Pyre]
+    Timeout(id + 0x3C0, 9.1f, "Memento"); // t=3114.7; Ability AB21 from Immortal Remains
+    Timeout(id + 0x3D0, 12.1f, "Keraunography"); // t=3126.8; Ability B078 from Immortal Remains; cactbot StartsUsing AB25 [Meso Terminal Immortal Remains Keraunography Call]
+    Timeout(id + 0x3E0, 15.0f, "Keraunography"); // t=3141.8; Ability B078 from Immortal Remains; cactbot StartsUsing AB25 [Meso Terminal Immortal Remains Keraunography Call]
+    Timeout(id + 0x3F0, 6.2f, "Electray 1"); // t=3148.0; Ability AB22 from Bygone Aerostat
+    Timeout(id + 0x400, 3.0f, "Electray 2"); // t=3151.0; Ability AB22 from Bygone Aerostat
+    Timeout(id + 0x410, 7.2f, "Turmoil"); // t=3158.2; Ability AB28 from Immortal Remains; cactbot Ability AB26 [Meso Terminal Immortal Remains Turmoil Left] | Ability AB27 [Meso Terminal Immortal Remains Turmoil Right]
+    Timeout(id + 0x420, 13.7f, "Keraunography"); // t=3171.9; Ability B078 from Immortal Remains; cactbot StartsUsing AB25 [Meso Terminal Immortal Remains Keraunography Call]
+    Timeout(id + 0x430, 13.0f, "Impression"); // t=3184.9; Ability AB2A from Immortal Remains
+    Timeout(id + 0x440, 3.0f, "Bombardment").SetHint(StateMachine.StateHint.Knockback); // t=3187.9; Ability AB23 from Immortal Remains; cactbot GainsEffect 9F8 [Meso Terminal Immortal Remains First Bombardment Collect] | GainsEffect 9F8 [Meso Terminal Immortal Remains Bombardment No Knockback] | Ability AB29 [Meso Terminal Immortal Remains Bombardment Knockback]
+    Timeout(id + 0x450, 9.1f, "Memory of the Storm"); // t=3197.0; Ability AB2D from Immortal Remains; cactbot StartsUsing AB2D [Meso Terminal Immortal Remains Memory Of The Storm]
+    Timeout(id + 0x460, 9.1f, "Memory of the Pyre").SetHint(StateMachine.StateHint.Tankbuster); // t=3206.1; Ability AB2F from Immortal Remains; cactbot StartsUsing AB30 [Meso Terminal Immortal Remains Memory Of The Pyre]
+    Timeout(id + 0x470, 10.1f, "Recollection").SetHint(StateMachine.StateHint.Raidwide); // t=3216.2; Ability AB31 from Immortal Remains; cactbot StartsUsing AB31 [Meso Terminal Immortal Remains Recollection]
+    Timeout(id + 0x480, 17.8f, "Keraunography"); // t=3234.0; Ability B078 from Immortal Remains; cactbot StartsUsing AB25 [Meso Terminal Immortal Remains Keraunography Call]
+}
+

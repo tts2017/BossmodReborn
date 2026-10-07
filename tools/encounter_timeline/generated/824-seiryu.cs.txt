@@ -1,0 +1,92 @@
+// Generated development skeleton from seiryu.txt (TerritoryType 824).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 11 static/dynamic trigger definitions from ui/raidboss/data/04-sb/trial/seiryu.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 12.7f, "Fifth Element").SetHint(StateMachine.StateHint.Raidwide); // t=12.7; Ability 37FE from Seiryu; cactbot StartsUsing 37FE [Seiryu Fifth Element]
+    Timeout(id + 0x10, 12.1f, "Infirm Soul").SetHint(StateMachine.StateHint.Tankbuster); // t=24.8; Ability 37FD from Seiryu; cactbot StartsUsing 37FD [Seiryu Infirm Soul]
+    Timeout(id + 0x20, 15.0f, "Onmyo Sigil / Serpent-Eye Sigil"); // t=39.8
+    Timeout(id + 0x30, 13.1f, "Serpent Descending"); // t=52.9; Ability 3804 from Seiryu; cactbot HeadMarker A9 [Seiryu Serpent Descending]
+    Timeout(id + 0x40, 7.9f, "Serpent-Eye Sigil / Onmyo Sigil"); // t=60.8
+    Timeout(id + 0x50, 8.5f, "Kuji-Kiri"); // t=69.3; Ability 37E1 from Seiryu
+    Timeout(id + 0x60, 2.5f, "Fortune-Blade Sigil"); // t=71.8; Ability 3806 from Seiryu
+    Timeout(id + 0x70, 16.8f, "Summon Shiki"); // t=88.6; Ability 37CE from Seiryu
+}
+
+private void Add_Phase(uint id)
+{
+    Targetable(id + 0x0, false, 0.0f, "--untargetable--"); // t=90.7
+    Timeout(id + 0x10, 11.0f, "Red Rush / Blue Bolt"); // t=101.7; Ability 3C1D from Aka-No-Shiki | Ability 3C1C from Ao-No-Shiki
+    Timeout(id + 0x20, 4.8f, "100-Tonze Swing"); // t=106.5; Ability 3C1E from Iwa-No-Shiki
+    Timeout(id + 0x30, 0.9f, "3x Doro-No-Shiki / 1x Numa-No-Shiki"); // t=107.4
+    Timeout(id + 0x40, 5.3f, "Yama-Kagura"); // t=112.7; Ability 3813 from Ten-No-Shiki
+    Timeout(id + 0x50, 6.1f, "Kanabo"); // t=118.8; Ability 3C1F from Iwa-No-Shiki; cactbot Tether 11 [Seiryu Kanabo]
+    Timeout(id + 0x60, 5.0f, "3x Doro-No-Shiki / 1x Numa-No-Shiki"); // t=123.8
+}
+
+private void Final_Phase(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x37C9), "", 5f, 0.0f); // t=200.0; StartsUsing 37C9 from Seiryu
+    Timeout(id + 0x10, 5.0f, "Strength Of Spirit"); // t=205.0; Ability 37C9 from Seiryu
+    Timeout(id + 0x20, 27.1f, "Dragon's Wake"); // t=232.1; Ability 3800 from Seiryu
+    Targetable(id + 0x30, true, 2.5f, "--targetable--"); // t=234.6
+    Timeout(id + 0x40, 9.3f, "Summon Shiki"); // t=243.9; Ability 37D0 from Seiryu
+    Timeout(id + 0x50, 8.0f, "Coursing River"); // t=251.9; Ability 37F5 from Blue Orochi
+    Timeout(id + 0x60, 10.1f, "Summon Shiki"); // t=262.0; Ability 37D0 from Seiryu
+    Timeout(id + 0x70, 8.0f, "Coursing River"); // t=270.0; Ability 37F5 from Blue Orochi
+    Timeout(id + 0x80, 1.2f, "Forbidden Arts 1"); // t=271.2; Ability 37C5 from Seiryu
+    Timeout(id + 0x90, 7.4f, "Forbidden Arts 2"); // t=278.6; Ability 3C72 from Seiryu
+    Timeout(id + 0xA0, 5.1f, "Summon Shiki"); // t=283.7; Ability 37CF from Seiryu
+    Timeout(id + 0xB0, 10.1f, "Handprint"); // t=293.8; cactbot Ability 37E5 [Seiryu Handprint East] | Ability 37E6 [Seiryu Handprint West]
+    Timeout(id + 0xC0, 8.2f, "Handprint"); // t=302.0; cactbot Ability 37E5 [Seiryu Handprint East] | Ability 37E6 [Seiryu Handprint West]
+    Timeout(id + 0xD0, 7.8f, "Fifth Element").SetHint(StateMachine.StateHint.Raidwide); // t=309.8; Ability 37FE from Seiryu; cactbot StartsUsing 37FE [Seiryu Fifth Element]
+    Timeout(id + 0xE0, 0.3f, "Handprint"); // t=310.1; cactbot Ability 37E5 [Seiryu Handprint East] | Ability 37E6 [Seiryu Handprint West]
+    Timeout(id + 0xF0, 8.1f, "Force Of Nature"); // t=318.2; Ability 37E9 from Yama-No-Shiki
+    Timeout(id + 0x100, 22.5f, "Onmyo Sigil / Serpent-Eye Sigil"); // t=340.7
+    Timeout(id + 0x110, 8.3f, "Serpent Descending"); // t=349.0; Ability 3804 from Seiryu; cactbot HeadMarker A9 [Seiryu Serpent Descending]
+    Timeout(id + 0x120, 0.7f, "Kuji-Kiri"); // t=349.7; Ability 37E1 from Seiryu
+    Timeout(id + 0x130, 2.5f, "Fortune-Blade Sigil"); // t=352.2; Ability 3806 from Seiryu
+    Timeout(id + 0x140, 4.6f, "Fifth Element").SetHint(StateMachine.StateHint.Raidwide); // t=356.8; Ability 37FE from Seiryu; cactbot StartsUsing 37FE [Seiryu Fifth Element]
+    Timeout(id + 0x150, 13.2f, "Infirm Soul").SetHint(StateMachine.StateHint.Tankbuster); // t=370.0; Ability 37FD from Seiryu; cactbot StartsUsing 37FD [Seiryu Infirm Soul]
+    Timeout(id + 0x160, 6.1f, "Fifth Element").SetHint(StateMachine.StateHint.Raidwide); // t=376.1; Ability 37FE from Seiryu; cactbot StartsUsing 37FE [Seiryu Fifth Element]
+    Timeout(id + 0x170, 11.2f, "Summon Shiki"); // t=387.3; Ability 37CD from Seiryu
+    Timeout(id + 0x180, 11.9f, "100-Tonze Swing"); // t=399.2; Ability 3C1E from Iwa-No-Shiki
+    Timeout(id + 0x190, 2.0f, "Onmyo Sigil / Serpent-Eye Sigil"); // t=401.2
+    Timeout(id + 0x1A0, 10.3f, "Kanabo"); // t=411.5; Ability 3C1F from Iwa-No-Shiki; cactbot Tether 11 [Seiryu Kanabo]
+    Timeout(id + 0x1B0, 9.8f, "Red Rush / Blue Bolt"); // t=421.3; Ability 3C1D from Aka-No-Shiki | Ability 3C1C from Ao-No-Shiki
+    Timeout(id + 0x1C0, 8.0f, "Serpent Descending"); // t=429.3; Ability 3804 from Seiryu; cactbot HeadMarker A9 [Seiryu Serpent Descending]
+    Timeout(id + 0x1D0, 1.0f, "Yama-Kagura"); // t=430.3; Ability 3813 from Ten-No-Shiki
+    Timeout(id + 0x1E0, 0.7f, "Kuji-Kiri"); // t=431.0; Ability 37E1 from Seiryu
+    Timeout(id + 0x1F0, 2.5f, "Fortune-Blade Sigil"); // t=433.5; Ability 3806 from Seiryu
+    Timeout(id + 0x200, 9.7f, "Handprint"); // t=443.2; cactbot Ability 37E5 [Seiryu Handprint East] | Ability 37E6 [Seiryu Handprint West]
+    Timeout(id + 0x210, 4.9f, "Summon Shiki"); // t=448.1; Ability 37D0 from Seiryu
+    Timeout(id + 0x220, 3.3f, "Handprint"); // t=451.4; cactbot Ability 37E5 [Seiryu Handprint East] | Ability 37E6 [Seiryu Handprint West]
+    Timeout(id + 0x230, 4.8f, "Coursing River"); // t=456.2; Ability 37F5 from Blue Orochi
+    Timeout(id + 0x240, 3.3f, "Handprint"); // t=459.5; cactbot Ability 37E5 [Seiryu Handprint East] | Ability 37E6 [Seiryu Handprint West]
+    Timeout(id + 0x250, 8.2f, "Force Of Nature"); // t=467.7; Ability 37E9 from Yama-No-Shiki
+    Timeout(id + 0x260, 2.5f, "Serpent Ascending"); // t=470.2; Ability 3C25 from Seiryu; cactbot Ability 3C25 [Seiryu Serpent Ascending Towers]
+    Timeout(id + 0x270, 10.2f, "Serpent's Fang"); // t=480.4; Ability 3A8C from Seiryu
+    Timeout(id + 0x280, 4.0f, "Fifth Element").SetHint(StateMachine.StateHint.Raidwide); // t=484.4; Ability 37FE from Seiryu; cactbot StartsUsing 37FE [Seiryu Fifth Element]
+    Timeout(id + 0x290, 20.8f, "Kuji-Kiri"); // t=505.2; Ability 37E1 from Seiryu
+    Timeout(id + 0x2A0, 0.4f, "Serpent Descending"); // t=505.6; Ability 3804 from Seiryu; cactbot HeadMarker A9 [Seiryu Serpent Descending]
+    Timeout(id + 0x2B0, 2.1f, "Fortune-Blade Sigil"); // t=507.7; Ability 3806 from Seiryu
+    Timeout(id + 0x2C0, 7.3f, "Onmyo Sigil / Serpent-Eye Sigil"); // t=515.0
+    Timeout(id + 0x2D0, 9.1f, "Infirm Soul").SetHint(StateMachine.StateHint.Tankbuster); // t=524.1; Ability 37FD from Seiryu; cactbot StartsUsing 37FD [Seiryu Infirm Soul]
+    Timeout(id + 0x2E0, 6.1f, "Fifth Element").SetHint(StateMachine.StateHint.Raidwide); // t=530.2; Ability 37FE from Seiryu; cactbot StartsUsing 37FE [Seiryu Fifth Element]
+    Timeout(id + 0x2F0, 17.4f, "Summon Shiki"); // t=547.6; Ability 37D0 from Seiryu
+    Timeout(id + 0x300, 8.1f, "Coursing River"); // t=555.7; Ability 37F5 from Blue Orochi
+    Timeout(id + 0x310, 3.1f, "Fifth Element").SetHint(StateMachine.StateHint.Raidwide); // t=558.8; Ability 37FE from Seiryu; cactbot StartsUsing 37FE [Seiryu Fifth Element]
+    Timeout(id + 0x320, 7.1f, "Summon Shiki"); // t=565.9; Ability 37D0 from Seiryu
+    Timeout(id + 0x330, 8.0f, "Coursing River"); // t=573.9; Ability 37F5 from Blue Orochi
+    Timeout(id + 0x340, 1.2f, "Forbidden Arts"); // t=575.1; Ability 37C5 from Seiryu
+    Timeout(id + 0x350, 7.3f, "Forbidden Arts"); // t=582.4; Ability 3C72 from Seiryu
+    Timeout(id + 0x360, 6.1f, "Fifth Element").SetHint(StateMachine.StateHint.Raidwide); // t=588.5; Ability 37FE from Seiryu; cactbot StartsUsing 37FE [Seiryu Fifth Element]
+    Timeout(id + 0x370, 7.1f, "Fifth Element").SetHint(StateMachine.StateHint.Raidwide); // t=595.6; Ability 37FE from Seiryu; cactbot StartsUsing 37FE [Seiryu Fifth Element]
+    Timeout(id + 0x380, 15.2f, "Summon Shiki"); // t=610.8; Ability 37CD from Seiryu
+    Timeout(id + 0x390, 11.9f, "100-Tonze Swing"); // t=622.7
+    Timeout(id + 0x3A0, 2.0f, "Onmyo Sigil / Serpent-Eye Sigil"); // t=624.7
+    Timeout(id + 0x3B0, 10.3f, "Kanabo"); // t=635.0; cactbot Tether 11 [Seiryu Kanabo]
+}
+

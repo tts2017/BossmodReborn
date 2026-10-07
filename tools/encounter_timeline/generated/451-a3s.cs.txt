@@ -1,0 +1,158 @@
+// Generated development skeleton from a3s.txt (TerritoryType 451).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 14 static/dynamic trigger definitions from ui/raidboss/data/03-hw/raid/a3s.ts.
+
+private void Phase_1__Jiggly(uint id)
+{
+    Timeout(id + 0x0, 7.0f, "Fluid Swing"); // t=7.0; Ability EF3 from Living Liquid
+    Timeout(id + 0x10, 10.2f, "Protean Wave"); // t=17.2; Ability EF5 from Living Liquid
+    Timeout(id + 0x20, 1.6f, "Protean Wave"); // t=18.8; Ability EF6 from Living Liquid
+    Timeout(id + 0x30, 3.1f, "Fluid Swing"); // t=21.9; Ability EF3 from Living Liquid
+    Timeout(id + 0x40, 3.1f, "Splash x3"); // t=25.0
+    Timeout(id + 0x50, 7.3f, "Fluid Swing"); // t=32.3; Ability EF3 from Living Liquid
+    Timeout(id + 0x60, 12.1f, "Sluice"); // t=44.4; Ability EFA from Living Liquid; cactbot HeadMarker 1A [A3S Sluice]
+    Timeout(id + 0x70, 5.2f, "Splash x3"); // t=49.6
+    Timeout(id + 0x80, 5.3f, "Fluid Swing"); // t=54.9; Ability EF3 from Living Liquid
+    Targetable(id + 0x90, false, 1.9f, "--untargetable--"); // t=56.8
+}
+
+private void Phase_2__Sound_of_Two_Hands_Cleaving(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Hydromorph"); // t=60.4; Ability F29 from Hydrate Core
+    Targetable(id + 0x10, true, 3.5f, "--targetable--"); // t=63.9
+    Timeout(id + 0x20, 6.1f, "Fluid Strike"); // t=70.0; Ability F05 from Living Liquid
+    Timeout(id + 0x30, 7.1f, "Wash Away"); // t=77.1; Ability F07 from Living Liquid
+    Timeout(id + 0x40, 8.1f, "Digititis"); // t=85.2; Ability F08 from Living Liquid; cactbot HeadMarker 25 [A3S Digititis Tank] | HeadMarker 22 [A3S Digititis Healer] | HeadMarker 24 [A3S Digititis Damage]
+    Timeout(id + 0x50, 5.2f, "Fluid Strike"); // t=90.4; Ability F05 from Living Liquid
+    Timeout(id + 0x60, 10.1f, "Fluid Strike"); // t=100.5; Ability F05 from Living Liquid
+    Timeout(id + 0x70, 7.1f, "Wash Away"); // t=107.6; Ability F07 from Living Liquid
+    Timeout(id + 0x80, 2.0f, "--split--"); // t=109.6
+    Timeout(id + 0x90, 6.2f, "Fluid Strike"); // t=115.8; Ability F06 from Living Liquid
+    Timeout(id + 0xA0, 9.2f, "Hand Of Prayer/Parting"); // t=125.0
+    Timeout(id + 0xB0, 11.9f, "Digititis"); // t=136.9; Ability F08 from Living Liquid; cactbot HeadMarker 25 [A3S Digititis Tank] | HeadMarker 22 [A3S Digititis Healer] | HeadMarker 24 [A3S Digititis Damage]
+    Timeout(id + 0xC0, 0.2f, "Equal Concentration / --dps burn--"); // t=137.1; Ability F09 from Liquid Limb; cactbot Ability F09 [A3S Equal Concentration]
+    Timeout(id + 0xD0, 4.0f, "Fluid Strike x2"); // t=141.1; Ability F06 from Living Liquid
+    Timeout(id + 0xE0, 8.1f, "Fluid Strike x2"); // t=149.2; Ability F06 from Living Liquid
+    Timeout(id + 0xF0, 8.2f, "Fluid Strike x2"); // t=157.4; Ability F06 from Living Liquid
+    Timeout(id + 0x100, 7.1f, "Hand Of Pain"); // t=164.5; Ability F0A from Living Liquid
+    Timeout(id + 0x110, 10.2f, "Hand Of Prayer/Parting"); // t=174.7
+    Timeout(id + 0x120, 4.1f, "Fluid Strike x2"); // t=178.8; Ability F06 from Living Liquid
+}
+
+private void Phase_3__Tornado(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Hydromorph"); // t=185.3; Ability F29 from Hydrate Core
+    Timeout(id + 0x10, 6.7f, "Piston Lubricant x2"); // t=192.0
+    Timeout(id + 0x20, 9.1f, "Gear Lubricant x3"); // t=201.1
+    Timeout(id + 0x30, 7.3f, "Drainage x2"); // t=208.4
+    Timeout(id + 0x40, 6.4f, "Gear Lubricant x2 / Piston Lubricant x1"); // t=214.8
+    Timeout(id + 0x50, 12.4f, "Ferrofluid"); // t=227.2; Ability F12 from Living Liquid; cactbot Tether 26 [A3S Ferrofluid Tether] | HeadMarker 30/31 [A3S Ferrofluid Signs] | StartsUsing F01 [A3S Ferrofluid]
+    Timeout(id + 0x60, 0.5f, "Magnetism/Repel"); // t=227.7
+    Timeout(id + 0x70, 2.6f, "Gear Lubricant x4"); // t=230.3
+    Timeout(id + 0x80, 7.2f, "Drainage x2"); // t=237.5
+    Timeout(id + 0x90, 6.1f, "Gear Lubricant x3"); // t=243.6
+    Timeout(id + 0xA0, 8.4f, "Ferrofluid"); // t=252.0; Ability F12 from Living Liquid; cactbot Tether 26 [A3S Ferrofluid Tether] | HeadMarker 30/31 [A3S Ferrofluid Signs] | StartsUsing F01 [A3S Ferrofluid]
+    Timeout(id + 0xB0, 0.5f, "Magnetism/Repel"); // t=252.5
+    Timeout(id + 0xC0, 2.3f, "Piston Lubricant x4"); // t=254.8
+    Timeout(id + 0xD0, 26.1f, "Hydromorph"); // t=280.9; Ability F29 from Hydrate Core
+}
+
+private void Phase_4__Jiggly_Again(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=284.5
+    Timeout(id + 0x10, 10.1f, "Cascade 1").SetHint(StateMachine.StateHint.Raidwide); // t=294.6; Ability EFE from Living Liquid; cactbot StartsUsing EFE [A3S Cascade]
+    Timeout(id + 0x20, 10.2f, "Ferrofluid"); // t=304.8; Ability F01 from Living Liquid; cactbot StartsUsing F01 [A3S Ferrofluid]
+    Timeout(id + 0x30, 1.2f, "Magnetism/Repel"); // t=306.0
+    Timeout(id + 0x40, 4.0f, "Splash x3"); // t=310.0
+    Timeout(id + 0x50, 5.3f, "Fluid Swing"); // t=315.3; Ability EFC from Living Liquid
+    Timeout(id + 0x60, 10.1f, "Sluice"); // t=325.4; Ability EFA from Living Liquid; cactbot HeadMarker 1A [A3S Sluice]
+    Timeout(id + 0x70, 3.2f, "Protean Wave"); // t=328.6; Ability EF5 from Living Liquid
+    Timeout(id + 0x80, 1.7f, "Protean Wave"); // t=330.3; Ability EF6 from Living Liquid
+    Timeout(id + 0x90, 4.1f, "Fluid Swing"); // t=334.4; Ability EFC from Living Liquid
+    Timeout(id + 0xA0, 6.1f, "Splash x3"); // t=340.5
+    Timeout(id + 0xB0, 5.3f, "Fluid Swing"); // t=345.8; Ability EFC from Living Liquid
+    Timeout(id + 0xC0, 10.1f, "Sluice"); // t=355.9; Ability EFA from Living Liquid; cactbot HeadMarker 1A [A3S Sluice]
+    Timeout(id + 0xD0, 5.1f, "Digititis"); // t=361.0; Ability F00 from Living Liquid; cactbot HeadMarker 25 [A3S Digititis Tank] | HeadMarker 22 [A3S Digititis Healer] | HeadMarker 24 [A3S Digititis Damage]
+    Timeout(id + 0xE0, 3.2f, "Fluid Swing"); // t=364.2; Ability EFC from Living Liquid
+    Timeout(id + 0xF0, 6.1f, "Cascade 2").SetHint(StateMachine.StateHint.Raidwide); // t=370.3; Ability EFE from Living Liquid; cactbot StartsUsing EFE [A3S Cascade]
+    Timeout(id + 0x100, 9.8f, "Throttle"); // t=380.1; cactbot Ability F1A [A3S Throttle]
+    Timeout(id + 0x110, 3.9f, "Fluid Claw"); // t=384.0; Ability F0D from Liquid Limb; cactbot HeadMarker 10 [A3S Fluid Claw]
+    Targetable(id + 0x120, true, 1.0f, "--targetable--"); // t=385.0
+    Timeout(id + 0x130, 0.3f, "Splash x3"); // t=385.3
+    Timeout(id + 0x140, 5.3f, "Fluid Swing"); // t=390.6; Ability EFC from Living Liquid
+    Timeout(id + 0x150, 8.1f, "Fluid Swing"); // t=398.7; Ability EFC from Living Liquid
+    Timeout(id + 0x160, 4.1f, "Splash x3"); // t=402.8
+    Timeout(id + 0x170, 15.3f, "Digititis"); // t=418.1; Ability F00 from Living Liquid; cactbot HeadMarker 25 [A3S Digititis Tank] | HeadMarker 22 [A3S Digititis Healer] | HeadMarker 24 [A3S Digititis Damage]
+    Timeout(id + 0x180, 4.2f, "Fluid Swing"); // t=422.3; Ability EFC from Living Liquid
+    Timeout(id + 0x190, 4.1f, "Splash x6"); // t=426.4
+    Timeout(id + 0x1A0, 8.6f, "Fluid Swing"); // t=435.0; Ability EFC from Living Liquid
+    Timeout(id + 0x1B0, 6.1f, "Cascade 3").SetHint(StateMachine.StateHint.Raidwide); // t=441.1; Ability EFE from Living Liquid; cactbot StartsUsing EFE [A3S Cascade]
+    Timeout(id + 0x1C0, 9.2f, "Fluid Swing"); // t=450.3; Ability EFC from Living Liquid
+    Timeout(id + 0x1D0, 3.2f, "Throttle"); // t=453.5; cactbot Ability F1A [A3S Throttle]
+    Timeout(id + 0x1E0, 2.0f, "Protean Wave"); // t=455.5; Ability F19 from Liquid Rage
+    Timeout(id + 0x1F0, 0.1f, "Throttle"); // t=455.6; cactbot Ability F1A [A3S Throttle]
+    Timeout(id + 0x200, 3.8f, "Drainage"); // t=459.4; Ability F18 from Liquid Rage; cactbot Tether 5 [A3S Drainage You] | Tether 5 [A3S Drainage Tank]
+    Timeout(id + 0x210, 2.2f, "Protean Wave"); // t=461.6; Ability F19 from Liquid Rage
+    Timeout(id + 0x220, 1.7f, "Ferrofluid"); // t=463.3; Ability F01 from Living Liquid; cactbot StartsUsing F01 [A3S Ferrofluid]
+    Timeout(id + 0x230, 1.2f, "Magnetism/Repel"); // t=464.5
+    Timeout(id + 0x240, 7.0f, "Fluid Swing"); // t=471.5; Ability EFC from Living Liquid
+    Timeout(id + 0x250, 5.1f, "Throttle"); // t=476.6; cactbot Ability F1A [A3S Throttle]
+    Timeout(id + 0x260, 2.1f, "Embolus"); // t=478.7; Ability F1B from Liquid Rage; cactbot Ability F1B [A3S Embolus]
+    Timeout(id + 0x270, 0.1f, "Throttle"); // t=478.8; cactbot Ability F1A [A3S Throttle]
+    Timeout(id + 0x280, 9.9f, "Fluid Swing"); // t=488.7; Ability EFC from Living Liquid
+    Timeout(id + 0x290, 8.2f, "Embolus / Protean Wave"); // t=496.9; Ability F1B from Liquid Rage | Ability F19 from Liquid Rage; cactbot Ability F1B [A3S Embolus]
+    Timeout(id + 0x2A0, 3.9f, "Sluice / Drainage"); // t=500.8; Ability EFA from Living Liquid | Ability F18 from Liquid Rage
+    Timeout(id + 0x2B0, 2.4f, "Protean Wave"); // t=503.2; Ability F19 from Liquid Rage
+    Timeout(id + 0x2C0, 5.7f, "Fluid Swing"); // t=508.9; Ability EFC from Living Liquid
+    Timeout(id + 0x2D0, 7.2f, "Cascade 4").SetHint(StateMachine.StateHint.Raidwide); // t=516.1; Ability EFE from Living Liquid; cactbot StartsUsing EFE [A3S Cascade]
+    Timeout(id + 0x2E0, 10.2f, "Ferrofluid"); // t=526.3; Ability F01 from Living Liquid; cactbot StartsUsing F01 [A3S Ferrofluid]
+    Timeout(id + 0x2F0, 1.2f, "Magnetism/Repel"); // t=527.5
+    Timeout(id + 0x300, 4.0f, "Splash x3"); // t=531.5
+    Timeout(id + 0x310, 5.5f, "Fluid Swing"); // t=537.0; Ability EFC from Living Liquid
+    Timeout(id + 0x320, 10.1f, "Sluice"); // t=547.1; Ability EFA from Living Liquid; cactbot HeadMarker 1A [A3S Sluice]
+    Timeout(id + 0x330, 3.3f, "Protean Wave"); // t=550.4; Ability EF5 from Living Liquid
+    Timeout(id + 0x340, 1.7f, "Protean Wave"); // t=552.1; Ability EF6 from Living Liquid
+    Timeout(id + 0x350, 4.1f, "Fluid Swing"); // t=556.2; Ability EFC from Living Liquid
+    Timeout(id + 0x360, 6.1f, "Splash x3"); // t=562.3
+    Timeout(id + 0x370, 5.3f, "Fluid Swing"); // t=567.6; Ability EFC from Living Liquid
+    Timeout(id + 0x380, 10.1f, "Sluice"); // t=577.7; Ability EFA from Living Liquid; cactbot HeadMarker 1A [A3S Sluice]
+    Timeout(id + 0x390, 5.1f, "Digititis"); // t=582.8; Ability F00 from Living Liquid; cactbot HeadMarker 25 [A3S Digititis Tank] | HeadMarker 22 [A3S Digititis Healer] | HeadMarker 24 [A3S Digititis Damage]
+    Timeout(id + 0x3A0, 3.2f, "Fluid Swing"); // t=586.0; Ability EFC from Living Liquid
+    Timeout(id + 0x3B0, 6.1f, "Cascade 5").SetHint(StateMachine.StateHint.Raidwide); // t=592.1; Ability EFE from Living Liquid; cactbot StartsUsing EFE [A3S Cascade]
+    Timeout(id + 0x3C0, 9.9f, "Throttle"); // t=602.0; cactbot Ability F1A [A3S Throttle]
+    Timeout(id + 0x3D0, 3.9f, "Fluid Claw"); // t=605.9; Ability F0D from Liquid Limb; cactbot HeadMarker 10 [A3S Fluid Claw]
+    Targetable(id + 0x3E0, true, 1.0f, "--targetable--"); // t=606.9
+    Timeout(id + 0x3F0, 0.2f, "Splash x3"); // t=607.1
+    Timeout(id + 0x400, 5.3f, "Fluid Swing"); // t=612.4; Ability EFC from Living Liquid
+    Timeout(id + 0x410, 8.1f, "Fluid Swing"); // t=620.5; Ability EFC from Living Liquid
+    Timeout(id + 0x420, 4.1f, "Splash x3"); // t=624.6
+    Timeout(id + 0x430, 15.3f, "Digititis"); // t=639.9; Ability F00 from Living Liquid; cactbot HeadMarker 25 [A3S Digititis Tank] | HeadMarker 22 [A3S Digititis Healer] | HeadMarker 24 [A3S Digititis Damage]
+    Timeout(id + 0x440, 4.1f, "Fluid Swing"); // t=644.0; Ability EFC from Living Liquid
+    Timeout(id + 0x450, 4.1f, "Splash x6"); // t=648.1
+    Timeout(id + 0x460, 8.6f, "Fluid Swing"); // t=656.7; Ability EFC from Living Liquid
+    Timeout(id + 0x470, 6.1f, "Cascade 6").SetHint(StateMachine.StateHint.Raidwide); // t=662.8; Ability EFE from Living Liquid; cactbot StartsUsing EFE [A3S Cascade]
+    Timeout(id + 0x480, 9.2f, "Fluid Swing"); // t=672.0; Ability EFC from Living Liquid
+    Timeout(id + 0x490, 3.2f, "Throttle"); // t=675.2; cactbot Ability F1A [A3S Throttle]
+    Timeout(id + 0x4A0, 2.0f, "Protean Wave"); // t=677.2; Ability F19 from Liquid Rage
+    Timeout(id + 0x4B0, 0.2f, "Throttle"); // t=677.4; cactbot Ability F1A [A3S Throttle]
+    Timeout(id + 0x4C0, 3.8f, "Drainage"); // t=681.2; Ability F18 from Liquid Rage; cactbot Tether 5 [A3S Drainage You] | Tether 5 [A3S Drainage Tank]
+    Timeout(id + 0x4D0, 2.2f, "Protean Wave"); // t=683.4; Ability F19 from Liquid Rage
+    Timeout(id + 0x4E0, 1.8f, "Ferrofluid"); // t=685.2; Ability F01 from Living Liquid; cactbot StartsUsing F01 [A3S Ferrofluid]
+    Timeout(id + 0x4F0, 1.2f, "Magnetism/Repel"); // t=686.4
+    Timeout(id + 0x500, 7.0f, "Fluid Swing"); // t=693.4; Ability EFC from Living Liquid
+    Timeout(id + 0x510, 5.2f, "Throttle"); // t=698.6; cactbot Ability F1A [A3S Throttle]
+    Timeout(id + 0x520, 2.0f, "Embolus"); // t=700.6; Ability F1B from Liquid Rage; cactbot Ability F1B [A3S Embolus]
+    Timeout(id + 0x530, 0.1f, "Throttle"); // t=700.7; cactbot Ability F1A [A3S Throttle]
+    Timeout(id + 0x540, 9.8f, "Fluid Swing"); // t=710.5; Ability EFC from Living Liquid
+    Timeout(id + 0x550, 8.2f, "Protean Wave / Embolus"); // t=718.7; Ability F19 from Liquid Rage | Ability F1B from Liquid Rage; cactbot Ability F1B [A3S Embolus]
+    Timeout(id + 0x560, 3.9f, "Sluice / Drainage"); // t=722.6; Ability EFA from Living Liquid | Ability F18 from Liquid Rage
+    Timeout(id + 0x570, 2.7f, "Protean Wave"); // t=725.3; Ability F19 from Liquid Rage
+    Timeout(id + 0x580, 5.4f, "Fluid Swing"); // t=730.7; Ability EFC from Living Liquid
+    Timeout(id + 0x590, 7.1f, "Cascade 7").SetHint(StateMachine.StateHint.Raidwide); // t=737.8; Ability EFE from Living Liquid; cactbot StartsUsing EFE [A3S Cascade]
+    Timeout(id + 0x5A0, 10.2f, "Ferrofluid"); // t=748.0; Ability F01 from Living Liquid; cactbot StartsUsing F01 [A3S Ferrofluid]
+    Timeout(id + 0x5B0, 1.2f, "Magnetism/Repel"); // t=749.2
+    Condition(id + 0x5C0, 2.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xEFF), "", 5f, 0.0f); // t=751.2; StartsUsing EFF from Living Liquid
+    Timeout(id + 0x5D0, 10.0f, "Cascade Enrage"); // t=761.2; Ability EFF from Living Liquid
+}
+

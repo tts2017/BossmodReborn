@@ -1,0 +1,125 @@
+// Generated development skeleton from queen-eternal.txt (TerritoryType 1202).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 20 static/dynamic trigger definitions from ui/raidboss/data/07-dt/trial/queen-eternal.ts.
+
+private void THE_INTERPHOS(uint id)
+{
+    Timeout(id + 0x0, 17.7f, "Legitimate Force 1"); // t=17.7; Ability 8F1E/8F1F/8F20/8F21 from Queen Eternal; cactbot StartsUsing 8F1E/8F1F/8F20/8F21 [Queen Eternal Legitimate Force]
+    Timeout(id + 0x10, 3.1f, "Legitimate Force 2"); // t=20.8; Ability 8F22/8F23 from Queen Eternal
+    Timeout(id + 0x20, 8.1f, "Aethertithe (pre-cast)"); // t=28.9; Ability 8EFC from Queen Eternal; cactbot StartsUsing 8EFC [Queen Eternal Aethertithe Light Repeated AOE]
+    Timeout(id + 0x30, 10.1f, "Aethertithe 1"); // t=39.0; Ability 8F31/8F32/8F33 from Queen Eternal
+    Timeout(id + 0x40, 7.1f, "Aethertithe 2"); // t=46.1; Ability 8F31/8F32/8F33 from Queen Eternal
+    Timeout(id + 0x50, 7.1f, "Aethertithe 3"); // t=53.2; Ability 8F31/8F32/8F33 from Queen Eternal
+    Timeout(id + 0x60, 10.2f, "Coronation"); // t=63.4; Ability 8F15 from Queen Eternal
+    Timeout(id + 0x70, 8.0f, "Waltz of the Regalia 1"); // t=71.4
+    Timeout(id + 0x80, 3.0f, "Waltz of the Regalia 2"); // t=74.4
+    Timeout(id + 0x90, 3.0f, "Waltz of the Regalia 3"); // t=77.4
+    Timeout(id + 0xA0, 3.0f, "Waltz of the Regalia 4 / Prosecution Of War"); // t=80.4; Ability 8EFA from Queen Eternal
+    Timeout(id + 0xB0, 3.0f, "Waltz of the Regalia 5"); // t=83.4
+    Timeout(id + 0xC0, 3.0f, "Waltz of the Regalia 6"); // t=86.4
+    Timeout(id + 0xD0, 3.0f, "Waltz of the Regalia 7"); // t=89.4
+    Timeout(id + 0xE0, 3.0f, "Waltz of the Regalia 8"); // t=92.4
+    Timeout(id + 0xF0, 5.3f, "Legitimate Force 1"); // t=97.7; Ability 8F1E/8F1F/8F20/8F21 from Queen Eternal; cactbot StartsUsing 8F1E/8F1F/8F20/8F21 [Queen Eternal Legitimate Force]
+    Timeout(id + 0x100, 3.1f, "Legitimate Force 2"); // t=100.8; Ability 8F22/8F23 from Queen Eternal
+    Timeout(id + 0x110, 12.1f, "Virtual Shift").SetHint(StateMachine.StateHint.Raidwide); // t=112.9; Ability 8EFE from Queen Eternal; cactbot StartsUsing 8EFE/8EFF/8F00 [Queen Eternal Virtual Shift]
+    Timeout(id + 0x120, 8.1f, "Coronation"); // t=121.0; Ability 8F15 from Queen Eternal
+    Timeout(id + 0x130, 12.2f, "Ruthless Regalia"); // t=133.2; Ability 8F1A from Queen Eternal; cactbot HeadMarker 1 [Queen Eternal Ruthless Regalia Prey]
+    Timeout(id + 0x140, 12.0f, "Downburst").SetHint(StateMachine.StateHint.Knockback); // t=145.2; Ability 8F02 from Queen Eternal; cactbot StartsUsing 8F01 [Queen Eternal Downburst]
+    Timeout(id + 0x150, 11.1f, "Brutal Crown"); // t=156.3; Ability 8F19 from Queen Eternal; cactbot StartsUsing 8F19 [Queen Eternal Brutal Crown]
+    Timeout(id + 0x160, 10.0f, "Powerful Gust").SetHint(StateMachine.StateHint.Knockback); // t=166.3; Ability 8F04 from Queen Eternal; cactbot StartsUsing 8F03 [Queen Eternal Powerful Gust]
+    Timeout(id + 0x170, 12.2f, "Virtual Shift").SetHint(StateMachine.StateHint.Raidwide); // t=178.5; Ability 8F00 from Queen Eternal; cactbot StartsUsing 8EFE/8EFF/8F00 [Queen Eternal Virtual Shift]
+    Timeout(id + 0x180, 10.2f, "Coronation"); // t=188.7; Ability 8F15 from Queen Eternal
+    Timeout(id + 0x190, 6.1f, "Aethertithe"); // t=194.8; Ability 8EFC from Queen Eternal; cactbot StartsUsing 8EFC [Queen Eternal Aethertithe Light Repeated AOE]
+    Timeout(id + 0x1A0, 6.0f, "Ruthless Regalia"); // t=200.8; Ability 8F1A from Queen Eternal; cactbot HeadMarker 1 [Queen Eternal Ruthless Regalia Prey]
+    Timeout(id + 0x1B0, 4.0f, "Aethertithe 1"); // t=204.8; Ability 8F31/8F32/8F33 from Queen Eternal
+    Timeout(id + 0x1C0, 7.1f, "Aethertithe 2"); // t=211.9; Ability 8F31/8F32/8F33 from Queen Eternal
+    Timeout(id + 0x1D0, 7.1f, "Aethertithe 3"); // t=219.0; Ability 8F31/8F32/8F33 from Queen Eternal
+    Timeout(id + 0x1E0, 13.9f, "Prosecution Of War"); // t=232.9; Ability 8EFA from Queen Eternal; cactbot HeadMarker DA [Queen Eternal Prosecution Of War]
+    Condition(id + 0x1F0, 8.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8EFF), "", 5f, 3.1f); // t=241.0; StartsUsing 8EFF from Queen Eternal; cactbot StartsUsing 8EFE/8EFF/8F00 [Queen Eternal Virtual Shift]
+    Timeout(id + 0x200, 4.7f, "Virtual Shift?").SetHint(StateMachine.StateHint.Raidwide); // t=245.7; Ability 8EFF from Queen Eternal; cactbot StartsUsing 8EFE/8EFF/8F00 [Queen Eternal Virtual Shift]
+    Timeout(id + 0x210, 2.4f, "Legitimate Force 1"); // t=248.1; Ability 8F1E/8F1F/8F20/8F21 from Queen Eternal; cactbot StartsUsing 8F1E/8F1F/8F20/8F21 [Queen Eternal Legitimate Force]
+    Timeout(id + 0x220, 3.1f, "Legitimate Force 2"); // t=251.2; Ability 8F22/8F23 from Queen Eternal
+    Timeout(id + 0x230, 8.0f, "Royal Domain"); // t=259.2; Ability 8EFB from Queen Eternal
+    Timeout(id + 0x240, 17.1f, "Legitimate Force 1"); // t=276.3; Ability 8F1E/8F1F/8F20/8F21 from Queen Eternal; cactbot StartsUsing 8F1E/8F1F/8F20/8F21 [Queen Eternal Legitimate Force]
+    Timeout(id + 0x250, 3.1f, "Legitimate Force 2"); // t=279.4; Ability 8F22/8F23 from Queen Eternal
+    Timeout(id + 0x260, 14.1f, "Prosecution Of War"); // t=293.5; Ability 8EFA from Queen Eternal; cactbot HeadMarker DA [Queen Eternal Prosecution Of War]
+    Timeout(id + 0x270, 15.1f, "Legitimate Force"); // t=308.6; Ability 8F20 from Queen Eternal; cactbot StartsUsing 8F1E/8F1F/8F20/8F21 [Queen Eternal Legitimate Force]
+    Condition(id + 0x280, 91.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8EFF), "", 5f, 86.4f); // t=400.0; StartsUsing 8EFF from Queen Eternal; cactbot StartsUsing 8EFE/8EFF/8F00 [Queen Eternal Virtual Shift]
+    Timeout(id + 0x290, 4.7f, "Virtual Shift").SetHint(StateMachine.StateHint.Raidwide); // t=404.7; Ability 8EFF from Queen Eternal; cactbot StartsUsing 8EFE/8EFF/8F00 [Queen Eternal Virtual Shift]
+    Timeout(id + 0x2A0, 8.1f, "Castellation 1"); // t=412.8; Ability 8F05 from Queen Eternal; cactbot Ability 8F05 [Queen Eternal Castellation]
+    Timeout(id + 0x2B0, 7.7f, "Besiegement 1"); // t=420.5; Ability 8F08 from Queen Eternal
+    Timeout(id + 0x2C0, 9.7f, "Castellation 2"); // t=430.2; Ability 8F05 from Queen Eternal; cactbot Ability 8F05 [Queen Eternal Castellation]
+    Timeout(id + 0x2D0, 7.7f, "Besiegement 2"); // t=437.9; Ability 8F08 from Queen Eternal
+    Timeout(id + 0x2E0, 8.4f, "Besiegement 3"); // t=446.3; Ability 8F08 from Queen Eternal
+    Timeout(id + 0x2F0, 7.0f, "Legitimate Force 1"); // t=453.3; Ability 8F1E/8F1F/8F20/8F21 from Queen Eternal; cactbot StartsUsing 8F1E/8F1F/8F20/8F21 [Queen Eternal Legitimate Force]
+    Timeout(id + 0x300, 3.1f, "Legitimate Force 2"); // t=456.4; Ability 8F22/8F23 from Queen Eternal
+    Timeout(id + 0x310, 12.1f, "Virtual Shift").SetHint(StateMachine.StateHint.Raidwide); // t=468.5; Ability 8F00 from Queen Eternal; cactbot StartsUsing 8EFE/8EFF/8F00 [Queen Eternal Virtual Shift]
+    Timeout(id + 0x320, 8.2f, "Coronation"); // t=476.7; Ability 8F15 from Queen Eternal
+    Timeout(id + 0x330, 11.1f, "Legitimate Force 1"); // t=487.8; Ability 8F1E/8F1F/8F20/8F21 from Queen Eternal; cactbot StartsUsing 8F1E/8F1F/8F20/8F21 [Queen Eternal Legitimate Force]
+    Timeout(id + 0x340, 3.1f, "Legitimate Force 2"); // t=490.9; Ability 8F22/8F23 from Queen Eternal
+    Timeout(id + 0x350, 4.9f, "Brutal Crown"); // t=495.8; Ability 8F19 from Queen Eternal; cactbot StartsUsing 8F19 [Queen Eternal Brutal Crown]
+    Timeout(id + 0x360, 14.2f, "Royal Domain"); // t=510.0; Ability 8EFB from Queen Eternal
+    Timeout(id + 0x370, 2.1f, "Prosecution Of War?"); // t=512.1; Ability 8EFA from Queen Eternal; cactbot HeadMarker DA [Queen Eternal Prosecution Of War]
+    Condition(id + 0x380, 69.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9A6B), "", 5f, 64.2f); // t=581.3; StartsUsing 9A6B from Queen Eternal; cactbot StartsUsing 9A6B [Queen Eternal Absolute Authority Raidwide]
+    Timeout(id + 0x390, 18.7f, "Absolute Authority (pre-cast)").SetHint(StateMachine.StateHint.Raidwide); // t=600.0; Ability 9A6B from Queen Eternal; cactbot StartsUsing 9A6B [Queen Eternal Absolute Authority Raidwide]
+    Timeout(id + 0x3A0, 6.2f, "Absolute Authority (flare)"); // t=606.2; Ability 9A5E from Queen Eternal; cactbot HeadMarker 147 [Queen Eternal Absolute Authority Flares]
+    Timeout(id + 0x3B0, 4.1f, "Absolute Authority (puddles 1)"); // t=610.3
+    Timeout(id + 0x3C0, 0.3f, "Absolute Authority (abandonment)"); // t=610.6; Ability 9A5F from Queen Eternal
+    Timeout(id + 0x3D0, 3.9f, "Authority's Hold / Absolute Authority (puddles 2)"); // t=614.5
+    Timeout(id + 0x3E0, 3.2f, "Absolute Authority (gaze)"); // t=617.7; Ability 8F10 from Queen Eternal
+    Timeout(id + 0x3F0, 1.2f, "Absolute Authority (puddles 3)"); // t=618.9
+    Timeout(id + 0x400, 1.4f, "Absolute Authority (raidwide)").SetHint(StateMachine.StateHint.Raidwide); // t=620.3; Ability 8F0D from Queen Eternal; cactbot StartsUsing 9A6B [Queen Eternal Absolute Authority Raidwide]
+    Timeout(id + 0x410, 19.2f, "Divide and Conquer x8 (single)"); // t=639.5; Ability 8F1C from Queen Eternal
+    Timeout(id + 0x420, 11.6f, "Divide and Conquer (all)"); // t=651.1
+    Timeout(id + 0x430, 5.6f, "Coronation"); // t=656.7; Ability 8F15 from Queen Eternal
+    Timeout(id + 0x440, 6.1f, "Aethertithe (cast)"); // t=662.8; Ability 8EFC from Queen Eternal; cactbot StartsUsing 8EFC [Queen Eternal Aethertithe Light Repeated AOE]
+    Timeout(id + 0x450, 10.1f, "Aethertithe 1"); // t=672.9; Ability 8F31/8F32/8F33 from Queen Eternal
+    Timeout(id + 0x460, 7.1f, "Aethertithe 2"); // t=680.0; Ability 8F31/8F32/8F33 from Queen Eternal
+    Timeout(id + 0x470, 2.9f, "Brutal Crown"); // t=682.9; Ability 8F19 from Queen Eternal; cactbot StartsUsing 8F19 [Queen Eternal Brutal Crown]
+    Timeout(id + 0x480, 4.2f, "Aethertithe 3"); // t=687.1; Ability 8F31/8F32/8F33 from Queen Eternal
+    Timeout(id + 0x490, 12.0f, "Coronation"); // t=699.1; Ability 8F15 from Queen Eternal
+    Timeout(id + 0x4A0, 8.0f, "Waltz of the Regalia 1"); // t=707.1; Ability 8F18 from Queen Eternal
+    Timeout(id + 0x4B0, 0.1f, "Prosecution Of War"); // t=707.2; Ability 8EFA from Queen Eternal; cactbot HeadMarker DA [Queen Eternal Prosecution Of War]
+    Timeout(id + 0x4C0, 3.0f, "Waltz of the Regalia 2"); // t=710.2
+    Timeout(id + 0x4D0, 3.0f, "Waltz of the Regalia 3"); // t=713.2
+    Timeout(id + 0x4E0, 3.0f, "Waltz of the Regalia 4"); // t=716.2
+    Timeout(id + 0x4F0, 0.2f, "Divide and Conquer x8"); // t=716.4; Ability 8F1C from Queen Eternal
+    Timeout(id + 0x500, 2.7f, "Waltz of the Regalia 5"); // t=719.1
+    Timeout(id + 0x510, 3.0f, "Waltz of the Regalia 6"); // t=722.1
+    Timeout(id + 0x520, 3.1f, "Waltz of the Regalia 7"); // t=725.2
+    Timeout(id + 0x530, 2.9f, "Divide and Conquer (all) / Waltz of the Regalia 8"); // t=728.1; Ability 8F1D from Queen Eternal
+    Condition(id + 0x540, 5.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8EFB), "", 5f, 0.7f); // t=733.8; StartsUsing 8EFB from Queen Eternal
+    Timeout(id + 0x550, 4.7f, "Royal Domain"); // t=738.5; Ability 8EFB from Queen Eternal
+    Timeout(id + 0x560, 15.1f, "Legitimate Force 1"); // t=753.6; Ability 8F1E/8F1F/8F20/8F21 from Queen Eternal; cactbot StartsUsing 8F1E/8F1F/8F20/8F21 [Queen Eternal Legitimate Force]
+    Timeout(id + 0x570, 3.1f, "Legitimate Force 2"); // t=756.7; Ability 8F22/8F23 from Queen Eternal
+    Timeout(id + 0x580, 10.1f, "Coronation"); // t=766.8; Ability 8F15 from Queen Eternal
+    Timeout(id + 0x590, 6.1f, "Aethertithe (cast)"); // t=772.9; Ability 8EFC from Queen Eternal; cactbot StartsUsing 8EFC [Queen Eternal Aethertithe Light Repeated AOE]
+    Timeout(id + 0x5A0, 10.1f, "Aethertithe 1"); // t=783.0; Ability 8F31/8F32/8F33 from Queen Eternal
+    Timeout(id + 0x5B0, 7.1f, "Aethertithe 2"); // t=790.1; Ability 8F31/8F32/8F33 from Queen Eternal
+    Timeout(id + 0x5C0, 2.8f, "Brutal Crown"); // t=792.9; Ability 8F19 from Queen Eternal; cactbot StartsUsing 8F19 [Queen Eternal Brutal Crown]
+    Timeout(id + 0x5D0, 4.3f, "Aethertithe 3"); // t=797.2; Ability 8F31/8F32/8F33 from Queen Eternal
+    Condition(id + 0x5E0, 102.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9A6B), "", 5f, 97.8f); // t=900.0; StartsUsing 9A6B from Queen Eternal; cactbot StartsUsing 9A6B [Queen Eternal Absolute Authority Raidwide]
+    Timeout(id + 0x5F0, 18.7f, "Absolute Authority (pre-cast)").SetHint(StateMachine.StateHint.Raidwide); // t=918.7; Ability 9A6B from Queen Eternal; cactbot StartsUsing 9A6B [Queen Eternal Absolute Authority Raidwide]
+    Timeout(id + 0x600, 6.2f, "Absolute Authority (flare)"); // t=924.9; Ability 9A5E from Queen Eternal; cactbot HeadMarker 147 [Queen Eternal Absolute Authority Flares]
+    Timeout(id + 0x610, 3.2f, "Absolute Authority (stun)"); // t=928.1; Ability 8F13 from Queen Eternal
+    Targetable(id + 0x620, false, 0.7f, "--untargetable--"); // t=928.8
+    Timeout(id + 0x630, 3.0f, "Morning Stars"); // t=931.8; Ability 98DE from Queen Eternal
+    Targetable(id + 0x640, true, 79.0f, "--targetable--"); // t=1010.8
+    Timeout(id + 0x650, 10.2f, "Dynastic Diadem"); // t=1021.0; Ability 9C7A from Queen Eternal; cactbot StartsUsing 9C7A [Queen Eternal Dynastic Diadem]
+    Timeout(id + 0x660, 7.1f, "Royal Banishment AoE x5"); // t=1028.1; Ability 8F24 from Queen Eternal; cactbot StartsUsing 8F24 [Queen Eternal Royal Banishment AOE]
+    Timeout(id + 0x670, 6.1f, "Royal Banishment (cones 1)"); // t=1034.2
+    Timeout(id + 0x680, 2.0f, "Royal Banishment (cones 2)"); // t=1036.2
+    Timeout(id + 0x690, 11.2f, "Royal Banishment AoE x5"); // t=1047.4; Ability 8F24 from Queen Eternal; cactbot StartsUsing 8F24 [Queen Eternal Royal Banishment AOE]
+    Timeout(id + 0x6A0, 6.1f, "Royal Banishment (cones 1)"); // t=1053.5
+    Timeout(id + 0x6B0, 2.0f, "Royal Banishment (cones 2)"); // t=1055.5
+    Timeout(id + 0x6C0, 13.1f, "Dynastic Diadem"); // t=1068.6; Ability 9C7A from Queen Eternal; cactbot StartsUsing 9C7A [Queen Eternal Dynastic Diadem]
+    Timeout(id + 0x6D0, 25.3f, "Royal Banishment AoE x5"); // t=1093.9; Ability 8F24 from Queen Eternal; cactbot StartsUsing 8F24 [Queen Eternal Royal Banishment AOE]
+    Timeout(id + 0x6E0, 6.1f, "Royal Banishment (cones 1)"); // t=1100.0
+    Timeout(id + 0x6F0, 2.0f, "Royal Banishment (cones 2)"); // t=1102.0
+    Timeout(id + 0x700, 11.2f, "Royal Banishment AoE x5"); // t=1113.2; Ability 8F24 from Queen Eternal; cactbot StartsUsing 8F24 [Queen Eternal Royal Banishment AOE]
+    Timeout(id + 0x710, 6.1f, "Royal Banishment (cones 1)"); // t=1119.3
+    Timeout(id + 0x720, 2.0f, "Royal Banishment (cones 2)"); // t=1121.3
+    Timeout(id + 0x730, 13.1f, "Dynastic Diadem"); // t=1134.4; Ability 9C7A from Queen Eternal; cactbot StartsUsing 9C7A [Queen Eternal Dynastic Diadem]
+}
+

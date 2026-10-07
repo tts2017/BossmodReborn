@@ -1,0 +1,31 @@
+{
+  "abilities": {
+    "7395": {
+      "confirmed": true,
+      "name": "Riddle of Fire",
+      "role": "riddleOfFire"
+    },
+    "7396": {
+      "confirmed": true,
+      "name": "Brotherhood",
+      "role": "brotherhood"
+    },
+    "69": {
+      "confirmed": true,
+      "name": "Perfect Balance",
+      "role": "perfectBalance"
+    },
+    "25766": {
+      "confirmed": true,
+      "name": "Riddle of Wind",
+      "role": "riddleOfWind"
+    },
+    "34603666": {
+      "confirmed": false,
+      "name": "Potion",
+      "role": "potion"
+    }
+  },
+  "job": "MNK",
+  "source": "mnk_ability_usage_summary_top200_candidate"
+}

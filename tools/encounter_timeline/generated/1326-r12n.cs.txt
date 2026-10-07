@@ -1,0 +1,76 @@
+// Generated development skeleton from r12n.txt (TerritoryType 1326).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 18 static/dynamic trigger definitions from ui/raidboss/data/07-dt/raid/r12n.ts.
+
+private void AAC_HEAVYWEIGHT__M4(uint id)
+{
+    Condition(id + 0x0, 6.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB494), "", 5f, 1.7f); // t=6.7; StartsUsing B494 from Lindwurm; cactbot StartsUsing B494 [R12N The Fixer]
+    Timeout(id + 0x10, 4.7f, "The Fixer").SetHint(StateMachine.StateHint.Raidwide); // t=11.4; Ability B494 from Lindwurm; cactbot StartsUsing B494 [R12N The Fixer]
+    Timeout(id + 0x20, 7.8f, "Bloodshed"); // t=19.2; Ability B465/B466 from Lindwurm; cactbot StartsUsing B465 [R12N Bloodshed Cleaving West] | StartsUsing B466 [R12N Bloodshed Cleaving East]
+    Timeout(id + 0x30, 8.1f, "Serpentine Scourge"); // t=27.3; Ability B9BB from Lindwurm
+    Timeout(id + 0x40, 13.7f, "Ravenous Reach"); // t=41.0; Ability B46D from Lindwurm
+    Timeout(id + 0x50, 9.0f, "Burst"); // t=50.0; Ability B46F from Lindwurm
+    Timeout(id + 0x60, 8.7f, "Cruel Coil"); // t=58.7; Ability B11B/B11C from Lindwurm; cactbot Ability B11B/B11C [R12N Cruel Coil Collector]
+    Timeout(id + 0x70, 6.1f, "Skinsplitter"); // t=64.8; Ability B473 from Lindwurm
+    Timeout(id + 0x80, 5.1f, "Skinsplitter"); // t=69.9; Ability B473 from Lindwurm
+    Timeout(id + 0x90, 5.0f, "Skinsplitter"); // t=74.9; Ability B473 from Lindwurm
+    Timeout(id + 0xA0, 5.1f, "Constrictor"); // t=80.0; Ability B53D/B53F/BDF3/BDF4 from Lindwurm
+    Timeout(id + 0xB0, 12.0f, "Visceral Burst"); // t=92.0; Ability B493 from Lindwurm
+    Timeout(id + 0xC0, 4.6f, "Bloodshed"); // t=96.6; Ability B465/B466 from Lindwurm; cactbot StartsUsing B465 [R12N Bloodshed Cleaving West] | StartsUsing B466 [R12N Bloodshed Cleaving East]
+    Timeout(id + 0xD0, 8.1f, "Serpentine Scourge"); // t=104.7; Ability B9BB from Lindwurm
+    Timeout(id + 0xE0, 5.1f, "Grotesquerie"); // t=109.8; Ability B481 from Lindwurm
+    Timeout(id + 0xF0, 14.7f, "Ravenous Reach"); // t=124.5; Ability B46D from Lindwurm
+    Timeout(id + 0x100, 9.0f, "Burst"); // t=133.5; Ability B46F from Lindwurm
+    Timeout(id + 0x110, 5.4f, "Dramatic Lysis"); // t=138.9; Ability B483 from Lindwurm; cactbot HeadMarker [R12N Dramatic Lysis Spread]
+    Timeout(id + 0x120, 7.6f, "Splattershed").SetHint(StateMachine.StateHint.Raidwide); // t=146.5; Ability B9C5 from Lindwurm; cactbot StartsUsing B9BD/B9C0/BBE0 [R12N Splattershed]
+    Timeout(id + 0x130, 14.8f, "Feral Fission"); // t=161.3; Ability B478 from Lindwurm; cactbot Ability B478 [R12N Feral Fission]
+    Timeout(id + 0x140, 1.6f, "Grand Entrance x8"); // t=162.9
+    Timeout(id + 0x150, 6.7f, "Bring Down the House"); // t=169.6; Ability B47D from Lindwurm
+    Timeout(id + 0x160, 13.2f, "Split Scourge"); // t=182.8; Ability B47F from Lindwurm
+    Timeout(id + 0x170, 8.2f, "Venomous Scourge"); // t=191.0; Ability B480 from Lindwurm
+    Timeout(id + 0x180, 3.0f, "Grotesquerie"); // t=194.0; Ability B481 from Lindwurm
+    Timeout(id + 0x190, 8.1f, "Shockwave"); // t=202.1; Ability B482 from Lindwurm
+    Timeout(id + 0x1A0, 8.6f, "Ravenous Reach"); // t=210.7; Ability B46D from Lindwurm
+    Timeout(id + 0x1B0, 0.4f, "Fourth-Wall Fusion"); // t=211.1; Ability B484 from Lindwurm
+    Timeout(id + 0x1C0, 8.6f, "Burst"); // t=219.7; Ability B46F from Lindwurm
+    Timeout(id + 0x1D0, 7.1f, "Bloodshed"); // t=226.8; Ability B465/B466 from Lindwurm; cactbot StartsUsing B465 [R12N Bloodshed Cleaving West] | StartsUsing B466 [R12N Bloodshed Cleaving East]
+    Timeout(id + 0x1E0, 0.3f, "Hemorrhagic Projection"); // t=227.1; Ability B485 from Lindwurm; cactbot GainsEffect 808 [R12N Hemorrhagic Projection]
+    Timeout(id + 0x1F0, 7.9f, "Serpentine Scourge"); // t=235.0; Ability B9BB from Lindwurm
+    Timeout(id + 0x200, 7.5f, "Splattershed").SetHint(StateMachine.StateHint.Raidwide); // t=242.5; Ability B9C5 from Lindwurm; cactbot StartsUsing B9BD/B9C0/BBE0 [R12N Splattershed]
+    Timeout(id + 0x210, 10.5f, "--p1-enrage-sync--"); // t=253.0
+    Timeout(id + 0x220, 5.8f, "Visceral Burst"); // t=258.8; Ability B493 from Lindwurm
+    Timeout(id + 0x230, 9.1f, "Cruel Coil"); // t=267.9; Ability B11B/B11C from Lindwurm; cactbot Ability B11B/B11C [R12N Cruel Coil Collector]
+    Timeout(id + 0x240, 6.1f, "Skinsplitter"); // t=274.0; Ability B473 from Lindwurm
+    Timeout(id + 0x250, 5.0f, "Skinsplitter"); // t=279.0; Ability B473 from Lindwurm
+    Timeout(id + 0x260, 5.0f, "Constrictor"); // t=284.0; Ability B53D/B53F/BDF3/BDF4 from Lindwurm
+    Timeout(id + 0x270, 13.0f, "Grotesquerie"); // t=297.0; Ability B481 from Lindwurm
+    Timeout(id + 0x280, 8.2f, "Shockwave"); // t=305.2; Ability B482 from Lindwurm
+    Timeout(id + 0x290, 1.3f, "Burst"); // t=306.5; Ability B46F from Lindwurm
+    Timeout(id + 0x2A0, 5.7f, "Dramatic Lysis"); // t=312.2; Ability B483 from Lindwurm; cactbot HeadMarker [R12N Dramatic Lysis Spread]
+    Timeout(id + 0x2B0, 1.4f, "Bloodshed"); // t=313.6; Ability B465/B466 from Lindwurm; cactbot StartsUsing B465 [R12N Bloodshed Cleaving West] | StartsUsing B466 [R12N Bloodshed Cleaving East]
+    Timeout(id + 0x2C0, 8.1f, "Serpentine Scourge"); // t=321.7; Ability B9BB from Lindwurm
+    Timeout(id + 0x2D0, 2.7f, "Bloodshed"); // t=324.4; Ability B465/B466 from Lindwurm; cactbot StartsUsing B465 [R12N Bloodshed Cleaving West] | StartsUsing B466 [R12N Bloodshed Cleaving East]
+    Timeout(id + 0x2E0, 8.1f, "Serpentine Scourge"); // t=332.5; Ability B9BB from Lindwurm
+    Timeout(id + 0x2F0, 1.8f, "Burst"); // t=334.3; Ability B46F from Lindwurm
+    Timeout(id + 0x300, 5.3f, "The Fixer").SetHint(StateMachine.StateHint.Raidwide); // t=339.6; Ability B494 from Lindwurm; cactbot StartsUsing B494 [R12N The Fixer]
+    Timeout(id + 0x310, 9.3f, "--p1-enrage-sync--"); // t=348.9
+    Condition(id + 0x320, 0.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB478), "", 5f, 0.0f); // t=349.0; StartsUsing B478 from Lindwurm; cactbot Ability B478 [R12N Feral Fission]
+    Timeout(id + 0x330, 155.7f, "Visceral Burst"); // t=504.7; Ability B493 from Lindwurm
+    Timeout(id + 0x340, 13.0f, "The Fixer").SetHint(StateMachine.StateHint.Raidwide); // t=517.7; Ability B494 from Lindwurm; cactbot StartsUsing B494 [R12N The Fixer]
+    Timeout(id + 0x350, 12.1f, "The Fixer").SetHint(StateMachine.StateHint.Raidwide); // t=529.8; Ability B494 from Lindwurm; cactbot StartsUsing B494 [R12N The Fixer]
+    Timeout(id + 0x360, 11.1f, "Grotesquerie"); // t=540.9; Ability B481 from Lindwurm
+    Timeout(id + 0x370, 7.2f, "Shockwave"); // t=548.1; Ability B482 from Lindwurm
+    Timeout(id + 0x380, 1.2f, "Burst"); // t=549.3; Ability B46F from Lindwurm
+    Timeout(id + 0x390, 6.7f, "Hemorrhagic Projection"); // t=556.0; Ability B485 from Lindwurm; cactbot GainsEffect 808 [R12N Hemorrhagic Projection]
+}
+
+private void Phase_two__this_sync_is_the_announcer__The_battle_is_decided__Victory_goes_to_the_champion___text(uint id)
+{
+    Targetable(id + 0x0, true, 20.2f, "--targetable--"); // t=1020.2
+    Timeout(id + 0x10, 6.1f, "Mindless Flesh x5"); // t=1026.3; Ability BBD8/BBD9 from Lindwurm; cactbot StartsUsing BBD8/BBD9/BBDA/BBDB/BBDC/BBDD/BBDE [R12N Mindless Flesh]
+    Timeout(id + 0x20, 6.2f, "Dramatic Lysis"); // t=1032.5; Ability BCF3 from Lindwurm; cactbot HeadMarker [R12N Dramatic Lysis Spread]
+    Timeout(id + 0x30, 7.0f, "Mindless Flesh (huge)"); // t=1039.5; Ability BBDF from Lindwurm
+    Timeout(id + 0x40, 10.5f, "Splattershed").SetHint(StateMachine.StateHint.Raidwide); // t=1050.0; Ability BBE1 from Lindwurm; cactbot StartsUsing B9BD/B9C0/BBE0 [R12N Splattershed]
+}
+

@@ -1,0 +1,103 @@
+// Generated development skeleton from o2n.txt (TerritoryType 692).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 11 static/dynamic trigger definitions from ui/raidboss/data/04-sb/raid/o2n.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 5.6f, "Tremblor"); // t=5.6; Ability 2511 from Catastrophe
+    Timeout(id + 0x10, 3.6f, "Tremblor"); // t=9.2; Ability 2511 from Catastrophe
+    Timeout(id + 0x20, 8.6f, "Earthquake"); // t=17.8; Ability 2512 from Catastrophe; cactbot StartsUsing 2512 [O2N Earthquake]
+    Timeout(id + 0x30, 7.2f, "100 Gs"); // t=25.0; Ability 24FB from Catastrophe
+    Timeout(id + 0x40, 7.1f, "Evilsphere").SetHint(StateMachine.StateHint.Tankbuster); // t=32.1; Ability 250F from Catastrophe; cactbot StartsUsing 250F [O2N Evilsphere]
+    Timeout(id + 0x50, 5.2f, "Gravitational Distortion"); // t=37.3; Ability 250A from Catastrophe
+    Timeout(id + 0x60, 16.1f, "100 Gs"); // t=53.4; Ability 24FB from Catastrophe
+    Timeout(id + 0x70, 12.1f, "Gravitational Manipulation"); // t=65.5; Ability 2504 from Catastrophe; cactbot HeadMarker 71 [O2N Gravitational Manipulation Stack] | HeadMarker 71 [O2N Gravitational Manipulation Float]
+    Timeout(id + 0x80, 7.2f, "Gravitational Explosion"); // t=72.7; Ability 2506 from Catastrophe
+    Timeout(id + 0x90, 7.0f, "Paranormal Wave"); // t=79.7; Ability 250E from Catastrophe
+    Timeout(id + 0xA0, 8.1f, "100 Gs"); // t=87.8; Ability 24FB from Catastrophe
+    Timeout(id + 0xB0, 10.2f, "Maniacal Probe"); // t=98.0; Ability 258F from Catastrophe
+    Timeout(id + 0xC0, 6.1f, "Erosion"); // t=104.1; Ability 2590 from Fleshy Member
+    Timeout(id + 0xD0, 4.1f, "Epicenter"); // t=108.2; Ability 24A2 from Catastrophe
+    Timeout(id + 0xE0, 8.1f, "Gravitational Wave").SetHint(StateMachine.StateHint.Raidwide); // t=116.3; Ability 2510 from Catastrophe; cactbot StartsUsing 2510 [O2N Gravitational Wave]
+    Timeout(id + 0xF0, 10.0f, "Main Quake"); // t=126.3; Ability 24A5 from Catastrophe
+    Timeout(id + 0x100, 7.1f, "100 Gs"); // t=133.4; Ability 24FB from Catastrophe
+    Timeout(id + 0x110, 8.1f, "Antilight"); // t=141.5; Ability 2502 from Catastrophe; cactbot StartsUsing 2502 [O2N Antilight]
+    Timeout(id + 0x120, 12.1f, "Demon Eye"); // t=153.6; Ability 250D from Catastrophe; cactbot StartsUsing 250D [O2N Demon Eye]
+    Timeout(id + 0x130, 1.0f, "Explosion"); // t=154.6; Ability 2513 from Petrosphere
+    Timeout(id + 0x140, 2.2f, "Paranormal Wave"); // t=156.8; Ability 250E from Catastrophe
+    Timeout(id + 0x150, 9.1f, "Evilsphere").SetHint(StateMachine.StateHint.Tankbuster); // t=165.9; Ability 250F from Catastrophe; cactbot StartsUsing 250F [O2N Evilsphere]
+    Timeout(id + 0x160, 5.2f, "Paranormal Wave"); // t=171.1; Ability 250E from Catastrophe
+    Timeout(id + 0x170, 8.2f, "Antilight"); // t=179.3; Ability 2502 from Catastrophe; cactbot StartsUsing 2502 [O2N Antilight]
+    Timeout(id + 0x180, 10.1f, "100 Gs"); // t=189.4; Ability 24FB from Catastrophe
+    Timeout(id + 0x190, 3.1f, "Explosion"); // t=192.5; Ability 2503 from Potent Petrosphere
+    Timeout(id + 0x1A0, 7.1f, "Demon Eye"); // t=199.6; Ability 250D from Catastrophe; cactbot StartsUsing 250D [O2N Demon Eye]
+    Timeout(id + 0x1B0, 8.2f, "Maniacal Probe"); // t=207.8; Ability 258F from Catastrophe
+    Timeout(id + 0x1C0, 6.1f, "Erosion"); // t=213.9; Ability 2590 from Fleshy Member
+    Timeout(id + 0x1D0, 4.1f, "Epicenter"); // t=218.0; Ability 24A2 from Catastrophe
+    Timeout(id + 0x1E0, 18.2f, "Main Quake"); // t=236.2; Ability 24A5 from Catastrophe
+    Timeout(id + 0x1F0, 6.9f, "100 Gs"); // t=243.1; Ability 24FB from Catastrophe
+    Timeout(id + 0x200, 14.2f, " -100 Gs"); // t=257.3; Ability 24FF from Catastrophe; cactbot StartsUsing 24FF [O2N -100Gs]
+    Timeout(id + 0x210, 7.5f, "Explosion"); // t=264.8; Ability 2503 from Potent Petrosphere
+    Timeout(id + 0x220, 3.6f, "Gravitational Wave").SetHint(StateMachine.StateHint.Raidwide); // t=268.4; Ability 2510 from Catastrophe; cactbot StartsUsing 2510 [O2N Gravitational Wave]
+    Timeout(id + 0x230, 12.1f, "Evilsphere").SetHint(StateMachine.StateHint.Tankbuster); // t=280.5; Ability 250F from Catastrophe; cactbot StartsUsing 250F [O2N Evilsphere]
+    Timeout(id + 0x240, 10.2f, "100 Gs"); // t=290.7; Ability 24FB from Catastrophe
+    Timeout(id + 0x250, 8.1f, "Antilight"); // t=298.8; Ability 2502 from Catastrophe; cactbot StartsUsing 2502 [O2N Antilight]
+    Timeout(id + 0x260, 9.2f, "Gravitational Distortion"); // t=308.0; Ability 250A from Catastrophe
+    Timeout(id + 0x270, 4.0f, "Explosion"); // t=312.0; Ability 2503 from Potent Petrosphere
+    Timeout(id + 0x280, 17.1f, "Maniacal Probe"); // t=329.1; Ability 258F from Catastrophe
+    Timeout(id + 0x290, 6.1f, "Erosion"); // t=335.2; Ability 2590 from Fleshy Member
+    Timeout(id + 0x2A0, 4.0f, "Epicenter"); // t=339.2; Ability 24A2 from Catastrophe
+    Timeout(id + 0x2B0, 5.1f, "100 Gs"); // t=344.3; Ability 24FB from Catastrophe
+    Timeout(id + 0x2C0, 10.2f, "Demon Eye"); // t=354.5; Ability 250D from Catastrophe; cactbot StartsUsing 250D [O2N Demon Eye]
+    Timeout(id + 0x2D0, 2.9f, "Main Quake"); // t=357.4; Ability 24A5 from Catastrophe
+    Timeout(id + 0x2E0, 5.3f, "Gravitational Wave").SetHint(StateMachine.StateHint.Raidwide); // t=362.7; Ability 2510 from Catastrophe; cactbot StartsUsing 2510 [O2N Gravitational Wave]
+    Timeout(id + 0x2F0, 10.1f, "Antilight"); // t=372.8; Ability 2502 from Catastrophe; cactbot StartsUsing 2502 [O2N Antilight]
+    Timeout(id + 0x300, 7.1f, "Tremblor"); // t=379.9; Ability 2511 from Catastrophe
+    Timeout(id + 0x310, 3.7f, "Tremblor"); // t=383.6; Ability 2511 from Catastrophe
+    Timeout(id + 0x320, 2.4f, "Explosion"); // t=386.0; Ability 2503 from Potent Petrosphere
+    Timeout(id + 0x330, 6.3f, "Earthquake"); // t=392.3; Ability 2512 from Catastrophe; cactbot StartsUsing 2512 [O2N Earthquake]
+    Timeout(id + 0x340, 8.2f, "Gravitational Wave").SetHint(StateMachine.StateHint.Raidwide); // t=400.5; Ability 2510 from Catastrophe; cactbot StartsUsing 2510 [O2N Gravitational Wave]
+    Timeout(id + 0x350, 10.1f, "Antilight"); // t=410.6; Ability 2502 from Catastrophe; cactbot StartsUsing 2502 [O2N Antilight]
+    Timeout(id + 0x360, 5.1f, "100 Gs"); // t=415.7; Ability 24FB from Catastrophe
+    Timeout(id + 0x370, 8.0f, "Explosion"); // t=423.7; Ability 2503 from Potent Petrosphere
+    Timeout(id + 0x380, 2.1f, "Demon Eye"); // t=425.8; Ability 250D from Catastrophe; cactbot StartsUsing 250D [O2N Demon Eye]
+    Timeout(id + 0x390, 15.2f, "100 Gs"); // t=441.0; Ability 24FB from Catastrophe
+    Timeout(id + 0x3A0, 8.1f, "Antilight"); // t=449.1; Ability 2502 from Catastrophe; cactbot StartsUsing 2502 [O2N Antilight]
+    Timeout(id + 0x3B0, 9.2f, "Gravitational Distortion"); // t=458.3; Ability 250A from Catastrophe
+    Timeout(id + 0x3C0, 4.0f, "Explosion"); // t=462.3; Ability 2503 from Potent Petrosphere
+    Timeout(id + 0x3D0, 17.1f, "Maniacal Probe"); // t=479.4; Ability 258F from Catastrophe
+    Timeout(id + 0x3E0, 6.1f, "Erosion"); // t=485.5; Ability 2590 from Fleshy Member
+    Timeout(id + 0x3F0, 4.0f, "Epicenter"); // t=489.5; Ability 24A2 from Catastrophe
+    Timeout(id + 0x400, 5.2f, "100 Gs"); // t=494.7; Ability 24FB from Catastrophe
+    Timeout(id + 0x410, 10.2f, "Demon Eye"); // t=504.9; Ability 250D from Catastrophe; cactbot StartsUsing 250D [O2N Demon Eye]
+    Timeout(id + 0x420, 2.9f, "Main Quake"); // t=507.8; Ability 24A5 from Catastrophe
+    Timeout(id + 0x430, 5.3f, "Gravitational Wave").SetHint(StateMachine.StateHint.Raidwide); // t=513.1; Ability 2510 from Catastrophe; cactbot StartsUsing 2510 [O2N Gravitational Wave]
+    Timeout(id + 0x440, 10.1f, "Antilight"); // t=523.2; Ability 2502 from Catastrophe; cactbot StartsUsing 2502 [O2N Antilight]
+    Timeout(id + 0x450, 7.1f, "Tremblor"); // t=530.3; Ability 2511 from Catastrophe
+    Timeout(id + 0x460, 3.7f, "Tremblor"); // t=534.0; Ability 2511 from Catastrophe
+    Timeout(id + 0x470, 2.4f, "Explosion"); // t=536.4; Ability 2503 from Potent Petrosphere
+    Timeout(id + 0x480, 6.3f, "Earthquake"); // t=542.7; Ability 2512 from Catastrophe; cactbot StartsUsing 2512 [O2N Earthquake]
+    Timeout(id + 0x490, 8.2f, "Gravitational Wave").SetHint(StateMachine.StateHint.Raidwide); // t=550.9; Ability 2510 from Catastrophe; cactbot StartsUsing 2510 [O2N Gravitational Wave]
+    Timeout(id + 0x4A0, 10.1f, "Antilight"); // t=561.0; Ability 2502 from Catastrophe; cactbot StartsUsing 2502 [O2N Antilight]
+    Timeout(id + 0x4B0, 5.1f, "100 Gs"); // t=566.1; Ability 24FB from Catastrophe
+    Timeout(id + 0x4C0, 8.0f, "Explosion"); // t=574.1; Ability 2503 from Potent Petrosphere
+    Timeout(id + 0x4D0, 2.1f, "Demon Eye"); // t=576.2; Ability 250D from Catastrophe; cactbot StartsUsing 250D [O2N Demon Eye]
+    Timeout(id + 0x4E0, 15.2f, "100 Gs"); // t=591.4; Ability 24FB from Catastrophe
+    Timeout(id + 0x4F0, 8.1f, "Antilight"); // t=599.5; Ability 2502 from Catastrophe; cactbot StartsUsing 2502 [O2N Antilight]
+    Timeout(id + 0x500, 9.2f, "Gravitational Distortion"); // t=608.7; Ability 250A from Catastrophe
+    Timeout(id + 0x510, 4.0f, "Explosion"); // t=612.7; Ability 2503 from Potent Petrosphere
+    Timeout(id + 0x520, 17.1f, "Maniacal Probe"); // t=629.8; Ability 258F from Catastrophe
+    Timeout(id + 0x530, 6.1f, "Erosion"); // t=635.9; Ability 2590 from Fleshy Member
+    Timeout(id + 0x540, 4.0f, "Epicenter"); // t=639.9; Ability 24A2 from Catastrophe
+    Timeout(id + 0x550, 5.2f, "100 Gs"); // t=645.1; Ability 24FB from Catastrophe
+    Timeout(id + 0x560, 10.2f, "Demon Eye"); // t=655.3; Ability 250D from Catastrophe; cactbot StartsUsing 250D [O2N Demon Eye]
+    Timeout(id + 0x570, 2.9f, "Main Quake"); // t=658.2; Ability 24A5 from Catastrophe
+    Timeout(id + 0x580, 5.3f, "Gravitational Wave"); // t=663.5; cactbot StartsUsing 2510 [O2N Gravitational Wave]
+    Timeout(id + 0x590, 10.1f, "Antilight"); // t=673.6; cactbot StartsUsing 2502 [O2N Antilight]
+    Timeout(id + 0x5A0, 7.1f, "Tremblor"); // t=680.7
+    Timeout(id + 0x5B0, 3.7f, "Tremblor"); // t=684.4
+    Timeout(id + 0x5C0, 2.4f, "Explosion"); // t=686.8
+    Timeout(id + 0x5D0, 6.3f, "Earthquake"); // t=693.1; cactbot StartsUsing 2512 [O2N Earthquake]
+}
+

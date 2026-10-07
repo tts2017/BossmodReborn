@@ -1,0 +1,160 @@
+// Generated development skeleton from necron-ex.txt (TerritoryType 1296).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 29 static/dynamic trigger definitions from ui/raidboss/data/07-dt/trial/necron-ex.ts.
+
+private void THE_MINSTREL_S_BALLAD__NECRON_S_EMBRACE(uint id)
+{
+    Condition(id + 0x0, 7.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xAE30), "", 5f, 2.6f); // t=7.6; StartsUsing AE30 from Necron
+    Timeout(id + 0x10, 6.8f, "Blue Shockwave 1"); // t=14.4
+    Timeout(id + 0x20, 4.1f, "Blue Shockwave 2"); // t=18.5
+    Condition(id + 0x30, 5.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xAE06), "", 5f, 0.3f); // t=23.8; StartsUsing AE06 from Necron; cactbot StartsUsing AE06 [NecronEx Fear of Death Damage] | StartsUsing AE06 [NecronEx Fear of Death Bait]
+    Timeout(id + 0x40, 5.0f, "Fear of Death").SetHint(StateMachine.StateHint.Raidwide); // t=28.8; Ability AE06 from Necron; cactbot StartsUsing AE06 [NecronEx Fear of Death Damage] | StartsUsing AE06 [NecronEx Fear of Death Bait]
+    Timeout(id + 0x50, 3.0f, "Fear of Death (puddles)"); // t=31.8; Ability AE07 from Necron
+    Timeout(id + 0x60, 2.8f, "Choking Grasp"); // t=34.6
+    Timeout(id + 0x70, 5.3f, "Cold Grip"); // t=39.9; Ability AE44 from Necron; cactbot StartsUsing AE09/AE0A [NecronEx Cold Grip]
+    Timeout(id + 0x80, 1.7f, "Existential Dread"); // t=41.6; Ability AE0B from Necron
+    Timeout(id + 0x90, 10.7f, "Memento Mori"); // t=52.3; Ability AE15/AE16 from Necron; cactbot StartsUsing AE15/AE16 [NecronEx Memento Mori]
+    Timeout(id + 0xA0, 6.2f, "Choking Grasp"); // t=58.5; Ability AE17 from Icy Hands
+    Timeout(id + 0xB0, 0.9f, "Smite of Gloom"); // t=59.4; Ability AE3A from Necron
+    Timeout(id + 0xC0, 10.1f, "Soul Reaping"); // t=69.5; Ability AE0C from Necron; cactbot StartsUsing AE0C/AE14 [NecronEx Soul Reaping Collector]
+    Timeout(id + 0xD0, 8.1f, "Twofold Blight/Fourfold Blight"); // t=77.6; Ability AE0D/AE0E from Necron; cactbot StartsUsing AE0D/AE0E [NecronEx Twofold/Fourfold Blight]
+    Timeout(id + 0xE0, 1.2f, "Aetherblight"); // t=78.8; Ability AE40/B07F/B080/B081 from Necron
+    Timeout(id + 0xF0, 0.1f, "Shockwave"); // t=78.9; Ability AE0F/AE10 from Necron; cactbot HeadMarker 267 [NecronEx Blue Shockwave]
+    Timeout(id + 0x100, 5.7f, "Soul Reaping"); // t=84.6; Ability AE0C from Necron; cactbot StartsUsing AE0C/AE14 [NecronEx Soul Reaping Collector]
+    Condition(id + 0x110, 3.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xAE06), "", 5f, 0.0f); // t=87.7; StartsUsing AE06 from Necron; cactbot StartsUsing AE06 [NecronEx Fear of Death Damage] | StartsUsing AE06 [NecronEx Fear of Death Bait]
+    Timeout(id + 0x120, 5.0f, "Fear of Death").SetHint(StateMachine.StateHint.Raidwide); // t=92.7; Ability AE06 from Necron; cactbot StartsUsing AE06 [NecronEx Fear of Death Damage] | StartsUsing AE06 [NecronEx Fear of Death Bait]
+    Timeout(id + 0x130, 3.0f, "Fear of Death (puddles)"); // t=95.7; Ability AE07 from Necron
+    Timeout(id + 0x140, 2.8f, "Choking Grasp"); // t=98.5
+    Timeout(id + 0x150, 4.3f, "The End's Embrace"); // t=102.8
+    Timeout(id + 0x160, 6.1f, "Choking Grasp"); // t=108.9
+    Timeout(id + 0x170, 5.0f, "Blue Shockwave 1"); // t=113.9; Ability AE31 from Necron
+    Timeout(id + 0x180, 4.1f, "Blue Shockwave 2"); // t=118.0; Ability AE31 from Necron
+    Timeout(id + 0x190, 6.0f, "Twofold Blight/Fourfold Blight"); // t=124.0; Ability AE0D/AE0E from Necron; cactbot StartsUsing AE0D/AE0E [NecronEx Twofold/Fourfold Blight]
+    Timeout(id + 0x1A0, 1.2f, "Aetherblight"); // t=125.2; Ability AE40/B07F/B080/B081 from Necron
+    Timeout(id + 0x1B0, 0.1f, "Shockwave"); // t=125.3; Ability AE0F/AE10 from Necron; cactbot HeadMarker 267 [NecronEx Blue Shockwave]
+    Timeout(id + 0x1C0, 14.8f, "Grand Cross (damage)").SetHint(StateMachine.StateHint.Raidwide); // t=140.1; Ability AE18 from Necron; cactbot StartsUsing AE18 [NecronEx Grand Cross] | Ability AE18 [NecronEx Grand Cross Puddle Bait Initial] | Ability AE18 [NecronEx Grand Cross Puddle Bait End]
+    Timeout(id + 0x1D0, 8.1f, "Grand Cross (puddle)"); // t=148.2; cactbot Ability AE18 [NecronEx Grand Cross Puddle Bait Initial] | Ability AE18 [NecronEx Grand Cross Puddle Bait End]
+    Timeout(id + 0x1E0, 2.0f, "Grand Cross (puddle)"); // t=150.2; cactbot Ability AE18 [NecronEx Grand Cross Puddle Bait Initial] | Ability AE18 [NecronEx Grand Cross Puddle Bait End]
+    Timeout(id + 0x1F0, 0.4f, "Grand Cross (line)"); // t=150.6
+    Timeout(id + 0x200, 2.0f, "Grand Cross (line)"); // t=152.6
+    Timeout(id + 0x210, 1.6f, "Shock (tower) / Grand Cross (spread)"); // t=154.2; Ability AE1D from Necron | Ability AE1C from Necron
+    Timeout(id + 0x220, 3.0f, "Grand Cross (line)"); // t=157.2; Ability AE19 from Azure Aether
+    Timeout(id + 0x230, 4.0f, "Grand Cross (line)"); // t=161.2; Ability AE19 from Azure Aether
+    Timeout(id + 0x240, 2.7f, "Grand Cross (line)"); // t=163.9; Ability AE19 from Azure Aether
+    Timeout(id + 0x250, 1.2f, "Shock (tower) / Grand Cross (spread)"); // t=165.1; Ability AE1D from Necron | Ability AE1C from Necron
+    Timeout(id + 0x260, 7.0f, "Grand Cross (puddle)"); // t=172.1; cactbot Ability AE18 [NecronEx Grand Cross Puddle Bait Initial] | Ability AE18 [NecronEx Grand Cross Puddle Bait End]
+    Timeout(id + 0x270, 1.7f, "Grand Cross (intercards)"); // t=173.8; Ability AE1A from Azure Aether
+    Timeout(id + 0x280, 0.3f, "Grand Cross (puddle)"); // t=174.1; cactbot Ability AE18 [NecronEx Grand Cross Puddle Bait Initial] | Ability AE18 [NecronEx Grand Cross Puddle Bait End]
+    Timeout(id + 0x290, 9.9f, "Neutron Ring (cast)").SetHint(StateMachine.StateHint.Raidwide); // t=184.0; Ability AE1F from Necron; cactbot StartsUsing AE1F [NecronEx Neutron Ring]
+    Timeout(id + 0x2A0, 2.7f, "Neutron Ring (damage)"); // t=186.7; Ability AE20 from Necron
+    Timeout(id + 0x2B0, 12.7f, "Fear of Death (puddles)"); // t=199.4; Ability AE21 from Necron
+    Targetable(id + 0x2C0, true, 0.7f, "--targetable--"); // t=200.1
+    Targetable(id + 0x2D0, false, 1.3f, "--untargetable--"); // t=201.4
+    Timeout(id + 0x2E0, 5.1f, "Choking Grasp (lines)"); // t=206.5
+    Timeout(id + 0x2F0, 0.8f, "Fear of Death (puddles)"); // t=207.3; Ability AE21 from Necron
+    Targetable(id + 0x300, true, 0.6f, "--targetable--"); // t=207.9
+    Timeout(id + 0x310, 7.5f, "Fear of Death (puddles)"); // t=215.4; Ability AE21 from Necron
+    Targetable(id + 0x320, true, 0.6f, "--targetable--"); // t=216.0
+    Timeout(id + 0x330, 34.7f, "Darkness of Eternity").SetHint(StateMachine.StateHint.Raidwide); // t=250.7; Ability AE24 from Necron; cactbot StartsUsing AE24 [NecronEx Darkness of Eternity]
+    Timeout(id + 0x340, 6.4f, "Darkness of Eternity").SetHint(StateMachine.StateHint.Raidwide); // t=257.1; Ability AE25 from Necron; cactbot StartsUsing AE24 [NecronEx Darkness of Eternity]
+    Timeout(id + 0x350, 3.7f, "Inevitability"); // t=260.8; Ability AE27 from Necron
+    Timeout(id + 0x360, 9.7f, "Add Spawn"); // t=270.5
+    Timeout(id + 0x370, 135.0f, "Choking Grasp"); // t=405.5; Ability AE28 from Icy Hands
+    Timeout(id + 0x380, 5.1f, "Choking Grasp"); // t=410.6; Ability AE28 from Icy Hands
+    Timeout(id + 0x390, 5.1f, "Choking Grasp"); // t=415.7; Ability AE28 from Icy Hands
+    Timeout(id + 0x3A0, 5.1f, "Choking Grasp"); // t=420.8; Ability AE28 from Icy Hands
+    Timeout(id + 0x3B0, 5.1f, "Choking Grasp"); // t=425.9; Ability AE28 from Icy Hands
+    Timeout(id + 0x3C0, 5.1f, "Choking Grasp"); // t=431.0; Ability AE28 from Icy Hands
+    Timeout(id + 0x3D0, 5.1f, "Choking Grasp"); // t=436.1; Ability AE28 from Icy Hands
+    Timeout(id + 0x3E0, 5.1f, "Choking Grasp"); // t=441.2; Ability AE28 from Icy Hands
+    Timeout(id + 0x3F0, 5.1f, "Choking Grasp"); // t=446.3; Ability AE28 from Icy Hands
+    Timeout(id + 0x400, 159.2f, "Necrotic Pulse"); // t=605.5; Ability AE2C from Icy Hands
+    Timeout(id + 0x410, 7.1f, "Chilling Fingers"); // t=612.6; Ability AE2D from Icy Hands
+    Timeout(id + 0x420, 6.1f, "Choking Grasp"); // t=618.7; Ability AE2E from Icy Hands
+    Timeout(id + 0x430, 6.1f, "Choking Grasp"); // t=624.8; Ability AE2E from Icy Hands
+    Timeout(id + 0x440, 6.1f, "Choking Grasp"); // t=630.9; Ability AE2E from Icy Hands
+    Timeout(id + 0x450, 6.1f, "Choking Grasp"); // t=637.0; Ability AE2E from Icy Hands
+    Timeout(id + 0x460, 6.1f, "Choking Grasp"); // t=643.1; Ability AE2E from Icy Hands
+    Timeout(id + 0x470, 6.1f, "Choking Grasp"); // t=649.2; Ability AE2E from Icy Hands
+    Condition(id + 0x480, 156.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xAE2A), "", 5f, 151.3f); // t=805.5; StartsUsing AE2A from Icy Hands
+    Timeout(id + 0x490, 4.7f, "Spreading Fear"); // t=810.2
+    Timeout(id + 0x4A0, 7.4f, "Choking Grasp"); // t=817.6; Ability AE2B from Icy Hands
+    Timeout(id + 0x4B0, 7.1f, "Choking Grasp"); // t=824.7; Ability AE2B from Icy Hands
+    Timeout(id + 0x4C0, 7.1f, "Choking Grasp"); // t=831.8; Ability AE2B from Icy Hands
+    Timeout(id + 0x4D0, 7.1f, "Choking Grasp"); // t=838.9; Ability AE2B from Icy Hands
+    Timeout(id + 0x4E0, 7.1f, "Choking Grasp"); // t=846.0; Ability AE2B from Icy Hands
+    Condition(id + 0x4F0, 154.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xAE3E), "", 5f, 149.0f); // t=1000.0; StartsUsing AE3E from Necron; cactbot StartsUsing AE3E [NecronEx Specter of Death Counter] | StartsUsing AE3E [NecronEx Specter of Death First]
+    Timeout(id + 0x500, 5.0f, "Specter of Death"); // t=1005.0; Ability AE3E from Necron; cactbot StartsUsing AE3E [NecronEx Specter of Death Counter] | StartsUsing AE3E [NecronEx Specter of Death First]
+    Timeout(id + 0x510, 8.1f, "The End's Embrace"); // t=1013.1; Ability AE36 from Necron; cactbot Ability AE36 [NecronEx The End\]
+    Timeout(id + 0x520, 6.1f, "Choking Grasp"); // t=1019.2
+    Timeout(id + 0x530, 1.9f, "Cold Grip"); // t=1021.1; Ability AE44 from Necron; cactbot StartsUsing AE09/AE0A [NecronEx Cold Grip]
+    Timeout(id + 0x540, 1.7f, "Existential Dread"); // t=1022.8; Ability AE0B from Necron
+    Timeout(id + 0x550, 21.7f, "Relentless Reaping"); // t=1044.5; Ability AE14 from Necron; cactbot StartsUsing AE0C/AE14 [NecronEx Soul Reaping Collector]
+    Timeout(id + 0x560, 6.1f, "Crop Rotation"); // t=1050.6; Ability AE42 from Necron
+    Timeout(id + 0x570, 11.1f, "The Second Season/The Fourth Season"); // t=1061.7; Ability B06F/B070 from Necron; cactbot StartsUsing B06F/B070 [NecronEx The Second/Fourth Season]
+    Timeout(id + 0x580, 1.2f, "Aetherblight"); // t=1062.9; Ability AE40/B07F/B080/B081 from Necron
+    Timeout(id + 0x590, 2.9f, "Aetherblight"); // t=1065.8; Ability AE40/B07F/B080/B081 from Necron
+    Timeout(id + 0x5A0, 2.9f, "Aetherblight"); // t=1068.7; Ability AE40/B07F/B080/B081 from Necron
+    Timeout(id + 0x5B0, 2.9f, "Aetherblight"); // t=1071.6; Ability AE40/B07F/B080/B081 from Necron
+    Timeout(id + 0x5C0, 0.1f, "Shockwave"); // t=1071.7; Ability AE0F/AE10 from Necron; cactbot HeadMarker 267 [NecronEx Blue Shockwave]
+    Timeout(id + 0x5D0, 10.8f, "Circle of Lives"); // t=1082.5; Ability AE37 from Necron; cactbot StartsUsing AE38 [NecronEx Circle of Lives]
+    Timeout(id + 0x5E0, 10.1f, "Circle of Lives 1"); // t=1092.6; Ability AE38 from Azure Aether; cactbot StartsUsing AE38 [NecronEx Circle of Lives]
+    Timeout(id + 0x5F0, 0.6f, "Specter of Death"); // t=1093.2; Ability AE3E from Necron; cactbot StartsUsing AE3E [NecronEx Specter of Death Counter] | StartsUsing AE3E [NecronEx Specter of Death First]
+    Timeout(id + 0x600, 4.4f, "Circle of Lives 2"); // t=1097.6; Ability AE38 from Azure Aether; cactbot StartsUsing AE38 [NecronEx Circle of Lives]
+    Timeout(id + 0x610, 5.0f, "Circle of Lives 3"); // t=1102.6; Ability AE38 from Azure Aether; cactbot StartsUsing AE38 [NecronEx Circle of Lives]
+    Timeout(id + 0x620, 1.2f, "Soul Reaping"); // t=1103.8; Ability AE0C from Necron; cactbot StartsUsing AE0C/AE14 [NecronEx Soul Reaping Collector]
+    Timeout(id + 0x630, 3.9f, "Circle of Lives 4"); // t=1107.7; Ability AE38 from Azure Aether; cactbot StartsUsing AE38 [NecronEx Circle of Lives]
+    Timeout(id + 0x640, 5.0f, "Circle of Lives 5"); // t=1112.7; Ability AE38 from Azure Aether; cactbot StartsUsing AE38 [NecronEx Circle of Lives]
+    Timeout(id + 0x650, 5.3f, "Twofold Blight/Fourfold Blight"); // t=1118.0; Ability AE0D/AE0E from Necron; cactbot StartsUsing AE0D/AE0E [NecronEx Twofold/Fourfold Blight]
+    Timeout(id + 0x660, 1.2f, "Aetherblight"); // t=1119.2; Ability AE40/B07F/B080/B081 from Necron
+    Timeout(id + 0x670, 0.1f, "Shockwave"); // t=1119.3; Ability AE0F/AE10 from Necron; cactbot HeadMarker 267 [NecronEx Blue Shockwave]
+    Timeout(id + 0x680, 11.8f, "Mass Macabre"); // t=1131.1; Ability AE33 from Necron; cactbot StartsUsing AE33 [NecronEx Mass Macabre Initial]
+    Timeout(id + 0x690, 7.1f, "Memento Mori"); // t=1138.2; Ability AE15/AE16 from Necron; cactbot StartsUsing AE15/AE16 [NecronEx Memento Mori]
+    Timeout(id + 0x6A0, 6.1f, "Choking Grasp"); // t=1144.3; Ability AE17 from Icy Hands
+    Timeout(id + 0x6B0, 5.5f, "Blue Shockwave 1"); // t=1149.8; Ability AE31 from Necron
+    Timeout(id + 0x6C0, 4.1f, "Blue Shockwave 2"); // t=1153.9; Ability AE31 from Necron
+    Timeout(id + 0x6D0, 7.1f, "Cold Grip"); // t=1161.0; Ability AE44 from Necron; cactbot StartsUsing AE09/AE0A [NecronEx Cold Grip]
+    Timeout(id + 0x6E0, 1.7f, "Existential Dread"); // t=1162.7; Ability AE0B from Necron
+    Timeout(id + 0x6F0, 20.6f, "Relentless Reaping"); // t=1183.3; Ability AE14 from Necron; cactbot StartsUsing AE0C/AE14 [NecronEx Soul Reaping Collector]
+    Timeout(id + 0x700, 6.1f, "Crop Rotation"); // t=1189.4; Ability AE42 from Necron
+    Timeout(id + 0x710, 11.1f, "The Second Season/The Fourth Season"); // t=1200.5; Ability B06F/B070 from Necron; cactbot StartsUsing B06F/B070 [NecronEx The Second/Fourth Season]
+    Timeout(id + 0x720, 1.2f, "Aetherblight"); // t=1201.7; Ability AE40/B07F/B080/B081 from Necron
+    Timeout(id + 0x730, 2.9f, "Aetherblight"); // t=1204.6; Ability AE40/B07F/B080/B081 from Necron
+    Timeout(id + 0x740, 2.9f, "Aetherblight"); // t=1207.5; Ability AE40/B07F/B080/B081 from Necron
+    Timeout(id + 0x750, 2.9f, "Aetherblight"); // t=1210.4; Ability AE40/B07F/B080/B081 from Necron
+    Timeout(id + 0x760, 0.1f, "Shockwave"); // t=1210.5; Ability AE0F/AE10 from Necron; cactbot HeadMarker 267 [NecronEx Blue Shockwave]
+    Condition(id + 0x770, 1.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xAE06), "", 5f, 0.0f); // t=1212.2; StartsUsing AE06 from Necron; cactbot StartsUsing AE06 [NecronEx Fear of Death Damage] | StartsUsing AE06 [NecronEx Fear of Death Bait]
+    Timeout(id + 0x780, 5.0f, "Fear of Death").SetHint(StateMachine.StateHint.Raidwide); // t=1217.2; Ability AE06 from Necron; cactbot StartsUsing AE06 [NecronEx Fear of Death Damage] | StartsUsing AE06 [NecronEx Fear of Death Bait]
+    Timeout(id + 0x790, 3.0f, "Fear of Death (puddles)"); // t=1220.2; Ability AE07 from Necron
+    Timeout(id + 0x7A0, 2.8f, "Choking Grasp"); // t=1223.0
+    Timeout(id + 0x7B0, 5.2f, "Circle of Lives"); // t=1228.2; Ability AE37 from Necron; cactbot StartsUsing AE38 [NecronEx Circle of Lives]
+    Timeout(id + 0x7C0, 8.1f, "Specter of Death"); // t=1236.3; Ability AE3E from Necron; cactbot StartsUsing AE3E [NecronEx Specter of Death Counter] | StartsUsing AE3E [NecronEx Specter of Death First]
+    Timeout(id + 0x7D0, 2.0f, "Circle of Lives 1"); // t=1238.3; Ability AE38 from Azure Aether; cactbot StartsUsing AE38 [NecronEx Circle of Lives]
+    Timeout(id + 0x7E0, 5.0f, "Circle of Lives 2"); // t=1243.3; Ability AE38 from Azure Aether; cactbot StartsUsing AE38 [NecronEx Circle of Lives]
+    Timeout(id + 0x7F0, 2.8f, "Specter of Death"); // t=1246.1; Ability AE3E from Necron; cactbot StartsUsing AE3E [NecronEx Specter of Death Counter] | StartsUsing AE3E [NecronEx Specter of Death First]
+    Timeout(id + 0x800, 2.2f, "Circle of Lives 3"); // t=1248.3; Ability AE38 from Azure Aether; cactbot StartsUsing AE38 [NecronEx Circle of Lives]
+    Timeout(id + 0x810, 5.0f, "Circle of Lives 4"); // t=1253.3; Ability AE38 from Azure Aether; cactbot StartsUsing AE38 [NecronEx Circle of Lives]
+    Timeout(id + 0x820, 7.3f, "Memento Mori"); // t=1260.6; Ability AE15/AE16 from Necron; cactbot StartsUsing AE15/AE16 [NecronEx Memento Mori]
+    Timeout(id + 0x830, 6.2f, "Choking Grasp"); // t=1266.8; Ability AE17 from Icy Hands
+    Timeout(id + 0x840, 0.9f, "Smite of Gloom"); // t=1267.7; Ability AE3A from Necron
+    Timeout(id + 0x850, 8.1f, "Cold Grip"); // t=1275.8; Ability AE44 from Necron; cactbot StartsUsing AE09/AE0A [NecronEx Cold Grip]
+    Timeout(id + 0x860, 1.7f, "Existential Dread"); // t=1277.5; Ability AE0B from Necron
+    Timeout(id + 0x870, 11.7f, "Grand Cross (damage)").SetHint(StateMachine.StateHint.Raidwide); // t=1289.2; Ability AE18 from Necron; cactbot StartsUsing AE18 [NecronEx Grand Cross] | Ability AE18 [NecronEx Grand Cross Puddle Bait Initial] | Ability AE18 [NecronEx Grand Cross Puddle Bait End]
+    Timeout(id + 0x880, 8.1f, "Grand Cross (puddle)"); // t=1297.3; cactbot Ability AE18 [NecronEx Grand Cross Puddle Bait Initial] | Ability AE18 [NecronEx Grand Cross Puddle Bait End]
+    Timeout(id + 0x890, 2.0f, "Grand Cross (puddle)"); // t=1299.3; cactbot Ability AE18 [NecronEx Grand Cross Puddle Bait Initial] | Ability AE18 [NecronEx Grand Cross Puddle Bait End]
+    Timeout(id + 0x8A0, 0.4f, "Grand Cross (line)"); // t=1299.7
+    Timeout(id + 0x8B0, 2.0f, "Grand Cross (line)"); // t=1301.7
+    Timeout(id + 0x8C0, 1.6f, "Shock (tower) / Grand Cross (spread)"); // t=1303.3; Ability AE1D from Necron | Ability AE1C from Necron
+    Timeout(id + 0x8D0, 3.1f, "Grand Cross (line)"); // t=1306.4; Ability AE19 from Azure Aether
+    Timeout(id + 0x8E0, 4.0f, "Grand Cross (line)"); // t=1310.4; Ability AE19 from Azure Aether
+    Timeout(id + 0x8F0, 2.8f, "Grand Cross (line)"); // t=1313.2; Ability AE19 from Azure Aether
+    Timeout(id + 0x900, 1.2f, "Shock (tower) / Grand Cross (spread)"); // t=1314.4; Ability AE1D from Necron | Ability AE1C from Necron
+    Timeout(id + 0x910, 7.0f, "Grand Cross (puddle)"); // t=1321.4; cactbot Ability AE18 [NecronEx Grand Cross Puddle Bait Initial] | Ability AE18 [NecronEx Grand Cross Puddle Bait End]
+    Timeout(id + 0x920, 1.7f, "Grand Cross").SetHint(StateMachine.StateHint.Raidwide); // t=1323.1; Ability AE1A from Azure Aether; cactbot StartsUsing AE18 [NecronEx Grand Cross] | Ability AE18 [NecronEx Grand Cross Puddle Bait Initial] | Ability AE18 [NecronEx Grand Cross Puddle Bait End] | HeadMarker 263 [NecronEx Grand Cross Spread/Tower]
+    Timeout(id + 0x930, 0.3f, "Grand Cross (puddle)"); // t=1323.4; cactbot Ability AE18 [NecronEx Grand Cross Puddle Bait Initial] | Ability AE18 [NecronEx Grand Cross Puddle Bait End]
+    Timeout(id + 0x940, 9.9f, "Neutron Ring (cast)").SetHint(StateMachine.StateHint.Raidwide); // t=1333.3; Ability AE1F from Necron; cactbot StartsUsing AE1F [NecronEx Neutron Ring]
+    Timeout(id + 0x950, 2.7f, "Neutron Ring (damage)"); // t=1336.0; Ability AE20 from Necron
+    Timeout(id + 0x960, 19.6f, "Darkness of Eternity (enrage)"); // t=1355.6; Ability AE45 from Necron
+}
+

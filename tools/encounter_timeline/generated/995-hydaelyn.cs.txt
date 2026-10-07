@@ -1,0 +1,148 @@
+// Generated development skeleton from hydaelyn.txt (TerritoryType 995).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 15 static/dynamic trigger definitions from ui/raidboss/data/06-ew/trial/hydaelyn.ts.
+
+private void Hydaelyn_Normal(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Phase_1(uint id)
+{
+    Condition(id + 0x0, 11.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x65D7), "", 5f, 6.1f); // t=11.1; StartsUsing 65D7 from Hydaelyn; cactbot StartsUsing 65D7 [Hydaelyn Heros\]
+    Timeout(id + 0x10, 5.0f, "Heros's Radiance").SetHint(StateMachine.StateHint.Raidwide); // t=16.1; Ability 65D7 from Hydaelyn; cactbot StartsUsing 65D7 [Hydaelyn Heros\]
+    Timeout(id + 0x20, 7.2f, "--middle--"); // t=23.3; Ability 65A9 from Hydaelyn
+    Timeout(id + 0x30, 6.6f, "Dawn Mantle"); // t=29.9; Ability 6C0C from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0x40, 6.3f, "Anthelion"); // t=36.2; Ability 65C8 from Hydaelyn; cactbot GainsEffect 8E1 [Hydaelyn Marker Anthelion]
+    Timeout(id + 0x50, 9.1f, "Mousa's Scorn").SetHint(StateMachine.StateHint.Tankbuster); // t=45.3; Ability 65D6 from Hydaelyn; cactbot StartsUsing 65D6 [Hydaelyn Mousa\]
+    Timeout(id + 0x60, 7.2f, "--middle--"); // t=52.5; Ability 6E7A from Hydaelyn
+    Timeout(id + 0x70, 6.3f, "Dawn Mantle"); // t=58.8; Ability 6C0C from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0x80, 6.3f, "Highest Holy"); // t=65.1; Ability 65C7 from Hydaelyn; cactbot GainsEffect 8E1 [Hydaelyn Marker Highest Holy]
+    Timeout(id + 0x90, 9.1f, "Magos's Radiance").SetHint(StateMachine.StateHint.Raidwide); // t=74.2; Ability 65D8 from Hydaelyn; cactbot StartsUsing 65D8 [Hydaelyn Magos\]
+    Timeout(id + 0xA0, 4.5f, "--middle--"); // t=78.7; Ability 65A9 from Hydaelyn
+    Timeout(id + 0xB0, 6.4f, "Dawn Mantle"); // t=85.1; Ability 6C0C from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0xC0, 6.3f, "Equinox"); // t=91.4; Ability 65C3 from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0xD0, 9.2f, "Heros's Sundering"); // t=100.6; Ability 65D5 from Hydaelyn; cactbot StartsUsing 65D5 [Hydaelyn Heros\]
+    Timeout(id + 0xE0, 7.2f, "--middle--"); // t=107.8; Ability 65A9 from Hydaelyn
+    Timeout(id + 0xF0, 6.3f, "Dawn Mantle"); // t=114.1; Ability 6C0C from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0x100, 6.3f, "Anthelion? / Highest Holy?"); // t=120.4; Ability 65C8 from Hydaelyn | Ability 65C7 from Hydaelyn
+    Timeout(id + 0x110, 9.1f, "Mousa's Scorn? / Magos's Radiance?"); // t=129.5
+    Timeout(id + 0x120, 4.2f, "--middle--"); // t=133.7
+    Timeout(id + 0x130, 6.3f, "Dawn Mantle?"); // t=140.0; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0x140, 6.3f, "Equinox?"); // t=146.3; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Targetable(id + 0x150, false, 8.1f, "--untargetable--"); // t=154.4
+    Timeout(id + 0x160, 66.0f, "Anthelion"); // t=220.4; Ability 65C8 from Hydaelyn; cactbot GainsEffect 8E1 [Hydaelyn Marker Anthelion]
+    Timeout(id + 0x170, 9.1f, "Mousa's Scorn").SetHint(StateMachine.StateHint.Tankbuster); // t=229.5; Ability 65D6 from Hydaelyn; cactbot StartsUsing 65D6 [Hydaelyn Mousa\]
+    Timeout(id + 0x180, 4.2f, "--middle--"); // t=233.7; Ability 6E7A from Hydaelyn
+    Timeout(id + 0x190, 6.3f, "Dawn Mantle"); // t=240.0; Ability 6C0C from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0x1A0, 6.3f, "Equinox"); // t=246.3; Ability 65C3 from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Targetable(id + 0x1B0, false, 8.1f, "--untargetable--"); // t=254.4
+    Timeout(id + 0x1C0, 66.0f, "Highest Holy"); // t=320.4; Ability 65C7 from Hydaelyn; cactbot GainsEffect 8E1 [Hydaelyn Marker Highest Holy]
+    Timeout(id + 0x1D0, 9.1f, "Magos's Radiance").SetHint(StateMachine.StateHint.Raidwide); // t=329.5; Ability 65D8 from Hydaelyn; cactbot StartsUsing 65D8 [Hydaelyn Magos\]
+    Timeout(id + 0x1E0, 4.5f, "--middle--"); // t=334.0; Ability 65A9 from Hydaelyn
+    Timeout(id + 0x1F0, 6.3f, "Dawn Mantle"); // t=340.3; Ability 6C0C from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0x200, 6.3f, "Equinox"); // t=346.6; Ability 65C3 from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Targetable(id + 0x210, false, 8.1f, "--untargetable--"); // t=354.7
+    Targetable(id + 0x220, false, 445.3f, "--untargetable--"); // t=800.0
+    Targetable(id + 0x230, true, 12.4f, "--targetable--"); // t=812.4
+    Timeout(id + 0x240, 14.3f, "Hydaelyn's Ray"); // t=826.7; Ability 65CC from Echo of Hydaelyn
+    Timeout(id + 0x250, 2.1f, "Crystallize"); // t=828.8; Ability 6C51 from Echo of Hydaelyn; cactbot Ability 659C [Hydaelyn Crystallize Ice] | Ability 659E [Hydaelyn Crystallize Stone]
+    Timeout(id + 0x260, 8.9f, "Crystalline Stone III"); // t=837.7; Ability 6C59 from Echo of Hydaelyn; cactbot StartsUsing 6C59 [Hydaelyn Echo Crystaline Stone III]
+    Timeout(id + 0x270, 16.1f, "Hydaelyn's Ray"); // t=853.8; Ability 65CC from Echo of Hydaelyn
+    Timeout(id + 0x280, 5.1f, "Crystallize"); // t=858.9; Ability 6CCD from Echo of Hydaelyn; cactbot Ability 659C [Hydaelyn Crystallize Ice] | Ability 659E [Hydaelyn Crystallize Stone]
+    Timeout(id + 0x290, 8.9f, "Crystalline Blizzard III"); // t=867.8; Ability 6C5A from Echo of Hydaelyn; cactbot StartsUsing 6C5A [Hydaelyn Echo Crystaline Blizzard III]
+    Timeout(id + 0x2A0, 13.1f, "Hydaelyn's Ray"); // t=880.9; Ability 65CC from Echo of Hydaelyn
+    Timeout(id + 0x2B0, 5.1f, "Crystallize"); // t=886.0; Ability 6C51 from Echo of Hydaelyn; cactbot Ability 659C [Hydaelyn Crystallize Ice] | Ability 659E [Hydaelyn Crystallize Stone]
+    Timeout(id + 0x2C0, 8.9f, "Crystalline Stone III"); // t=894.9; Ability 6C59 from Echo of Hydaelyn; cactbot StartsUsing 6C59 [Hydaelyn Echo Crystaline Stone III]
+    Timeout(id + 0x2D0, 105.1f, "Exodus").SetHint(StateMachine.StateHint.Raidwide); // t=1000.0; Ability 65BB from Hydaelyn; cactbot Ability 65BB [Hydaelyn Exodus]
+    Timeout(id + 0x2E0, 14.8f, "Exodus").SetHint(StateMachine.StateHint.Raidwide); // t=1014.8; Ability 65D2 from Hydaelyn; cactbot Ability 65BB [Hydaelyn Exodus]
+    Targetable(id + 0x2F0, true, 5.2f, "--targetable--"); // t=1020.0
+    Timeout(id + 0x300, 14.8f, "Crystallize"); // t=1034.8; Ability 659C from Hydaelyn; cactbot Ability 659C [Hydaelyn Crystallize Ice]
+    Timeout(id + 0x310, 8.0f, "Dawn Mantle"); // t=1042.8; Ability 6C0C from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0x320, 6.3f, "Highest Holy / Anthelion"); // t=1049.1; Ability 65C7 from Hydaelyn | Ability 65C8 from Hydaelyn
+    Timeout(id + 0x330, 2.9f, "Crystalline Blizzard III"); // t=1052.0
+    Timeout(id + 0x340, 12.3f, "Mousa's Scorn?"); // t=1064.3
+    Timeout(id + 0x350, 1.7f, "Parhelic Circle?"); // t=1066.0; Ability 65AC from Hydaelyn; cactbot StartsUsing 65AC [Hydaelyn Parhelic Circle]
+    Timeout(id + 0x360, 9.0f, "Parhelion?"); // t=1075.0
+}
+
+private void Parhelic_Circle_first(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Crystallize"); // t=2034.8; Ability 659C from Hydaelyn; cactbot Ability 659C [Hydaelyn Crystallize Ice]
+    Timeout(id + 0x10, 8.0f, "Dawn Mantle"); // t=2042.8; Ability 6C0C from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0x20, 6.3f, "Highest Holy"); // t=2049.1; Ability 65C7 from Hydaelyn; cactbot GainsEffect 8E1 [Hydaelyn Marker Highest Holy]
+    Timeout(id + 0x30, 2.9f, "Crystalline Blizzard III"); // t=2052.0; Ability 6C5A from Hydaelyn; cactbot StartsUsing 6C5A [Hydaelyn Echo Crystaline Blizzard III]
+    Timeout(id + 0x40, 14.0f, "Parhelic Circle"); // t=2066.0; Ability 65AC from Hydaelyn; cactbot StartsUsing 65AC [Hydaelyn Parhelic Circle]
+    Timeout(id + 0x50, 3.3f, "Incandescence"); // t=2069.3; Ability 65CD from Mystic Refulgence
+    Timeout(id + 0x60, 7.9f, "Magos's Radiance").SetHint(StateMachine.StateHint.Raidwide); // t=2077.2; Ability 65D8 from Hydaelyn; cactbot StartsUsing 65D8 [Hydaelyn Magos\]
+    Timeout(id + 0x70, 10.3f, "Crystallize"); // t=2087.5; Ability 659C from Hydaelyn; cactbot Ability 659C [Hydaelyn Crystallize Ice]
+    Timeout(id + 0x80, 8.1f, "Dawn Mantle"); // t=2095.6; Ability 6C0C from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0x90, 6.3f, "Anthelion"); // t=2101.9; Ability 65C8 from Hydaelyn; cactbot GainsEffect 8E1 [Hydaelyn Marker Anthelion]
+    Timeout(id + 0xA0, 3.8f, "Crystalline Blizzard III"); // t=2105.7; Ability 6C5A from Hydaelyn; cactbot StartsUsing 6C5A [Hydaelyn Echo Crystaline Blizzard III]
+    Timeout(id + 0xB0, 11.4f, "Mousa's Scorn").SetHint(StateMachine.StateHint.Tankbuster); // t=2117.1; Ability 65D6 from Hydaelyn; cactbot StartsUsing 65D6 [Hydaelyn Mousa\]
+    Timeout(id + 0xC0, 4.1f, "--middle--"); // t=2121.2; Ability 6E7A from Hydaelyn
+    Timeout(id + 0xD0, 6.5f, "Parhelion"); // t=2127.7; Ability 65B0 from Hydaelyn
+    Timeout(id + 0xE0, 0.3f, "Beacon 1"); // t=2128.0
+    Timeout(id + 0xF0, 1.6f, "Beacon 2"); // t=2129.6
+    Timeout(id + 0x100, 1.6f, "Beacon 3"); // t=2131.2
+    Timeout(id + 0x110, 6.4f, "Subparhelion"); // t=2137.6; Ability 6C56 from Hydaelyn
+    Timeout(id + 0x120, 6.4f, "Beacon 1"); // t=2144.0
+    Timeout(id + 0x130, 1.6f, "Beacon 2"); // t=2145.6
+    Timeout(id + 0x140, 1.6f, "Beacon 3"); // t=2147.2
+    Timeout(id + 0x150, 0.1f, "Crystallize"); // t=2147.3; Ability 659E from Hydaelyn; cactbot Ability 659E [Hydaelyn Crystallize Stone]
+    Timeout(id + 0x160, 8.1f, "Dawn Mantle"); // t=2155.4; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0x170, 6.3f, "Equinox"); // t=2161.7; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0x180, 3.8f, "Crystalline Blizzard III/Crystalline Stone III"); // t=2165.5
+}
+
+private void Parhelion_first(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Crystallize"); // t=3034.8; Ability 659C from Hydaelyn; cactbot Ability 659C [Hydaelyn Crystallize Ice]
+    Timeout(id + 0x10, 8.1f, "Dawn Mantle"); // t=3042.9; Ability 6C0C from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0x20, 6.2f, "Anthelion"); // t=3049.1; Ability 65C8 from Hydaelyn; cactbot GainsEffect 8E1 [Hydaelyn Marker Anthelion]
+    Timeout(id + 0x30, 3.9f, "Crystalline Blizzard III"); // t=3053.0; Ability 6C5A from Hydaelyn; cactbot StartsUsing 6C5A [Hydaelyn Echo Crystaline Blizzard III]
+    Timeout(id + 0x40, 11.4f, "Mousa's Scorn").SetHint(StateMachine.StateHint.Tankbuster); // t=3064.4; Ability 65D6 from Hydaelyn; cactbot StartsUsing 65D6 [Hydaelyn Mousa\]
+    Timeout(id + 0x50, 10.7f, "Parhelion"); // t=3075.1; Ability 65B0 from Hydaelyn
+    Timeout(id + 0x60, 0.2f, "Beacon 1"); // t=3075.3
+    Timeout(id + 0x70, 1.6f, "Beacon 2"); // t=3076.9
+    Timeout(id + 0x80, 1.6f, "Beacon 3"); // t=3078.5
+    Timeout(id + 0x90, 6.4f, "Subparhelion"); // t=3084.9; Ability 6C56 from Hydaelyn
+    Timeout(id + 0xA0, 6.3f, "Beacon 1"); // t=3091.2
+    Timeout(id + 0xB0, 1.6f, "Beacon 2"); // t=3092.8
+    Timeout(id + 0xC0, 1.6f, "Beacon 3"); // t=3094.4
+    Timeout(id + 0xD0, 0.1f, "Crystallize"); // t=3094.5; Ability 659E from Hydaelyn; cactbot Ability 659E [Hydaelyn Crystallize Stone]
+    Timeout(id + 0xE0, 8.0f, "Dawn Mantle"); // t=3102.5; Ability 6C0C from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0xF0, 6.3f, "Highest Holy"); // t=3108.8; Ability 65C7 from Hydaelyn; cactbot GainsEffect 8E1 [Hydaelyn Marker Highest Holy]
+    Timeout(id + 0x100, 3.9f, "Crystalline Stone III"); // t=3112.7; Ability 6C59 from Hydaelyn; cactbot StartsUsing 6C59 [Hydaelyn Echo Crystaline Stone III]
+    Timeout(id + 0x110, 13.1f, "Parhelic Circle"); // t=3125.8; Ability 65AC from Hydaelyn; cactbot StartsUsing 65AC [Hydaelyn Parhelic Circle]
+    Timeout(id + 0x120, 3.3f, "Incandescence"); // t=3129.1; Ability 65CD from Mystic Refulgence
+    Timeout(id + 0x130, 7.8f, "Magos's Radiance").SetHint(StateMachine.StateHint.Raidwide); // t=3136.9; Ability 65D8 from Hydaelyn; cactbot StartsUsing 65D8 [Hydaelyn Magos\]
+}
+
+private void Shared_branch_after_Parhelion___Parhelic_Circle(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Crystallize"); // t=3147.2; Ability 659C from Hydaelyn; cactbot Ability 659C [Hydaelyn Crystallize Ice]
+    Timeout(id + 0x10, 8.0f, "Dawn Mantle"); // t=3155.2; Ability 6C0C from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0x20, 6.3f, "Equinox"); // t=3161.5; Ability 65C3 from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0x30, 3.9f, "Crystalline Blizzard III/Crystalline Stone III"); // t=3165.4; Ability 6C5A/6C59 from Hydaelyn; cactbot StartsUsing 6C59 [Hydaelyn Echo Crystaline Stone III] | StartsUsing 6C5A [Hydaelyn Echo Crystaline Blizzard III]
+    Timeout(id + 0x40, 11.5f, "Heros's Sundering"); // t=3176.9; Ability 65D5 from Hydaelyn; cactbot StartsUsing 65D5 [Hydaelyn Heros\]
+    Timeout(id + 0x50, 9.6f, "Radiant Halo").SetHint(StateMachine.StateHint.Raidwide); // t=3186.5; Ability 65D0 from Hydaelyn; cactbot StartsUsing 65D0 [Hydaelyn Radiant Halo]
+    Condition(id + 0x60, 5.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x6693 or 0x6694 or 0x6695), "", 5f, 0.3f); // t=3191.8; StartsUsing 6693/6694/6695 from Hydaelyn
+    Timeout(id + 0x70, 4.0f, "Lightwave"); // t=3195.8; Ability 6693/6694/6695 from Hydaelyn
+    Timeout(id + 0x80, 8.1f, "Echoes"); // t=3203.9; Ability 65B5/65B6/65B7 from Hydaelyn; cactbot StartsUsing [Hydaelyn Echoes]
+    Timeout(id + 0x90, 17.2f, "Crystallize"); // t=3221.1; cactbot Ability 659C [Hydaelyn Crystallize Ice] | Ability 659E [Hydaelyn Crystallize Stone]
+    Timeout(id + 0xA0, 3.2f, "--middle--"); // t=3224.3; Ability 65A9/6E7A from Hydaelyn
+    Timeout(id + 0xB0, 6.4f, "Dawn Mantle"); // t=3230.7; Ability 6C0C from Hydaelyn; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0xC0, 6.3f, "Highest Holy/Anthelion/Equinox"); // t=3237.0; Ability 65C3/65C7/65C8 from Hydaelyn
+    Timeout(id + 0xD0, 2.9f, "Crystalline Blizzard III/Crystalline Stone III"); // t=3239.9
+    Condition(id + 0xE0, 5.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x6693 or 0x6694 or 0x6695), "", 5f, 0.9f); // t=3245.8; StartsUsing 6693/6694/6695 from Hydaelyn
+    Timeout(id + 0xF0, 4.0f, "Lightwave"); // t=3249.8
+    Timeout(id + 0x100, 8.1f, "Echoes"); // t=3257.9; cactbot StartsUsing [Hydaelyn Echoes]
+    Timeout(id + 0x110, 17.2f, "Crystallize"); // t=3275.1; cactbot Ability 659C [Hydaelyn Crystallize Ice] | Ability 659E [Hydaelyn Crystallize Stone]
+    Timeout(id + 0x120, 3.2f, "--middle--"); // t=3278.3
+    Timeout(id + 0x130, 6.4f, "Dawn Mantle"); // t=3284.7; cactbot StartsUsing 6C0C [Hydaelyn Dawn Mantle Equinox]
+    Timeout(id + 0x140, 6.3f, "Highest Holy/Anthelion/Equinox"); // t=3291.0
+    Timeout(id + 0x150, 2.9f, "Crystalline Blizzard III/Crystalline Stone III"); // t=3293.9
+}
+

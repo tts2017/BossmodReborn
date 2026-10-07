@@ -1,0 +1,99 @@
+// Generated development skeleton from mistwake.txt (TerritoryType 1314).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 16 static/dynamic trigger definitions from ui/raidboss/data/07-dt/dungeon/mistwake.ts.
+
+private void MISTWAKE(uint id)
+{
+    Condition(id + 0x0, 1006.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA93F), "", 5f, 1001.4f); // t=1006.4; StartsUsing A93F from Treno Catoblepas; cactbot StartsUsing A93F [Mistwake Treno Catoblepas Earthquake]
+    Timeout(id + 0x10, 4.7f, "Earthquake").SetHint(StateMachine.StateHint.Raidwide); // t=1011.1; Ability A93F from Treno Catoblepas; cactbot StartsUsing A93F [Mistwake Treno Catoblepas Earthquake]
+    Timeout(id + 0x20, 11.2f, "Thunder II"); // t=1022.3; Ability A944 from Treno Catoblepas
+    Timeout(id + 0x30, 11.8f, "Bedeviling Light"); // t=1034.1; Ability A942 from Treno Catoblepas; cactbot StartsUsing A942 [Mistwake Treno Catoblepas Bedeviling Light]
+    Timeout(id + 0x40, 6.1f, "Earthquake").SetHint(StateMachine.StateHint.Raidwide); // t=1040.2; Ability A93F from Treno Catoblepas; cactbot StartsUsing A93F [Mistwake Treno Catoblepas Earthquake]
+    Timeout(id + 0x50, 8.1f, "Thunder III").SetHint(StateMachine.StateHint.Tankbuster); // t=1048.3; Ability A941 from Treno Catoblepas; cactbot StartsUsing A941 [Mistwake Treno Catoblepas Thunder III]
+    Timeout(id + 0x60, 10.1f, "Thunder II"); // t=1058.4; Ability A944 from Treno Catoblepas
+    Timeout(id + 0x70, 11.8f, "Bedeviling Light"); // t=1070.2; Ability A942 from Treno Catoblepas; cactbot StartsUsing A942 [Mistwake Treno Catoblepas Bedeviling Light]
+    Timeout(id + 0x80, 8.2f, "Ray of Lightning"); // t=1078.4; Ability AF19 from Treno Catoblepas; cactbot StartsUsing AF19 [Mistwake Treno Catoblepas Ray of Lightning On You] | StartsUsing AF19 [Mistwake Treno Catoblepas Ray of Lightning]
+    Timeout(id + 0x90, 8.4f, "Petribreath"); // t=1086.8; Ability A947 from Treno Catoblepas; cactbot StartsUsing A947 [Mistwake Treno Catoblepas Petribreath]
+    Timeout(id + 0xA0, 11.2f, "Thunder II"); // t=1098.0; Ability A944 from Treno Catoblepas
+    Timeout(id + 0xB0, 11.8f, "Bedeviling Light"); // t=1109.8; Ability A942 from Treno Catoblepas; cactbot StartsUsing A942 [Mistwake Treno Catoblepas Bedeviling Light]
+    Timeout(id + 0xC0, 6.1f, "Earthquake").SetHint(StateMachine.StateHint.Raidwide); // t=1115.9; Ability A93F from Treno Catoblepas; cactbot StartsUsing A93F [Mistwake Treno Catoblepas Earthquake]
+    Timeout(id + 0xD0, 8.1f, "Earthquake").SetHint(StateMachine.StateHint.Raidwide); // t=1124.0; Ability A93F from Treno Catoblepas; cactbot StartsUsing A93F [Mistwake Treno Catoblepas Earthquake]
+    Timeout(id + 0xE0, 11.1f, "Thunder III").SetHint(StateMachine.StateHint.Tankbuster); // t=1135.1; Ability A941 from Treno Catoblepas; cactbot StartsUsing A941 [Mistwake Treno Catoblepas Thunder III]
+    Timeout(id + 0xF0, 11.1f, "Thunder II"); // t=1146.2; Ability A944 from Treno Catoblepas
+    Timeout(id + 0x100, 11.8f, "Bedeviling Light"); // t=1158.0; Ability A942 from Treno Catoblepas; cactbot StartsUsing A942 [Mistwake Treno Catoblepas Bedeviling Light]
+    Timeout(id + 0x110, 8.1f, "Ray of Lightning"); // t=1166.1; Ability AF19 from Treno Catoblepas; cactbot StartsUsing AF19 [Mistwake Treno Catoblepas Ray of Lightning On You] | StartsUsing AF19 [Mistwake Treno Catoblepas Ray of Lightning]
+    Timeout(id + 0x120, 8.4f, "Petribreath"); // t=1174.5; Ability A947 from Treno Catoblepas; cactbot StartsUsing A947 [Mistwake Treno Catoblepas Petribreath]
+    Timeout(id + 0x130, 8.1f, "Earthquake").SetHint(StateMachine.StateHint.Raidwide); // t=1182.6; Ability A93F from Treno Catoblepas; cactbot StartsUsing A93F [Mistwake Treno Catoblepas Earthquake]
+    Timeout(id + 0x140, 11.1f, "Thunder II"); // t=1193.7; Ability A944 from Treno Catoblepas
+    Timeout(id + 0x150, 11.8f, "Bedeviling Light"); // t=1205.5; Ability A942 from Treno Catoblepas; cactbot StartsUsing A942 [Mistwake Treno Catoblepas Bedeviling Light]
+    Timeout(id + 0x160, 6.1f, "Earthquake").SetHint(StateMachine.StateHint.Raidwide); // t=1211.6; Ability A93F from Treno Catoblepas; cactbot StartsUsing A93F [Mistwake Treno Catoblepas Earthquake]
+    Condition(id + 0x170, 796.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xB118 or 0xB11D), "", 5f, 791.4f); // t=2008.0; StartsUsing B118/B11D from Amdusias; cactbot StartsUsing B118 [Mistwake Treno Amdusias Thunderclap Concerto Behind] | StartsUsing B11D [Mistwake Treno Amdusias Thunderclap Concerto Front]
+    Timeout(id + 0x180, 5.0f, "Thunderclap Concerto"); // t=2013.0; Ability B118/B11D from Amdusias; cactbot StartsUsing B118 [Mistwake Treno Amdusias Thunderclap Concerto Behind] | StartsUsing B11D [Mistwake Treno Amdusias Thunderclap Concerto Front]
+    Timeout(id + 0x190, 12.3f, "Thunderclap Concerto"); // t=2025.3; Ability B118/B11D from Amdusias; cactbot StartsUsing B118 [Mistwake Treno Amdusias Thunderclap Concerto Behind] | StartsUsing B11D [Mistwake Treno Amdusias Thunderclap Concerto Front]
+    Timeout(id + 0x1A0, 16.6f, "Bio II").SetHint(StateMachine.StateHint.Raidwide); // t=2041.9; Ability B120 from Amdusias; cactbot StartsUsing B120 [Mistwake Treno Amdusias Bio II]
+    Timeout(id + 0x1B0, 12.8f, "Galloping Thunder"); // t=2054.7; Ability B122 from Amdusias
+    Timeout(id + 0x1C0, 0.2f, "Galloping Thunder"); // t=2054.9
+    Timeout(id + 0x1D0, 2.0f, "Galloping Thunder"); // t=2056.9
+    Timeout(id + 0x1E0, 2.0f, "Galloping Thunder"); // t=2058.9
+    Timeout(id + 0x1F0, 2.0f, "Galloping Thunder"); // t=2060.9
+    Timeout(id + 0x200, 2.1f, "Galloping Thunder"); // t=2063.0
+    Timeout(id + 0x210, 5.8f, "Thunder IV").SetHint(StateMachine.StateHint.Raidwide); // t=2068.8; Ability B126 from Amdusias; cactbot StartsUsing B126 [Mistwake Treno Amdusias Thunder IV]
+    Timeout(id + 0x220, 8.0f, "Shockbolt").SetHint(StateMachine.StateHint.Tankbuster); // t=2076.8; Ability B12B from Amdusias; cactbot StartsUsing B12C [Mistwake Treno Amdusias Shockbolt]
+    Timeout(id + 0x230, 15.9f, "Thunderclap Concerto"); // t=2092.7; Ability B118/B11D from Amdusias; cactbot StartsUsing B118 [Mistwake Treno Amdusias Thunderclap Concerto Behind] | StartsUsing B11D [Mistwake Treno Amdusias Thunderclap Concerto Front]
+    Timeout(id + 0x240, 4.0f, "Thunder"); // t=2096.7; Ability B11F from Amdusias
+    Timeout(id + 0x250, 11.8f, "Thunder III"); // t=2108.5; Ability B129 from Amdusias; cactbot StartsUsing B129 [Mistwake Treno Amdusias Thunder III]
+    Timeout(id + 0x260, 1.1f, "Thunder III"); // t=2109.6
+    Timeout(id + 0x270, 1.0f, "Thunder III"); // t=2110.6
+    Timeout(id + 0x280, 16.6f, "Bio II").SetHint(StateMachine.StateHint.Raidwide); // t=2127.2; Ability B120 from Amdusias; cactbot StartsUsing B120 [Mistwake Treno Amdusias Bio II]
+    Timeout(id + 0x290, 12.8f, "Galloping Thunder"); // t=2140.0; Ability B122 from Amdusias
+    Timeout(id + 0x2A0, 0.2f, "Galloping Thunder"); // t=2140.2
+    Timeout(id + 0x2B0, 2.1f, "Galloping Thunder"); // t=2142.3
+    Timeout(id + 0x2C0, 2.1f, "Galloping Thunder"); // t=2144.4
+    Timeout(id + 0x2D0, 2.1f, "Galloping Thunder"); // t=2146.5
+    Timeout(id + 0x2E0, 2.1f, "Galloping Thunder"); // t=2148.6
+    Timeout(id + 0x2F0, 5.6f, "Thunder IV").SetHint(StateMachine.StateHint.Raidwide); // t=2154.2; Ability B126 from Amdusias; cactbot StartsUsing B126 [Mistwake Treno Amdusias Thunder IV]
+    Condition(id + 0x300, 851.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB0EB), "", 5f, 846.9f); // t=3006.1; StartsUsing B0EB from Thundergust Griffin; cactbot StartsUsing B0EB [Mistwake Thundergust Griffin Thunderspark]
+    Timeout(id + 0x310, 5.0f, "Thunderspark").SetHint(StateMachine.StateHint.Raidwide); // t=3011.1; Ability B0EB from Thundergust Griffin; cactbot StartsUsing B0EB [Mistwake Thundergust Griffin Thunderspark]
+    Timeout(id + 0x320, 11.8f, "High Volts"); // t=3022.9; Ability B0EC from Thundergust Griffin; cactbot StartsUsing B0EC [Mistwake Thundergust Griffin High Volts]
+    Timeout(id + 0x330, 1.0f, "Lightning Bolt"); // t=3023.9; Ability B708 from Thundergust Griffin
+    Timeout(id + 0x340, 3.1f, "--jump--"); // t=3027.0; Ability B0EE from Thundergust Griffin
+    Timeout(id + 0x350, 7.0f, "Thundering Roar"); // t=3034.0; Ability B0EF from Thundergust Griffin
+    Timeout(id + 0x360, 3.8f, "--jump--"); // t=3037.8; Ability B0EE from Thundergust Griffin
+    Timeout(id + 0x370, 7.0f, "Thundering Roar"); // t=3044.8; Ability B0EF from Thundergust Griffin
+    Timeout(id + 0x380, 11.8f, "Golden Talons").SetHint(StateMachine.StateHint.Tankbuster); // t=3056.6; Ability B0F9 from Thundergust Griffin; cactbot StartsUsing B0F9 [Mistwake Thundergust Griffin Golden Talons]
+    Timeout(id + 0x390, 16.2f, "Fulgurous Fall / Rush"); // t=3072.8; Ability B0F5 from Thundergust Griffin | Ability B0F6 from Thundergust Griffin
+    Targetable(id + 0x3A0, false, 0.0f, "--untargetable--"); // t=3072.8
+    Timeout(id + 0x3B0, 0.1f, "Electrifying Flight"); // t=3072.9; Ability B7AE from Thundergust Griffin
+    Timeout(id + 0x3C0, 3.3f, "Electrogenetic Force"); // t=3076.2; Ability B0F8 from Thundergust Griffin
+    Targetable(id + 0x3D0, true, 0.1f, "--targetable--"); // t=3076.3
+    Timeout(id + 0x3E0, 6.5f, "Thundering Roar"); // t=3082.8; Ability B0EF from Thundergust Griffin
+    Timeout(id + 0x3F0, 9.7f, "Thunderspark").SetHint(StateMachine.StateHint.Raidwide); // t=3092.5; Ability B0EB from Thundergust Griffin; cactbot StartsUsing B0EB [Mistwake Thundergust Griffin Thunderspark]
+    Timeout(id + 0x400, 12.4f, "Storm Surge"); // t=3104.9; Ability B0F3 from Thundergust Griffin
+    Timeout(id + 0x410, 0.6f, "Electrifying Flight"); // t=3105.5; Ability B0F4 from Shock Storm
+    Timeout(id + 0x420, 6.6f, "High Volts"); // t=3112.1; Ability B0EC from Thundergust Griffin; cactbot StartsUsing B0EC [Mistwake Thundergust Griffin High Volts]
+    Timeout(id + 0x430, 1.0f, "Lightning Bolt"); // t=3113.1; Ability B708 from Thundergust Griffin
+    Timeout(id + 0x440, 3.4f, "--jump--"); // t=3116.5; Ability B0EE from Thundergust Griffin
+    Timeout(id + 0x450, 7.0f, "Thundering Roar"); // t=3123.5; Ability B0EF from Thundergust Griffin
+    Timeout(id + 0x460, 4.2f, "--jump--"); // t=3127.7; Ability B0EE from Thundergust Griffin
+    Timeout(id + 0x470, 7.1f, "Thundering Roar"); // t=3134.8; Ability B0EF from Thundergust Griffin
+    Timeout(id + 0x480, 11.8f, "Golden Talons").SetHint(StateMachine.StateHint.Tankbuster); // t=3146.6; Ability B0F9 from Thundergust Griffin; cactbot StartsUsing B0F9 [Mistwake Thundergust Griffin Golden Talons]
+    Timeout(id + 0x490, 15.3f, "Fulgurous Fall / Rush"); // t=3161.9; Ability B0F5 from Thundergust Griffin | Ability B0F6 from Thundergust Griffin
+    Targetable(id + 0x4A0, false, 0.0f, "--untargetable--"); // t=3161.9
+    Timeout(id + 0x4B0, 0.1f, "Electrifying Flight"); // t=3162.0; Ability B7AE from Thundergust Griffin
+    Timeout(id + 0x4C0, 3.3f, "Electrogenetic Force"); // t=3165.3; Ability B0F8 from Thundergust Griffin
+    Targetable(id + 0x4D0, true, 0.1f, "--targetable--"); // t=3165.4
+    Timeout(id + 0x4E0, 6.5f, "Thundering Roar"); // t=3171.9; Ability B0EF from Thundergust Griffin
+    Timeout(id + 0x4F0, 9.7f, "Thunderspark").SetHint(StateMachine.StateHint.Raidwide); // t=3181.6; Ability B0EB from Thundergust Griffin; cactbot StartsUsing B0EB [Mistwake Thundergust Griffin Thunderspark]
+    Timeout(id + 0x500, 12.4f, "Storm Surge"); // t=3194.0; Ability B0F3 from Thundergust Griffin
+    Timeout(id + 0x510, 0.6f, "Electrifying Flight"); // t=3194.6; Ability B0F4 from Shock Storm
+    Timeout(id + 0x520, 6.6f, "High Volts"); // t=3201.2; Ability B0EC from Thundergust Griffin; cactbot StartsUsing B0EC [Mistwake Thundergust Griffin High Volts]
+    Timeout(id + 0x530, 1.0f, "Lightning Bolt"); // t=3202.2; Ability B708 from Thundergust Griffin
+    Timeout(id + 0x540, 3.3f, "--jump--"); // t=3205.5; Ability B0EE from Thundergust Griffin
+    Timeout(id + 0x550, 7.0f, "Thundering Roar"); // t=3212.5; Ability B0EF from Thundergust Griffin
+    Timeout(id + 0x560, 4.2f, "--jump--"); // t=3216.7; Ability B0EE from Thundergust Griffin
+    Timeout(id + 0x570, 7.0f, "Thundering Roar"); // t=3223.7; Ability B0EF from Thundergust Griffin
+    Timeout(id + 0x580, 11.8f, "Golden Talons").SetHint(StateMachine.StateHint.Tankbuster); // t=3235.5; Ability B0F9 from Thundergust Griffin; cactbot StartsUsing B0F9 [Mistwake Thundergust Griffin Golden Talons]
+    Timeout(id + 0x590, 15.3f, "Fulgurous Fall"); // t=3250.8; Ability B0F5 from Thundergust Griffin
+}
+

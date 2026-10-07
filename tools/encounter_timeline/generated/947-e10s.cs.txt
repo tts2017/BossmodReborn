@@ -1,0 +1,108 @@
+// Generated development skeleton from e10s.txt (TerritoryType 947).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 38 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e10s.ts.
+
+private void Eden_10__Savage(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 11.3f, "Deepshadow Nova").SetHint(StateMachine.StateHint.Raidwide); // t=11.3; Ability 573E from Shadowkeeper; cactbot StartsUsing 573E [E10S Deepshadow Nova]
+    Timeout(id + 0x20, 13.2f, "Implosion"); // t=24.5
+    Timeout(id + 0x30, 8.8f, "Throne Of Shadow"); // t=33.3; Ability 5717 from Shadowkeeper; cactbot StartsUsing 5717 [E10S Throne Of Shadow]
+    Timeout(id + 0x40, 7.6f, "Giga Slash"); // t=40.9
+    Timeout(id + 0x50, 12.3f, "Umbra Smash").SetHint(StateMachine.StateHint.Tankbuster); // t=53.2; Ability 5BAA from Shadowkeeper; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x60, 1.6f, "Umbra Smash"); // t=54.8; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x70, 1.6f, "Umbra Smash"); // t=56.4; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x80, 1.6f, "Umbra Smash"); // t=58.0; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x90, 8.1f, "Darkness Unleashed / Shadow's Edge"); // t=66.1
+    Timeout(id + 0xA0, 14.8f, "Shadow Cleave"); // t=80.9; Ability 5718 from Shadowkeeper; cactbot StartsUsing 5718 [E10S Shadow Cleave]
+    Timeout(id + 0xB0, 13.1f, "Dualspell / Blighting Blitz"); // t=94.0; Ability 573A from Shadowkeeper | Ability 573B from Shadowkeeper; cactbot StartsUsing 573A [E10S Dualspell 1] | Ability 573A [E10S Dualspell 2] | Ability 573A [E10S Dualspell 3]
+    Timeout(id + 0xC0, 3.0f, "Blighting Blitz"); // t=97.0; Ability 573B from Shadowkeeper
+    Timeout(id + 0xD0, 3.0f, "Blighting Blitz"); // t=100.0; Ability 573B from Shadowkeeper
+    Timeout(id + 0xE0, 7.4f, "Shadowkeeper"); // t=107.4; Ability 5720 from Shadowkeeper; cactbot StartsUsing 5720 [E10S Shadowkeeper 1]
+    Timeout(id + 0xF0, 3.1f, "Swath Of Silence"); // t=110.5; Ability 5BBF from Shadow Of A Hero; cactbot StartsUsing 5BBF [E10S Swath of Silence]
+    Timeout(id + 0x100, 9.3f, "Umbra Smash").SetHint(StateMachine.StateHint.Tankbuster); // t=119.8; Ability 5BAA from Shadowkeeper; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x110, 1.6f, "Umbra Smash"); // t=121.4; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x120, 1.6f, "Umbra Smash"); // t=123.0; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x130, 1.6f, "Umbra Smash"); // t=124.6; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x140, 8.1f, "Darkness Unleashed / Shadow's Edge"); // t=132.7
+    Timeout(id + 0x150, 11.6f, "Shadow Servant"); // t=144.3; Ability 5704 from Shadowkeeper; cactbot GainsEffect [E10S Shadow Servant Cleave Drop] | GainsEffect 9D6 [E10S Shadow Servant Get In]
+    Timeout(id + 0x160, 15.1f, "Giga Slash"); // t=159.4
+    Timeout(id + 0x170, 18.1f, "Giga Slash"); // t=177.5
+    Timeout(id + 0x180, 13.7f, "Distant Scream").SetHint(StateMachine.StateHint.Knockback); // t=191.2; Ability 5716 from Shadowkeeper; cactbot StartsUsing 5716 [E10S Distant Scream]
+    Timeout(id + 0x190, 8.5f, "Umbral Orbs"); // t=199.7; Ability 5730 from Shadowkeeper; cactbot StartsUsing 5731 [E10S Umbral Orbs]
+    Timeout(id + 0x1A0, 9.8f, "Flameshadow"); // t=209.5; Ability 5733 from Shadefire
+    Timeout(id + 0x1B0, 7.8f, "Spawn Shadow"); // t=217.3; Ability 5727 from Shadowkeeper
+    Timeout(id + 0x1C0, 6.1f, "Shadow Warrior"); // t=223.4; Ability 5739 from Shadowkeeper; cactbot StartsUsing 5739 [E10S Shadow Warrior]
+    Timeout(id + 0x1D0, 6.1f, "Umbral Orbs"); // t=229.5; Ability 5730 from Shadowkeeper; cactbot StartsUsing 5731 [E10S Umbral Orbs]
+    Timeout(id + 0x1E0, 9.8f, "Flameshadow"); // t=239.3; Ability 5733 from Shadefire
+    Timeout(id + 0x1F0, 14.4f, "Deepshadow Nova").SetHint(StateMachine.StateHint.Raidwide); // t=253.7; Ability 573E from Shadowkeeper; cactbot StartsUsing 573E [E10S Deepshadow Nova]
+    Timeout(id + 0x200, 13.4f, "Fade To Shadow"); // t=267.1; Ability 572B from Shadowkeeper; cactbot StartsUsing 572B [E10S Fade To Shadow]
+    Timeout(id + 0x210, 12.3f, "Implosion"); // t=279.4
+    Timeout(id + 0x220, 1.3f, "Cloak Of Shadows"); // t=280.7; Ability 5B13 from Shadowkeeper; cactbot Ability 5B13 [E10S Cloak Of Shadows]
+    Timeout(id + 0x230, 5.0f, "Cloak Of Shadows"); // t=285.7; Ability 5B14 from Shadowkeeper; cactbot Ability 5B13 [E10S Cloak Of Shadows]
+    Timeout(id + 0x240, 5.0f, "Deepshadow Nova").SetHint(StateMachine.StateHint.Raidwide); // t=290.7; Ability 573E from Shadowkeeper; cactbot StartsUsing 573E [E10S Deepshadow Nova]
+    Timeout(id + 0x250, 15.3f, "Implosion"); // t=306.0; Ability 5700/56FC from Shadowkeeper; cactbot StartsUsing 56FC [E10S Quadruple Implosion Howl] | StartsUsing 5700 [E10S Quadruple Implosion Tail]
+    Timeout(id + 0x260, 3.1f, "Implosion"); // t=309.1; Ability 5701/56FD from Shadowkeeper
+    Timeout(id + 0x270, 3.1f, "Implosion"); // t=312.2; Ability 5701/56FD from Shadowkeeper
+    Timeout(id + 0x280, 3.1f, "Implosion"); // t=315.3; Ability 5702/56FE from Shadowkeeper
+    Timeout(id + 0x290, 8.1f, "Deepshadow Nova").SetHint(StateMachine.StateHint.Raidwide); // t=323.4; Ability 573E from Shadowkeeper; cactbot StartsUsing 573E [E10S Deepshadow Nova]
+    Timeout(id + 0x2A0, 11.7f, "Throne Of Shadow"); // t=335.1; Ability 5717 from Shadowkeeper; cactbot StartsUsing 5717 [E10S Throne Of Shadow]
+    Timeout(id + 0x2B0, 6.5f, "Umbra Smash").SetHint(StateMachine.StateHint.Tankbuster); // t=341.6; Ability 5BAA from Shadowkeeper; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x2C0, 1.6f, "Umbra Smash"); // t=343.2; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x2D0, 1.6f, "Umbra Smash"); // t=344.8; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x2E0, 1.6f, "Umbra Smash"); // t=346.4; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x2F0, 8.1f, "Darkness Unleashed / Shadow's Edge"); // t=354.5
+    Timeout(id + 0x300, 12.6f, "Voidgate"); // t=367.1; Ability 5734 from Shadowkeeper; cactbot StartsUsing 5734 [E10S Voidgate] | StartsUsing 5734 [E10S Voidgate Second Tower]
+    Timeout(id + 0x310, 6.2f, "Shadow Servant"); // t=373.3; Ability 5704 from Shadowkeeper; cactbot GainsEffect [E10S Shadow Servant Cleave Drop] | GainsEffect 9D6 [E10S Shadow Servant Get In]
+    Timeout(id + 0x320, 10.9f, "Void Pulse"); // t=384.2; Ability 5735 from Shadowkeeper
+    Timeout(id + 0x330, 4.2f, "Giga Slash"); // t=388.4
+    Timeout(id + 0x340, 13.5f, "Void Pulse"); // t=401.9; Ability 5735 from Shadowkeeper
+    Timeout(id + 0x350, 7.6f, "Giga Slash"); // t=409.5
+    Timeout(id + 0x360, 16.2f, "Pitch Bog"); // t=425.7; Ability 5721 from Shadowkeeper; cactbot StartsUsing 5721 [E10S Pitch Bog]
+    Timeout(id + 0x370, 5.3f, "Umbral Orbs"); // t=431.0; Ability 5731 from Shadowkeeper; cactbot StartsUsing 5731 [E10S Umbral Orbs]
+    Timeout(id + 0x380, 7.9f, "Distant Scream").SetHint(StateMachine.StateHint.Knockback); // t=438.9; Ability 5716 from Shadowkeeper; cactbot StartsUsing 5716 [E10S Distant Scream]
+    Timeout(id + 0x390, 2.0f, "Flameshadow"); // t=440.9; Ability 5733 from Shadefire
+    Timeout(id + 0x3A0, 8.7f, "Implosion"); // t=449.6; Ability 5700/56FC from Shadowkeeper; cactbot StartsUsing 56FC [E10S Quadruple Implosion Howl] | StartsUsing 5700 [E10S Quadruple Implosion Tail]
+    Timeout(id + 0x3B0, 3.1f, "Implosion"); // t=452.7; Ability 5702/5701/56FE from Shadowkeeper
+    Timeout(id + 0x3C0, 12.1f, "Deepshadow Nova").SetHint(StateMachine.StateHint.Raidwide); // t=464.8; Ability 573E from Shadowkeeper; cactbot StartsUsing 573E [E10S Deepshadow Nova]
+    Timeout(id + 0x3D0, 11.2f, "Shackled Apart"); // t=476.0; Ability 5BAC from Shadowkeeper; cactbot Tether 82 [E10S Shackled Apart]
+    Timeout(id + 0x3E0, 7.7f, "Fade To Shadow"); // t=483.7; Ability 572B from Shadowkeeper; cactbot StartsUsing 572B [E10S Fade To Shadow]
+    Timeout(id + 0x3F0, 8.2f, "Umbral Orbs"); // t=491.9; Ability 5730 from Shadowkeeper; cactbot StartsUsing 5731 [E10S Umbral Orbs]
+    Timeout(id + 0x400, 5.4f, "Cloak Of Shadows"); // t=497.3; Ability 5B13 from Shadowkeeper; cactbot Ability 5B13 [E10S Cloak Of Shadows]
+    Timeout(id + 0x410, 5.0f, "Cloak Of Shadows"); // t=502.3; Ability 5B14 from Shadowkeeper; cactbot Ability 5B13 [E10S Cloak Of Shadows]
+    Timeout(id + 0x420, 1.4f, "Flameshadow"); // t=503.7; Ability 5733 from Shadefire
+    Timeout(id + 0x430, 12.3f, "Deepshadow Nova").SetHint(StateMachine.StateHint.Raidwide); // t=516.0; Ability 573E from Shadowkeeper; cactbot StartsUsing 573E [E10S Deepshadow Nova]
+    Timeout(id + 0x440, 15.6f, "Throne Of Shadow"); // t=531.6; Ability 5717 from Shadowkeeper; cactbot StartsUsing 5717 [E10S Throne Of Shadow]
+    Timeout(id + 0x450, 6.6f, "Pitch Bog"); // t=538.2; Ability 5721 from Shadowkeeper; cactbot StartsUsing 5721 [E10S Pitch Bog]
+    Timeout(id + 0x460, 8.4f, "Giga Slash"); // t=546.6; Ability 56F8/56F4 from Shadowkeeper; cactbot StartsUsing 56F4 [E10S Giga Slash Shadow Quadruple Left] | StartsUsing 56F8 [E10S Giga Slash Shadow Quadruple Right]
+    Timeout(id + 0x470, 3.1f, "Giga Slash"); // t=549.7; Ability 56F9/56F5 from Shadowkeeper
+    Timeout(id + 0x480, 3.1f, "Giga Slash"); // t=552.8; Ability 56F9/56F5 from Shadowkeeper
+    Timeout(id + 0x490, 3.1f, "Giga Slash"); // t=555.9; Ability 56FA/56F6 from Shadowkeeper
+    Timeout(id + 0x4A0, 7.1f, "Voidgate Amplifier"); // t=563.0; Ability 5BCF from Shadowkeeper; cactbot StartsUsing 5BCF [E10S Voidgate Amplifier]
+    Timeout(id + 0x4B0, 7.1f, "Shadowkeeper"); // t=570.1; Ability 5720 from Shadowkeeper; cactbot StartsUsing 5720 [E10S Shadowkeeper 1]
+    Timeout(id + 0x4C0, 3.1f, "Swath Of Silence"); // t=573.2; Ability 5BBF from Shadow Of A Hero; cactbot StartsUsing 5BBF [E10S Swath of Silence]
+    Timeout(id + 0x4D0, 4.4f, "Void Pulse"); // t=577.6; Ability 5735 from Shadowkeeper
+    Timeout(id + 0x4E0, 4.0f, "Shadowy Eruption"); // t=581.6; Ability 5737 from Shadowkeeper
+    Timeout(id + 0x4F0, 3.8f, "Shadowy Eruption"); // t=585.4; Ability 5738 from Shadowkeeper
+    Timeout(id + 0x500, 1.6f, "Shackled Together"); // t=587.0; Ability 572E from Shadowkeeper; cactbot Tether 81 [E10S Shackled Together]
+    Timeout(id + 0x510, 5.8f, "Void Pulse"); // t=592.8; Ability 5735 from Shadowkeeper
+    Timeout(id + 0x520, 8.6f, "Umbra Smash"); // t=601.4; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x530, 1.6f, "Umbra Smash"); // t=603.0; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x540, 1.6f, "Umbra Smash"); // t=604.6; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x550, 1.6f, "Umbra Smash"); // t=606.2; cactbot StartsUsing 5BAA [E10S Umbra Smash] | StartsUsing 5BAA [E10S Umbra Smash Offtank Swap]
+    Timeout(id + 0x560, 8.1f, "Darkness Unleashed / Shadow's Edge"); // t=614.3
+    Timeout(id + 0x570, 7.6f, "Umbral Orbs"); // t=621.9; Ability 5731 from Shadowkeeper; cactbot StartsUsing 5731 [E10S Umbral Orbs]
+    Timeout(id + 0x580, 7.9f, "Distant Scream").SetHint(StateMachine.StateHint.Knockback); // t=629.8; Ability 5716 from Shadowkeeper; cactbot StartsUsing 5716 [E10S Distant Scream]
+    Timeout(id + 0x590, 1.9f, "Flameshadow"); // t=631.7; Ability 5733 from Shadefire
+    Timeout(id + 0x5A0, 10.6f, "Deepshadow Nova").SetHint(StateMachine.StateHint.Raidwide); // t=642.3; Ability 573E from Shadowkeeper; cactbot StartsUsing 573E [E10S Deepshadow Nova]
+    Timeout(id + 0x5B0, 12.2f, "Deepshadow Nova").SetHint(StateMachine.StateHint.Raidwide); // t=654.5; Ability 573E from Shadowkeeper; cactbot StartsUsing 573E [E10S Deepshadow Nova]
+    Timeout(id + 0x5C0, 8.2f, "Deepshadow Nova").SetHint(StateMachine.StateHint.Raidwide); // t=662.7; Ability 573E from Shadowkeeper; cactbot StartsUsing 573E [E10S Deepshadow Nova]
+}
+
+private void TODO__is_this_enrage(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Doom Arc"); // t=675.8; Ability 5741 from Shadowkeeper
+    Timeout(id + 0x10, 1.7f, "Doom Arc"); // t=677.5; Ability 5742 from Shadowkeeper
+}
+

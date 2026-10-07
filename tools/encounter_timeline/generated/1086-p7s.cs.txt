@@ -1,0 +1,91 @@
+// Generated development skeleton from p7s.txt (TerritoryType 1086).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 22 static/dynamic trigger definitions from ui/raidboss/data/06-ew/raid/p7s.ts.
+
+private void P7S__Abyssos__The_Seventh_Circle__Savage(uint id)
+{
+    Timeout(id + 0x0, 13.0f, "Spark of Life"); // t=13.0; Ability 7839 from Agdistis; cactbot StartsUsing 7839 [P7S Spark of Life]
+    Timeout(id + 0x10, 13.3f, "Condensed Aero II/Dispersed Aero II").SetHint(StateMachine.StateHint.Tankbuster); // t=26.3; Ability 7836/7835 from Agdistis; cactbot StartsUsing 7836 [P7S Condensed Aero II] | StartsUsing 7835 [P7S Dispersed Aero II]
+    Timeout(id + 0x20, 16.4f, "Immortal's Obol"); // t=42.7; Ability 780C from Agdistis
+    Timeout(id + 0x30, 1.9f, "Blades of Attis"); // t=44.6; Ability 782F from Agdistis
+    Timeout(id + 0x40, 14.8f, "Forbidden Fruit"); // t=59.4; Ability 7810 from Agdistis; cactbot Tether 1/6/39/11 [P7S Forbidden Fruit 4 and Harvest Tethers] | Tether 6/39 [P7S Forbidden Fruit 4 and Harvest Stop Collection]
+    Timeout(id + 0x50, 5.1f, "--eggs--"); // t=64.5; Ability 7811 from Agdistis; cactbot Ability 7811 [P7S Egg Tracker]
+    Timeout(id + 0x60, 15.3f, "Hemitheos's Holy III"); // t=79.8; Ability 783B from Agdistis
+    Timeout(id + 0x70, 0.2f, "Bough of Attis (far)"); // t=80.0; Ability 7826 from Agdistis
+    Timeout(id + 0x80, 0.3f, "Stymphalian Strike"); // t=80.3; Ability 7815 from Immature Stymphalide
+    Timeout(id + 0x90, 11.4f, "Condensed Aero II/Dispersed Aero II").SetHint(StateMachine.StateHint.Tankbuster); // t=91.7; Ability 7836/7835 from Agdistis; cactbot StartsUsing 7836 [P7S Condensed Aero II] | StartsUsing 7835 [P7S Dispersed Aero II]
+    Timeout(id + 0xA0, 10.8f, "Spark of Life"); // t=102.5; Ability 7839 from Agdistis; cactbot StartsUsing 7839 [P7S Spark of Life]
+    Timeout(id + 0xB0, 9.3f, "Inviolate Bonds"); // t=111.8; Ability 781A from Agdistis; cactbot GainsEffect CEC/D45 [P7S Inviolate Bonds] | HeadMarker [P7S Inviolate Bonds Reminders]
+    Timeout(id + 0xC0, 10.0f, "Bough of Attis (close)"); // t=121.8; Ability 7821 from Agdistis
+    Timeout(id + 0xD0, 0.1f, "Hemitheos's Aero III / Hemitheos's Holy III"); // t=121.9; Ability 781B from Agdistis | Ability 781C from Agdistis
+    Timeout(id + 0xE0, 7.5f, "Bough of Attis (arrow)"); // t=129.4; Ability 7823/7824 from Agdistis; cactbot StartsUsing 7824 [P7S Bough of Attis Left Arrows] | StartsUsing 7823 [P7S Bough of Attis Right Arrows]
+    Timeout(id + 0xF0, 3.5f, "Hemitheos's Aero III / Hemitheos's Holy III"); // t=132.9; Ability 781B from Agdistis | Ability 781C from Agdistis
+    Timeout(id + 0x100, 5.7f, "Roots of Attis"); // t=138.6; Ability 780E from Agdistis; cactbot StartsUsing 780E [P7S Roots of Attis 3] | StartsUsing 780E [P7S Roots of Attis 2] | StartsUsing 780E [P7S Roots of Attis 1]
+    Timeout(id + 0x110, 18.5f, "Condensed Aero II/Dispersed Aero II").SetHint(StateMachine.StateHint.Tankbuster); // t=157.1; Ability 7836/7835 from Agdistis; cactbot StartsUsing 7836 [P7S Condensed Aero II] | StartsUsing 7835 [P7S Dispersed Aero II]
+    Timeout(id + 0x120, 8.7f, "Forbidden Fruit"); // t=165.8; Ability 7810 from Agdistis; cactbot Tether 1/6/39/11 [P7S Forbidden Fruit 4 and Harvest Tethers] | Tether 6/39 [P7S Forbidden Fruit 4 and Harvest Stop Collection]
+    Timeout(id + 0x130, 5.1f, "--eggs--"); // t=170.9; Ability 7811 from Agdistis; cactbot Ability 7811 [P7S Egg Tracker]
+    Timeout(id + 0x140, 5.1f, "Multicast"); // t=176.0; Ability 79F5 from Agdistis
+    Timeout(id + 0x150, 6.0f, "Hemitheos's Aero IV").SetHint(StateMachine.StateHint.Knockback); // t=182.0; Ability 7A0B from Agdistis; cactbot StartsUsing 7A0B [P7S Hemitheos\]
+    Timeout(id + 0x160, 3.8f, "Hemitheos's Holy"); // t=185.8; Ability 7832 from Agdistis
+    Timeout(id + 0x170, 1.0f, "Stymphalian Strike"); // t=186.8; Ability 7815 from Immature Stymphalide
+    Timeout(id + 0x180, 7.3f, "Roots of Attis"); // t=194.1; Ability 780E from Agdistis; cactbot StartsUsing 780E [P7S Roots of Attis 3] | StartsUsing 780E [P7S Roots of Attis 2] | StartsUsing 780E [P7S Roots of Attis 1]
+    Timeout(id + 0x190, 11.4f, "Forbidden Fruit"); // t=205.5; Ability 7810 from Agdistis; cactbot Tether 1/6/39/11 [P7S Forbidden Fruit 4 and Harvest Tethers] | Tether 6/39 [P7S Forbidden Fruit 4 and Harvest Stop Collection]
+    Timeout(id + 0x1A0, 5.1f, "--eggs--"); // t=210.6; Ability 7811 from Agdistis; cactbot Ability 7811 [P7S Egg Tracker]
+    Timeout(id + 0x1B0, 12.8f, "Hemitheos's Holy III"); // t=223.4; Ability 783B from Agdistis
+    Timeout(id + 0x1C0, 17.2f, "Bough of Attis (close)"); // t=240.6; Ability 7821 from Agdistis
+    Timeout(id + 0x1D0, 7.6f, "Bough of Attis (arrow)"); // t=248.2; Ability 7823/7824 from Agdistis; cactbot StartsUsing 7824 [P7S Bough of Attis Left Arrows] | StartsUsing 7823 [P7S Bough of Attis Right Arrows]
+    Timeout(id + 0x1E0, 10.1f, "Condensed Aero II/Dispersed Aero II").SetHint(StateMachine.StateHint.Tankbuster); // t=258.3; Ability 7836/7835 from Agdistis; cactbot StartsUsing 7836 [P7S Condensed Aero II] | StartsUsing 7835 [P7S Dispersed Aero II]
+    Timeout(id + 0x1F0, 7.7f, "Forbidden Fruit"); // t=266.0; Ability 7810 from Agdistis; cactbot Tether 1/6/39/11 [P7S Forbidden Fruit 4 and Harvest Tethers] | Tether 6/39 [P7S Forbidden Fruit 4 and Harvest Stop Collection]
+    Timeout(id + 0x200, 5.1f, "--eggs--"); // t=271.1; Ability 7811 from Agdistis; cactbot Ability 7811 [P7S Egg Tracker]
+    Timeout(id + 0x210, 15.6f, "Bullish Swipe / Bullish Slash / Static Path"); // t=286.7; Ability 7818 from Immature Minotaur | Ability 7817 from Immature Minotaur | Ability 7813 from Immature Io
+    Timeout(id + 0x220, 14.2f, "Multicast"); // t=300.9; Ability 79F5 from Agdistis
+    Timeout(id + 0x230, 4.4f, "Blades of Attis"); // t=305.3; Ability 782F from Agdistis
+    Timeout(id + 0x240, 1.7f, "Hemitheos's Aero IV"); // t=307.0; Ability 7834 from Agdistis
+    Timeout(id + 0x250, 2.7f, "Hemitheos's Holy III"); // t=309.7; Ability 783B from Agdistis
+    Timeout(id + 0x260, 14.5f, "Condensed Aero II/Dispersed Aero II").SetHint(StateMachine.StateHint.Tankbuster); // t=324.2; Ability 7836/7835 from Agdistis; cactbot StartsUsing 7836 [P7S Condensed Aero II] | StartsUsing 7835 [P7S Dispersed Aero II]
+    Timeout(id + 0x270, 9.7f, "Forbidden Fruit"); // t=333.9; Ability 7810 from Agdistis; cactbot Tether 1/6/39/11 [P7S Forbidden Fruit 4 and Harvest Tethers] | Tether 6/39 [P7S Forbidden Fruit 4 and Harvest Stop Collection]
+    Timeout(id + 0x280, 5.1f, "--eggs--"); // t=339.0; Ability 7811 from Agdistis; cactbot Ability 7811 [P7S Egg Tracker]
+    Timeout(id + 0x290, 3.7f, "Shadow of Attis"); // t=342.7; Ability 782B from Agdistis
+    Timeout(id + 0x2A0, 11.5f, "Bronze Bellows"); // t=354.2; Ability 7816 from Immature Stymphalide
+    Timeout(id + 0x2B0, 9.1f, "Spark of Life"); // t=363.3; Ability 7839 from Agdistis; cactbot StartsUsing 7839 [P7S Spark of Life]
+    Timeout(id + 0x2C0, 12.8f, "Immortal's Obol"); // t=376.1; Ability 780C from Agdistis
+    Timeout(id + 0x2D0, 9.1f, "Forbidden Fruit"); // t=385.2; Ability 7810 from Agdistis; cactbot Tether 1/6/39/11 [P7S Forbidden Fruit 4 and Harvest Tethers] | Tether 6/39 [P7S Forbidden Fruit 4 and Harvest Stop Collection]
+    Timeout(id + 0x2E0, 5.1f, "--eggs--"); // t=390.3; Ability 7811 from Agdistis; cactbot Ability 7811 [P7S Egg Tracker]
+    Timeout(id + 0x2F0, 6.1f, "Inviolate Purgation"); // t=396.4; Ability 781E from Agdistis; cactbot GainsEffect D3F [P7S Inviolate Purgation Collect] | GainsEffect D3F [P7S Inviolate Purgation] | HeadMarker [P7S Inviolate Purgation Reminders]
+    Timeout(id + 0x300, 11.1f, "Hemitheos's Holy III / Hemitheos's Aero III"); // t=407.5; Ability 781C from Agdistis | Ability 781B from Agdistis
+    Timeout(id + 0x310, 0.4f, "Stymphalian Strike"); // t=407.9; Ability 7815 from Immature Stymphalide
+    Timeout(id + 0x320, 14.6f, "Hemitheos's Aero III / Hemitheos's Holy III"); // t=422.5; Ability 781B from Agdistis | Ability 781C from Agdistis
+    Timeout(id + 0x330, 0.1f, "Hemitheos's Glare III / Hemitheos's Tornado"); // t=422.6; Ability 7820 from Agdistis | Ability 781F from Agdistis
+    Timeout(id + 0x340, 7.1f, "Light of Life 1"); // t=429.7; Ability 78E2 from Agdistis; cactbot StartsUsing 78E2 [P7S Light of Life]
+    Timeout(id + 0x350, 7.8f, "Hemitheos's Aero III / Hemitheos's Holy III / Hemitheos's Tornado / Hemitheos's Glare III"); // t=437.5; Ability 781B from Agdistis | Ability 781C from Agdistis | Ability 781F from Agdistis | Ability 7820 from Agdistis | Ability 781F from Agdistis
+    Timeout(id + 0x360, 15.0f, "Hemitheos's Aero III / Hemitheos's Holy III / Hemitheos's Tornado / Hemitheos's Glare III"); // t=452.5; Ability 781B from Agdistis | Ability 781C from Agdistis | Ability 781F from Agdistis | Ability 7820 from Agdistis | Ability 781F from Agdistis
+    Timeout(id + 0x370, 8.3f, "Light of Life 2"); // t=460.8; Ability 78E2 from Agdistis; cactbot StartsUsing 78E2 [P7S Light of Life]
+    Timeout(id + 0x380, 6.7f, "Hemitheos's Tornado / Hemitheos's Glare III"); // t=467.5; Ability 781F from Agdistis | Ability 7820 from Agdistis
+    Timeout(id + 0x390, 8.7f, "Forbidden Fruit"); // t=476.2; Ability 7810 from Agdistis; cactbot Tether 1/6/39/11 [P7S Forbidden Fruit 4 and Harvest Tethers] | Tether 6/39 [P7S Forbidden Fruit 4 and Harvest Stop Collection]
+    Timeout(id + 0x3A0, 5.1f, "--eggs--"); // t=481.3; Ability 7811 from Agdistis; cactbot Ability 7811 [P7S Egg Tracker]
+    Timeout(id + 0x3B0, 5.1f, "Roots of Attis"); // t=486.4; Ability 780E from Agdistis; cactbot StartsUsing 780E [P7S Roots of Attis 3] | StartsUsing 780E [P7S Roots of Attis 2] | StartsUsing 780E [P7S Roots of Attis 1]
+    Timeout(id + 0x3C0, 7.1f, "Hemitheos's Glare"); // t=493.5; Ability 7828 from Agdistis
+    Timeout(id + 0x3D0, 5.0f, "--chasing aoe--"); // t=498.5; Ability 7829 from Agdistis
+    Timeout(id + 0x3E0, 2.6f, "Stymphalian Strike"); // t=501.1; Ability 7815 from Immature Stymphalide
+    Timeout(id + 0x3F0, 6.9f, "Famine's Harvest"); // t=508.0; Ability 7A4F from Agdistis; cactbot StartsUsing 7A4F/7A50/7A51 [P7S Harvest Phase Tracker]
+    Timeout(id + 0x400, 5.1f, "--eggs--"); // t=513.1; Ability 7811 from Agdistis; cactbot Ability 7811 [P7S Egg Tracker]
+    Timeout(id + 0x410, 15.6f, "Bullish Swipe / Bullish Slash"); // t=528.7; Ability 7818 from Immature Minotaur | Ability 7817 from Immature Minotaur
+    Timeout(id + 0x420, 0.2f, "Stymphalian Strike"); // t=528.9; Ability 7815 from Immature Stymphalide
+    Timeout(id + 0x430, 11.7f, "Death's Harvest"); // t=540.6; Ability 7A50 from Agdistis; cactbot StartsUsing 7A4F/7A50/7A51 [P7S Harvest Phase Tracker]
+    Timeout(id + 0x440, 5.1f, "--eggs--"); // t=545.7; Ability 7811 from Agdistis; cactbot Ability 7811 [P7S Egg Tracker]
+    Timeout(id + 0x450, 15.6f, "Static Path"); // t=561.3; Ability 7813 from Immature Io
+    Timeout(id + 0x460, 0.3f, "Stymphalian Strike"); // t=561.6; Ability 7815 from Immature Stymphalide
+    Timeout(id + 0x470, 11.7f, "War's Harvest"); // t=573.3; Ability 7A51 from Agdistis; cactbot StartsUsing 7A4F/7A50/7A51 [P7S Harvest Phase Tracker]
+    Timeout(id + 0x480, 5.1f, "--eggs--"); // t=578.4; Ability 7811 from Agdistis; cactbot Ability 7811 [P7S Egg Tracker]
+    Timeout(id + 0x490, 15.6f, "Bullish Slash / Bronze Bellows / Static Path"); // t=594.0; Ability 7817 from Immature Minotaur | Ability 7816 from Immature Stymphalide | Ability 7813 from Immature Io
+    Timeout(id + 0x4A0, 13.0f, "Spark of Life"); // t=607.0; Ability 7839 from Agdistis; cactbot StartsUsing 7839 [P7S Spark of Life]
+    Timeout(id + 0x4B0, 19.3f, "Bough of Attis (close)"); // t=626.3; Ability 7821 from Agdistis
+    Timeout(id + 0x4C0, 1.2f, "Hemitheos's Holy III"); // t=627.5; Ability 783B from Agdistis
+    Timeout(id + 0x4D0, 6.4f, "Bough of Attis (arrow)"); // t=633.9; Ability 7823/7824 from Agdistis; cactbot StartsUsing 7824 [P7S Bough of Attis Left Arrows] | StartsUsing 7823 [P7S Bough of Attis Right Arrows]
+    Timeout(id + 0x4E0, 9.2f, "Spark of Life"); // t=643.1; Ability 7839 from Agdistis; cactbot StartsUsing 7839 [P7S Spark of Life]
+    Timeout(id + 0x4F0, 13.2f, "Spark of Life"); // t=656.3; Ability 7839 from Agdistis; cactbot StartsUsing 7839 [P7S Spark of Life]
+    Condition(id + 0x500, 7.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x783F), "", 5f, 2.2f); // t=663.5; StartsUsing 783F from Agdistis
+    Timeout(id + 0x510, 10.0f, "Light of Life (enrage)"); // t=673.5; Ability 783F from Agdistis
+}
+

@@ -1,0 +1,172 @@
+// Generated development skeleton from shisui_of_the_violet_tides.txt (TerritoryType 1367).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 6 static/dynamic trigger definitions from ui/raidboss/data/04-sb/dungeon/shisui_of_the_violet_tides.ts.
+
+private void Phase_1__100_____90___autos___mini_busters(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 4.5f, "Sharp Strike"); // t=4.5; Ability 1F72 from Amikiri
+    Timeout(id + 0x20, 8.2f, "Sharp Strike"); // t=12.7
+    Timeout(id + 0x30, 8.2f, "Sharp Strike"); // t=20.9
+    Timeout(id + 0x40, 8.2f, "Sharp Strike"); // t=29.1
+    Timeout(id + 0x50, 8.2f, "Sharp Strike"); // t=37.3
+}
+
+private void Phase_2__90_____0(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Mucal Glob"); // t=100.0; Ability 1F73 from Amikiri
+    Timeout(id + 0x10, 32.2f, "Shuck?"); // t=132.2; Ability 1F75 from Amikiri
+    Timeout(id + 0x20, 16.9f, "--add--"); // t=149.1
+    Timeout(id + 0x30, 12.7f, "Digest"); // t=161.8; Ability 1F79 from Amikiri; cactbot HeadMarker E [Shisui Amikiri Digestive Fluid]
+    Timeout(id + 0x40, 19.9f, "--add--"); // t=181.7
+    Timeout(id + 0x50, 0.5f, "Mucal Glob"); // t=182.2; Ability 1F73 from Amikiri
+    Timeout(id + 0x60, 12.2f, "Digest"); // t=194.4; Ability 1F79 from Amikiri; cactbot HeadMarker E [Shisui Amikiri Digestive Fluid]
+    Timeout(id + 0x70, 20.0f, "Shuck?"); // t=214.4; Ability 1F75 from Amikiri
+    Timeout(id + 0x80, 15.1f, "Digest"); // t=229.5; Ability 1F79 from Amikiri; cactbot HeadMarker E [Shisui Amikiri Digestive Fluid]
+    Timeout(id + 0x90, 19.9f, "--add--"); // t=249.4
+    Timeout(id + 0xA0, 0.5f, "Mucal Glob"); // t=249.9; Ability 1F73 from Amikiri
+    Timeout(id + 0xB0, 12.2f, "Digest"); // t=262.1; cactbot HeadMarker E [Shisui Amikiri Digestive Fluid]
+    Timeout(id + 0xC0, 20.0f, "Shuck?"); // t=282.1
+    Timeout(id + 0xD0, 10.1f, "Digest"); // t=292.2; cactbot HeadMarker E [Shisui Amikiri Digestive Fluid]
+}
+
+private void Phase_1__100____90___autos___mini_busters(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=1000.0
+    Timeout(id + 0x10, 6.4f, "Tornadogenesis"); // t=1006.4; Ability 1F7F from Ruby Princess
+    Timeout(id + 0x20, 7.1f, "Tornadogenesis"); // t=1013.5
+    Timeout(id + 0x30, 7.1f, "Tornadogenesis"); // t=1020.6
+    Timeout(id + 0x40, 7.1f, "Tornadogenesis"); // t=1027.7
+    Timeout(id + 0x50, 7.1f, "Tornadogenesis"); // t=1034.8
+    Timeout(id + 0x60, 7.1f, "Tornadogenesis"); // t=1041.9
+}
+
+private void Phase_2__90_____75___one_seduce__more_mini_busters(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1F7A), "", 5f, 0.0f); // t=1100.0; StartsUsing 1F7A from Ruby Princess; cactbot StartsUsing 1F7A [Shisui Ruby Princess Seduce]
+    Timeout(id + 0x10, 7.0f, "Seduce"); // t=1107.0; Ability 1F7A from Ruby Princess; cactbot StartsUsing 1F7A [Shisui Ruby Princess Seduce]
+    Timeout(id + 0x20, 8.1f, "Coriolis Kick"); // t=1115.1; Ability 1F7B from Ruby Princess
+    Timeout(id + 0x30, 6.2f, "Tornadogenesis"); // t=1121.3; Ability 1F7F from Ruby Princess
+    Timeout(id + 0x40, 5.1f, "Tornadogenesis"); // t=1126.4
+    Timeout(id + 0x50, 5.1f, "Tornadogenesis"); // t=1131.5
+    Timeout(id + 0x60, 5.1f, "Tornadogenesis"); // t=1136.6
+    Timeout(id + 0x70, 5.1f, "Tornadogenesis"); // t=1141.7
+    Timeout(id + 0x80, 5.1f, "Tornadogenesis"); // t=1146.8
+}
+
+private void Phase_3__75_____60___introduction_to_chasing_AOE(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1F7C), "", 5f, 0.0f); // t=1200.0; StartsUsing 1F7C from Ruby Princess
+    Timeout(id + 0x10, 3.0f, "Abyssal Volcano"); // t=1203.0; Ability 1F7C from Ruby Princess
+    Timeout(id + 0x20, 0.8f, "Geothermal Flatulence x11"); // t=1203.8; Ability 24D7 from Ruby Princess
+    Timeout(id + 0x30, 13.4f, "Coriolis Kick"); // t=1217.2; Ability 1F7B from Ruby Princess
+    Timeout(id + 0x40, 8.2f, "Tornadogenesis"); // t=1225.4; Ability 1F7F from Ruby Princess
+    Timeout(id + 0x50, 7.1f, "Tornadogenesis"); // t=1232.5; Ability 1F7F from Ruby Princess
+    Timeout(id + 0x60, 12.2f, "Abyssal Volcano"); // t=1244.7; Ability 1F7C from Ruby Princess
+    Timeout(id + 0x70, 0.8f, "Geothermal Flatulence x11"); // t=1245.5
+    Timeout(id + 0x80, 13.4f, "Coriolis Kick"); // t=1258.9
+    Timeout(id + 0x90, 8.2f, "Tornadogenesis"); // t=1267.1
+    Timeout(id + 0xA0, 7.1f, "Tornadogenesis"); // t=1274.2
+}
+
+private void Phase_4__60_____0___seduce_loop(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1F7A), "", 5f, 0.0f); // t=1400.0; StartsUsing 1F7A from Ruby Princess; cactbot StartsUsing 1F7A [Shisui Ruby Princess Seduce]
+    Timeout(id + 0x10, 7.0f, "Seduce"); // t=1407.0; Ability 1F7A from Ruby Princess; cactbot StartsUsing 1F7A [Shisui Ruby Princess Seduce]
+    Timeout(id + 0x20, 8.1f, "Coriolis Kick"); // t=1415.1; Ability 1F7B from Ruby Princess
+    Timeout(id + 0x30, 8.2f, "Tornadogenesis"); // t=1423.3; Ability 1F7F from Ruby Princess
+    Timeout(id + 0x40, 7.1f, "Tornadogenesis"); // t=1430.4; Ability 1F7F from Ruby Princess
+    Timeout(id + 0x50, 7.1f, "Tornadogenesis"); // t=1437.5; Ability 1F7F from Ruby Princess
+    Timeout(id + 0x60, 12.2f, "Abyssal Volcano"); // t=1449.7; Ability 1F7C from Ruby Princess
+    Timeout(id + 0x70, 0.8f, "Geothermal Flatulence x11"); // t=1450.5; Ability 24D7 from Ruby Princess
+    Timeout(id + 0x80, 15.2f, "Seduce"); // t=1465.7; Ability 1F7A from Ruby Princess; cactbot StartsUsing 1F7A [Shisui Ruby Princess Seduce]
+    Timeout(id + 0x90, 8.1f, "Coriolis Kick"); // t=1473.8; Ability 1F7B from Ruby Princess
+    Timeout(id + 0xA0, 8.2f, "Tornadogenesis"); // t=1482.0; Ability 1F7F from Ruby Princess
+    Timeout(id + 0xB0, 7.1f, "Tornadogenesis"); // t=1489.1; Ability 1F7F from Ruby Princess
+    Timeout(id + 0xC0, 7.1f, "Tornadogenesis"); // t=1496.2; Ability 1F7F from Ruby Princess
+    Timeout(id + 0xD0, 16.7f, "Seduce"); // t=1512.9; Ability 1F7A from Ruby Princess; cactbot StartsUsing 1F7A [Shisui Ruby Princess Seduce]
+    Timeout(id + 0xE0, 8.2f, "Coriolis Kick"); // t=1521.1; Ability 1F7B from Ruby Princess
+    Timeout(id + 0xF0, 8.2f, "Tornadogenesis"); // t=1529.3; Ability 1F7F from Ruby Princess
+    Timeout(id + 0x100, 7.1f, "Tornadogenesis"); // t=1536.4; Ability 1F7F from Ruby Princess
+    Timeout(id + 0x110, 7.1f, "Tornadogenesis"); // t=1543.5; Ability 1F7F from Ruby Princess
+    Timeout(id + 0x120, 12.1f, "Abyssal Volcano"); // t=1555.6; Ability 1F7C from Ruby Princess
+    Timeout(id + 0x130, 0.8f, "Geothermal Flatulence x11"); // t=1556.4
+    Timeout(id + 0x140, 15.0f, "Seduce"); // t=1571.4; cactbot StartsUsing 1F7A [Shisui Ruby Princess Seduce]
+    Timeout(id + 0x150, 8.1f, "Coriolis Kick"); // t=1579.5
+    Timeout(id + 0x160, 8.2f, "Tornadogenesis"); // t=1587.7
+    Timeout(id + 0x170, 7.1f, "Tornadogenesis"); // t=1594.8
+    Timeout(id + 0x180, 7.2f, "Tornadogenesis"); // t=1602.0
+    Timeout(id + 0x190, 16.9f, "Seduce"); // t=1618.9; cactbot StartsUsing 1F7A [Shisui Ruby Princess Seduce]
+    Timeout(id + 0x1A0, 8.1f, "Coriolis Kick"); // t=1627.0
+    Timeout(id + 0x1B0, 8.2f, "Tornadogenesis"); // t=1635.2
+    Timeout(id + 0x1C0, 7.1f, "Tornadogenesis"); // t=1642.3
+    Timeout(id + 0x1D0, 7.1f, "Tornadogenesis"); // t=1649.4
+}
+
+private void Phase_1__100_____90___autos_and_mini_busters(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=2000.0
+    Timeout(id + 0x10, 6.5f, "Foul Nail"); // t=2006.5; Ability 1F87 from Shisui Yohi
+    Timeout(id + 0x20, 7.1f, "Foul Nail"); // t=2013.6; Ability 1F87 from Shisui Yohi
+    Timeout(id + 0x30, 10.2f, "Foul Nail"); // t=2023.8; Ability 1F87 from Shisui Yohi
+    Timeout(id + 0x40, 7.1f, "Foul Nail"); // t=2030.9
+    Timeout(id + 0x50, 10.2f, "Foul Nail"); // t=2041.1
+    Timeout(id + 0x60, 7.1f, "Foul Nail"); // t=2048.2
+}
+
+private void Phase_2__90_____75___one__1__thick_fog(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1F80), "", 5f, 0.0f); // t=2100.0; StartsUsing 1F80 from Shisui Yohi
+    Timeout(id + 0x10, 5.0f, "Thick Fog"); // t=2105.0; Ability 1F80 from Shisui Yohi
+    Targetable(id + 0x20, false, 3.1f, "--untargetable--"); // t=2108.1
+    Timeout(id + 0x30, 20.2f, "Black Tide"); // t=2128.3; Ability 1F81 from Shisui Yohi
+    Targetable(id + 0x40, true, 3.0f, "--targetable--"); // t=2131.3
+    Timeout(id + 0x50, 5.1f, "Foul Nail"); // t=2136.4; Ability 1F87 from Shisui Yohi
+    Timeout(id + 0x60, 10.1f, "Mad Stare"); // t=2146.5; Ability 1F82 from Shisui Yohi; cactbot StartsUsing 1F82 [Shisui Shisui Yohi Mad Stare]
+    Timeout(id + 0x70, 7.2f, "Foul Nail"); // t=2153.7; Ability 1F87 from Shisui Yohi
+    Timeout(id + 0x80, 7.1f, "Foul Nail"); // t=2160.8; Ability 1F87 from Shisui Yohi
+    Timeout(id + 0x90, 10.1f, "Mad Stare"); // t=2170.9; Ability 1F82 from Shisui Yohi; cactbot StartsUsing 1F82 [Shisui Shisui Yohi Mad Stare]
+    Timeout(id + 0xA0, 7.2f, "Foul Nail"); // t=2178.1
+    Timeout(id + 0xB0, 7.1f, "Foul Nail"); // t=2185.2
+    Timeout(id + 0xC0, 10.1f, "Mad Stare"); // t=2195.3; cactbot StartsUsing 1F82 [Shisui Shisui Yohi Mad Stare]
+    Timeout(id + 0xD0, 7.2f, "Foul Nail"); // t=2202.5
+    Timeout(id + 0xE0, 7.1f, "Foul Nail"); // t=2209.6
+}
+
+private void Phase_3__75_____60___introduction_to_adds(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "--adds--"); // t=2300.0
+    Timeout(id + 0x10, 3.4f, "Foul Nail"); // t=2303.4; Ability 1F87 from Shisui Yohi
+    Timeout(id + 0x20, 10.1f, "Mad Stare"); // t=2313.5; Ability 1F82 from Shisui Yohi; cactbot StartsUsing 1F82 [Shisui Shisui Yohi Mad Stare]
+    Timeout(id + 0x30, 7.2f, "Foul Nail"); // t=2320.7; Ability 1F87 from Shisui Yohi
+    Timeout(id + 0x40, 5.1f, "Foul Nail"); // t=2325.8; Ability 1F87 from Shisui Yohi
+    Timeout(id + 0x50, 5.1f, "Foul Nail"); // t=2330.9
+    Timeout(id + 0x60, 5.1f, "Foul Nail"); // t=2336.0
+    Timeout(id + 0x70, 7.1f, "Foul Nail"); // t=2343.1
+    Timeout(id + 0x80, 7.1f, "Foul Nail"); // t=2350.2
+}
+
+private void Phase_4__60_____0___thick_fog_and_adds_loop(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1F80), "", 5f, 0.0f); // t=2400.0; StartsUsing 1F80 from Shisui Yohi
+    Timeout(id + 0x10, 5.0f, "Thick Fog"); // t=2405.0; Ability 1F80 from Shisui Yohi
+    Targetable(id + 0x20, false, 3.1f, "--untargetable--"); // t=2408.1
+    Timeout(id + 0x30, 20.2f, "Black Tide"); // t=2428.3; Ability 1F81 from Shisui Yohi
+    Targetable(id + 0x40, true, 3.0f, "--targetable--"); // t=2431.3
+    Timeout(id + 0x50, 4.1f, "Foul Nail"); // t=2435.4; Ability 1F87 from Shisui Yohi
+    Timeout(id + 0x60, 6.1f, "Foul Nail"); // t=2441.5; Ability 1F87 from Shisui Yohi
+    Timeout(id + 0x70, 6.2f, "Foul Nail"); // t=2447.7; Ability 1F87 from Shisui Yohi
+    Timeout(id + 0x80, 10.1f, "Mad Stare"); // t=2457.8; Ability 1F82 from Shisui Yohi; cactbot StartsUsing 1F82 [Shisui Shisui Yohi Mad Stare]
+    Timeout(id + 0x90, 1.5f, "--adds--"); // t=2459.3
+    Timeout(id + 0xA0, 17.7f, "Thick Fog"); // t=2477.0; Ability 1F80 from Shisui Yohi
+    Targetable(id + 0xB0, false, 3.1f, "--untargetable--"); // t=2480.1
+    Timeout(id + 0xC0, 30.3f, "Black Tide"); // t=2510.4
+    Targetable(id + 0xD0, true, 3.0f, "--targetable--"); // t=2513.4
+    Timeout(id + 0xE0, 4.1f, "Foul Nail"); // t=2517.5
+    Timeout(id + 0xF0, 6.1f, "Foul Nail"); // t=2523.6
+    Timeout(id + 0x100, 6.1f, "Foul Nail"); // t=2529.7
+    Timeout(id + 0x110, 10.1f, "Mad Stare"); // t=2539.8; cactbot StartsUsing 1F82 [Shisui Shisui Yohi Mad Stare]
+    Timeout(id + 0x120, 1.5f, "--adds--"); // t=2541.3
+}
+

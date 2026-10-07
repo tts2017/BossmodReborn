@@ -1,0 +1,90 @@
+// Generated development skeleton from zoraal-ja.txt (TerritoryType 1200).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 23 static/dynamic trigger definitions from ui/raidboss/data/07-dt/trial/zoraal-ja.ts.
+
+private void Everkeep(uint id)
+{
+    Condition(id + 0x0, 8.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x934B), "", 5f, 3.8f); // t=8.8; StartsUsing 934B from Zoraal Ja; cactbot StartsUsing 934B [ZoraalJa Soul Overflow]
+    Timeout(id + 0x10, 5.0f, "Soul Overflow").SetHint(StateMachine.StateHint.Raidwide); // t=13.8; Ability 934B from Zoraal Ja; cactbot StartsUsing 934B [ZoraalJa Soul Overflow]
+    Timeout(id + 0x20, 7.3f, "--center--"); // t=21.1; Ability 98E1 from Zoraal Ja
+    Timeout(id + 0x30, 6.3f, "Double-edged Swords (first)"); // t=27.4; Ability 9352 from Zoraal Ja
+    Timeout(id + 0x40, 2.3f, "Double-edged Swords (second)"); // t=29.7
+    Timeout(id + 0x50, 8.2f, "Patricidal Pique").SetHint(StateMachine.StateHint.Tankbuster); // t=37.9; Ability 9353 from Zoraal Ja; cactbot StartsUsing 9353 [ZoraalJa Patricidal Pique]
+    Timeout(id + 0x60, 3.2f, "--center--"); // t=41.1; Ability 98E1 from Zoraal Ja
+    Timeout(id + 0x70, 6.1f, "Soul Overflow").SetHint(StateMachine.StateHint.Raidwide); // t=47.2; Ability 934B from Zoraal Ja; cactbot StartsUsing 934B [ZoraalJa Soul Overflow]
+    Timeout(id + 0x80, 17.1f, "Calamity's Edge").SetHint(StateMachine.StateHint.Raidwide); // t=64.3; Ability 934C from Zoraal Ja; cactbot StartsUsing 934C [ZoraalJa Calamity\]
+    Timeout(id + 0x90, 8.8f, "Burst"); // t=73.1; Ability 934D from Shadow Of Tural; cactbot StartsUsing 934D [ZoraalJa Shadow Burst]
+    Timeout(id + 0xA0, 5.4f, "Patricidal Pique").SetHint(StateMachine.StateHint.Tankbuster); // t=78.5; Ability 9353 from Zoraal Ja; cactbot StartsUsing 9353 [ZoraalJa Patricidal Pique]
+    Timeout(id + 0xB0, 4.1f, "--center--"); // t=82.6; Ability 98E1 from Zoraal Ja
+    Timeout(id + 0xC0, 4.9f, "Vorpal Trail (contracting)"); // t=87.5; Ability 934E from Zoraal Ja; cactbot StartsUsing 934E [ZoraalJa Vorpal Trail First] | StartsUsing 934E [ZoraalJa Vorpal Trail Subsequent]
+    Timeout(id + 0xD0, 8.0f, "--center--"); // t=95.5; Ability 98E1 from Zoraal Ja
+    Timeout(id + 0xE0, 2.5f, "Vorpal Trail (expanding)"); // t=98.0
+    Timeout(id + 0xF0, 3.7f, "Double-edged Swords (first)"); // t=101.7; Ability 9352 from Zoraal Ja
+    Timeout(id + 0x100, 2.2f, "Double-edged Swords (second)"); // t=103.9
+    Timeout(id + 0x110, 5.3f, "--center--"); // t=109.2; Ability 98E1 from Zoraal Ja
+    Timeout(id + 0x120, 6.2f, "Soul Overflow").SetHint(StateMachine.StateHint.Raidwide); // t=115.4; Ability 934B from Zoraal Ja; cactbot StartsUsing 934B [ZoraalJa Soul Overflow]
+    Timeout(id + 0x130, 11.1f, "Calamity's Edge").SetHint(StateMachine.StateHint.Raidwide); // t=126.5; Ability 934C from Zoraal Ja; cactbot StartsUsing 934C [ZoraalJa Calamity\]
+    Timeout(id + 0x140, 8.3f, "Double-edged Swords (first)"); // t=134.8; Ability 9352 from Zoraal Ja
+    Timeout(id + 0x150, 0.7f, "Burst"); // t=135.5; Ability 934D from Shadow Of Tural; cactbot StartsUsing 934D [ZoraalJa Shadow Burst]
+    Timeout(id + 0x160, 1.8f, "Double-edged Swords (second)"); // t=137.3
+    Timeout(id + 0x170, 7.2f, "--center--"); // t=144.5; Ability 98E1 from Zoraal Ja
+    Timeout(id + 0x180, 5.0f, "Vorpal Trail (contracting)"); // t=149.5; Ability 934E from Zoraal Ja; cactbot StartsUsing 934E [ZoraalJa Vorpal Trail First] | StartsUsing 934E [ZoraalJa Vorpal Trail Subsequent]
+    Timeout(id + 0x190, 8.0f, "--center--"); // t=157.5; Ability 98E1 from Zoraal Ja
+    Timeout(id + 0x1A0, 2.5f, "Vorpal Trail (expanding)"); // t=160.0
+    Timeout(id + 0x1B0, 3.9f, "Double-edged Swords (first)"); // t=163.9; Ability 9352 from Zoraal Ja
+    Timeout(id + 0x1C0, 2.2f, "Double-edged Swords (second)"); // t=166.1
+    Timeout(id + 0x1D0, 9.2f, "Calamity's Edge").SetHint(StateMachine.StateHint.Raidwide); // t=175.3; Ability 934C from Zoraal Ja; cactbot StartsUsing 934C [ZoraalJa Calamity\]
+    Timeout(id + 0x1E0, 5.1f, "--center--"); // t=180.4; Ability 98E1 from Zoraal Ja
+    Condition(id + 0x1F0, 112.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9370), "", 5f, 107.6f); // t=293.0; StartsUsing 9370 from Zoraal Ja; cactbot StartsUsing 9370 [ZoraalJa Soul Overflow Phase Transition]
+    Timeout(id + 0x200, 7.0f, "Soul Overflow").SetHint(StateMachine.StateHint.Raidwide); // t=300.0; Ability 9370 from Zoraal Ja; cactbot StartsUsing 9370 [ZoraalJa Soul Overflow Phase Transition]
+    Targetable(id + 0x210, false, 0.0f, "--untargetable--"); // t=300.0
+    Targetable(id + 0x220, true, 81.8f, "--targetable--"); // t=381.8
+    Timeout(id + 0x230, 17.2f, "--center--"); // t=399.0; Ability 9355 from Zoraal Ja
+    Timeout(id + 0x240, 8.1f, "Smiting Circuit"); // t=407.1; Ability 9363 from Zoraal Ja
+    Timeout(id + 0x250, 11.0f, "Smiting Circuit"); // t=418.1; Ability 9363 from Zoraal Ja
+    Timeout(id + 0x260, 7.1f, "--center--"); // t=425.2; Ability 9355 from Zoraal Ja
+    Timeout(id + 0x270, 8.1f, "Dawn Of An Age").SetHint(StateMachine.StateHint.Raidwide); // t=433.3; Ability 9354 from Zoraal Ja; cactbot StartsUsing 9354 [ZoraalJa Dawn Of An Age]
+    Timeout(id + 0x280, 14.1f, "Vollok"); // t=447.4; Ability 9357 from Zoraal Ja; cactbot StartsUsing 9358 [ZoraalJa Chasm Of Vollok Sword Collect] | StartsUsing 9358 [ZoraalJa Chasm Of Vollok]
+    Timeout(id + 0x290, 9.6f, "Bitter Reaping"); // t=457.0; Ability 9379 from Zoraal Ja; cactbot StartsUsing 937A [ZoraalJa Bitter Reaping Collect] | StartsUsing 937A [ZoraalJa Bitter Reaping]
+    Timeout(id + 0x2A0, 8.7f, "Vollok"); // t=465.7; Ability 9357 from Zoraal Ja; cactbot StartsUsing 9358 [ZoraalJa Chasm Of Vollok Sword Collect] | StartsUsing 9358 [ZoraalJa Chasm Of Vollok]
+    Timeout(id + 0x2B0, 8.1f, "Sync"); // t=473.8; Ability 9359 from Zoraal Ja; cactbot StartsUsing 9359 [ZoraalJa Sync Tracker]
+    Timeout(id + 0x2C0, 8.0f, "Chasm Of Vollok"); // t=481.8; Ability 935A from Zoraal Ja; cactbot StartsUsing 9358 [ZoraalJa Chasm Of Vollok Sword Collect] | StartsUsing 9358 [ZoraalJa Chasm Of Vollok]
+    Timeout(id + 0x2D0, 8.2f, "Sync"); // t=490.0; Ability 9359 from Zoraal Ja; cactbot StartsUsing 9359 [ZoraalJa Sync Tracker]
+    Timeout(id + 0x2E0, 8.0f, "Chasm Of Vollok"); // t=498.0; Ability 935A from Zoraal Ja; cactbot StartsUsing 9358 [ZoraalJa Chasm Of Vollok Sword Collect] | StartsUsing 9358 [ZoraalJa Chasm Of Vollok]
+    Timeout(id + 0x2F0, 7.2f, "Gateway"); // t=505.2; Ability 935B from Zoraal Ja
+    Timeout(id + 0x300, 8.1f, "Blade Warp"); // t=513.3; Ability 935E from Zoraal Ja
+    Timeout(id + 0x310, 8.1f, "Forged Track"); // t=521.4; Ability 935F from Zoraal Ja; cactbot StartsUsing 9361 [ZoraalJa Forged Track Sword Collect] | StartsUsing 9361 [ZoraalJa Forged Track]
+    Timeout(id + 0x320, 13.3f, "Forged Track"); // t=534.7; Ability 935F from Zoraal Ja; cactbot StartsUsing 9361 [ZoraalJa Forged Track Sword Collect] | StartsUsing 9361 [ZoraalJa Forged Track]
+    Timeout(id + 0x330, 14.3f, "Actualize").SetHint(StateMachine.StateHint.Raidwide); // t=549.0; Ability 9356 from Zoraal Ja; cactbot StartsUsing 9356 [ZoraalJa Actualize]
+    Timeout(id + 0x340, 7.2f, "--center--"); // t=556.2; Ability 9355 from Zoraal Ja
+    Timeout(id + 0x350, 7.3f, "Half Full"); // t=563.5; Ability 9368/9369 from Zoraal Ja; cactbot StartsUsing 9368 [ZoraalJa Half Full Right Sword] | StartsUsing 9369 [ZoraalJa Half Full Left Sword]
+    Timeout(id + 0x360, 11.5f, "Half Circuit"); // t=575.0; Ability 936D from Zoraal Ja
+    Timeout(id + 0x370, 5.8f, "Fire III"); // t=580.8; Ability 9378 from Zoraal Ja
+    Timeout(id + 0x380, 6.4f, "Half Circuit"); // t=587.2; Ability 936D from Zoraal Ja
+    Timeout(id + 0x390, 7.0f, "--center--"); // t=594.2; Ability 9355 from Zoraal Ja
+    Timeout(id + 0x3A0, 8.1f, "Dawn Of An Age").SetHint(StateMachine.StateHint.Raidwide); // t=602.3; Ability 9354 from Zoraal Ja; cactbot StartsUsing 9354 [ZoraalJa Dawn Of An Age]
+    Timeout(id + 0x3B0, 14.1f, "Gateway"); // t=616.4; Ability 935B from Zoraal Ja
+    Timeout(id + 0x3C0, 8.1f, "Blade Warp"); // t=624.5; Ability 935E from Zoraal Ja
+    Timeout(id + 0x3D0, 8.1f, "Forged Track"); // t=632.6; Ability 935F from Zoraal Ja; cactbot StartsUsing 9361 [ZoraalJa Forged Track Sword Collect] | StartsUsing 9361 [ZoraalJa Forged Track]
+    Timeout(id + 0x3E0, 10.3f, "Forged Track"); // t=642.9; Ability 935F from Zoraal Ja; cactbot StartsUsing 9361 [ZoraalJa Forged Track Sword Collect] | StartsUsing 9361 [ZoraalJa Forged Track]
+    Timeout(id + 0x3F0, 14.2f, "Duty's Edge (x4)"); // t=657.1; Ability 9374 from Zoraal Ja
+    Timeout(id + 0x400, 15.8f, "Vollok"); // t=672.9; Ability 9357 from Zoraal Ja; cactbot StartsUsing 9358 [ZoraalJa Chasm Of Vollok Sword Collect] | StartsUsing 9358 [ZoraalJa Chasm Of Vollok]
+    Timeout(id + 0x410, 8.6f, "Bitter Reaping"); // t=681.5; Ability 9379 from Zoraal Ja; cactbot StartsUsing 937A [ZoraalJa Bitter Reaping Collect] | StartsUsing 937A [ZoraalJa Bitter Reaping]
+    Timeout(id + 0x420, 9.8f, "Sync"); // t=691.3; Ability 9359 from Zoraal Ja; cactbot StartsUsing 9359 [ZoraalJa Sync Tracker]
+    Timeout(id + 0x430, 8.0f, "Chasm Of Vollok"); // t=699.3; Ability 935A from Zoraal Ja; cactbot StartsUsing 9358 [ZoraalJa Chasm Of Vollok Sword Collect] | StartsUsing 9358 [ZoraalJa Chasm Of Vollok]
+    Timeout(id + 0x440, 0.2f, "Sync"); // t=699.5; Ability 9359 from Zoraal Ja; cactbot StartsUsing 9359 [ZoraalJa Sync Tracker]
+    Timeout(id + 0x450, 4.2f, "--center--"); // t=703.7; Ability 9355 from Zoraal Ja
+    Timeout(id + 0x460, 3.8f, "Chasm Of Vollok"); // t=707.5; Ability 935A from Zoraal Ja; cactbot StartsUsing 9358 [ZoraalJa Chasm Of Vollok Sword Collect] | StartsUsing 9358 [ZoraalJa Chasm Of Vollok]
+    Timeout(id + 0x470, 3.6f, "Half Full"); // t=711.1; Ability 9368/9369 from Zoraal Ja; cactbot StartsUsing 9368 [ZoraalJa Half Full Right Sword] | StartsUsing 9369 [ZoraalJa Half Full Left Sword]
+    Timeout(id + 0x480, 8.0f, "Duty's Edge (x4)"); // t=719.1; Ability 9374 from Zoraal Ja
+    Timeout(id + 0x490, 16.8f, "Actualize").SetHint(StateMachine.StateHint.Raidwide); // t=735.9; Ability 9356 from Zoraal Ja; cactbot StartsUsing 9356 [ZoraalJa Actualize]
+    Timeout(id + 0x4A0, 7.1f, "--center--"); // t=743.0; Ability 9355 from Zoraal Ja
+    Timeout(id + 0x4B0, 8.4f, "Half Circuit"); // t=751.4; Ability 936D from Zoraal Ja
+    Timeout(id + 0x4C0, 5.8f, "Fire III"); // t=757.2; Ability 9378 from Zoraal Ja
+    Timeout(id + 0x4D0, 6.4f, "Half Circuit"); // t=763.6; Ability 936D from Zoraal Ja
+    Timeout(id + 0x4E0, 10.2f, "Bitter Reaping"); // t=773.8; Ability 9379 from Zoraal Ja; cactbot StartsUsing 937A [ZoraalJa Bitter Reaping Collect] | StartsUsing 937A [ZoraalJa Bitter Reaping]
+    Timeout(id + 0x4F0, 7.8f, "--center--"); // t=781.6; Ability 9355 from Zoraal Ja
+    Timeout(id + 0x500, 8.1f, "Dawn Of An Age").SetHint(StateMachine.StateHint.Raidwide); // t=789.7; Ability 9354 from Zoraal Ja; cactbot StartsUsing 9354 [ZoraalJa Dawn Of An Age]
+}
+

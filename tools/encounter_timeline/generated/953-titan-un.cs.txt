@@ -1,0 +1,151 @@
+// Generated development skeleton from titan-un.txt (TerritoryType 953).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 2 static/dynamic trigger definitions from ui/raidboss/data/05-shb/trial/titan-un.ts.
+
+private void Phase_1__100__85(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 10.0f, "Landslide"); // t=10.0; Ability 58FA from Titan
+    Timeout(id + 0x20, 8.7f, "Weight Of The Land"); // t=18.7; Ability 58FE from Titan
+    Timeout(id + 0x30, 3.6f, "Mountain Buster"); // t=22.3; Ability 58F7 from Titan
+    Timeout(id + 0x40, 5.2f, "Tumult x4"); // t=27.5
+    Timeout(id + 0x50, 9.8f, "Landslide"); // t=37.3; Ability 58FA from Titan
+    Timeout(id + 0x60, 4.1f, "Mountain Buster"); // t=41.4; Ability 58F7 from Titan
+    Timeout(id + 0x70, 6.6f, "Weight Of The Land"); // t=48.0; Ability 58FE from Titan
+    Timeout(id + 0x80, 7.7f, "Mountain Buster"); // t=55.7; Ability 58F7 from Titan
+    Timeout(id + 0x90, 6.3f, "Landslide"); // t=62.0; Ability 58FA from Titan
+    Timeout(id + 0xA0, 8.2f, "Weight Of The Land"); // t=70.2
+    Timeout(id + 0xB0, 4.1f, "Mountain Buster"); // t=74.3
+    Timeout(id + 0xC0, 5.2f, "Tumult x4"); // t=79.5
+    Timeout(id + 0xD0, 9.8f, "Landslide"); // t=89.3
+    Timeout(id + 0xE0, 4.1f, "Mountain Buster"); // t=93.4
+    Timeout(id + 0xF0, 6.1f, "Weight Of The Land"); // t=99.5
+    Timeout(id + 0x100, 8.2f, "Mountain Buster"); // t=107.7
+}
+
+private void Phase_2__85___55(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x58FF), "", 5f, 0.0f); // t=200.0; StartsUsing 58FF from Titan
+    Timeout(id + 0x10, 3.0f, "Geocrush"); // t=203.0; Ability 58FF from Titan
+    Timeout(id + 0x20, 9.6f, "Landslide"); // t=212.6; Ability 58FA from Titan
+    Timeout(id + 0x30, 4.1f, "Rock Throw"); // t=216.7; Ability 5ADD from Titan; cactbot Tether 7 [TitanUn Rock Throw]
+    Timeout(id + 0x40, 4.1f, "Mountain Buster"); // t=220.8; Ability 58F7 from Titan
+    Timeout(id + 0x50, 9.0f, "Upheaval").SetHint(StateMachine.StateHint.Knockback); // t=229.8; Ability 58F9 from Titan; cactbot StartsUsing 58F9 [TitanUn Upheaval]
+    Timeout(id + 0x60, 5.0f, "Landslide"); // t=234.8; Ability 58FA from Titan
+    Timeout(id + 0x70, 7.2f, "Tumult x4"); // t=242.0
+    Timeout(id + 0x80, 9.0f, "Weight Of The Land"); // t=251.0; Ability 58FE from Titan
+    Timeout(id + 0x90, 3.6f, "Mountain Buster"); // t=254.6; Ability 58F7 from Titan
+    Timeout(id + 0xA0, 7.4f, "Landslide"); // t=262.0; Ability 58FA from Titan
+    Timeout(id + 0xB0, 9.7f, "Weight Of The Land"); // t=271.7; Ability 58FE from Titan
+    Timeout(id + 0xC0, 5.1f, "Bury (one side)"); // t=276.8; Ability 5AFB from Bomb Boulder
+    Timeout(id + 0xD0, 1.2f, "Mountain Buster"); // t=278.0; Ability 58F7 from Titan
+    Timeout(id + 0xE0, 9.4f, "Burst"); // t=287.4; Ability 5ADF from Bomb Boulder
+    Timeout(id + 0xF0, 0.7f, "Landslide"); // t=288.1; Ability 58FA from Titan
+    Timeout(id + 0x100, 4.1f, "Rock Throw"); // t=292.2; Ability 5ADD from Titan; cactbot Tether 7 [TitanUn Rock Throw]
+    Timeout(id + 0x110, 4.1f, "Mountain Buster"); // t=296.3; Ability 58F7 from Titan
+    Timeout(id + 0x120, 9.1f, "Upheaval").SetHint(StateMachine.StateHint.Knockback); // t=305.4; Ability 58F9 from Titan; cactbot StartsUsing 58F9 [TitanUn Upheaval]
+    Timeout(id + 0x130, 5.0f, "Landslide"); // t=310.4; Ability 58FA from Titan
+    Timeout(id + 0x140, 7.1f, "Tumult x4"); // t=317.5
+    Timeout(id + 0x150, 9.0f, "Weight Of The Land"); // t=326.5; Ability 58FE from Titan
+    Timeout(id + 0x160, 3.6f, "Mountain Buster"); // t=330.1; Ability 58F7 from Titan
+    Timeout(id + 0x170, 7.2f, "Landslide"); // t=337.3; Ability 58FA from Titan
+    Timeout(id + 0x180, 9.7f, "Weight Of The Land"); // t=347.0; Ability 58FE from Titan
+    Timeout(id + 0x190, 4.7f, "Bury (clock)"); // t=351.7
+    Timeout(id + 0x1A0, 1.9f, "Mountain Buster"); // t=353.6; Ability 58F7 from Titan
+    Timeout(id + 0x1B0, 7.3f, "Burst"); // t=360.9
+    Timeout(id + 0x1C0, 3.0f, "Landslide"); // t=363.9; Ability 58FA from Titan
+    Timeout(id + 0x1D0, 4.1f, "Rock Throw"); // t=368.0; cactbot Tether 7 [TitanUn Rock Throw]
+    Timeout(id + 0x1E0, 4.1f, "Mountain Buster"); // t=372.1
+    Timeout(id + 0x1F0, 9.0f, "Upheaval"); // t=381.1; cactbot StartsUsing 58F9 [TitanUn Upheaval]
+    Timeout(id + 0x200, 6.2f, "Tumult x4"); // t=387.3
+    Timeout(id + 0x210, 8.5f, "Weight Of The Land"); // t=395.8
+    Timeout(id + 0x220, 4.1f, "Mountain Buster"); // t=399.9
+    Timeout(id + 0x230, 7.4f, "Landslide"); // t=407.3
+    Timeout(id + 0x240, 9.2f, "Weight Of The Land"); // t=416.5
+    Timeout(id + 0x250, 5.6f, "Bury (one side)"); // t=422.1
+    Timeout(id + 0x260, 1.2f, "Mountain Buster"); // t=423.3
+    Timeout(id + 0x270, 9.4f, "Burst"); // t=432.7
+}
+
+private void Phase_3__Heart_Phase__at_55(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x58FF), "", 5f, 0.0f); // t=500.0; StartsUsing 58FF from Titan
+    Timeout(id + 0x10, 3.0f, "Geocrush"); // t=503.0; Ability 58FF from Titan
+    Timeout(id + 0x20, 12.6f, "Weight Of The Land"); // t=515.6; Ability 58FE from Titan
+    Timeout(id + 0x30, 5.6f, "Rock Throw"); // t=521.2; Ability 5ADD from Titan; cactbot Tether 7 [TitanUn Rock Throw]
+    Timeout(id + 0x40, 4.8f, "Rock Buster"); // t=526.0; Ability 58F6 from Titan
+    Timeout(id + 0x50, 7.0f, "Upheaval").SetHint(StateMachine.StateHint.Knockback); // t=533.0; Ability 58F9 from Titan; cactbot StartsUsing 58F9 [TitanUn Upheaval]
+    Timeout(id + 0x60, 5.0f, "Landslide"); // t=538.0; Ability 58FA from Titan
+    Timeout(id + 0x70, 6.0f, "Tumult x4"); // t=544.0
+    Timeout(id + 0x80, 9.1f, "Weight Of The Land"); // t=553.1; Ability 58FE from Titan
+    Timeout(id + 0x90, 8.7f, "Rock Buster"); // t=561.8; Ability 58F6 from Titan
+    Timeout(id + 0xA0, 2.0f, "Bury (clock)"); // t=563.8
+    Timeout(id + 0xB0, 7.0f, "Landslide"); // t=570.8; Ability 58FA from Titan
+    Timeout(id + 0xC0, 2.1f, "Burst"); // t=572.9
+    Timeout(id + 0xD0, 2.0f, "Tumult x4"); // t=574.9
+    Timeout(id + 0xE0, 8.1f, "Weight Of The Land"); // t=583.0; Ability 58FE from Titan
+    Targetable(id + 0xF0, false, 10.0f, "--untargetable--"); // t=593.0
+}
+
+private void Phase_4(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Earthen Fury"); // t=700.0; Ability 5900 from Titan
+    Timeout(id + 0x10, 13.1f, "Gaoler Adds (E/W)"); // t=713.1
+    Timeout(id + 0x20, 2.7f, "Gaoler Tumult"); // t=715.8
+    Timeout(id + 0x30, 0.5f, "Mountain Buster"); // t=716.3; Ability 58F7 from Titan
+    Timeout(id + 0x40, 7.0f, "Bury x4"); // t=723.3
+    Timeout(id + 0x50, 2.5f, "Bury x4"); // t=725.8
+    Timeout(id + 0x60, 4.4f, "Landslide"); // t=730.2; Ability 58FA from Titan
+    Timeout(id + 0x70, 2.3f, "Burst x4"); // t=732.5
+    Timeout(id + 0x80, 2.4f, "Burst x4"); // t=734.9
+    Timeout(id + 0x90, 0.5f, "Mountain Buster"); // t=735.4; Ability 58F7 from Titan
+    Timeout(id + 0xA0, 4.4f, "Gaoler Landslide?"); // t=739.8
+    Timeout(id + 0xB0, 4.2f, "Weight Of The Land"); // t=744.0; Ability 58FE from Titan
+    Timeout(id + 0xC0, 5.7f, "Rock Throw"); // t=749.7; Ability 5ADD from Titan; cactbot Tether 7 [TitanUn Rock Throw]
+    Timeout(id + 0xD0, 4.2f, "Mountain Buster"); // t=753.9; Ability 58F7 from Titan
+    Timeout(id + 0xE0, 9.0f, "Upheaval").SetHint(StateMachine.StateHint.Knockback); // t=762.9; Ability 58F9 from Titan; cactbot StartsUsing 58F9 [TitanUn Upheaval]
+    Timeout(id + 0xF0, 5.0f, "Landslide"); // t=767.9; Ability 58FA from Titan
+    Timeout(id + 0x100, 11.1f, "Mountain Buster"); // t=779.0; Ability 58F7 from Titan
+    Timeout(id + 0x110, 4.2f, "Tumult x4"); // t=783.2
+    Timeout(id + 0x120, 9.0f, "Weight Of The Land 1"); // t=792.2
+    Timeout(id + 0x130, 2.5f, "Weight Of The Land 2"); // t=794.7
+    Timeout(id + 0x140, 5.2f, "Mountain Buster"); // t=799.9; Ability 58F7 from Titan
+    Timeout(id + 0x150, 4.2f, "Bury (row 1)"); // t=804.1
+    Timeout(id + 0x160, 0.9f, "Bury (row 2)"); // t=805.0
+    Timeout(id + 0x170, 1.1f, "Bury (row 3)"); // t=806.1
+    Timeout(id + 0x180, 4.9f, "Landslide"); // t=811.0; Ability 58FA from Titan
+    Timeout(id + 0x190, 2.1f, "Burst 1"); // t=813.1
+    Timeout(id + 0x1A0, 1.5f, "Burst 2"); // t=814.6
+    Timeout(id + 0x1B0, 1.5f, "Burst 3"); // t=816.1
+    Timeout(id + 0x1C0, 3.1f, "Mountain Buster"); // t=819.2; Ability 58F7 from Titan
+    Timeout(id + 0x1D0, 13.5f, "Bury (all)"); // t=832.7; Ability 5AFB from Bomb Boulder
+    Timeout(id + 0x1E0, 4.3f, "Tumult x4"); // t=837.0
+    Timeout(id + 0x1F0, 8.9f, "Weight Of The Land"); // t=845.9; Ability 58FE from Titan
+    Targetable(id + 0x200, false, 6.6f, "--untargetable--"); // t=852.5
+    Timeout(id + 0x210, 2.6f, "Burst"); // t=855.1; Ability 5ADF from Bomb Boulder
+    Timeout(id + 0x220, 1.6f, "Geocrush"); // t=856.7; Ability 58FF from Titan
+    Targetable(id + 0x230, true, 0.4f, "--targetable--"); // t=857.1
+    Timeout(id + 0x240, 5.3f, "Landslide"); // t=862.4; Ability 58FA from Titan
+    Timeout(id + 0x250, 11.6f, "Gaoler Adds (E/W)"); // t=874.0
+    Timeout(id + 0x260, 2.7f, "Gaoler Tumult"); // t=876.7
+    Timeout(id + 0x270, 0.5f, "Mountain Buster"); // t=877.2; Ability 58F7 from Titan
+    Timeout(id + 0x280, 7.0f, "Bury x4"); // t=884.2
+    Timeout(id + 0x290, 2.5f, "Bury x4"); // t=886.7
+    Timeout(id + 0x2A0, 4.4f, "Landslide"); // t=891.1
+    Timeout(id + 0x2B0, 2.3f, "Burst x4"); // t=893.4
+    Timeout(id + 0x2C0, 2.4f, "Burst x4"); // t=895.8
+    Timeout(id + 0x2D0, 0.5f, "Mountain Buster"); // t=896.3
+    Timeout(id + 0x2E0, 4.4f, "Gaoler Landslide?"); // t=900.7
+    Timeout(id + 0x2F0, 3.7f, "Weight Of The Land"); // t=904.4
+}
+
+private void Enrage(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5901), "", 5f, 0.0f); // t=1000.0; StartsUsing 5901 from Titan
+    Timeout(id + 0x10, 10.0f, "Upheaval Enrage"); // t=1010.0
+    Timeout(id + 0x20, 12.0f, "Upheaval Enrage"); // t=1022.0
+    Timeout(id + 0x30, 12.0f, "Upheaval Enrage"); // t=1034.0
+    Timeout(id + 0x40, 12.0f, "Upheaval Enrage"); // t=1046.0
+}
+

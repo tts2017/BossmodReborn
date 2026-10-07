@@ -1,0 +1,116 @@
+{
+  "abilities": {
+    "144": {
+      "confirmed": true,
+      "name": "Thunder",
+      "role": "thunder"
+    },
+    "149": {
+      "confirmed": true,
+      "name": "Transpose",
+      "role": "transpose"
+    },
+    "152": {
+      "confirmed": true,
+      "name": "Fire III",
+      "role": "fireIII"
+    },
+    "153": {
+      "confirmed": true,
+      "name": "Thunder III",
+      "role": "thunder"
+    },
+    "154": {
+      "confirmed": true,
+      "name": "Blizzard III",
+      "role": "blizzardIII"
+    },
+    "158": {
+      "confirmed": true,
+      "name": "Manafont",
+      "role": "manafont"
+    },
+    "3573": {
+      "confirmed": true,
+      "name": "Ley Lines",
+      "role": "leyLines"
+    },
+    "3576": {
+      "confirmed": true,
+      "name": "Blizzard IV",
+      "role": "blizzardIV"
+    },
+    "3577": {
+      "confirmed": true,
+      "name": "Fire IV",
+      "role": "fireIV"
+    },
+    "7419": {
+      "confirmed": true,
+      "name": "Between the Lines",
+      "role": "betweenTheLines"
+    },
+    "7420": {
+      "confirmed": true,
+      "name": "Thunder IV",
+      "role": "thunder"
+    },
+    "7421": {
+      "confirmed": true,
+      "name": "Triplecast",
+      "role": "triplecast"
+    },
+    "7422": {
+      "confirmed": true,
+      "name": "Foul",
+      "role": "foul"
+    },
+    "7447": {
+      "confirmed": true,
+      "name": "Thunder II",
+      "role": "thunder"
+    },
+    "7561": {
+      "confirmed": true,
+      "name": "Swiftcast",
+      "role": "swiftcast"
+    },
+    "16505": {
+      "confirmed": true,
+      "name": "Despair",
+      "role": "despair"
+    },
+    "16507": {
+      "confirmed": true,
+      "name": "Xenoglossy",
+      "role": "xenoglossy"
+    },
+    "25796": {
+      "confirmed": true,
+      "name": "Amplifier",
+      "role": "amplifier"
+    },
+    "25797": {
+      "confirmed": true,
+      "name": "Paradox",
+      "role": "paradox"
+    },
+    "36986": {
+      "confirmed": true,
+      "name": "High Thunder",
+      "role": "highThunder"
+    },
+    "36988": {
+      "confirmed": true,
+      "name": "Retrace",
+      "role": "retrace"
+    },
+    "36989": {
+      "confirmed": true,
+      "name": "Flare Star",
+      "role": "flareStar"
+    }
+  },
+  "job": "BLM",
+  "source": "blm_ability_usage_summary_top200_candidate"
+}

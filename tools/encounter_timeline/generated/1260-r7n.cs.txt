@@ -1,0 +1,9 @@
+// Generated development skeleton from r7n.txt (TerritoryType 1260).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+
+private void Arcadion__R7N___AAC_Cruiserweight_M3(uint id)
+{
+    // No visible timeline entries in this section.
+}
+

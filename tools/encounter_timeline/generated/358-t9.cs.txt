@@ -1,0 +1,231 @@
+// Generated development skeleton from t9.txt (TerritoryType 358).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 5.5f, "Ravensclaw"); // t=5.5; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0x20, 11.1f, "Ravensclaw"); // t=16.6; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0x30, 5.2f, "Stardust"); // t=21.8; Ability 877 from Nael deus Darnus
+    Timeout(id + 0x40, 9.1f, "Ravensbeak"); // t=30.9; Ability 7D6 from Nael deus Darnus
+    Timeout(id + 0x50, 5.3f, "Raven Dive"); // t=36.2; Ability 7DD from Nael deus Darnus
+    Timeout(id + 0x60, 4.6f, "Iron Chariot"); // t=40.8; Ability 7D8 from Nael deus Darnus
+    Timeout(id + 0x70, 1.8f, "Thermionic Beam"); // t=42.6; Ability 7DF from Nael deus Darnus
+    Timeout(id + 0x80, 1.0f, "Raven Dive"); // t=43.6; Ability 7DD from Nael deus Darnus
+    Timeout(id + 0x90, 4.7f, "Ravensclaw"); // t=48.3; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0xA0, 10.3f, "Stardust"); // t=58.6; Ability 877 from Nael deus Darnus
+    Timeout(id + 0xB0, 4.8f, "Ravensclaw"); // t=63.4; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0xC0, 6.0f, "Lunar Dynamo"); // t=69.4; Ability 7DA from Nael deus Darnus
+    Timeout(id + 0xD0, 2.4f, "Meteor Stream"); // t=71.8; Ability 7DE from Nael Geminus
+    Timeout(id + 0xE0, 3.1f, "Dalamud Dive"); // t=74.9; Ability 7DC from Nael deus Darnus
+    Timeout(id + 0xF0, 8.8f, "Ravensbeak"); // t=83.7; Ability 7D6 from Nael deus Darnus
+    Timeout(id + 0x100, 5.8f, "Ravensclaw"); // t=89.5; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0x110, 5.5f, "Stardust"); // t=95.0; Ability 877 from Nael deus Darnus
+    Timeout(id + 0x120, 12.2f, "Meteor Stream"); // t=107.2
+    Timeout(id + 0x130, 5.1f, "Meteor Stream"); // t=112.3
+    Timeout(id + 0x140, 3.1f, "Dalamud Dive"); // t=115.4; Ability 7DC from Nael deus Darnus
+    Timeout(id + 0x150, 4.3f, "Ravensclaw"); // t=119.7; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0x160, 10.5f, "Ravensbeak"); // t=130.2; Ability 7D6 from Nael deus Darnus
+    Timeout(id + 0x170, 5.3f, "Stardust"); // t=135.5; Ability 877 from Nael deus Darnus
+    Timeout(id + 0x180, 4.5f, "Ravensclaw"); // t=140.0; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0x190, 6.1f, "Raven Dive"); // t=146.1; Ability 7DD from Nael deus Darnus
+    Timeout(id + 0x1A0, 4.6f, "Iron Chariot"); // t=150.7; Ability 7D8 from Nael deus Darnus
+    Timeout(id + 0x1B0, 1.9f, "Thermionic Beam"); // t=152.6; Ability 7DF from Nael deus Darnus
+    Timeout(id + 0x1C0, 1.0f, "Raven Dive"); // t=153.6; Ability 7DD from Nael deus Darnus
+    Timeout(id + 0x1D0, 9.0f, "Ravensclaw"); // t=162.6; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0x1E0, 6.0f, "Stardust"); // t=168.6; Ability 877 from Nael deus Darnus
+    Timeout(id + 0x1F0, 8.8f, "Ravensbeak"); // t=177.4; Ability 7D6 from Nael deus Darnus
+    Timeout(id + 0x200, 6.5f, "Lunar Dynamo"); // t=183.9; Ability 7DA from Nael deus Darnus
+    Timeout(id + 0x210, 2.3f, "Meteor Stream"); // t=186.2; Ability 7DE from Nael Geminus
+    Timeout(id + 0x220, 3.1f, "Dalamud Dive"); // t=189.3; Ability 7DC from Nael deus Darnus
+    Timeout(id + 0x230, 3.6f, "Ravensclaw"); // t=192.9; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0x240, 11.0f, "Stardust"); // t=203.9; Ability 877 from Nael deus Darnus
+    Timeout(id + 0x250, 4.1f, "Ravensclaw"); // t=208.0; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0x260, 9.5f, "Meteor Stream"); // t=217.5
+    Timeout(id + 0x270, 5.1f, "Meteor Stream"); // t=222.6
+    Timeout(id + 0x280, 3.2f, "Dalamud Dive"); // t=225.8; Ability 7DC from Nael deus Darnus
+    Timeout(id + 0x290, 8.4f, "Ravensbeak"); // t=234.2; Ability 7D6 from Nael deus Darnus
+    Timeout(id + 0x2A0, 5.4f, "Ravensclaw"); // t=239.6; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0x2B0, 6.2f, "Stardust"); // t=245.8; Ability 877 from Nael deus Darnus
+    Timeout(id + 0x2C0, 9.7f, "Raven Dive"); // t=255.5; Ability 7DD from Nael deus Darnus
+    Timeout(id + 0x2D0, 4.6f, "Iron Chariot"); // t=260.1; Ability 7D8 from Nael deus Darnus
+    Timeout(id + 0x2E0, 2.0f, "Thermionic Beam"); // t=262.1; Ability 7DF from Nael deus Darnus
+    Timeout(id + 0x2F0, 1.0f, "Raven Dive"); // t=263.1; Ability 7DD from Nael deus Darnus
+    Timeout(id + 0x300, 3.3f, "Ravensclaw"); // t=266.4; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0x310, 10.9f, "Ravensbeak"); // t=277.3; Ability 7D6 from Nael deus Darnus
+    Timeout(id + 0x320, 5.7f, "Stardust"); // t=283.0; Ability 877 from Nael deus Darnus
+    Timeout(id + 0x330, 3.8f, "Ravensclaw"); // t=286.8; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0x340, 7.5f, "Lunar Dynamo"); // t=294.3; Ability 7DA from Nael deus Darnus
+    Timeout(id + 0x350, 2.4f, "Meteor Stream"); // t=296.7; Ability 7DE from Nael Geminus
+    Timeout(id + 0x360, 3.2f, "Dalamud Dive"); // t=299.9; Ability 7DC from Nael deus Darnus
+    Timeout(id + 0x370, 8.0f, "Ravensclaw"); // t=307.9; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0x380, 6.4f, "Stardust"); // t=314.3; Ability 877 from Nael deus Darnus
+    Timeout(id + 0x390, 8.5f, "Ravensbeak"); // t=322.8; Ability 7D6 from Nael deus Darnus
+    Timeout(id + 0x3A0, 9.2f, "Meteor Stream"); // t=332.0; Ability 7DE from Nael Geminus
+    Timeout(id + 0x3B0, 5.0f, "Meteor Stream"); // t=337.0; Ability 7DE from Nael Geminus
+    Timeout(id + 0x3C0, 3.2f, "Dalamud Dive"); // t=340.2; Ability 7DC from Nael deus Darnus
+    Timeout(id + 0x3D0, 3.0f, "Ravensclaw"); // t=343.2; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0x3E0, 11.8f, "Stardust"); // t=355.0; Ability 877 from Nael deus Darnus
+    Timeout(id + 0x3F0, 3.5f, "Ravensclaw"); // t=358.5; Ability 7D5 from Nael deus Darnus
+    Timeout(id + 0x400, 7.5f, "Raven Dive"); // t=366.0; Ability 7DD from Nael deus Darnus
+    Timeout(id + 0x410, 4.5f, "Iron Chariot"); // t=370.5; Ability 7D8 from Nael deus Darnus
+    Timeout(id + 0x420, 2.2f, "Thermionic Beam"); // t=372.7; Ability 7DF from Nael deus Darnus
+    Timeout(id + 0x430, 1.0f, "Raven Dive"); // t=373.7; Ability 7DD from Nael deus Darnus
+}
+
+private void Phase_2__Golem_Adds(uint id)
+{
+    Targetable(id + 0x0, false, 0.0f, "--untargetable--"); // t=500.0
+    Timeout(id + 0x10, 3.3f, "Golem Meteors"); // t=503.3
+    Timeout(id + 0x20, 79.0f, "Meteor 1/6"); // t=582.3
+    Timeout(id + 0x30, 2.0f, "Meteor 2/6"); // t=584.3
+    Timeout(id + 0x40, 2.0f, "Meteor 3/6"); // t=586.3
+    Timeout(id + 0x50, 2.0f, "Meteor 4/6"); // t=588.3
+    Timeout(id + 0x60, 2.2f, "Meteor 5/6"); // t=590.5
+    Timeout(id + 0x70, 2.0f, "Meteor 6/6"); // t=592.5
+    Timeout(id + 0x80, 5.8f, "Golem Meteors"); // t=598.3
+    Timeout(id + 0x90, 85.2f, "Megaflare"); // t=683.5; Ability 7E7 from Nael deus Darnus
+}
+
+private void Phase_3_is_on_a_54_second_nael_rotation_and_a_60_second_dragon_rotation(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Dalamud Dive"); // t=693.6; Ability 7DC from Nael deus Darnus
+    Targetable(id + 0x10, true, 2.0f, "--targetable--"); // t=695.6
+    Timeout(id + 0x20, 6.3f, "Heavensfall"); // t=701.9; Ability 7E4 from Ragnarok
+    Timeout(id + 0x30, 12.4f, "Bahamut's Claw x2"); // t=714.3
+    Timeout(id + 0x40, 1.7f, "Ghost Add 1 (North)"); // t=716.0
+    Timeout(id + 0x50, 5.8f, "Binding Coil"); // t=721.8; Ability 7E2 from Nael deus Darnus
+    Timeout(id + 0x60, 15.2f, "Bahamut's Claw x2"); // t=737.0
+    Timeout(id + 0x70, 7.4f, "Binding Coil"); // t=744.4; Ability 7E2 from Nael deus Darnus
+    Timeout(id + 0x80, 7.8f, "Heavensfall"); // t=752.2; Ability 7E4 from Ragnarok
+    Timeout(id + 0x90, 3.7f, "Super Nova x2"); // t=755.9
+    Timeout(id + 0xA0, 12.8f, "Bahamut's Claw x2"); // t=768.7
+    Timeout(id + 0xB0, 7.2f, "Binding Coil"); // t=775.9; Ability 7E2 from Nael deus Darnus
+    Timeout(id + 0xC0, 0.1f, "Ghost Add 2 (East)"); // t=776.0
+    Timeout(id + 0xD0, 15.3f, "Bahamut's Claw x2"); // t=791.3
+    Timeout(id + 0xE0, 7.2f, "Binding Coil"); // t=798.5; Ability 7E2 from Nael deus Darnus
+    Timeout(id + 0xF0, 7.7f, "Heavensfall"); // t=806.2; Ability 7E4 from Ragnarok
+    Timeout(id + 0x100, 3.7f, "Super Nova x2"); // t=809.9
+    Timeout(id + 0x110, 12.8f, "Bahamut's Claw x2"); // t=822.7
+    Timeout(id + 0x120, 7.2f, "Binding Coil"); // t=829.9; Ability 7E2 from Nael deus Darnus
+    Timeout(id + 0x130, 6.1f, "Ghost Add 3 (South)"); // t=836.0
+    Timeout(id + 0x140, 9.3f, "Bahamut's Claw x2"); // t=845.3
+    Timeout(id + 0x150, 7.2f, "Binding Coil"); // t=852.5; Ability 7E2 from Nael deus Darnus
+    Timeout(id + 0x160, 7.7f, "Heavensfall"); // t=860.2; Ability 7E4 from Ragnarok
+    Timeout(id + 0x170, 3.7f, "Super Nova x2"); // t=863.9
+    Timeout(id + 0x180, 12.8f, "Bahamut's Claw x2"); // t=876.7
+    Timeout(id + 0x190, 7.2f, "Binding Coil"); // t=883.9; Ability 7E2 from Nael deus Darnus
+    Timeout(id + 0x1A0, 15.4f, "Bahamut's Claw x2"); // t=899.3
+    Timeout(id + 0x1B0, 7.2f, "Binding Coil"); // t=906.5; Ability 7E2 from Nael deus Darnus
+    Timeout(id + 0x1C0, 7.7f, "Heavensfall"); // t=914.2
+    Timeout(id + 0x1D0, 3.7f, "Super Nova x2"); // t=917.9
+    Timeout(id + 0x1E0, 12.8f, "Bahamut's Claw x2"); // t=930.7
+    Timeout(id + 0x1F0, 7.2f, "Binding Coil"); // t=937.9
+    Timeout(id + 0x200, 15.4f, "Bahamut's Claw x2"); // t=953.3
+    Timeout(id + 0x210, 7.2f, "Binding Coil"); // t=960.5
+}
+
+private void Phase_4__Divebombs_and_Dances(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Bahamut's Favor"); // t=1000.0; Ability 7E6 from Nael deus Darnus
+    Timeout(id + 0x10, 3.1f, "Bahamut's Claw x5"); // t=1003.1
+    Timeout(id + 0x20, 10.8f, "Chain Lightning"); // t=1013.9; Ability 7FD from Thunderwing
+    Timeout(id + 0x30, 0.5f, "Raven Dive"); // t=1014.4; Ability 7DD from Nael deus Darnus
+    Timeout(id + 0x40, 0.5f, "Fireball (Out)"); // t=1014.9; Ability 7FB from Firehorn
+    Timeout(id + 0x50, 4.1f, "Lunar Dynamo"); // t=1019.0; Ability 7DA from Nael deus Darnus
+    Timeout(id + 0x60, 6.9f, "Chain Lightning"); // t=1025.9; Ability 7FD from Thunderwing
+    Timeout(id + 0x70, 1.0f, "Fireball (In)"); // t=1026.9; Ability 7FB from Firehorn
+    Timeout(id + 0x80, 11.1f, "Chain Lightning"); // t=1038.0; Ability 7FD from Thunderwing
+    Timeout(id + 0x90, 1.0f, "Fireball (Out)"); // t=1039.0; Ability 7FB from Firehorn
+    Timeout(id + 0xA0, 1.2f, "Iron Chariot"); // t=1040.2; Ability 7D8 from Nael deus Darnus
+    Timeout(id + 0xB0, 1.7f, "Super Nova x3"); // t=1041.9
+    Timeout(id + 0xC0, 5.5f, "Thermionic Beam"); // t=1047.4; Ability 7DF from Nael deus Darnus
+    Timeout(id + 0xD0, 2.6f, "Chain Lightning"); // t=1050.0; Ability 7FD from Thunderwing
+    Timeout(id + 0xE0, 1.2f, "Fireball (In)"); // t=1051.2; Ability 7FB from Firehorn
+    Timeout(id + 0xF0, 3.0f, "Bahamut's Claw x5"); // t=1054.2
+    Timeout(id + 0x100, 7.0f, "Divebomb Mark A"); // t=1061.2
+    Timeout(id + 0x110, 6.1f, "Divebomb Mark B"); // t=1067.3
+    Timeout(id + 0x120, 3.2f, "Cauterize x2"); // t=1070.5; Ability 801 from Thunderwing
+    Timeout(id + 0x130, 0.1f, "Meteor Stream"); // t=1070.6; Ability 7DE from Nael Geminus
+    Timeout(id + 0x140, 6.0f, "Cauterize x1"); // t=1076.6; Ability 7FF from Firehorn
+    Timeout(id + 0x150, 0.1f, "Meteor Stream"); // t=1076.7; Ability 7DE from Nael Geminus
+    Timeout(id + 0x160, 4.1f, "Dalamud Dive"); // t=1080.8; Ability 7DC from Nael deus Darnus
+    Timeout(id + 0x170, 15.8f, "Bahamut's Favor"); // t=1096.6; Ability 7E6 from Nael deus Darnus
+    Timeout(id + 0x180, 3.1f, "Bahamut's Claw x5"); // t=1099.7
+    Timeout(id + 0x190, 10.7f, "Raven Dive / Chain Lightning"); // t=1110.4; Ability 7DD from Nael deus Darnus | Ability 7FD from Thunderwing
+    Timeout(id + 0x1A0, 0.9f, "Fireball (Out)"); // t=1111.3; Ability 7FB from Firehorn
+    Timeout(id + 0x1B0, 3.6f, "Lunar Dynamo"); // t=1114.9; Ability 7DA from Nael deus Darnus
+    Timeout(id + 0x1C0, 7.6f, "Chain Lightning"); // t=1122.5; Ability 7FD from Thunderwing
+    Timeout(id + 0x1D0, 0.9f, "Fireball (In)"); // t=1123.4; Ability 7FB from Firehorn
+    Timeout(id + 0x1E0, 11.0f, "Chain Lightning"); // t=1134.4; Ability 7FD from Thunderwing
+    Timeout(id + 0x1F0, 1.1f, "Fireball (Out)"); // t=1135.5; Ability 7FB from Firehorn
+    Timeout(id + 0x200, 0.5f, "Iron Chariot"); // t=1136.0; Ability 7D8 from Nael deus Darnus
+    Timeout(id + 0x210, 1.8f, "Super Nova x3"); // t=1137.8
+    Timeout(id + 0x220, 6.0f, "Thermionic Beam"); // t=1143.8; Ability 7DF from Nael deus Darnus
+    Timeout(id + 0x230, 2.8f, "Chain Lightning"); // t=1146.6; Ability 7FD from Thunderwing
+    Timeout(id + 0x240, 1.1f, "Fireball (In)"); // t=1147.7; Ability 7FB from Firehorn
+    Timeout(id + 0x250, 2.9f, "Bahamut's Claw x5"); // t=1150.6
+    Timeout(id + 0x260, 7.2f, "Divebomb Mark A"); // t=1157.8
+    Timeout(id + 0x270, 6.1f, "Divebomb Mark B"); // t=1163.9
+    Timeout(id + 0x280, 0.4f, "Iron Chariot"); // t=1164.3; Ability 7D8 from Nael deus Darnus
+    Timeout(id + 0x290, 2.8f, "Cauterize x2"); // t=1167.1; Ability 7FF from Firehorn
+    Timeout(id + 0x2A0, 1.0f, "Raven Dive"); // t=1168.1; Ability 7DD from Nael deus Darnus
+    Timeout(id + 0x2B0, 4.6f, "Lunar Dynamo"); // t=1172.7; Ability 7DA from Nael deus Darnus
+    Timeout(id + 0x2C0, 0.5f, "Cauterize x1"); // t=1173.2; Ability 800 from Iceclaw
+    Timeout(id + 0x2D0, 19.9f, "Bahamut's Favor"); // t=1193.1; Ability 7E6 from Nael deus Darnus
+    Timeout(id + 0x2E0, 3.0f, "Bahamut's Claw x5"); // t=1196.1
+    Timeout(id + 0x2F0, 10.8f, "Raven Dive"); // t=1206.9; Ability 7DD from Nael deus Darnus
+    Timeout(id + 0x300, 0.1f, "Chain Lightning"); // t=1207.0; Ability 7FD from Thunderwing
+    Timeout(id + 0x310, 0.9f, "Fireball (Out)"); // t=1207.9; Ability 7FB from Firehorn
+    Timeout(id + 0x320, 3.5f, "Lunar Dynamo"); // t=1211.4; Ability 7DA from Nael deus Darnus
+    Timeout(id + 0x330, 7.6f, "Chain Lightning"); // t=1219.0; Ability 7FD from Thunderwing
+    Timeout(id + 0x340, 0.9f, "Fireball (In)"); // t=1219.9; Ability 7FB from Firehorn
+    Timeout(id + 0x350, 11.1f, "Chain Lightning"); // t=1231.0; Ability 7FD from Thunderwing
+    Timeout(id + 0x360, 1.1f, "Fireball (Out)"); // t=1232.1; Ability 7FB from Firehorn
+    Timeout(id + 0x370, 0.5f, "Iron Chariot"); // t=1232.6; Ability 7D8 from Nael deus Darnus
+    Timeout(id + 0x380, 1.8f, "Super Nova x3"); // t=1234.4
+    Timeout(id + 0x390, 6.1f, "Thermionic Beam"); // t=1240.5; Ability 7DF from Nael deus Darnus
+    Timeout(id + 0x3A0, 2.6f, "Chain Lightning"); // t=1243.1; Ability 7FD from Thunderwing
+    Timeout(id + 0x3B0, 1.3f, "Fireball (In)"); // t=1244.4; Ability 7FB from Firehorn
+    Timeout(id + 0x3C0, 3.0f, "Bahamut's Claw x5"); // t=1247.4
+    Timeout(id + 0x3D0, 7.0f, "Divebomb Mark A"); // t=1254.4
+    Timeout(id + 0x3E0, 5.9f, "Divebomb Mark B"); // t=1260.3
+    Timeout(id + 0x3F0, 3.4f, "Cauterize x2"); // t=1263.7; Ability 801 from Thunderwing
+    Timeout(id + 0x400, 0.1f, "Meteor Stream"); // t=1263.8; Ability 7DE from Nael Geminus
+    Timeout(id + 0x410, 5.8f, "Cauterize x1"); // t=1269.6; Ability 7FF from Firehorn
+    Timeout(id + 0x420, 0.3f, "Meteor Stream"); // t=1269.9; Ability 7DE from Nael Geminus
+    Timeout(id + 0x430, 4.6f, "Dalamud Dive"); // t=1274.5; Ability 7DC from Nael deus Darnus
+    Timeout(id + 0x440, 15.2f, "Bahamut's Favor"); // t=1289.7; Ability 7E6 from Nael deus Darnus
+    Timeout(id + 0x450, 3.1f, "Bahamut's Claw x5"); // t=1292.8
+    Timeout(id + 0x460, 10.7f, "Raven Dive / Chain Lightning"); // t=1303.5
+    Timeout(id + 0x470, 0.9f, "Fireball (Out)"); // t=1304.4
+    Timeout(id + 0x480, 3.6f, "Lunar Dynamo"); // t=1308.0
+    Timeout(id + 0x490, 7.6f, "Chain Lightning"); // t=1315.6
+    Timeout(id + 0x4A0, 0.9f, "Fireball (In)"); // t=1316.5
+    Timeout(id + 0x4B0, 11.0f, "Chain Lightning"); // t=1327.5
+    Timeout(id + 0x4C0, 1.1f, "Fireball (Out)"); // t=1328.6
+    Timeout(id + 0x4D0, 0.5f, "Iron Chariot"); // t=1329.1
+    Timeout(id + 0x4E0, 1.8f, "Super Nova x3"); // t=1330.9
+    Timeout(id + 0x4F0, 6.0f, "Thermionic Beam"); // t=1336.9
+    Timeout(id + 0x500, 2.8f, "Chain Lightning"); // t=1339.7
+    Timeout(id + 0x510, 1.1f, "Fireball (In)"); // t=1340.8
+    Timeout(id + 0x520, 2.9f, "Bahamut's Claw x5"); // t=1343.7
+    Timeout(id + 0x530, 7.2f, "Divebomb Mark A"); // t=1350.9
+    Timeout(id + 0x540, 6.1f, "Divebomb Mark B"); // t=1357.0
+    Timeout(id + 0x550, 0.4f, "Iron Chariot"); // t=1357.4
+    Timeout(id + 0x560, 2.8f, "Cauterize x2"); // t=1360.2
+    Timeout(id + 0x570, 1.0f, "Raven Dive"); // t=1361.2
+    Timeout(id + 0x580, 4.6f, "Lunar Dynamo"); // t=1365.8
+    Timeout(id + 0x590, 0.5f, "Cauterize x1"); // t=1366.3
+}
+
+private void Phase_5__What_Took_You_So_Long(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Megaflare Enrage"); // t=2000.0; Ability 7E8 from Nael deus Darnus
+    Timeout(id + 0x10, 8.5f, "Megaflare Enrage"); // t=2008.5
+    Timeout(id + 0x20, 8.5f, "Megaflare Enrage"); // t=2017.0
+    Timeout(id + 0x30, 8.5f, "Megaflare Enrage"); // t=2025.5
+    Timeout(id + 0x40, 8.5f, "Megaflare Enrage"); // t=2034.0
+}
+

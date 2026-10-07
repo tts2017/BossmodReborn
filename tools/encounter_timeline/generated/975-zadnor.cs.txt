@@ -1,0 +1,349 @@
+// Generated development skeleton from zadnor.txt (TerritoryType 975).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 109 static/dynamic trigger definitions from ui/raidboss/data/05-shb/eureka/zadnor.ts.
+
+private void Zadnor(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void On_Serpents__Wings(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Feeling_the_Burn(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void The_Broken_Blade(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void From_Beyond_the_Grave(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void With_Diremite_and_Main(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Here_Comes_the_Cavalry(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Head_of_the_Snake(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void There_Would_Be_Blood(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Never_Cry_Wolf(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Time_To_Burn(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Lean__Mean__Magitek_Machines(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Worn_to_a_Shadow(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void A_Familiar_Face(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Looks_to_Die_For(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Taking_the_Lyon_s_Share(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Sartauvoir__up(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Pyrokinesis").SetHint(StateMachine.StateHint.Raidwide); // t=21016.0; Ability 5E7C from Sartauvoir The Inferno; cactbot StartsUsing 5E7D [Zadnor Sartauvoir Pyrokinesis]
+    Timeout(id + 0x10, 18.301f, "Time Eruption 1"); // t=21034.3; Ability 5E6E from Sartauvoir The Inferno
+    Timeout(id + 0x20, 2.0f, "Time Eruption 2"); // t=21036.3; Ability 5E6F from Sartauvoir The Inferno
+    Timeout(id + 0x30, 9.1f, "Phenex"); // t=21045.4; Ability 5E72 from Sartauvoir The Inferno; cactbot StartsUsing 5E72/5E85 [Zadnor Sartauvoir Phenex]
+    Timeout(id + 0x40, 8.199f, "Thermal Gust"); // t=21053.6; Ability 5E74 from Sartauvoir The Inferno
+    Timeout(id + 0x50, 4.0f, "Flamedive"); // t=21057.6; Ability 5E73 from Huma
+    Condition(id + 0x60, 2.201f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5E6D), "", 5f, 0.0f); // t=21059.8; StartsUsing 5E6D from Sartauvoir The Inferno; cactbot StartsUsing 5E6D/5E84 [Zadnor Sartauvoir Reverse Time Eruption]
+    Timeout(id + 0x70, 13.1f, "Reverse Time Eruption 1"); // t=21072.9; Ability 5E71 from Sartauvoir The Inferno
+    Timeout(id + 0x80, 2.0f, "Reverse Time Eruption 2"); // t=21074.9; Ability 5E70 from Sartauvoir The Inferno
+    Condition(id + 0x90, 3.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5E7C), "", 5f, 0.0f); // t=21078.0; StartsUsing 5E7C from Sartauvoir The Inferno
+    Timeout(id + 0xA0, 5.0f, "Pyrokinesis").SetHint(StateMachine.StateHint.Raidwide); // t=21083.0; Ability 5E7C from Sartauvoir The Inferno; cactbot StartsUsing 5E7D [Zadnor Sartauvoir Pyrokinesis]
+    Timeout(id + 0xB0, 8.199f, "Hyperpyroplexy"); // t=21091.2; Ability 5E76 from Sartauvoir The Inferno; cactbot Ability 5E76 [Zadnor Sartauvoir Hyperpyroplexy]
+    Timeout(id + 0xC0, 10.201f, "Pyroplexy"); // t=21101.4; Ability 5E77 from Sartauvoir The Inferno; cactbot Ability 5E76 [Zadnor Sartauvoir Hyperpyroplexy] | Ability 5F1B [Zadnor Augur Pyroplexy]
+    Timeout(id + 0xD0, 5.299f, "Grand Crossflame"); // t=21106.7; Ability 5E7A from Sartauvoir The Inferno
+    Timeout(id + 0xE0, 199.4f, "Burn"); // t=21306.1; Ability 5E7F from Sartauvoir The Inferno
+    Timeout(id + 0xF0, 5.0f, "Burn"); // t=21311.1; Ability 5E7F from Sartauvoir The Inferno
+    Timeout(id + 0x100, 5.0f, "Immolate"); // t=21316.1; Ability 5E80 from Sartauvoir The Inferno
+    Timeout(id + 0x110, 18.5f, "Burning Blade").SetHint(StateMachine.StateHint.Tankbuster); // t=21334.6; Ability 5E90 from Sartauvoir The Inferno; cactbot StartsUsing 5E90 [Zadnor Sartauvoir Burning Blade] | Ability 5E90 [Zadnor Sartauvoir Mannatheihwon Flame Warning]
+    Timeout(id + 0x120, 9.301f, "Mannatheihwon Flame").SetHint(StateMachine.StateHint.Raidwide); // t=21343.9; Ability 5E87 from Sartauvoir The Inferno; cactbot StartsUsing 5E87 [Zadnor Sartauvoir Mannatheihwon Flame] | Ability 5E87 [Zadnor Sartauvoir Mannatheihwon Flame Away]
+    Timeout(id + 0x130, 12.9f, "Ignis Est"); // t=21356.8; Ability 5E89 from Ignis Est
+    Timeout(id + 0x140, 9.398f, "Left Brand/Right Brand"); // t=21366.2
+    Timeout(id + 0x150, 8.301f, "Double Cast"); // t=21374.5; Ability 5E8D from Sartauvoir The Inferno
+    Timeout(id + 0x160, 8.1f, "Pyrodoxy / Pyrocrisis"); // t=21382.6; Ability 5E8E from Sartauvoir The Inferno | Ability 5E8F from Sartauvoir The Inferno; cactbot StartsUsing 5E8F [Zadnor Sartauvoir Pyrocrisis] | StartsUsing 5E8E [Zadnor Sartauvoir Pyrodoxy]
+    Timeout(id + 0x170, 7.301f, "Left Brand/Right Brand"); // t=21389.9
+    Timeout(id + 0x180, 8.4f, "Phenex"); // t=21398.3; Ability 5E85 from Sartauvoir The Inferno; cactbot StartsUsing 5E72/5E85 [Zadnor Sartauvoir Phenex]
+    Timeout(id + 0x190, 10.299f, "Time Eruption/Reverse Time Eruption"); // t=21408.6
+    Timeout(id + 0x1A0, 3.0f, "Flamedive"); // t=21411.6; Ability 5E73 from Huma
+    Timeout(id + 0x1B0, 4.301f, "Time Eruption 1"); // t=21415.9; Ability 5E6E/5E71 from Sartauvoir The Inferno
+    Timeout(id + 0x1C0, 2.0f, "Time Eruption 2"); // t=21417.9; Ability 5E6F/5E70 from Sartauvoir The Inferno
+    Timeout(id + 0x1D0, 8.0f, "Pyrokinesis").SetHint(StateMachine.StateHint.Raidwide); // t=21425.9; Ability 5E82 from Sartauvoir The Inferno; cactbot StartsUsing 5E7D [Zadnor Sartauvoir Pyrokinesis]
+    Timeout(id + 0x1E0, 11.4f, "Hyperpyroplexy"); // t=21437.3; Ability 5E86 from Sartauvoir The Inferno; cactbot Ability 5E76 [Zadnor Sartauvoir Hyperpyroplexy]
+}
+
+private void Blackburn___Augur___Alkonost___Carrion_Crow__down(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5F12), "", 5f, 0.0f); // t=22011.0; StartsUsing 5F12 from 4Th Legion Blackburn; cactbot StartsUsing 5F12 [Zadnor Blackburn Magitek Rays]
+    Timeout(id + 0x10, 5.0f, "Suppressive Magitek Rays").SetHint(StateMachine.StateHint.Raidwide); // t=22016.0; Ability 5F12 from 4Th Legion Blackburn; cactbot StartsUsing 5F12 [Zadnor Blackburn Magitek Rays]
+    Timeout(id + 0x20, 15.699f, "Anti-Personnel Missile"); // t=22031.7; Ability 5F0D from 4Th Legion Blackburn; cactbot StartsUsing 5DC2 [Zadnor Saunion Anti-Personnel Missile]
+    Timeout(id + 0x30, 2.102f, "Ballistic Impact 1"); // t=22033.8
+    Timeout(id + 0x40, 3.0f, "Ballistic Impact 2"); // t=22036.8
+    Timeout(id + 0x50, 3.0f, "Ballistic Impact 3"); // t=22039.8
+    Timeout(id + 0x60, 8.1f, "Read Orders: Field Support"); // t=22047.9; Ability 5F0C from 4Th Legion Blackburn
+    Timeout(id + 0x70, 6.699f, "Terminus Est"); // t=22054.6
+    Timeout(id + 0x80, 3.0f, "Analysis"); // t=22057.6; Ability 5F0F from 4Th Legion Blackburn; cactbot StartsUsing 5F0F [Zadnor Blackburn Analysis]
+    Timeout(id + 0x90, 7.1f, "Terminus Est"); // t=22064.7
+    Timeout(id + 0xA0, 8.5f, "Suppressive Magitek Rays").SetHint(StateMachine.StateHint.Raidwide); // t=22073.2; Ability 5F12 from 4Th Legion Blackburn; cactbot StartsUsing 5F12 [Zadnor Blackburn Magitek Rays]
+    Timeout(id + 0xB0, 10.201f, "Surface Missile"); // t=22083.4; Ability 5F10 from 4Th Legion Blackburn
+    Timeout(id + 0xC0, 6.1f, "Surface Missile"); // t=22089.5; Ability 5F11 from 4Th Legion Blackburn
+    Condition(id + 0xD0, 210.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5F1F), "", 5f, 205.5f); // t=22300.0; StartsUsing 5F1F from 4Th Legion Augur
+    Timeout(id + 0xE0, 5.0f, "Sanctified Quake III").SetHint(StateMachine.StateHint.Raidwide); // t=22305.0; Ability 5F1F from 4Th Legion Augur; cactbot StartsUsing 5F20 [Zadnor Blackburn Augur Sanctified Quake III]
+    Timeout(id + 0xF0, 8.199f, "Void Call"); // t=22313.2; Ability 5F1E from 4Th Legion Augur
+    Timeout(id + 0x100, 12.301f, "Turbine"); // t=22325.5; Ability 5F14 from Flameborne Zirnitra; cactbot StartsUsing 5F14 [Zadnor Augur Turbine]
+    Timeout(id + 0x110, 2.5f, "Flaming Cyclone"); // t=22328.0; Ability 5F19 from Stormborne Zirnitra
+    Timeout(id + 0x120, 0.6f, "74 Degrees"); // t=22328.6; Ability 5F17 from Waveborne Zirnitra
+    Timeout(id + 0x130, 3.9f, "Pyroplexy"); // t=22332.5; Ability 5F1B from 4Th Legion Augur; cactbot Ability 5F1B [Zadnor Augur Pyroplexy]
+    Timeout(id + 0x140, 26.199f, "Sanctified Quake III").SetHint(StateMachine.StateHint.Raidwide); // t=22358.7; Ability 5F1F from 4Th Legion Augur; cactbot StartsUsing 5F20 [Zadnor Blackburn Augur Sanctified Quake III]
+    Timeout(id + 0x150, 141.301f, ""); // t=22500.0
+    Condition(id + 0x160, 7.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5F26), "", 5f, 2.0f); // t=22507.0; StartsUsing 5F26 from Tamed Alkonost; cactbot StartsUsing 5F26 [Zadnor Alkonost Stormcall Away]
+    Timeout(id + 0x170, 5.0f, "Stormcall"); // t=22512.0; Ability 5F26 from Tamed Alkonost; cactbot StartsUsing 5F26 [Zadnor Alkonost Stormcall Away]
+    Timeout(id + 0x180, 14.9f, "Orb 1 / North Wind/South Wind"); // t=22526.9; Ability 5F27 from Vortical Orb
+    Timeout(id + 0x190, 0.699f, "--knockback--"); // t=22527.6
+    Timeout(id + 0x1A0, 6.4f, "Orb 2"); // t=22534.0; Ability 5F27 from Vortical Orb
+    Timeout(id + 0x1B0, 14.699f, "Painful Gust/Pain Storm"); // t=22548.7
+    Timeout(id + 0x1C0, 9.102f, "Frigid Pulse"); // t=22557.8; Ability 5F2A from Tamed Alkonost
+    Timeout(id + 0x1D0, 10.398f, "North Wind/South Wind"); // t=22568.2
+    Timeout(id + 0x1E0, 0.701f, "--knockback--"); // t=22568.9
+    Timeout(id + 0x1F0, 4.0f, "Foreshadowing / Painful Gust/Pain Storm / Frigid Pulse"); // t=22572.9; Ability 5F30 from Tamed Alkonost | Ability 5F2D from Tamed Alkonost's Shadow
+    Timeout(id + 0x200, 13.199f, "Nihility's Song").SetHint(StateMachine.StateHint.Raidwide); // t=22586.1; Ability 5F28 from Tamed Alkonost; cactbot StartsUsing 5F28 [Zadnor Alkonost Nihility\]
+    Timeout(id + 0x210, 11.701f, "Broadside Barrage"); // t=22597.8; Ability 5F25 from Tamed Carrion Crow
+    Timeout(id + 0x220, 7.898f, "Painful Gust"); // t=22605.7; Ability 5F2C from Tamed Alkonost
+    Timeout(id + 0x230, 7.102f, "Nihility's Song").SetHint(StateMachine.StateHint.Raidwide); // t=22612.8; Ability 5F28 from Tamed Alkonost; cactbot StartsUsing 5F28 [Zadnor Alkonost Nihility\]
+    Timeout(id + 0x240, 0.299f, "Broadside Barrage"); // t=22613.1; Ability 5F25 from Tamed Carrion Crow
+    Timeout(id + 0x250, 0.301f, "Nihility's Song"); // t=22613.4; Ability 5F29 from Tamed Alkonost
+    Timeout(id + 0x260, 15.6f, "Frigid Pulse"); // t=22629.0; Ability 5F2A from Tamed Alkonost
+    Timeout(id + 0x270, 6.5f, "Broadside Barrage"); // t=22635.5; Ability 5F25 from Tamed Carrion Crow
+}
+
+private void Cuchulainn(uint id)
+{
+    Timeout(id + 0x0, 13.301f, "Putrified Soul").SetHint(StateMachine.StateHint.Raidwide); // t=23013.3; Ability 5C8F from 4Th-Make Cuchulainn; cactbot StartsUsing 5C8F [Zadnor Cuchulainn Putrified Soul]
+    Timeout(id + 0x10, 9.1f, "Burgeoning Dread"); // t=23022.4; Ability 5C88 from 4Th-Make Cuchulainn
+    Timeout(id + 0x20, 21.299f, "Putrified Soul").SetHint(StateMachine.StateHint.Raidwide); // t=23043.7; Ability 5C8F from 4Th-Make Cuchulainn; cactbot StartsUsing 5C8F [Zadnor Cuchulainn Putrified Soul]
+    Timeout(id + 0x30, 12.201f, "Fleshy Necromass"); // t=23055.9; Ability 5C82 from 4Th-Make Cuchulainn; cactbot StartsUsing 5C82 [Zadnor Cuchulainn Fleshy Necromass]
+    Timeout(id + 0x40, 26.799f, "Necrotic Billow"); // t=23082.7; Ability 5C86 from 4Th-Make Cuchulainn; cactbot StartsUsing 5C86 [Zadnor Cuchulainn Necrotic Billow]
+    Timeout(id + 0x50, 26.0f, "Ambient Pulsation 1"); // t=23108.7
+    Timeout(id + 0x60, 1.5f, "Ambient Pulsation 2"); // t=23110.2
+    Timeout(id + 0x70, 1.5f, "Ambient Pulsation 3"); // t=23111.7
+    Timeout(id + 0x80, 14.4f, "Might Of Malice").SetHint(StateMachine.StateHint.Tankbuster); // t=23126.1; Ability 5C92 from 4Th-Make Cuchulainn; cactbot StartsUsing 5C92 [Zadnor Cuchulainn Might Of Malice]
+    Timeout(id + 0x90, 14.1f, "Necrotic Billow?"); // t=23140.2; Ability 5C86 from 4Th-Make Cuchulainn; cactbot StartsUsing 5C86 [Zadnor Cuchulainn Necrotic Billow]
+    Timeout(id + 0xA0, 3.102f, "Fleshy Necromass?"); // t=23143.3; Ability 5C82 from 4Th-Make Cuchulainn; cactbot StartsUsing 5C82 [Zadnor Cuchulainn Fleshy Necromass]
+    Condition(id + 0xB0, 19.898f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5C88), "", 5f, 14.898f); // t=23163.2; StartsUsing 5C88 from 4Th-Make Cuchulainn
+    Timeout(id + 0xC0, 5.0f, "Burgeoning Dread"); // t=23168.2; Ability 5C88 from 4Th-Make Cuchulainn
+    Timeout(id + 0xD0, 19.9f, "Ambient Pulsation 1"); // t=23188.1
+    Timeout(id + 0xE0, 1.5f, "Ambient Pulsation 2"); // t=23189.6
+    Timeout(id + 0xF0, 1.5f, "Ambient Pulsation 3"); // t=23191.1
+    Timeout(id + 0x100, 4.4f, "Might Of Malice").SetHint(StateMachine.StateHint.Tankbuster); // t=23195.5; Ability 5C92 from 4Th-Make Cuchulainn; cactbot StartsUsing 5C92 [Zadnor Cuchulainn Might Of Malice]
+    Timeout(id + 0x110, 15.1f, "Putrified Soul").SetHint(StateMachine.StateHint.Raidwide); // t=23210.6; Ability 5C8F from 4Th-Make Cuchulainn; cactbot StartsUsing 5C8F [Zadnor Cuchulainn Putrified Soul]
+    Timeout(id + 0x120, 7.1f, "Ghastly Aura"); // t=23217.7; Ability 614D from 4Th-Make Cuchulainn
+    Timeout(id + 0x130, 9.102f, "Necrotic Billow?"); // t=23226.8; Ability 5C86 from 4Th-Make Cuchulainn; cactbot StartsUsing 5C86 [Zadnor Cuchulainn Necrotic Billow]
+    Timeout(id + 0x140, 4.1f, "Fleshy Necromass?"); // t=23230.9; Ability 5C82 from 4Th-Make Cuchulainn; cactbot StartsUsing 5C82 [Zadnor Cuchulainn Fleshy Necromass]
+    Condition(id + 0x150, 18.199f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5C8B), "", 5f, 13.199f); // t=23249.1; StartsUsing 5C8B from 4Th-Make Cuchulainn
+    Timeout(id + 0x160, 5.0f, "Fell Flow 1"); // t=23254.1; Ability 5C8B from 4Th-Make Cuchulainn
+    Timeout(id + 0x170, 7.301f, "Fell Flow 2"); // t=23261.4; Ability 5C8B from 4Th-Make Cuchulainn
+    Timeout(id + 0x180, 14.199f, "Burgeoning Dread"); // t=23275.6; Ability 5C88 from 4Th-Make Cuchulainn
+    Timeout(id + 0x190, 19.9f, "Ambient Pulsation 1"); // t=23295.5
+    Timeout(id + 0x1A0, 1.5f, "Ambient Pulsation 2"); // t=23297.0
+    Timeout(id + 0x1B0, 1.5f, "Ambient Pulsation 3"); // t=23298.5
+    Timeout(id + 0x1C0, 4.5f, "Might Of Malice").SetHint(StateMachine.StateHint.Tankbuster); // t=23303.0; Ability 5C92 from 4Th-Make Cuchulainn; cactbot StartsUsing 5C92 [Zadnor Cuchulainn Might Of Malice]
+}
+
+private void Saunion___Dawon(uint id)
+{
+    Timeout(id + 0x0, 11.699f, "Magitek Halo/Magitek Crossray"); // t=24011.7
+    Timeout(id + 0x10, 11.201f, "High-Powered Magitek Ray"); // t=24022.9; Ability 5DC5 from Saunion; cactbot StartsUsing 5DC5 [Zadnor Saunion High-Powered Magitek Ray]
+    Timeout(id + 0x20, 11.199f, "Magitek Crossray/Magitek Halo"); // t=24034.1
+    Timeout(id + 0x30, 16.4f, "Mobile Halo/Mobile Crossray"); // t=24050.5
+    Timeout(id + 0x40, 13.199f, "Missile Command"); // t=24063.7; Ability 5DC1 from Saunion
+    Timeout(id + 0x50, 6.201f, "Surface Missile / Anti-Personnel Missile"); // t=24069.9; Ability 5DC4 from Saunion | Ability 5DC2 from Saunion; cactbot StartsUsing 5DC2 [Zadnor Saunion Anti-Personnel Missile]
+    Timeout(id + 0x60, 5.0f, "Missile Salvo"); // t=24074.9; Ability 5DC3 from Saunion; cactbot StartsUsing 5DC3 [Zadnor Saunion Missile Salvo]
+    Timeout(id + 0x70, 14.1f, "Mobile Crossray/Mobile Halo"); // t=24089.0
+    Condition(id + 0x80, 211.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5DC6), "", 5f, 206.0f); // t=24300.0; StartsUsing 5DC6 from Dawon The Younger
+    Timeout(id + 0x90, 6.0f, "Touchdown"); // t=24306.0; Ability 5DC6 from Dawon The Younger
+    Targetable(id + 0xA0, true, 17.301f, "--targetable--"); // t=24323.3
+    Timeout(id + 0xB0, 25.199f, "Wildfire Winds"); // t=24348.5; Ability 5DCD from Dawon The Younger; cactbot StartsUsing 5DCD [Zadnor Saunion Wildfire Winds]
+    Timeout(id + 0xC0, 4.0f, "Mobile Halo/Mobile Crossray"); // t=24352.5
+    Timeout(id + 0xD0, 8.699f, "Raw Heat"); // t=24361.2; Ability 5DCE from Vermilion Flame
+    Timeout(id + 0xE0, 1.5f, "Missile Command"); // t=24362.7; Ability 5DC1 from Saunion
+    Timeout(id + 0xF0, 6.201f, "Surface Missile / Anti-Personnel Missile"); // t=24368.9; Ability 5DC4 from Saunion | Ability 5DC2 from Saunion; cactbot StartsUsing 5DC2 [Zadnor Saunion Anti-Personnel Missile]
+    Timeout(id + 0x100, 3.199f, "Swooping Frenzy"); // t=24372.1; Ability 5DD0 from Dawon The Younger; cactbot StartsUsing 5DD0 [Zadnor Saunion Swooping Frenzy]
+    Timeout(id + 0x110, 1.801f, "Missile Salvo"); // t=24373.9; Ability 5DC3 from Saunion; cactbot StartsUsing 5DC3 [Zadnor Saunion Missile Salvo]
+    Timeout(id + 0x120, 6.299f, "Frigid Pulse"); // t=24380.2; Ability 607D from Dawon The Younger
+    Timeout(id + 0x130, 31.9f, "Spiral Scourge"); // t=24412.1; Ability 5DB2 from Saunion
+    Targetable(id + 0x140, false, 0.0f, "--untargetable--"); // t=24412.1
+    Timeout(id + 0x150, 1.301f, "Obey"); // t=24413.4; Ability 5DC9 from Dawon The Younger
+    Timeout(id + 0x160, 2.1f, "Swooping Frenzy 1"); // t=24415.5; Ability 5DCA from Dawon The Younger
+    Timeout(id + 0x170, 3.1f, "Frigid Pulse/Fire Brand"); // t=24418.6
+    Timeout(id + 0x180, 3.301f, "Swooping Frenzy 2"); // t=24421.9; Ability 5DCA from Dawon The Younger
+    Timeout(id + 0x190, 3.1f, "Frigid Pulse/Fire Brand"); // t=24425.0
+    Timeout(id + 0x1A0, 3.4f, "Swooping Frenzy 3"); // t=24428.4; Ability 5DCA from Dawon The Younger
+    Timeout(id + 0x1B0, 3.1f, "Frigid Pulse/Fire Brand"); // t=24431.5
+    Targetable(id + 0x1C0, true, 0.699f, "--targetable--"); // t=24432.2
+    Timeout(id + 0x1D0, 17.801f, "Swooping Frenzy"); // t=24450.0; Ability 5DD0 from Dawon The Younger; cactbot StartsUsing 5DD0 [Zadnor Saunion Swooping Frenzy]
+    Timeout(id + 0x1E0, 2.199f, "Missile Command"); // t=24452.2; Ability 5DC1 from Saunion
+    Timeout(id + 0x1F0, 5.9f, "Pentagust"); // t=24458.1; Ability 5DD1 from Dawon The Younger
+    Timeout(id + 0x200, 0.301f, "Surface Missile / Anti-Personnel Missile"); // t=24458.4; Ability 5DC4 from Saunion | Ability 5DC2 from Saunion; cactbot StartsUsing 5DC2 [Zadnor Saunion Anti-Personnel Missile]
+    Timeout(id + 0x210, 5.0f, "Missile Salvo"); // t=24463.4; Ability 5DC3 from Saunion; cactbot StartsUsing 5DC3 [Zadnor Saunion Missile Salvo]
+    Timeout(id + 0x220, 16.5f, "Tooth And Talon / High-Powered Magitek Ray").SetHint(StateMachine.StateHint.Tankbuster); // t=24479.9; Ability 5DD4 from Dawon The Younger | Ability 5DC5 from Saunion; cactbot StartsUsing 5DC5 [Zadnor Saunion High-Powered Magitek Ray] | StartsUsing 5DD4 [Zadnor Saunion Tooth and Talon]
+    Timeout(id + 0x230, 21.4f, "Wildfire Winds 1"); // t=24501.3; Ability 5DCD from Dawon The Younger; cactbot StartsUsing 5DCD [Zadnor Saunion Wildfire Winds]
+    Timeout(id + 0x240, 8.799f, "Spiral Scourge"); // t=24510.1; Ability 5DB2 from Saunion
+    Targetable(id + 0x250, false, 0.0f, "--untargetable--"); // t=24510.1
+    Timeout(id + 0x260, 4.0f, "Raw Heat 1"); // t=24514.1; Ability 5DCE from Vermilion Flame
+    Timeout(id + 0x270, 2.4f, "Wildfire Winds 2"); // t=24516.5; Ability 5DCD from Dawon The Younger; cactbot StartsUsing 5DCD [Zadnor Saunion Wildfire Winds]
+    Timeout(id + 0x280, 12.801f, "Raw Heat 2"); // t=24529.3; Ability 5DCE from Vermilion Flame
+    Targetable(id + 0x290, true, 0.799f, "--targetable--"); // t=24530.1
+    Timeout(id + 0x2A0, 25.701f, "Wildfire Winds"); // t=24555.8; Ability 5DCD from Dawon The Younger; cactbot StartsUsing 5DCD [Zadnor Saunion Wildfire Winds]
+    Timeout(id + 0x2B0, 4.1f, "Mobile Crossray/Mobile Halo"); // t=24559.9
+    Timeout(id + 0x2C0, 8.699f, "Raw Heat"); // t=24568.6; Ability 5DCE from Vermilion Flame
+    Timeout(id + 0x2D0, 1.5f, "Missile Command"); // t=24570.1; Ability 5DC1 from Saunion
+    Timeout(id + 0x2E0, 6.201f, "Surface Missile / Anti-Personnel Missile"); // t=24576.3; Ability 5DC4 from Saunion | Ability 5DC2 from Saunion; cactbot StartsUsing 5DC2 [Zadnor Saunion Anti-Personnel Missile]
+    Timeout(id + 0x2F0, 3.199f, "Swooping Frenzy"); // t=24579.5; Ability 5DD0 from Dawon The Younger; cactbot StartsUsing 5DD0 [Zadnor Saunion Swooping Frenzy]
+    Timeout(id + 0x300, 1.801f, "Missile Salvo"); // t=24581.3; Ability 5DC3 from Saunion; cactbot StartsUsing 5DC3 [Zadnor Saunion Missile Salvo]
+    Timeout(id + 0x310, 6.299f, "Frigid Pulse"); // t=24587.6; Ability 607D from Dawon The Younger
+    Timeout(id + 0x320, 31.6f, "Spiral Scourge"); // t=24619.2; Ability 5DB2 from Saunion
+    Targetable(id + 0x330, false, 0.0f, "--untargetable--"); // t=24619.2
+    Timeout(id + 0x340, 1.301f, "Obey"); // t=24620.5
+    Timeout(id + 0x350, 2.1f, "Swooping Frenzy 1"); // t=24622.6
+    Timeout(id + 0x360, 3.1f, "Frigid Pulse/Fire Brand"); // t=24625.7
+    Timeout(id + 0x370, 3.301f, "Swooping Frenzy 2"); // t=24629.0
+    Timeout(id + 0x380, 3.1f, "Frigid Pulse/Fire Brand"); // t=24632.1
+    Timeout(id + 0x390, 3.4f, "Swooping Frenzy 3"); // t=24635.5
+    Timeout(id + 0x3A0, 3.1f, "Frigid Pulse/Fire Brand"); // t=24638.6
+    Targetable(id + 0x3B0, true, 0.701f, "--targetable--"); // t=24639.3
+}
+
+private void The_Diablo_Armament(uint id)
+{
+    Timeout(id + 0x0, 13.0f, "Aetheric Explosion").SetHint(StateMachine.StateHint.Raidwide); // t=25013.0; Ability 5CC6 from The Diablo Armament; cactbot StartsUsing 5CC6 [Zadnor Diablo Aetheric Explosion]
+    Timeout(id + 0x10, 10.4f, "Aetherochemical Laser 1"); // t=25023.4
+    Timeout(id + 0x20, 4.1f, "Aetherochemical Laser 2"); // t=25027.5
+    Timeout(id + 0x30, 7.0f, "Explosion 1"); // t=25034.5
+    Timeout(id + 0x40, 2.1f, "Explosion 2"); // t=25036.6
+    Timeout(id + 0x50, 9.4f, "Advanced Death Ray"); // t=25046.0; Ability 5CC4 from The Diablo Armament; cactbot HeadMarker E6 [Zadnor Diablo Advanced Death Ray]
+    Timeout(id + 0x60, 11.301f, "Aetheric Explosion").SetHint(StateMachine.StateHint.Raidwide); // t=25057.3; Ability 5CC6 from The Diablo Armament; cactbot StartsUsing 5CC6 [Zadnor Diablo Aetheric Explosion]
+    Timeout(id + 0x70, 11.299f, "Diabolic Gate"); // t=25068.6; Ability 5C9F from The Diablo Armament; cactbot StartsUsing 5C9F [Zadnor Diablo Ultimate Psuedoterror]
+    Timeout(id + 0x80, 24.1f, "Ruinous Pseudomen 1"); // t=25092.7; Ability 61A3 from The Diablo Armament
+    Timeout(id + 0x90, 4.0f, "Ruinous Pseudomen 2"); // t=25096.7
+    Timeout(id + 0xA0, 3.0f, "Ruinous Pseudomen 3"); // t=25099.7
+    Timeout(id + 0xB0, 4.301f, "Ruinous Pseudomen 4"); // t=25104.0; Ability 614F from The Diablo Armament
+    Timeout(id + 0xC0, 7.0f, "Ultimate Pseudoterror"); // t=25111.0; Ability 5CA3 from The Diablo Armament
+    Timeout(id + 0xD0, 14.4f, "Aetheric Explosion").SetHint(StateMachine.StateHint.Raidwide); // t=25125.4; Ability 5CC6 from The Diablo Armament; cactbot StartsUsing 5CC6 [Zadnor Diablo Aetheric Explosion]
+    Timeout(id + 0xE0, 14.4f, "Advanced Death Ray"); // t=25139.8; Ability 5CC4 from The Diablo Armament; cactbot HeadMarker E6 [Zadnor Diablo Advanced Death Ray]
+    Timeout(id + 0xF0, 7.199f, "Magitek Bit"); // t=25147.0; Ability 5CAC from The Diablo Armament
+    Timeout(id + 0x100, 14.5f, "Assault Cannon"); // t=25161.5; Ability 5CAE from Diabolic Bit
+    Timeout(id + 0x110, 1.9f, "Aetheric Explosion").SetHint(StateMachine.StateHint.Raidwide); // t=25163.4; Ability 5CC6 from The Diablo Armament; cactbot StartsUsing 5CC6 [Zadnor Diablo Aetheric Explosion]
+    Timeout(id + 0x120, 20.4f, "Advanced Death IV"); // t=25183.8; Ability 5CB0 from The Diablo Armament; cactbot StartsUsing 5CAF [Zadnor Diablo Advanced Death IV] | StartsUsing 5CAF [Zadnor Diablo Advanced Death IV Followup]
+    Timeout(id + 0x130, 7.0f, "Advanced Death IV"); // t=25190.8; Ability 5CB0 from The Diablo Armament; cactbot StartsUsing 5CAF [Zadnor Diablo Advanced Death IV] | StartsUsing 5CAF [Zadnor Diablo Advanced Death IV Followup]
+    Timeout(id + 0x140, 5.699f, "Light Pseudopillar"); // t=25196.5; Ability 5CB1 from The Diablo Armament
+    Timeout(id + 0x150, 7.1f, "Advanced Death Ray"); // t=25203.6; Ability 5CC4 from The Diablo Armament; cactbot HeadMarker E6 [Zadnor Diablo Advanced Death Ray]
+    Timeout(id + 0x160, 6.301f, "Aetherochemical Laser 1"); // t=25209.9
+    Timeout(id + 0x170, 4.1f, "Aetherochemical Laser 2"); // t=25214.0
+    Timeout(id + 0x180, 5.5f, "Aetherochemical Laser 3"); // t=25219.5
+    Timeout(id + 0x190, 1.5f, "Explosion 1"); // t=25221.0
+    Timeout(id + 0x1A0, 2.1f, "Explosion 2"); // t=25223.1
+    Timeout(id + 0x1B0, 3.5f, "Explosion 3"); // t=25226.6
+    Timeout(id + 0x1C0, 15.6f, "Aetheric Boom").SetHint(StateMachine.StateHint.Raidwide); // t=25242.2; Ability 5CB3 from The Diablo Armament; cactbot StartsUsing 5CB3 [Zadnor Diablo Aetheric Boom Raidwide] | StartsUsing 5CB3 [Zadnor Diablo Aetheric Boom Balloons]
+    Timeout(id + 0x1D0, 22.801f, "Diabolic Gate"); // t=25265.0; Ability 5C9F from The Diablo Armament; cactbot StartsUsing 5C9F [Zadnor Diablo Ultimate Psuedoterror]
+    Timeout(id + 0x1E0, 24.1f, "Ruinous Pseudomen 1"); // t=25289.1; Ability 61A3 from The Diablo Armament
+    Timeout(id + 0x1F0, 4.0f, "Ruinous Pseudomen 2"); // t=25293.1
+    Timeout(id + 0x200, 3.0f, "Ruinous Pseudomen 3"); // t=25296.1
+    Timeout(id + 0x210, 4.201f, "Ruinous Pseudomen 4"); // t=25300.3; Ability 614F from The Diablo Armament
+    Timeout(id + 0x220, 7.1f, "Ultimate Pseudoterror"); // t=25307.4; Ability 5CA3 from The Diablo Armament
+    Timeout(id + 0x230, 14.4f, "Aetheric Explosion").SetHint(StateMachine.StateHint.Raidwide); // t=25321.8; Ability 5CC6 from The Diablo Armament; cactbot StartsUsing 5CC6 [Zadnor Diablo Aetheric Explosion]
+    Timeout(id + 0x240, 14.199f, "Advanced Death IV"); // t=25336.0; Ability 5CB0 from The Diablo Armament; cactbot StartsUsing 5CAF [Zadnor Diablo Advanced Death IV] | StartsUsing 5CAF [Zadnor Diablo Advanced Death IV Followup]
+    Timeout(id + 0x250, 8.0f, "Advanced Death IV"); // t=25344.0; Ability 5CB0 from The Diablo Armament; cactbot StartsUsing 5CAF [Zadnor Diablo Advanced Death IV] | StartsUsing 5CAF [Zadnor Diablo Advanced Death IV Followup]
+    Timeout(id + 0x260, 2.6f, "Magitek Bit"); // t=25346.6; Ability 5CAC from The Diablo Armament
+    Timeout(id + 0x270, 7.201f, "Aetherochemical Laser 1"); // t=25353.8
+    Timeout(id + 0x280, 4.1f, "Aetherochemical Laser 2"); // t=25357.9
+    Timeout(id + 0x290, 3.4f, "Assault Cannon"); // t=25361.3; Ability 5CAE from Diabolic Bit
+    Timeout(id + 0x2A0, 3.5f, "Explosion 1"); // t=25364.8
+    Timeout(id + 0x2B0, 2.1f, "Explosion 2"); // t=25366.9
+    Timeout(id + 0x2C0, 6.199f, "Assault Cannon"); // t=25373.1; Ability 5CAE from Diabolic Bit
+    Timeout(id + 0x2D0, 7.301f, "Deadly Dealing"); // t=25380.4; Ability 5CC2 from The Diablo Armament; cactbot StartsUsing 5CC2 [Zadnor Diablo Deadly Dealing]
+    Timeout(id + 0x2E0, 4.199f, "Assault Cannon"); // t=25384.6; Ability 5CAE from Diabolic Bit
+    Timeout(id + 0x2F0, 13.301f, "Aetheric Explosion").SetHint(StateMachine.StateHint.Raidwide); // t=25397.9; Ability 5CC6 from The Diablo Armament; cactbot StartsUsing 5CC6 [Zadnor Diablo Aetheric Explosion]
+    Timeout(id + 0x300, 6.199f, "Light Pseudopillar"); // t=25404.1; Ability 5CB1 from The Diablo Armament
+    Timeout(id + 0x310, 3.201f, "Aetherochemical Laser 1"); // t=25407.3
+    Timeout(id + 0x320, 4.1f, "Aetherochemical Laser 2"); // t=25411.4
+    Timeout(id + 0x330, 5.5f, "Aetherochemical Laser 3"); // t=25416.9
+    Timeout(id + 0x340, 1.5f, "Explosion 1"); // t=25418.4
+    Timeout(id + 0x350, 2.1f, "Explosion 2"); // t=25420.5
+    Timeout(id + 0x360, 3.5f, "Explosion 3"); // t=25424.0
+    Timeout(id + 0x370, 2.0f, "Advanced Death Ray"); // t=25426.0; Ability 5CC4 from The Diablo Armament; cactbot HeadMarker E6 [Zadnor Diablo Advanced Death Ray]
+    Timeout(id + 0x380, 21.4f, "Deadly Dealing"); // t=25447.4; Ability 5CC2 from The Diablo Armament; cactbot StartsUsing 5CC2 [Zadnor Diablo Deadly Dealing]
+    Timeout(id + 0x390, 1.6f, "Advanced Nox"); // t=25449.0; Ability 5CC0 from The Diablo Armament
+    Timeout(id + 0x3A0, 12.699f, "Aetheric Boom").SetHint(StateMachine.StateHint.Raidwide); // t=25461.7; Ability 5CB3 from The Diablo Armament; cactbot StartsUsing 5CB3 [Zadnor Diablo Aetheric Boom Raidwide] | StartsUsing 5CB3 [Zadnor Diablo Aetheric Boom Balloons]
+    Timeout(id + 0x3B0, 2.102f, "Aetherochemical Laser 1"); // t=25463.8; Ability 5CA5 from The Diablo Armament
+    Timeout(id + 0x3C0, 4.1f, "Aetherochemical Laser 2"); // t=25467.9; Ability 5CA4 from The Diablo Armament
+    Timeout(id + 0x3D0, 7.0f, "Explosion 1"); // t=25474.9
+    Timeout(id + 0x3E0, 2.1f, "Explosion 2"); // t=25477.0
+    Timeout(id + 0x3F0, 12.6f, "Diabolic Gate"); // t=25489.6; Ability 5C9F from The Diablo Armament; cactbot StartsUsing 5C9F [Zadnor Diablo Ultimate Psuedoterror]
+    Timeout(id + 0x400, 24.1f, "Ruinous Pseudomen 1"); // t=25513.7; Ability 61A3 from The Diablo Armament
+    Timeout(id + 0x410, 4.0f, "Ruinous Pseudomen 2"); // t=25517.7
+    Timeout(id + 0x420, 3.0f, "Ruinous Pseudomen 3"); // t=25520.7
+    Timeout(id + 0x430, 4.301f, "Ruinous Pseudomen 4"); // t=25525.0; Ability 614F from The Diablo Armament
+    Timeout(id + 0x440, 7.0f, "Ultimate Pseudoterror"); // t=25532.0; Ability 5CA3 from The Diablo Armament
+    Condition(id + 0x450, 268.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5CB7), "", 5f, 263.0f); // t=25800.0; StartsUsing 5CB7 from The Diablo Armament; cactbot StartsUsing 5CB7 [Zadnor Diablo Void Systems Overload]
+    Timeout(id + 0x460, 5.0f, "Void Systems Overload").SetHint(StateMachine.StateHint.Raidwide); // t=25805.0; Ability 5CB7 from The Diablo Armament; cactbot StartsUsing 5CB7 [Zadnor Diablo Void Systems Overload]
+    Timeout(id + 0x470, 10.1f, "Pillar Of Shamash"); // t=25815.1; Ability 5CB9 from The Diablo Armament; cactbot HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Spread] | HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Stack]
+    Timeout(id + 0x480, 1.5f, "Pillar Of Shamash"); // t=25816.6; Ability 5CBA from The Diablo Armament; cactbot HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Spread] | HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Stack]
+    Timeout(id + 0x490, 1.5f, "Pillar Of Shamash"); // t=25818.1; Ability 5CBB from The Diablo Armament; cactbot HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Spread] | HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Stack]
+    Timeout(id + 0x4A0, 4.1f, "Pillar Of Shamash"); // t=25822.2; Ability 5CBD from The Diablo Armament; cactbot HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Spread] | HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Stack]
+    Timeout(id + 0x4B0, 2.0f, "--lasers--"); // t=25824.2; Ability 5CBC from The Diablo Armament
+    Timeout(id + 0x4C0, 4.0f, "--line stack--"); // t=25828.2; Ability 5CBE from The Diablo Armament
+    Timeout(id + 0x4D0, 14.0f, "Void Systems Overload").SetHint(StateMachine.StateHint.Raidwide); // t=25842.2; Ability 6314 from The Diablo Armament; cactbot StartsUsing 5CB7 [Zadnor Diablo Void Systems Overload]
+    Timeout(id + 0x4E0, 10.102f, "Pillar Of Shamash"); // t=25852.3; Ability 5CB9 from The Diablo Armament; cactbot HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Spread] | HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Stack]
+    Timeout(id + 0x4F0, 1.5f, "Pillar Of Shamash"); // t=25853.8; Ability 5CBA from The Diablo Armament; cactbot HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Spread] | HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Stack]
+    Timeout(id + 0x500, 1.5f, "Pillar Of Shamash"); // t=25855.3; Ability 5CBB from The Diablo Armament; cactbot HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Spread] | HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Stack]
+    Timeout(id + 0x510, 4.1f, "Pillar Of Shamash"); // t=25859.4; Ability 5CBD from The Diablo Armament; cactbot HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Spread] | HeadMarker 17 [Zadnor Diablo Pillar Of Shamash Stack]
+    Timeout(id + 0x520, 2.0f, "--lasers--"); // t=25861.4; Ability 5CBC from The Diablo Armament
+    Timeout(id + 0x530, 4.0f, "--line stack--"); // t=25865.4; Ability 5CBE from The Diablo Armament
+}
+

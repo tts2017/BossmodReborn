@@ -1,0 +1,111 @@
+// Generated development skeleton from hades.txt (TerritoryType 847).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 25 static/dynamic trigger definitions from ui/raidboss/data/05-shb/trial/hades.ts.
+
+private void Phase_1__Everybody_Murdered_By_Circles(uint id)
+{
+    Timeout(id + 0x0, 15.5f, "Ravenous Assault"); // t=15.5; Ability 4158 from Hades; cactbot StartsUsing 4158 [Hades Ravenous Assault]
+    Timeout(id + 0x10, 10.4f, "Bad Faith"); // t=25.9
+    Timeout(id + 0x20, 7.0f, "Double"); // t=32.9; Ability 414F from Hades
+    Timeout(id + 0x30, 6.0f, "Dark Eruption"); // t=38.9; Ability 4150 from Hades; cactbot HeadMarker 8B [Hades Nether Blast / Dark Eruption]
+    Timeout(id + 0x40, 9.0f, "Broken Faith"); // t=47.9; Ability 414D from Hades; cactbot StartsUsing 414D [Hades Broken Faith]
+    Timeout(id + 0x50, 25.0f, "Double"); // t=72.9; Ability 414F from Hades
+    Timeout(id + 0x60, 6.0f, "Shadow Spread"); // t=78.9; Ability 4154 from Hades
+    Timeout(id + 0x70, 6.0f, "Shadow Spread"); // t=84.9; Ability 4157 from Hades
+    Timeout(id + 0x80, 6.0f, "Ravenous Assault"); // t=90.9; Ability 4158 from Hades; cactbot StartsUsing 4158 [Hades Ravenous Assault]
+    Timeout(id + 0x90, 13.5f, "Bad Faith"); // t=104.4
+    Timeout(id + 0xA0, 10.0f, "Ravenous Assault"); // t=114.4; Ability 4158 from Hades; cactbot StartsUsing 4158 [Hades Ravenous Assault]
+    Timeout(id + 0xB0, 8.0f, "Double"); // t=122.4; Ability 414F from Hades
+    Timeout(id + 0xC0, 6.0f, "Dark Eruption"); // t=128.4; Ability 4150 from Hades; cactbot HeadMarker 8B [Hades Nether Blast / Dark Eruption]
+    Timeout(id + 0xD0, 11.0f, "Broken Faith"); // t=139.4; Ability 414D from Hades; cactbot StartsUsing 414D [Hades Broken Faith]
+    Timeout(id + 0xE0, 17.0f, "Double"); // t=156.4; Ability 414F from Hades
+    Timeout(id + 0xF0, 6.0f, "Shadow Spread"); // t=162.4; Ability 4154 from Hades
+    Timeout(id + 0x100, 6.0f, "Shadow Spread"); // t=168.4; Ability 4157 from Hades
+    Timeout(id + 0x110, 7.0f, "Ravenous Assault"); // t=175.4; Ability 4158 from Hades; cactbot StartsUsing 4158 [Hades Ravenous Assault]
+    Timeout(id + 0x120, 14.8f, "Bad Faith"); // t=190.2
+    Timeout(id + 0x130, 10.0f, "Ravenous Assault"); // t=200.2; cactbot StartsUsing 4158 [Hades Ravenous Assault]
+    Timeout(id + 0x140, 8.0f, "Double"); // t=208.2
+    Timeout(id + 0x150, 6.0f, "Dark Eruption"); // t=214.2; cactbot HeadMarker 8B [Hades Nether Blast / Dark Eruption]
+    Timeout(id + 0x160, 11.0f, "Broken Faith"); // t=225.2; cactbot StartsUsing 414D [Hades Broken Faith]
+    Timeout(id + 0x170, 17.0f, "Double"); // t=242.2
+    Timeout(id + 0x180, 6.0f, "Shadow Spread"); // t=248.2
+    Timeout(id + 0x190, 6.0f, "Shadow Spread"); // t=254.2
+    Timeout(id + 0x1A0, 7.0f, "Ravenous Assault"); // t=261.2; cactbot StartsUsing 4158 [Hades Ravenous Assault]
+}
+
+private void Phase_2__Push_at_10(uint id)
+{
+    Timeout(id + 0x0, 4.5f, "Adds (E/W)"); // t=304.5
+    Condition(id + 0x10, 95.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4593), "", 5f, 90.5f); // t=400.0; StartsUsing 4593 from Shadow .f .he Ancients
+    Timeout(id + 0x20, 5.0f, "Ancient Darkness / Ancient Water III"); // t=405.0; Ability 4593 from Shadow .f .he Ancients | Ability 4594 from Shadow .f .he Ancients
+    Timeout(id + 0x30, 3.0f, "Adds (NE/SW)"); // t=408.0
+    Condition(id + 0x40, 92.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4595), "", 5f, 87.0f); // t=500.0; StartsUsing 4595 from Shadow .f .he Ancients
+    Timeout(id + 0x50, 5.0f, "Ancient Aero"); // t=505.0; Ability 4595 from Shadow .f .he Ancients
+    Timeout(id + 0x60, 3.0f, "Ancient Water III / Ancient Darkness"); // t=508.0; Ability 4594 from Shadow .f .he Ancients | Ability 4593 from Shadow .f .he Ancients
+    Timeout(id + 0x70, 2.0f, "Adds (N/S)"); // t=510.0
+    Condition(id + 0x80, 90.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4597), "", 5f, 85.0f); // t=600.0; StartsUsing 4597 from Hades
+    Timeout(id + 0x90, 5.0f, "Ancient Dark IV"); // t=605.0; Ability 4597 from Hades
+}
+
+private void Phase_3__neo_hades(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=666.8
+    Timeout(id + 0x10, 14.0f, "Titanomachy").SetHint(StateMachine.StateHint.Raidwide); // t=680.8; Ability 4180 from Hades; cactbot StartsUsing 4180 [Hades Phase Tracker] | StartsUsing 4180 [Hades Titanomachy]
+    Timeout(id + 0x20, 9.0f, "Shadow Stream"); // t=689.8; Ability 415C from Hades; cactbot StartsUsing 415C [Hades Shadow Stream]
+    Timeout(id + 0x30, 7.0f, "Dual Strike"); // t=696.8; Ability 4161 from Hades; cactbot StartsUsing 4161 [Hades Dual Strike Healer]
+    Timeout(id + 0x40, 15.0f, "Echo Of The Lost"); // t=711.8
+    Timeout(id + 0x50, 9.0f, "Polydegmon's Purgation"); // t=720.8; Ability 4170 from Hades; cactbot StartsUsing 4170 [Hades Purgation]
+    Timeout(id + 0x60, 9.0f, "Titanomachy").SetHint(StateMachine.StateHint.Raidwide); // t=729.8; Ability 4180 from Hades; cactbot StartsUsing 4180 [Hades Phase Tracker] | StartsUsing 4180 [Hades Titanomachy]
+    Timeout(id + 0x70, 10.0f, "Hellborn Yawp"); // t=739.8; Ability 416E from Hades; cactbot HeadMarker 28 [Hades Hellborn Yawp]
+    Timeout(id + 0x80, 40.3f, "Titanomachy").SetHint(StateMachine.StateHint.Raidwide); // t=780.1; Ability 4180 from Hades; cactbot StartsUsing 4180 [Hades Phase Tracker] | StartsUsing 4180 [Hades Titanomachy]
+    Timeout(id + 0x90, 9.0f, "Shadow Stream"); // t=789.1; cactbot StartsUsing 415C [Hades Shadow Stream]
+    Timeout(id + 0xA0, 7.0f, "Dual Strike"); // t=796.1; cactbot StartsUsing 4161 [Hades Dual Strike Healer] | HeadMarker 60 [Hades Dual Strike]
+    Timeout(id + 0xB0, 15.0f, "Echo Of The Lost"); // t=811.1
+    Timeout(id + 0xC0, 9.0f, "Polydegmon's Purgation"); // t=820.1
+    Timeout(id + 0xD0, 9.0f, "Titanomachy"); // t=829.1; cactbot StartsUsing 4180 [Hades Titanomachy]
+    Timeout(id + 0xE0, 10.0f, "Hellborn Yawp"); // t=839.1; cactbot HeadMarker 28 [Hades Hellborn Yawp]
+    Condition(id + 0xF0, 55.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4168), "", 5f, 50.9f); // t=895.0; StartsUsing 4168 from Hades
+    Timeout(id + 0x100, 5.0f, "Captivity"); // t=900.0; Ability 4168 from Hades; cactbot Ability 4175 [Hades Life In Captivity]
+    Timeout(id + 0x110, 0.8f, "--fetters--"); // t=900.8; cactbot HeadMarker 78 [Hades Fetters]
+    Timeout(id + 0x120, 4.2f, "Gaol Add"); // t=905.0
+    Condition(id + 0x130, 1.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x416C), "", 5f, 0.0f); // t=906.5; StartsUsing 416C from Hades
+    Timeout(id + 0x140, 29.7f, "Chorus Of The Lost"); // t=936.2; Ability 416C from Hades
+    Timeout(id + 0x150, 15.8f, "Dual Strike"); // t=952.0; Ability 4161 from Hades; cactbot StartsUsing 4161 [Hades Dual Strike Healer]
+    Timeout(id + 0x160, 1.0f, "Nether Blast x6"); // t=953.0
+    Timeout(id + 0x170, 9.3f, "Doom"); // t=962.3
+    Timeout(id + 0x180, 22.7f, "Wail Of The Lost"); // t=985.0
+    Timeout(id + 0x190, 8.0f, "Stream/Purgation?"); // t=993.0; Ability 415C/4170 from Hades; cactbot StartsUsing 415C [Hades Shadow Stream] | StartsUsing 4170 [Hades Purgation]
+    Timeout(id + 0x1A0, 9.0f, "Titanomachy").SetHint(StateMachine.StateHint.Raidwide); // t=1002.0; Ability 4180 from Hades; cactbot StartsUsing 4180 [Hades Phase Tracker] | StartsUsing 4180 [Hades Titanomachy]
+    Timeout(id + 0x1B0, 9.0f, "Hellborn Yawp"); // t=1011.0; Ability 416E from Hades; cactbot HeadMarker 28 [Hades Hellborn Yawp]
+    Timeout(id + 0x1C0, 10.0f, "Echo Of The Lost"); // t=1021.0
+    Timeout(id + 0x1D0, 10.0f, "Dual Strike"); // t=1031.0; Ability 4161 from Hades; cactbot StartsUsing 4161 [Hades Dual Strike Healer]
+    Timeout(id + 0x1E0, 8.0f, "Titanomachy").SetHint(StateMachine.StateHint.Raidwide); // t=1039.0; Ability 4180 from Hades; cactbot StartsUsing 4180 [Hades Phase Tracker] | StartsUsing 4180 [Hades Titanomachy]
+    Timeout(id + 0x1F0, 7.0f, "Shadow Spread"); // t=1046.0; Ability 415D from Hades
+    Timeout(id + 0x200, 5.0f, "Nether Blast x6"); // t=1051.0
+    Timeout(id + 0x210, 11.0f, "Captivity"); // t=1062.0; Ability 4168 from Hades; cactbot Ability 4175 [Hades Life In Captivity]
+    Timeout(id + 0x220, 0.8f, "--fetters--"); // t=1062.8; cactbot HeadMarker 78 [Hades Fetters]
+    Timeout(id + 0x230, 3.2f, "Doom"); // t=1066.0
+    Timeout(id + 0x240, 1.0f, "Gaol Add"); // t=1067.0
+    Condition(id + 0x250, 1.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x416C), "", 5f, 0.0f); // t=1068.5; StartsUsing 416C from Hades
+    Timeout(id + 0x260, 29.7f, "Chorus Of The Lost"); // t=1098.2; Ability 416C from Hades
+    Timeout(id + 0x270, 15.8f, "Wail Of The Lost"); // t=1114.0
+    Timeout(id + 0x280, 8.0f, "Stream/Purgation?"); // t=1122.0
+    Timeout(id + 0x290, 9.0f, "Titanomachy"); // t=1131.0; cactbot StartsUsing 4180 [Hades Titanomachy]
+    Timeout(id + 0x2A0, 9.0f, "Hellborn Yawp"); // t=1140.0; cactbot HeadMarker 28 [Hades Hellborn Yawp]
+    Timeout(id + 0x2B0, 10.0f, "Echo Of The Lost"); // t=1150.0
+    Timeout(id + 0x2C0, 10.0f, "Dual Strike"); // t=1160.0; cactbot StartsUsing 4161 [Hades Dual Strike Healer] | HeadMarker 60 [Hades Dual Strike]
+    Timeout(id + 0x2D0, 8.0f, "Titanomachy"); // t=1168.0; cactbot StartsUsing 4180 [Hades Titanomachy]
+    Timeout(id + 0x2E0, 7.0f, "Shadow Spread"); // t=1175.0
+    Condition(id + 0x2F0, 125.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4175), "", 5f, 120.0f); // t=1300.0; StartsUsing 4175 from Hades; cactbot Ability 4175 [Hades Life In Captivity]
+    Targetable(id + 0x300, false, 4.0f, "--untargetable--"); // t=1304.0
+    Timeout(id + 0x310, 0.0f, "Life In Captivity"); // t=1304.0; Ability 4175 from Hades; cactbot Ability 4175 [Hades Life In Captivity]
+    Timeout(id + 0x320, 38.0f, "Black Cauldron"); // t=1342.0; Ability 415A from Hades
+    Targetable(id + 0x330, true, 12.0f, "--targetable--"); // t=1354.0
+    Timeout(id + 0x340, 7.0f, "The Dark Devours x5"); // t=1361.0; Ability 4177 from Hades
+    Timeout(id + 0x350, 15.0f, "The Dark Devours x5"); // t=1376.0; Ability 4177 from Hades
+    Timeout(id + 0x360, 15.0f, "The Dark Devours x5"); // t=1391.0; Ability 4177 from Hades
+    Condition(id + 0x370, 21.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x417B), "", 5f, 16.7f); // t=1412.7; StartsUsing 417B from Hades
+    Timeout(id + 0x380, 45.0f, "Enrage"); // t=1457.7; Ability 417B from Hades
+}
+

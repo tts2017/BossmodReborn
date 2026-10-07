@@ -1,0 +1,94 @@
+// Generated development skeleton from origenics.txt (TerritoryType 1208).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 25 static/dynamic trigger definitions from ui/raidboss/data/07-dt/dungeon/origenics.ts.
+
+private void ORIGENICS(uint id)
+{
+    Condition(id + 0x0, 1006.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8EA7), "", 5f, 1001.1f); // t=1006.1; StartsUsing 8EA7 from Herpekaris; cactbot StartsUsing 8EA7 [Origenics Herpekaris Strident Shriek] | StartsUsing 8EA7 [Origenics Herpekaris Sweeps Cleanup]
+    Timeout(id + 0x10, 5.0f, "Strident Shriek").SetHint(StateMachine.StateHint.Raidwide); // t=1011.1; Ability 8EA7 from Herpekaris; cactbot StartsUsing 8EA7 [Origenics Herpekaris Strident Shriek] | StartsUsing 8EA7 [Origenics Herpekaris Sweeps Cleanup]
+    Timeout(id + 0x20, 6.2f, "--north--"); // t=1017.3; Ability 8EA8 from Herpekaris
+    Timeout(id + 0x30, 4.4f, "Vasoconstrictor"); // t=1021.7; Ability 8E6B from Herpekaris
+    Timeout(id + 0x40, 1.1f, "Poison Heart (puddle drop)"); // t=1022.8; Ability 8E6C from Herpekaris
+    Timeout(id + 0x50, 7.0f, "Venomspill + Pod Burst 1"); // t=1029.8; Ability 9676 from Herpekaris
+    Timeout(id + 0x60, 5.1f, "Venomspill + Pod Burst 2"); // t=1034.9; Ability 9677 from Herpekaris
+    Timeout(id + 0x70, 5.0f, "Venomspill + Pod Burst 3"); // t=1039.9; Ability 9677 from Herpekaris
+    Timeout(id + 0x80, 5.1f, "Venomspill + Pod Burst 4"); // t=1045.0; Ability 9677 from Herpekaris
+    Timeout(id + 0x90, 4.2f, "--center--"); // t=1049.2; Ability 8EA8 from Herpekaris
+    Timeout(id + 0xA0, 10.3f, "Writhing Riot"); // t=1059.5; Ability 8E6F from Herpekaris
+    Timeout(id + 0xB0, 0.3f, "Right Sweep/Left Sweep/Rear Sweep 1"); // t=1059.8
+    Timeout(id + 0xC0, 2.0f, "Right Sweep/Left Sweep/Rear Sweep 2"); // t=1061.8
+    Timeout(id + 0xD0, 2.0f, "Right Sweep/Left Sweep/Rear Sweep 3"); // t=1063.8
+    Timeout(id + 0xE0, 8.1f, "Strident Shriek").SetHint(StateMachine.StateHint.Raidwide); // t=1071.9; Ability 8EA7 from Herpekaris; cactbot StartsUsing 8EA7 [Origenics Herpekaris Strident Shriek] | StartsUsing 8EA7 [Origenics Herpekaris Sweeps Cleanup]
+    Timeout(id + 0xF0, 7.2f, "--north--"); // t=1079.1; Ability 8EA8 from Herpekaris
+    Timeout(id + 0x100, 4.4f, "Vasoconstrictor"); // t=1083.5; Ability 8E6B from Herpekaris
+    Timeout(id + 0x110, 1.1f, "Poison Heart (puddle drop)"); // t=1084.6; Ability 8E6C from Herpekaris
+    Timeout(id + 0x120, 7.0f, "Venomspill + Pod Burst 1"); // t=1091.6; Ability 9676 from Herpekaris
+    Timeout(id + 0x130, 5.0f, "Venomspill + Pod Burst 2"); // t=1096.6; Ability 9677 from Herpekaris
+    Timeout(id + 0x140, 5.1f, "Venomspill + Pod Burst 3"); // t=1101.7; Ability 9677 from Herpekaris
+    Timeout(id + 0x150, 5.0f, "Venomspill + Pod Burst 4"); // t=1106.7; Ability 9677 from Herpekaris
+    Timeout(id + 0x160, 2.7f, "Poison Heart (spread)"); // t=1109.4; Ability 9421 from Herpekaris; cactbot StartsUsing 9421 [Origenics Herpekaris Poison Heart Spread]
+    Timeout(id + 0x170, 10.2f, "Collective Agony"); // t=1119.6; Ability 8E79 from Herpekaris; cactbot StartsUsing 8E79 [Origenics Herpekaris Collective Agony]
+    Timeout(id + 0x180, 9.1f, "Strident Shriek").SetHint(StateMachine.StateHint.Raidwide); // t=1128.7; Ability 8EA7 from Herpekaris; cactbot StartsUsing 8EA7 [Origenics Herpekaris Strident Shriek] | StartsUsing 8EA7 [Origenics Herpekaris Sweeps Cleanup]
+    Timeout(id + 0x190, 9.2f, "Convulsive Crush").SetHint(StateMachine.StateHint.Tankbuster); // t=1137.9; Ability 8EA6 from Herpekaris; cactbot StartsUsing 8EA6 [Origenics Herpekaris Convulsive Crush]
+    Timeout(id + 0x1A0, 11.1f, "--center--"); // t=1149.0; Ability 8EA8 from Herpekaris
+    Condition(id + 0x1B0, 858.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8E13), "", 5f, 853.1f); // t=2007.1; StartsUsing 8E13 from Deceiver; cactbot StartsUsing 8E13 [Origenics Deceiver Electrowave]
+    Timeout(id + 0x1C0, 5.0f, "Electrowave").SetHint(StateMachine.StateHint.Raidwide); // t=2012.1; Ability 8E13 from Deceiver; cactbot StartsUsing 8E13 [Origenics Deceiver Electrowave]
+    Timeout(id + 0x1D0, 6.2f, "--center--"); // t=2018.3; Ability 8E0A from Deceiver
+    Timeout(id + 0x1E0, 10.3f, "Bionic Thrash"); // t=2028.6; Ability 8E12 from Deceiver; cactbot StartsUsing 8E10/8E11 [Origenics Deceiver Bionic Thrash]
+    Timeout(id + 0x1F0, 9.2f, "Initialize Androids"); // t=2037.8; Ability 8E0B from Deceiver
+    Timeout(id + 0x200, 14.1f, "Synchroshot"); // t=2051.9; Ability 8E15 from Origenics Sentry G9; cactbot StartsUsing 8E15 [Origenics Deceiver Synchroshot Initial]
+    Timeout(id + 0x210, 18.0f, "--center--"); // t=2069.9; Ability 8E0A from Deceiver
+    Timeout(id + 0x220, 6.3f, "Initialize Turrets"); // t=2076.2; Ability 8E0C from Deceiver
+    Timeout(id + 0x230, 10.8f, "Laser Lash 1"); // t=2087.0; Ability 8E0E from Deceiver
+    Timeout(id + 0x240, 12.3f, "Laser Lash 2"); // t=2099.3; Ability 8E0E from Deceiver
+    Timeout(id + 0x250, 1.1f, "--north--"); // t=2100.4; Ability 8E0A from Deceiver
+    Timeout(id + 0x260, 10.9f, "Surge"); // t=2111.3; Ability 9B38 from Deceiver
+    Timeout(id + 0x270, 2.4f, "Electray"); // t=2113.7; Ability 95B0 from Deceiver
+    Timeout(id + 0x280, 7.2f, "Initialize Androids"); // t=2120.9; Ability 8E0B from Deceiver
+    Timeout(id + 0x290, 4.1f, "--center--"); // t=2125.0; Ability 8E0A from Deceiver
+    Timeout(id + 0x2A0, 10.1f, "Synchroshot + Bionic Thrash"); // t=2135.1; Ability 8E15 from Origenics Sentry G9; cactbot StartsUsing 8E15 [Origenics Deceiver Synchroshot Initial]
+    Timeout(id + 0x2B0, 18.3f, "--center--"); // t=2153.4; Ability 8E0A from Deceiver
+    Timeout(id + 0x2C0, 6.2f, "Initialize Turrets"); // t=2159.6; Ability 8E0C from Deceiver
+    Timeout(id + 0x2D0, 10.8f, "Laser Lash 1"); // t=2170.4; Ability 8E0E from Deceiver
+    Timeout(id + 0x2E0, 12.2f, "Laser Lash 2"); // t=2182.6; Ability 8E0E from Deceiver
+    Timeout(id + 0x2F0, 1.1f, "--north--"); // t=2183.7; Ability 8E0A from Deceiver
+    Timeout(id + 0x300, 10.8f, "Surge"); // t=2194.5; Ability 9B38 from Deceiver
+    Timeout(id + 0x310, 2.4f, "Electray"); // t=2196.9; Ability 95B0 from Deceiver
+    Timeout(id + 0x320, 12.1f, "Electrowave").SetHint(StateMachine.StateHint.Raidwide); // t=2209.0; Ability 8E13 from Deceiver; cactbot StartsUsing 8E13 [Origenics Deceiver Electrowave]
+    Timeout(id + 0x330, 11.1f, "Initialize Androids"); // t=2220.1; Ability 8E0B from Deceiver
+    Condition(id + 0x340, 786.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8E54), "", 5f, 781.0f); // t=3006.1; StartsUsing 8E54 from Ambrose the Undeparted; cactbot StartsUsing 8E54 [Origenics Ambrose Psychic Wave]
+    Timeout(id + 0x350, 5.0f, "Psychic Wave").SetHint(StateMachine.StateHint.Raidwide); // t=3011.1; Ability 8E54 from Ambrose the Undeparted; cactbot StartsUsing 8E54 [Origenics Ambrose Psychic Wave]
+    Timeout(id + 0x360, 6.2f, "--center--"); // t=3017.3; Ability 8E57 from Ambrose the Undeparted
+    Timeout(id + 0x370, 7.1f, "Overwhelming Charge"); // t=3024.4; Ability 9941 from Ambrose the Undeparted; cactbot StartsUsing 9941 [Origenics Ambrose Overwhelming Charge]
+    Timeout(id + 0x380, 6.2f, "--mid-north--"); // t=3030.6; Ability 8E57 from Ambrose the Undeparted
+    Timeout(id + 0x390, 12.9f, "Psychokinesis (cages)"); // t=3043.5; Ability 8E4C from Ambrose the Undeparted; cactbot StartsUsing 8E4C [Origenics Ambrose Psychokinesis Cages]
+    Timeout(id + 0x3A0, 19.2f, "--center--"); // t=3062.7; Ability 8E57 from Ambrose the Undeparted
+    Timeout(id + 0x3B0, 9.1f, "Extrasensory Field"); // t=3071.8; Ability 8E50 from Ambrose the Undeparted; cactbot StartsUsing 8E50 [Origenics Ambrose Extrasensory Field]
+    Timeout(id + 0x3C0, 11.1f, "Voltaic Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=3082.9; Ability 8E55 from Ambrose the Undeparted; cactbot StartsUsing 8E55 [Origenics Ambrose Voltaic Slash]
+    Timeout(id + 0x3D0, 2.1f, "--center--"); // t=3085.0; Ability 8E57 from Ambrose the Undeparted
+    Timeout(id + 0x3E0, 9.1f, "Psychokinetic Charge"); // t=3094.1; Ability 988F from Ambrose the Undeparted; cactbot StartsUsing 988F [Origenics Ambrose Psychokinetic Charge]
+    Timeout(id + 0x3F0, 2.1f, "Overwhelming Charge"); // t=3096.2; Ability 8E53 from Ambrose the Undeparted; cactbot StartsUsing 9941 [Origenics Ambrose Overwhelming Charge]
+    Timeout(id + 0x400, 6.2f, "--north--"); // t=3102.4; Ability 8E57 from Ambrose the Undeparted
+    Timeout(id + 0x410, 9.0f, "Electrolance"); // t=3111.4; Ability 8E4D from Ambrose the Undeparted; cactbot Ability 8E4D [Origenics Ambrose Electrolance]
+    Timeout(id + 0x420, 11.3f, "Psychokinesis (lance)"); // t=3122.7; Ability 9811 from Ambrose the Undeparted
+    Timeout(id + 0x430, 0.7f, "Rush"); // t=3123.4
+    Timeout(id + 0x440, 6.9f, "Electrolance Assimilation"); // t=3130.3; Ability 8E4F from Ambrose the Undeparted
+    Timeout(id + 0x450, 7.1f, "--mid-north--"); // t=3137.4; Ability 8E57 from Ambrose the Undeparted
+    Timeout(id + 0x460, 12.1f, "Psychokinesis (cages)"); // t=3149.5; Ability 8E4C from Ambrose the Undeparted; cactbot StartsUsing 8E4C [Origenics Ambrose Psychokinesis Cages]
+    Timeout(id + 0x470, 1.9f, "Whorl of the Mind"); // t=3151.4; Ability 8E56 from Ambrose the Undeparted
+    Timeout(id + 0x480, 22.3f, "Psychic Wave").SetHint(StateMachine.StateHint.Raidwide); // t=3173.7; Ability 8E54 from Ambrose the Undeparted; cactbot StartsUsing 8E54 [Origenics Ambrose Psychic Wave]
+    Timeout(id + 0x490, 6.2f, "--center--"); // t=3179.9; Ability 8E57 from Ambrose the Undeparted
+    Timeout(id + 0x4A0, 9.4f, "Psychokinetic Charge"); // t=3189.3; Ability 988F from Ambrose the Undeparted; cactbot StartsUsing 988F [Origenics Ambrose Psychokinetic Charge]
+    Timeout(id + 0x4B0, 2.0f, "Overwhelming Charge"); // t=3191.3; Ability 8E53 from Ambrose the Undeparted; cactbot StartsUsing 9941 [Origenics Ambrose Overwhelming Charge]
+    Timeout(id + 0x4C0, 2.7f, "Whorl of the Mind"); // t=3194.0; Ability 8E56 from Ambrose the Undeparted
+    Timeout(id + 0x4D0, 15.6f, "Psychic Wave").SetHint(StateMachine.StateHint.Raidwide); // t=3209.6; Ability 8E54 from Ambrose the Undeparted; cactbot StartsUsing 8E54 [Origenics Ambrose Psychic Wave]
+    Timeout(id + 0x4E0, 7.2f, "--north--"); // t=3216.8; Ability 8E57 from Ambrose the Undeparted
+    Timeout(id + 0x4F0, 8.9f, "Electrolance"); // t=3225.7; Ability 8E4D from Ambrose the Undeparted; cactbot Ability 8E4D [Origenics Ambrose Electrolance]
+    Timeout(id + 0x500, 11.3f, "Psychokinesis (lance)"); // t=3237.0; Ability 9811 from Ambrose the Undeparted
+    Timeout(id + 0x510, 0.7f, "Rush"); // t=3237.7
+    Timeout(id + 0x520, 6.9f, "Electrolance Assimilation"); // t=3244.6; Ability 8E4F from Ambrose the Undeparted
+    Timeout(id + 0x530, 13.0f, "Voltaic Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=3257.6; Ability 8E55 from Ambrose the Undeparted; cactbot StartsUsing 8E55 [Origenics Ambrose Voltaic Slash]
+    Timeout(id + 0x540, 7.1f, "--center--"); // t=3264.7; Ability 8E57 from Ambrose the Undeparted
+}
+

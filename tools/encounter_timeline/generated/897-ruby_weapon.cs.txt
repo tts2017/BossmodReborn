@@ -1,0 +1,76 @@
+// Generated development skeleton from ruby_weapon.txt (TerritoryType 897).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 14 static/dynamic trigger definitions from ui/raidboss/data/05-shb/trial/ruby_weapon.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 16.0f, "Stamp").SetHint(StateMachine.StateHint.Tankbuster); // t=16.0; Ability 4AC7 from The Ruby Weapon; cactbot StartsUsing 4AC7 [Ruby Stamp]
+    Timeout(id + 0x20, 8.1f, "Optimized Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=24.1; Ability 4AA8 from The Ruby Weapon; cactbot StartsUsing 4AA8 [Ruby Optimized Ultima]
+    Timeout(id + 0x30, 12.6f, "Flexiclaw"); // t=36.7; Ability 4A92 from The Ruby Weapon
+    Timeout(id + 0x40, 9.7f, "Ravensclaw"); // t=46.4; Ability 4A93 from The Ruby Weapon
+    Timeout(id + 0x50, 0.6f, "Spike Of Flame"); // t=47.0; Ability 4A94 from The Ruby Weapon
+    Timeout(id + 0x60, 6.6f, "Liquefaction?/Undermine?"); // t=53.6
+    Timeout(id + 0x70, 17.0f, "Ruby Ray"); // t=70.6; Ability 4AC6 from The Ruby Weapon; cactbot StartsUsing 4AC6 [Ruby Ruby Ray]
+    Timeout(id + 0x80, 9.1f, "Optimized Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=79.7; Ability 4AA8 from The Ruby Weapon; cactbot StartsUsing 4AA8 [Ruby Optimized Ultima]
+    Timeout(id + 0x90, 10.4f, "Flexiclaw"); // t=90.1; Ability 4A92 from The Ruby Weapon
+    Timeout(id + 0xA0, 8.6f, "Helicoclaw"); // t=98.7; Ability 4A99 from The Ruby Weapon
+    Timeout(id + 0xB0, 0.7f, "Spike Of Flame"); // t=99.4; Ability 4A9A/4D02 from The Ruby Weapon
+    Timeout(id + 0xC0, 14.4f, "High-Powered Homing Lasers"); // t=113.8; Ability 4AC5 from The Ruby Weapon; cactbot StartsUsing 4AC5 [Ruby High-Powered Homing Lasers You] | StartsUsing 4AC5 [Ruby High-Powered Homing Lasers]
+    Timeout(id + 0xD0, 17.0f, "Ravensflight"); // t=130.8; Ability 4AA1 from The Ruby Weapon
+    Timeout(id + 0xE0, 23.5f, "Stamp").SetHint(StateMachine.StateHint.Tankbuster); // t=154.3; Ability 4AC7 from The Ruby Weapon; cactbot StartsUsing 4AC7 [Ruby Stamp]
+    Timeout(id + 0xF0, 7.1f, "Homing Lasers"); // t=161.4; Ability 4AC2 from The Ruby Weapon; cactbot StartsUsing 4AC5 [Ruby High-Powered Homing Lasers You] | StartsUsing 4AC5 [Ruby High-Powered Homing Lasers]
+    Timeout(id + 0x100, 10.3f, "Ruby Dynamics"); // t=171.7; Ability 4AA0 from The Ruby Weapon; cactbot StartsUsing 4AA0 [Ruby Dynamics]
+    Timeout(id + 0x110, 6.7f, "Homing Lasers"); // t=178.4; Ability 4AC3 from The Ruby Weapon; cactbot StartsUsing 4AC5 [Ruby High-Powered Homing Lasers You] | StartsUsing 4AC5 [Ruby High-Powered Homing Lasers]
+    Timeout(id + 0x120, 7.6f, "Optimized Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=186.0; Ability 4AA8 from The Ruby Weapon; cactbot StartsUsing 4AA8 [Ruby Optimized Ultima]
+    Timeout(id + 0x130, 10.4f, "Flexiclaw"); // t=196.4; Ability 4A92 from The Ruby Weapon
+    Timeout(id + 0x140, 9.6f, "Ravensclaw"); // t=206.0; Ability 4A93 from The Ruby Weapon
+    Timeout(id + 0x150, 0.6f, "Spike Of Flame"); // t=206.6; Ability 4A94 from The Ruby Weapon
+    Timeout(id + 0x160, 6.5f, "Undermine?/Liquifaction?"); // t=213.1
+    Timeout(id + 0x170, 11.7f, "Ruby Ray"); // t=224.8; Ability 4AC6 from The Ruby Weapon; cactbot StartsUsing 4AC6 [Ruby Ruby Ray]
+    Timeout(id + 0x180, 9.1f, "Optimized Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=233.9; Ability 4AA8 from The Ruby Weapon; cactbot StartsUsing 4AA8 [Ruby Optimized Ultima]
+    Timeout(id + 0x190, 10.5f, "Flexiclaw"); // t=244.4; Ability 4A92 from The Ruby Weapon
+    Timeout(id + 0x1A0, 8.6f, "Helicoclaw"); // t=253.0; Ability 4A99 from The Ruby Weapon
+    Timeout(id + 0x1B0, 0.7f, "Spike Of Flame"); // t=253.7; Ability 4A9A/4D02 from The Ruby Weapon
+    Timeout(id + 0x1C0, 14.5f, "High-Powered Homing Lasers"); // t=268.2; Ability 4AC5 from The Ruby Weapon; cactbot StartsUsing 4AC5 [Ruby High-Powered Homing Lasers You] | StartsUsing 4AC5 [Ruby High-Powered Homing Lasers]
+    Timeout(id + 0x1D0, 17.0f, "Ravensflight"); // t=285.2; Ability 4AA1 from The Ruby Weapon
+    Timeout(id + 0x1E0, 23.5f, "Stamp").SetHint(StateMachine.StateHint.Tankbuster); // t=308.7; Ability 4AC7 from The Ruby Weapon; cactbot StartsUsing 4AC7 [Ruby Stamp]
+    Condition(id + 0x1F0, 5.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4AA9), "", 5f, 0.3f); // t=314.0; StartsUsing 4AA9 from The Ruby Weapon; cactbot StartsUsing 4AA9 [Ruby Optimized Ultima Enrage]
+    Timeout(id + 0x200, 15.0f, "Optimized Ultima Enrage"); // t=329.0; Ability 4AA9 from The Ruby Weapon; cactbot StartsUsing 4AA9 [Ruby Optimized Ultima Enrage]
+}
+
+private void Cutscene(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "--cutscene--"); // t=500.0; Ability 4E1C from The Ruby Weapon
+    Targetable(id + 0x10, true, 61.5f, "--targetable--"); // t=561.5
+}
+
+private void Phase_2(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=1000.0
+    Timeout(id + 0x10, 7.0f, "Meteor Project"); // t=1007.0; Ability 4AAA from The Ruby Weapon
+    Timeout(id + 0x20, 7.2f, "Negative Personae"); // t=1014.2; Ability 4ABD from The Ruby Weapon
+    Timeout(id + 0x30, 9.1f, "Meteor Stream"); // t=1023.3; Ability 4E71 from The Ruby Weapon; cactbot HeadMarker E0 [Ruby Meteor Stream]
+    Timeout(id + 0x40, 8.5f, "Ruby Claw").SetHint(StateMachine.StateHint.Tankbuster); // t=1031.8; Ability 4ABF from Raven's Image; cactbot StartsUsing 4ABF [Ruby Ruby Claw]
+    Timeout(id + 0x50, 7.7f, "Meteor Stream"); // t=1039.5; Ability 4E71 from The Ruby Weapon; cactbot HeadMarker E0 [Ruby Meteor Stream]
+    Timeout(id + 0x60, 12.5f, "Ruby Claw").SetHint(StateMachine.StateHint.Tankbuster); // t=1052.0; Ability 4ABF from Raven's Image; cactbot StartsUsing 4ABF [Ruby Ruby Claw]
+    Timeout(id + 0x70, 5.7f, "Meteor Stream"); // t=1057.7; Ability 4E71 from The Ruby Weapon; cactbot HeadMarker E0 [Ruby Meteor Stream]
+    Timeout(id + 0x80, 11.3f, "Dalamud Impact"); // t=1069.0; Ability 4AAE from The Ruby Weapon
+    Timeout(id + 0x90, 11.9f, "Meteor Project"); // t=1080.9; Ability 4AAA from The Ruby Weapon
+    Timeout(id + 0xA0, 13.3f, "Magitek Comet"); // t=1094.2; Ability 4AB0 from The Ruby Weapon
+    Timeout(id + 0xB0, 10.1f, "Landing"); // t=1104.3; Ability 4E2B from Comet
+    Timeout(id + 0xC0, 10.6f, "Magitek Meteor"); // t=1114.9; Ability 4AB2 from The Ruby Weapon
+    Timeout(id + 0xD0, 1.0f, "Burst"); // t=1115.9; Ability 4AB4 from Comet
+    Timeout(id + 0xE0, 6.5f, "Mark II Magitek Comet"); // t=1122.4; Ability 4AB6 from The Ruby Weapon
+    Timeout(id + 0xF0, 28.1f, "Bradamante"); // t=1150.5; Ability 4ABC from The Ruby Weapon; cactbot HeadMarker 17 [Ruby Bradamante]
+    Timeout(id + 0x100, 9.2f, "Dalamud Impact"); // t=1159.7; Ability 4E51 from The Ruby Weapon
+    Timeout(id + 0x110, 12.0f, "Meteor Project"); // t=1171.7; Ability 4AAC from The Ruby Weapon
+    Timeout(id + 0x120, 10.2f, "Outrage").SetHint(StateMachine.StateHint.Raidwide); // t=1181.9; Ability 4AC8 from The Ruby Weapon; cactbot StartsUsing 4AC8 [Ruby Outrage]
+    Timeout(id + 0x130, 10.1f, "Outrage").SetHint(StateMachine.StateHint.Raidwide); // t=1192.0; Ability 4AC8 from The Ruby Weapon; cactbot StartsUsing 4AC8 [Ruby Outrage]
+    Timeout(id + 0x140, 10.1f, "Outrage").SetHint(StateMachine.StateHint.Raidwide); // t=1202.1; Ability 4AC8 from The Ruby Weapon; cactbot StartsUsing 4AC8 [Ruby Outrage]
+    Timeout(id + 0x150, 10.1f, "Meteor Stream"); // t=1212.2; Ability 4E71 from The Ruby Weapon; cactbot HeadMarker E0 [Ruby Meteor Stream]
+    Timeout(id + 0x160, 8.3f, "Meteor Stream"); // t=1220.5; Ability 4E71 from The Ruby Weapon; cactbot HeadMarker E0 [Ruby Meteor Stream]
+    Timeout(id + 0x170, 10.2f, "Outrage").SetHint(StateMachine.StateHint.Raidwide); // t=1230.7; Ability 4AC8 from The Ruby Weapon; cactbot StartsUsing 4AC8 [Ruby Outrage]
+}
+

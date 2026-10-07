@@ -1,0 +1,99 @@
+// Generated development skeleton from valigarmanda-ex.txt (TerritoryType 1196).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 37 static/dynamic trigger definitions from ui/raidboss/data/07-dt/trial/valigarmanda-ex.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 18.0f, "Spikesicle"); // t=18.0
+    Timeout(id + 0x10, 8.0f, "Sphere Shatter x10"); // t=26.0
+    Timeout(id + 0x20, 20.1f, "Skyruin (fire phase)"); // t=46.1; Ability 8FD4 from Valigarmanda
+    Timeout(id + 0x30, 8.7f, "Triscourge").SetHint(StateMachine.StateHint.Raidwide); // t=54.8; Ability 8FE7 from Valigarmanda; cactbot StartsUsing 8FE7 [Valigarmanda Ex Triscourge]
+    Timeout(id + 0x40, 8.1f, "Volcanic Drop"); // t=62.9; Ability 8FE5 from Valigarmanda
+    Timeout(id + 0x50, 13.4f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=76.3
+    Timeout(id + 0x60, 0.8f, "Charring Cataclysm"); // t=77.1; Ability 8FC4 from Valigarmanda
+    Timeout(id + 0x70, 15.2f, "Mountain Fire (cast)"); // t=92.3; Ability 900C from Valigarmanda; cactbot Ability 900C [Valigarmanda Ex Mountain Fire Tank] | Ability 900C [Valigarmanda Ex Mountain Fire First Wedge]
+    Timeout(id + 0x80, 5.5f, "Mountain Fire 1"); // t=97.8; Ability 9019 from Valigarmanda
+    Timeout(id + 0x90, 5.0f, "Mountain Fire 2"); // t=102.8; Ability 9019 from Valigarmanda
+    Timeout(id + 0xA0, 5.0f, "Mountain Fire 3"); // t=107.8; Ability 9019 from Valigarmanda
+    Timeout(id + 0xB0, 5.0f, "Mountain Fire 4"); // t=112.8; Ability 9019 from Valigarmanda
+    Timeout(id + 0xC0, 5.0f, "Mountain Fire 5"); // t=117.8; Ability 9019 from Valigarmanda
+    Timeout(id + 0xD0, 5.0f, "Mountain Fire 6"); // t=122.8; Ability 9019 from Valigarmanda
+    Timeout(id + 0xE0, 9.0f, "Scourge of Fire 1"); // t=131.8; Ability 8FEF from Valigarmanda
+    Timeout(id + 0xF0, 3.0f, "Scourge of Fire 2"); // t=134.8; Ability 8FEF from Valigarmanda
+    Timeout(id + 0x100, 3.0f, "Scourge of Fire 3"); // t=137.8; Ability 8FEF from Valigarmanda
+    Timeout(id + 0x110, 17.8f, "Volcanic Drop"); // t=155.6; Ability 8FE5 from Valigarmanda
+    Timeout(id + 0x120, 11.5f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=167.1
+    Timeout(id + 0x130, 0.8f, "Charring Cataclysm"); // t=167.9; Ability 8FC4 from Valigarmanda
+    Timeout(id + 0x140, 10.0f, "Scourge of Thunder"); // t=177.9; Ability 8FEA from Valigarmanda
+    Timeout(id + 0x150, 8.9f, "Disaster Zone").SetHint(StateMachine.StateHint.Raidwide); // t=186.8; Ability 8FDA from Valigarmanda; cactbot StartsUsing 8FD5/8FD7/8FD9 [Valigarmanda Ex Disaster Zone]
+    Timeout(id + 0x160, 8.2f, "Ruin Foretold").SetHint(StateMachine.StateHint.Raidwide); // t=195.0; Ability 9692 from Valigarmanda; cactbot StartsUsing 9692 [Valigarmanda Ex Ruin Foretold]
+    Targetable(id + 0x170, false, 2.3f, "--untargetable--"); // t=197.3
+    Targetable(id + 0x180, true, 1.0f, "--targetable--"); // t=198.3
+    Timeout(id + 0x190, 5.9f, "Calamitous Cry"); // t=204.2; Ability 9005 from Valigarmanda
+    Timeout(id + 0x1A0, 6.0f, "Calamitous Cry"); // t=210.2; Ability 9005 from Valigarmanda
+    Timeout(id + 0x1B0, 6.0f, "Calamitous Cry"); // t=216.2; Ability 9005 from Valigarmanda
+    Timeout(id + 0x1C0, 6.0f, "Calamitous Cry"); // t=222.2; Ability 9005 from Valigarmanda
+    Timeout(id + 0x1D0, 6.0f, "Calamitous Cry"); // t=228.2; Ability 9005 from Valigarmanda
+    Timeout(id + 0x1E0, 6.0f, "Calamitous Cry"); // t=234.2; Ability 9005 from Valigarmanda
+    Condition(id + 0x1F0, 765.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9008), "", 5f, 760.8f); // t=1000.0; StartsUsing 9008 from Valigarmanda; cactbot StartsUsing 9008 [Valigarmanda Ex Tulidisaster 1] | StartsUsing 9008 [Valigarmanda Ex Tulidisaster 2] | StartsUsing 9008 [Valigarmanda Ex Tulidisaster 3]
+    Timeout(id + 0x200, 6.7f, "Tulidisaster (cast)").SetHint(StateMachine.StateHint.Raidwide); // t=1006.7; Ability 9008 from Valigarmanda; cactbot StartsUsing 9008 [Valigarmanda Ex Tulidisaster 1] | StartsUsing 9008 [Valigarmanda Ex Tulidisaster 2] | StartsUsing 9008 [Valigarmanda Ex Tulidisaster 3]
+    Timeout(id + 0x210, 3.1f, "Tulidisaster (damage) 1"); // t=1009.8; Ability 900A from Valigarmanda
+    Timeout(id + 0x220, 8.6f, "Tulidisaster (damage) 2"); // t=1018.4; Ability 900B from Valigarmanda
+    Timeout(id + 0x230, 8.0f, "Tulidisaster (damage) 3"); // t=1026.4; Ability 9009 from Valigarmanda
+    Timeout(id + 0x240, 8.1f, "Skyruin (ice or storm phase?)"); // t=1034.5
+    Timeout(id + 0x250, 8.7f, "Triscourge"); // t=1043.2; cactbot StartsUsing 8FE7 [Valigarmanda Ex Triscourge]
+    Condition(id + 0x260, 956.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x95C3), "", 5f, 951.8f); // t=2000.0; StartsUsing 95C3 from Valigarmanda; cactbot StartsUsing 95C3/8FD1 [Valigarmanda Ex Phase Tracker] | StartsUsing 95C3 [Valigarmanda Ex Skyruin Storm]
+    Timeout(id + 0x270, 11.1f, "Skyruin (storm phase)"); // t=2011.1; Ability 8FD3 from Valigarmanda
+    Timeout(id + 0x280, 8.7f, "Triscourge").SetHint(StateMachine.StateHint.Raidwide); // t=2019.8; Ability 8FE7 from Valigarmanda; cactbot StartsUsing 8FE7 [Valigarmanda Ex Triscourge]
+    Timeout(id + 0x290, 12.0f, "Scourge of Fire"); // t=2031.8; Ability 8FED from Valigarmanda
+    Timeout(id + 0x2A0, 13.2f, "Hail of Feathers 1"); // t=2045.0; Ability 901D from Valigarmanda
+    Timeout(id + 0x2B0, 3.0f, "Hail of Feathers 2"); // t=2048.0; Ability 901E from Valigarmanda
+    Timeout(id + 0x2C0, 3.0f, "Hail of Feathers 3"); // t=2051.0; Ability 901F from Valigarmanda
+    Timeout(id + 0x2D0, 3.0f, "Hail of Feathers 4"); // t=2054.0; Ability 9020 from Valigarmanda
+    Timeout(id + 0x2E0, 3.0f, "Hail of Feathers 5"); // t=2057.0; Ability 9021 from Valigarmanda
+    Timeout(id + 0x2F0, 3.0f, "Hail of Feathers 6"); // t=2060.0; Ability 9022 from Valigarmanda
+    Timeout(id + 0x300, 10.1f, "Blighted Bolt"); // t=2070.1; Ability 8FE1 from Valigarmanda
+    Timeout(id + 0x310, 9.8f, "Scourge of Thunder"); // t=2079.9; Ability 8FE9 from Valigarmanda
+    Timeout(id + 0x320, 14.9f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=2094.8
+    Timeout(id + 0x330, 3.1f, "Crackling Cataclysm"); // t=2097.9; Ability 8FC1 from Valigarmanda; cactbot StartsUsing 8FC1 [Valigarmanda Ex Crackling Cataclysm]
+    Timeout(id + 0x340, 11.6f, "Thunderous Breath"); // t=2109.5; Ability 8FE3 from Valigarmanda
+    Timeout(id + 0x350, 10.4f, "Scourge of Thunder"); // t=2119.9; Ability 8FE9 from Valigarmanda
+    Timeout(id + 0x360, 15.3f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=2135.2
+    Timeout(id + 0x370, 3.1f, "Crackling Cataclysm"); // t=2138.3; Ability 8FC1 from Valigarmanda; cactbot StartsUsing 8FC1 [Valigarmanda Ex Crackling Cataclysm]
+    Timeout(id + 0x380, 6.6f, "Disaster Zone").SetHint(StateMachine.StateHint.Raidwide); // t=2144.9; Ability 8FD8 from Valigarmanda; cactbot StartsUsing 8FD5/8FD7/8FD9 [Valigarmanda Ex Disaster Zone]
+    Timeout(id + 0x390, 11.9f, "Ruinfall (tower)"); // t=2156.8; Ability 8FFD from Valigarmanda; cactbot StartsUsing 8FFD [Valigarmanda Ex Ruinfall Tower]
+    Timeout(id + 0x3A0, 2.4f, "Ruinfall (knockback)").SetHint(StateMachine.StateHint.Knockback); // t=2159.2; Ability 8FFF from Valigarmanda; cactbot StartsUsing 8FFF [Valigarmanda Ex Ruinfall Knockback]
+    Condition(id + 0x3B0, 840.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8FD1), "", 5f, 835.8f); // t=3000.0; StartsUsing 8FD1 from Valigarmanda; cactbot StartsUsing 95C3/8FD1 [Valigarmanda Ex Phase Tracker] | StartsUsing 8FD1 [Valigarmanda Ex Skyruin Ice]
+    Timeout(id + 0x3C0, 11.1f, "Skyruin (ice phase)"); // t=3011.1; Ability 8FD2 from Valigarmanda
+    Timeout(id + 0x3D0, 8.7f, "Triscourge").SetHint(StateMachine.StateHint.Raidwide); // t=3019.8; Ability 8FE7 from Valigarmanda; cactbot StartsUsing 8FE7 [Valigarmanda Ex Triscourge]
+    Timeout(id + 0x3E0, 12.0f, "Scourge of Ice/Fire"); // t=3031.8; Ability 8FEC from Valigarmanda
+    Timeout(id + 0x3F0, 16.3f, "Northern Cross"); // t=3048.1
+    Timeout(id + 0x400, 1.5f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=3049.6
+    Timeout(id + 0x410, 6.0f, "Chilling Cataclysm"); // t=3055.6; Ability 8FC3 from Valigarmanda
+    Timeout(id + 0x420, 8.3f, "Scourge of Thunder"); // t=3063.9; Ability 8FEA from Valigarmanda
+    Timeout(id + 0x430, 15.6f, "Spikesicle"); // t=3079.5; Ability 8FF2 from Valigarmanda; cactbot Ability 8FF2 [Valigarmanda Spikecicle + Avalanche]
+    Timeout(id + 0x440, 8.0f, "Sphere Shatter x10"); // t=3087.5
+    Timeout(id + 0x450, 28.1f, "Strangling Coil/Slithering Strike/Susurrant Breath"); // t=3115.6
+    Timeout(id + 0x460, 6.0f, "Chilling Cataclysm"); // t=3121.6; Ability 8FC3 from Valigarmanda
+    Timeout(id + 0x470, 4.8f, "Northern Cross"); // t=3126.4
+    Timeout(id + 0x480, 4.0f, "Freezing Dust"); // t=3130.4; Ability 8FF0 from Valigarmanda; cactbot StartsUsing 8FF0 [Valigarmanda Ex Freezing Dust]
+    Timeout(id + 0x490, 10.3f, "Scourge of Thunder"); // t=3140.7; Ability 8FEA from Valigarmanda
+    Timeout(id + 0x4A0, 7.7f, "Disaster Zone").SetHint(StateMachine.StateHint.Raidwide); // t=3148.4; Ability 8FD6 from Valigarmanda; cactbot StartsUsing 8FD5/8FD7/8FD9 [Valigarmanda Ex Disaster Zone]
+    Timeout(id + 0x4B0, 9.3f, "Ice Talon"); // t=3157.7; Ability 8FFB from Valigarmanda
+    Condition(id + 0x4C0, 842.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9007), "", 5f, 837.3f); // t=4000.0; StartsUsing 9007 from Valigarmanda
+    Timeout(id + 0x4D0, 3.7f, "Wrath Unfurled").SetHint(StateMachine.StateHint.Raidwide); // t=4003.7; Ability 9007 from Valigarmanda; cactbot StartsUsing 9945 [Valigarmanda Ex Wrath Unfurled]
+    Timeout(id + 0x4E0, 3.3f, "Wrath Unfurled").SetHint(StateMachine.StateHint.Raidwide); // t=4007.0; Ability 9945 from Valigarmanda; cactbot StartsUsing 9945 [Valigarmanda Ex Wrath Unfurled]
+    Timeout(id + 0x4F0, 11.9f, "Mountain Fire (cast)"); // t=4018.9; Ability 900C from Valigarmanda; cactbot Ability 900C [Valigarmanda Ex Mountain Fire Tank] | Ability 900C [Valigarmanda Ex Mountain Fire First Wedge]
+    Timeout(id + 0x500, 5.7f, "Mountain Fire 1"); // t=4024.6; Ability 9019 from Valigarmanda
+    Timeout(id + 0x510, 5.0f, "Mountain Fire 2"); // t=4029.6; Ability 9019 from Valigarmanda
+    Timeout(id + 0x520, 5.0f, "Mountain Fire 3"); // t=4034.6; Ability 9019 from Valigarmanda
+    Timeout(id + 0x530, 5.0f, "Mountain Fire 4"); // t=4039.6; Ability 9019 from Valigarmanda
+    Timeout(id + 0x540, 5.0f, "Mountain Fire 5"); // t=4044.6; Ability 9019 from Valigarmanda
+    Timeout(id + 0x550, 5.0f, "Mountain Fire 6"); // t=4049.6; Ability 9019 from Valigarmanda
+    Timeout(id + 0x560, 13.7f, "Tulidisaster").SetHint(StateMachine.StateHint.Raidwide); // t=4063.3; Ability 924C from Valigarmanda; cactbot StartsUsing 9008 [Valigarmanda Ex Tulidisaster 1] | StartsUsing 9008 [Valigarmanda Ex Tulidisaster 2] | StartsUsing 9008 [Valigarmanda Ex Tulidisaster 3]
+    Timeout(id + 0x570, 3.1f, "Tulidisaster").SetHint(StateMachine.StateHint.Raidwide); // t=4066.4; Ability 924E from Valigarmanda; cactbot StartsUsing 9008 [Valigarmanda Ex Tulidisaster 1] | StartsUsing 9008 [Valigarmanda Ex Tulidisaster 2] | StartsUsing 9008 [Valigarmanda Ex Tulidisaster 3]
+    Timeout(id + 0x580, 8.6f, "Tulidisaster").SetHint(StateMachine.StateHint.Raidwide); // t=4075.0; Ability 924F from Valigarmanda; cactbot StartsUsing 9008 [Valigarmanda Ex Tulidisaster 1] | StartsUsing 9008 [Valigarmanda Ex Tulidisaster 2] | StartsUsing 9008 [Valigarmanda Ex Tulidisaster 3]
+    Timeout(id + 0x590, 8.0f, "Tulidisaster (enrage)"); // t=4083.0; Ability 924D from Valigarmanda
+}
+

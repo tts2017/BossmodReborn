@@ -1,0 +1,107 @@
+// Generated development skeleton from shinryu-un.txt (TerritoryType 1372).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 29 static/dynamic trigger definitions from ui/raidboss/data/07-dt/trial/shinryu-un.ts.
+
+private void PHASE_1__Elemental_carousel(uint id)
+{
+    Condition(id + 0x0, 11.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xC459), "", 5f, 6.3f); // t=11.3; StartsUsing C459 from Shinryu
+    Timeout(id + 0x10, 10.0f, "Earthen Fury"); // t=21.3; Ability C43A from Shinryu; cactbot StartsUsing C43A [ShinryuUn Phase 1]
+    Timeout(id + 0x20, 15.1f, "--Tethers--"); // t=36.4; cactbot HeadMarker 61 [ShinryuUn Tethers]
+    Timeout(id + 0x30, 8.1f, "Tidal Wave"); // t=44.5; Ability C455 from Shinryu
+    Timeout(id + 0x40, 5.2f, "--Tail Marker (healer)--"); // t=49.7
+    Timeout(id + 0x50, 12.0f, "Summon Icicle"); // t=61.7; Ability C44A from Left Wing
+    Timeout(id + 0x60, 0.7f, "Icicle Impact"); // t=62.4; Ability C44B from Icicle; cactbot Ability C44B [ShinryuUn Icicle Left] | Ability C44B [ShinryuUn Icicle Right]
+    Timeout(id + 0x70, 4.6f, "Spikesicle"); // t=67.0; Ability C44C from Icicle
+    Timeout(id + 0x80, 0.9f, "Tail Slap"); // t=67.9; Ability C43E from Tail; cactbot StartsUsing C43E [ShinryuUn Tail Slap]
+    Timeout(id + 0x90, 11.9f, "Hypernova / Levinbolt"); // t=79.8; Ability C444/C446 from Right Wing; cactbot StartsUsing C481/C444 [ShinryuUn Hypernova] | StartsUsing C446/C482/C486 [ShinryuUn Levinbolt] | StartsUsing C446/C482/C486 [ShinryuUn Levinbolt Phase 3]
+    Timeout(id + 0xA0, 11.1f, "Dragonfist"); // t=90.9; Ability C46C from Shinryu; cactbot StartsUsing C46D [ShinryuUn Dragonfist]
+    Timeout(id + 0xB0, 3.9f, "Ice Storm"); // t=94.8; Ability C44D from Left Wing
+    Timeout(id + 0xC0, 13.2f, "Akh Morn 1"); // t=108.0; Ability C44F from Shinryu; cactbot StartsUsing C44F [ShinryuUn Akh Morn]
+    Timeout(id + 0xD0, 2.1f, "Akh Rhai"); // t=110.1; Ability C451 from Shinryu
+    Timeout(id + 0xE0, 6.2f, "Summon Icicle"); // t=116.3; Ability C44A from Left Wing
+    Timeout(id + 0xF0, 0.6f, "Icicle Impact"); // t=116.9; Ability C44B from Icicle; cactbot Ability C44B [ShinryuUn Icicle Left] | Ability C44B [ShinryuUn Icicle Right]
+    Timeout(id + 0x100, 4.5f, "Spikesicle"); // t=121.4; Ability C44C from Icicle
+    Timeout(id + 0x110, 1.9f, "Judgment Bolt / Hellfire"); // t=123.3; Ability C456/C438 from Shinryu; cactbot StartsUsing C438 [ShinryuUn Judgement Bolt]
+    Timeout(id + 0x120, 15.1f, "--Tail Marker (dps)--"); // t=138.4
+    Timeout(id + 0x130, 11.1f, "Levinbolt"); // t=149.5; Ability C446 from Right Wing; cactbot StartsUsing C446/C482/C486 [ShinryuUn Levinbolt] | StartsUsing C446/C482/C486 [ShinryuUn Levinbolt Phase 3]
+    Timeout(id + 0x140, 7.1f, "Tail Slap"); // t=156.6; Ability C43E from Tail; cactbot StartsUsing C43E [ShinryuUn Tail Slap]
+    Timeout(id + 0x150, 7.9f, "Ice Storm"); // t=164.5; Ability C44D from Left Wing
+    Timeout(id + 0x160, 7.3f, "--Tethers (T/H)--"); // t=171.8
+    Timeout(id + 0x170, 8.8f, "Earth Breath"); // t=180.6; Ability C448 from Shinryu
+    Timeout(id + 0x180, 7.4f, "Akh Morn 2"); // t=188.0; Ability C44F from Shinryu; cactbot StartsUsing C44F [ShinryuUn Akh Morn]
+    Timeout(id + 0x190, 2.1f, "Akh Rhai"); // t=190.1; Ability C451 from Shinryu
+    Timeout(id + 0x1A0, 3.9f, "Ice Storm"); // t=194.0; Ability C44D from Left Wing
+    Timeout(id + 0x1B0, 12.6f, "--Tethers (healers)--"); // t=206.6
+    Timeout(id + 0x1C0, 1.6f, "Diamond Dust"); // t=208.2; Ability C458 from Shinryu; cactbot StartsUsing C439 [ShinryuUn Diamond Dust]
+    Timeout(id + 0x1D0, 16.7f, "--Reiryu Adds--"); // t=224.9
+    Timeout(id + 0x1E0, 8.4f, "--Tail Marker (tank)--"); // t=233.3
+    Timeout(id + 0x1F0, 18.2f, "Tail Slap"); // t=251.5; Ability C43E from Tail; cactbot StartsUsing C43E [ShinryuUn Tail Slap]
+    Timeout(id + 0x200, 17.0f, "Summon Icicle"); // t=268.5
+    Timeout(id + 0x210, 0.6f, "Icicle Impact"); // t=269.1
+    Timeout(id + 0x220, 3.3f, "Akh Morn 3"); // t=272.4; Ability C44F from Shinryu; cactbot StartsUsing C44F [ShinryuUn Akh Morn]
+    Timeout(id + 0x230, 1.2f, "Spikesicle"); // t=273.6
+    Timeout(id + 0x240, 0.9f, "Akh Rhai"); // t=274.5; Ability C451 from Shinryu
+    Timeout(id + 0x250, 10.8f, "Super Cyclone 1"); // t=285.3
+    Timeout(id + 0x260, 2.1f, "Super Cyclone 2"); // t=287.4
+    Timeout(id + 0x270, 2.1f, "Super Cyclone 3"); // t=289.5
+    Timeout(id + 0x280, 2.2f, "Aerial Blast"); // t=291.7; Ability C45A from Shinryu
+    Timeout(id + 0x290, 1.0f, "--Tethers (dps)--"); // t=292.7
+    Timeout(id + 0x2A0, 26.2f, "Earth Breath"); // t=318.9; Ability C448 from Shinryu
+    Timeout(id + 0x2B0, 3.0f, "Ice Storm"); // t=321.9; Ability C44D from Left Wing
+    Targetable(id + 0x2C0, false, 3.4f, "--untargetable--"); // t=325.3
+    Timeout(id + 0x2D0, 10.6f, "Gyre Charge"); // t=335.9; Ability C45F from Shinryu; cactbot StartsUsing BFEB/BFEC/C45F [ShinryuUn Gyre Charge]
+    Targetable(id + 0x2E0, true, 5.9f, "--targetable--"); // t=341.8
+    Timeout(id + 0x2F0, 9.1f, "Hypernova"); // t=350.9; Ability C444 from Right Wing; cactbot StartsUsing C481/C444 [ShinryuUn Hypernova]
+    Timeout(id + 0x300, 12.1f, "Akh Morn 4"); // t=363.0; Ability C44F from Shinryu; cactbot StartsUsing C44F [ShinryuUn Akh Morn]
+    Timeout(id + 0x310, 2.1f, "Akh Rhai"); // t=365.1; Ability C451 from Shinryu
+    Timeout(id + 0x320, 13.2f, "Hypernova / Levinbolt"); // t=378.3; Ability C444/C446 from Right Wing; cactbot StartsUsing C481/C444 [ShinryuUn Hypernova] | StartsUsing C446/C482/C486 [ShinryuUn Levinbolt] | StartsUsing C446/C482/C486 [ShinryuUn Levinbolt Phase 3]
+    Timeout(id + 0x330, 6.0f, "Tidal Wave"); // t=384.3; Ability C455 from Shinryu
+    Targetable(id + 0x340, false, 3.1f, "--untargetable--"); // t=387.4
+    Timeout(id + 0x350, 7.4f, "Dark Matter"); // t=394.8
+}
+
+private void PHASE_2__Adds__explosions__dramatic_tail_climbing(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xC443), "--Phase 2--", 5f, 0.0f); // t=500.0; StartsUsing C443 from Shinryu; cactbot StartsUsing C443 [ShinryuUn Phase 2]
+    Timeout(id + 0x10, 3.0f, "Dark Matter"); // t=503.0; Ability C443 from Shinryu; cactbot StartsUsing C443 [ShinryuUn Phase 2]
+    Timeout(id + 0x20, 10.0f, "TAP BUTTON OR ELSE"); // t=513.0
+    Timeout(id + 0x30, 27.7f, "Touchdown"); // t=540.7; Ability C46F from Shinryu
+    Timeout(id + 0x40, 11.6f, "Meteor Impact 1"); // t=552.3; Ability C441 from Cocoon
+    Timeout(id + 0x50, 18.8f, "Meteor Impact 2"); // t=571.1; Ability C441 from Cocoon
+    Timeout(id + 0x60, 16.9f, "--Cocoon Markers--"); // t=588.0
+    Timeout(id + 0x70, 13.0f, "Meteor Impact 3"); // t=601.0; Ability C441 from Cocoon
+}
+
+private void PHASE_3__Anticlimax(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xC440), "--Phase 3--", 5f, 0.0f); // t=800.0; StartsUsing C440 from Shinryu; cactbot StartsUsing C440 [ShinryuUn Phase 3]
+    Timeout(id + 0x10, 6.0f, "Protostar"); // t=806.0; Ability C440 from Shinryu; cactbot StartsUsing C440 [ShinryuUn Phase 3]
+    Timeout(id + 0x20, 7.1f, "Tail Spit"); // t=813.1; Ability C471 from Shinryu
+    Timeout(id + 0x30, 24.3f, "Shatter"); // t=837.4; Ability C473 from Shinryu
+    Targetable(id + 0x40, true, 6.0f, "--targetable--"); // t=843.4
+    Condition(id + 0x50, 12.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xC478), "", 5f, 7.1f); // t=855.5; StartsUsing C478 from Shinryu; cactbot StartsUsing C478 [ShinryuUn Tera Slash]
+    Timeout(id + 0x60, 4.0f, "Tera Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=859.5; Ability C478 from Shinryu; cactbot StartsUsing C478 [ShinryuUn Tera Slash]
+    Timeout(id + 0x70, 8.7f, "Atomic Ray"); // t=868.2; Ability C479 from Shinryu
+    Timeout(id + 0x80, 17.7f, "Ice Storm"); // t=885.9; Ability C484 from Left Wing
+    Timeout(id + 0x90, 4.0f, "Levinbolt / Hypernova"); // t=889.9; Ability C482/C481 from Right Wing; cactbot StartsUsing C481/C444 [ShinryuUn Hypernova] | StartsUsing C446/C482/C486 [ShinryuUn Levinbolt] | StartsUsing C446/C482/C486 [ShinryuUn Levinbolt Phase 3]
+    Timeout(id + 0xA0, 8.0f, "Wormwail / Benighting Breath"); // t=897.9; Ability C475/C476 from Shinryu; cactbot StartsUsing C475 [ShinryuUn Wormwail]
+    Timeout(id + 0xB0, 9.2f, "Tera Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=907.1; Ability C478 from Shinryu; cactbot StartsUsing C478 [ShinryuUn Tera Slash]
+    Timeout(id + 0xC0, 3.7f, "--Reiryu Adds--"); // t=910.8
+    Timeout(id + 0xD0, 46.6f, "Tera Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=957.4; Ability C478 from Shinryu; cactbot StartsUsing C478 [ShinryuUn Tera Slash]
+    Timeout(id + 0xE0, 8.7f, "Atomic Ray"); // t=966.1; Ability C479 from Shinryu
+    Timeout(id + 0xF0, 17.7f, "Ice Storm"); // t=983.8; Ability C484 from Left Wing
+    Timeout(id + 0x100, 4.0f, "Levinbolt / Hypernova"); // t=987.8; Ability C482/C481 from Right Wing; cactbot StartsUsing C481/C444 [ShinryuUn Hypernova] | StartsUsing C446/C482/C486 [ShinryuUn Levinbolt] | StartsUsing C446/C482/C486 [ShinryuUn Levinbolt Phase 3]
+    Timeout(id + 0x110, 8.1f, "Wormwail / Benighting Breath"); // t=995.9; Ability C475/C476 from Shinryu; cactbot StartsUsing C475 [ShinryuUn Wormwail]
+    Timeout(id + 0x120, 9.2f, "Tera Slash").SetHint(StateMachine.StateHint.Tankbuster); // t=1005.1; Ability C478 from Shinryu; cactbot StartsUsing C478 [ShinryuUn Tera Slash]
+    Timeout(id + 0x130, 4.0f, "--Reiryu Adds--"); // t=1009.1
+}
+
+private void PHASE_4__Race_to_the_finish(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xC47B), "", 5f, 0.0f); // t=1046.0; StartsUsing C47B from Shinryu; cactbot StartsUsing C47B [ShinryuUn Phase 4] | StartsUsing C47B [ShinryuUn Final Tidal Wave]
+    Timeout(id + 0x10, 39.0f, "First Wing"); // t=1085.0
+    Timeout(id + 0x20, 5.0f, "Second Wing"); // t=1090.0
+    Timeout(id + 0x30, 26.0f, "Tidal Wave"); // t=1116.0; Ability C47B from Shinryu; cactbot StartsUsing C47B [ShinryuUn Phase 4] | StartsUsing C47B [ShinryuUn Final Tidal Wave]
+}
+

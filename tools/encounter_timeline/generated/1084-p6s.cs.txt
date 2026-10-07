@@ -1,0 +1,96 @@
+// Generated development skeleton from p6s.txt (TerritoryType 1084).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 26 static/dynamic trigger definitions from ui/raidboss/data/06-ew/raid/p6s.ts.
+
+private void P6S__Abyssos__The_Sixth_Circle__Savage(uint id)
+{
+    Condition(id + 0x0, 9.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7860), "", 5f, 4.5f); // t=9.5; StartsUsing 7860 from Hegemone; cactbot StartsUsing 7860 [P6S Hemitheos\]
+    Timeout(id + 0x10, 4.7f, "Hemitheos's Dark IV").SetHint(StateMachine.StateHint.Raidwide); // t=14.2; Ability 7860 from Hegemone; cactbot StartsUsing 7860 [P6S Hemitheos\]
+    Timeout(id + 0x20, 13.8f, "Synergy").SetHint(StateMachine.StateHint.Tankbuster); // t=28.0; Ability 7887/788A from Hegemone; cactbot StartsUsing 788A [P6S Chelic Synergy] | StartsUsing 7887 [P6S Synergy]
+    Timeout(id + 0x30, 14.0f, "Aetheric Polyominoid"); // t=42.0; Ability 7866 from Hegemone
+    Timeout(id + 0x40, 6.6f, "Unholy Darkness"); // t=48.6; Ability 786D/786E/7891 from Hegemone
+    Timeout(id + 0x50, 6.0f, "Polyominous Dark IV"); // t=54.6; Ability 7867 from Hegemone
+    Timeout(id + 0x60, 0.1f, "Exocleaver 1"); // t=54.7; Ability 7869/786B from Hegemone; cactbot StartsUsing 7869/786B [P6S Exocleaver Healer Groups] | Ability 7869/786B [P6S Exocleaver Move]
+    Timeout(id + 0x70, 2.1f, "Unholy Darkness"); // t=56.8; Ability 7892 from Hegemone; cactbot StartsUsing 7892 [P6S Polyominoid Healer Groups]
+    Timeout(id + 0x80, 0.4f, "Exocleaver 2"); // t=57.2; Ability 7869/786B from Hegemone; cactbot StartsUsing 7869/786B [P6S Exocleaver Healer Groups] | Ability 7869/786B [P6S Exocleaver Move]
+    Timeout(id + 0x90, 40.5f, "Aetherial Exchange"); // t=97.7; Ability 784D from Hegemone
+    Timeout(id + 0xA0, 6.7f, "Exchange Of Agonies"); // t=104.4; Ability 786C from Hegemone; cactbot HeadMarker [P6S Exchange of Agonies Markers]
+    Timeout(id + 0xB0, 7.2f, "Choros Ixou 1"); // t=111.6; Ability 7881/7882/7883/7884 from Hegemone; cactbot StartsUsing 7883 [P6S Choros Ixou Front Back] | StartsUsing 7881 [P6S Choros Ixou Sides]
+    Timeout(id + 0xC0, 0.7f, "Unholy Darkness"); // t=112.3; Ability 786D/786E/7891 from Hegemone
+    Timeout(id + 0xD0, 2.4f, "Choros Ixou 2"); // t=114.7; Ability 7881/7882/7883/7884 from Hegemone; cactbot StartsUsing 7883 [P6S Choros Ixou Front Back] | StartsUsing 7881 [P6S Choros Ixou Sides]
+    Timeout(id + 0xE0, 13.8f, "Synergy").SetHint(StateMachine.StateHint.Tankbuster); // t=128.5; Ability 7887/788A from Hegemone; cactbot StartsUsing 788A [P6S Chelic Synergy] | StartsUsing 7887 [P6S Synergy]
+    Timeout(id + 0xF0, 12.9f, "Hemitheos's Dark IV").SetHint(StateMachine.StateHint.Raidwide); // t=141.4; Ability 7860 from Hegemone; cactbot StartsUsing 7860 [P6S Hemitheos\]
+    Timeout(id + 0x100, 11.8f, "Transmission"); // t=153.2; Ability 7861 from Hegemone; cactbot GainsEffect CF3/D48 [P6S Transmission] | GainsEffect CF3/D48 [P6S Transmission Instant]
+    Timeout(id + 0x110, 12.9f, "Choros Ixou 1"); // t=166.1; Ability 7881/7882/7883/7884 from Hegemone; cactbot StartsUsing 7883 [P6S Choros Ixou Front Back] | StartsUsing 7881 [P6S Choros Ixou Sides]
+    Timeout(id + 0x120, 1.9f, "Chelic Claw/Reek Havoc"); // t=168.0; Ability 79EE/79EF from Parasitos
+    Timeout(id + 0x130, 1.2f, "Choros Ixou 2"); // t=169.2; Ability 7881/7882/7883/7884 from Hegemone; cactbot StartsUsing 7883 [P6S Choros Ixou Front Back] | StartsUsing 7881 [P6S Choros Ixou Sides]
+    Timeout(id + 0x140, 9.8f, "Aetherial Exchange"); // t=179.0; Ability 784D from Hegemone
+    Timeout(id + 0x150, 6.7f, "Polyominoid Sigma"); // t=185.7; Ability 7868 from Hegemone
+    Timeout(id + 0x160, 9.6f, "Dark Dome 1"); // t=195.3; Ability 788B from Hegemone; cactbot StartsUsing 788B [P6S Dark Dome Bait] | Ability 788B [P6S Dark Dome Move]
+    Timeout(id + 0x170, 4.8f, "Polyominous Dark IV / Dark Dome 2"); // t=200.1; Ability 7867 from Hegemone | Ability 788C from Hegemone
+    Timeout(id + 0x180, 9.7f, "Aetherial Exchange"); // t=209.8; Ability 784D from Hegemone
+    Timeout(id + 0x190, 6.7f, "Exchange Of Agonies"); // t=216.5; Ability 786C from Hegemone; cactbot HeadMarker [P6S Exchange of Agonies Markers]
+    Timeout(id + 0x1A0, 7.9f, "Exocleaver 1 / Unholy Darkness"); // t=224.4; Ability 7869/786B from Hegemone | Ability 7A0F from Hegemone; cactbot StartsUsing 7869/786B [P6S Exocleaver Healer Groups] | Ability 7869/786B [P6S Exocleaver Move]
+    Timeout(id + 0x1B0, 2.6f, "Exocleaver 2"); // t=227.0; Ability 7869/786B from Hegemone; cactbot StartsUsing 7869/786B [P6S Exocleaver Healer Groups] | Ability 7869/786B [P6S Exocleaver Move]
+    Timeout(id + 0x1C0, 12.3f, "Synergy").SetHint(StateMachine.StateHint.Tankbuster); // t=239.3; Ability 7887/788A from Hegemone; cactbot StartsUsing 788A [P6S Chelic Synergy] | StartsUsing 7887 [P6S Synergy]
+    Timeout(id + 0x1D0, 12.9f, "Hemitheos's Dark IV").SetHint(StateMachine.StateHint.Raidwide); // t=252.2; Ability 7860 from Hegemone; cactbot StartsUsing 7860 [P6S Hemitheos\]
+    Timeout(id + 0x1E0, 9.8f, "Aetherial Exchange"); // t=262.0; Ability 784D from Hegemone
+    Timeout(id + 0x1F0, 6.7f, "Polyominoid Sigma"); // t=268.7; Ability 7868 from Hegemone
+    Timeout(id + 0x200, 6.6f, "Unholy Darkness"); // t=275.3; Ability 7892 from Hegemone; cactbot StartsUsing 7892 [P6S Polyominoid Healer Groups]
+    Timeout(id + 0x210, 7.0f, "Polyominous Dark IV"); // t=282.3; Ability 7867 from Hegemone
+    Timeout(id + 0x220, 11.7f, "Dark Ashes"); // t=294.0; Ability 788D from Hegemone
+    Timeout(id + 0x230, 8.0f, "Choros Ixou 1"); // t=302.0; Ability 7881/7882/7883/7884 from Hegemone; cactbot StartsUsing 7883 [P6S Choros Ixou Front Back] | StartsUsing 7881 [P6S Choros Ixou Sides]
+    Timeout(id + 0x240, 1.0f, "Dark Ashes"); // t=303.0; Ability 788E from Hegemone
+    Timeout(id + 0x250, 2.1f, "Choros Ixou 2"); // t=305.1; Ability 7881/7882/7883/7884 from Hegemone; cactbot StartsUsing 7883 [P6S Choros Ixou Front Back] | StartsUsing 7881 [P6S Choros Ixou Sides]
+    Timeout(id + 0x260, 12.5f, "Cachexia"); // t=317.6; Ability 7876 from Hegemone; cactbot StartsUsing 7880 [P6S Cachexia 2 Dark Spheres]
+    Timeout(id + 0x270, 9.0f, "Aetheronecrosis 1"); // t=326.6
+    Timeout(id + 0x280, 4.0f, "Aetheronecrosis 2"); // t=330.6
+    Timeout(id + 0x290, 4.0f, "Aetheronecrosis 3"); // t=334.6
+    Timeout(id + 0x2A0, 0.2f, "Dual Predation"); // t=334.8; Ability 7878 from Hegemone; cactbot StartsUsing 7878 [P6S Predation In First Bait Reminder]
+    Timeout(id + 0x2B0, 1.0f, "Predation 1"); // t=335.8; Ability 787A/787B from Hegemone; cactbot Ability 787A/787B [P6S Predation In Bait Reminder] | Ability 787A/787B [P6S Predation Out]
+    Timeout(id + 0x2C0, 2.9f, "Aetheronecrosis 4"); // t=338.7
+    Timeout(id + 0x2D0, 1.2f, "Predation 2"); // t=339.9; Ability 787A/787B from Hegemone; cactbot Ability 787A/787B [P6S Predation In Bait Reminder] | Ability 787A/787B [P6S Predation Out]
+    Timeout(id + 0x2E0, 4.0f, "Predation 3"); // t=343.9; Ability 787A/787B from Hegemone; cactbot Ability 787A/787B [P6S Predation In Bait Reminder] | Ability 787A/787B [P6S Predation Out]
+    Timeout(id + 0x2F0, 4.0f, "Predation 4"); // t=347.9; Ability 787A/787B from Hegemone; cactbot Ability 787A/787B [P6S Predation In Bait Reminder] | Ability 787A/787B [P6S Predation Out]
+    Timeout(id + 0x300, 9.0f, "Ptera Ixou"); // t=356.9; Ability 787C from Hegemone; cactbot StartsUsing 787C [P6S Ptera Ixou]
+    Timeout(id + 0x310, 15.3f, "Synergy").SetHint(StateMachine.StateHint.Tankbuster); // t=372.2; Ability 7887/788A from Hegemone; cactbot StartsUsing 788A [P6S Chelic Synergy] | StartsUsing 7887 [P6S Synergy]
+    Timeout(id + 0x320, 12.1f, "Hemitheos's Dark IV").SetHint(StateMachine.StateHint.Raidwide); // t=384.3; Ability 7860 from Hegemone; cactbot StartsUsing 7860 [P6S Hemitheos\]
+    Timeout(id + 0x330, 10.7f, "Aetheric Polyominoid"); // t=395.0; Ability 7866 from Hegemone
+    Timeout(id + 0x340, 6.6f, "Dark Sphere"); // t=401.6; Ability 788F from Hegemone; cactbot StartsUsing 7880 [P6S Dark Spheres Collect] | StartsUsing 7880 [P6S Cachexia 2 Dark Spheres]
+    Timeout(id + 0x350, 6.1f, "Dark Dome 1"); // t=407.7; Ability 788B from Hegemone; cactbot StartsUsing 788B [P6S Dark Dome Bait] | Ability 788B [P6S Dark Dome Move]
+    Timeout(id + 0x360, 0.9f, "Polyominous Dark IV"); // t=408.6; Ability 7867 from Hegemone
+    Timeout(id + 0x370, 4.0f, "Dark Dome 2"); // t=412.6; Ability 788C from Hegemone
+    Timeout(id + 0x380, 10.8f, "Aetherial Exchange"); // t=423.4; Ability 784D from Hegemone
+    Timeout(id + 0x390, 6.7f, "Exchange Of Agonies"); // t=430.1; Ability 786C from Hegemone; cactbot HeadMarker [P6S Exchange of Agonies Markers]
+    Timeout(id + 0x3A0, 7.2f, "Choros Ixou 1"); // t=437.3; Ability 7881/7882/7883/7884 from Hegemone; cactbot StartsUsing 7883 [P6S Choros Ixou Front Back] | StartsUsing 7881 [P6S Choros Ixou Sides]
+    Timeout(id + 0x3B0, 0.5f, "Unholy Darkness"); // t=437.8; Ability 786D/786E/7891 from Hegemone
+    Timeout(id + 0x3C0, 2.4f, "Choros Ixou 2"); // t=440.2; Ability 7881/7882/7883/7884 from Hegemone; cactbot StartsUsing 7883 [P6S Choros Ixou Front Back] | StartsUsing 7881 [P6S Choros Ixou Sides]
+    Timeout(id + 0x3D0, 9.7f, "Aetherial Exchange"); // t=449.9; Ability 784D from Hegemone
+    Timeout(id + 0x3E0, 6.7f, "Polyominoid Sigma"); // t=456.6; Ability 7868 from Hegemone
+    Timeout(id + 0x3F0, 11.7f, "Choros Ixou 1"); // t=468.3; Ability 7881/7882/7883/7884 from Hegemone; cactbot StartsUsing 7883 [P6S Choros Ixou Front Back] | StartsUsing 7881 [P6S Choros Ixou Sides]
+    Timeout(id + 0x400, 0.9f, "Polyominous Dark IV"); // t=469.2; Ability 7867 from Hegemone
+    Timeout(id + 0x410, 2.2f, "Choros Ixou 2"); // t=471.4; Ability 7881/7882/7883/7884 from Hegemone; cactbot StartsUsing 7883 [P6S Choros Ixou Front Back] | StartsUsing 7881 [P6S Choros Ixou Sides]
+    Timeout(id + 0x420, 13.6f, "Synergy").SetHint(StateMachine.StateHint.Tankbuster); // t=485.0; Ability 7887/788A from Hegemone; cactbot StartsUsing 788A [P6S Chelic Synergy] | StartsUsing 7887 [P6S Synergy]
+    Timeout(id + 0x430, 12.1f, "Hemitheos's Dark IV").SetHint(StateMachine.StateHint.Raidwide); // t=497.1; Ability 7860 from Hegemone; cactbot StartsUsing 7860 [P6S Hemitheos\]
+    Timeout(id + 0x440, 12.6f, "Cachexia"); // t=509.7; Ability 7876 from Hegemone; cactbot StartsUsing 7880 [P6S Cachexia 2 Dark Spheres]
+    Timeout(id + 0x450, 7.7f, "Transmission"); // t=517.4; Ability 7861 from Hegemone; cactbot GainsEffect CF3/D48 [P6S Transmission] | GainsEffect CF3/D48 [P6S Transmission Instant]
+    Timeout(id + 0x460, 7.7f, "Aetherial Exchange"); // t=525.1; Ability 784D from Hegemone
+    Timeout(id + 0x470, 6.7f, "Polyominoid Sigma"); // t=531.8; Ability 7868 from Hegemone
+    Timeout(id + 0x480, 13.5f, "Polyominous Dark IV"); // t=545.3; Ability 7867 from Hegemone
+    Timeout(id + 0x490, 0.1f, "Dark Sphere / Ptera Ixou / Unholy Darkness"); // t=545.4; Ability 7880 from Hegemone | Ability 787C from Hegemone | Ability 787F from Hegemone; cactbot StartsUsing 787C [P6S Ptera Ixou] | StartsUsing 7880 [P6S Dark Spheres Collect] | StartsUsing 7880 [P6S Cachexia 2 Dark Spheres]
+    Timeout(id + 0x4A0, 1.0f, "Chelic Claw/Reek Havoc"); // t=546.4; Ability 79EE/79EF from Parasitos
+    Timeout(id + 0x4B0, 12.3f, "Aetheric Polyominoid"); // t=558.7; Ability 7866 from Hegemone
+    Timeout(id + 0x4C0, 8.6f, "Dark Dome"); // t=567.3; Ability 788B from Hegemone; cactbot StartsUsing 788B [P6S Dark Dome Bait] | Ability 788B [P6S Dark Dome Move]
+    Timeout(id + 0x4D0, 4.4f, "Polyominous Dark IV"); // t=571.7; Ability 7867 from Hegemone
+    Timeout(id + 0x4E0, 0.4f, "Dark Dome"); // t=572.1; Ability 788C from Hegemone; cactbot StartsUsing 788B [P6S Dark Dome Bait] | Ability 788B [P6S Dark Dome Move]
+    Timeout(id + 0x4F0, 11.6f, "Aetheric Polyominoid"); // t=583.7; Ability 7866 from Hegemone
+    Timeout(id + 0x500, 9.1f, "Choros Ixou 1"); // t=592.8; Ability 7881/7882/7883/7884 from Hegemone; cactbot StartsUsing 7883 [P6S Choros Ixou Front Back] | StartsUsing 7881 [P6S Choros Ixou Sides]
+    Timeout(id + 0x510, 0.7f, "Polyominous Dark IV"); // t=593.5; Ability 7867 from Hegemone
+    Timeout(id + 0x520, 2.4f, "Choros Ixou 2"); // t=595.9; Ability 7881/7882/7883/7884 from Hegemone; cactbot StartsUsing 7883 [P6S Choros Ixou Front Back] | StartsUsing 7881 [P6S Choros Ixou Sides]
+    Timeout(id + 0x530, 13.0f, "Synergy").SetHint(StateMachine.StateHint.Tankbuster); // t=608.9; Ability 7887/788A from Hegemone; cactbot StartsUsing 788A [P6S Chelic Synergy] | StartsUsing 7887 [P6S Synergy]
+    Timeout(id + 0x540, 12.9f, "Hemitheos's Dark IV").SetHint(StateMachine.StateHint.Raidwide); // t=621.8; Ability 7860 from Hegemone; cactbot StartsUsing 7860 [P6S Hemitheos\]
+    Condition(id + 0x550, 9.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7893), "", 5f, 4.2f); // t=631.0; StartsUsing 7893 from Hegemone
+    Timeout(id + 0x560, 9.7f, "Hemitheos's Dark IV (enrage)"); // t=640.7; Ability 7893 from Hegemone
+}
+

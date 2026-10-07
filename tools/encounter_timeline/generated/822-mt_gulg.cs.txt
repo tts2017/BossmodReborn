@@ -1,0 +1,100 @@
+// Generated development skeleton from mt_gulg.txt (TerritoryType 822).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 16 static/dynamic trigger definitions from ui/raidboss/data/05-shb/dungeon/mt_gulg.ts.
+
+private void Forgiven_Cruelty(uint id)
+{
+    Timeout(id + 0x0, 13.0f, "Rake").SetHint(StateMachine.StateHint.Tankbuster); // t=113.0; Ability 3CFB from Forgiven Cruelty; cactbot StartsUsing 3CFB [Gulg Rake]
+    Timeout(id + 0x10, 8.2f, "Lumen Infinitum"); // t=121.2; Ability 41B2 from Forgiven Cruelty; cactbot StartsUsing 41B2 [Gulg Lumen Infinitum]
+    Timeout(id + 0x20, 17.1f, "Typhoon Wing"); // t=138.3; Ability 3D00 from Forgiven Cruelty; cactbot StartsUsing 3D00 [Gulg Typhoon Wing 1]
+    Timeout(id + 0x30, 8.9f, "Cyclone Wing").SetHint(StateMachine.StateHint.Raidwide); // t=147.2; Ability 3CFC from Forgiven Cruelty; cactbot StartsUsing 3CFC [Gulg Cyclone Wing]
+    Timeout(id + 0x40, 13.6f, "Typhoon Wing"); // t=160.8; Ability 3D00 from Forgiven Cruelty; cactbot StartsUsing 3D00 [Gulg Typhoon Wing 1]
+    Timeout(id + 0x50, 10.8f, "Lumen Infinitum"); // t=171.6; Ability 41B2 from Forgiven Cruelty; cactbot StartsUsing 41B2 [Gulg Lumen Infinitum]
+    Timeout(id + 0x60, 16.6f, "Typhoon Wing / Hurricane Wing"); // t=188.2; Ability 3D01 from Forgiven Cruelty | Ability 3D03 from Forgiven Cruelty
+    Timeout(id + 0x70, 8.8f, "Cyclone Wing").SetHint(StateMachine.StateHint.Raidwide); // t=197.0; Ability 3CFC from Forgiven Cruelty; cactbot StartsUsing 3CFC [Gulg Cyclone Wing]
+    Timeout(id + 0x80, 8.3f, "Rake").SetHint(StateMachine.StateHint.Tankbuster); // t=205.3; Ability 3CFB from Forgiven Cruelty; cactbot StartsUsing 3CFB [Gulg Rake]
+    Timeout(id + 0x90, 9.1f, "Lumen Infinitum"); // t=214.4; Ability 41B2 from Forgiven Cruelty; cactbot StartsUsing 41B2 [Gulg Lumen Infinitum]
+    Timeout(id + 0xA0, 16.6f, "Typhoon Wing / Hurricane Wing"); // t=231.0; Ability 3D03 from Forgiven Cruelty
+    Timeout(id + 0xB0, 8.8f, "Cyclone Wing").SetHint(StateMachine.StateHint.Raidwide); // t=239.8; Ability 3CFC from Forgiven Cruelty; cactbot StartsUsing 3CFC [Gulg Cyclone Wing]
+    Timeout(id + 0xC0, 8.4f, "Rake").SetHint(StateMachine.StateHint.Tankbuster); // t=248.2; Ability 3CFB from Forgiven Cruelty; cactbot StartsUsing 3CFB [Gulg Rake]
+    Timeout(id + 0xD0, 9.3f, "Lumen Infinitum"); // t=257.5; Ability 41B2 from Forgiven Cruelty; cactbot StartsUsing 41B2 [Gulg Lumen Infinitum]
+    Timeout(id + 0xE0, 16.7f, "Typhoon Wing / Hurricane Wing"); // t=274.2; Ability 3D03 from Forgiven Cruelty
+    Timeout(id + 0xF0, 8.8f, "Cyclone Wing").SetHint(StateMachine.StateHint.Raidwide); // t=283.0; Ability 3CFC from Forgiven Cruelty; cactbot StartsUsing 3CFC [Gulg Cyclone Wing]
+    Timeout(id + 0x100, 8.3f, "Rake").SetHint(StateMachine.StateHint.Tankbuster); // t=291.3; Ability 3CFB from Forgiven Cruelty; cactbot StartsUsing 3CFB [Gulg Rake]
+    Timeout(id + 0x110, 9.1f, "Lumen Infinitum"); // t=300.4; cactbot StartsUsing 41B2 [Gulg Lumen Infinitum]
+    Timeout(id + 0x120, 16.6f, "Typhoon Wing / Hurricane Wing"); // t=317.0
+    Timeout(id + 0x130, 8.8f, "Cyclone Wing"); // t=325.8; cactbot StartsUsing 3CFC [Gulg Cyclone Wing]
+    Timeout(id + 0x140, 8.4f, "Rake"); // t=334.2
+    Timeout(id + 0x150, 9.3f, "Lumen Infinitum"); // t=343.5; cactbot StartsUsing 41B2 [Gulg Lumen Infinitum]
+    Timeout(id + 0x160, 16.7f, "Typhoon Wing / Hurricane Wing"); // t=360.2
+    Timeout(id + 0x170, 8.8f, "Cyclone Wing"); // t=369.0; cactbot StartsUsing 3CFC [Gulg Cyclone Wing]
+}
+
+private void Forgiven_Whimsy(uint id)
+{
+    Timeout(id + 0x0, 14.5f, "Sacrament Of Penance").SetHint(StateMachine.StateHint.Raidwide); // t=514.5; Ability 3D0B from Forgiven Whimsy; cactbot StartsUsing 3D0B [Gulg Sacrament of Penance]
+    Timeout(id + 0x10, 3.8f, "Reformation"); // t=518.3; Ability 3D04 from Forgiven Whimsy
+    Timeout(id + 0x20, 12.1f, "Exegesis"); // t=530.4; Ability 425C from Forgiven Whimsy
+    Timeout(id + 0x30, 3.7f, "Reformation"); // t=534.1; Ability 3D04 from Forgiven Whimsy
+    Timeout(id + 0x40, 12.1f, "Exegesis"); // t=546.2; Ability 425D from Forgiven Whimsy
+    Timeout(id + 0x50, 10.8f, "Catechism").SetHint(StateMachine.StateHint.Tankbuster); // t=557.0; Ability 3D09 from Forgiven Whimsy; cactbot StartsUsing 3D09 [Gulg Catechism]
+    Timeout(id + 0x60, 6.7f, "Judgment Day"); // t=563.7; Ability 3D0F from Forgiven Whimsy; cactbot StartsUsing 3D0F [Gulg Judgment Day]
+    Timeout(id + 0x70, 11.6f, "Judged"); // t=575.3; Ability 3D11 from Forgiven Whimsy
+    Timeout(id + 0x80, 5.0f, "Catechism / Judged").SetHint(StateMachine.StateHint.Tankbuster); // t=580.3; Ability 3D09 from Forgiven Whimsy | Ability 3D11 from Forgiven Whimsy; cactbot StartsUsing 3D09 [Gulg Catechism]
+    Timeout(id + 0x90, 3.7f, "Reformation"); // t=584.0; Ability 3D04 from Forgiven Whimsy
+    Timeout(id + 0xA0, 7.3f, "Rite Of The Sacrament"); // t=591.3; Ability 3D0D from Forgiven Whimsy
+    Timeout(id + 0xB0, 12.3f, "Exegesis"); // t=603.6; Ability 425B from Forgiven Whimsy
+    Timeout(id + 0xC0, 0.5f, "Perfect Contrition"); // t=604.1; Ability 3D0E from Brightsphere
+    Timeout(id + 0xD0, 3.1f, "Reformation"); // t=607.2; Ability 3D04 from Forgiven Whimsy
+    Timeout(id + 0xE0, 7.2f, "Rite Of The Sacrament"); // t=614.4; Ability 3D0D from Forgiven Whimsy
+    Timeout(id + 0xF0, 12.4f, "Exegesis"); // t=626.8; Ability 3D06 from Forgiven Whimsy
+    Timeout(id + 0x100, 0.4f, "Perfect Contrition"); // t=627.2; Ability 3D0E from Brightsphere
+    Timeout(id + 0x110, 9.7f, "Sacrament Of Penance").SetHint(StateMachine.StateHint.Raidwide); // t=636.9; Ability 3D0B from Forgiven Whimsy; cactbot StartsUsing 3D0B [Gulg Sacrament of Penance]
+    Timeout(id + 0x120, 3.7f, "Reformation"); // t=640.6; Ability 3D04 from Forgiven Whimsy
+    Timeout(id + 0x130, 7.1f, "Rite Of The Sacrament"); // t=647.7; Ability 3D0D from Forgiven Whimsy
+    Timeout(id + 0x140, 12.3f, "Exegesis"); // t=660.0
+    Timeout(id + 0x150, 0.5f, "Perfect Contrition"); // t=660.5
+    Timeout(id + 0x160, 3.1f, "Reformation"); // t=663.6
+    Timeout(id + 0x170, 7.2f, "Rite Of The Sacrament"); // t=670.8
+    Timeout(id + 0x180, 12.4f, "Exegesis"); // t=683.2
+    Timeout(id + 0x190, 0.4f, "Perfect Contrition"); // t=683.6
+    Timeout(id + 0x1A0, 9.7f, "Sacrament Of Penance"); // t=693.3; cactbot StartsUsing 3D0B [Gulg Sacrament of Penance]
+    Timeout(id + 0x1B0, 3.7f, "Reformation"); // t=697.0
+}
+
+private void Forgiven_Obscenity(uint id)
+{
+    Timeout(id + 0x0, 14.0f, "Orison Fortissimo").SetHint(StateMachine.StateHint.Raidwide); // t=1014.0; Ability 3D14 from Forgiven Obscenity; cactbot StartsUsing 3D14 [Gulg Orison Fortissimo]
+    Timeout(id + 0x10, 9.2f, "Divine Diminuendo"); // t=1023.2; Ability 3D16 from Forgiven Obscenity; cactbot StartsUsing 3D18 [Gulg Divine Diminuendo]
+    Timeout(id + 0x20, 17.4f, "Divine Diminuendo"); // t=1040.6; Ability 3D18 from Forgiven Obscenity; cactbot StartsUsing 3D18 [Gulg Divine Diminuendo]
+    Timeout(id + 0x30, 10.4f, "Conviction Marcato"); // t=1051.0; Ability 3D1A from Forgiven Obscenity; cactbot StartsUsing 3D1A [Gulg Conviction Marcato]
+    Timeout(id + 0x40, 11.2f, "Penance Pianissimo"); // t=1062.2; Ability 3D1C from Forgiven Obscenity
+    Timeout(id + 0x50, 8.2f, "Feather Marionette"); // t=1070.4; Ability 3D1D from Forgiven Obscenity
+    Timeout(id + 0x60, 12.9f, "Divine Diminuendo"); // t=1083.3; Ability 3D18 from Forgiven Obscenity; cactbot StartsUsing 3D18 [Gulg Divine Diminuendo]
+    Timeout(id + 0x70, 10.2f, "Conviction Marcato"); // t=1093.5; Ability 3D1A from Forgiven Obscenity; cactbot StartsUsing 3D1A [Gulg Conviction Marcato]
+    Timeout(id + 0x80, 14.2f, "Orison Fortissimo").SetHint(StateMachine.StateHint.Raidwide); // t=1107.7; Ability 3D14 from Forgiven Obscenity; cactbot StartsUsing 3D14 [Gulg Orison Fortissimo]
+    Timeout(id + 0x90, 16.8f, "Solitaire Ring"); // t=1124.5; Ability 42AA from Forgiven Obscenity
+    Timeout(id + 0xA0, 5.0f, "Ringsmith"); // t=1129.5; Ability 3D24 from Forgiven Obscenity
+    Timeout(id + 0xB0, 6.0f, "Gold Chaser"); // t=1135.5; Ability 3D25 from Forgiven Obscenity
+    Timeout(id + 0xC0, 12.0f, "Sacrament Sforzando").SetHint(StateMachine.StateHint.Tankbuster); // t=1147.5; Ability 3D12 from Forgiven Obscenity; cactbot StartsUsing 3D12 [Gulg Sforzando]
+    Timeout(id + 0xD0, 11.1f, "Orison Fortissimo").SetHint(StateMachine.StateHint.Raidwide); // t=1158.6; Ability 3D14 from Forgiven Obscenity; cactbot StartsUsing 3D14 [Gulg Orison Fortissimo]
+    Timeout(id + 0xE0, 11.2f, "Divine Diminuendo"); // t=1169.8; Ability 3D18 from Forgiven Obscenity; cactbot StartsUsing 3D18 [Gulg Divine Diminuendo]
+    Timeout(id + 0xF0, 19.4f, "Penance Pianissimo"); // t=1189.2; Ability 3D1C from Forgiven Obscenity
+    Timeout(id + 0x100, 8.2f, "Feather Marionette"); // t=1197.4; Ability 3D1D from Forgiven Obscenity
+    Timeout(id + 0x110, 13.1f, "Divine Diminuendo"); // t=1210.5; Ability 3D18 from Forgiven Obscenity; cactbot StartsUsing 3D18 [Gulg Divine Diminuendo]
+    Timeout(id + 0x120, 10.1f, "Conviction Marcato"); // t=1220.6; Ability 3D1A from Forgiven Obscenity; cactbot StartsUsing 3D1A [Gulg Conviction Marcato]
+    Timeout(id + 0x130, 14.3f, "Sacrament Sforzando").SetHint(StateMachine.StateHint.Tankbuster); // t=1234.9; Ability 3D12 from Forgiven Obscenity; cactbot StartsUsing 3D12 [Gulg Sforzando]
+    Timeout(id + 0x140, 16.7f, "Solitaire Ring"); // t=1251.6; Ability 42AA from Forgiven Obscenity
+    Timeout(id + 0x150, 5.0f, "Ringsmith"); // t=1256.6
+    Timeout(id + 0x160, 6.0f, "Gold Chaser"); // t=1262.6
+    Timeout(id + 0x170, 12.0f, "Sacrament Sforzando"); // t=1274.6
+    Timeout(id + 0x180, 11.1f, "Orison Fortissimo"); // t=1285.7; cactbot StartsUsing 3D14 [Gulg Orison Fortissimo]
+    Timeout(id + 0x190, 11.2f, "Divine Diminuendo"); // t=1296.9; cactbot StartsUsing 3D18 [Gulg Divine Diminuendo]
+    Timeout(id + 0x1A0, 19.4f, "Penance Pianissimo"); // t=1316.3
+    Timeout(id + 0x1B0, 8.2f, "Feather Marionette"); // t=1324.5
+    Timeout(id + 0x1C0, 13.1f, "Divine Diminuendo"); // t=1337.6; cactbot StartsUsing 3D18 [Gulg Divine Diminuendo]
+    Timeout(id + 0x1D0, 10.1f, "Conviction Marcato"); // t=1347.7; cactbot StartsUsing 3D1A [Gulg Conviction Marcato]
+    Timeout(id + 0x1E0, 14.3f, "Sacrament Sforzando"); // t=1362.0
+}
+

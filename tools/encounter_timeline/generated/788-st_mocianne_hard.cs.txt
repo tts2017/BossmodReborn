@@ -1,0 +1,107 @@
+// Generated development skeleton from st_mocianne_hard.txt (TerritoryType 788).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 15 static/dynamic trigger definitions from ui/raidboss/data/04-sb/dungeon/st_mocianne_hard.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 9.7f, "Odious Air"); // t=9.7; Ability 2E49 from Nullchu
+    Timeout(id + 0x20, 12.1f, "Vine Whip").SetHint(StateMachine.StateHint.Tankbuster); // t=21.8; Ability 2E48 from Nullchu; cactbot StartsUsing 2E48 [St Mocianne Hard Vine Whip]
+    Timeout(id + 0x30, 15.1f, "Sludge Bomb"); // t=36.9; Ability 2E4E from Nullchu; cactbot HeadMarker 1 [St Mocianne Hard Sludge Bomb]
+    Timeout(id + 0x40, 5.5f, "Fault Warren"); // t=42.4; Ability 2E4A from Nullchu; cactbot HeadMarker 3E [St Mocianne Hard Fault Warren]
+    Timeout(id + 0x50, 11.5f, "Devour"); // t=53.9; Ability 2E4F from Nullchu; cactbot StartsUsing 2E4F [St Mocianne Hard Devour]
+    Timeout(id + 0x60, 3.9f, "Odious Atmosphere"); // t=57.8; Ability 2E50 from Nullchu
+    Timeout(id + 0x70, 16.5f, "Vine Whip").SetHint(StateMachine.StateHint.Tankbuster); // t=74.3; Ability 2E48 from Nullchu; cactbot StartsUsing 2E48 [St Mocianne Hard Vine Whip]
+    Timeout(id + 0x80, 10.5f, "Taproot"); // t=84.8; Ability 2E4B from Nullchu; cactbot HeadMarker 8D [St Mocianne Hard Taproot]
+    Timeout(id + 0x90, 10.5f, "Devour"); // t=95.3; Ability 2E4F from Nullchu; cactbot StartsUsing 2E4F [St Mocianne Hard Devour]
+    Timeout(id + 0xA0, 3.9f, "Odious Atmosphere"); // t=99.2; Ability 2E50 from Nullchu
+    Timeout(id + 0xB0, 17.5f, "Vine Whip").SetHint(StateMachine.StateHint.Tankbuster); // t=116.7; Ability 2E48 from Nullchu; cactbot StartsUsing 2E48 [St Mocianne Hard Vine Whip]
+    Timeout(id + 0xC0, 9.0f, "Sludge Bomb"); // t=125.7; Ability 2E4E from Nullchu; cactbot HeadMarker 1 [St Mocianne Hard Sludge Bomb]
+    Timeout(id + 0xD0, 4.5f, "Devour"); // t=130.2; Ability 2E4F from Nullchu; cactbot StartsUsing 2E4F [St Mocianne Hard Devour]
+    Timeout(id + 0xE0, 3.9f, "Odious Atmosphere"); // t=134.1; Ability 2E50 from Nullchu
+    Timeout(id + 0xF0, 12.8f, "Odious Air"); // t=146.9; Ability 2E49 from Nullchu
+    Timeout(id + 0x100, 13.7f, "Sludge Bomb"); // t=160.6; Ability 2E4E from Nullchu; cactbot HeadMarker 1 [St Mocianne Hard Sludge Bomb]
+    Timeout(id + 0x110, 5.5f, "Fault Warren"); // t=166.1; Ability 2E4A from Nullchu; cactbot HeadMarker 3E [St Mocianne Hard Fault Warren]
+    Timeout(id + 0x120, 8.5f, "Devour"); // t=174.6; Ability 2E4F from Nullchu; cactbot StartsUsing 2E4F [St Mocianne Hard Devour]
+    Timeout(id + 0x130, 3.7f, "Odious Atmosphere"); // t=178.3; Ability 2E50 from Nullchu
+    Timeout(id + 0x140, 12.5f, "Taproot"); // t=190.8; Ability 2E4B from Nullchu; cactbot HeadMarker 8D [St Mocianne Hard Taproot]
+    Timeout(id + 0x150, 18.1f, "Sludge Bomb"); // t=208.9; Ability 2E4E from Nullchu; cactbot HeadMarker 1 [St Mocianne Hard Sludge Bomb]
+    Timeout(id + 0x160, 5.4f, "Fault Warren"); // t=214.3; Ability 2E4A from Nullchu; cactbot HeadMarker 3E [St Mocianne Hard Fault Warren]
+    Timeout(id + 0x170, 11.5f, "Devour"); // t=225.8; Ability 2E4F from Nullchu; cactbot StartsUsing 2E4F [St Mocianne Hard Devour]
+    Timeout(id + 0x180, 3.9f, "Odious Atmosphere"); // t=229.7
+    Timeout(id + 0x190, 16.5f, "Vine Whip"); // t=246.2; cactbot StartsUsing 2E48 [St Mocianne Hard Vine Whip]
+    Timeout(id + 0x1A0, 10.5f, "Taproot"); // t=256.7; cactbot HeadMarker 8D [St Mocianne Hard Taproot]
+    Timeout(id + 0x1B0, 10.5f, "Devour"); // t=267.2; cactbot StartsUsing 2E4F [St Mocianne Hard Devour]
+    Timeout(id + 0x1C0, 732.8f, "Start"); // t=1000.0
+    Timeout(id + 0x1D0, 8.9f, "Stone II").SetHint(StateMachine.StateHint.Tankbuster); // t=1008.9; Ability 312A from Lakhamu; cactbot StartsUsing 312A [St Mocianne Hard Stone II]
+    Timeout(id + 0x1E0, 10.6f, "Tectonics").SetHint(StateMachine.StateHint.Raidwide); // t=1019.5; Ability 312C from Lakhamu; cactbot StartsUsing 312C [St Mocianne Hard Tectonics]
+    Timeout(id + 0x1F0, 19.6f, "Landslip"); // t=1039.1; Ability 3132 from Lakhamu; cactbot StartsUsing 3132 [St Mocianne Hard Landslip]
+    Timeout(id + 0x200, 2.0f, "Rockslide"); // t=1041.1; Ability 3134 from Silt Golem
+    Timeout(id + 0x210, 8.1f, "Earthquake (inner)"); // t=1049.2; Ability 312E from Lakhamu
+    Timeout(id + 0x220, 2.6f, "Earthquake (outer)"); // t=1051.8; Ability 312F from Lakhamu
+    Timeout(id + 0x230, 10.5f, "Earth Shaker"); // t=1062.3; Ability 3130 from Lakhamu
+    Timeout(id + 0x240, 11.7f, "Empty Gaze"); // t=1074.0; Ability 312B from Lakhamu; cactbot StartsUsing 312B [St Mocianne Empty Gaze]
+    Timeout(id + 0x250, 12.1f, "Landslip"); // t=1086.1; Ability 3132 from Lakhamu; cactbot StartsUsing 3132 [St Mocianne Hard Landslip]
+    Timeout(id + 0x260, 2.1f, "Rockslide"); // t=1088.2; Ability 3134 from Silt Golem
+    Timeout(id + 0x270, 3.1f, "Earthquake (inner)?"); // t=1091.3; Ability 312E from Lakhamu
+    Timeout(id + 0x280, 2.5f, "Earthquake (outer)?"); // t=1093.8
+    Timeout(id + 0x290, 1.0f, "Earth Shaker?"); // t=1094.8; Ability 3130 from Lakhamu
+    Timeout(id + 0x2A0, 16.1f, "Tectonics"); // t=1110.9; cactbot StartsUsing 312C [St Mocianne Hard Tectonics]
+    Timeout(id + 0x2B0, 9.1f, "Stone II"); // t=1120.0; cactbot StartsUsing 312A [St Mocianne Hard Stone II]
+    Timeout(id + 0x2C0, 12.7f, "Empty Gaze"); // t=1132.7; cactbot StartsUsing 312B [St Mocianne Empty Gaze]
+    Timeout(id + 0x2D0, 12.1f, "Landslip"); // t=1144.8; cactbot StartsUsing 3132 [St Mocianne Hard Landslip]
+    Timeout(id + 0x2E0, 55.2f, "Earthquake (inner)"); // t=1200.0; Ability 312E from Lakhamu
+    Timeout(id + 0x2F0, 2.5f, "Earthquake (outer)"); // t=1202.5; Ability 312F from Lakhamu
+    Timeout(id + 0x300, 17.1f, "Tectonics").SetHint(StateMachine.StateHint.Raidwide); // t=1219.6; Ability 312C from Lakhamu; cactbot StartsUsing 312C [St Mocianne Hard Tectonics]
+    Timeout(id + 0x310, 9.1f, "Stone II").SetHint(StateMachine.StateHint.Tankbuster); // t=1228.7; Ability 312A from Lakhamu; cactbot StartsUsing 312A [St Mocianne Hard Stone II]
+    Timeout(id + 0x320, 12.7f, "Empty Gaze"); // t=1241.4; Ability 312B from Lakhamu; cactbot StartsUsing 312B [St Mocianne Empty Gaze]
+    Timeout(id + 0x330, 12.1f, "Landslip"); // t=1253.5; Ability 3132 from Lakhamu; cactbot StartsUsing 3132 [St Mocianne Hard Landslip]
+    Timeout(id + 0x340, 2.1f, "Rockslide"); // t=1255.6; Ability 3134 from Silt Golem
+    Timeout(id + 0x350, 3.1f, "Earthquake (inner)?"); // t=1258.7; Ability 312E from Lakhamu
+    Timeout(id + 0x360, 2.6f, "Earthquake (outer)? / Earth Shaker?"); // t=1261.3; Ability 3130 from Lakhamu
+    Timeout(id + 0x370, 17.1f, "Tectonics"); // t=1278.4; cactbot StartsUsing 312C [St Mocianne Hard Tectonics]
+    Timeout(id + 0x380, 9.0f, "Stone II"); // t=1287.4; cactbot StartsUsing 312A [St Mocianne Hard Stone II]
+    Timeout(id + 0x390, 12.7f, "Empty Gaze"); // t=1300.1; cactbot StartsUsing 312B [St Mocianne Empty Gaze]
+    Timeout(id + 0x3A0, 12.1f, "Landslip"); // t=1312.2; cactbot StartsUsing 3132 [St Mocianne Hard Landslip]
+    Timeout(id + 0x3B0, 87.8f, "Earth Shaker"); // t=1400.0; Ability 3130 from Lakhamu
+    Timeout(id + 0x3C0, 14.7f, "Tectonics").SetHint(StateMachine.StateHint.Raidwide); // t=1414.7; Ability 312C from Lakhamu; cactbot StartsUsing 312C [St Mocianne Hard Tectonics]
+    Timeout(id + 0x3D0, 9.1f, "Stone II").SetHint(StateMachine.StateHint.Tankbuster); // t=1423.8; Ability 312A from Lakhamu; cactbot StartsUsing 312A [St Mocianne Hard Stone II]
+    Timeout(id + 0x3E0, 12.7f, "Empty Gaze"); // t=1436.5; Ability 312B from Lakhamu; cactbot StartsUsing 312B [St Mocianne Empty Gaze]
+    Timeout(id + 0x3F0, 12.2f, "Landslip"); // t=1448.7; Ability 3132 from Lakhamu; cactbot StartsUsing 3132 [St Mocianne Hard Landslip]
+    Timeout(id + 0x400, 2.0f, "Rockslide"); // t=1450.7; Ability 3134 from Silt Golem
+    Timeout(id + 0x410, 3.1f, "Earthquake (inner)?"); // t=1453.8; Ability 312E from Lakhamu
+    Timeout(id + 0x420, 2.0f, "Earthquake (outer)? / Earth Shaker?"); // t=1455.8; Ability 3130 from Lakhamu
+    Timeout(id + 0x430, 13.7f, "Tectonics"); // t=1469.5; cactbot StartsUsing 312C [St Mocianne Hard Tectonics]
+    Timeout(id + 0x440, 9.1f, "Stone II"); // t=1478.6; cactbot StartsUsing 312A [St Mocianne Hard Stone II]
+    Timeout(id + 0x450, 12.6f, "Empty Gaze"); // t=1491.2; cactbot StartsUsing 312B [St Mocianne Empty Gaze]
+    Timeout(id + 0x460, 12.1f, "Landslip"); // t=1503.3; cactbot StartsUsing 3132 [St Mocianne Hard Landslip]
+    Timeout(id + 0x470, 496.7f, "Start"); // t=2000.0
+    Timeout(id + 0x480, 8.6f, "Mudsling").SetHint(StateMachine.StateHint.Tankbuster); // t=2008.6; Ability 3135 from Tokkapchi; cactbot StartsUsing 3135 [St Mocianne Mudsling]
+    Timeout(id + 0x490, 13.2f, "Quickmire"); // t=2021.8; Ability 3136 from Tokkapchi
+    Timeout(id + 0x4A0, 7.0f, "Quagmire"); // t=2028.8; Ability 3138 from Tokkapchi; cactbot HeadMarker 8B [St Mocianne Hard Quagmire]
+    Timeout(id + 0x4B0, 13.6f, "Quickmire"); // t=2042.4; Ability 3136 from Tokkapchi
+    Timeout(id + 0x4C0, 1.3f, "--center--"); // t=2043.7; Ability 313E from Tokkapchi
+    Timeout(id + 0x4D0, 4.8f, "Mud Pie"); // t=2048.5; Ability 3137 from Tokkapchi; cactbot StartsUsing 3137 [St Mocianne Hard Mud Pie]
+    Timeout(id + 0x4E0, 12.2f, "Quickmire"); // t=2060.7; Ability 3136 from Tokkapchi
+    Timeout(id + 0x4F0, 8.0f, "Quagmire"); // t=2068.7; Ability 3138 from Tokkapchi; cactbot HeadMarker 8B [St Mocianne Hard Quagmire]
+    Timeout(id + 0x500, 15.6f, "Quickmire"); // t=2084.3; Ability 3136 from Tokkapchi
+    Timeout(id + 0x510, 7.0f, "Bog Bequest"); // t=2091.3; Ability 313B from Tokkapchi
+    Timeout(id + 0x520, 7.6f, "From Mud"); // t=2098.9; Ability 313D from Tokkapchi
+    Timeout(id + 0x530, 7.4f, "--center--"); // t=2106.3; Ability 313E from Tokkapchi
+    Timeout(id + 0x540, 4.8f, "Mud Pie"); // t=2111.1; Ability 3137 from Tokkapchi; cactbot StartsUsing 3137 [St Mocianne Hard Mud Pie]
+    Timeout(id + 0x550, 12.1f, "Quickmire"); // t=2123.2; Ability 3136 from Tokkapchi
+    Timeout(id + 0x560, 10.0f, "Quagmire"); // t=2133.2; Ability 3138 from Tokkapchi; cactbot HeadMarker 8B [St Mocianne Hard Quagmire]
+    Timeout(id + 0x570, 14.2f, "Feculent Flood"); // t=2147.4; Ability 313C from Tokkapchi; cactbot StartsUsing 313C [St Mocianne Hard Feculent Flood]
+    Timeout(id + 0x580, 10.1f, "Quagmire"); // t=2157.5; Ability 3138 from Tokkapchi; cactbot HeadMarker 8B [St Mocianne Hard Quagmire]
+    Timeout(id + 0x590, 11.6f, "Quickmire"); // t=2169.1; Ability 3136 from Tokkapchi
+    Timeout(id + 0x5A0, 5.0f, "Bog Bequest"); // t=2174.1; Ability 313B from Tokkapchi
+    Timeout(id + 0x5B0, 13.6f, "Quickmire"); // t=2187.7; Ability 3136 from Tokkapchi
+    Timeout(id + 0x5C0, 3.0f, "Mudsling").SetHint(StateMachine.StateHint.Tankbuster); // t=2190.7; Ability 3135 from Tokkapchi; cactbot StartsUsing 3135 [St Mocianne Mudsling]
+    Timeout(id + 0x5D0, 4.3f, "--center--"); // t=2195.0; Ability 313E from Tokkapchi
+    Timeout(id + 0x5E0, 4.8f, "Mud Pie"); // t=2199.8; cactbot StartsUsing 3137 [St Mocianne Hard Mud Pie]
+    Timeout(id + 0x5F0, 12.1f, "Quickmire"); // t=2211.9
+    Timeout(id + 0x600, 10.0f, "Quagmire"); // t=2221.9; cactbot HeadMarker 8B [St Mocianne Hard Quagmire]
+    Timeout(id + 0x610, 14.2f, "Feculent Flood"); // t=2236.1; cactbot StartsUsing 313C [St Mocianne Hard Feculent Flood]
+}
+

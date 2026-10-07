@@ -1,0 +1,101 @@
+// Generated development skeleton from queen-eternal-ex.txt (TerritoryType 1243).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 32 static/dynamic trigger definitions from ui/raidboss/data/07-dt/trial/queen-eternal-ex.ts.
+
+private void Phase_one(uint id)
+{
+    Condition(id + 0x0, 13.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xA00C), "", 5f, 8.1f); // t=13.1; StartsUsing A00C from Queen Eternal
+    Timeout(id + 0x10, 2.7f, "Aethertithe"); // t=15.8; Ability A00C from Queen Eternal
+    Timeout(id + 0x20, 13.1f, "Retribute"); // t=28.9; Ability A012 from Queen Eternal
+    Timeout(id + 0x30, 9.2f, "Retribute"); // t=38.1; Ability A012 from Queen Eternal
+    Timeout(id + 0x40, 9.2f, "Retribute"); // t=47.3; Ability A012 from Queen Eternal
+    Timeout(id + 0x50, 12.4f, "Virtual Shift").SetHint(StateMachine.StateHint.Raidwide); // t=59.7; Ability A019 from Queen Eternal; cactbot StartsUsing A019/A01A/A01B [QueenEternal Ex Phase Tracker Elemental] | StartsUsing A019/A01A/A01B [QueenEternal Ex Virtual Shift]
+    Timeout(id + 0x60, 9.1f, "Laws of Wind"); // t=68.8; Ability A023 from Queen Eternal
+    Timeout(id + 0x70, 5.0f, "Aeroquell"); // t=73.8; Ability A025 from Queen Eternal; cactbot StartsUsing A025 [QueenEternal Ex Wind Phase Aeroquell]
+    Timeout(id + 0x80, 13.0f, "Legitimate Force"); // t=86.8; Ability A01E/A020 from Queen Eternal; cactbot StartsUsing A01E [QueenEternal Ex General Legitimate Force East Safe First] | StartsUsing A020 [QueenEternal Ex General Legitimate Force West Safe First] | StartsUsing A01E/A020 [QueenEternal Ex Wind Phase Legitimate Force]
+    Timeout(id + 0x90, 3.1f, "Legitimate Force"); // t=89.9; Ability A021/A022 from Queen Eternal
+    Timeout(id + 0xA0, 3.1f, "Wind of Change"); // t=93.0
+    Timeout(id + 0xB0, 7.9f, "World Shatter").SetHint(StateMachine.StateHint.Raidwide); // t=100.9; Ability A01C from Queen Eternal; cactbot StartsUsing A01C [QueenEternal Ex Phase Tracker P1] | StartsUsing 7692/A01C [QueenEternal Ex World Shatter]
+    Timeout(id + 0xC0, 12.1f, "Prosecution of War 1").SetHint(StateMachine.StateHint.Tankbuster); // t=113.0; Ability A00A from Queen Eternal; cactbot StartsUsing A00A [QueenEternal Ex Prosecution of War]
+    Timeout(id + 0xD0, 3.1f, "Prosecution of War 2"); // t=116.1; Ability A00B from Queen Eternal
+    Timeout(id + 0xE0, 10.7f, "Divide and Conquer x8"); // t=126.8; Ability A017 from Queen Eternal; cactbot StartsUsing A017 [QueenEternal Ex Divide and Conquer]
+    Timeout(id + 0xF0, 11.1f, "Divide and Conquer"); // t=137.9; Ability 7729 from Queen Eternal; cactbot StartsUsing A017 [QueenEternal Ex Divide and Conquer]
+    Timeout(id + 0x100, 8.0f, "Royal Domain").SetHint(StateMachine.StateHint.Raidwide); // t=145.9; Ability A04E from Queen Eternal; cactbot StartsUsing A04E [QueenEternal Ex Royal Domain]
+    Timeout(id + 0x110, 13.2f, "Virtual Shift").SetHint(StateMachine.StateHint.Raidwide); // t=159.1; Ability A01A from Queen Eternal; cactbot StartsUsing A019/A01A/A01B [QueenEternal Ex Phase Tracker Elemental] | StartsUsing A019/A01A/A01B [QueenEternal Ex Virtual Shift] | Ability A01A [QueenEternal Ex Earth Phase Initial Up]
+    Timeout(id + 0x120, 9.1f, "Laws of Earth"); // t=168.2; Ability A028 from Queen Eternal; cactbot Ability A028 [QueenEternal Ex Earth Phase First Towers]
+    Timeout(id + 0x130, 11.1f, "Legitimate Force Left/Right"); // t=179.3; Ability A01E/A020 from Queen Eternal; cactbot StartsUsing A01E [QueenEternal Ex General Legitimate Force East Safe First] | StartsUsing A020 [QueenEternal Ex General Legitimate Force West Safe First] | StartsUsing A01E/A020 [QueenEternal Ex Wind Phase Legitimate Force]
+    Timeout(id + 0x140, 3.1f, "Legitimate Force Right/Left"); // t=182.4; Ability A021/A022 from Queen Eternal
+    Timeout(id + 0x150, 5.0f, "Burst"); // t=187.4; Ability A029 from Queen Eternal
+    Timeout(id + 0x160, 12.1f, "Gravitational Empire"); // t=199.5; Ability A02B from Queen Eternal; cactbot StartsUsing A02B [QueenEternal Ex Earth Phase Gravitational Empire Towers]
+    Timeout(id + 0x170, 1.0f, "Gravity Pillar / Gravity Ray"); // t=200.5; Ability A02C from Queen Eternal | Ability A02D from Queen Eternal; cactbot StartsUsing A02C [QueenEternal Ex Earth Phase Gravitational Empire Pillar Collector]
+    Timeout(id + 0x180, 0.9f, "Burst"); // t=201.4; Ability A029 from Queen Eternal
+    Timeout(id + 0x190, 4.3f, "Meteor Impact 1"); // t=205.7; Ability A02E from Queen Eternal
+    Timeout(id + 0x1A0, 7.1f, "Meteor Impact 2"); // t=212.8; Ability A02E from Queen Eternal
+    Timeout(id + 0x1B0, 14.1f, "Weighty Blow (cast) / Weighty Blow 1 (orb)"); // t=226.9; Ability A033 from Queen Eternal | Ability A032 from Virtual Boulder; cactbot StartsUsing A033 [QueenEternal Ex Earth Phase Weighty Blow]
+    Timeout(id + 0x1C0, 3.1f, "Weighty Blow 2 (orb)"); // t=230.0; Ability A032 from Virtual Boulder
+    Timeout(id + 0x1D0, 3.1f, "Weighty Blow 3 (orb)"); // t=233.1; Ability A032 from Virtual Boulder
+    Timeout(id + 0x1E0, 3.1f, "Weighty Blow 4 (orb)"); // t=236.2; Ability A032 from Virtual Boulder
+    Timeout(id + 0x1F0, 5.6f, "World Shatter").SetHint(StateMachine.StateHint.Raidwide); // t=241.8; Ability A01C from Queen Eternal; cactbot StartsUsing A01C [QueenEternal Ex Phase Tracker P1] | StartsUsing 7692/A01C [QueenEternal Ex World Shatter]
+    Timeout(id + 0x200, 12.2f, "Prosecution of War 1").SetHint(StateMachine.StateHint.Tankbuster); // t=254.0; Ability A00A from Queen Eternal; cactbot StartsUsing A00A [QueenEternal Ex Prosecution of War]
+    Timeout(id + 0x210, 3.1f, "Prosecution of War 2"); // t=257.1; Ability A00B from Queen Eternal
+    Timeout(id + 0x220, 6.1f, "Coronation"); // t=263.2; Ability A013 from Queen Eternal; cactbot StartsUsing A013 [QueenEternal Ex Coronation Laser Collector]
+    Timeout(id + 0x230, 6.1f, "Atomic Ray (cast)"); // t=269.3; Ability A015 from Queen Eternal
+    Timeout(id + 0x240, 6.0f, "Ruthless Regalia"); // t=275.3; Ability A014 from Queen Eternal
+    Timeout(id + 0x250, 1.1f, "Atomic Ray (damage)"); // t=276.4; Ability A016 from Queen Eternal
+    Timeout(id + 0x260, 16.1f, "Absolute Authority"); // t=292.5; Ability A041 from Queen Eternal; cactbot StartsUsing A041 [QueenEternal Ex Absolute Authority]
+    Timeout(id + 0x270, 9.9f, "Absolute Authority (Flares/Stack)"); // t=302.4; Ability A046 from Queen Eternal
+    Timeout(id + 0x280, 4.2f, "Absolute Authority (Dorito Stack)"); // t=306.6; Ability A048 from Queen Eternal
+    Timeout(id + 0x290, 6.9f, "Absolute Authority (Knockback)").SetHint(StateMachine.StateHint.Knockback); // t=313.5; Ability A045 from Queen Eternal
+    Timeout(id + 0x2A0, 17.2f, "Virtual Shift").SetHint(StateMachine.StateHint.Raidwide); // t=330.7; Ability A01B from Queen Eternal; cactbot StartsUsing A019/A01A/A01B [QueenEternal Ex Phase Tracker Elemental] | StartsUsing A019/A01A/A01B [QueenEternal Ex Virtual Shift]
+    Timeout(id + 0x2B0, 9.1f, "Laws of Ice (motion)"); // t=339.8; Ability A035 from Queen Eternal
+    Timeout(id + 0x2C0, 1.0f, "Laws of Ice (platforms)"); // t=340.8; Ability A036 from Queen Eternal
+    Timeout(id + 0x2D0, 16.2f, "Rush"); // t=357.0; Ability A037 from Ice Pillar
+    Timeout(id + 0x2E0, 7.8f, "Legitimate Force Left/Right"); // t=364.8; Ability A01E/A020 from Queen Eternal; cactbot StartsUsing A01E [QueenEternal Ex General Legitimate Force East Safe First] | StartsUsing A020 [QueenEternal Ex General Legitimate Force West Safe First] | StartsUsing A01E/A020 [QueenEternal Ex Wind Phase Legitimate Force]
+    Timeout(id + 0x2F0, 3.1f, "Legitimate Force Right/Left"); // t=367.9; Ability A021/A022 from Queen Eternal
+    Timeout(id + 0x300, 10.1f, "Laws of Ice (motion)"); // t=378.0; Ability A035 from Queen Eternal
+    Timeout(id + 0x310, 1.0f, "Laws of Ice (platforms)"); // t=379.0; Ability A036 from Queen Eternal
+    Timeout(id + 0x320, 5.1f, "Drear Rising"); // t=384.1; Ability A03E from Queen Eternal
+    Timeout(id + 0x330, 1.0f, "Ice Dart / Raised Tribute"); // t=385.1
+    Timeout(id + 0x340, 6.1f, "Drear Rising"); // t=391.2; Ability A03E from Queen Eternal
+    Timeout(id + 0x350, 1.0f, "Ice Dart / Raised Tribute"); // t=392.2
+    Timeout(id + 0x360, 6.1f, "Drear Rising"); // t=398.3; Ability A03E from Queen Eternal
+    Timeout(id + 0x370, 1.0f, "Ice Dart / Raised Tribute"); // t=399.3
+    Timeout(id + 0x380, 6.1f, "Drear Rising"); // t=405.4; Ability A03E from Queen Eternal
+    Timeout(id + 0x390, 1.0f, "Ice Dart / Raised Tribute"); // t=406.4
+    Timeout(id + 0x3A0, 8.1f, "World Shatter").SetHint(StateMachine.StateHint.Raidwide); // t=414.5; Ability A01C from Queen Eternal; cactbot StartsUsing A01C [QueenEternal Ex Phase Tracker P1] | StartsUsing 7692/A01C [QueenEternal Ex World Shatter]
+    Timeout(id + 0x3B0, 13.0f, "Prosecution of War 1").SetHint(StateMachine.StateHint.Tankbuster); // t=427.5; Ability A00A from Queen Eternal; cactbot StartsUsing A00A [QueenEternal Ex Prosecution of War]
+    Timeout(id + 0x3C0, 3.1f, "Prosecution of War 2"); // t=430.6; Ability A00B from Queen Eternal
+    Timeout(id + 0x3D0, 13.0f, "Royal Domain").SetHint(StateMachine.StateHint.Raidwide); // t=443.6; Ability A04E from Queen Eternal; cactbot StartsUsing A04E [QueenEternal Ex Royal Domain]
+    Timeout(id + 0x3E0, 14.1f, "Legitimate Force Left/Right"); // t=457.7; Ability A01E/A020 from Queen Eternal; cactbot StartsUsing A01E [QueenEternal Ex General Legitimate Force East Safe First] | StartsUsing A020 [QueenEternal Ex General Legitimate Force West Safe First] | StartsUsing A01E/A020 [QueenEternal Ex Wind Phase Legitimate Force]
+    Timeout(id + 0x3F0, 3.1f, "Legitimate Force Right/Left"); // t=460.8; Ability A021/A022 from Queen Eternal
+    Timeout(id + 0x400, 8.0f, "Royal Domain").SetHint(StateMachine.StateHint.Raidwide); // t=468.8; Ability A04E from Queen Eternal; cactbot StartsUsing A04E [QueenEternal Ex Royal Domain]
+    Timeout(id + 0x410, 18.1f, "Authority Eternal"); // t=486.9; Ability A04A from Queen Eternal
+    Timeout(id + 0x420, 0.2f, "Authority Eternal (Enrage)"); // t=487.1; Ability A04C from Queen Eternal
+}
+
+private void Phase_two(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Authority Eternal"); // t=1000.0; Ability A04B from Queen Eternal; cactbot Ability A04B [QueenEternal Ex Phase Tracker P2]
+    Targetable(id + 0x10, true, 24.8f, "--targetable--"); // t=1024.8
+    Timeout(id + 0x20, 15.0f, "Radical Shift (rotate)").SetHint(StateMachine.StateHint.Raidwide); // t=1039.8; Ability A04F from Queen Eternal; cactbot StartsUsing A04F [QueenEternal Ex Radical Shift]
+    Timeout(id + 0x30, 5.1f, "Radical Shift (spread)"); // t=1044.9; Ability A050 from Queen Eternal
+    Timeout(id + 0x40, 14.0f, "Radical Shift (rotate)").SetHint(StateMachine.StateHint.Raidwide); // t=1058.9; Ability A04F from Queen Eternal; cactbot StartsUsing A04F [QueenEternal Ex Radical Shift]
+    Timeout(id + 0x50, 5.1f, "Radical Shift (spread)"); // t=1064.0; Ability A050 from Queen Eternal
+    Timeout(id + 0x60, 8.0f, "World Shatter").SetHint(StateMachine.StateHint.Raidwide); // t=1072.0; Ability 7692 from Queen Eternal; cactbot StartsUsing 7692/A01C [QueenEternal Ex World Shatter]
+    Timeout(id + 0x70, 11.0f, "Dimensional Distortion"); // t=1083.0; Ability A052 from Queen Eternal
+    Timeout(id + 0x80, 11.2f, "Tyranny's Grasp (front)"); // t=1094.2; Ability A055 from Queen Eternal; cactbot StartsUsing A055 [QueenEternal Ex Tyranny\]
+    Timeout(id + 0x90, 1.2f, "Tyranny's Grasp (left tower)"); // t=1095.4; Ability A057 from Queen Eternal
+    Timeout(id + 0xA0, 2.8f, "Tyranny's Grasp (right tower)"); // t=1098.2; Ability 76D2 from Queen Eternal
+    Timeout(id + 0xB0, 1.2f, "Dying Memory x7"); // t=1099.4
+    Timeout(id + 0xC0, 7.7f, "Dying Memory (big)"); // t=1107.1; Ability 4E4A from Queen Eternal
+    Timeout(id + 0xD0, 8.1f, "Royal Banishment x7").SetHint(StateMachine.StateHint.Raidwide); // t=1115.2; Ability A05A from Queen Eternal; cactbot StartsUsing A05A [QueenEternal Ex Royal Banishment]
+    Timeout(id + 0xE0, 9.9f, "Royal Banishment (big)"); // t=1125.1; Ability A05C from Queen Eternal
+    Timeout(id + 0xF0, 22.3f, "Radical Shift (rotate)").SetHint(StateMachine.StateHint.Raidwide); // t=1147.4; Ability A04F from Queen Eternal; cactbot StartsUsing A04F [QueenEternal Ex Radical Shift]
+    Timeout(id + 0x100, 5.1f, "Radical Shift (spread)"); // t=1152.5; Ability A050 from Queen Eternal
+    Timeout(id + 0x110, 14.0f, "Radical Shift (rotate)").SetHint(StateMachine.StateHint.Raidwide); // t=1166.5; Ability A04F from Queen Eternal; cactbot StartsUsing A04F [QueenEternal Ex Radical Shift]
+    Timeout(id + 0x120, 5.1f, "Radical Shift (spread)"); // t=1171.6; Ability A050 from Queen Eternal
+    Timeout(id + 0x130, 8.0f, "World Shatter").SetHint(StateMachine.StateHint.Raidwide); // t=1179.6; Ability 7692 from Queen Eternal; cactbot StartsUsing 7692/A01C [QueenEternal Ex World Shatter]
+    Timeout(id + 0x140, 21.1f, "Preservation (Enrage)"); // t=1200.7; Ability A05D from Queen Eternal
+}
+

@@ -1,0 +1,30 @@
+// Generated development skeleton from t4.txt (TerritoryType 244).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 3 static/dynamic trigger definitions from ui/raidboss/data/02-arr/raid/t4.ts.
+
+private void T4(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "6x Bug"); // t=0.0
+    Timeout(id + 0x10, 63.0f, "Knight + Soldier (NW)"); // t=63.0
+    Timeout(id + 0x20, 0.0f, "Knight + Soldier (NE)"); // t=63.0
+    Timeout(id + 0x30, 60.0f, "Dreadnaught (NW)"); // t=123.0
+    Timeout(id + 0x40, 0.0f, "4x Bug (S)"); // t=123.0
+    Timeout(id + 0x50, 60.0f, "2x Rook (E/W)"); // t=183.0
+    Timeout(id + 0x60, 0.0f, "4x Bug (outside)"); // t=183.0
+    Timeout(id + 0x70, 60.0f, "Dreadnaught (NE)"); // t=243.0
+    Timeout(id + 0x80, 0.0f, "Soldier (center) / Knight (SE)"); // t=243.0
+    Timeout(id + 0x90, 60.0f, "Dreadnaught (NE)"); // t=303.0
+    Timeout(id + 0xA0, 0.0f, "Knight (center) / Soldier (SW) / Rook (NE) / 2x Bug (SE/NW)"); // t=303.0
+    Timeout(id + 0xB0, 120.0f, "Emergency Override"); // t=423.0; Ability 4EA from Drive Cylinder
+    Timeout(id + 0xC0, 4.0f, "Emergency Override"); // t=427.0
+    Timeout(id + 0xD0, 4.0f, "Emergency Override"); // t=431.0
+    Timeout(id + 0xE0, 4.0f, "Emergency Override"); // t=435.0
+    Timeout(id + 0xF0, 4.0f, "Emergency Override"); // t=439.0
+    Timeout(id + 0x100, 4.0f, "Emergency Override"); // t=443.0
+    Timeout(id + 0x110, 4.0f, "Emergency Override"); // t=447.0
+    Timeout(id + 0x120, 4.0f, "Emergency Override"); // t=451.0
+    Timeout(id + 0x130, 3.0f, "Emergency Override"); // t=454.0
+    Timeout(id + 0x140, 4.0f, "Emergency Override"); // t=458.0
+}
+

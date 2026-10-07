@@ -1,0 +1,101 @@
+// Generated development skeleton from e7s.txt (TerritoryType 908).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 29 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e7s.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 13.0f, "Empty Wave").SetHint(StateMachine.StateHint.Raidwide); // t=13.0; Ability 4C8A from The Idol Of Darkness; cactbot StartsUsing 4C8A [E7S Empty Wave]
+    Timeout(id + 0x10, 12.2f, "Unshadowed Stake"); // t=25.2; Ability 4C88 from The Idol Of Darkness; cactbot Tether 25 [E7S Unshadowed Stake]
+    Timeout(id + 0x20, 2.6f, "Silver Stake"); // t=27.8; Ability 4C89 from The Idol Of Darkness
+    Timeout(id + 0x30, 12.6f, "Words Of Motion"); // t=40.4; Ability 4C2B from The Idol Of Darkness
+    Timeout(id + 0x40, 4.2f, "Betwixt Worlds"); // t=44.6; Ability 4CF9 from The Idol Of Darkness; cactbot StartsUsing 4CFD [E7S Betwixt Worlds] | Tether 11 [E7S Betwixt Worlds Tether] | HeadMarker 64 [E7S Betwixt Worlds Stack]
+    Timeout(id + 0x50, 15.1f, "Light's Course"); // t=59.7
+    Timeout(id + 0x60, 3.0f, "Light's Course"); // t=62.7
+    Timeout(id + 0x70, 8.6f, "Light's Course"); // t=71.3
+    Timeout(id + 0x80, 3.0f, "Light's Course"); // t=74.3
+    Timeout(id + 0x90, 7.6f, "Light's Course"); // t=81.9
+    Timeout(id + 0xA0, 3.0f, "Light's Course"); // t=84.9
+    Timeout(id + 0xB0, 7.6f, "Light's Course"); // t=92.5
+    Timeout(id + 0xC0, 3.0f, "Light's Course"); // t=95.5
+    Timeout(id + 0xD0, 9.9f, "Betwixt Worlds"); // t=105.4; Ability 4C6B from The Idol Of Darkness; cactbot StartsUsing 4CFD [E7S Betwixt Worlds] | Tether 11 [E7S Betwixt Worlds Tether] | HeadMarker 64 [E7S Betwixt Worlds Stack]
+    Timeout(id + 0xE0, 3.1f, "Shockwave"); // t=108.5; Ability 4C6C from The Idol Of Darkness
+    Timeout(id + 0xF0, 2.5f, "Words Of Spite"); // t=111.0; Ability 4C2F from The Idol Of Darkness
+    Timeout(id + 0x100, 5.7f, "Away With Thee"); // t=116.7; Ability 4C39 from The Idol Of Darkness
+    Timeout(id + 0x110, 6.2f, "Silver Sledge"); // t=122.9; Ability 4C26 from The Idol Of Darkness; cactbot HeadMarker 64 [E7S Silver Sledge]
+    Timeout(id + 0x120, 8.0f, "Fate's Course"); // t=130.9; Ability 4C61 from Unforgiven Idolatry
+    Timeout(id + 0x130, 0.1f, "Silver Sledge"); // t=131.0; Ability 4C27 from The Idol Of Darkness; cactbot HeadMarker 64 [E7S Silver Sledge]
+    Timeout(id + 0x140, 8.9f, "Empty Wave").SetHint(StateMachine.StateHint.Raidwide); // t=139.9; Ability 4C8A from The Idol Of Darkness; cactbot StartsUsing 4C8A [E7S Empty Wave]
+    Timeout(id + 0x150, 7.6f, "Unshadowed Stake"); // t=147.5; Ability 4C88 from The Idol Of Darkness; cactbot Tether 25 [E7S Unshadowed Stake]
+    Timeout(id + 0x160, 2.6f, "Silver Stake"); // t=150.1; Ability 4C89 from The Idol Of Darkness
+    Timeout(id + 0x170, 9.0f, "Words Of Motion"); // t=159.1; Ability 4C2B from The Idol Of Darkness
+    Timeout(id + 0x180, 4.2f, "False Moonlight"); // t=163.3; Ability 4C98 from The Idol Of Darkness
+    Timeout(id + 0x190, 4.1f, "Silver Sword"); // t=167.4; Ability 4C8E from The Idol Of Darkness
+    Timeout(id + 0x1A0, 3.0f, "Dark's Course / Silver Scourge"); // t=170.4; Ability 4C5A from Unforgiven Idolatry | Ability 4C93 from The Idol Of Darkness
+    Timeout(id + 0x1B0, 4.1f, "Dark's Course"); // t=174.5; Ability 4C5A from Unforgiven Idolatry
+    Timeout(id + 0x1C0, 3.0f, "Away With Thee"); // t=177.5; Ability 4C39 from The Idol Of Darkness
+    Timeout(id + 0x1D0, 6.2f, "False Midnight"); // t=183.7; Ability 4C99 from The Idol Of Darkness; cactbot StartsUsing 4C99 [E7S False Midnight]
+    Timeout(id + 0x1E0, 3.8f, "Dark's Course"); // t=187.5; Ability 4C5A from Unforgiven Idolatry
+    Timeout(id + 0x1F0, 4.2f, "Silver Sledge / Silver Shot / Dark's Course"); // t=191.7; Ability 4C8D from The Idol Of Darkness | Ability 4C92 from The Idol Of Darkness | Ability 4C5A from Unforgiven Idolatry
+    Targetable(id + 0x200, false, 6.8f, "--untargetable--"); // t=198.5
+    Targetable(id + 0x210, true, 7.1f, "--targetable--"); // t=205.6
+    Timeout(id + 0x220, 19.3f, "Overwhelming Force"); // t=224.9; Ability 4C73 from Blasphemy
+    Timeout(id + 0x230, 6.9f, "Insatiable Light"); // t=231.8; Ability 4C6D from Idolatry; cactbot Ability 4C6D [E7S Insatiable Light]
+    Condition(id + 0x240, 7.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4C6E), "Advent Of Light", 5f, 2.7f); // t=239.5; StartsUsing 4C6E from Idolatry; cactbot StartsUsing 4C6E [E7S Advent Of Light]
+    Timeout(id + 0x250, 4.1f, "Overwhelming Force"); // t=243.6; Ability 4C73 from Blasphemy
+    Timeout(id + 0x260, 10.1f, "Overwhelming Force"); // t=253.7; Ability 4C73 from Blasphemy
+    Timeout(id + 0x270, 0.8f, "Insatiable Light"); // t=254.5; Ability 4C6D from Idolatry; cactbot Ability 4C6D [E7S Insatiable Light]
+    Timeout(id + 0x280, 9.8f, "Away With Thee"); // t=264.3; Ability 4C39 from The Idol Of Darkness
+    Timeout(id + 0x290, 3.8f, "Strength In Numbers"); // t=268.1; Ability 4C70 from Idolatry; cactbot StartsUsing 4C70 [E7S Strength in Numbers]
+    Timeout(id + 0x2A0, 10.1f, "Insatiable Light"); // t=278.2; Ability 4C6D from Idolatry; cactbot Ability 4C6D [E7S Insatiable Light]
+    Timeout(id + 0x2B0, 12.7f, "Overwhelming Force"); // t=290.9; Ability 4C73 from Blasphemy
+    Timeout(id + 0x2C0, 0.9f, "Strength In Numbers"); // t=291.8; cactbot StartsUsing 4C70 [E7S Strength in Numbers]
+    Timeout(id + 0x2D0, 10.2f, "Insatiable Light"); // t=302.0; Ability 4C6D from Idolatry; cactbot Ability 4C6D [E7S Insatiable Light]
+    Timeout(id + 0x2E0, 21.4f, "Unearned Envy").SetHint(StateMachine.StateHint.Raidwide); // t=323.4; Ability 4C74 from Blasphemy; cactbot Ability 4C74 [E7S Unearned Envy]
+    Timeout(id + 0x2F0, 2.1f, "Unearned Envy"); // t=325.5; cactbot Ability 4C74 [E7S Unearned Envy]
+    Timeout(id + 0x300, 2.1f, "Unearned Envy"); // t=327.6; cactbot Ability 4C74 [E7S Unearned Envy]
+    Timeout(id + 0x310, 2.1f, "Unearned Envy"); // t=329.7; cactbot Ability 4C74 [E7S Unearned Envy]
+    Timeout(id + 0x320, 2.1f, "Unearned Envy"); // t=331.8; cactbot Ability 4C74 [E7S Unearned Envy]
+    Timeout(id + 0x330, 2.1f, "Unearned Envy"); // t=333.9; cactbot Ability 4C74 [E7S Unearned Envy]
+    Timeout(id + 0x340, 166.1f, "Empty Flood").SetHint(StateMachine.StateHint.Raidwide); // t=500.0; Ability 4C8B from The Idol Of Darkness; cactbot StartsUsing [E7S Empty Flood]
+    Targetable(id + 0x350, true, 10.3f, "--targetable--"); // t=510.3
+    Timeout(id + 0x360, 4.1f, "Unjoined Aspect"); // t=514.4; Ability 4C3B from The Idol Of Darkness; cactbot Ability 4C7A [E7S Unjoined Aspect P3]
+    Timeout(id + 0x370, 5.0f, "Words Of Unity"); // t=519.4; Ability 4C2D from The Idol Of Darkness
+    Timeout(id + 0x380, 9.6f, "Light's Course"); // t=529.0
+    Timeout(id + 0x390, 5.8f, "Words Of Entrapment"); // t=534.8; Ability 4C2E from The Idol Of Darkness
+    Timeout(id + 0x3A0, 15.7f, "Light's Course / White/Black Smoke"); // t=550.5
+    Timeout(id + 0x3B0, 5.2f, "Words Of Unity"); // t=555.7; Ability 4C2D from The Idol Of Darkness
+    Timeout(id + 0x3C0, 9.7f, "Light's Course"); // t=565.4
+    Timeout(id + 0x3D0, 0.1f, "Boundless Light"); // t=565.5; Ability 4C5C from Unforgiven Idolatry; cactbot StartsUsing [E7S Boundless Light Dark Stack]
+    Timeout(id + 0x3E0, 13.3f, "Unjoined Aspect"); // t=578.8; Ability 4C3B from The Idol Of Darkness; cactbot Ability 4C7A [E7S Unjoined Aspect P3]
+    Timeout(id + 0x3F0, 3.2f, "Betwixt Worlds"); // t=582.0; Ability 4CF9 from The Idol Of Darkness; cactbot StartsUsing 4CFD [E7S Betwixt Worlds] | Tether 11 [E7S Betwixt Worlds Tether] | HeadMarker 64 [E7S Betwixt Worlds Stack]
+    Timeout(id + 0x400, 5.0f, "Words Of Night"); // t=587.0; Ability 4C2C from The Idol Of Darkness; cactbot StartsUsing [E7S Words of Night]
+    Timeout(id + 0x410, 9.6f, "Light's Course"); // t=596.6
+    Timeout(id + 0x420, 8.6f, "Light's Course"); // t=605.2
+    Timeout(id + 0x430, 5.0f, "False Dawn"); // t=610.2; Ability 4C9A from The Idol Of Darkness; cactbot StartsUsing 4C9A [E7S False Dawn]
+    Timeout(id + 0x440, 4.1f, "Stygian Sword"); // t=614.3; Ability 4C8F from The Idol Of Darkness
+    Timeout(id + 0x450, 0.1f, "Light's Course"); // t=614.4
+    Timeout(id + 0x460, 2.9f, "Stygian Spear / Silver Spear"); // t=617.3; Ability 4C91 from The Idol Of Darkness | Ability 4C90 from The Idol Of Darkness
+    Timeout(id + 0x470, 5.1f, "Light's Course"); // t=622.4
+    Timeout(id + 0x480, 13.8f, "Empty Wave").SetHint(StateMachine.StateHint.Raidwide); // t=636.2; Ability 4C8A from The Idol Of Darkness; cactbot StartsUsing 4C8A [E7S Empty Wave]
+    Timeout(id + 0x490, 7.6f, "Unshadowed Stake"); // t=643.8; Ability 4C88 from The Idol Of Darkness; cactbot Tether 25 [E7S Unshadowed Stake]
+    Timeout(id + 0x4A0, 2.6f, "Silver Stake"); // t=646.4; Ability 4C89 from The Idol Of Darkness
+    Targetable(id + 0x4B0, false, 12.4f, "--untargetable--"); // t=658.8
+    Timeout(id + 0x4C0, 9.7f, "Crusade"); // t=668.5; Ability 4C58 from The Idol Of Darkness; cactbot StartsUsing 4C76 [E7S Crusade]
+    Targetable(id + 0x4D0, true, 5.0f, "--targetable--"); // t=673.5
+    Timeout(id + 0x4E0, 4.1f, "Unjoined Aspect"); // t=677.6; Ability 4C7A from The Idol Of Darkness; cactbot Ability 4C7A [E7S Unjoined Aspect P3]
+    Timeout(id + 0x4F0, 6.1f, "Words Of Fervor"); // t=683.7; Ability 4C7B from The Idol Of Darkness
+    Timeout(id + 0x500, 33.2f, "Threefold Grace"); // t=716.9; Ability 4C7E from The Idol Of Darkness; cactbot StartsUsing 4C7E [E7S Threefold Grace]
+    Timeout(id + 0x510, 5.7f, "Threefold Grace"); // t=722.6; Ability 4C7E from The Idol Of Darkness; cactbot StartsUsing 4C7E [E7S Threefold Grace]
+    Timeout(id + 0x520, 5.7f, "Threefold Grace"); // t=728.3; Ability 4C7E from The Idol Of Darkness; cactbot StartsUsing 4C7E [E7S Threefold Grace]
+    Timeout(id + 0x530, 8.3f, "Empty Wave").SetHint(StateMachine.StateHint.Raidwide); // t=736.6; Ability 4CB0 from The Idol Of Darkness; cactbot StartsUsing 4C8A [E7S Empty Wave]
+    Timeout(id + 0x540, 9.6f, "Empty Wave").SetHint(StateMachine.StateHint.Raidwide); // t=746.2; Ability 4CB0 from The Idol Of Darkness; cactbot StartsUsing 4C8A [E7S Empty Wave]
+    Timeout(id + 0x550, 9.5f, "Unjoined Aspect"); // t=755.7; Ability 4C7A from The Idol Of Darkness; cactbot Ability 4C7A [E7S Unjoined Aspect P3]
+    Timeout(id + 0x560, 6.2f, "Words Of Fervor"); // t=761.9; Ability 4C7B from The Idol Of Darkness
+    Timeout(id + 0x570, 33.2f, "Threefold Grace"); // t=795.1; Ability 4C7E from The Idol Of Darkness; cactbot StartsUsing 4C7E [E7S Threefold Grace]
+    Timeout(id + 0x580, 5.7f, "Threefold Grace"); // t=800.8; Ability 4C7E from The Idol Of Darkness; cactbot StartsUsing 4C7E [E7S Threefold Grace]
+    Timeout(id + 0x590, 5.7f, "Threefold Grace"); // t=806.5; Ability 4C7E from The Idol Of Darkness; cactbot StartsUsing 4C7E [E7S Threefold Grace]
+    Timeout(id + 0x5A0, 8.3f, "Empty Wave").SetHint(StateMachine.StateHint.Raidwide); // t=814.8; Ability 4CB0 from The Idol Of Darkness; cactbot StartsUsing 4C8A [E7S Empty Wave]
+    Timeout(id + 0x5B0, 9.5f, "Empty Wave").SetHint(StateMachine.StateHint.Raidwide); // t=824.3; Ability 4CB0 from The Idol Of Darkness; cactbot StartsUsing 4C8A [E7S Empty Wave]
+}
+

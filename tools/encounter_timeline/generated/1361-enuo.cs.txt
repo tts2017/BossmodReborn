@@ -1,0 +1,125 @@
+// Generated development skeleton from enuo.txt (TerritoryType 1361).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 12 static/dynamic trigger definitions from ui/raidboss/data/07-dt/trial/enuo.ts.
+
+private void THE_UNMAKING(uint id)
+{
+    Condition(id + 0x0, 9.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xC333), "", 5f, 4.4f); // t=9.4; StartsUsing C333 from Enuo; cactbot StartsUsing C333 [Enuo Meteorain]
+    Timeout(id + 0x10, 5.0f, "Meteorain").SetHint(StateMachine.StateHint.Raidwide); // t=14.4; Ability C333 from Enuo; cactbot StartsUsing C333 [Enuo Meteorain]
+    Timeout(id + 0x20, 2.1f, "--middle--"); // t=16.5; Ability C307 from Enuo
+    Timeout(id + 0x30, 8.3f, "Naught Grows (Tether)"); // t=24.8; Ability C30B/C30C from Enuo
+    Timeout(id + 0x40, 1.0f, "Naught Grows (AoE)"); // t=25.8
+    Timeout(id + 0x50, 6.0f, "Naught Wakes"); // t=31.8; Ability C309 from Enuo
+    Timeout(id + 0x60, 5.1f, "--middle--"); // t=36.9; Ability C307 from Enuo
+    Timeout(id + 0x70, 8.3f, "Naught Grows (Tether)"); // t=45.2; Ability C30B/C30C from Enuo
+    Timeout(id + 0x80, 1.0f, "Naught Grows (AoE)"); // t=46.2
+    Timeout(id + 0x90, 14.1f, "Gaze of the Void x10"); // t=60.3
+    Timeout(id + 0xA0, 14.2f, "Deep Freeze"); // t=74.5; Ability C32E from Enuo; cactbot StartsUsing C32E [Enuo Deep Freeze]
+    Timeout(id + 0xB0, 4.1f, "--middle--"); // t=78.6; Ability C307 from Enuo
+    Timeout(id + 0xC0, 8.3f, "Naught Hunts"); // t=86.9; Ability C313 from Enuo; cactbot Tether 194 [Enuo Naught Hunts Tether] | Tether 195 [Enuo Naught Hunts Another Tether]
+    Timeout(id + 0xD0, 1.1f, "Endless Chase (active)"); // t=88.0
+    Timeout(id + 0xE0, 8.2f, "Naught Hunts Another"); // t=96.2; Ability C315 from Enuo; cactbot Tether 195 [Enuo Naught Hunts Another Tether]
+    Timeout(id + 0xF0, 0.1f, "Endless Chase (active)"); // t=96.3
+    Condition(id + 0x100, 9.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xC32F), "", 5f, 4.9f); // t=106.2; StartsUsing C32F from Enuo; cactbot StartsUsing C32F [Enuo Shrouded Holy]
+    Timeout(id + 0x110, 5.0f, "Shrouded Holy"); // t=111.2; Ability C330 from Enuo; cactbot StartsUsing C32F [Enuo Shrouded Holy]
+    Timeout(id + 0x120, 9.1f, "Meltdown (puddle baits)"); // t=120.3; Ability C32A from Enuo; cactbot StartsUsing C32A [Enuo Meltdown]
+    Timeout(id + 0x130, 6.0f, "Meltdown (puddles)"); // t=126.3; Ability C32B from Enuo
+    Timeout(id + 0x140, 1.0f, "Meltdown (spreads)"); // t=127.3
+    Timeout(id + 0x150, 5.0f, "Vacuum"); // t=132.3; Ability C316 from Enuo
+    Timeout(id + 0x160, 5.7f, "Silent Torrent x7 (lines)"); // t=138.0; Ability C318 from Void
+    Timeout(id + 0x170, 0.6f, "Silent Torrent x7 (puddles)"); // t=138.6; Ability C31B from Enuo
+    Timeout(id + 0x180, 2.0f, "Vacuum"); // t=140.6; Ability C31D from Void
+    Timeout(id + 0x190, 8.0f, "Meteorain").SetHint(StateMachine.StateHint.Raidwide); // t=148.6; Ability C333 from Enuo; cactbot StartsUsing C333 [Enuo Meteorain]
+    Timeout(id + 0x1A0, 2.1f, "--north--"); // t=150.7; Ability C307 from Enuo
+    Timeout(id + 0x1B0, 7.4f, "All for Naught"); // t=158.1; Ability C322 from Enuo
+    Targetable(id + 0x1C0, false, 0.1f, "--untargetable--"); // t=158.2
+    Timeout(id + 0x1D0, 21.0f, "Empty Shadow / Looming Emptiness"); // t=179.2; Ability C33D from Looming Shadow; cactbot StartsUsing C33D [Enuo Looming Emptiness]
+    Timeout(id + 0x1E0, 1.0f, "--adds targetable--"); // t=180.2
+    Timeout(id + 0x1F0, 5.0f, "Nothingness"); // t=185.2
+    Timeout(id + 0x200, 3.0f, "Nothingness"); // t=188.2
+    Timeout(id + 0x210, 3.0f, "Nothingness"); // t=191.2
+    Timeout(id + 0x220, 3.0f, "Nothingness"); // t=194.2
+    Timeout(id + 0x230, 3.0f, "Nothingness"); // t=197.2
+    Timeout(id + 0x240, 3.0f, "Nothingness"); // t=200.2; Ability C326 from Uncast Shadow
+    Timeout(id + 0x250, 99.4f, "--beacon targetable--"); // t=299.6
+    Timeout(id + 0x260, 6.4f, "Nothingness"); // t=306.0
+    Timeout(id + 0x270, 3.1f, "Nothingness"); // t=309.1
+    Timeout(id + 0x280, 2.9f, "Nothingness"); // t=312.0
+    Timeout(id + 0x290, 3.0f, "Nothingness"); // t=315.0
+    Timeout(id + 0x2A0, 3.0f, "Nothingness"); // t=318.0
+    Timeout(id + 0x2B0, 3.0f, "Nothingness"); // t=321.0; Ability C326 from Uncast Shadow
+}
+
+private void Phase_2(uint id)
+{
+    Condition(id + 0x0, 53.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xC327), "", 5f, 48.4f); // t=494.6; StartsUsing C327 from Enuo; cactbot StartsUsing C327 [Enuo Lightless World]
+    Timeout(id + 0x10, 5.0f, "Lightless World (castbar)").SetHint(StateMachine.StateHint.Raidwide); // t=499.6; Ability C327 from Enuo; cactbot StartsUsing C327 [Enuo Lightless World]
+    Timeout(id + 0x20, 1.0f, "Lightless World x5"); // t=500.6
+    Timeout(id + 0x30, 2.4f, "Lightless World (big)"); // t=503.0; Ability C329 from Enuo
+    Targetable(id + 0x40, true, 2.4f, "--targetable--"); // t=505.4
+    Timeout(id + 0x50, 4.1f, "--middle--"); // t=509.5; Ability C307 from Enuo
+    Timeout(id + 0x60, 8.4f, "Naught Grows (Tether)"); // t=517.9; Ability C30B/C30C from Enuo
+    Timeout(id + 0x70, 1.0f, "Naught Grows (AoE)"); // t=518.9
+    Timeout(id + 0x80, 7.1f, "Almagest").SetHint(StateMachine.StateHint.Raidwide); // t=526.0; Ability C308 from Enuo; cactbot StartsUsing C308 [Enuo Almagest]
+    Timeout(id + 0x90, 6.1f, "--middle--"); // t=532.1; Ability C307 from Enuo
+    Timeout(id + 0xA0, 8.2f, "Naught Grows (Tether)"); // t=540.3; Ability C30B/C30C from Enuo
+    Timeout(id + 0xB0, 1.0f, "Naught Grows x2 (AoE)"); // t=541.3
+    Timeout(id + 0xC0, 4.0f, "Naught Wakes"); // t=545.3; Ability C309 from Enuo
+    Timeout(id + 0xD0, 8.4f, "Naught Grows (Tether)"); // t=553.7; Ability C30B/C30C from Enuo
+    Timeout(id + 0xE0, 1.0f, "Naught Grows x2 (AoE)"); // t=554.7
+    Timeout(id + 0xF0, 7.0f, "Dimension Zero (castbar)"); // t=561.7; Ability C331 from Enuo
+    Timeout(id + 0x100, 0.3f, "Dimension Zero x3"); // t=562.0
+    Timeout(id + 0x110, 13.3f, "Almagest").SetHint(StateMachine.StateHint.Raidwide); // t=575.3; Ability C308 from Enuo; cactbot StartsUsing C308 [Enuo Almagest]
+    Timeout(id + 0x120, 3.4f, "--middle--"); // t=578.7; Ability C307 from Enuo
+    Timeout(id + 0x130, 8.0f, "Naught Hunts"); // t=586.7; Ability C313 from Enuo; cactbot Tether 194 [Enuo Naught Hunts Tether] | Tether 195 [Enuo Naught Hunts Another Tether]
+    Timeout(id + 0x140, 1.1f, "Endless Chase (active)"); // t=587.8
+    Timeout(id + 0x150, 8.2f, "Naught Hunts Another"); // t=596.0; Ability C315 from Enuo; cactbot Tether 195 [Enuo Naught Hunts Another Tether]
+    Timeout(id + 0x160, 0.1f, "Endless Chase (active)"); // t=596.1
+    Condition(id + 0x170, 7.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0xC30B or 0xC30C), "", 5f, 2.4f); // t=603.5; StartsUsing C30B/C30C from Enuo
+    Timeout(id + 0x180, 6.0f, "Naught Grows (Tether)"); // t=609.5; Ability C30B/C30C from Enuo
+    Timeout(id + 0x190, 1.0f, "Naught Grows x2 (AoE)"); // t=610.5
+    Timeout(id + 0x1A0, 7.0f, "Naught Wakes"); // t=617.5; Ability C309 from Enuo
+    Timeout(id + 0x1B0, 4.0f, "Vacuum"); // t=621.5; Ability C316 from Enuo
+    Timeout(id + 0x1C0, 2.1f, "--middle--"); // t=623.6; Ability C307 from Enuo
+    Timeout(id + 0x1D0, 3.4f, "Silent Torrent x7 (lines)"); // t=627.0; Ability C318 from Void
+    Timeout(id + 0x1E0, 0.6f, "Silent Torrent x7 (puddles)"); // t=627.6; Ability C31B from Enuo
+    Timeout(id + 0x1F0, 2.0f, "Vacuum"); // t=629.6; Ability C31D from Void
+    Timeout(id + 0x200, 4.0f, "Gaze of the Void x10"); // t=633.6
+    Timeout(id + 0x210, 8.1f, "--middle--"); // t=641.7; Ability C307 from Enuo
+    Timeout(id + 0x220, 6.0f, "Meltdown (puddle baits)"); // t=647.7; Ability C32A from Enuo; cactbot StartsUsing C32A [Enuo Meltdown]
+    Timeout(id + 0x230, 6.0f, "Meltdown (puddles)"); // t=653.7; Ability C32B from Enuo
+    Timeout(id + 0x240, 1.0f, "Meltdown (spreads)"); // t=654.7; Ability C32C from Enuo
+    Timeout(id + 0x250, 3.4f, "Naught Grows (Tether)"); // t=658.1; Ability C30B/C30C from Enuo
+    Timeout(id + 0x260, 1.0f, "Naught Grows x2 (AoE)"); // t=659.1
+    Timeout(id + 0x270, 7.0f, "Meteorain").SetHint(StateMachine.StateHint.Raidwide); // t=666.1; Ability C333 from Enuo; cactbot StartsUsing C333 [Enuo Meteorain]
+    Timeout(id + 0x280, 8.1f, "Vacuum"); // t=674.2; Ability C316 from Enuo
+    Timeout(id + 0x290, 5.7f, "Silent Torrent x7 (lines)"); // t=679.9; Ability C319 from Void
+    Timeout(id + 0x2A0, 0.4f, "Meltdown (puddle baits) / Silent Torrent (puddles)"); // t=680.3; Ability C32A from Enuo | Ability C31B from Enuo; cactbot StartsUsing C32A [Enuo Meltdown]
+    Timeout(id + 0x2B0, 2.0f, "Vacuum"); // t=682.3; Ability C31D from Void
+    Timeout(id + 0x2C0, 4.0f, "Meltdown (puddles)"); // t=686.3; Ability C32B from Enuo
+    Timeout(id + 0x2D0, 1.0f, "Meltdown (spreads)"); // t=687.3; Ability C32C from Enuo
+    Timeout(id + 0x2E0, 4.1f, "Gaze of the Void x10"); // t=691.4
+    Timeout(id + 0x2F0, 11.2f, "Deep Freeze"); // t=702.6; Ability C32E from Enuo; cactbot StartsUsing C32E [Enuo Deep Freeze]
+    Timeout(id + 0x300, 6.1f, "Dimension Zero (castbar)"); // t=708.7; Ability C331 from Enuo
+    Timeout(id + 0x310, 0.4f, "Dimension Zero x3"); // t=709.1
+    Timeout(id + 0x320, 14.2f, "Almagest").SetHint(StateMachine.StateHint.Raidwide); // t=723.3; Ability C308 from Enuo; cactbot StartsUsing C308 [Enuo Almagest]
+    Timeout(id + 0x330, 8.1f, "Vacuum"); // t=731.4; Ability C316 from Enuo
+    Timeout(id + 0x340, 3.1f, "--middle--"); // t=734.5; Ability C307 from Enuo
+    Timeout(id + 0x350, 2.4f, "Silent Torrent x7 (lines)"); // t=736.9; Ability C319 from Void
+    Timeout(id + 0x360, 0.4f, "Silent Torrent (puddles)"); // t=737.3; Ability C31C from Enuo
+    Timeout(id + 0x370, 2.0f, "Vacuum"); // t=739.3
+    Timeout(id + 0x380, 3.1f, "Naught Grows (Tether)"); // t=742.4; Ability C30B/C30C from Enuo
+    Timeout(id + 0x390, 1.0f, "Naught Grows x2 (AoE)"); // t=743.4
+    Timeout(id + 0x3A0, 7.0f, "Naught Wakes"); // t=750.4; Ability C309 from Enuo
+    Timeout(id + 0x3B0, 4.0f, "Vacuum"); // t=754.4; Ability C316 from Enuo
+    Timeout(id + 0x3C0, 3.1f, "--middle--"); // t=757.5; Ability C307 from Enuo
+    Timeout(id + 0x3D0, 2.4f, "Silent Torrent x7 (lines)"); // t=759.9; Ability C318 from Void
+    Timeout(id + 0x3E0, 0.4f, "Silent Torrent (puddles)"); // t=760.3; Ability C31B from Enuo
+    Timeout(id + 0x3F0, 2.0f, "Vacuum"); // t=762.3; Ability C31D from Void
+    Timeout(id + 0x400, 3.1f, "Naught Grows (Tether)"); // t=765.4; Ability C30B/C30C from Enuo
+    Timeout(id + 0x410, 1.0f, "Naught Grows x2 (AoE)"); // t=766.4
+    Timeout(id + 0x420, 7.0f, "Meteorain").SetHint(StateMachine.StateHint.Raidwide); // t=773.4; Ability C333 from Enuo; cactbot StartsUsing C333 [Enuo Meteorain]
+    Timeout(id + 0x430, 11.1f, "Almagest").SetHint(StateMachine.StateHint.Raidwide); // t=784.5; Ability C308 from Enuo; cactbot StartsUsing C308 [Enuo Almagest]
+}
+

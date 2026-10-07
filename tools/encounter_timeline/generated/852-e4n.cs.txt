@@ -1,0 +1,195 @@
+// Generated development skeleton from e4n.txt (TerritoryType 852).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 7 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e4n.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 13.0f, "Voice Of The Land").SetHint(StateMachine.StateHint.Raidwide); // t=13.0; Ability 40F7 from Titan; cactbot StartsUsing 40F7 [E4N Voice of the Land]
+    Timeout(id + 0x20, 8.3f, "Evil Earth"); // t=21.3; Ability 40EE from Titan
+    Timeout(id + 0x30, 9.2f, "Weight Of The Land"); // t=30.5; Ability 40EA from Titan
+    Timeout(id + 0x40, 11.1f, "Stonecrusher").SetHint(StateMachine.StateHint.Tankbuster); // t=41.6; Ability 40F9 from Titan; cactbot StartsUsing 40F9 [E4N Stonecrusher]
+    Timeout(id + 0x50, 12.4f, "Crumbling Down"); // t=54.0; Ability 40F2 from Massive Boulder; cactbot StartsUsing 40F2 [E4N Seismic Wave]
+    Timeout(id + 0x60, 12.0f, "Seismic Wave"); // t=66.0; Ability 40F3 from Titan; cactbot StartsUsing 40F2 [E4N Seismic Wave]
+    Timeout(id + 0x70, 13.3f, "Geocrush").SetHint(StateMachine.StateHint.Knockback); // t=79.3; Ability 40F6 from Titan; cactbot StartsUsing 40F6 [E4N Geocrush]
+    Timeout(id + 0x80, 3.9f, "Earthen Gauntlets"); // t=83.2; Ability 40E6 from Titan
+    Timeout(id + 0x90, 8.1f, "Massive Landslide"); // t=91.3; Ability 40FA from Titan; cactbot StartsUsing 40FA [E4N Massive Landslide]
+    Timeout(id + 0xA0, 5.8f, "Earthen Armor"); // t=97.1; Ability 40E7 from Titan
+}
+
+private void Phase_2(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stonecrusher").SetHint(StateMachine.StateHint.Tankbuster); // t=109.1; Ability 40F9 from Titan; cactbot StartsUsing 40F9 [E4N Stonecrusher]
+    Timeout(id + 0x10, 6.1f, "Bomb Boulders"); // t=115.2; Ability 40EC from Titan
+    Timeout(id + 0x20, 1.0f, "Bury"); // t=116.2
+    Timeout(id + 0x30, 5.9f, "Cobalt Bomb"); // t=122.1; Ability 40F4 from Titan
+    Timeout(id + 0x40, 7.2f, "Explosion"); // t=129.3; Ability 40F5 from Bomb Boulder
+    Timeout(id + 0x50, 8.0f, "Voice Of The Land").SetHint(StateMachine.StateHint.Raidwide); // t=137.3; Ability 40F7 from Titan; cactbot StartsUsing 40F7 [E4N Voice of the Land]
+    Timeout(id + 0x60, 12.4f, "Geocrush").SetHint(StateMachine.StateHint.Knockback); // t=149.7; Ability 40F6 from Titan; cactbot StartsUsing 40F6 [E4N Geocrush]
+    Timeout(id + 0x70, 3.9f, "Earthen Wheels"); // t=153.6; Ability 40E8 from Titan
+    Timeout(id + 0x80, 8.1f, "Fault Zone"); // t=161.7; Ability 4102 from Titan; cactbot StartsUsing 4102 [E4N Fault Zone]
+    Timeout(id + 0x90, 2.2f, "Earthen Armor"); // t=163.9; Ability 40E9 from Titan
+}
+
+private void Phase_3(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Earthen Fury"); // t=182.0; Ability 40F8 from Titan; cactbot StartsUsing 40F8 [E4N Earthen Fury]
+    Timeout(id + 0x10, 15.2f, "Stonecrusher").SetHint(StateMachine.StateHint.Tankbuster); // t=197.2; Ability 40F9 from Titan; cactbot StartsUsing 40F9 [E4N Stonecrusher]
+    Timeout(id + 0x20, 6.2f, "Bomb Boulders"); // t=203.4; Ability 40EC from Titan
+    Timeout(id + 0x30, 1.1f, "Bury"); // t=204.5
+    Timeout(id + 0x40, 2.0f, "Bury"); // t=206.5
+    Timeout(id + 0x50, 2.0f, "Bury"); // t=208.5
+    Timeout(id + 0x60, 1.4f, "Cobalt Bomb"); // t=209.9; Ability 40F4 from Titan
+    Timeout(id + 0x70, 7.5f, "Explosion"); // t=217.4; Ability 40F5 from Bomb Boulder
+    Timeout(id + 0x80, 3.8f, "Weight Of The Land"); // t=221.2; Ability 40EA from Titan
+    Timeout(id + 0x90, 10.1f, "Voice Of The Land").SetHint(StateMachine.StateHint.Raidwide); // t=231.3; Ability 40F7 from Titan; cactbot StartsUsing 40F7 [E4N Voice of the Land]
+    Timeout(id + 0xA0, 13.3f, "Crumbling Down"); // t=244.6; Ability 40F2 from Massive Boulder; cactbot StartsUsing 40F2 [E4N Seismic Wave]
+    Timeout(id + 0xB0, 1.1f, "Evil Earth"); // t=245.7; Ability 40EE from Titan
+    Timeout(id + 0xC0, 11.1f, "Seismic Wave"); // t=256.8; Ability 40F3 from Titan; cactbot StartsUsing 40F2 [E4N Seismic Wave]
+}
+
+private void Phase_4A_or_Phase_6B(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stonecrusher").SetHint(StateMachine.StateHint.Tankbuster); // t=267.0; Ability 40F9 from Titan; cactbot StartsUsing 40F9 [E4N Stonecrusher]
+    Timeout(id + 0x10, 7.3f, "Geocrush").SetHint(StateMachine.StateHint.Knockback); // t=274.3; Ability 40F6 from Titan; cactbot StartsUsing 40F6 [E4N Geocrush]
+    Timeout(id + 0x20, 3.8f, "Earthen Gauntlets / Earthen Wheels"); // t=278.1; Ability 40E6 from Titan | Ability 40E8 from Titan
+    Timeout(id + 0x30, 8.1f, "Massive Landslide?"); // t=286.2; cactbot StartsUsing 40FA [E4N Massive Landslide]
+    Timeout(id + 0x40, 2.0f, "Fault Zone?"); // t=288.2; cactbot StartsUsing 4102 [E4N Fault Zone]
+    Timeout(id + 0x50, 7.6f, "Fault Zone?"); // t=295.8; cactbot StartsUsing 4102 [E4N Fault Zone]
+    Timeout(id + 0x60, 5.0f, "Left/Right Landslide?"); // t=300.8
+    Timeout(id + 0x70, 2.6f, "Fault Zone?"); // t=303.4; cactbot StartsUsing 4102 [E4N Fault Zone]
+    Timeout(id + 0x80, 8.0f, "Magnitude 5.0?"); // t=311.4
+    Timeout(id + 0x90, 3.2f, "Earthen Armor?"); // t=314.6
+    Timeout(id + 0xA0, 0.8f, "Left/Right Landslide?"); // t=315.4
+    Timeout(id + 0xB0, 12.3f, "Earthen Fury?"); // t=327.7; cactbot StartsUsing 40F8 [E4N Earthen Fury]
+}
+
+private void Phase_4A(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stonecrusher").SetHint(StateMachine.StateHint.Tankbuster); // t=1267.0; Ability 40F9 from Titan; cactbot StartsUsing 40F9 [E4N Stonecrusher]
+    Timeout(id + 0x10, 7.3f, "Geocrush").SetHint(StateMachine.StateHint.Knockback); // t=1274.3; Ability 40F6 from Titan; cactbot StartsUsing 40F6 [E4N Geocrush]
+    Timeout(id + 0x20, 3.8f, "Earthen Gauntlets"); // t=1278.1; Ability 40E6 from Titan
+    Timeout(id + 0x30, 8.1f, "Massive Landslide"); // t=1286.2; Ability 40FA from Titan; cactbot StartsUsing 40FA [E4N Massive Landslide]
+    Timeout(id + 0x40, 14.6f, "Left/Right Landslide"); // t=1300.8; Ability 40FF/4100 from Titan
+    Timeout(id + 0x50, 14.6f, "Left/Right Landslide"); // t=1315.4; Ability 40FF/4100 from Titan
+    Timeout(id + 0x60, 8.7f, "Earthen Armor"); // t=1324.1; Ability 40E7 from Titan
+}
+
+private void Phase_5A(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stonecrusher").SetHint(StateMachine.StateHint.Tankbuster); // t=1339.3; Ability 40F9 from Titan; cactbot StartsUsing 40F9 [E4N Stonecrusher]
+    Timeout(id + 0x10, 6.2f, "Bomb Boulders"); // t=1345.5; Ability 40EC from Titan
+    Timeout(id + 0x20, 1.0f, "Bury"); // t=1346.5
+    Timeout(id + 0x30, 4.1f, "Bury"); // t=1350.6
+    Timeout(id + 0x40, 11.3f, "Evil Earth"); // t=1361.9; Ability 40EE from Titan
+    Timeout(id + 0x50, 11.1f, "Voice Of The Land").SetHint(StateMachine.StateHint.Raidwide); // t=1373.0; Ability 40F7 from Titan; cactbot StartsUsing 40F7 [E4N Voice of the Land]
+    Timeout(id + 0x60, 9.3f, "Evil Earth"); // t=1382.3; Ability 40EE from Titan
+    Timeout(id + 0x70, 10.2f, "Weight Of The Land"); // t=1392.5; Ability 40EA from Titan
+}
+
+private void Phase_6A(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stonecrusher").SetHint(StateMachine.StateHint.Tankbuster); // t=1402.6; Ability 40F9 from Titan; cactbot StartsUsing 40F9 [E4N Stonecrusher]
+    Timeout(id + 0x10, 9.3f, "Geocrush").SetHint(StateMachine.StateHint.Knockback); // t=1411.9; Ability 40F6 from Titan; cactbot StartsUsing 40F6 [E4N Geocrush]
+    Timeout(id + 0x20, 3.7f, "Earthen Wheels"); // t=1415.6; Ability 40E8 from Titan
+    Timeout(id + 0x30, 8.2f, "Fault Zone"); // t=1423.8; Ability 4102 from Titan; cactbot StartsUsing 4102 [E4N Fault Zone]
+    Timeout(id + 0x40, 7.6f, "Fault Zone"); // t=1431.4; Ability 4102 from Titan; cactbot StartsUsing 4102 [E4N Fault Zone]
+    Timeout(id + 0x50, 7.6f, "Fault Zone"); // t=1439.0; Ability 4102 from Titan; cactbot StartsUsing 4102 [E4N Fault Zone]
+    Timeout(id + 0x60, 8.0f, "Magnitude 5.0"); // t=1447.0; Ability 4104 from Titan
+    Timeout(id + 0x70, 3.2f, "Earthen Armor"); // t=1450.2; Ability 40E9 from Titan
+}
+
+private void Phase_3A_Redux(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Earthen Fury"); // t=1463.3; Ability 40F8 from Titan; cactbot StartsUsing 40F8 [E4N Earthen Fury]
+    Timeout(id + 0x10, 15.1f, "Stonecrusher").SetHint(StateMachine.StateHint.Tankbuster); // t=1478.4; Ability 40F9 from Titan; cactbot StartsUsing 40F9 [E4N Stonecrusher]
+    Timeout(id + 0x20, 6.2f, "Bomb Boulders"); // t=1484.6; Ability 40EC from Titan
+    Timeout(id + 0x30, 0.9f, "Bury"); // t=1485.5
+    Timeout(id + 0x40, 2.0f, "Bury"); // t=1487.5
+    Timeout(id + 0x50, 2.0f, "Bury"); // t=1489.5
+    Timeout(id + 0x60, 1.5f, "Cobalt Bomb"); // t=1491.0; Ability 40F4 from Titan
+    Timeout(id + 0x70, 7.6f, "Explosion"); // t=1498.6; Ability 40F5 from Bomb Boulder
+    Timeout(id + 0x80, 3.6f, "Weight Of The Land"); // t=1502.2; Ability 40EA from Titan
+    Timeout(id + 0x90, 10.1f, "Voice Of The Land").SetHint(StateMachine.StateHint.Raidwide); // t=1512.3; Ability 40F7 from Titan; cactbot StartsUsing 40F7 [E4N Voice of the Land]
+    Timeout(id + 0xA0, 13.3f, "Crumbling Down"); // t=1525.6; Ability 40F2 from Massive Boulder; cactbot StartsUsing 40F2 [E4N Seismic Wave]
+    Timeout(id + 0xB0, 1.2f, "Evil Earth"); // t=1526.8; Ability 40EE from Titan
+    Timeout(id + 0xC0, 11.1f, "Seismic Wave"); // t=1537.9; Ability 40F3 from Titan; cactbot StartsUsing 40F2 [E4N Seismic Wave]
+}
+
+private void Phase_4A_loop(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stonecrusher").SetHint(StateMachine.StateHint.Tankbuster); // t=1548.0; Ability 40F9 from Titan; cactbot StartsUsing 40F9 [E4N Stonecrusher]
+    Timeout(id + 0x10, 7.2f, "Geocrush"); // t=1555.2; cactbot StartsUsing 40F6 [E4N Geocrush]
+    Timeout(id + 0x20, 3.8f, "Earthen Gauntlets"); // t=1559.0
+    Timeout(id + 0x30, 8.2f, "Massive Landslide"); // t=1567.2; cactbot StartsUsing 40FA [E4N Massive Landslide]
+    Timeout(id + 0x40, 14.3f, "Left/Right Landslide"); // t=1581.5
+    Timeout(id + 0x50, 14.4f, "Left/Right Landslide"); // t=1595.9
+    Timeout(id + 0x60, 8.7f, "Earthen Armor"); // t=1604.6
+}
+
+private void Phase_6B(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stonecrusher").SetHint(StateMachine.StateHint.Tankbuster); // t=2267.0; Ability 40F9 from Titan; cactbot StartsUsing 40F9 [E4N Stonecrusher]
+    Timeout(id + 0x10, 7.3f, "Geocrush").SetHint(StateMachine.StateHint.Knockback); // t=2274.3; Ability 40F6 from Titan; cactbot StartsUsing 40F6 [E4N Geocrush]
+    Timeout(id + 0x20, 3.8f, "Earthen Wheels"); // t=2278.1; Ability 40E8 from Titan
+    Timeout(id + 0x30, 8.1f, "Fault Zone"); // t=2286.2; Ability 4102 from Titan; cactbot StartsUsing 4102 [E4N Fault Zone]
+    Timeout(id + 0x40, 7.6f, "Fault Zone"); // t=2293.8; Ability 4102 from Titan; cactbot StartsUsing 4102 [E4N Fault Zone]
+    Timeout(id + 0x50, 7.6f, "Fault Zone"); // t=2301.4; Ability 4102 from Titan; cactbot StartsUsing 4102 [E4N Fault Zone]
+    Timeout(id + 0x60, 8.0f, "Magnitude 5.0"); // t=2309.4; Ability 4104 from Titan
+    Timeout(id + 0x70, 3.2f, "Earthen Armor"); // t=2312.6; Ability 40E9 from Titan
+}
+
+private void Phase_5B(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stonecrusher").SetHint(StateMachine.StateHint.Tankbuster); // t=2329.4; Ability 40F9 from Titan; cactbot StartsUsing 40F9 [E4N Stonecrusher]
+    Timeout(id + 0x10, 6.0f, "Bomb Boulders"); // t=2335.4; Ability 40EC from Titan
+    Timeout(id + 0x20, 1.0f, "Bury"); // t=2336.4
+    Timeout(id + 0x30, 4.0f, "Bury"); // t=2340.4
+    Timeout(id + 0x40, 11.1f, "Evil Earth"); // t=2351.5; Ability 40EE from Titan
+    Timeout(id + 0x50, 10.9f, "Voice Of The Land").SetHint(StateMachine.StateHint.Raidwide); // t=2362.4; Ability 40F7 from Titan; cactbot StartsUsing 40F7 [E4N Voice of the Land]
+    Timeout(id + 0x60, 9.1f, "Evil Earth"); // t=2371.5; Ability 40EE from Titan
+    Timeout(id + 0x70, 10.0f, "Weight Of The Land"); // t=2381.5; Ability 40EA from Titan
+}
+
+private void Phase_4B(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stonecrusher").SetHint(StateMachine.StateHint.Tankbuster); // t=2391.4; Ability 40F9 from Titan; cactbot StartsUsing 40F9 [E4N Stonecrusher]
+    Timeout(id + 0x10, 9.0f, "Geocrush").SetHint(StateMachine.StateHint.Knockback); // t=2400.4; Ability 40F6 from Titan; cactbot StartsUsing 40F6 [E4N Geocrush]
+    Timeout(id + 0x20, 3.8f, "Earthen Gauntlets"); // t=2404.2; Ability 40E6 from Titan
+    Timeout(id + 0x30, 8.1f, "Massive Landslide"); // t=2412.3; Ability 40FA from Titan; cactbot StartsUsing 40FA [E4N Massive Landslide]
+    Timeout(id + 0x40, 14.6f, "Left/Right Landslide"); // t=2426.9; Ability 40FF/4100 from Titan
+    Timeout(id + 0x50, 14.6f, "Left/Right Landslide"); // t=2441.5; Ability 40FF/4100 from Titan
+    Timeout(id + 0x60, 8.6f, "Earthen Armor"); // t=2450.1; Ability 40E7 from Titan
+}
+
+private void Phase_3B_Redux(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Earthen Fury"); // t=2461.2; Ability 40F8 from Titan; cactbot StartsUsing 40F8 [E4N Earthen Fury]
+    Timeout(id + 0x10, 15.0f, "Stonecrusher").SetHint(StateMachine.StateHint.Tankbuster); // t=2476.2; Ability 40F9 from Titan; cactbot StartsUsing 40F9 [E4N Stonecrusher]
+    Timeout(id + 0x20, 6.6f, "Bomb Boulders"); // t=2482.8; Ability 40EC from Titan
+    Timeout(id + 0x30, 1.0f, "Bury"); // t=2483.8
+    Timeout(id + 0x40, 2.0f, "Bury"); // t=2485.8
+    Timeout(id + 0x50, 2.0f, "Bury"); // t=2487.8
+    Timeout(id + 0x60, 1.6f, "Cobalt Bomb"); // t=2489.4; Ability 40F4 from Titan
+    Timeout(id + 0x70, 7.4f, "Explosion"); // t=2496.8; Ability 40F5 from Bomb Boulder
+    Timeout(id + 0x80, 3.8f, "Weight Of The Land"); // t=2500.6; Ability 40EA from Titan
+    Timeout(id + 0x90, 9.9f, "Voice Of The Land").SetHint(StateMachine.StateHint.Raidwide); // t=2510.5; Ability 40F7 from Titan; cactbot StartsUsing 40F7 [E4N Voice of the Land]
+    Timeout(id + 0xA0, 13.0f, "Crumbling Down"); // t=2523.5; Ability 40F2 from Massive Boulder; cactbot StartsUsing 40F2 [E4N Seismic Wave]
+    Timeout(id + 0xB0, 1.1f, "Evil Earth"); // t=2524.6; Ability 40EE from Titan
+    Timeout(id + 0xC0, 10.9f, "Seismic Wave"); // t=2535.5; Ability 40F3 from Titan; cactbot StartsUsing 40F2 [E4N Seismic Wave]
+}
+
+private void Phase_6B_Loop(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stonecrusher").SetHint(StateMachine.StateHint.Tankbuster); // t=2545.5; Ability 40F9 from Titan; cactbot StartsUsing 40F9 [E4N Stonecrusher]
+    Timeout(id + 0x10, 9.3f, "Geocrush"); // t=2554.8; cactbot StartsUsing 40F6 [E4N Geocrush]
+    Timeout(id + 0x20, 3.7f, "Earthen Wheels"); // t=2558.5
+    Timeout(id + 0x30, 8.2f, "Fault Zone"); // t=2566.7; cactbot StartsUsing 4102 [E4N Fault Zone]
+    Timeout(id + 0x40, 7.6f, "Fault Zone"); // t=2574.3; cactbot StartsUsing 4102 [E4N Fault Zone]
+    Timeout(id + 0x50, 7.6f, "Fault Zone"); // t=2581.9; cactbot StartsUsing 4102 [E4N Fault Zone]
+    Timeout(id + 0x60, 8.0f, "Magnitude 5.0"); // t=2589.9
+    Timeout(id + 0x70, 3.2f, "Earthen Armor"); // t=2593.1
+    Timeout(id + 0x80, 13.1f, "Earthen Fury"); // t=2606.2; cactbot StartsUsing 40F8 [E4N Earthen Fury]
+}
+

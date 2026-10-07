@@ -1,0 +1,95 @@
+// Generated development skeleton from o9n.txt (TerritoryType 798).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 14 static/dynamic trigger definitions from ui/raidboss/data/04-sb/raid/o9n.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 15.0f, "Chaotic Dispersion").SetHint(StateMachine.StateHint.Tankbuster); // t=15.0; Ability 314F from Chaos; cactbot StartsUsing 314F [O9N Chaotic Dispersion]
+    Timeout(id + 0x20, 10.7f, "Long/Lat Implosion?"); // t=25.7
+    Timeout(id + 0x30, 2.3f, "Damning Edict?"); // t=28.0; Ability 3150 from Chaos
+    Timeout(id + 0x40, 986.4f, "Chaotic Dispersion").SetHint(StateMachine.StateHint.Tankbuster); // t=1014.4; Ability 314F from Chaos; cactbot StartsUsing 314F [O9N Chaotic Dispersion]
+    Timeout(id + 0x50, 11.3f, "Long/Lat Implosion"); // t=1025.7
+    Timeout(id + 0x60, 14.3f, "Blaze").SetHint(StateMachine.StateHint.Raidwide); // t=1040.0; Ability 3165 from Chaos; cactbot StartsUsing 3165 [O9N Blaze]
+    Timeout(id + 0x70, 10.0f, "(T/H) Stray Flames"); // t=1050.0; Ability 316B from Chaos
+    Timeout(id + 0x80, 6.2f, "Chaosphere / (DPS) Stray Flames"); // t=1056.2; Ability 3155 from Chaos | Ability 316B from Chaos
+    Timeout(id + 0x90, 8.1f, "Knock"); // t=1064.3
+    Timeout(id + 0xA0, 6.6f, "Knock"); // t=1070.9
+    Timeout(id + 0xB0, 9.1f, "Big Bang"); // t=1080.0; Ability 3159 from Chaos
+    Timeout(id + 0xC0, 9.5f, "Fiendish Orbs"); // t=1089.5; Ability 315B from Chaos
+    Timeout(id + 0xD0, 22.2f, "Cyclone").SetHint(StateMachine.StateHint.Raidwide); // t=1111.7; Ability 3167 from Chaos; cactbot StartsUsing 3167 [O9N Cyclone]
+    Timeout(id + 0xE0, 15.4f, "Damning Edict"); // t=1127.1; Ability 3150 from Chaos
+    Timeout(id + 0xF0, 13.2f, "Chaotic Dispersion").SetHint(StateMachine.StateHint.Tankbuster); // t=1140.3; Ability 314F from Chaos; cactbot StartsUsing 314F [O9N Chaotic Dispersion]
+    Timeout(id + 0x100, 12.1f, "Chaosphere"); // t=1152.4; Ability 3156 from Chaos
+    Timeout(id + 0x110, 0.1f, "Cyclone").SetHint(StateMachine.StateHint.Knockback); // t=1152.5; Ability 316D from Chaos; cactbot StartsUsing 316D [O9N Cyclone Knockback]
+    Timeout(id + 0x120, 8.0f, "Knock"); // t=1160.5; Ability 315E from Chaos
+    Timeout(id + 0x130, 6.1f, "Big Bang"); // t=1166.6; Ability 315A from Chaos
+    Timeout(id + 0x140, 12.2f, "Fiendish Orbs"); // t=1178.8; Ability 315C from Chaos; cactbot StartsUsing 315C [O9N Orbs Fiend]
+    Timeout(id + 0x150, 25.3f, "Bowels of Agony").SetHint(StateMachine.StateHint.Raidwide); // t=1204.1; Ability 3169 from Chaos; cactbot StartsUsing 3169 [O9N Bowels of Agony]
+    Targetable(id + 0x160, false, 4.0f, "--untargetable--"); // t=1208.1
+    Timeout(id + 0x170, 10.2f, "Stray Flames"); // t=1218.3; Ability 316B from Chaos
+    Timeout(id + 0x180, 5.9f, "Stray Spray"); // t=1224.2; Ability 316C from Chaos
+    Timeout(id + 0x190, 278.8f, "Soul of Chaos"); // t=1503.0; Ability 316A from Chaos
+    Targetable(id + 0x1A0, true, 10.1f, "--targetable--"); // t=1513.1
+    Timeout(id + 0x1B0, 16.9f, "Chaotic Dispersion").SetHint(StateMachine.StateHint.Tankbuster); // t=1530.0; Ability 314F from Chaos; cactbot StartsUsing 314F [O9N Chaotic Dispersion]
+    Timeout(id + 0x1C0, 485.7f, "Chaotic Dispersion").SetHint(StateMachine.StateHint.Tankbuster); // t=2015.7; Ability 314F from Chaos; cactbot StartsUsing 314F [O9N Chaotic Dispersion]
+    Timeout(id + 0x1D0, 12.3f, "Damning Edict"); // t=2028.0; Ability 3150 from Chaos
+    Timeout(id + 0x1E0, 13.1f, "Tsunami").SetHint(StateMachine.StateHint.Raidwide); // t=2041.1; Ability 3166 from Chaos; cactbot StartsUsing 3166 [O9N Tsunami]
+    Timeout(id + 0x1F0, 8.9f, "(T/H) Stray Spray"); // t=2050.0; Ability 316C from Chaos
+    Timeout(id + 0x200, 6.2f, "(DPS) Stray Spray"); // t=2056.2; Ability 316C from Chaos
+    Timeout(id + 0x210, 1.1f, "Chaosphere"); // t=2057.3; Ability 3156 from Chaos
+    Timeout(id + 0x220, 8.1f, "Knock"); // t=2065.4; Ability 315E from Chaos
+    Timeout(id + 0x230, 11.2f, "Big Bang"); // t=2076.6; Ability 315A from Chaos
+    Timeout(id + 0x240, 12.2f, "Fiendish Orbs"); // t=2088.8; Ability 315C from Chaos; cactbot StartsUsing 315C [O9N Orbs Fiend]
+    Timeout(id + 0x250, 22.3f, "Earthquake").SetHint(StateMachine.StateHint.Raidwide); // t=2111.1; Ability 3168 from Chaos; cactbot StartsUsing 3168 [O9N Earthquake]
+    Timeout(id + 0x260, 14.3f, "Long/Lat Implosion"); // t=2125.4
+    Timeout(id + 0x270, 14.2f, "Chaotic Dispersion").SetHint(StateMachine.StateHint.Tankbuster); // t=2139.6; Ability 314F from Chaos; cactbot StartsUsing 314F [O9N Chaotic Dispersion]
+    Timeout(id + 0x280, 12.2f, "Earthquake / Chaosphere"); // t=2151.8; Ability 3418 from Chaos | Ability 3155 from Chaos
+    Timeout(id + 0x290, 8.1f, "Knock"); // t=2159.9; Ability 315D from Chaos
+    Timeout(id + 0x2A0, 6.7f, "Knock"); // t=2166.6; Ability 315D from Chaos
+    Timeout(id + 0x2B0, 4.2f, "Big Bang"); // t=2170.8; Ability 3159 from Chaos
+    Timeout(id + 0x2C0, 9.5f, "Fiendish Orbs"); // t=2180.3; Ability 315B from Chaos
+    Timeout(id + 0x2D0, 25.0f, "Bowels of Agony").SetHint(StateMachine.StateHint.Raidwide); // t=2205.3; Ability 3169 from Chaos; cactbot StartsUsing 3169 [O9N Bowels of Agony]
+    Timeout(id + 0x2E0, 14.2f, "Stray Flames"); // t=2219.5; Ability 316B from Chaos
+    Timeout(id + 0x2F0, 5.9f, "Stray Spray"); // t=2225.4; Ability 316C from Chaos
+    Timeout(id + 0x300, 277.6f, "Soul of Chaos"); // t=2503.0; Ability 316A from Chaos
+    Timeout(id + 0x310, 26.5f, "Chaotic Dispersion").SetHint(StateMachine.StateHint.Tankbuster); // t=2529.5; Ability 314F from Chaos; cactbot StartsUsing 314F [O9N Chaotic Dispersion]
+    Timeout(id + 0x320, 454.2f, "Fiendish Orbs"); // t=2983.7
+    Timeout(id + 0x330, 32.0f, "Chaotic Dispersion").SetHint(StateMachine.StateHint.Tankbuster); // t=3015.7; Ability 314F from Chaos; cactbot StartsUsing 314F [O9N Chaotic Dispersion]
+    Timeout(id + 0x340, 12.3f, "Damning Edict"); // t=3028.0; Ability 3150 from Chaos
+    Timeout(id + 0x350, 13.1f, "Tsunami").SetHint(StateMachine.StateHint.Raidwide); // t=3041.1; Ability 3166 from Chaos; cactbot StartsUsing 3166 [O9N Tsunami]
+    Timeout(id + 0x360, 8.9f, "(T/H) Stray Spray"); // t=3050.0; Ability 316C from Chaos
+    Timeout(id + 0x370, 6.2f, "(DPS) Stray Spray"); // t=3056.2; Ability 316C from Chaos
+    Timeout(id + 0x380, 1.1f, "Chaosphere"); // t=3057.3; Ability 3156 from Chaos
+    Timeout(id + 0x390, 8.1f, "Knock"); // t=3065.4; Ability 315E from Chaos
+    Timeout(id + 0x3A0, 11.2f, "Big Bang"); // t=3076.6; Ability 315A from Chaos
+    Timeout(id + 0x3B0, 12.2f, "Fiendish Orbs"); // t=3088.8; Ability 315C from Chaos; cactbot StartsUsing 315C [O9N Orbs Fiend]
+    Timeout(id + 0x3C0, 22.3f, "Earthquake").SetHint(StateMachine.StateHint.Raidwide); // t=3111.1; Ability 3168 from Chaos; cactbot StartsUsing 3168 [O9N Earthquake]
+    Timeout(id + 0x3D0, 14.3f, "Long/Lat Implosion"); // t=3125.4
+    Timeout(id + 0x3E0, 14.2f, "Chaotic Dispersion").SetHint(StateMachine.StateHint.Tankbuster); // t=3139.6; Ability 314F from Chaos; cactbot StartsUsing 314F [O9N Chaotic Dispersion]
+    Timeout(id + 0x3F0, 12.2f, "Earthquake / Chaosphere"); // t=3151.8; Ability 3418 from Chaos | Ability 3155 from Chaos
+    Timeout(id + 0x400, 8.1f, "Knock"); // t=3159.9; Ability 315D from Chaos
+    Timeout(id + 0x410, 6.7f, "Knock"); // t=3166.6; Ability 315D from Chaos
+    Timeout(id + 0x420, 4.2f, "Big Bang"); // t=3170.8; Ability 3159 from Chaos
+    Timeout(id + 0x430, 9.5f, "Fiendish Orbs"); // t=3180.3; Ability 315B from Chaos
+    Timeout(id + 0x440, 32.3f, "Chaotic Dispersion").SetHint(StateMachine.StateHint.Tankbuster); // t=3212.6; Ability 314F from Chaos; cactbot StartsUsing 314F [O9N Chaotic Dispersion]
+    Timeout(id + 0x450, 11.3f, "Long/Lat Implosion"); // t=3223.9
+    Timeout(id + 0x460, 14.3f, "Blaze").SetHint(StateMachine.StateHint.Raidwide); // t=3238.2; Ability 3165 from Chaos; cactbot StartsUsing 3165 [O9N Blaze]
+    Timeout(id + 0x470, 10.0f, "(T/H) Stray Flames"); // t=3248.2; Ability 316B from Chaos
+    Timeout(id + 0x480, 6.2f, "Chaosphere / (DPS) Stray Flames"); // t=3254.4; Ability 3155 from Chaos | Ability 316B from Chaos
+    Timeout(id + 0x490, 8.1f, "Knock"); // t=3262.5
+    Timeout(id + 0x4A0, 6.6f, "Knock"); // t=3269.1
+    Timeout(id + 0x4B0, 9.1f, "Big Bang"); // t=3278.2; Ability 3159 from Chaos
+    Timeout(id + 0x4C0, 9.5f, "Fiendish Orbs"); // t=3287.7; Ability 315B from Chaos
+    Timeout(id + 0x4D0, 22.2f, "Cyclone").SetHint(StateMachine.StateHint.Raidwide); // t=3309.9; Ability 3167 from Chaos; cactbot StartsUsing 3167 [O9N Cyclone]
+    Timeout(id + 0x4E0, 15.4f, "Damning Edict"); // t=3325.3; Ability 3150 from Chaos
+    Timeout(id + 0x4F0, 13.2f, "Chaotic Dispersion").SetHint(StateMachine.StateHint.Tankbuster); // t=3338.5; Ability 314F from Chaos; cactbot StartsUsing 314F [O9N Chaotic Dispersion]
+    Timeout(id + 0x500, 12.1f, "Chaosphere"); // t=3350.6; Ability 3156 from Chaos
+    Timeout(id + 0x510, 0.1f, "Cyclone").SetHint(StateMachine.StateHint.Knockback); // t=3350.7; Ability 316D from Chaos; cactbot StartsUsing 316D [O9N Cyclone Knockback]
+    Timeout(id + 0x520, 8.0f, "Knock"); // t=3358.7; Ability 315E from Chaos
+    Timeout(id + 0x530, 6.1f, "Big Bang"); // t=3364.8; Ability 315A from Chaos
+    Timeout(id + 0x540, 12.2f, "Fiendish Orbs"); // t=3377.0; Ability 315C from Chaos; cactbot StartsUsing 315C [O9N Orbs Fiend]
+    Timeout(id + 0x550, 32.0f, "Chaotic Dispersion"); // t=3409.0; cactbot StartsUsing 314F [O9N Chaotic Dispersion]
+}
+

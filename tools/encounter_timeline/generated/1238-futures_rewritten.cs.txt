@@ -1,0 +1,237 @@
+// Generated development skeleton from futures_rewritten.txt (TerritoryType 1238).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 81 static/dynamic trigger definitions from ui/raidboss/data/07-dt/ultimate/futures_rewritten.ts.
+// Cactbot actor OID candidates (not automatically promoted to primary boss): 0x45A8, 0x45AD.
+
+private void FUTURES_REWRITTEN__ULTIMATE(uint id)
+{
+    Timeout(id + 0x0, 14.6f, "Cyclonic Break 1 (targeted)"); // t=14.6; Ability 9CD1 from Fatebreaker
+    Timeout(id + 0x10, 2.0f, "Cyclonic Break 2 (follow-up) / Sinsmoke/Sinsmite"); // t=16.6; Ability 9CD3/9CD5 from Fatebreaker
+    Timeout(id + 0x20, 2.0f, "Cyclonic Break 3 (follow-up)"); // t=18.6
+    Timeout(id + 0x30, 2.0f, "Cyclonic Break 4 (follow-up)"); // t=20.6
+    Timeout(id + 0x40, 3.8f, "Powder Mark Trail").SetHint(StateMachine.StateHint.Tankbuster); // t=24.4; Ability 9CE8 from Fatebreaker; cactbot StartsUsing 9CE8 [FRU P1 Powder Mark Trail]
+    Timeout(id + 0x50, 4.1f, "--center--"); // t=28.5; Ability 9CED from Fatebreaker
+    Timeout(id + 0x60, 6.7f, "Utopian Sky"); // t=35.2; Ability 9CDA/9CDB from Fatebreaker; cactbot StartsUsing 9CDA/9CDB [FRU P1 Utopian Sky Collector]
+    Targetable(id + 0x70, false, 0.0f, "--untargetable--"); // t=35.2
+    Timeout(id + 0x80, 5.4f, "Burn Mark"); // t=40.6; Ability 9CE9 from Fatebreaker
+    Timeout(id + 0x90, 9.8f, "Sinbound Fire III/Sinbound Thunder III"); // t=50.4; Ability 9CDF/9CE0 from Fatebreaker/Fatebreaker's Image
+    Timeout(id + 0xA0, 0.1f, "Blasting Zone"); // t=50.5; Ability 9CDE from Fatebreaker's Image
+    Timeout(id + 0xB0, 6.1f, "Cyclonic Break 1 (targeted)"); // t=56.6; Ability 9CD1 from Fatebreaker's Image
+    Timeout(id + 0xC0, 2.0f, "Cyclonic Break 2 (follow-up) / Sinsmoke/Sinsmite"); // t=58.6; Ability 9CD3/9CD5 from Fatebreaker/Fatebreaker's Image
+    Timeout(id + 0xD0, 2.0f, "Cyclonic Break 3 (follow-up)"); // t=60.6
+    Timeout(id + 0xE0, 2.0f, "Cyclonic Break 4 (follow-up)"); // t=62.6
+    Timeout(id + 0xF0, 1.2f, "Turn Of The Heavens"); // t=63.8; Ability 9CD6/9CD7 from Fatebreaker's Image; cactbot StartsUsing 9CD6 [FRU P1 Turn of the Heavens Fire] | StartsUsing 9CD7 [FRU P1 Turn of the Heavens Lightning]
+    Timeout(id + 0x100, 1.0f, "Burnt Strike (lightning)"); // t=64.8; Ability 9CE3 from Fatebreaker's Image; cactbot StartsUsing 9CC5 [FRU P1 Burnt Strike Lightning]
+    Timeout(id + 0x110, 1.7f, "Burnout"); // t=66.5; Ability 9CE4 from Fatebreaker's Image
+    Timeout(id + 0x120, 4.3f, "Burnt Strike (fire)"); // t=70.8; Ability 9CE1 from Fatebreaker's Image; cactbot StartsUsing 9CC1 [FRU P1 Burnt Strike Fire]
+    Timeout(id + 0x130, 2.0f, "Blastburn"); // t=72.8; Ability 9CE2 from Fatebreaker's Image
+    Timeout(id + 0x140, 2.6f, "Floating Fetters"); // t=75.4; Ability 9CEB from Fatebreaker's Image
+    Timeout(id + 0x150, 3.2f, "Sinsmoke"); // t=78.6; Ability 9CE7 from Fatebreaker's Image
+    Targetable(id + 0x160, true, 1.2f, "--targetable--"); // t=79.8
+    Timeout(id + 0x170, 6.2f, "Burnished Glory"); // t=86.0; Ability 9CEA from Fatebreaker; cactbot StartsUsing 9CEA [FRU P1 Burnished Glory]
+    Timeout(id + 0x180, 15.4f, "Fall Of Faith"); // t=101.4; Ability 9CC9/9CCC from Fatebreaker; cactbot Tether F9/11F [FRU P1 Fall of Faith Collector]
+    Timeout(id + 0x190, 0.8f, "Floating Fetters 1"); // t=102.2
+    Timeout(id + 0x1A0, 3.0f, "Floating Fetters 2"); // t=105.2
+    Timeout(id + 0x1B0, 0.3f, "Sinblaze/Sinsmite 1"); // t=105.5
+    Timeout(id + 0x1C0, 2.0f, "Floating Fetters 3"); // t=107.5
+    Timeout(id + 0x1D0, 0.9f, "Sinblaze/Sinsmite 2"); // t=108.4
+    Timeout(id + 0x1E0, 1.5f, "Floating Fetters 4"); // t=109.9
+    Timeout(id + 0x1F0, 0.9f, "Sinblaze/Sinsmite 3"); // t=110.8
+    Timeout(id + 0x200, 2.5f, "Sinblaze/Sinsmite 4"); // t=113.3
+    Timeout(id + 0x210, 8.0f, "Burnished Glory"); // t=121.3; Ability 9CEA from Fatebreaker; cactbot StartsUsing 9CEA [FRU P1 Burnished Glory]
+    Timeout(id + 0x220, 8.6f, "Powder Mark Trail").SetHint(StateMachine.StateHint.Tankbuster); // t=129.9; Ability 9CE8 from Fatebreaker; cactbot StartsUsing 9CE8 [FRU P1 Powder Mark Trail]
+    Timeout(id + 0x230, 2.4f, "--center--"); // t=132.3; Ability 9CED from Fatebreaker
+    Timeout(id + 0x240, 9.0f, "Burnt Strike"); // t=141.3; Ability 9CC1/9CC5 from Fatebreaker; cactbot StartsUsing 9CC1 [FRU P1 Burnt Strike Fire] | StartsUsing 9CC5 [FRU P1 Burnt Strike Lightning]
+    Timeout(id + 0x250, 1.8f, "Blastburn/Burnout"); // t=143.1
+    Timeout(id + 0x260, 2.0f, "Explosion"); // t=145.1
+    Condition(id + 0x270, 5.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9CC0), "", 5f, 0.4f); // t=150.5; StartsUsing 9CC0 from Fatebreaker
+    Timeout(id + 0x280, 9.7f, "Burnished Glory (enrage)"); // t=160.2; Ability 9CC0 from Fatebreaker
+}
+
+private void Phase_Two(uint id)
+{
+    Targetable(id + 0x0, true, 4.1f, "--targetable--"); // t=204.1
+    Condition(id + 0x10, 6.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9CFF), "", 5f, 1.2f); // t=210.3; StartsUsing 9CFF from Usurper of Frost; cactbot StartsUsing 9CFF/9CF3/9D14/9D49/9D4D/9D36/9D6A/9D72 [FRU Phase Tracker] | StartsUsing 9CFF [FRU P2 Quadruple Slap First]
+    Timeout(id + 0x20, 5.0f, "Quadruple Slap 1").SetHint(StateMachine.StateHint.Tankbuster); // t=215.3; Ability 9CFF from Usurper of Frost; cactbot StartsUsing 9CFF/9CF3/9D14/9D49/9D4D/9D36/9D6A/9D72 [FRU Phase Tracker] | StartsUsing 9CFF [FRU P2 Quadruple Slap First]
+    Timeout(id + 0x30, 4.1f, "Quadruple Slap 2"); // t=219.4; Ability 9D00 from Usurper of Frost; cactbot StartsUsing 9D00 [FRU P2 Quadruple Slap Second]
+    Timeout(id + 0x40, 5.1f, "--jump south--"); // t=224.5; Ability 9CEF from Usurper of Frost
+    Timeout(id + 0x50, 4.3f, "Mirror Image"); // t=228.8; Ability 9CF4 from Usurper of Frost
+    Timeout(id + 0x60, 7.1f, "Diamond Dust").SetHint(StateMachine.StateHint.Raidwide); // t=235.9; Ability 9D05 from Usurper of Frost; cactbot StartsUsing 9D05 [FRU P2 Diamond Dust]
+    Targetable(id + 0x70, false, 3.1f, "--untargetable--"); // t=239.0
+    Timeout(id + 0x80, 5.6f, "Axe Kick/Scythe Kick"); // t=244.6; Ability 9D0A/9D0B from Oracle's Reflection; cactbot StartsUsing 9D0A/9D0B [FRU P2 Axe/Scythe Kick Collect] | StartsUsing 9D0B [FRU P2 Mirror Mirror Initial Cleaves]
+    Timeout(id + 0x90, 0.9f, "The House of Light"); // t=245.5; cactbot StartsUsing 9CFD [FRU P2 The House of Light]
+    Timeout(id + 0xA0, 1.7f, "Frigid Stone"); // t=247.2; cactbot HeadMarker 159 [FRU P2 House of Light/Frigid Stone]
+    Timeout(id + 0xB0, 0.4f, "Icicle Impact"); // t=247.6
+    Timeout(id + 0xC0, 0.8f, "--center--"); // t=248.4
+    Timeout(id + 0xD0, 3.1f, "Heavenly Strike"); // t=251.5; Ability 9D0F from Usurper of Frost; cactbot Ability 9D0F [FRU P2 Sinbound Holy Rotation]
+    Timeout(id + 0xE0, 0.1f, "Icicle Impact"); // t=251.6
+    Timeout(id + 0xF0, 2.6f, "Frigid Needle"); // t=254.2
+    Timeout(id + 0x100, 0.4f, "Sinbound Holy (cast)"); // t=254.6; Ability 9D10 from Oracle's Reflection; cactbot StartsUsing 9D10 [FRU P2 Shiva Cleave Add Collect]
+    Timeout(id + 0x110, 0.9f, "Icicle Impact / Sinbound Holy 1 (puddles)"); // t=255.5
+    Timeout(id + 0x120, 1.4f, "Sinbound Holy 2 (puddles)"); // t=256.9
+    Timeout(id + 0x130, 1.6f, "Sinbound Holy 3 (puddles)"); // t=258.5
+    Timeout(id + 0x140, 1.6f, "Sinbound Holy 4 (puddles)"); // t=260.1
+    Timeout(id + 0x150, 3.8f, "Shining Armor + Frost Armor"); // t=263.9; Ability 9CF8/9CF9 from Oracle's Reflection/Usurper Of Frost
+    Timeout(id + 0x160, 6.6f, "Twin Stillness/Twin Silence"); // t=270.5; Ability 9D01/9D02 from Oracle's Reflection; cactbot StartsUsing 9D01/9D02 [FRU P2 Twin Silence/Stillness First] | StartsUsing 9D01/9D02 [FRU P2 Twin Silence/Stillness Second]
+    Timeout(id + 0x170, 2.1f, "Twin Silence/Twin Stillness"); // t=272.6; Ability 9D03/9D04 from Oracle's Reflection
+    Targetable(id + 0x180, true, 3.6f, "--targetable--"); // t=276.2
+    Timeout(id + 0x190, 7.1f, "Hallowed Ray"); // t=283.3; Ability 9D12 from Usurper of Frost
+    Timeout(id + 0x1A0, 9.7f, "Mirror, Mirror"); // t=293.0; Ability 9CF3 from Usurper of Frost; cactbot StartsUsing 9CFF/9CF3/9D14/9D49/9D4D/9D36/9D6A/9D72 [FRU Phase Tracker]
+    Timeout(id + 0x1B0, 14.1f, "Scythe Kick"); // t=307.1; Ability 9D0B from Usurper of Frost; cactbot StartsUsing 9D0A/9D0B [FRU P2 Axe/Scythe Kick Collect] | StartsUsing 9D0B [FRU P2 Mirror Mirror Initial Cleaves]
+    Timeout(id + 0x1C0, 10.1f, "Reflected Scythe Kick"); // t=317.2; Ability 9D0D from Frozen Mirror; cactbot StartsUsing 9D0D [FRU P2 Mirror Mirror Reflected Cleaves]
+    Timeout(id + 0x1D0, 6.1f, "Banish III"); // t=323.3; Ability 9D1C/9D1D from Usurper of Frost; cactbot StartsUsing 9D1C/9D1D [FRU P2 Mirror Mirror Banish III] | StartsUsing 9D1C/9D1D [FRU P2 Light Rampant Banish III]
+    Timeout(id + 0x1E0, 3.1f, "--center--"); // t=326.4; Ability 9CEF from Usurper of Frost
+    Timeout(id + 0x1F0, 6.3f, "Light Rampant"); // t=332.7; Ability 9D14 from Usurper of Frost; cactbot StartsUsing 9CFF/9CF3/9D14/9D49/9D4D/9D36/9D6A/9D72 [FRU Phase Tracker]
+    Targetable(id + 0x200, false, 3.0f, "--untargetable--"); // t=335.7
+    Timeout(id + 0x210, 5.0f, "Luminous Hammer 1"); // t=340.7
+    Timeout(id + 0x220, 1.6f, "Luminous Hammer 2"); // t=342.3
+    Timeout(id + 0x230, 1.6f, "Luminous Hammer 3"); // t=343.9
+    Timeout(id + 0x240, 0.1f, "Bright Hunger (solo towers)"); // t=344.0; Ability 9D15 from Usurper of Frost
+    Timeout(id + 0x250, 1.4f, "Luminous Hammer 4"); // t=345.4
+    Timeout(id + 0x260, 1.6f, "Luminous Hammer 5"); // t=347.0
+    Timeout(id + 0x270, 2.8f, "Powerful Light"); // t=349.8; Ability 9D19 from Usurper of Frost
+    Timeout(id + 0x280, 2.4f, "Burst 1"); // t=352.2
+    Timeout(id + 0x290, 3.0f, "Burst 2"); // t=355.2
+    Timeout(id + 0x2A0, 3.6f, "Bright Hunger (group tower)"); // t=358.8; Ability 9D15 from Usurper of Frost
+    Timeout(id + 0x2B0, 3.1f, "Banish III"); // t=361.9; Ability 9D1C/9D1D from Usurper of Frost; cactbot StartsUsing 9D1C/9D1D [FRU P2 Mirror Mirror Banish III] | StartsUsing 9D1C/9D1D [FRU P2 Light Rampant Banish III]
+    Targetable(id + 0x2C0, true, 3.0f, "--targetable--"); // t=364.9
+    Timeout(id + 0x2D0, 5.9f, "The House of Light"); // t=370.8; Ability 9CFC from Usurper of Frost; cactbot StartsUsing 9CFD [FRU P2 The House of Light]
+    Timeout(id + 0x2E0, 5.4f, "--center--"); // t=376.2; Ability 9CEF from Usurper of Frost
+    Timeout(id + 0x2F0, 13.9f, "Absolute Zero (enrage)"); // t=390.1; Ability 9D8D from Usurper of Frost
+    Timeout(id + 0x300, 2.3f, "Swelling Frost"); // t=392.4; Ability 9D21 from Usurper of Frost
+    Timeout(id + 0x310, 19.0f, "--adds targetable--"); // t=411.4
+    Timeout(id + 0x320, 13.0f, "Sinbound Blizzard III"); // t=424.4; Ability 9D42 from Crystal of Darkness
+    Timeout(id + 0x330, 1.0f, "Hiemal Storm"); // t=425.4; Ability 9D40 from Crystal of Light
+    Timeout(id + 0x340, 3.2f, "Hiemal Storm"); // t=428.6; Ability 9D40 from Crystal of Light
+    Timeout(id + 0x350, 1.0f, "Sinbound Blizzard III"); // t=429.6; Ability 9D42 from Crystal of Darkness
+    Timeout(id + 0x360, 2.2f, "Hiemal Storm"); // t=431.8; Ability 9D40 from Crystal of Light
+    Timeout(id + 0x370, 2.9f, "Sinbound Blizzard III"); // t=434.7; Ability 9D42 from Crystal of Darkness
+    Timeout(id + 0x380, 0.2f, "Hiemal Storm?"); // t=434.9; Ability 9D40 from Crystal of Light
+    Timeout(id + 0x390, 3.2f, "Hiemal Storm?"); // t=438.1; Ability 9D40 from Crystal of Light
+    Timeout(id + 0x3A0, 1.8f, "Sinbound Blizzard III"); // t=439.9; Ability 9D42 from Crystal of Darkness
+    Timeout(id + 0x3B0, 1.4f, "Hiemal Storm?"); // t=441.3; Ability 9D40 from Crystal of Light
+    Timeout(id + 0x3C0, 3.2f, "Hiemal Storm?"); // t=444.5; Ability 9D40 from Crystal of Light
+    Timeout(id + 0x3D0, 0.7f, "Sinbound Blizzard III"); // t=445.2; Ability 9D42 from Crystal of Darkness
+    Timeout(id + 0x3E0, 2.5f, "Hiemal Storm?"); // t=447.7; Ability 9D40 from Crystal of Light
+    Timeout(id + 0x3F0, 2.8f, "Sinbound Blizzard III"); // t=450.5; Ability 9D42 from Crystal of Darkness
+    Timeout(id + 0x400, 5.2f, "Endless Ice Age (enrage)"); // t=455.7; Ability 9D43 from Ice Veil
+}
+
+private void Phase_Three(uint id)
+{
+    Timeout(id + 0x0, 11.2f, "Junction"); // t=500.0; Ability 9D22 from Usurper of Frost
+    Targetable(id + 0x10, true, 14.3f, "--targetable--"); // t=514.3
+    Timeout(id + 0x20, 4.0f, "Hell's Judgment"); // t=518.3; Ability 9D49 from Oracle of Darkness; cactbot StartsUsing 9CFF/9CF3/9D14/9D49/9D4D/9D36/9D6A/9D72 [FRU Phase Tracker]
+    Timeout(id + 0x30, 14.1f, "Ultimate Relativity").SetHint(StateMachine.StateHint.Raidwide); // t=532.4; Ability 9D4A from Oracle of Darkness; cactbot StartsUsing 9D4A [FRU P3 Ultimate Relativity AoE]
+    Timeout(id + 0x40, 11.8f, "Dark Fire III/Unholy Darkness"); // t=544.2
+    Timeout(id + 0x50, 5.2f, "Sinbound Meltdown 1 (x10)"); // t=549.4
+    Timeout(id + 0x60, 4.9f, "Dark Fire III/Dark Blizzard III/Unholy Darkness"); // t=554.3
+    Timeout(id + 0x70, 5.1f, "Sinbound Meltdown 2 (x10)"); // t=559.4
+    Timeout(id + 0x80, 4.9f, "Dark Fire III/Unholy Darkness"); // t=564.3
+    Timeout(id + 0x90, 6.1f, "Sinbound Meltdown 3 (x10)"); // t=570.4
+    Timeout(id + 0xA0, 2.8f, "(stun + rewind)"); // t=573.2
+    Timeout(id + 0xB0, 3.0f, "Shadoweye/Dark Water III/Dark Eruption"); // t=576.2
+    Timeout(id + 0xC0, 3.9f, "Shell Crusher"); // t=580.1; Ability 9D5E from Oracle of Darkness
+    Timeout(id + 0xD0, 8.4f, "Shockwave Pulsar").SetHint(StateMachine.StateHint.Raidwide); // t=588.5; Ability 9D5A from Oracle of Darkness; cactbot StartsUsing 9D5A [FRU P3 Shockwave Pulsar]
+    Timeout(id + 0xE0, 8.3f, "Black Halo"); // t=596.8; Ability 9D62 from Oracle of Darkness; cactbot StartsUsing 9D62 [FRU P3 Black Halo]
+    Timeout(id + 0xF0, 9.1f, "Spell-in-Waiting Refrain"); // t=605.9; Ability 9D4D from Oracle of Darkness; cactbot StartsUsing 9CFF/9CF3/9D14/9D49/9D4D/9D36/9D6A/9D72 [FRU Phase Tracker]
+    Timeout(id + 0x100, 15.3f, "Apocalypse"); // t=621.2; Ability 9D68 from Oracle of Darkness
+    Timeout(id + 0x110, 3.6f, "Dark Water III"); // t=624.8; Ability 9D4F from Oracle of Darkness; cactbot Ability 9D4F [FRU P3 Apoc Dark Water Swap Check]
+    Timeout(id + 0x120, 1.5f, "Spirit Taker"); // t=626.3; Ability 9D60 from Oracle of Darkness; cactbot StartsUsing 9D60 [FRU P4 Darklit Spirit Taker]
+    Timeout(id + 0x130, 8.9f, "Apocalypse (x6)"); // t=635.2
+    Timeout(id + 0x140, 2.7f, "Dark Eruption"); // t=637.9; Ability 9D52 from Oracle of Darkness; cactbot Ability 9D52 [FRU P3 Apoc Second Stacks]
+    Timeout(id + 0x150, 5.8f, "Dark Water III"); // t=643.7; Ability 9D4F from Oracle of Darkness; cactbot Ability 9D4F [FRU P3 Apoc Dark Water Swap Check]
+    Timeout(id + 0x160, 2.3f, "Darkest Dance (jump)"); // t=646.0; Ability 9CF6 from Oracle of Darkness; cactbot StartsUsing 9CF5 [FRU P3 Apoc Darkest Dance Jump Bait]
+    Timeout(id + 0x170, 2.9f, "Darkest Dance (knockback)").SetHint(StateMachine.StateHint.Knockback); // t=648.9; Ability 9CF7 from Oracle of Darkness
+    Timeout(id + 0x180, 3.9f, "Dark Water III"); // t=652.8; Ability 9D4F from Oracle of Darkness; cactbot Ability 9D4F [FRU P3 Apoc Dark Water Swap Check]
+    Timeout(id + 0x190, 5.4f, "Shockwave Pulsar").SetHint(StateMachine.StateHint.Raidwide); // t=658.2; Ability 9D5A from Oracle of Darkness; cactbot StartsUsing 9D5A [FRU P3 Shockwave Pulsar]
+    Timeout(id + 0x1A0, 13.8f, "Memory's End (enrage)").SetHint(StateMachine.StateHint.Raidwide); // t=672.0; Ability 9D6C from Oracle of Darkness; cactbot StartsUsing 9D6C [FRU P3 Memory\]
+    Targetable(id + 0x1B0, false, 3.4f, "--untargetable--"); // t=675.4
+}
+
+private void Phase_Four(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=680.8
+    Condition(id + 0x10, 5.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9D36), "", 5f, 0.5f); // t=686.3; StartsUsing 9D36 from Usurper of Frost; cactbot StartsUsing 9CFF/9CF3/9D14/9D49/9D4D/9D36/9D6A/9D72 [FRU Phase Tracker]
+    Timeout(id + 0x20, 2.9f, "Materialization"); // t=689.2; Ability 9D36 from Usurper of Frost; cactbot StartsUsing 9CFF/9CF3/9D14/9D49/9D4D/9D36/9D6A/9D72 [FRU Phase Tracker]
+    Timeout(id + 0x30, 11.2f, "Drachen Armor"); // t=700.4
+    Timeout(id + 0x40, 2.5f, "Akh Rhai"); // t=702.9; Ability 9D2D from Usurper of Frost; cactbot GainsEffect 8E1 [FRU P4 Akh Rhai]
+    Timeout(id + 0x50, 2.5f, "Edge of Oblivion 1"); // t=705.4; Ability 9CEE from Fragment of Fate
+    Timeout(id + 0x60, 0.8f, "--Oracle targetable--"); // t=706.2
+    Timeout(id + 0x70, 8.7f, "Darklit Dragonsong").SetHint(StateMachine.StateHint.Raidwide); // t=714.9; Ability 9D2F from Usurper of Frost; cactbot StartsUsing 9D6D [FRU P4 Darklit Dragonsong]
+    Timeout(id + 0x80, 11.2f, "Bright Hunger"); // t=726.1; Ability 9D15 from Usurper of Frost
+    Timeout(id + 0x90, 0.9f, "The Path of Light"); // t=727.0; Ability 9CFE from Usurper of Frost
+    Timeout(id + 0xA0, 2.1f, "Spirit Taker (jump)"); // t=729.1; Ability 9D60 from Oracle of Darkness; cactbot StartsUsing 9D60 [FRU P4 Darklit Spirit Taker]
+    Timeout(id + 0xB0, 0.4f, "Spirit Taker (damage)"); // t=729.5; Ability 9D61 from Oracle of Darkness
+    Timeout(id + 0xC0, 4.6f, "Dark Water III + Hallowed Wings"); // t=734.1
+    Timeout(id + 0xD0, 3.6f, "Somber Dance (far)"); // t=737.7; Ability 9D5C from Oracle of Darkness
+    Timeout(id + 0xE0, 3.3f, "Somber Dance (close)"); // t=741.0; Ability 9D5D from Oracle of Darkness
+    Timeout(id + 0xF0, 3.4f, "Edge of Oblivion 2"); // t=744.4; Ability 9CEE from Fragment of Fate
+    Timeout(id + 0x100, 1.0f, "--Oracle center--"); // t=745.4; Ability 9CB5 from Oracle of Darkness
+    Timeout(id + 0x110, 5.3f, "Akh Morn (x5)"); // t=750.7; Ability 9D6E from Oracle of Darkness; cactbot StartsUsing 9D6E [FRU P4 Akh Morn]
+    Timeout(id + 0x120, 10.1f, "Morn Afah"); // t=760.8; Ability 9D70 from Oracle of Darkness; cactbot StartsUsing 9D70 [FRU P4 Morn Afah]
+    Timeout(id + 0x130, 4.3f, "--reposition--"); // t=765.1; Ability 9CB5 from Oracle of Darkness
+    Timeout(id + 0x140, 11.2f, "Crystallize Time"); // t=776.3; Ability 9D30 from Usurper of Frost; cactbot GainsEffect CBF/CC0/99E/99F/99D/996/99C [FRU P4 Crystallize Time Debuff Collect] | GainsEffect CBF/CC0/99E/99F/99D/996/99C [FRU P4 Crystallize Time Debuff] | AddedCombatant OID=0x45AD [FRU P4 Crystallize Time Stoplight Collect] | Tether 85 [FRU P4 Crystallize Time Initial Position] | Ability 9D55 [FRU P4 Crystallize Time Blue Cleanse] | GainsEffect 1070 [FRU P4 Crystallize Time Drop Rewind] | GainsEffect 994 [FRU P4 Crystallize Time Spirit Taker]
+    Timeout(id + 0x150, 3.0f, "--Usurper untargetable--"); // t=779.3
+    Timeout(id + 0x160, 1.0f, "--Oracle untargetable--"); // t=780.3
+    Timeout(id + 0x170, 2.1f, "Edge of Oblivion 3"); // t=782.4; Ability 9CEE from Fragment of Fate
+    Timeout(id + 0x180, 5.9f, "Maelstrom (fast)"); // t=788.3
+    Timeout(id + 0x190, 1.0f, "Dark Water III"); // t=789.3
+    Timeout(id + 0x1A0, 2.0f, "Dark Blizzard III + Dark Eruption + Dark Aero III"); // t=791.3
+    Timeout(id + 0x1B0, 2.6f, "Maelstrom (normal)"); // t=793.9
+    Timeout(id + 0x1C0, 0.4f, "Unholy Darkness"); // t=794.3
+    Timeout(id + 0x1D0, 3.4f, "Tidal Light (x4)"); // t=797.7
+    Timeout(id + 0x1E0, 1.1f, "Maelstrom (slow)"); // t=798.8
+    Timeout(id + 0x1F0, 5.2f, "Tidal Light (x4)"); // t=804.0
+    Timeout(id + 0x200, 4.2f, "Quietus"); // t=808.2; Ability 9D59 from Oracle of Darkness
+    Timeout(id + 0x210, 2.0f, "(rewind drop)"); // t=810.2
+    Timeout(id + 0x220, 3.6f, "Spirit Taker"); // t=813.8; Ability 9D61 from Oracle of Darkness; cactbot GainsEffect 99D [FRU P3 Apoc Spirit Taker] | StartsUsing 9D60 [FRU P4 Darklit Spirit Taker] | GainsEffect 994 [FRU P4 Crystallize Time Spirit Taker]
+    Timeout(id + 0x230, 3.4f, "(stun + rewind)"); // t=817.2
+    Timeout(id + 0x240, 2.2f, "Hallowed Wings 1"); // t=819.4; Ability 9D8C from Usurper of Frost
+    Timeout(id + 0x250, 4.6f, "Hallowed Wings 2"); // t=824.0; Ability 9D8C from Usurper of Frost
+    Timeout(id + 0x260, 4.1f, "--center--"); // t=828.1; Ability 9CB5 from Oracle of Darkness
+    Targetable(id + 0x270, true, 1.3f, "--targetable--"); // t=829.4
+    Timeout(id + 0x280, 3.9f, "Akh Morn (x5)"); // t=833.3; Ability 9D6E from Oracle of Darkness; cactbot StartsUsing 9D6E [FRU P4 Akh Morn]
+    Timeout(id + 0x290, 8.0f, "Edge of Oblivion 4"); // t=841.3; Ability 9CEE from Fragment of Fate
+    Timeout(id + 0x2A0, 2.0f, "Morn Afah"); // t=843.3; Ability 9D70 from Oracle of Darkness; cactbot StartsUsing 9D70 [FRU P4 Morn Afah]
+    Timeout(id + 0x2B0, 13.2f, "Memory's End + Absolute Zero (enrage)"); // t=856.5
+    Timeout(id + 0x2C0, 105.5f, "(stun + cutscene)"); // t=962.0
+}
+
+private void Phase_5(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=1029.6
+    Condition(id + 0x10, 5.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9D72), "", 5f, 0.2f); // t=1034.8; StartsUsing 9D72 from Pandora; cactbot StartsUsing 9CFF/9CF3/9D14/9D49/9D4D/9D36/9D6A/9D72 [FRU Phase Tracker]
+    Timeout(id + 0x20, 6.0f, "Fulgent Blade"); // t=1040.8; Ability 9D72 from Pandora; cactbot StartsUsing 9CFF/9CF3/9D14/9D49/9D4D/9D36/9D6A/9D72 [FRU Phase Tracker]
+    Timeout(id + 0x30, 11.2f, "The Path of Darkness + The Path of Light"); // t=1052.0; Ability 9CB6 from Pandora
+    Timeout(id + 0x40, 15.8f, "Akh Morn"); // t=1067.8; Ability 9D76 from Pandora; cactbot StartsUsing 9D6E [FRU P4 Akh Morn]
+    Timeout(id + 0x50, 8.2f, "Paradise Regained"); // t=1076.0; Ability 9D7F from Pandora
+    Timeout(id + 0x60, 10.0f, "Wings Dark and Light"); // t=1086.0; Ability 9D29/9D79 from Pandora
+    Timeout(id + 0x70, 0.4f, "Explosion"); // t=1086.4; Ability 9D80 from Pandora
+    Timeout(id + 0x80, 3.5f, "Wings Dark and Light + Explosion"); // t=1089.9; Ability 9D80 from Pandora
+    Timeout(id + 0x90, 3.5f, "Explosion"); // t=1093.4; Ability 9D80 from Pandora
+    Timeout(id + 0xA0, 14.0f, "Polarizing Strikes"); // t=1107.4; Ability 9D7C from Pandora
+    Timeout(id + 0xB0, 4.6f, "Polarizing Paths"); // t=1112.0; Ability 9D2A from Pandora
+    Timeout(id + 0xC0, 4.6f, "Polarizing Paths"); // t=1116.6; Ability 9D2A from Pandora
+    Timeout(id + 0xD0, 4.6f, "Polarizing Paths"); // t=1121.2; Ability 9D2A from Pandora
+    Timeout(id + 0xE0, 20.5f, "Pandora's Box"); // t=1141.7; Ability 9D86 from Pandora
+    Timeout(id + 0xF0, 12.1f, "Fulgent Blade"); // t=1153.8; Ability 9D72 from Pandora; cactbot StartsUsing 9CFF/9CF3/9D14/9D49/9D4D/9D36/9D6A/9D72 [FRU Phase Tracker]
+    Timeout(id + 0x100, 11.1f, "The Path of Darkness + The Path of Light"); // t=1164.9; Ability 9CB6 from Pandora
+    Timeout(id + 0x110, 15.8f, "Akh Morn"); // t=1180.7; Ability 9D76 from Pandora; cactbot StartsUsing 9D6E [FRU P4 Akh Morn]
+    Timeout(id + 0x120, 12.3f, "Paradise Regained"); // t=1193.0; Ability 9D7F from Pandora
+    Timeout(id + 0x130, 10.0f, "Wings Dark and Light"); // t=1203.0; Ability 9D29/9D79 from Pandora
+    Timeout(id + 0x140, 0.4f, "Explosion"); // t=1203.4; Ability 9D80 from Pandora
+    Timeout(id + 0x150, 3.5f, "Wings Dark and Light + Explosion"); // t=1206.9; Ability 9D80 from Pandora
+    Timeout(id + 0x160, 3.5f, "Explosion"); // t=1210.4; Ability 9D80 from Pandora
+    Timeout(id + 0x170, 8.8f, "Polarizing Strikes"); // t=1219.2; Ability 9D7C from Pandora
+    Timeout(id + 0x180, 4.6f, "Polarizing Paths"); // t=1223.8; Ability 9D2A from Pandora
+    Timeout(id + 0x190, 4.6f, "Polarizing Paths"); // t=1228.4; Ability 9D2A from Pandora
+    Timeout(id + 0x1A0, 4.6f, "Polarizing Paths"); // t=1233.0; Ability 9D2A from Pandora
+    Timeout(id + 0x1B0, 11.3f, "Fulgent Blade"); // t=1244.3; Ability 9D72 from Pandora; cactbot StartsUsing 9CFF/9CF3/9D14/9D49/9D4D/9D36/9D6A/9D72 [FRU Phase Tracker]
+    Timeout(id + 0x1C0, 11.0f, "The Path of Darkness + The Path of Light"); // t=1255.3; Ability 9CB6 from Pandora
+    Timeout(id + 0x1D0, 16.0f, "Akh Morn"); // t=1271.3; Ability 9D76 from Pandora; cactbot StartsUsing 9D6E [FRU P4 Akh Morn]
+    Condition(id + 0x1E0, 8.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9D88), "", 5f, 3.5f); // t=1279.8; StartsUsing 9D88 from Pandora
+    Timeout(id + 0x1F0, 21.5f, "Paradise Lost (enrage)"); // t=1301.3; Ability 9D88 from Pandora
+}
+

@@ -1,0 +1,17 @@
+{
+  "contentId": 0,
+  "encounterId": 0,
+  "job": "MNK",
+  "samples": [
+    {
+      "burstUseTimes": [],
+      "downtimeEnds": [],
+      "downtimeStarts": [],
+      "gaugeSpendTimes": [],
+      "killTime": 0.0,
+      "majorBuffUseTimes": [],
+      "potionUseTimes": [],
+      "profileCandidates": {}
+    }
+  ]
+}

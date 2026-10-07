@@ -1,0 +1,169 @@
+// Generated development skeleton from a9s.txt (TerritoryType 584).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 9 static/dynamic trigger definitions from ui/raidboss/data/03-hw/raid/a9s.ts.
+
+private void Faust_Z(uint id)
+{
+    Timeout(id + 0x0, 6.5f, "Kaltstrahl"); // t=1006.5; Ability 1A2B from Faust Z
+    Timeout(id + 0x10, 7.1f, "Kaltstrahl"); // t=1013.6; Ability 1A2B from Faust Z
+    Timeout(id + 0x20, 7.1f, "Kaltstrahl"); // t=1020.7; Ability 1A2B from Faust Z
+    Timeout(id + 0x30, 7.1f, "Kaltstrahl"); // t=1027.8; Ability 1A2B from Faust Z
+    Timeout(id + 0x40, 3.1f, "Panzerschreck"); // t=1030.9; Ability 1A2C from Faust Z
+    Timeout(id + 0x50, 7.1f, "Kaltstrahl"); // t=1038.0; Ability 1A2B from Faust Z
+    Timeout(id + 0x60, 7.1f, "Kaltstrahl"); // t=1045.1; Ability 1A2B from Faust Z
+    Timeout(id + 0x70, 7.1f, "Kaltstrahl"); // t=1052.2; Ability 1A2B from Faust Z
+    Timeout(id + 0x80, 3.1f, "Panzerschreck x2"); // t=1055.3
+    Timeout(id + 0x90, 4.2f, "Kaltstrahl"); // t=1059.5; Ability 1A2B from Faust Z
+    Timeout(id + 0xA0, 7.1f, "Kaltstrahl"); // t=1066.6; Ability 1A2B from Faust Z
+    Timeout(id + 0xB0, 7.1f, "Kaltstrahl"); // t=1073.7; Ability 1A2B from Faust Z
+    Timeout(id + 0xC0, 7.1f, "Panzerschreck x2"); // t=1080.8
+    Timeout(id + 0xD0, 4.2f, "Kaltstrahl"); // t=1085.0; Ability 1A2B from Faust Z
+    Timeout(id + 0xE0, 7.2f, "Kaltstrahl"); // t=1092.2; Ability 1A2B from Faust Z
+    Timeout(id + 0xF0, 7.1f, "Kaltstrahl"); // t=1099.3; Ability 1A2B from Faust Z
+    Timeout(id + 0x100, 7.1f, "Panzerschreck x2"); // t=1106.4
+    Timeout(id + 0x110, 4.2f, "Kaltstrahl"); // t=1110.6; Ability 1A2B from Faust Z
+    Timeout(id + 0x120, 7.1f, "Kaltstrahl"); // t=1117.7; Ability 1A2B from Faust Z
+    Timeout(id + 0x130, 8.4f, "Panzerschreck Enrage"); // t=1126.1; Ability 1A2D from Faust Z
+    Timeout(id + 0x140, 10.2f, "Panzerschreck Enrage"); // t=1136.3
+    Timeout(id + 0x150, 10.2f, "Panzerschreck Enrage"); // t=1146.5
+    Timeout(id + 0x160, 10.2f, "Panzerschreck Enrage"); // t=1156.7
+    Timeout(id + 0x170, 10.2f, "Panzerschreck Enrage"); // t=1166.9
+}
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 10.0f, "Stockpile"); // t=2010.0; Ability 1A38 from Refurbisher 0; cactbot StartsUsing 1A38 [A9S Stockpile Count]
+    Timeout(id + 0x10, 2.1f, "Right Arm Reassembly"); // t=2012.1; Ability 1A2E from Refurbisher 0
+    Timeout(id + 0x20, 2.2f, "Power Generator x2 (NE) / Lava (NE)"); // t=2014.3
+    Timeout(id + 0x30, 9.1f, "Scrap"); // t=2023.4; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x40, 11.0f, "--rocks fall--"); // t=2034.4
+    Timeout(id + 0x50, 5.2f, "Scrap Burst"); // t=2039.6; Ability 1A3A from Refurbisher 0; cactbot HeadMarker 17 [A9S Scrap Burst]
+    Timeout(id + 0x60, 9.2f, "Scrap"); // t=2048.8; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x70, 7.1f, "Scrap"); // t=2055.9; Ability 1A39 from Refurbisher 0
+}
+
+private void Phase_2(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stockpile"); // t=2066.0; Ability 1A38 from Refurbisher 0; cactbot StartsUsing 1A38 [A9S Stockpile Count]
+    Timeout(id + 0x10, 8.2f, "Scrapline"); // t=2074.2
+    Timeout(id + 0x20, 4.0f, "Power Generator x2 (SE) / Lava (SE)"); // t=2078.2
+    Timeout(id + 0x30, 9.3f, "Scrap"); // t=2087.5; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x40, 12.2f, "Acid Rain / Scrap"); // t=2099.7; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x50, 7.1f, "Scrap"); // t=2106.8; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x60, 14.2f, "Scrap Bomb"); // t=2121.0; Ability 1A3E from Refurbisher 0; cactbot HeadMarker 3E [A9S Scrap Bomb Stack]
+}
+
+private void Phase_3(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stockpile"); // t=2133.2; Ability 1A38 from Refurbisher 0; cactbot StartsUsing 1A38 [A9S Stockpile Count]
+    Timeout(id + 0x10, 8.2f, "Scrapline"); // t=2141.4
+    Timeout(id + 0x20, 4.0f, "Lava (NW)"); // t=2145.4
+    Timeout(id + 0x30, 1.2f, "Full-Metal Faust Add"); // t=2146.6
+    Timeout(id + 0x40, 6.1f, "Panzer Vor"); // t=2152.7; Ability 1C05 from Full-Metal Faust
+    Targetable(id + 0x50, true, 0.0f, "--targetable--"); // t=2152.7
+    Timeout(id + 0x60, 8.0f, "Lava (NE)"); // t=2160.7
+    Timeout(id + 0x70, 4.2f, "Scrapline"); // t=2164.9; Ability 1A3C from Refurbisher 0; cactbot StartsUsing 1A3C [A9S Scrapline]
+    Timeout(id + 0x80, 9.0f, "Lava (SW)"); // t=2173.9
+    Timeout(id + 0x90, 6.3f, "Acid Rain"); // t=2180.2
+    Timeout(id + 0xA0, 9.1f, "Lava (SE)"); // t=2189.3
+    Timeout(id + 0xB0, 5.8f, "--rocks fall--"); // t=2195.1
+    Timeout(id + 0xC0, 5.2f, "Scrap Burst"); // t=2200.3; Ability 1A3A from Refurbisher 0; cactbot HeadMarker 17 [A9S Scrap Burst]
+}
+
+private void Phase_4(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stockpile"); // t=2215.5; Ability 1A38 from Refurbisher 0; cactbot StartsUsing 1A38 [A9S Stockpile Count]
+    Timeout(id + 0x10, 11.0f, "Power Generator x1 (SW) / Alarum x1 (SW) / Lava (SW)"); // t=2226.5
+    Timeout(id + 0x20, 12.2f, "--rocks fall--"); // t=2238.7
+    Timeout(id + 0x30, 5.2f, "Scrap Burst"); // t=2243.9; Ability 1A3A from Refurbisher 0; cactbot HeadMarker 17 [A9S Scrap Burst]
+    Timeout(id + 0x40, 9.2f, "Scrap"); // t=2253.1; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x50, 7.1f, "Scrap"); // t=2260.2; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x60, 9.2f, "Scrap Bomb"); // t=2269.4; Ability 1A3E from Refurbisher 0; cactbot HeadMarker 3E [A9S Scrap Bomb Stack]
+}
+
+private void Phase_5(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stockpile"); // t=2281.6; Ability 1A38 from Refurbisher 0; cactbot StartsUsing 1A38 [A9S Stockpile Count]
+    Timeout(id + 0x10, 2.1f, "Left Arm Reassembly"); // t=2283.7; Ability 1A2F from Refurbisher 0
+    Timeout(id + 0x20, 11.2f, "Double Scrapline"); // t=2294.9; cactbot StartsUsing 1A3D [A9S Double Scrapline]
+    Timeout(id + 0x30, 4.0f, "Power Generator x2 (NW) / Alarum x1 (NW) / Bomb x2 (NE) / Lava (NW)"); // t=2298.9
+    Timeout(id + 0x40, 7.3f, "Scrap"); // t=2306.2; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x50, 7.1f, "Scrap"); // t=2313.3; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x60, 7.2f, "Acid Rain"); // t=2320.5
+    Timeout(id + 0x70, 5.0f, "Scrap"); // t=2325.5; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x80, 7.1f, "Scrap"); // t=2332.6; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x90, 4.5f, "Explosion (NE)"); // t=2337.1; Ability 1A35 from Bomb
+    Timeout(id + 0xA0, 2.6f, "Scrap"); // t=2339.7; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0xB0, 5.0f, "Acid Rain"); // t=2344.7
+}
+
+private void Phase_6(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stockpile"); // t=2350.8; Ability 1A38 from Refurbisher 0; cactbot StartsUsing 1A38 [A9S Stockpile Count]
+    Timeout(id + 0x10, 10.2f, "Double Scrapline"); // t=2361.0; cactbot StartsUsing 1A3D [A9S Double Scrapline]
+    Timeout(id + 0x20, 4.0f, "Power Generator x1 (SW) / Alarum x1 (SW) / Bomb x2 (NW/SE) / Lava (NE/SW)"); // t=2365.0
+    Timeout(id + 0x30, 11.4f, "Scrap Bomb"); // t=2376.4; Ability 1A3E from Refurbisher 0; cactbot HeadMarker 3E [A9S Scrap Bomb Stack]
+    Timeout(id + 0x40, 8.2f, "Scrap"); // t=2384.6; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x50, 13.9f, "--rocks fall--"); // t=2398.5
+    Timeout(id + 0x60, 4.8f, "Explosion (NW/SE)"); // t=2403.3; Ability 1A35 from Bomb
+    Timeout(id + 0x70, 0.4f, "Scrap Burst"); // t=2403.7; Ability 1A3A from Refurbisher 0; cactbot HeadMarker 17 [A9S Scrap Burst]
+}
+
+private void Phase_7(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stockpile"); // t=2418.9; Ability 1A38 from Refurbisher 0; cactbot StartsUsing 1A38 [A9S Stockpile Count]
+    Timeout(id + 0x10, 10.2f, "Double Scrapline"); // t=2429.1; cactbot StartsUsing 1A3D [A9S Double Scrapline]
+    Timeout(id + 0x20, 4.0f, "Power Generator x2 (NW) / Alarum (NW) / Bomb x2 (NE) / Lava (NW)"); // t=2433.1
+    Timeout(id + 0x30, 7.3f, "Scrap"); // t=2440.4; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x40, 7.1f, "Scrap"); // t=2447.5; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x50, 7.2f, "Acid Rain"); // t=2454.7
+    Timeout(id + 0x60, 5.0f, "Scrap"); // t=2459.7; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x70, 7.2f, "Scrap"); // t=2466.9; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x80, 4.5f, "Explosion (NE)"); // t=2471.4; Ability 1A35 from Bomb
+    Timeout(id + 0x90, 2.7f, "Scrap"); // t=2474.1; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0xA0, 5.0f, "Acid Rain"); // t=2479.1
+}
+
+private void Phase_8(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stockpile"); // t=2485.2; Ability 1A38 from Refurbisher 0; cactbot StartsUsing 1A38 [A9S Stockpile Count]
+    Timeout(id + 0x10, 10.2f, "Double Scrapline"); // t=2495.4; cactbot StartsUsing 1A3D [A9S Double Scrapline]
+    Timeout(id + 0x20, 4.0f, "Power Generator x1 (SW) / Alarum x1 (SW) / Bomb x2 (NW/SE) / Lava (NE/SW)"); // t=2499.4
+    Timeout(id + 0x30, 11.4f, "Scrap Bomb"); // t=2510.8; Ability 1A3E from Refurbisher 0; cactbot HeadMarker 3E [A9S Scrap Bomb Stack]
+    Timeout(id + 0x40, 14.1f, "Scrap"); // t=2524.9; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x50, 12.8f, "Explosion (NW/SE)"); // t=2537.7; Ability 1A35 from Bomb
+    Timeout(id + 0x60, 8.4f, "Scrap Storm"); // t=2546.1; Ability 1A3B from Refurbisher 0
+}
+
+private void Enrage(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Stockpile"); // t=2554.3; Ability 1A38 from Refurbisher 0; cactbot StartsUsing 1A38 [A9S Stockpile Count]
+    Timeout(id + 0x10, 2.2f, "Heat Shielding Reassembly"); // t=2556.5; Ability 1A30 from Refurbisher 0
+    Timeout(id + 0x20, 6.1f, "Scrap Storm Enrage"); // t=2562.6; Ability 1A3B from Refurbisher 0
+}
+
+private void Post_enrage_timeline_science(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Double Scrapline"); // t=2572.7; cactbot StartsUsing 1A3D [A9S Double Scrapline]
+    Timeout(id + 0x10, 4.0f, "Power Generator x1 (NW) / Alarum x1 (NW) / Bomb x2 (NE) / Lava (NW)"); // t=2576.7
+    Timeout(id + 0x20, 7.3f, "Scrap"); // t=2584.0; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x30, 7.1f, "Scrap"); // t=2591.1; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x40, 7.2f, "Acid Rain"); // t=2598.3
+    Timeout(id + 0x50, 5.0f, "Scrap"); // t=2603.3; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x60, 7.2f, "Scrap"); // t=2610.5; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x70, 4.5f, "Explosion (NE)"); // t=2615.0; Ability 1A35 from Bomb
+    Timeout(id + 0x80, 2.6f, "Scrap"); // t=2617.6; Ability 1A39 from Refurbisher 0
+    Timeout(id + 0x90, 5.0f, "Acid Rain"); // t=2622.6
+    Timeout(id + 0xA0, 6.1f, "Stockpile"); // t=2628.7; Ability 1A38 from Refurbisher 0; cactbot StartsUsing 1A38 [A9S Stockpile Count]
+    Timeout(id + 0xB0, 10.2f, "Double Scrapline"); // t=2638.9; cactbot StartsUsing 1A3D [A9S Double Scrapline]
+    Timeout(id + 0xC0, 4.0f, "Power Generator x1 (SW) / Alarum x1 (SW) / Bomb x2 (NW/SE) / Lava (NE/SW)"); // t=2642.9
+    Timeout(id + 0xD0, 11.5f, "Scrap Bomb"); // t=2654.4; Ability 1A3E from Refurbisher 0; cactbot HeadMarker 3E [A9S Scrap Bomb Stack]
+    Condition(id + 0xE0, 4.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x1A3B), "", 5f, 0.0f); // t=2659.2; StartsUsing 1A3B from Refurbisher 0
+    Timeout(id + 0xF0, 0.3f, "Scrap Storm Enrage"); // t=2659.5; Ability 1A3B from Refurbisher 0
+    Timeout(id + 0x100, 8.2f, "Scrap Storm Enrage"); // t=2667.7
+    Timeout(id + 0x110, 8.2f, "Scrap Storm Enrage"); // t=2675.9
+    Timeout(id + 0x120, 8.2f, "Scrap Storm Enrage"); // t=2684.1
+    Timeout(id + 0x130, 8.2f, "Scrap Storm Enrage"); // t=2692.3
+}
+

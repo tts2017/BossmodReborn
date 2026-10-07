@@ -1,0 +1,60 @@
+// Generated development skeleton from e10n.txt (TerritoryType 943).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 14 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e10n.ts.
+
+private void Eden_10__Normal(uint id)
+{
+    Timeout(id + 0x0, 17.0f, "Forward Implosion"); // t=17.0; Ability 56B4 from Shadowkeeper; cactbot StartsUsing 56B4 [E10N Forward Implosion]
+    Timeout(id + 0x10, 13.5f, "Forward Shadow Implosion"); // t=30.5; Ability 56B5 from Shadowkeeper; cactbot StartsUsing 56B5 [E10N Forward Shadow Implosion]
+    Timeout(id + 0x20, 11.3f, "Deepshadow Nova").SetHint(StateMachine.StateHint.Raidwide); // t=41.8; Ability 56E5 from Shadowkeeper; cactbot StartsUsing 56E5 [E10N Deepshadow Nova]
+    Timeout(id + 0x30, 13.2f, "Backward Implosion"); // t=55.0; Ability 56B7 from Shadowkeeper; cactbot StartsUsing 56B7 [E10N Backward Implosion]
+    Timeout(id + 0x40, 13.5f, "Backward Shadow Implosion"); // t=68.5; Ability 56B8 from Shadowkeeper; cactbot StartsUsing 56B8 [E10N Backward Shadow Implosion]
+    Timeout(id + 0x50, 6.4f, "--center--"); // t=74.9; Ability 5B08 from Shadowkeeper
+    Timeout(id + 0x60, 5.4f, "Spawn Shadow"); // t=80.3; Ability 56D6 from Shadowkeeper
+    Timeout(id + 0x70, 6.1f, "Shadow Warrior"); // t=86.4; Ability 56E2 from Shadowkeeper; cactbot StartsUsing 56E2 [E10N Shadow Warrior]
+    Timeout(id + 0x80, 13.2f, "Barbs Of Agony"); // t=99.6; Ability 5743 from Shadowkeeper
+    Timeout(id + 0x90, 13.1f, "Deepshadow Nova").SetHint(StateMachine.StateHint.Raidwide); // t=112.7; Ability 56E5 from Shadowkeeper; cactbot StartsUsing 56E5 [E10N Deepshadow Nova]
+    Timeout(id + 0xA0, 6.2f, "--center--"); // t=118.9; Ability 5B08 from Shadowkeeper
+    Timeout(id + 0xB0, 5.4f, "Fade To Shadow"); // t=124.3; Ability 56DA from Shadowkeeper
+    Timeout(id + 0xC0, 13.6f, "Cloak Of Shadows"); // t=137.9; Ability 5B11 from Shadowkeeper; cactbot StartsUsing 5B11 [E10N Cloak of Shadows ]
+    Timeout(id + 0xD0, 11.2f, "Throne Of Shadow"); // t=149.1; Ability 56C7 from Shadowkeeper; cactbot StartsUsing 56C7 [E10N Throne Of Shadow]
+    Timeout(id + 0xE0, 8.6f, "Umbra Smash x4"); // t=157.7
+    Timeout(id + 0xF0, 11.5f, "Shadow's Edge"); // t=169.2; Ability 5B0B from Shadowkeeper; cactbot StartsUsing 5B0B [E10N Shadow\]
+    Timeout(id + 0x100, 11.4f, "Left/Right Giga Slash"); // t=180.6
+    Timeout(id + 0x110, 13.5f, "Left/Right Shadow Slash"); // t=194.1; cactbot StartsUsing 56AF/56B2 [E10N Left Right Shadow Slash]
+    Timeout(id + 0x120, 11.4f, "Voidgate"); // t=205.5; Ability 56DD from Shadowkeeper; cactbot StartsUsing 56DD [E10N Voidgate]
+    Timeout(id + 0x130, 14.1f, "Void Pulse"); // t=219.6; Ability 56DE from Shadowkeeper
+    Timeout(id + 0x140, 11.2f, "Left/Right Shadow Slash"); // t=230.8; cactbot StartsUsing 56AF/56B2 [E10N Left Right Shadow Slash]
+    Timeout(id + 0x150, 3.1f, "Left/Right Shadow Slash"); // t=233.9; cactbot StartsUsing 56AF/56B2 [E10N Left Right Shadow Slash]
+    Timeout(id + 0x160, 12.7f, "Distant Scream").SetHint(StateMachine.StateHint.Knockback); // t=246.6; Ability 56C6 from Shadowkeeper; cactbot StartsUsing 56C6 [E10N Distant Scream]
+    Timeout(id + 0x170, 6.6f, "--center--"); // t=253.2; Ability 5B08 from Shadowkeeper
+    Timeout(id + 0x180, 5.4f, "Spawn Shadow"); // t=258.6; Ability 56D6 from Shadowkeeper
+    Timeout(id + 0x190, 6.1f, "Shadow Warrior"); // t=264.7; Ability 56E2 from Shadowkeeper; cactbot StartsUsing 56E2 [E10N Shadow Warrior]
+    Timeout(id + 0x1A0, 12.2f, "Shadowy Eruption"); // t=276.9
+    Timeout(id + 0x1B0, 1.1f, "Barbs Of Agony"); // t=278.0; Ability 5743 from Shadowkeeper
+    Timeout(id + 0x1C0, 17.1f, "Deepshadow Nova").SetHint(StateMachine.StateHint.Raidwide); // t=295.1; Ability 56E5 from Shadowkeeper; cactbot StartsUsing 56E5 [E10N Deepshadow Nova]
+    Timeout(id + 0x1D0, 14.3f, "Front/Back Shadow Implosion"); // t=309.4
+    Timeout(id + 0x1E0, 3.1f, "Front/Back Shadow Implosion"); // t=312.5
+    Timeout(id + 0x1F0, 8.2f, "Deepshadow Nova").SetHint(StateMachine.StateHint.Raidwide); // t=320.7; Ability 56E5 from Shadowkeeper; cactbot StartsUsing 56E5 [E10N Deepshadow Nova]
+    Timeout(id + 0x200, 8.2f, "--center--"); // t=328.9; Ability 5B08 from Shadowkeeper
+    Timeout(id + 0x210, 5.4f, "Fade To Shadow"); // t=334.3; Ability 56DA from Shadowkeeper
+    Timeout(id + 0x220, 12.8f, "Forward/Backward Implosion"); // t=347.1
+    Timeout(id + 0x230, 0.8f, "Cloak Of Shadows"); // t=347.9; Ability 5B11 from Shadowkeeper; cactbot StartsUsing 5B11 [E10N Cloak of Shadows ]
+    Timeout(id + 0x240, 11.1f, "Throne Of Shadow"); // t=359.0; Ability 56C7 from Shadowkeeper; cactbot StartsUsing 56C7 [E10N Throne Of Shadow]
+    Timeout(id + 0x250, 8.6f, "Voidgate"); // t=367.6; Ability 56DD from Shadowkeeper; cactbot StartsUsing 56DD [E10N Voidgate]
+    Timeout(id + 0x260, 14.1f, "Void Pulse"); // t=381.7; Ability 56DE from Shadowkeeper
+    Timeout(id + 0x270, 3.1f, "Left/Right Giga Slash"); // t=384.8
+    Timeout(id + 0x280, 10.4f, "Shadowy Eruption"); // t=395.2
+    Timeout(id + 0x290, 9.2f, "Left/Right Shadow Slash"); // t=404.4; cactbot StartsUsing 56AF/56B2 [E10N Left Right Shadow Slash]
+    Timeout(id + 0x2A0, 3.1f, "Left/Right Shadow Slash"); // t=407.5; cactbot StartsUsing 56AF/56B2 [E10N Left Right Shadow Slash]
+    Timeout(id + 0x2B0, 11.1f, "Umbra Smash x4"); // t=418.6
+    Timeout(id + 0x2C0, 11.4f, "Shadow's Edge"); // t=430.0; Ability 5B0B from Shadowkeeper; cactbot StartsUsing 5B0B [E10N Shadow\]
+    Timeout(id + 0x2D0, 9.3f, "Shadowy Eruption x3"); // t=439.3
+    Timeout(id + 0x2E0, 9.7f, "Distant Scream").SetHint(StateMachine.StateHint.Knockback); // t=449.0; Ability 56C6 from Shadowkeeper; cactbot StartsUsing 56C6 [E10N Distant Scream]
+    Timeout(id + 0x2F0, 12.0f, "Spawn Shadow"); // t=461.0
+    Timeout(id + 0x300, 6.1f, "Shadow Warrior"); // t=467.1; cactbot StartsUsing 56E2 [E10N Shadow Warrior]
+    Timeout(id + 0x310, 12.2f, "Shadowy Eruption"); // t=479.3
+    Timeout(id + 0x320, 1.1f, "Barbs Of Agony"); // t=480.4
+}
+

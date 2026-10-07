@@ -1,0 +1,36 @@
+# Local tooling (not part of upstream). Patterns moved here from the old fork's root .gitignore
+# so the upstream .gitignore stays untouched.
+**/.venv/
+**/__pycache__/
+*.py[cod]
+bin/
+obj/
+
+# MNK/job tuning tool generated data
+mnk_tuning/cache/
+mnk_tuning/*_response.json
+mnk_tuning/*_summary.json
+mnk_tuning/*_features.json
+mnk_tuning/*_profile.json
+mnk_tuning/*_candidates.json
+!mnk_tuning/mnk_ability_map_candidates.json
+!mnk_tuning/nin_ability_map_candidates.json
+!mnk_tuning/blm_ability_map_candidates.json
+!mnk_tuning/vpr_ability_map_candidates.json
+mnk_tuning/*_sample.json
+mnk_tuning/*_job_samples.json
+mnk_tuning/*_samples_batch.json
+mnk_tuning/*_review.md
+mnk_tuning/*_review.json
+mnk_tuning/*_distributions.json
+mnk_tuning/manual_validated_samples.json
+mnk_tuning/tmp_probe*/
+
+# Rotation regression / harness run output (each run writes a new --out directory).
+rpr_regression/*/
+mnk_regression/results/
+mnk_real_harness/results/
+mch_real_harness/results/
+blm_regression/results/
+blm_regression/results_highend/
+mch_regression/fflogs_out/

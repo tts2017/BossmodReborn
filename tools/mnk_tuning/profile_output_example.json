@@ -1,0 +1,20 @@
+{
+  "contentId": 0,
+  "job": "MNK",
+  "source": "top300_public_logs_aggregated",
+  "sampleCount": 0,
+  "profile": {
+    "MajorBurstMeleeSafeGCDs": 5.0,
+    "PBMeleeSafeGCDs": 3.0,
+    "EvenPreRoFPBStartThreshold": 6.0,
+    "RoFBrotherhoodResyncWindow": 45.0,
+    "TargetAvailableUptimeRequired": 20.0,
+    "PotionFutureWindowLeeway": 5.0,
+    "RoWTwoMinuteHoldWindow": 45.0,
+    "RoWUptimeRequired": 15.0,
+    "RoWEndBurnLeeway": 20.0,
+    "LastRoFWindowLeeway": 70.0,
+    "LastBrotherhoodWindowLeeway": 135.0,
+    "LastPotionWindowLeeway": 285.0
+  }
+}

@@ -1,0 +1,142 @@
+// Generated development skeleton from levi-un.txt (TerritoryType 972).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 11 static/dynamic trigger definitions from ui/raidboss/data/05-shb/trial/levi-un.ts.
+
+private void Phase_1__Literally_Just_Autos__100_____90(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Targetable(id + 0x10, false, 25.8f, "--untargetable--"); // t=25.8
+}
+
+private void Phase_2__One_Set_of_Orbs__90_____50(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=33.0
+    Timeout(id + 0x10, 0.1f, "Body Slam"); // t=33.1; Ability 5CD2 from Leviathan; cactbot Ability 5CD2 [LeviUn Dive Counter Body Slam Reset]
+    Timeout(id + 0x20, 5.2f, "Veil Of The Whorl"); // t=38.3; Ability 5CE5 from Leviathan; cactbot Ability 5CE5 [LeviUn Veil of the Whorl]
+    Timeout(id + 0x30, 5.0f, "Mantle Of The Whorl"); // t=43.3; Ability 5CE4 from Leviathan's Tail; cactbot Ability 5CE4 [LeviUn Mantle of the Whorl]
+    Timeout(id + 0x40, 2.3f, "--2x Wavespine Sahagin (N)--"); // t=45.6
+    Timeout(id + 0x50, 7.6f, "Aqua Breath"); // t=53.2; Ability 5CCD from Leviathan
+    Timeout(id + 0x60, 6.1f, "Tail Whip"); // t=59.3; Ability 5CCE from Leviathan's Tail
+    Timeout(id + 0x70, 1.1f, "Waterspout"); // t=60.4; Ability 5CD0 from Leviathan
+    Timeout(id + 0x80, 13.4f, "Dread Tide"); // t=73.8; Ability 5CC9 from Leviathan
+    Timeout(id + 0x90, 4.1f, "Tidal Roar"); // t=77.9; Ability 5CDA from Leviathan
+    Targetable(id + 0xA0, false, 7.3f, "--untargetable--"); // t=85.2
+    Timeout(id + 0xB0, 3.1f, "Grand Fall"); // t=88.3; Ability 5CDF from Leviathan
+    Timeout(id + 0xC0, 2.5f, "Spinning Dive"); // t=90.8; Ability 5CDB from Leviathan
+    Timeout(id + 0xD0, 3.5f, "Grand Fall"); // t=94.3; Ability 5CDF from Leviathan
+    Timeout(id + 0xE0, 1.5f, "Spinning Dive"); // t=95.8; Ability 5CDB from Leviathan
+    Targetable(id + 0xF0, true, 5.7f, "--targetable--"); // t=101.5
+    Timeout(id + 0x100, 0.1f, "Body Slam"); // t=101.6; Ability 5CD2 from Leviathan; cactbot Ability 5CD2 [LeviUn Dive Counter Body Slam Reset]
+    Timeout(id + 0x110, 4.4f, "Briny Veil"); // t=106.0; Ability 5CE1 from Leviathan
+    Timeout(id + 0x120, 4.7f, "--Wavetooth Sahagin (E)--"); // t=110.7
+    Timeout(id + 0x130, 10.3f, "Dread Tide"); // t=121.0; Ability 5CC9 from Leviathan
+    Timeout(id + 0x140, 4.1f, "Aqua Breath"); // t=125.1; Ability 5CCD from Leviathan
+    Timeout(id + 0x150, 0.9f, "Tail Whip"); // t=126.0; Ability 5CCE from Leviathan's Tail
+    Timeout(id + 0x160, 6.3f, "Waterspout"); // t=132.3; Ability 5CD0 from Leviathan
+    Timeout(id + 0x170, 13.4f, "Dread Tide"); // t=145.7; Ability 5CC9 from Leviathan
+    Timeout(id + 0x180, 4.1f, "Tidal Roar"); // t=149.8; Ability 5CDA from Leviathan
+    Targetable(id + 0x190, false, 5.1f, "--untargetable--"); // t=154.9
+    Timeout(id + 0x1A0, 3.1f, "Grand Fall x3"); // t=158.0
+    Timeout(id + 0x1B0, 2.5f, "Spinning Dive"); // t=160.5; Ability 5CDB from Leviathan
+    Timeout(id + 0x1C0, 4.9f, "Spinning Dive"); // t=165.4; Ability 5CDB from Leviathan
+    Targetable(id + 0x1D0, true, 5.7f, "--targetable--"); // t=171.1
+    Timeout(id + 0x1E0, 0.1f, "Body Slam"); // t=171.2; Ability 5CD2 from Leviathan; cactbot Ability 5CD2 [LeviUn Dive Counter Body Slam Reset]
+    Timeout(id + 0x1F0, 9.6f, "--4x Gyre Spume--"); // t=180.8
+    Timeout(id + 0x200, 11.9f, "Dread Tide"); // t=192.7; Ability 5CC9 from Leviathan
+    Timeout(id + 0x210, 3.6f, "Tail Whip"); // t=196.3
+    Timeout(id + 0x220, 0.5f, "Aqua Breath"); // t=196.8; Ability 5CCD from Leviathan
+    Timeout(id + 0x230, 7.2f, "Waterspout"); // t=204.0; Ability 5CD0 from Leviathan
+    Timeout(id + 0x240, 13.3f, "Dread Tide"); // t=217.3; Ability 5CC9 from Leviathan
+    Timeout(id + 0x250, 4.1f, "Tidal Roar"); // t=221.4; Ability 5CDA from Leviathan
+    Targetable(id + 0x260, false, 7.5f, "--untargetable--"); // t=228.9
+    Timeout(id + 0x270, 3.1f, "Grand Fall x3"); // t=232.0
+    Timeout(id + 0x280, 2.5f, "Spinning Dive"); // t=234.5; Ability 5CDB from Leviathan
+    Timeout(id + 0x290, 4.9f, "Spinning Dive"); // t=239.4; Ability 5CDB from Leviathan
+    Targetable(id + 0x2A0, true, 5.7f, "--targetable--"); // t=245.1
+    Timeout(id + 0x2B0, 0.1f, "Body Slam"); // t=245.2; Ability 5CD2 from Leviathan; cactbot Ability 5CD2 [LeviUn Dive Counter Body Slam Reset]
+    Timeout(id + 0x2C0, 22.3f, "Dread Tide"); // t=267.5; Ability 5CC9 from Leviathan
+    Targetable(id + 0x2D0, false, 7.7f, "--untargetable--"); // t=275.2
+    Timeout(id + 0x2E0, 3.1f, "Grand Fall"); // t=278.3; Ability 5CDF from Leviathan
+    Timeout(id + 0x2F0, 2.5f, "Spinning Dive"); // t=280.8; Ability 5CDB from Leviathan
+    Targetable(id + 0x300, false, 0.0f, "--untargetable--"); // t=280.8
+    Timeout(id + 0x310, 5.7f, "Tidal Wave"); // t=286.5; Ability 5CDE from Leviathan; cactbot Ability 5CDE [LeviUn Dive Counter Tidal Wave Reset]
+}
+
+private void Phase_3__Two_Sets_of_Orbs__50_____20(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=299.2
+    Timeout(id + 0x10, 0.1f, "Body Slam"); // t=299.3; Ability 5CD2 from Leviathan; cactbot Ability 5CD2 [LeviUn Dive Counter Body Slam Reset]
+    Timeout(id + 0x20, 2.0f, "--2x Wavespine Sahagin (S)--"); // t=301.3
+    Timeout(id + 0x30, 17.3f, "Aqua Breath / Tail Whip"); // t=318.6; Ability 5CCD from Leviathan
+    Timeout(id + 0x40, 4.1f, "Waterspout"); // t=322.7; Ability 5CD0 from Leviathan
+    Timeout(id + 0x50, 7.2f, "Dread Tide"); // t=329.9; Ability 5CC9 from Leviathan
+    Timeout(id + 0x60, 8.2f, "Tidal Roar"); // t=338.1; Ability 5CDA from Leviathan
+    Targetable(id + 0x70, false, 9.2f, "--untargetable--"); // t=347.3
+    Timeout(id + 0x80, 3.1f, "Grand Fall"); // t=350.4; Ability 5CDF from Leviathan
+    Timeout(id + 0x90, 2.5f, "Spinning Dive"); // t=352.9; Ability 5CDB from Leviathan
+    Timeout(id + 0xA0, 4.9f, "Spinning Dive"); // t=357.8; Ability 5CDB from Leviathan
+    Targetable(id + 0xB0, true, 5.7f, "--targetable--"); // t=363.5
+    Timeout(id + 0xC0, 0.1f, "Body Slam"); // t=363.6; Ability 5CD2 from Leviathan; cactbot Ability 5CD2 [LeviUn Dive Counter Body Slam Reset]
+    Timeout(id + 0xD0, 1.3f, "--4x Gyre Spume--"); // t=364.9
+    Timeout(id + 0xE0, 18.0f, "Aqua Breath"); // t=382.9; Ability 5CCD from Leviathan
+    Timeout(id + 0xF0, 2.1f, "Tail Whip"); // t=385.0
+    Timeout(id + 0x100, 2.1f, "Waterspout"); // t=387.1; Ability 5CD0 from Leviathan
+    Timeout(id + 0x110, 7.2f, "Dread Tide"); // t=394.3; Ability 5CC9 from Leviathan
+    Timeout(id + 0x120, 8.1f, "--4x Wave Spume--"); // t=402.4
+    Timeout(id + 0x130, 0.1f, "Tidal Roar"); // t=402.5; Ability 5CDA from Leviathan
+    Targetable(id + 0x140, false, 11.3f, "--untargetable--"); // t=413.8
+    Timeout(id + 0x150, 3.1f, "Grand Fall x3"); // t=416.9
+    Timeout(id + 0x160, 2.5f, "Spinning Dive"); // t=419.4; Ability 5CDB from Leviathan
+    Targetable(id + 0x170, true, 5.7f, "--targetable--"); // t=425.1
+    Timeout(id + 0x180, 0.1f, "Body Slam"); // t=425.2; Ability 5CD2 from Leviathan; cactbot Ability 5CD2 [LeviUn Dive Counter Body Slam Reset]
+    Timeout(id + 0x190, 10.1f, "Dread Tide"); // t=435.3; Ability 5CC9 from Leviathan
+    Timeout(id + 0x1A0, 4.3f, "Aqua Burst"); // t=439.6; Ability 888 from Wave Spume
+    Timeout(id + 0x1B0, 2.9f, "Aqua Breath"); // t=442.5; Ability 5CCD from Leviathan
+    Timeout(id + 0x1C0, 4.1f, "Waterspout"); // t=446.6; Ability 5CD0 from Leviathan
+    Timeout(id + 0x1D0, 9.2f, "Dread Tide"); // t=455.8; Ability 5CC9 from Leviathan
+    Targetable(id + 0x1E0, false, 6.7f, "--untargetable--"); // t=462.5
+    Timeout(id + 0x1F0, 3.1f, "Grand Fall x3"); // t=465.6
+    Timeout(id + 0x200, 2.5f, "Spinning Dive"); // t=468.1; Ability 5CDB from Leviathan
+    Targetable(id + 0x210, false, 0.0f, "--untargetable--"); // t=468.1
+    Timeout(id + 0x220, 5.8f, "Tidal Wave"); // t=473.9; Ability 5CDE from Leviathan; cactbot Ability 5CDE [LeviUn Dive Counter Tidal Wave Reset]
+}
+
+private void Phase_4__more_adds__enrage(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=486.6
+    Timeout(id + 0x10, 0.1f, "Body Slam"); // t=486.7; Ability 5CD2 from Leviathan; cactbot Ability 5CD2 [LeviUn Dive Counter Body Slam Reset]
+    Timeout(id + 0x20, 1.5f, "--Wavetooth Sahagin (NW)--"); // t=488.2
+    Timeout(id + 0x30, 12.1f, "Tidal Roar"); // t=500.3; Ability 5CDA from Leviathan
+    Timeout(id + 0x40, 8.2f, "Aqua Breath"); // t=508.5; Ability 5CCD from Leviathan
+    Timeout(id + 0x50, 4.1f, "Waterspout / Tail Whip"); // t=512.6; Ability 5CD0 from Leviathan
+    Timeout(id + 0x60, 7.2f, "Dread Tide"); // t=519.8; Ability 5CC9 from Leviathan
+    Timeout(id + 0x70, 4.1f, "Tidal Roar"); // t=523.9; Ability 5CDA from Leviathan
+    Targetable(id + 0x80, false, 8.2f, "--untargetable--"); // t=532.1
+    Timeout(id + 0x90, 3.1f, "Grand Fall x3"); // t=535.2
+    Timeout(id + 0xA0, 2.5f, "Spinning Dive"); // t=537.7; Ability 5CDB from Leviathan
+    Timeout(id + 0xB0, 4.9f, "Spinning Dive"); // t=542.6; Ability 5CDB from Leviathan
+    Targetable(id + 0xC0, true, 5.7f, "--targetable--"); // t=548.3
+    Timeout(id + 0xD0, 0.1f, "Body Slam"); // t=548.4; Ability 5CD2 from Leviathan; cactbot Ability 5CD2 [LeviUn Dive Counter Body Slam Reset]
+    Timeout(id + 0xE0, 15.2f, "Dread Tide"); // t=563.6; Ability 5CC9 from Leviathan
+    Timeout(id + 0xF0, 4.1f, "Tidal Roar"); // t=567.7; Ability 5CDA from Leviathan
+    Timeout(id + 0x100, 13.4f, "Dread Tide"); // t=581.1; Ability 5CC9 from Leviathan
+    Timeout(id + 0x110, 6.2f, "Tidal Roar"); // t=587.3; Ability 5CDA from Leviathan
+    Timeout(id + 0x120, 13.6f, "--2x Wavespine Sahagin--"); // t=600.9
+    Timeout(id + 0x130, 0.7f, "Tidal Roar"); // t=601.6; Ability 5CDA from Leviathan
+    Timeout(id + 0x140, 8.2f, "Aqua Breath"); // t=609.8; Ability 5CCD from Leviathan
+    Timeout(id + 0x150, 4.1f, "Waterspout"); // t=613.9; Ability 5CD0 from Leviathan
+    Timeout(id + 0x160, 0.9f, "Tail Whip"); // t=614.8
+    Timeout(id + 0x170, 6.3f, "Dread Tide"); // t=621.1; Ability 5CC9 from Leviathan
+    Timeout(id + 0x180, 4.1f, "Tidal Roar"); // t=625.2; Ability 5CDA from Leviathan
+    Targetable(id + 0x190, false, 8.9f, "--untargetable--"); // t=634.1
+    Timeout(id + 0x1A0, 3.1f, "Grand Fall x3"); // t=637.2; Ability 5CDF from Leviathan
+    Timeout(id + 0x1B0, 2.5f, "Spinning Dive"); // t=639.7; Ability 5CDB from Leviathan
+    Timeout(id + 0x1C0, 4.9f, "Spinning Dive"); // t=644.6; Ability 5CDB from Leviathan
+    Targetable(id + 0x1D0, true, 5.7f, "--targetable--"); // t=650.3
+    Timeout(id + 0x1E0, 0.1f, "Body Slam"); // t=650.4; Ability 5CD2 from Leviathan; cactbot Ability 5CD2 [LeviUn Dive Counter Body Slam Reset]
+    Timeout(id + 0x1F0, 15.2f, "Dread Tide"); // t=665.6; Ability 5CC9 from Leviathan
+    Targetable(id + 0x200, false, 4.0f, "--untargetable--"); // t=669.6
+    Timeout(id + 0x210, 7.3f, "Tidal Wave Enrage"); // t=676.9; Ability 5CDE from Leviathan; cactbot Ability 5CDE [LeviUn Dive Counter Tidal Wave Reset]
+}
+

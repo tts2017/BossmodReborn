@@ -1,0 +1,62 @@
+// Generated development skeleton from e5n.txt (TerritoryType 902).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 9 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e5n.ts.
+
+private void Eden_5__Normal(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 13.6f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=13.6; Ability 4BA3 from Ramuh; cactbot StartsUsing 4BA3 [E5N Crippling Blow]
+    Timeout(id + 0x20, 13.2f, "Stratospear Summons"); // t=26.8; Ability 4B8D from Ramuh; cactbot Ability 4B8D [E5N Stratospear Summons]
+    Timeout(id + 0x30, 4.9f, "Impact"); // t=31.7; Ability 4E3A from Ramuh
+    Timeout(id + 0x40, 7.0f, "Judgment Jolt"); // t=38.7; Ability 4B8E from Ramuh
+    Timeout(id + 0x50, 9.1f, "Stormcloud Summons"); // t=47.8; Ability 4B9B from Ramuh
+    Timeout(id + 0x60, 15.5f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=63.3; Ability 4B98 from Ramuh; cactbot StartsUsing 4B98/4B9A [E5N Judgment Volts]
+    Timeout(id + 0x70, 12.2f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=75.5; Ability 4BA3 from Ramuh; cactbot StartsUsing 4BA3 [E5N Crippling Blow]
+    Timeout(id + 0x80, 9.3f, "Fury's Bolt"); // t=84.8; Ability 4B90 from Ramuh; cactbot StartsUsing 4B90 [E5N Fury\]
+    Timeout(id + 0x90, 9.1f, "Divine Judgment Volts"); // t=93.9; Ability 4E62 from Ramuh; cactbot StartsUsing 4B9A [E5N Divine Judgment Volts]
+    Timeout(id + 0xA0, 13.2f, "Tribunal Summons"); // t=107.1; Ability 4B91 from Ramuh; cactbot StartsUsing 4B91 [E5N Tribunal Summons]
+    Timeout(id + 0xB0, 7.5f, "Deadly Discharge"); // t=114.6; Ability 4B92 from Will Of Ramuh
+    Timeout(id + 0xC0, 9.1f, "Tribunal Summons"); // t=123.7; Ability 4B91 from Ramuh; cactbot StartsUsing 4B91 [E5N Tribunal Summons]
+    Timeout(id + 0xD0, 7.5f, "Gallop"); // t=131.2; Ability 4B96 from Will Of Ixion
+    Timeout(id + 0xE0, 12.1f, "Stratospear Summons"); // t=143.3; Ability 4B8D from Ramuh; cactbot Ability 4B8D [E5N Stratospear Summons]
+    Timeout(id + 0xF0, 4.9f, "Impact"); // t=148.2; Ability 4E3A from Ramuh
+    Timeout(id + 0x100, 7.0f, "Judgment Jolt"); // t=155.2; Ability 4B8E from Ramuh
+    Timeout(id + 0x110, 9.2f, "Fury's Bolt"); // t=164.4; Ability 4B90 from Ramuh; cactbot StartsUsing 4B90 [E5N Fury\]
+    Timeout(id + 0x120, 9.1f, "Divine Judgment Volts"); // t=173.5; Ability 4E62 from Ramuh; cactbot StartsUsing 4B9A [E5N Divine Judgment Volts]
+    Timeout(id + 0x130, 8.2f, "Thunderstorm"); // t=181.7; Ability 4BA0 from Ramuh
+    Timeout(id + 0x140, 10.4f, "Volt Strike"); // t=192.1; Ability 4CF2 from Ramuh
+    Timeout(id + 0x150, 7.0f, "Volt Strike"); // t=199.1; Ability 4CF2 from Ramuh
+    Timeout(id + 0x160, 12.0f, "Stormcloud Summons"); // t=211.1; Ability 4B9B from Ramuh
+    Timeout(id + 0x170, 10.5f, "Tribunal Summons"); // t=221.6; Ability 4B91 from Ramuh; cactbot StartsUsing 4B91 [E5N Tribunal Summons]
+    Timeout(id + 0x180, 7.4f, "Deadly Discharge"); // t=229.0; Ability 4B92 from Will Of Ramuh
+    Timeout(id + 0x190, 15.1f, "Thunderstorm"); // t=244.1; Ability 4BA0 from Ramuh
+    Timeout(id + 0x1A0, 7.4f, "Tribunal Summons"); // t=251.5; Ability 4B91 from Ramuh; cactbot StartsUsing 4B91 [E5N Tribunal Summons]
+    Timeout(id + 0x1B0, 3.0f, "Volt Strike"); // t=254.5; Ability 4CF2 from Ramuh
+    Timeout(id + 0x1C0, 6.5f, "Gallop"); // t=261.0; Ability 4B96 from Will Of Ixion
+    Timeout(id + 0x1D0, 0.6f, "Volt Strike"); // t=261.6; Ability 4CF2 from Ramuh
+    Timeout(id + 0x1E0, 10.4f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=272.0; Ability 4BA3 from Ramuh; cactbot StartsUsing 4BA3 [E5N Crippling Blow]
+    Timeout(id + 0x1F0, 13.2f, "Stratospear Summons"); // t=285.2; Ability 4B8D from Ramuh; cactbot Ability 4B8D [E5N Stratospear Summons]
+    Timeout(id + 0x200, 4.9f, "Impact"); // t=290.1; Ability 4E3A from Ramuh
+    Timeout(id + 0x210, 3.5f, "Stormcloud Summons"); // t=293.6; Ability 4B9B from Ramuh
+    Timeout(id + 0x220, 9.5f, "Judgment Jolt"); // t=303.1; Ability 4B8E from Ramuh
+    Timeout(id + 0x230, 8.2f, "Fury's Bolt"); // t=311.3; Ability 4B90 from Ramuh; cactbot StartsUsing 4B90 [E5N Fury\]
+    Timeout(id + 0x240, 9.1f, "Divine Judgment Volts"); // t=320.4; Ability 4E62 from Ramuh; cactbot StartsUsing 4B9A [E5N Divine Judgment Volts]
+    Timeout(id + 0x250, 11.2f, "Tribunal Summons"); // t=331.6; Ability 4B91 from Ramuh; cactbot StartsUsing 4B91 [E5N Tribunal Summons]
+    Timeout(id + 0x260, 7.5f, "Gallop / Deadly Discharge"); // t=339.1; Ability 4B96 from Will Of Ixion | Ability 4B92 from Will Of Ramuh
+    Timeout(id + 0x270, 11.0f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=350.1; Ability 4BA3 from Ramuh; cactbot StartsUsing 4BA3 [E5N Crippling Blow]
+    Timeout(id + 0x280, 12.3f, "Judgment Volts").SetHint(StateMachine.StateHint.Raidwide); // t=362.4; Ability 4B98 from Ramuh; cactbot StartsUsing 4B98/4B9A [E5N Judgment Volts]
+    Timeout(id + 0x290, 9.2f, "Thunderstorm"); // t=371.6; Ability 4BA0 from Ramuh
+    Timeout(id + 0x2A0, 7.4f, "Tribunal Summons"); // t=379.0; Ability 4B91 from Ramuh; cactbot StartsUsing 4B91 [E5N Tribunal Summons]
+    Timeout(id + 0x2B0, 3.0f, "Volt Strike"); // t=382.0; Ability 4CF2 from Ramuh
+    Timeout(id + 0x2C0, 6.5f, "Gallop"); // t=388.5; Ability 4B96 from Will Of Ixion
+    Timeout(id + 0x2D0, 0.6f, "Volt Strike"); // t=389.1; Ability 4CF2 from Ramuh
+    Timeout(id + 0x2E0, 10.4f, "Crippling Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=399.5; Ability 4BA3 from Ramuh; cactbot StartsUsing 4BA3 [E5N Crippling Blow]
+    Timeout(id + 0x2F0, 13.2f, "Stratospear Summons"); // t=412.7; cactbot Ability 4B8D [E5N Stratospear Summons]
+    Timeout(id + 0x300, 4.9f, "Impact"); // t=417.6
+    Timeout(id + 0x310, 3.5f, "Stormcloud Summons"); // t=421.1
+    Timeout(id + 0x320, 9.5f, "Judgment Jolt"); // t=430.6
+    Timeout(id + 0x330, 8.2f, "Fury's Bolt"); // t=438.8
+    Timeout(id + 0x340, 9.1f, "Divine Judgment Volts"); // t=447.9; cactbot StartsUsing 4B9A [E5N Divine Judgment Volts]
+}
+

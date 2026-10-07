@@ -1,0 +1,82 @@
+// Generated development skeleton from the_burn.txt (TerritoryType 1173).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 14 static/dynamic trigger definitions from ui/raidboss/data/04-sb/dungeon/the_burn.ts.
+
+private void THE_BURN(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 10.4f, "Crystal Needle").SetHint(StateMachine.StateHint.Tankbuster); // t=10.4; Ability 3193 from Hedetet; cactbot StartsUsing 3193 [The Burn Crystal Needle]
+    Timeout(id + 0x20, 15.4f, "Hailfire"); // t=25.8; Ability 3194 from Hedetet; cactbot HeadMarker 2 [The Burn Hailfire]
+    Timeout(id + 0x30, 4.0f, "Resonant Frequency"); // t=29.8; Ability 3198 from Dim Crystal
+    Timeout(id + 0x40, 10.0f, "Shardstrike"); // t=39.8; Ability 3195 from Hedetet; cactbot HeadMarker 60 [The Burn Shardstrike]
+    Timeout(id + 0x50, 14.1f, "Shardfall"); // t=53.9; Ability 3191 from Hedetet; cactbot StartsUsing 3191 [The Burn Crystal Shardfall]
+    Timeout(id + 0x60, 8.1f, "Dissonance"); // t=62.0; Ability 3192 from Hedetet; cactbot StartsUsing 3192 [The Burn Crystal Dissonance]
+    Timeout(id + 0x70, 7.1f, "Crystalline Fracture"); // t=69.1; Ability 3197 from Dim Crystal
+    Timeout(id + 0x80, 5.1f, "Crystal Needle").SetHint(StateMachine.StateHint.Tankbuster); // t=74.2; Ability 3193 from Hedetet; cactbot StartsUsing 3193 [The Burn Crystal Needle]
+    Timeout(id + 0x90, 9.2f, "--jump--"); // t=83.4; Ability 3196 from Hedetet
+    Timeout(id + 0xA0, 9.4f, "Hailfire"); // t=92.8; Ability 3194 from Hedetet; cactbot HeadMarker 2 [The Burn Hailfire]
+    Timeout(id + 0xB0, 11.1f, "Shardstrike"); // t=103.9; Ability 3195 from Hedetet; cactbot HeadMarker 60 [The Burn Shardstrike]
+    Timeout(id + 0xC0, 14.2f, "Shardfall"); // t=118.1; Ability 3191 from Hedetet; cactbot StartsUsing 3191 [The Burn Crystal Shardfall]
+    Timeout(id + 0xD0, 8.0f, "Dissonance"); // t=126.1; Ability 3192 from Hedetet; cactbot StartsUsing 3192 [The Burn Crystal Dissonance]
+    Timeout(id + 0xE0, 7.1f, "Crystalline Fracture"); // t=133.2; Ability 3197 from Dim Crystal
+    Timeout(id + 0xF0, 5.1f, "Crystal Needle").SetHint(StateMachine.StateHint.Tankbuster); // t=138.3; Ability 3193 from Hedetet; cactbot StartsUsing 3193 [The Burn Crystal Needle]
+    Timeout(id + 0x100, 9.2f, "--jump--"); // t=147.5
+    Timeout(id + 0x110, 9.4f, "Hailfire"); // t=156.9; cactbot HeadMarker 2 [The Burn Hailfire]
+    Timeout(id + 0x120, 11.1f, "Shardstrike"); // t=168.0; cactbot HeadMarker 60 [The Burn Shardstrike]
+    Timeout(id + 0x130, 832.0f, "Start"); // t=1000.0
+    Timeout(id + 0x140, 12.7f, "Aetherochemical Flame").SetHint(StateMachine.StateHint.Raidwide); // t=1012.7; Ability 2D73 from Defective Drone; cactbot StartsUsing 2D73 [The Burn Aetherochemical Flame]
+    Timeout(id + 0x150, 14.0f, "Aetherochemical Residue"); // t=1026.7; Ability 2D74 from Defective Drone; cactbot HeadMarker 2 [The Burn Aetherochemical Residue]
+    Targetable(id + 0x160, false, 4.2f, "--untargetable--"); // t=1030.9
+    Timeout(id + 0x170, 8.2f, "Full Throttle"); // t=1039.1; Ability 2D75 from Defective Drone
+    Targetable(id + 0x180, true, 3.1f, "--targetable--"); // t=1042.2
+    Timeout(id + 0x190, 17.1f, "Aetherochemical Coil").SetHint(StateMachine.StateHint.Tankbuster); // t=1059.3; Ability 2D72 from Defective Drone; cactbot StartsUsing 2D72 [The Burn Aetherochemical Coil]
+    Timeout(id + 0x1A0, 15.2f, "Adit Driver"); // t=1074.5; cactbot StartsUsing 2D78 [The Burn Adit Driver]
+    Timeout(id + 0x1B0, 5.9f, "Aetherochemical Flame").SetHint(StateMachine.StateHint.Raidwide); // t=1080.4; Ability 2D73 from Defective Drone; cactbot StartsUsing 2D73 [The Burn Aetherochemical Flame]
+    Timeout(id + 0x1C0, 14.1f, "Aetherochemical Coil").SetHint(StateMachine.StateHint.Tankbuster); // t=1094.5; Ability 2D72 from Defective Drone; cactbot StartsUsing 2D72 [The Burn Aetherochemical Coil]
+    Timeout(id + 0x1D0, 17.2f, "Aetherochemical Residue"); // t=1111.7; Ability 2D74 from Defective Drone; cactbot HeadMarker 2 [The Burn Aetherochemical Residue]
+    Targetable(id + 0x1E0, false, 3.9f, "--untargetable--"); // t=1115.6
+    Timeout(id + 0x1F0, 8.2f, "Full Throttle / Adit Driver"); // t=1123.8; Ability 2D75 from Defective Drone
+    Targetable(id + 0x200, true, 3.1f, "--targetable--"); // t=1126.9
+    Timeout(id + 0x210, 17.1f, "Aetherochemical Coil").SetHint(StateMachine.StateHint.Tankbuster); // t=1144.0; Ability 2D72 from Defective Drone; cactbot StartsUsing 2D72 [The Burn Aetherochemical Coil]
+    Timeout(id + 0x220, 15.2f, "Adit Driver"); // t=1159.2; cactbot StartsUsing 2D78 [The Burn Adit Driver]
+    Timeout(id + 0x230, 5.9f, "Aetherochemical Flame"); // t=1165.1; cactbot StartsUsing 2D73 [The Burn Aetherochemical Flame]
+    Timeout(id + 0x240, 14.1f, "Aetherochemical Coil"); // t=1179.2; cactbot StartsUsing 2D72 [The Burn Aetherochemical Coil]
+    Timeout(id + 0x250, 820.8f, "Start"); // t=2000.0
+    Timeout(id + 0x260, 13.2f, "Rime Wreath").SetHint(StateMachine.StateHint.Raidwide); // t=2013.2; Ability 314B from Mist Dragon; cactbot StartsUsing 314B [The Burn Rime Wreath]
+    Timeout(id + 0x270, 8.2f, "Frost Breath"); // t=2021.4; Ability 314C from Mist Dragon; cactbot HeadMarker 1A/E [The Burn Frost Breath]
+    Timeout(id + 0x280, 9.3f, "Fog Plume"); // t=2030.7; Ability 3144 from Mist Dragon; cactbot StartsUsing 3144 [The Burn Fog Plume]
+    Timeout(id + 0x290, 20.2f, "Rime Wreath").SetHint(StateMachine.StateHint.Raidwide); // t=2050.9; Ability 314B from Mist Dragon; cactbot StartsUsing 314B [The Burn Rime Wreath]
+    Timeout(id + 0x2A0, 11.0f, "Vaporize"); // t=2061.9; Ability 3140 from Mist Dragon
+    Targetable(id + 0x2B0, false, 2.2f, "--untargetable--"); // t=2064.1
+    Targetable(id + 0x2C0, true, 9.0f, "--targetable--"); // t=2073.1
+    Timeout(id + 0x2D0, 20.0f, "Cold Fog"); // t=2093.1; Ability 3141 from Mist Dragon
+    Timeout(id + 0x2E0, 11.3f, "Chilling Aspiration"); // t=2104.4; Ability 314D from Mist Dragon
+    Timeout(id + 0x2F0, 7.2f, "Frost Breath"); // t=2111.6; Ability 314C from Mist Dragon; cactbot HeadMarker 1A/E [The Burn Frost Breath]
+    Timeout(id + 0x300, 8.1f, "Fog Plume"); // t=2119.7; Ability 3144 from Mist Dragon; cactbot StartsUsing 3144 [The Burn Fog Plume]
+    Timeout(id + 0x310, 18.2f, "Rime Wreath").SetHint(StateMachine.StateHint.Raidwide); // t=2137.9; Ability 314B from Mist Dragon; cactbot StartsUsing 314B [The Burn Rime Wreath]
+    Timeout(id + 0x320, 14.3f, "Deep Fog"); // t=2152.2; Ability 3147 from Mist Dragon
+    Targetable(id + 0x330, false, 5.1f, "--untargetable--"); // t=2157.3
+    Timeout(id + 0x340, 10.1f, "Cauterize"); // t=2167.4; Ability 3148 from Mist Dragon
+    Timeout(id + 0x350, 10.6f, "Cauterize"); // t=2178.0; Ability 3148 from Mist Dragon
+    Targetable(id + 0x360, true, 9.0f, "--targetable--"); // t=2187.0; Ability 314A from Mist Dragon
+    Timeout(id + 0x370, 9.2f, "Rime Wreath").SetHint(StateMachine.StateHint.Raidwide); // t=2196.2; Ability 314B from Mist Dragon; cactbot StartsUsing 314B [The Burn Rime Wreath]
+    Timeout(id + 0x380, 9.2f, "Rime Wreath").SetHint(StateMachine.StateHint.Raidwide); // t=2205.4; Ability 314B from Mist Dragon; cactbot StartsUsing 314B [The Burn Rime Wreath]
+    Timeout(id + 0x390, 9.2f, "Rime Wreath").SetHint(StateMachine.StateHint.Raidwide); // t=2214.6; Ability 314B from Mist Dragon; cactbot StartsUsing 314B [The Burn Rime Wreath]
+    Timeout(id + 0x3A0, 10.2f, "Chilling Aspiration"); // t=2224.8; Ability 314D from Mist Dragon
+    Timeout(id + 0x3B0, 7.2f, "Frost Breath"); // t=2232.0; Ability 314C from Mist Dragon; cactbot HeadMarker 1A/E [The Burn Frost Breath]
+    Timeout(id + 0x3C0, 8.1f, "Fog Plume"); // t=2240.1; Ability 3144 from Mist Dragon; cactbot StartsUsing 3144 [The Burn Fog Plume]
+    Timeout(id + 0x3D0, 14.2f, "Rime Wreath").SetHint(StateMachine.StateHint.Raidwide); // t=2254.3; Ability 314B from Mist Dragon; cactbot StartsUsing 314B [The Burn Rime Wreath]
+    Timeout(id + 0x3E0, 9.2f, "Rime Wreath").SetHint(StateMachine.StateHint.Raidwide); // t=2263.5; Ability 314B from Mist Dragon; cactbot StartsUsing 314B [The Burn Rime Wreath]
+    Timeout(id + 0x3F0, 10.2f, "Deep Fog"); // t=2273.7; Ability 3147 from Mist Dragon
+    Targetable(id + 0x400, false, 5.1f, "--untargetable--"); // t=2278.8
+    Timeout(id + 0x410, 10.1f, "Cauterize"); // t=2288.9; Ability 3148 from Mist Dragon
+    Timeout(id + 0x420, 10.6f, "Cauterize"); // t=2299.5; Ability 3148 from Mist Dragon
+    Targetable(id + 0x430, true, 9.0f, "--targetable--"); // t=2308.5; Ability 314A from Mist Dragon
+    Timeout(id + 0x440, 9.2f, "Rime Wreath").SetHint(StateMachine.StateHint.Raidwide); // t=2317.7; Ability 314B from Mist Dragon; cactbot StartsUsing 314B [The Burn Rime Wreath]
+    Timeout(id + 0x450, 12.1f, "Vaporize"); // t=2329.8; Ability 3140 from Mist Dragon
+    Targetable(id + 0x460, false, 2.2f, "--untargetable--"); // t=2332.0
+    Targetable(id + 0x470, true, 9.0f, "--targetable--"); // t=2341.0
+    Timeout(id + 0x480, 20.0f, "Cold Fog"); // t=2361.0
+}
+

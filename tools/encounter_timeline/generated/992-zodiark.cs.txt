@@ -1,0 +1,95 @@
+// Generated development skeleton from zodiark.txt (TerritoryType 992).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 3 static/dynamic trigger definitions from ui/raidboss/data/06-ew/trial/zodiark.ts.
+
+private void Timeline(uint id)
+{
+    Condition(id + 0x0, 7.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6C27), "", 5f, 2.1f); // t=7.1; StartsUsing 6C27 from Zodiark
+    Timeout(id + 0x10, 4.0f, "Kokytos"); // t=11.1; Ability 6C27 from Zodiark
+    Timeout(id + 0x20, 9.1f, "Exoterikos"); // t=20.2; Ability 6C36 from Zodiark
+    Timeout(id + 0x30, 7.3f, "Esoteric Sect"); // t=27.5; Ability 67CC from Arcane Sigil
+    Timeout(id + 0x40, 4.0f, "Ania"); // t=31.5; Ability 67D5 from Zodiark
+    Timeout(id + 0x50, 10.1f, "Exoterikos"); // t=41.6; Ability 6C36 from Zodiark
+    Timeout(id + 0x60, 7.3f, "Esoteric Dyad"); // t=48.9; Ability 67CB from Arcane Sigil
+    Timeout(id + 0x70, 9.4f, "Paradeigma"); // t=58.3; Ability 67C8 from Zodiark
+    Timeout(id + 0x80, 12.7f, "Meteoros Eidolon"); // t=71.0; Ability 67C6 from Behemoth
+    Timeout(id + 0x90, 5.1f, "Paradeigma"); // t=76.1; Ability 67C8 from Zodiark
+    Timeout(id + 0xA0, 12.2f, "Opheos Eidolon"); // t=88.3; Ability 67C7 from Python/Behemoth/Zodiark
+    Timeout(id + 0xB0, 6.6f, "Phlegethon x3"); // t=94.9; Ability 67D0 from Zodiark
+    Timeout(id + 0xC0, 8.2f, "Styx x5"); // t=103.1; Ability 67DB from Zodiark
+    Timeout(id + 0xD0, 12.6f, "Paradeigma"); // t=115.7; Ability 67C8 from Zodiark
+    Timeout(id + 0xE0, 7.1f, "Exoterikos"); // t=122.8; Ability 6C36 from Zodiark
+    Timeout(id + 0xF0, 6.3f, "Esoteric Dyad/Esoteric Sect"); // t=129.1; Ability 67CB/67CC from Arcane Sigil
+    Timeout(id + 0x100, 0.3f, "Meteoros Eidolon"); // t=129.4; Ability 67C6 from Behemoth
+    Condition(id + 0x110, 15.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x6734), "", 5f, 10.2f); // t=144.6; StartsUsing 6734 from Zodiark
+    Timeout(id + 0x120, 5.0f, "Complete Control"); // t=149.6; Ability 6734 from Zodiark
+    Targetable(id + 0x130, false, 0.6f, "--untargetable--"); // t=150.2
+    Targetable(id + 0x140, true, 24.1f, "--targetable--"); // t=174.3
+    Timeout(id + 0x150, 5.1f, "Paradeigma"); // t=179.4; Ability 67BF from Zodiark
+    Timeout(id + 0x160, 15.1f, "Astral Flow"); // t=194.5; Ability 6EC9 from Zodiark
+    Timeout(id + 0x170, 10.8f, "Meteoros Eidolon"); // t=205.3; Ability 67C6 from Behemoth
+    Timeout(id + 0x180, 9.7f, "Adikia"); // t=215.0; Ability 67D8 from Zodiark
+    Timeout(id + 0x190, 11.2f, "Phlegethon x3"); // t=226.2; Ability 67CF from Zodiark
+    Timeout(id + 0x1A0, 9.1f, "Triple Esoteric Ray"); // t=235.3; Ability 67C4 from Zodiark
+    Timeout(id + 0x1B0, 0.1f, "Esoteric Ray 1"); // t=235.4; Ability 67CA from Arcane Sigil
+    Timeout(id + 0x1C0, 3.0f, "Esoteric Ray 2"); // t=238.4; Ability 67CA from Arcane Sigil
+    Timeout(id + 0x1D0, 9.0f, "Algedon"); // t=247.4
+    Timeout(id + 0x1E0, 6.2f, "Paradeigma"); // t=253.6; Ability 67BF from Zodiark
+    Timeout(id + 0x1F0, 15.1f, "Astral Flow"); // t=268.7; Ability 6630 from Zodiark
+    Timeout(id + 0x200, 5.9f, "Opheos Eidolon"); // t=274.6; Ability 67C7 from Python/Behemoth/Zodiark
+    Condition(id + 0x210, 6.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x67C3), "", 5f, 1.3f); // t=280.9; StartsUsing 67C3 from Zodiark
+    Timeout(id + 0x220, 5.0f, "Astral Eclipse"); // t=285.9; Ability 67C3 from Zodiark
+    Targetable(id + 0x230, false, 0.0f, "--untargetable--"); // t=285.9
+    Targetable(id + 0x240, true, 12.1f, "--targetable--"); // t=298.0
+    Timeout(id + 0x250, 5.0f, "Explosion 1"); // t=303.0; Ability 67CD from Zodiark
+    Timeout(id + 0x260, 4.0f, "Explosion 2"); // t=307.0; Ability 67CD from Zodiark
+    Timeout(id + 0x270, 4.0f, "Explosion 3"); // t=311.0; Ability 67CD from Zodiark
+    Timeout(id + 0x280, 7.1f, "Styx x5"); // t=318.1; Ability 67DA from Zodiark
+    Timeout(id + 0x290, 15.1f, "Kokytos"); // t=333.2; Ability 6C5F from Zodiark
+    Timeout(id + 0x2A0, 5.1f, "Paradeigma"); // t=338.3; Ability 67BF from Zodiark
+    Timeout(id + 0x2B0, 15.1f, "Astral Flow"); // t=353.4; Ability 662F/6630 from Zodiark
+    Timeout(id + 0x2C0, 6.4f, "Meteoros Eidolon"); // t=359.8; Ability 67C6 from Behemoth
+    Timeout(id + 0x2D0, 8.8f, "Styx"); // t=368.6; Ability 67DA from Zodiark
+    Timeout(id + 0x2E0, 10.1f, "Exoterikos"); // t=378.7; Ability 67C1 from Zodiark
+    Timeout(id + 0x2F0, 8.1f, "Adikia"); // t=386.8; Ability 67D8 from Zodiark
+    Timeout(id + 0x300, 1.2f, "Esoteric Dyad"); // t=388.0; Ability 67CB from Arcane Sigil
+    Condition(id + 0x310, 3.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x67C2), "Trimorphos Exoterikos", 5f, 0.0f); // t=391.0; StartsUsing 67C2 from Zodiark
+    Timeout(id + 0x320, 10.7f, "Esoteric Dyad/Esoteric Sect"); // t=401.7; Ability 67CB/67CC from Arcane Sigil
+    Timeout(id + 0x330, 4.0f, "Esoteric Dyad/Esoteric Sect"); // t=405.7; Ability 67CB/67CC from Arcane Sigil
+    Timeout(id + 0x340, 4.0f, "Esoteric Dyad/Esoteric Sect"); // t=409.7; Ability 67CB/67CC from Arcane Sigil
+    Timeout(id + 0x350, 6.5f, "Paradeigma"); // t=416.2; Ability 67BF from Zodiark
+    Timeout(id + 0x360, 15.2f, "Astral Flow"); // t=431.4; Ability 662F/6630 from Zodiark
+    Timeout(id + 0x370, 5.8f, "Opheos Eidolon"); // t=437.2; Ability 67C7 from Python/Behemoth/Zodiark
+    Timeout(id + 0x380, 9.3f, "Styx x5"); // t=446.5; Ability 67DA from Zodiark
+    Timeout(id + 0x390, 10.1f, "Exoterikos"); // t=456.6; Ability 67C1 from Zodiark
+    Timeout(id + 0x3A0, 9.1f, "Triple Esoteric Ray"); // t=465.7; Ability 67C4 from Zodiark
+    Timeout(id + 0x3B0, 0.1f, "Esoteric Ray 1"); // t=465.8; Ability 67CA from Arcane Sigil
+    Timeout(id + 0x3C0, 0.1f, "Esoteric Sect"); // t=465.9; Ability 67CC from Arcane Sigil
+    Timeout(id + 0x3D0, 2.9f, "Esoteric Ray 2"); // t=468.8; Ability 67CA from Arcane Sigil
+    Timeout(id + 0x3E0, 4.0f, "Ania"); // t=472.8; Ability 67D4 from Zodiark
+    Condition(id + 0x3F0, 6.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x67C2), "Trimorphos Exoterikos", 5f, 1.2f); // t=479.0; StartsUsing 67C2 from Zodiark
+    Timeout(id + 0x400, 10.8f, "Esoteric Dyad/Esoteric Sect"); // t=489.8; Ability 67CB/67CC from Arcane Sigil
+    Timeout(id + 0x410, 4.0f, "Esoteric Dyad/Esoteric Sect"); // t=493.8; Ability 67CB/67CC from Arcane Sigil
+    Timeout(id + 0x420, 3.3f, "Phlegethon x3"); // t=497.1; Ability 67CF from Zodiark
+    Timeout(id + 0x430, 0.6f, "Esoteric Dyad/Esoteric Sect"); // t=497.7; Ability 67CB/67CC from Arcane Sigil
+    Timeout(id + 0x440, 7.6f, "Styx x5"); // t=505.3; Ability 67DA from Zodiark
+    Timeout(id + 0x450, 12.2f, "Algedon"); // t=517.5
+    Timeout(id + 0x460, 13.2f, "Paradeigma"); // t=530.7; Ability 67BF from Zodiark
+    Timeout(id + 0x470, 15.2f, "Astral Flow"); // t=545.9; Ability 662F/6630 from Zodiark
+    Timeout(id + 0x480, 5.8f, "Opheos Eidolon"); // t=551.7; Ability 67C7 from Python/Behemoth/Zodiark
+    Timeout(id + 0x490, 9.3f, "Styx x5"); // t=561.0; Ability 67DA from Zodiark
+    Timeout(id + 0x4A0, 10.2f, "Exoterikos"); // t=571.2; Ability 67C1 from Zodiark
+    Timeout(id + 0x4B0, 9.1f, "Triple Esoteric Ray"); // t=580.3; Ability 67C4 from Zodiark
+    Timeout(id + 0x4C0, 0.1f, "Esoteric Ray 1 / Esoteric Sect"); // t=580.4; Ability 67CA from Arcane Sigil | Ability 67CC from Arcane Sigil
+    Timeout(id + 0x4D0, 3.0f, "Esoteric Ray 2"); // t=583.4; Ability 67CA from Arcane Sigil
+    Timeout(id + 0x4E0, 4.0f, "Ania"); // t=587.4; Ability 67D4 from Zodiark
+    Condition(id + 0x4F0, 6.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x67C2), "Trimorphos Exoterikos", 5f, 1.1f); // t=593.5; StartsUsing 67C2 from Zodiark
+    Timeout(id + 0x500, 10.8f, "Esoteric Dyad/Esoteric Sect"); // t=604.3
+    Timeout(id + 0x510, 4.0f, "Esoteric Dyad/Esoteric Sect"); // t=608.3
+    Timeout(id + 0x520, 3.3f, "Phlegethon x3"); // t=611.6
+    Timeout(id + 0x530, 0.6f, "Esoteric Dyad/Esoteric Sect"); // t=612.2
+    Timeout(id + 0x540, 7.6f, "Styx x5"); // t=619.8
+    Timeout(id + 0x550, 12.2f, "Algedon"); // t=632.0
+}
+

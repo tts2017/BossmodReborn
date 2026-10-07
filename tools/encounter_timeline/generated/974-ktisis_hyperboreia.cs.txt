@@ -1,0 +1,90 @@
+// Generated development skeleton from ktisis_hyperboreia.txt (TerritoryType 974).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 13 static/dynamic trigger definitions from ui/raidboss/data/06-ew/dungeon/ktisis_hyperboreia.ts.
+
+private void KTISIS_HYPERBORAEIA(uint id)
+{
+    Timeout(id + 0x0, 10.7f, "Skull Dasher").SetHint(StateMachine.StateHint.Tankbuster); // t=10.7; Ability 625E from Lyssa; cactbot StartsUsing 625E [Ktisis Lyssa Skull Dasher]
+    Timeout(id + 0x10, 10.5f, "Frostbite and Seek"); // t=21.2; Ability 6257 from Lyssa
+    Targetable(id + 0x20, false, 2.0f, "--untargetable--"); // t=23.2
+    Timeout(id + 0x30, 12.0f, "Punishing Slice"); // t=35.2; Ability 6259 from Lyssa
+    Targetable(id + 0x40, true, 1.1f, "--targetable--"); // t=36.3
+    Timeout(id + 0x50, 5.7f, "--middle--"); // t=42.0
+    Timeout(id + 0x60, 4.0f, "Icicall"); // t=46.0; Ability 625A from Lyssa
+    Timeout(id + 0x70, 4.9f, "Ice Pillar"); // t=50.9; Ability 625B from Ice Pillar
+    Timeout(id + 0x80, 3.3f, "Frigid Stomp").SetHint(StateMachine.StateHint.Raidwide); // t=54.2; Ability 625D from Lyssa; cactbot StartsUsing 625D [Ktisis Lyssa Frigid Stomp]
+    Timeout(id + 0x90, 5.8f, "Pillar Pierce"); // t=60.0; Ability 631F from Ice Pillar
+    Timeout(id + 0xA0, 10.6f, "Skull Dasher").SetHint(StateMachine.StateHint.Tankbuster); // t=70.6; Ability 625E from Lyssa; cactbot StartsUsing 625E [Ktisis Lyssa Skull Dasher]
+    Timeout(id + 0xB0, 10.4f, "Frostbite and Seek"); // t=81.0; Ability 6257 from Lyssa
+    Targetable(id + 0xC0, false, 2.1f, "--untargetable--"); // t=83.1
+    Timeout(id + 0xD0, 14.9f, "Punishing Slice"); // t=98.0; Ability 6259 from Lyssa
+    Targetable(id + 0xE0, true, 1.1f, "--targetable--"); // t=99.1
+    Timeout(id + 0xF0, 10.1f, "Frigid Stomp").SetHint(StateMachine.StateHint.Raidwide); // t=109.2; Ability 625D from Lyssa; cactbot StartsUsing 625D [Ktisis Lyssa Frigid Stomp]
+    Timeout(id + 0x100, 5.4f, "--middle--"); // t=114.6
+    Timeout(id + 0x110, 4.0f, "Icicall"); // t=118.6; Ability 625A from Lyssa
+    Timeout(id + 0x120, 4.9f, "Ice Pillar"); // t=123.5; Ability 625B from Ice Pillar
+    Timeout(id + 0x130, 9.0f, "Pillar Pierce"); // t=132.5; Ability 631F from Ice Pillar
+    Timeout(id + 0x140, 1.3f, "Heavy Smash"); // t=133.8; Ability 625C from Lyssa; cactbot StartsUsing 625C [Ktisis Lyssa Heavy Smash]
+    Timeout(id + 0x150, 12.3f, "Skull Dasher").SetHint(StateMachine.StateHint.Tankbuster); // t=146.1; Ability 625E from Lyssa; cactbot StartsUsing 625E [Ktisis Lyssa Skull Dasher]
+    Timeout(id + 0x160, 10.6f, "Frostbite and Seek"); // t=156.7; Ability 6257 from Lyssa
+    Targetable(id + 0x170, false, 2.0f, "--untargetable--"); // t=158.7
+    Timeout(id + 0x180, 15.0f, "Punishing Slice"); // t=173.7; Ability 6259 from Lyssa
+    Targetable(id + 0x190, true, 1.1f, "--targetable--"); // t=174.8
+    Timeout(id + 0x1A0, 10.1f, "Frigid Stomp").SetHint(StateMachine.StateHint.Raidwide); // t=184.9; Ability 625D from Lyssa; cactbot StartsUsing 625D [Ktisis Lyssa Frigid Stomp]
+    Timeout(id + 0x1B0, 5.8f, "--middle--"); // t=190.7
+    Timeout(id + 0x1C0, 4.0f, "Icicall"); // t=194.7; Ability 625A from Lyssa
+    Timeout(id + 0x1D0, 4.8f, "Ice Pillar"); // t=199.5; Ability 625B from Ice Pillar
+    Timeout(id + 0x1E0, 9.1f, "Pillar Pierce"); // t=208.6; Ability 631F from Ice Pillar
+    Timeout(id + 0x1F0, 1.3f, "Heavy Smash"); // t=209.9; cactbot StartsUsing 625C [Ktisis Lyssa Heavy Smash]
+    Timeout(id + 0x200, 12.3f, "Skull Dasher"); // t=222.2; cactbot StartsUsing 625E [Ktisis Lyssa Skull Dasher]
+    Timeout(id + 0x210, 10.6f, "Frostbite and Seek"); // t=232.8
+    Targetable(id + 0x220, false, 2.0f, "--untargetable--"); // t=234.8
+    Timeout(id + 0x230, 15.0f, "Punishing Slice"); // t=249.8
+    Timeout(id + 0x240, 760.5f, "Scratch").SetHint(StateMachine.StateHint.Tankbuster); // t=1010.3; Ability 648F from Ladon Lord; cactbot StartsUsing 648F [Ktisis Ladon Lord Scratch]
+    Timeout(id + 0x250, 9.0f, "Inhale"); // t=1019.3; Ability 6484 from Ladon Lord
+    Timeout(id + 0x260, 7.9f, "--rotate--"); // t=1027.2
+    Timeout(id + 0x270, 7.0f, "Pyric Breath"); // t=1034.2; Ability 6486 from Ladon Lord; cactbot GainsEffect AFC/AFD/AFE [Ktisis Ladon Lord Pyric Breath Collect] | Ability 6485 [Ktisis Ladon Lord Pyric Breath Call]
+    Timeout(id + 0x280, 11.1f, "Inhale"); // t=1045.3; Ability 6484 from Ladon Lord
+    Timeout(id + 0x290, 7.8f, "--rotate--"); // t=1053.1
+    Timeout(id + 0x2A0, 21.3f, "Inhale"); // t=1074.4; Ability 6484 from Ladon Lord
+    Timeout(id + 0x2B0, 3.0f, "Pyric Sphere"); // t=1077.4; Ability 6490 from Pyric Sphere
+    Timeout(id + 0x2C0, 4.5f, "--rotate--"); // t=1081.9
+    Timeout(id + 0x2D0, 0.6f, "Pyric Sphere"); // t=1082.5; Ability 6491 from Pyric Sphere
+    Timeout(id + 0x2E0, 16.6f, "Intimidation").SetHint(StateMachine.StateHint.Raidwide); // t=1099.1; Ability 648D from Ladon Lord; cactbot StartsUsing 648D [Ktisis Ladon Lord Intimidation]
+    Timeout(id + 0x2F0, 11.3f, "Inhale"); // t=1110.4; Ability 6484 from Ladon Lord
+    Timeout(id + 0x300, 12.5f, "Pyric Blast"); // t=1122.9; Ability 648E from Ladon Lord; cactbot StartsUsing 648E [Ktisis Ladon Lord Pyric Blast]
+    Timeout(id + 0x310, 5.1f, "--rotate--"); // t=1128.0
+    Timeout(id + 0x320, 18.3f, "Scratch").SetHint(StateMachine.StateHint.Tankbuster); // t=1146.3; Ability 648F from Ladon Lord; cactbot StartsUsing 648F [Ktisis Ladon Lord Scratch]
+    Timeout(id + 0x330, 12.5f, "Inhale"); // t=1158.8; Ability 6484 from Ladon Lord
+    Timeout(id + 0x340, 3.0f, "Pyric Sphere"); // t=1161.8
+    Timeout(id + 0x350, 4.5f, "--rotate--"); // t=1166.3
+    Timeout(id + 0x360, 0.6f, "Pyric Sphere"); // t=1166.9
+    Timeout(id + 0x370, 16.6f, "Intimidation"); // t=1183.5; cactbot StartsUsing 648D [Ktisis Ladon Lord Intimidation]
+    Timeout(id + 0x380, 829.6f, "Trismegistos").SetHint(StateMachine.StateHint.Raidwide); // t=2013.1; Ability 651E from Hermes; cactbot StartsUsing 651E [Ktisis Hermes Trimegistos]
+    Timeout(id + 0x390, 7.1f, "--middle--"); // t=2020.2
+    Timeout(id + 0x3A0, 4.0f, "Hermetica"); // t=2024.2; Ability 6520 from Hermes
+    Timeout(id + 0x3B0, 5.5f, "True Aero IV"); // t=2029.7; Ability 6521 from Karukeion
+    Timeout(id + 0x3C0, 8.7f, "True Tornado"); // t=2038.4; Ability 652E from Hermes; cactbot HeadMarker DA [Ktisis Hermes True Tornado]
+    Timeout(id + 0x3D0, 8.2f, "Meteor"); // t=2046.6; Ability 6522 from Hermes; cactbot Ability 6523 [Ktisis Hermes Meteor Cosmic Kiss]
+    Timeout(id + 0x3E0, 8.1f, "Cosmic Kiss"); // t=2054.7; Ability 6523 from Meteor; cactbot Ability 6523 [Ktisis Hermes Meteor Cosmic Kiss]
+    Timeout(id + 0x3F0, 1.0f, "Double"); // t=2055.7; Ability 6524 from Hermes
+    Timeout(id + 0x400, 8.1f, "Hermetica"); // t=2063.8; Ability 6525 from Hermes
+    Timeout(id + 0x410, 10.9f, "--middle--"); // t=2074.7
+    Timeout(id + 0x420, 4.0f, "Double"); // t=2078.7; Ability 6524 from Hermes
+    Timeout(id + 0x430, 7.1f, "True Aero"); // t=2085.8; Ability 652B from Hermes; cactbot StartsUsing 652B [Ktisis Hermes True Aero]
+    Timeout(id + 0x440, 19.2f, "Trismegistos").SetHint(StateMachine.StateHint.Raidwide); // t=2105.0; Ability 651E from Hermes; cactbot StartsUsing 651E [Ktisis Hermes Trimegistos]
+    Timeout(id + 0x450, 10.3f, "Quadruple"); // t=2115.3; Ability 6526 from Hermes
+    Timeout(id + 0x460, 14.1f, "Hermetica"); // t=2129.4; Ability 6527 from Hermes
+    Timeout(id + 0x470, 11.3f, "Double"); // t=2140.7; Ability 6524 from Hermes
+    Timeout(id + 0x480, 19.3f, "Double"); // t=2160.0; Ability 6524 from Hermes
+    Timeout(id + 0x490, 7.2f, "True Tornado"); // t=2167.2; Ability 652E from Hermes; cactbot HeadMarker DA [Ktisis Hermes True Tornado]
+    Timeout(id + 0x4A0, 19.3f, "Trismegistos").SetHint(StateMachine.StateHint.Raidwide); // t=2186.5; Ability 651E from Hermes; cactbot StartsUsing 651E [Ktisis Hermes Trimegistos]
+    Timeout(id + 0x4B0, 8.2f, "Trismegistos").SetHint(StateMachine.StateHint.Raidwide); // t=2194.7; Ability 651E from Hermes; cactbot StartsUsing 651E [Ktisis Hermes Trimegistos]
+    Timeout(id + 0x4C0, 10.2f, "Meteor"); // t=2204.9; Ability 6522 from Hermes; cactbot Ability 6523 [Ktisis Hermes Meteor Cosmic Kiss]
+    Timeout(id + 0x4D0, 8.1f, "Cosmic Kiss"); // t=2213.0; cactbot Ability 6523 [Ktisis Hermes Meteor Cosmic Kiss]
+    Timeout(id + 0x4E0, 1.0f, "Double"); // t=2214.0
+    Timeout(id + 0x4F0, 8.1f, "Hermetica"); // t=2222.1
+    Timeout(id + 0x500, 14.9f, "Double"); // t=2237.0
+}
+

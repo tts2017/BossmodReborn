@@ -1,0 +1,84 @@
+// Generated development skeleton from t5.txt (TerritoryType 245).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 11 static/dynamic trigger definitions from ui/raidboss/data/02-arr/raid/t5.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 7.5f, "Plummet"); // t=7.5; Ability 4D8 from Twintania
+    Timeout(id + 0x20, 14.1f, "Death Sentence").SetHint(StateMachine.StateHint.Tankbuster); // t=21.6; Ability 5B2 from Twintania; cactbot StartsUsing 5B2 [T5 Death Sentence] | StartsUsing 5B2 [T5 Death Sentence Warning]
+    Timeout(id + 0x30, 4.1f, "Plummet"); // t=25.7; Ability 4D8 from Twintania
+    Timeout(id + 0x40, 12.7f, "Plummet"); // t=38.4; Ability 4D8 from Twintania
+    Timeout(id + 0x50, 13.4f, "Plummet"); // t=51.8; Ability 4D8 from Twintania
+    Timeout(id + 0x60, 6.1f, "Death Sentence").SetHint(StateMachine.StateHint.Tankbuster); // t=57.9; Ability 5B2 from Twintania; cactbot StartsUsing 5B2 [T5 Death Sentence] | StartsUsing 5B2 [T5 Death Sentence Warning]
+    Timeout(id + 0x70, 7.4f, "Plummet"); // t=65.3; Ability 4D8 from Twintania
+}
+
+private void Phase_2(uint id)
+{
+    Timeout(id + 0x0, 5.0f, "Fireball"); // t=205.0; Ability 4DE from Twintania; cactbot Ability 5AC [T5 Fireball]
+    Timeout(id + 0x10, 14.0f, "Firestorm"); // t=219.0; Ability 5AB from Twintania; cactbot Ability 5AB [T5 Conflagration]
+    Timeout(id + 0x20, 10.3f, "Fireball"); // t=229.3; Ability 4DE from Twintania; cactbot Ability 5AC [T5 Fireball]
+    Timeout(id + 0x30, 25.6f, "Fireball"); // t=254.9; Ability 4DE from Twintania; cactbot Ability 5AC [T5 Fireball]
+    Timeout(id + 0x40, 2.5f, "Firestorm"); // t=257.4; Ability 5AB from Twintania; cactbot Ability 5AB [T5 Conflagration]
+    Timeout(id + 0x50, 22.6f, "Fireball"); // t=280.0; Ability 4DE from Twintania; cactbot Ability 5AC [T5 Fireball]
+}
+
+private void Phase_3(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Divebomb"); // t=400.0; Ability 5B0 from Twintania; cactbot Ability 5B0 [T5 Divebomb] | Ability 5B0 [T5 Divebomb Set Two]
+    Timeout(id + 0x10, 7.9f, "Divebomb"); // t=407.9; Ability 5B0 from Twintania; cactbot Ability 5B0 [T5 Divebomb] | Ability 5B0 [T5 Divebomb Set Two]
+    Timeout(id + 0x20, 7.7f, "Divebomb"); // t=415.6; Ability 5B0 from Twintania; cactbot Ability 5B0 [T5 Divebomb] | Ability 5B0 [T5 Divebomb Set Two]
+    Timeout(id + 0x30, 4.0f, "1x Asclepius add / 2x Hygieia adds"); // t=419.6
+    Timeout(id + 0x40, 45.7f, "Divebomb"); // t=465.3; Ability 5B0 from Twintania; cactbot Ability 5B0 [T5 Divebomb] | Ability 5B0 [T5 Divebomb Set Two]
+    Timeout(id + 0x50, 7.7f, "Divebomb"); // t=473.0; Ability 5B0 from Twintania; cactbot Ability 5B0 [T5 Divebomb] | Ability 5B0 [T5 Divebomb Set Two]
+    Timeout(id + 0x60, 7.9f, "Divebomb"); // t=480.9; Ability 5B0 from Twintania; cactbot Ability 5B0 [T5 Divebomb] | Ability 5B0 [T5 Divebomb Set Two]
+    Timeout(id + 0x70, 4.0f, "2x Hygieia adds"); // t=484.9
+}
+
+private void Phase_4(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=546.0
+    Timeout(id + 0x10, 54.0f, "Aetheric Profusion"); // t=600.0; Ability 4E0 from Twintania
+    Timeout(id + 0x20, 16.0f, "Unwoven Will"); // t=616.0; Ability 4E3 from Twintania; cactbot Ability 4E3 [T5 Dreadknight]
+    Timeout(id + 0x30, 21.8f, "Twister"); // t=637.8; Ability 4E1 from Twintania; cactbot StartsUsing 4E1 [T5 Twister]
+    Timeout(id + 0x40, 18.4f, "Unwoven Will"); // t=656.2; Ability 4E3 from Twintania; cactbot Ability 4E3 [T5 Dreadknight]
+    Timeout(id + 0x50, 8.4f, "Twister"); // t=664.6; Ability 4E1 from Twintania; cactbot StartsUsing 4E1 [T5 Twister]
+    Timeout(id + 0x60, 21.2f, "Twister"); // t=685.8; Ability 4E1 from Twintania; cactbot StartsUsing 4E1 [T5 Twister]
+    Timeout(id + 0x70, 10.2f, "Unwoven Will"); // t=696.0; Ability 4E3 from Twintania; cactbot Ability 4E3 [T5 Dreadknight]
+    Timeout(id + 0x80, 15.0f, "Twister"); // t=711.0; Ability 4E1 from Twintania; cactbot StartsUsing 4E1 [T5 Twister]
+    Timeout(id + 0x90, 25.2f, "Unwoven Will"); // t=736.2; Ability 4E3 from Twintania; cactbot Ability 4E3 [T5 Dreadknight]
+    Timeout(id + 0xA0, 8.4f, "Twister"); // t=744.6; Ability 4E1 from Twintania; cactbot StartsUsing 4E1 [T5 Twister]
+    Timeout(id + 0xB0, 21.2f, "Twister"); // t=765.8; Ability 4E1 from Twintania; cactbot StartsUsing 4E1 [T5 Twister]
+    Timeout(id + 0xC0, 10.2f, "Unwoven Will"); // t=776.0; Ability 4E3 from Twintania; cactbot Ability 4E3 [T5 Dreadknight]
+    Timeout(id + 0xD0, 15.0f, "Twister"); // t=791.0; cactbot StartsUsing 4E1 [T5 Twister]
+    Timeout(id + 0xE0, 25.2f, "Unwoven Will"); // t=816.2
+    Timeout(id + 0xF0, 8.4f, "Twister"); // t=824.6; cactbot StartsUsing 4E1 [T5 Twister]
+    Timeout(id + 0x100, 21.2f, "Twister"); // t=845.8; cactbot StartsUsing 4E1 [T5 Twister]
+}
+
+private void Phase_5(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Hatch"); // t=900.0; Ability 5AD from Twintania; cactbot Ability 5AD [T5 Hatch]
+    Timeout(id + 0x10, 4.0f, "Liquid Hell"); // t=904.0; Ability 5B1 from Twintania; cactbot StartsUsing 4DB [T5 Liquid Hell]
+    Timeout(id + 0x20, 8.5f, "Hatch"); // t=912.5; Ability 5AD from Twintania; cactbot Ability 5AD [T5 Hatch]
+    Timeout(id + 0x30, 8.5f, "Hatch"); // t=921.0; Ability 5AD from Twintania; cactbot Ability 5AD [T5 Hatch]
+    Timeout(id + 0x40, 1.0f, "Liquid Hell"); // t=922.0; cactbot StartsUsing 4DB [T5 Liquid Hell]
+    Timeout(id + 0x50, 8.5f, "Hatch"); // t=930.5
+    Timeout(id + 0x60, 8.5f, "Hatch"); // t=939.0
+    Timeout(id + 0x70, 1.0f, "Liquid Hell"); // t=940.0; cactbot StartsUsing 4DB [T5 Liquid Hell]
+    Timeout(id + 0x80, 8.5f, "Hatch"); // t=948.5
+    Timeout(id + 0x90, 8.5f, "Hatch"); // t=957.0
+}
+
+private void Enrage(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Aetheric Profusion"); // t=1000.0; Ability 4E0 from Twintania
+    Timeout(id + 0x10, 6.0f, "Aetheric Profusion"); // t=1006.0
+    Timeout(id + 0x20, 6.0f, "Aetheric Profusion"); // t=1012.0
+    Timeout(id + 0x30, 6.0f, "Aetheric Profusion"); // t=1018.0
+    Timeout(id + 0x40, 6.0f, "Aetheric Profusion"); // t=1024.0
+    Timeout(id + 0x50, 6.0f, "Aetheric Profusion"); // t=1030.0
+}
+

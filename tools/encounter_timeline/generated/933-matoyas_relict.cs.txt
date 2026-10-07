@@ -1,0 +1,89 @@
+// Generated development skeleton from matoyas_relict.txt (TerritoryType 933).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 15 static/dynamic trigger definitions from ui/raidboss/data/05-shb/dungeon/matoyas_relict.ts.
+
+private void Mudman(uint id)
+{
+    Timeout(id + 0x0, 11.0f, "Hard Rock").SetHint(StateMachine.StateHint.Tankbuster); // t=1011.0; Ability 547F from Mudman; cactbot StartsUsing 547F [Matoyas Mudman Hard Rock]
+    Timeout(id + 0x10, 9.2f, "Petrified Peat"); // t=1020.2; Ability 5480 from Mudman
+    Timeout(id + 0x20, 12.1f, "Peat Pelt"); // t=1032.3; Ability 5482 from Mudman; cactbot Ability 5482 [Matoyas Mudman Peat Pelt]
+    Timeout(id + 0x30, 9.1f, "Rocky Roll"); // t=1041.4
+    Timeout(id + 0x40, 9.3f, "Brittle Breccia"); // t=1050.7; Ability 548D from Mudman
+    Timeout(id + 0x50, 0.4f, "Rocky Roll"); // t=1051.1
+    Timeout(id + 0x60, 15.6f, "Stone Age").SetHint(StateMachine.StateHint.Raidwide); // t=1066.7; Ability 5491 from Mudman; cactbot StartsUsing 5491 [Matoyas Mudman Stone Age]
+    Timeout(id + 0x70, 11.1f, "Hard Rock").SetHint(StateMachine.StateHint.Tankbuster); // t=1077.8; Ability 547F from Mudman; cactbot StartsUsing 547F [Matoyas Mudman Hard Rock]
+    Timeout(id + 0x80, 9.2f, "Petrified Peat"); // t=1087.0; Ability 5480 from Mudman
+    Timeout(id + 0x90, 12.1f, "Peat Pelt"); // t=1099.1; Ability 5482 from Mudman; cactbot Ability 5482 [Matoyas Mudman Peat Pelt]
+    Timeout(id + 0xA0, 9.1f, "Rocky Roll"); // t=1108.2
+    Timeout(id + 0xB0, 9.3f, "Brittle Breccia"); // t=1117.5; Ability 548D from Mudman
+    Timeout(id + 0xC0, 0.4f, "Rocky Roll"); // t=1117.9
+    Timeout(id + 0xD0, 15.6f, "Stone Age").SetHint(StateMachine.StateHint.Raidwide); // t=1133.5; Ability 5491 from Mudman; cactbot StartsUsing 5491 [Matoyas Mudman Stone Age]
+    Timeout(id + 0xE0, 11.1f, "Hard Rock").SetHint(StateMachine.StateHint.Tankbuster); // t=1144.6; Ability 547F from Mudman; cactbot StartsUsing 547F [Matoyas Mudman Hard Rock]
+    Timeout(id + 0xF0, 9.2f, "Petrified Peat"); // t=1153.8; Ability 5480 from Mudman
+    Timeout(id + 0x100, 12.1f, "Peat Pelt"); // t=1165.9; Ability 5482 from Mudman; cactbot Ability 5482 [Matoyas Mudman Peat Pelt]
+    Timeout(id + 0x110, 9.1f, "Rocky Roll"); // t=1175.0
+    Timeout(id + 0x120, 9.3f, "Brittle Breccia"); // t=1184.3; Ability 548D from Mudman
+    Timeout(id + 0x130, 0.4f, "Rocky Roll"); // t=1184.7
+    Timeout(id + 0x140, 15.6f, "Stone Age").SetHint(StateMachine.StateHint.Raidwide); // t=1200.3; Ability 5491 from Mudman; cactbot StartsUsing 5491 [Matoyas Mudman Stone Age]
+    Timeout(id + 0x150, 12.0f, "Falling Rock"); // t=1212.3; cactbot HeadMarker 3E [Matoyas Mudman Falling Rock]
+    Timeout(id + 0x160, 11.2f, "Hard Rock").SetHint(StateMachine.StateHint.Tankbuster); // t=1223.5; Ability 547F from Mudman; cactbot StartsUsing 547F [Matoyas Mudman Hard Rock]
+    Timeout(id + 0x170, 9.2f, "Petrified Peat"); // t=1232.7
+    Timeout(id + 0x180, 12.1f, "Peat Pelt"); // t=1244.8; cactbot Ability 5482 [Matoyas Mudman Peat Pelt]
+    Timeout(id + 0x190, 9.1f, "Rocky Roll"); // t=1253.9
+    Timeout(id + 0x1A0, 9.3f, "Brittle Breccia"); // t=1263.2
+}
+
+private void Nixie(uint id)
+{
+    Timeout(id + 0x0, 9.2f, "Crash-Smash"); // t=2009.2; Ability 598F from Nixie; cactbot HeadMarker E6 [Matoyas Nixie Crash-smash]
+    Timeout(id + 0x10, 14.2f, "Shower Power"); // t=2023.4; Ability 5991 from Nixie; cactbot StartsUsing 5991 [Matoyas Nixie Shower Power]
+    Targetable(id + 0x20, false, 14.7f, "--untargetable--"); // t=2038.1
+    Timeout(id + 0x30, 6.0f, "Pitter-Patter"); // t=2044.1; Ability 5988 from Nixie; cactbot Ability 5988 [Matoyas Nixie Pitter-patter]
+    Timeout(id + 0x40, 28.1f, "Sea Shanty"); // t=2072.2
+    Timeout(id + 0x50, 20.2f, "Shower Power"); // t=2092.4; Ability 5991 from Nixie; cactbot StartsUsing 5991 [Matoyas Nixie Shower Power]
+    Timeout(id + 0x60, 18.1f, "Crash-Smash"); // t=2110.5; Ability 598F from Nixie; cactbot HeadMarker E6 [Matoyas Nixie Crash-smash]
+    Timeout(id + 0x70, 20.2f, "Shower Power"); // t=2130.7; Ability 5991 from Nixie; cactbot StartsUsing 5991 [Matoyas Nixie Shower Power]
+    Timeout(id + 0x80, 4.2f, "Splish-Splash"); // t=2134.9; Ability 598D from Nixie
+    Timeout(id + 0x90, 25.1f, "Shower Power"); // t=2160.0; Ability 5991 from Nixie; cactbot StartsUsing 5991 [Matoyas Nixie Shower Power]
+    Timeout(id + 0xA0, 18.2f, "Crash-Smash"); // t=2178.2; Ability 598F from Nixie; cactbot HeadMarker E6 [Matoyas Nixie Crash-smash]
+    Timeout(id + 0xB0, 20.2f, "Shower Power"); // t=2198.4; cactbot StartsUsing 5991 [Matoyas Nixie Shower Power]
+    Timeout(id + 0xC0, 4.2f, "Splish-Splash"); // t=2202.6
+    Timeout(id + 0xD0, 25.1f, "Shower Power"); // t=2227.7; cactbot StartsUsing 5991 [Matoyas Nixie Shower Power]
+}
+
+private void Mother_Porxie(uint id)
+{
+    Timeout(id + 0x0, 11.3f, "Tender Loin").SetHint(StateMachine.StateHint.Raidwide); // t=3011.3; Ability 5913 from Mother Porxie; cactbot StartsUsing 5913 [Matoyas Porxie Tender Loin]
+    Timeout(id + 0x10, 18.2f, "Huff And Puff"); // t=3029.5; Ability 5919 from Mother Porxie; cactbot StartsUsing 5919 [Matoyas Porxie Huff and Puff]
+    Timeout(id + 0x20, 2.1f, "Medium Rear"); // t=3031.6; Ability 591D from Mother Porxie
+    Timeout(id + 0x30, 14.1f, "Meat Mallet"); // t=3045.7; Ability 5916 from Mother Porxie; cactbot StartsUsing 5916 [Matoyas Porxie Meat Mallet]
+    Targetable(id + 0x40, false, 0.0f, "--untargetable--"); // t=3045.7
+    Timeout(id + 0x50, 4.7f, "Barbeque"); // t=3050.4; Ability 5B23 from Mother Porxie
+    Timeout(id + 0x60, 22.0f, "To A Crisp"); // t=3072.4; Ability 5924 from Mother Porxie
+    Targetable(id + 0x70, true, 2.0f, "--targetable--"); // t=3074.4
+    Timeout(id + 0x80, 12.1f, "Minced Meat").SetHint(StateMachine.StateHint.Tankbuster); // t=3086.5; Ability 5911 from Mother Porxie; cactbot StartsUsing 5911 [Matoyas Porxie Minced Meat]
+    Targetable(id + 0x90, false, 7.1f, "--untargetable--"); // t=3093.6
+    Condition(id + 0xA0, 3.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x591A), "Huff And Puff", 5f, 0.0f); // t=3096.6; StartsUsing 591A from Mother Porxie; cactbot StartsUsing 5919 [Matoyas Porxie Huff and Puff]
+    Timeout(id + 0xB0, 5.0f, "Buffet"); // t=3101.6; Ability 5926 from Aeolian Cave Sprite
+    Timeout(id + 0xC0, 5.7f, "Buffet"); // t=3107.3; Ability 5926 from Aeolian Cave Sprite
+    Timeout(id + 0xD0, 5.5f, "Buffet"); // t=3112.8; Ability 5926 from Aeolian Cave Sprite
+    Timeout(id + 0xE0, 5.6f, "Buffet"); // t=3118.4; Ability 5926 from Aeolian Cave Sprite
+    Timeout(id + 0xF0, 5.6f, "Buffet"); // t=3124.0; Ability 5926 from Aeolian Cave Sprite
+    Timeout(id + 0x100, 5.6f, "Buffet"); // t=3129.6; Ability 5926 from Aeolian Cave Sprite
+    Timeout(id + 0x110, 0.7f, "Huff And Puff Enrage?"); // t=3130.3; Ability 591B from Mother Porxie
+    Targetable(id + 0x120, true, 2.0f, "--targetable--"); // t=3132.3
+    Timeout(id + 0x130, 0.1f, "Medium Rear"); // t=3132.4; Ability 591D from Mother Porxie
+    Timeout(id + 0x140, 16.1f, "Open Flame"); // t=3148.5; Ability 5922 from Mother Porxie; cactbot StartsUsing 5922 [Matoyas Porxie Open Flame]
+    Timeout(id + 0x150, 12.1f, "Minced Meat").SetHint(StateMachine.StateHint.Tankbuster); // t=3160.6; Ability 5911 from Mother Porxie; cactbot StartsUsing 5911 [Matoyas Porxie Minced Meat]
+    Timeout(id + 0x160, 12.1f, "Tender Loin").SetHint(StateMachine.StateHint.Raidwide); // t=3172.7; Ability 5913 from Mother Porxie; cactbot StartsUsing 5913 [Matoyas Porxie Tender Loin]
+    Timeout(id + 0x170, 14.1f, "Tender Loin").SetHint(StateMachine.StateHint.Raidwide); // t=3186.8; Ability 5913 from Mother Porxie; cactbot StartsUsing 5913 [Matoyas Porxie Tender Loin]
+    Timeout(id + 0x180, 20.3f, "Huff And Puff"); // t=3207.1; Ability 5919 from Mother Porxie; cactbot StartsUsing 5919 [Matoyas Porxie Huff and Puff]
+    Timeout(id + 0x190, 2.1f, "Medium Rear"); // t=3209.2; Ability 591D from Mother Porxie
+    Timeout(id + 0x1A0, 16.1f, "Open Flame"); // t=3225.3; Ability 5922 from Mother Porxie; cactbot StartsUsing 5922 [Matoyas Porxie Open Flame]
+    Timeout(id + 0x1B0, 12.2f, "Minced Meat").SetHint(StateMachine.StateHint.Tankbuster); // t=3237.5; Ability 5911 from Mother Porxie; cactbot StartsUsing 5911 [Matoyas Porxie Minced Meat]
+    Timeout(id + 0x1C0, 12.1f, "Tender Loin"); // t=3249.6; cactbot StartsUsing 5913 [Matoyas Porxie Tender Loin]
+    Timeout(id + 0x1D0, 14.1f, "Tender Loin"); // t=3263.7; cactbot StartsUsing 5913 [Matoyas Porxie Tender Loin]
+    Timeout(id + 0x1E0, 18.2f, "Huff And Puff"); // t=3281.9; cactbot StartsUsing 5919 [Matoyas Porxie Huff and Puff]
+}
+

@@ -1,0 +1,105 @@
+// Generated development skeleton from fractal_continuum.txt (TerritoryType 430).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 7 static/dynamic trigger definitions from ui/raidboss/data/03-hw/dungeon/fractal_continuum.ts.
+
+private void Phase_2_at___75__HP(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Damage Up"); // t=100.0; Ability F7F from Phantom Ray
+    Timeout(id + 0x10, 4.8f, "Double Sever 1"); // t=104.8
+    Timeout(id + 0x20, 2.8f, "Atmospheric Compression"); // t=107.6; Ability F80 from Phantom Ray
+    Timeout(id + 0x30, 1.4f, "Double Sever 2"); // t=109.0
+    Timeout(id + 0x40, 2.8f, "Atmospheric Displacement"); // t=111.8; Ability F7E from Phantom Ray
+    Timeout(id + 0x50, 7.1f, "Rapid Sever").SetHint(StateMachine.StateHint.Tankbuster); // t=118.9; Ability F7A from Phantom Ray; cactbot StartsUsing F7A [Fractal Rapid Sever]
+    Timeout(id + 0x60, 5.1f, "Rapid Sever").SetHint(StateMachine.StateHint.Tankbuster); // t=124.0; Ability F7A from Phantom Ray; cactbot StartsUsing F7A [Fractal Rapid Sever]
+    Timeout(id + 0x70, 4.2f, "Atmospheric Displacement"); // t=128.2; Ability F7E from Phantom Ray
+    Timeout(id + 0x80, 4.9f, "Double Sever 1"); // t=133.1
+    Timeout(id + 0x90, 4.2f, "Double Sever 2"); // t=137.3
+    Timeout(id + 0xA0, 1.7f, "Atmospheric Displacement"); // t=139.0; Ability F7E from Phantom Ray
+    Timeout(id + 0xB0, 7.1f, "Atmospheric Displacement"); // t=146.1; Ability F7E from Phantom Ray
+    Timeout(id + 0xC0, 2.3f, "Damage Up"); // t=148.4; Ability F7F from Phantom Ray
+    Timeout(id + 0xD0, 4.8f, "Double Sever 1"); // t=153.2
+    Timeout(id + 0xE0, 2.8f, "Atmospheric Compression"); // t=156.0
+    Timeout(id + 0xF0, 1.4f, "Double Sever 2"); // t=157.4
+    Timeout(id + 0x100, 2.8f, "Atmospheric Displacement"); // t=160.2
+    Timeout(id + 0x110, 7.1f, "Rapid Sever"); // t=167.3; cactbot StartsUsing F7A [Fractal Rapid Sever]
+    Timeout(id + 0x120, 5.1f, "Rapid Sever"); // t=172.4; cactbot StartsUsing F7A [Fractal Rapid Sever]
+    Timeout(id + 0x130, 4.2f, "Atmospheric Displacement"); // t=176.6
+    Timeout(id + 0x140, 832.2f, "11-Tonze Swipe"); // t=1008.8; Ability F81 from Minotaur; cactbot StartsUsing F81 [Fractal Swipe]
+    Timeout(id + 0x150, 10.2f, "111-Tonze Swing"); // t=1019.0; Ability F82 from Minotaur; cactbot StartsUsing F82 [Fractal Small Swing]
+    Timeout(id + 0x160, 9.2f, "Disorienting Groan"); // t=1028.2; Ability F84 from Minotaur
+    Timeout(id + 0x170, 1.2f, "Zoom In x3"); // t=1029.4; Ability F86 from Minotaur
+    Timeout(id + 0x180, 4.9f, "10-Tonze Slash"); // t=1034.3; Ability F83 from Minotaur; cactbot StartsUsing F83 [Fractal Slash]
+    Timeout(id + 0x190, 9.2f, "11-Tonze Swipe"); // t=1043.5; Ability F81 from Minotaur; cactbot StartsUsing F81 [Fractal Swipe]
+    Timeout(id + 0x1A0, 20.7f, "Feast?"); // t=1064.2
+    Timeout(id + 0x1B0, 0.1f, "1111-Tonze Swing?"); // t=1064.3; Ability F87 from Minotaur; cactbot StartsUsing F87 [Fractal Big Swing]
+    Timeout(id + 0x1C0, 12.1f, "11-Tonze Swipe"); // t=1076.4
+    Timeout(id + 0x1D0, 10.3f, "111-Tonze Swing"); // t=1086.7
+    Timeout(id + 0x1E0, 80.5f, "Feast"); // t=1167.2; Ability F88 from Minotaur
+    Timeout(id + 0x1F0, 12.2f, "11-Tonze Swipe"); // t=1179.4; Ability F81 from Minotaur; cactbot StartsUsing F81 [Fractal Swipe]
+    Timeout(id + 0x200, 10.3f, "111-Tonze Swing"); // t=1189.7; Ability F82 from Minotaur; cactbot StartsUsing F82 [Fractal Small Swing]
+    Timeout(id + 0x210, 9.3f, "Disorienting Groan"); // t=1199.0; Ability F84 from Minotaur
+    Timeout(id + 0x220, 1.1f, "Zoom In x3"); // t=1200.1; Ability F86 from Minotaur
+    Timeout(id + 0x230, 4.6f, "10-Tonze Slash"); // t=1204.7; Ability F83 from Minotaur; cactbot StartsUsing F83 [Fractal Slash]
+    Timeout(id + 0x240, 9.3f, "11-Tonze Swipe"); // t=1214.0; Ability F81 from Minotaur; cactbot StartsUsing F81 [Fractal Swipe]
+    Timeout(id + 0x250, 21.2f, "Feast?"); // t=1235.2
+    Timeout(id + 0x260, 0.1f, "1111-Tonze Swing?"); // t=1235.3; Ability F87 from Minotaur; cactbot StartsUsing F87 [Fractal Big Swing]
+    Timeout(id + 0x270, 12.1f, "11-Tonze Swipe"); // t=1247.4
+    Timeout(id + 0x280, 16.2f, "111-Tonze Swing"); // t=1263.6
+}
+
+private void Phase_length_is_the_same_regardless_of_added_abilities(uint id)
+{
+    Timeout(id + 0x0, 6.2f, "Sanctification"); // t=2006.2; Ability F89 from The Curator
+    Timeout(id + 0x10, 5.2f, "Unholy"); // t=2011.4; Ability F8A from The Curator
+    Timeout(id + 0x20, 9.2f, "Sanctification"); // t=2020.6; Ability F89 from The Curator
+    Timeout(id + 0x30, 8.2f, "Aetherochemical Explosive"); // t=2028.8; Ability F8B from The Curator
+    Timeout(id + 0x40, 4.2f, "Unholy"); // t=2033.0; Ability F8A from The Curator
+    Timeout(id + 0x50, 2.8f, "Sanctification"); // t=2035.8; Ability F89 from The Curator
+    Timeout(id + 0x60, 6.2f, "Unholy"); // t=2042.0; Ability F8A from The Curator
+    Timeout(id + 0x70, 2.1f, "Sanctification"); // t=2044.1; Ability F89 from The Curator
+    Timeout(id + 0x80, 9.1f, "Aetherochemical Explosive"); // t=2053.2; Ability F8B from The Curator
+    Timeout(id + 0x90, 13.2f, "The Educator"); // t=2066.4; Ability F8D from The Curator
+    Timeout(id + 0xA0, 6.8f, "Sanctification"); // t=2073.2; Ability F89 from The Curator
+    Timeout(id + 0xB0, 5.2f, "Unholy"); // t=2078.4; Ability F8A from The Curator
+    Timeout(id + 0xC0, 9.2f, "Sanctification"); // t=2087.6; Ability F89 from The Curator
+    Timeout(id + 0xD0, 8.2f, "Aetherochemical Explosive"); // t=2095.8; Ability F8B from The Curator
+    Timeout(id + 0xE0, 4.2f, "Unholy"); // t=2100.0; Ability F8A from The Curator
+    Timeout(id + 0xF0, 2.8f, "Sanctification"); // t=2102.8; Ability F89 from The Curator
+    Timeout(id + 0x100, 6.2f, "Unholy"); // t=2109.0; Ability F8A from The Curator
+    Timeout(id + 0x110, 2.1f, "Sanctification"); // t=2111.1; Ability F89 from The Curator
+    Timeout(id + 0x120, 9.1f, "Aetherochemical Explosive"); // t=2120.2; Ability F8B from The Curator
+    Timeout(id + 0x130, 13.2f, "The Educator"); // t=2133.4; Ability F8D from The Curator
+    Timeout(id + 0x140, 6.8f, "Sanctification"); // t=2140.2; Ability F89 from The Curator
+    Timeout(id + 0x150, 5.2f, "Unholy"); // t=2145.4
+    Timeout(id + 0x160, 9.2f, "Sanctification"); // t=2154.6
+    Timeout(id + 0x170, 8.2f, "Aetherochemical Explosive"); // t=2162.8
+    Timeout(id + 0x180, 4.2f, "Unholy"); // t=2167.0
+    Timeout(id + 0x190, 2.8f, "Sanctification"); // t=2169.8
+}
+
+private void Phase_2_after_first_Educator__Maybe_HP_threshold(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Sanctification"); // t=2200.0; Ability F89 from The Curator
+    Timeout(id + 0x10, 3.9f, "Aetherochemical Mine"); // t=2203.9; Ability F8F from Repository Node
+    Timeout(id + 0x20, 1.3f, "Unholy"); // t=2205.2; Ability F8A from The Curator
+    Timeout(id + 0x30, 9.4f, "Sanctification"); // t=2214.6; Ability F89 from The Curator
+    Timeout(id + 0x40, 8.1f, "Aetherochemical Explosive"); // t=2222.7; Ability F8B from The Curator
+    Timeout(id + 0x50, 2.3f, "Aetherochemical Mine"); // t=2225.0; Ability F8F from Repository Node
+    Timeout(id + 0x60, 1.8f, "Unholy"); // t=2226.8; Ability F8A from The Curator
+    Timeout(id + 0x70, 2.2f, "Sanctification"); // t=2229.0; Ability F89 from The Curator
+    Timeout(id + 0x80, 6.0f, "Unholy"); // t=2235.0; Ability F8A from The Curator
+    Timeout(id + 0x90, 2.4f, "Sanctification"); // t=2237.4; Ability F89 from The Curator
+    Timeout(id + 0xA0, 4.6f, "Aetherochemical Mine"); // t=2242.0; Ability F8F from Repository Node
+    Timeout(id + 0xB0, 4.5f, "Aetherochemical Explosive"); // t=2246.5; Ability F8B from The Curator
+    Timeout(id + 0xC0, 13.2f, "The Educator"); // t=2259.7; Ability F8D from The Curator
+    Timeout(id + 0xD0, 7.3f, "Sanctification"); // t=2267.0; Ability F89 from The Curator
+    Timeout(id + 0xE0, 3.9f, "Aetherochemical Mine"); // t=2270.9
+    Timeout(id + 0xF0, 1.3f, "Unholy"); // t=2272.2
+    Timeout(id + 0x100, 9.4f, "Sanctification"); // t=2281.6
+    Timeout(id + 0x110, 8.1f, "Aetherochemical Explosive"); // t=2289.7
+    Timeout(id + 0x120, 2.3f, "Aetherochemical Mine"); // t=2292.0
+    Timeout(id + 0x130, 1.8f, "Unholy"); // t=2293.8
+    Timeout(id + 0x140, 2.2f, "Sanctification"); // t=2296.0
+}
+

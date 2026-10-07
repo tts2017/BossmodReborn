@@ -1,0 +1,153 @@
+// Generated development skeleton from the_vault.txt (TerritoryType 1066).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 10 static/dynamic trigger definitions from ui/raidboss/data/03-hw/dungeon/the_vault.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Advent"); // t=100.0; Ability 1373 from Ser Adelphel Brightblade
+    Timeout(id + 0x10, 2.1f, "Advent"); // t=102.1; Ability 101A from Ser Adelphel Brightblade
+    Timeout(id + 0x20, 8.2f, "Holiest Of Holy").SetHint(StateMachine.StateHint.Raidwide); // t=110.3; Ability 101E from Ser Adelphel; cactbot StartsUsing 101E [The Vault Holiest of Holy]
+    Timeout(id + 0x30, 4.2f, "Heavenly Slash"); // t=114.5; Ability 101D from Ser Adelphel
+    Timeout(id + 0x40, 8.3f, "Holy Shield Bash"); // t=122.8; Ability 101F from Ser Adelphel; cactbot StartsUsing 101F [The Vault Holy Shield Bash]
+    Timeout(id + 0x50, 1.1f, "Solid Ascension x2"); // t=123.9; Ability 1020 from Ser Adelphel
+    Timeout(id + 0x60, 7.9f, "Heavenly Slash"); // t=131.8; Ability 101D from Ser Adelphel
+    Timeout(id + 0x70, 8.2f, "Holiest Of Holy").SetHint(StateMachine.StateHint.Raidwide); // t=140.0; Ability 101E from Ser Adelphel; cactbot StartsUsing 101E [The Vault Holiest of Holy]
+    Timeout(id + 0x80, 4.2f, "Heavenly Slash"); // t=144.2; Ability 101D from Ser Adelphel
+    Timeout(id + 0x90, 8.3f, "Holy Shield Bash"); // t=152.5; Ability 101F from Ser Adelphel; cactbot StartsUsing 101F [The Vault Holy Shield Bash]
+    Timeout(id + 0xA0, 1.1f, "Solid Ascension x2"); // t=153.6; Ability 1020 from Ser Adelphel
+    Timeout(id + 0xB0, 7.9f, "Heavenly Slash"); // t=161.5; Ability 101D from Ser Adelphel
+    Timeout(id + 0xC0, 8.2f, "Holiest Of Holy"); // t=169.7; cactbot StartsUsing 101E [The Vault Holiest of Holy]
+    Timeout(id + 0xD0, 4.2f, "Heavenly Slash"); // t=173.9
+    Timeout(id + 0xE0, 8.3f, "Holy Shield Bash"); // t=182.2; cactbot StartsUsing 101F [The Vault Holy Shield Bash]
+    Timeout(id + 0xF0, 1.1f, "Solid Ascension x2"); // t=183.3
+    Timeout(id + 0x100, 7.9f, "Heavenly Slash"); // t=191.2
+}
+
+private void Phase_2_at___70__HP(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Shining Blade 1"); // t=300.0; Ability 1022 from Ser Adelphel
+    Timeout(id + 0x10, 2.4f, "Shining Blade 2"); // t=302.4; Ability 1022 from Ser Adelphel
+    Timeout(id + 0x20, 2.2f, "Shining Blade 3"); // t=304.6; Ability 1022 from Ser Adelphel
+    Timeout(id + 0x30, 2.4f, "Shining Blade 4"); // t=307.0; Ability 1022 from Ser Adelphel
+    Timeout(id + 0x40, 2.0f, "--Untargetable--"); // t=309.0
+    Timeout(id + 0x50, 2.7f, "--Targetable-- / Execution"); // t=311.7; Ability 1023 from Ser Adelphel
+    Timeout(id + 0x60, 11.1f, "Holiest Of Holy").SetHint(StateMachine.StateHint.Raidwide); // t=322.8; Ability 101E from Ser Adelphel; cactbot StartsUsing 101E [The Vault Holiest of Holy]
+    Timeout(id + 0x70, 5.2f, "Heavenly Slash"); // t=328.0; Ability 101D from Ser Adelphel
+    Timeout(id + 0x80, 9.2f, "Holy Shield Bash"); // t=337.2; Ability 101F from Ser Adelphel; cactbot StartsUsing 101F [The Vault Holy Shield Bash]
+    Timeout(id + 0x90, 1.1f, "Solid Ascension x2"); // t=338.3; Ability 1020 from Ser Adelphel
+    Timeout(id + 0xA0, 10.8f, "Holiest Of Holy").SetHint(StateMachine.StateHint.Raidwide); // t=349.1; Ability 101E from Ser Adelphel; cactbot StartsUsing 101E [The Vault Holiest of Holy]
+    Timeout(id + 0xB0, 4.2f, "Heavenly Slash"); // t=353.3; Ability 101D from Ser Adelphel
+    Timeout(id + 0xC0, 4.1f, "Shining Blade 1"); // t=357.4; Ability 1022 from Ser Adelphel
+    Timeout(id + 0xD0, 2.4f, "Shining Blade 2"); // t=359.8; Ability 1022 from Ser Adelphel
+    Timeout(id + 0xE0, 2.2f, "Shining Blade 3"); // t=362.0; Ability 1022 from Ser Adelphel
+    Timeout(id + 0xF0, 2.4f, "Shining Blade 4"); // t=364.4; Ability 1022 from Ser Adelphel
+    Timeout(id + 0x100, 2.0f, "--Untargetable--"); // t=366.4
+    Timeout(id + 0x110, 2.6f, "--Targetable--"); // t=369.0
+    Timeout(id + 0x120, 0.1f, "Execution"); // t=369.1; Ability 1023 from Ser Adelphel; cactbot HeadMarker 20 [The Vault Execution]
+    Timeout(id + 0x130, 11.1f, "Holiest Of Holy").SetHint(StateMachine.StateHint.Raidwide); // t=380.2; Ability 101E from Ser Adelphel; cactbot StartsUsing 101E [The Vault Holiest of Holy]
+    Timeout(id + 0x140, 5.2f, "Heavenly Slash"); // t=385.4; Ability 101D from Ser Adelphel
+    Timeout(id + 0x150, 9.2f, "Holy Shield Bash"); // t=394.6; Ability 101F from Ser Adelphel; cactbot StartsUsing 101F [The Vault Holy Shield Bash]
+    Timeout(id + 0x160, 1.1f, "Solid Ascension x2"); // t=395.7; Ability 1020 from Ser Adelphel
+    Timeout(id + 0x170, 10.8f, "Holiest Of Holy").SetHint(StateMachine.StateHint.Raidwide); // t=406.5; Ability 101E from Ser Adelphel; cactbot StartsUsing 101E [The Vault Holiest of Holy]
+    Timeout(id + 0x180, 4.2f, "Heavenly Slash"); // t=410.7; Ability 101D from Ser Adelphel
+    Timeout(id + 0x190, 4.1f, "Shining Blade 1"); // t=414.8
+    Timeout(id + 0x1A0, 2.4f, "Shining Blade 2"); // t=417.2
+    Timeout(id + 0x1B0, 2.2f, "Shining Blade 3"); // t=419.4
+    Timeout(id + 0x1C0, 2.4f, "Shining Blade 4"); // t=421.8
+    Timeout(id + 0x1D0, 4.7f, "Execution"); // t=426.5; cactbot HeadMarker 20 [The Vault Execution]
+    Timeout(id + 0x1E0, 11.1f, "Holiest Of Holy"); // t=437.6; cactbot StartsUsing 101E [The Vault Holiest of Holy]
+    Timeout(id + 0x1F0, 4.4f, "Retreating"); // t=442.0
+    Timeout(id + 0x200, 8.0f, "Retreat"); // t=450.0; Ability 10A1 from Ser Adelphel Brightblade
+    Timeout(id + 0x210, 556.7f, "Overpower"); // t=1006.7; Ability 88C from Ser Grinnaux the Bull
+    Timeout(id + 0x220, 8.9f, "Rive"); // t=1015.6; Ability 46F from Ser Grinnaux the Bull
+    Timeout(id + 0x230, 3.3f, "Overpower"); // t=1018.9; Ability 88C from Ser Grinnaux the Bull
+    Timeout(id + 0x240, 12.3f, "Overpower"); // t=1031.2; Ability 88C from Ser Grinnaux the Bull
+    Timeout(id + 0x250, 8.7f, "Rive"); // t=1039.9; Ability 46F from Ser Grinnaux the Bull
+    Timeout(id + 0x260, 3.3f, "Overpower"); // t=1043.2; Ability 88C from Ser Grinnaux the Bull
+    Timeout(id + 0x270, 12.3f, "Overpower"); // t=1055.5; Ability 88C from Ser Grinnaux the Bull
+    Timeout(id + 0x280, 8.7f, "Rive"); // t=1064.2; Ability 46F from Ser Grinnaux the Bull
+    Timeout(id + 0x290, 3.3f, "Overpower"); // t=1067.5
+    Timeout(id + 0x2A0, 12.3f, "Overpower"); // t=1079.8
+    Timeout(id + 0x2B0, 8.7f, "Rive"); // t=1088.5
+}
+
+private void Phase_transition(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Advent"); // t=1100.0; Ability 1373 from Ser Grinnaux the Bull
+    Timeout(id + 0x10, 1.0f, "Advent"); // t=1101.0; Ability 1374 from Ser Grinnaux
+    Timeout(id + 0x20, 8.6f, "Dimensional Collapse"); // t=1109.6; Ability 1028 from Ser Grinnaux
+    Timeout(id + 0x30, 4.1f, "Heavy Swing"); // t=1113.7; Ability 1025 from Ser Grinnaux
+    Timeout(id + 0x40, 4.3f, "Heavy Swing"); // t=1118.0; Ability 1025 from Ser Grinnaux
+    Timeout(id + 0x50, 7.1f, "Hyperdimensional Slash"); // t=1125.1; Ability 1026 from Ser Grinnaux
+    Timeout(id + 0x60, 5.2f, "Hyperdimensional Slash"); // t=1130.3; Ability 1026 from Ser Grinnaux
+    Timeout(id + 0x70, 4.1f, "Heavy Swing"); // t=1134.4; Ability 1025 from Ser Grinnaux
+    Timeout(id + 0x80, 5.0f, "Faith Unmoving").SetHint(StateMachine.StateHint.Knockback); // t=1139.4; Ability 1027 from Ser Grinnaux; cactbot StartsUsing 1027 [The Vault Faith Unmoving]
+    Timeout(id + 0x90, 4.7f, "Dimensional Collapse"); // t=1144.1; Ability 1028 from Ser Grinnaux
+    Timeout(id + 0xA0, 8.2f, "Dimensional Rip"); // t=1152.3; Ability 102C from Ser Grinnaux
+    Timeout(id + 0xB0, 3.2f, "Heavy Swing"); // t=1155.5; Ability 1025 from Ser Grinnaux
+    Timeout(id + 0xC0, 6.1f, "Hyperdimensional Slash"); // t=1161.6; Ability 1026 from Ser Grinnaux
+    Timeout(id + 0xD0, 5.2f, "Hyperdimensional Slash"); // t=1166.8; Ability 1026 from Ser Grinnaux
+    Timeout(id + 0xE0, 4.0f, "Heavy Swing"); // t=1170.8; Ability 1025 from Ser Grinnaux
+    Timeout(id + 0xF0, 6.6f, "Dimensional Collapse"); // t=1177.4; Ability 1028 from Ser Grinnaux
+    Timeout(id + 0x100, 5.1f, "Faith Unmoving").SetHint(StateMachine.StateHint.Knockback); // t=1182.5; Ability 1027 from Ser Grinnaux; cactbot StartsUsing 1027 [The Vault Faith Unmoving]
+    Timeout(id + 0x110, 10.2f, "Dimensional Rip"); // t=1192.7; Ability 102C from Ser Grinnaux
+    Timeout(id + 0x120, 3.2f, "Heavy Swing"); // t=1195.9; Ability 1025 from Ser Grinnaux
+    Timeout(id + 0x130, 6.2f, "Hyperdimensional Slash"); // t=1202.1; Ability 1026 from Ser Grinnaux
+    Timeout(id + 0x140, 5.8f, "Hyperdimensional Slash"); // t=1207.9; Ability 1026 from Ser Grinnaux
+    Timeout(id + 0x150, 4.2f, "Heavy Swing"); // t=1212.1; Ability 1025 from Ser Grinnaux
+    Timeout(id + 0x160, 6.6f, "Dimensional Collapse"); // t=1218.7; Ability 1028 from Ser Grinnaux
+    Timeout(id + 0x170, 5.1f, "Faith Unmoving").SetHint(StateMachine.StateHint.Knockback); // t=1223.8; Ability 1027 from Ser Grinnaux; cactbot StartsUsing 1027 [The Vault Faith Unmoving]
+    Timeout(id + 0x180, 10.2f, "Dimensional Rip"); // t=1234.0; Ability 102C from Ser Grinnaux
+    Timeout(id + 0x190, 3.1f, "Heavy Swing"); // t=1237.1; Ability 1025 from Ser Grinnaux
+    Timeout(id + 0x1A0, 6.2f, "Hyperdimensional Slash"); // t=1243.3; Ability 1026 from Ser Grinnaux
+    Timeout(id + 0x1B0, 5.5f, "Hyperdimensional Slash"); // t=1248.8; Ability 1026 from Ser Grinnaux
+    Timeout(id + 0x1C0, 4.2f, "Heavy Swing"); // t=1253.0; Ability 1025 from Ser Grinnaux
+    Timeout(id + 0x1D0, 6.6f, "Dimensional Collapse"); // t=1259.6; Ability 1028 from Ser Grinnaux
+    Timeout(id + 0x1E0, 5.1f, "Faith Unmoving").SetHint(StateMachine.StateHint.Knockback); // t=1264.7; Ability 1027 from Ser Grinnaux; cactbot StartsUsing 1027 [The Vault Faith Unmoving]
+    Timeout(id + 0x1F0, 177.3f, "Retreating"); // t=1442.0
+    Timeout(id + 0x200, 8.0f, "Retreat"); // t=1450.0; Ability 10A1 from Ser Grinnaux the Bull
+    Timeout(id + 0x210, 556.3f, "Altar Candle"); // t=2006.3; Ability 1030 from Ser Charibert
+    Timeout(id + 0x220, 8.7f, "Heavensflame"); // t=2015.0; Ability 1031 from Ser Charibert
+    Timeout(id + 0x230, 4.2f, "Holy Chain"); // t=2019.2; Ability 1033 from Ser Charibert; cactbot HeadMarker 61 [The Vault Holy Chains]
+    Timeout(id + 0x240, 5.2f, "Altar Candle"); // t=2024.4; Ability 1030 from Ser Charibert
+    Timeout(id + 0x250, 4.3f, "Knights Appear"); // t=2028.7
+    Timeout(id + 0x260, 8.9f, "Altar Pyre").SetHint(StateMachine.StateHint.Raidwide); // t=2037.6; Ability 1035 from Ser Charibert; cactbot StartsUsing 1035 [The Vault Altar Pyre]
+    Timeout(id + 0x270, 9.0f, "Altar Candle"); // t=2046.6; Ability 1030 from Ser Charibert
+    Timeout(id + 0x280, 8.7f, "Heavensflame"); // t=2055.3; Ability 1031 from Ser Charibert
+    Timeout(id + 0x290, 4.2f, "Holy Chain"); // t=2059.5; Ability 1033 from Ser Charibert; cactbot HeadMarker 61 [The Vault Holy Chains]
+    Timeout(id + 0x2A0, 5.2f, "Altar Candle"); // t=2064.7; Ability 1030 from Ser Charibert
+    Timeout(id + 0x2B0, 4.1f, "Knights Appear"); // t=2068.8
+    Timeout(id + 0x2C0, 9.1f, "Altar Pyre").SetHint(StateMachine.StateHint.Raidwide); // t=2077.9; Ability 1035 from Ser Charibert; cactbot StartsUsing 1035 [The Vault Altar Pyre]
+    Timeout(id + 0x2D0, 9.0f, "Altar Candle"); // t=2086.9
+    Timeout(id + 0x2E0, 8.7f, "Heavensflame"); // t=2095.6
+    Timeout(id + 0x2F0, 4.2f, "Holy Chain"); // t=2099.8; cactbot HeadMarker 61 [The Vault Holy Chains]
+    Timeout(id + 0x300, 5.2f, "Altar Candle"); // t=2105.0
+    Timeout(id + 0x310, 113.4f, "Black Knight's Tour"); // t=2218.4; Ability 1039 from Dusk Knight
+    Timeout(id + 0x320, 0.1f, "White Knight's Tour"); // t=2218.5; Ability 1038 from Dawn Knight
+    Timeout(id + 0x330, 13.2f, "Black Knight's Tour"); // t=2231.7; Ability 1039 from Dusk Knight
+    Timeout(id + 0x340, 0.2f, "White Knight's Tour"); // t=2231.9; Ability 1038 from Dawn Knight
+    Timeout(id + 0x350, 13.1f, "Black Knight's Tour"); // t=2245.0; Ability 1039 from Dusk Knight
+    Timeout(id + 0x360, 0.2f, "White Knight's Tour"); // t=2245.2; Ability 1038 from Dawn Knight
+    Timeout(id + 0x370, 9.3f, "Sacred Flame Enrage?"); // t=2254.5
+    Timeout(id + 0x380, 45.5f, "Altar Candle"); // t=2300.0; Ability 1030 from Ser Charibert
+    Timeout(id + 0x390, 9.0f, "Altar Pyre").SetHint(StateMachine.StateHint.Raidwide); // t=2309.0; Ability 1035 from Ser Charibert; cactbot StartsUsing 1035 [The Vault Altar Pyre]
+    Timeout(id + 0x3A0, 7.3f, "Knights Appear"); // t=2316.3
+    Timeout(id + 0x3B0, 2.3f, "Heavensflame"); // t=2318.6; Ability 1031 from Ser Charibert
+    Timeout(id + 0x3C0, 4.2f, "Holy Chain"); // t=2322.8; Ability 1033 from Ser Charibert; cactbot HeadMarker 61 [The Vault Holy Chains]
+    Timeout(id + 0x3D0, 9.2f, "Altar Pyre").SetHint(StateMachine.StateHint.Raidwide); // t=2332.0; Ability 1035 from Ser Charibert; cactbot StartsUsing 1035 [The Vault Altar Pyre]
+    Timeout(id + 0x3E0, 4.1f, "Altar Candle"); // t=2336.1; Ability 1030 from Ser Charibert
+    Timeout(id + 0x3F0, 9.2f, "Altar Candle"); // t=2345.3; Ability 1030 from Ser Charibert
+    Timeout(id + 0x400, 9.0f, "Altar Pyre").SetHint(StateMachine.StateHint.Raidwide); // t=2354.3; Ability 1035 from Ser Charibert; cactbot StartsUsing 1035 [The Vault Altar Pyre]
+    Timeout(id + 0x410, 2.3f, "Knights Appear"); // t=2356.6
+    Timeout(id + 0x420, 7.3f, "Heavensflame"); // t=2363.9; Ability 1031 from Ser Charibert
+    Timeout(id + 0x430, 4.2f, "Holy Chain"); // t=2368.1; Ability 1033 from Ser Charibert; cactbot HeadMarker 61 [The Vault Holy Chains]
+    Timeout(id + 0x440, 9.2f, "Altar Pyre").SetHint(StateMachine.StateHint.Raidwide); // t=2377.3; Ability 1035 from Ser Charibert; cactbot StartsUsing 1035 [The Vault Altar Pyre]
+    Timeout(id + 0x450, 4.1f, "Altar Candle"); // t=2381.4; Ability 1030 from Ser Charibert
+    Timeout(id + 0x460, 9.2f, "Altar Candle"); // t=2390.6
+    Timeout(id + 0x470, 9.0f, "Altar Pyre"); // t=2399.6; cactbot StartsUsing 1035 [The Vault Altar Pyre]
+    Timeout(id + 0x480, 9.6f, "Heavensflame"); // t=2409.2
+    Timeout(id + 0x490, 4.2f, "Holy Chain"); // t=2413.4; cactbot HeadMarker 61 [The Vault Holy Chains]
+    Timeout(id + 0x4A0, 9.2f, "Altar Pyre"); // t=2422.6; cactbot StartsUsing 1035 [The Vault Altar Pyre]
+}
+

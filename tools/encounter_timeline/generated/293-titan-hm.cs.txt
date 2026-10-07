@@ -1,0 +1,161 @@
+// Generated development skeleton from titan-hm.txt (TerritoryType 293).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 1 static/dynamic trigger definitions from ui/raidboss/data/02-arr/trial/titan-hm.ts.
+
+private void Phase_1__100__90(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 5.0f, "Rock Buster"); // t=5.0; Ability 550 from Titan
+    Timeout(id + 0x20, 6.2f, "Landslide"); // t=11.2; Ability 554 from Titan
+    Timeout(id + 0x30, 6.2f, "Tumult x2"); // t=17.4
+    Timeout(id + 0x40, 6.3f, "Rock Buster"); // t=23.7
+    Timeout(id + 0x50, 6.2f, "Landslide"); // t=29.9
+    Timeout(id + 0x60, 6.2f, "Tumult x2"); // t=36.1
+    Timeout(id + 0x70, 6.3f, "Rock Buster"); // t=42.4
+    Timeout(id + 0x80, 6.2f, "Landslide"); // t=48.6
+    Timeout(id + 0x90, 6.2f, "Tumult x2"); // t=54.8
+}
+
+private void Phase_2__90___80(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x555), "", 5f, 0.0f); // t=200.0; StartsUsing 555 from Titan
+    Timeout(id + 0x10, 3.0f, "Geocrush"); // t=203.0; Ability 555 from Titan
+    Timeout(id + 0x20, 8.4f, "Weight Of The Land"); // t=211.4; Ability 552 from Titan
+    Timeout(id + 0x30, 6.2f, "Rock Buster"); // t=217.6; Ability 550 from Titan
+    Timeout(id + 0x40, 4.2f, "Landslide"); // t=221.8; Ability 554 from Titan
+    Timeout(id + 0x50, 8.1f, "Tumult x3"); // t=229.9
+    Timeout(id + 0x60, 9.5f, "Weight Of The Land"); // t=239.4; Ability 552 from Titan
+    Timeout(id + 0x70, 6.2f, "Rock Buster"); // t=245.6
+    Timeout(id + 0x80, 4.2f, "Landslide"); // t=249.8
+    Timeout(id + 0x90, 8.1f, "Tumult x3"); // t=257.9
+    Timeout(id + 0xA0, 9.5f, "Weight Of The Land"); // t=267.4
+    Timeout(id + 0xB0, 6.2f, "Rock Buster"); // t=273.6
+    Timeout(id + 0xC0, 4.2f, "Landslide"); // t=277.8
+    Timeout(id + 0xD0, 8.1f, "Tumult x3"); // t=285.9
+}
+
+private void Phase_3__80___60(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x555), "", 5f, 0.0f); // t=400.0; StartsUsing 555 from Titan
+    Timeout(id + 0x10, 3.0f, "Geocrush"); // t=403.0; Ability 555 from Titan
+    Timeout(id + 0x20, 8.9f, "Landslide"); // t=411.9; Ability 554 from Titan
+    Timeout(id + 0x30, 8.1f, "Weight Of The Land"); // t=420.0; Ability 552 from Titan
+    Timeout(id + 0x40, 5.1f, "Bury (clock)"); // t=425.1
+    Timeout(id + 0x50, 4.8f, "Rock Buster"); // t=429.9; Ability 550 from Titan
+    Timeout(id + 0x60, 4.4f, "Burst"); // t=434.3
+    Timeout(id + 0x70, 5.2f, "Landslide"); // t=439.5; Ability 554 from Titan
+    Timeout(id + 0x80, 6.1f, "Weight Of The Land"); // t=445.6; Ability 552 from Titan
+    Timeout(id + 0x90, 4.1f, "Rock Throw"); // t=449.7; Ability 285 from Titan
+    Timeout(id + 0xA0, 7.1f, "Rock Buster"); // t=456.8; Ability 550 from Titan
+    Timeout(id + 0xB0, 3.0f, "Tumult x3"); // t=459.8
+    Timeout(id + 0xC0, 9.7f, "Landslide"); // t=469.5; Ability 554 from Titan
+    Timeout(id + 0xD0, 8.1f, "Weight Of The Land"); // t=477.6; Ability 552 from Titan
+    Timeout(id + 0xE0, 5.1f, "Bury (diamond)"); // t=482.7
+    Timeout(id + 0xF0, 4.8f, "Rock Buster"); // t=487.5; Ability 550 from Titan
+    Timeout(id + 0x100, 4.4f, "Burst"); // t=491.9
+    Timeout(id + 0x110, 5.3f, "Landslide"); // t=497.2; Ability 554 from Titan
+    Timeout(id + 0x120, 6.1f, "Weight Of The Land"); // t=503.3; Ability 552 from Titan
+    Timeout(id + 0x130, 4.3f, "Rock Throw"); // t=507.6; Ability 285 from Titan
+    Timeout(id + 0x140, 7.2f, "Rock Buster"); // t=514.8; Ability 550 from Titan
+    Timeout(id + 0x150, 3.0f, "Tumult x3"); // t=517.8
+    Timeout(id + 0x160, 10.3f, "Landslide"); // t=528.1; Ability 554 from Titan
+    Timeout(id + 0x170, 8.1f, "Weight Of The Land"); // t=536.2; Ability 552 from Titan
+    Timeout(id + 0x180, 5.1f, "Bury (clock)"); // t=541.3
+    Timeout(id + 0x190, 4.8f, "Rock Buster"); // t=546.1
+    Timeout(id + 0x1A0, 4.4f, "Burst"); // t=550.5
+    Timeout(id + 0x1B0, 5.2f, "Landslide"); // t=555.7
+    Timeout(id + 0x1C0, 6.1f, "Weight Of The Land"); // t=561.8
+    Timeout(id + 0x1D0, 4.1f, "Rock Throw"); // t=565.9
+    Timeout(id + 0x1E0, 7.1f, "Rock Buster"); // t=573.0
+    Timeout(id + 0x1F0, 3.0f, "Tumult x3"); // t=576.0
+    Timeout(id + 0x200, 9.7f, "Landslide"); // t=585.7
+    Timeout(id + 0x210, 8.1f, "Weight Of The Land"); // t=593.8
+}
+
+private void Phase_4__Heart(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x555), "", 5f, 0.0f); // t=800.0; StartsUsing 555 from Titan
+    Timeout(id + 0x10, 3.0f, "Geocrush"); // t=803.0; Ability 555 from Titan
+    Targetable(id + 0x20, true, 2.3f, "--targetable--"); // t=805.3
+    Timeout(id + 0x30, 7.0f, "Rock Throw"); // t=812.3; Ability 285 from Titan
+    Timeout(id + 0x40, 4.1f, "Rock Buster"); // t=816.4; Ability 550 from Titan
+    Timeout(id + 0x50, 4.2f, "Landslide"); // t=820.6; Ability 554 from Titan
+    Timeout(id + 0x60, 8.1f, "Weight Of The Land"); // t=828.7; Ability 552 from Titan
+    Timeout(id + 0x70, 6.1f, "Tumult x3"); // t=834.8
+    Timeout(id + 0x80, 7.7f, "Rock Throw"); // t=842.5; Ability 285 from Titan
+    Timeout(id + 0x90, 4.1f, "Rock Buster"); // t=846.6; Ability 550 from Titan
+    Timeout(id + 0xA0, 4.2f, "Landslide"); // t=850.8; Ability 554 from Titan
+    Timeout(id + 0xB0, 8.1f, "Weight Of The Land"); // t=858.9; Ability 552 from Titan
+    Targetable(id + 0xC0, false, 9.3f, "--untargetable--"); // t=868.2
+}
+
+private void Phase_5__60___0(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Earthen Fury"); // t=873.7; Ability 556 from Titan
+    Targetable(id + 0x10, true, 4.7f, "--targetable--"); // t=878.4
+    Timeout(id + 0x20, 4.1f, "Mountain Buster"); // t=882.5; Ability 283 from Titan
+    Timeout(id + 0x30, 4.1f, "Tumult x4"); // t=886.6
+    Timeout(id + 0x40, 8.7f, "Weight Of The Land"); // t=895.3; Ability 552 from Titan
+    Timeout(id + 0x50, 5.1f, "Bury (line)"); // t=900.4
+    Timeout(id + 0x60, 8.0f, "Landslide"); // t=908.4; Ability 554 from Titan
+    Timeout(id + 0x70, 1.0f, "Burst"); // t=909.4
+    Timeout(id + 0x80, 3.2f, "Rock Buster"); // t=912.6; Ability 550 from Titan
+    Timeout(id + 0x90, 4.0f, "Mountain Buster"); // t=916.6; Ability 283 from Titan
+    Timeout(id + 0xA0, 6.1f, "Weight Of The Land"); // t=922.7; Ability 552 from Titan
+    Timeout(id + 0xB0, 4.5f, "Rock Throw"); // t=927.2; Ability 285 from Titan
+    Timeout(id + 0xC0, 10.3f, "Landslide"); // t=937.5; Ability 554 from Titan
+    Timeout(id + 0xD0, 4.1f, "Rock Buster"); // t=941.6; Ability 550 from Titan
+    Timeout(id + 0xE0, 4.0f, "Mountain Buster"); // t=945.6; Ability 283 from Titan
+    Timeout(id + 0xF0, 4.1f, "Tumult x4"); // t=949.7
+    Timeout(id + 0x100, 8.7f, "Weight Of The Land"); // t=958.4; Ability 552 from Titan
+    Timeout(id + 0x110, 5.1f, "Bury (clock)"); // t=963.5
+    Timeout(id + 0x120, 8.5f, "Landslide"); // t=972.0; Ability 554 from Titan
+    Timeout(id + 0x130, 0.7f, "Burst"); // t=972.7
+    Timeout(id + 0x140, 3.5f, "Rock Buster"); // t=976.2; Ability 550 from Titan
+    Timeout(id + 0x150, 4.0f, "Mountain Buster"); // t=980.2; Ability 283 from Titan
+    Timeout(id + 0x160, 6.1f, "Weight Of The Land"); // t=986.3; Ability 552 from Titan
+    Timeout(id + 0x170, 4.6f, "Rock Throw"); // t=990.9; Ability 285 from Titan
+    Timeout(id + 0x180, 10.2f, "Landslide"); // t=1001.1; Ability 554 from Titan
+    Timeout(id + 0x190, 4.1f, "Rock Buster"); // t=1005.2; Ability 550 from Titan
+    Timeout(id + 0x1A0, 4.0f, "Mountain Buster"); // t=1009.2; Ability 283 from Titan
+    Timeout(id + 0x1B0, 4.1f, "Tumult x4"); // t=1013.3
+    Timeout(id + 0x1C0, 8.7f, "Weight Of The Land"); // t=1022.0; Ability 552 from Titan
+    Timeout(id + 0x1D0, 5.1f, "Bury (line)"); // t=1027.1
+    Timeout(id + 0x1E0, 8.3f, "Landslide"); // t=1035.4; Ability 554 from Titan
+    Timeout(id + 0x1F0, 0.8f, "Burst"); // t=1036.2
+    Timeout(id + 0x200, 3.4f, "Rock Buster"); // t=1039.6; Ability 550 from Titan
+    Timeout(id + 0x210, 4.0f, "Mountain Buster"); // t=1043.6; Ability 283 from Titan
+    Timeout(id + 0x220, 6.1f, "Weight Of The Land"); // t=1049.7; Ability 552 from Titan
+    Timeout(id + 0x230, 4.8f, "Rock Throw"); // t=1054.5; Ability 285 from Titan
+    Timeout(id + 0x240, 10.3f, "Landslide"); // t=1064.8; Ability 554 from Titan
+    Timeout(id + 0x250, 4.1f, "Rock Buster"); // t=1068.9; Ability 550 from Titan
+    Timeout(id + 0x260, 4.0f, "Mountain Buster"); // t=1072.9; Ability 283 from Titan
+    Timeout(id + 0x270, 4.1f, "Tumult x4"); // t=1077.0
+    Timeout(id + 0x280, 8.7f, "Weight Of The Land"); // t=1085.7; Ability 552 from Titan
+    Timeout(id + 0x290, 5.1f, "Bury (diamond)"); // t=1090.8
+    Timeout(id + 0x2A0, 8.5f, "Landslide"); // t=1099.3; Ability 554 from Titan
+    Timeout(id + 0x2B0, 0.7f, "Burst"); // t=1100.0
+    Timeout(id + 0x2C0, 3.5f, "Rock Buster"); // t=1103.5; Ability 550 from Titan
+    Timeout(id + 0x2D0, 4.0f, "Mountain Buster"); // t=1107.5; Ability 283 from Titan
+    Timeout(id + 0x2E0, 6.1f, "Weight Of The Land"); // t=1113.6; Ability 552 from Titan
+    Timeout(id + 0x2F0, 4.6f, "Rock Throw"); // t=1118.2; Ability 285 from Titan
+    Timeout(id + 0x300, 10.3f, "Landslide"); // t=1128.5; Ability 554 from Titan
+    Timeout(id + 0x310, 4.1f, "Rock Buster"); // t=1132.6; Ability 550 from Titan
+    Timeout(id + 0x320, 4.0f, "Mountain Buster"); // t=1136.6; Ability 283 from Titan
+    Timeout(id + 0x330, 4.1f, "Tumult x5"); // t=1140.7
+    Timeout(id + 0x340, 9.9f, "Weight Of The Land"); // t=1150.6; Ability 552 from Titan
+    Timeout(id + 0x350, 5.1f, "Bury (line)"); // t=1155.7
+    Timeout(id + 0x360, 8.0f, "Landslide"); // t=1163.7
+    Timeout(id + 0x370, 1.0f, "Burst"); // t=1164.7
+    Timeout(id + 0x380, 3.2f, "Rock Buster"); // t=1167.9
+    Timeout(id + 0x390, 4.0f, "Mountain Buster"); // t=1171.9
+    Timeout(id + 0x3A0, 6.1f, "Weight Of The Land"); // t=1178.0
+    Timeout(id + 0x3B0, 4.5f, "Rock Throw"); // t=1182.5
+    Timeout(id + 0x3C0, 10.3f, "Landslide"); // t=1192.8
+    Timeout(id + 0x3D0, 4.1f, "Rock Buster"); // t=1196.9
+    Timeout(id + 0x3E0, 4.0f, "Mountain Buster"); // t=1200.9
+    Timeout(id + 0x3F0, 4.1f, "Tumult x4"); // t=1205.0
+    Timeout(id + 0x400, 8.7f, "Weight Of The Land"); // t=1213.7
+}
+

@@ -1,0 +1,84 @@
+// Generated development skeleton from doomtrain.txt (TerritoryType 1307).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 22 static/dynamic trigger definitions from ui/raidboss/data/07-dt/trial/doomtrain.ts.
+
+private void HELL_ON_RAILS(uint id)
+{
+    Timeout(id + 0x0, 13.9f, "Lightning Burst"); // t=13.9; Ability B25D from Doomtrain
+    Timeout(id + 0x10, 8.6f, "Lightning Express"); // t=22.5; Ability B232 from Doomtrain; cactbot StartsUsing B232 [Doomtrain Lightning Express]
+    Timeout(id + 0x20, 2.0f, "Plasma Beam"); // t=24.5; Ability B233 from Levin Signal
+    Timeout(id + 0x30, 10.0f, "Windpipe"); // t=34.5; Ability B263 from Doomtrain; cactbot StartsUsing B239 [Doomtrain Windpipe]
+    Timeout(id + 0x40, 2.0f, "Blastpipe"); // t=36.5; Ability B23B from Doomtrain
+    Timeout(id + 0x50, 9.9f, "Unlimited Express").SetHint(StateMachine.StateHint.Raidwide); // t=46.4; Ability B238 from Doomtrain; cactbot StartsUsing B237 [Doomtrain Unlimited Express]
+    Targetable(id + 0x60, false, 0.2f, "--untargetable--"); // t=46.6
+    Targetable(id + 0x70, true, 5.9f, "--targetable--"); // t=52.5
+    Timeout(id + 0x80, 7.1f, "Turret Crossing"); // t=59.6; Ability B23C from Doomtrain
+    Timeout(id + 0x90, 11.2f, "Electray"); // t=70.8; Ability B23D from Kinematic Turret; cactbot StartsUsing B23D [Doomtrain Turret Side]
+    Timeout(id + 0xA0, 8.9f, "Lightning Express"); // t=79.7; Ability B232 from Doomtrain; cactbot StartsUsing B232 [Doomtrain Lightning Express]
+    Timeout(id + 0xB0, 2.0f, "Plasma Beam"); // t=81.7; Ability B233 from Levin Signal
+    Timeout(id + 0xC0, 3.1f, "Electray"); // t=84.8; Ability B23D from Kinematic Turret; cactbot StartsUsing B23D [Doomtrain Turret Side]
+    Timeout(id + 0xD0, 9.9f, "Windpipe"); // t=94.7; Ability B263 from Doomtrain; cactbot StartsUsing B239 [Doomtrain Windpipe]
+    Timeout(id + 0xE0, 2.0f, "Blastpipe"); // t=96.7; Ability B23B from Doomtrain
+    Timeout(id + 0xF0, 2.1f, "Electray"); // t=98.8; Ability B23D from Kinematic Turret; cactbot StartsUsing B23D [Doomtrain Turret Side]
+    Timeout(id + 0x100, 7.4f, "Lightning Burst"); // t=106.2; Ability B25D from Doomtrain
+    Timeout(id + 0x110, 9.6f, "Unlimited Express").SetHint(StateMachine.StateHint.Raidwide); // t=115.8; Ability B238 from Doomtrain; cactbot StartsUsing B237 [Doomtrain Unlimited Express]
+    Targetable(id + 0x120, false, 0.2f, "--untargetable--"); // t=116.0
+    Targetable(id + 0x130, true, 5.9f, "--targetable--"); // t=121.9
+    Timeout(id + 0x140, 12.1f, "Head-on Emission"); // t=134.0; Ability B242 from Doomtrain; cactbot StartsUsing B242 [Doomtrain Thunderous Breath]
+    Timeout(id + 0x150, 1.0f, "Thunderous Breath"); // t=135.0; Ability B243 from Doomtrain; cactbot StartsUsing B242 [Doomtrain Thunderous Breath]
+    Timeout(id + 0x160, 9.0f, "Head-on Emission"); // t=144.0; Ability B244 from Doomtrain; cactbot StartsUsing B244 [Doomtrain Headlight]
+    Timeout(id + 0x170, 1.0f, "Headlight"); // t=145.0; Ability B245 from Doomtrain; cactbot StartsUsing B244 [Doomtrain Headlight]
+    Timeout(id + 0x180, 9.0f, "Lightning Express"); // t=154.0; Ability B232 from Doomtrain; cactbot StartsUsing B232 [Doomtrain Lightning Express]
+    Timeout(id + 0x190, 2.0f, "Plasma Beam"); // t=156.0; Ability B233 from Levin Signal
+    Timeout(id + 0x1A0, 8.6f, "Lightning Burst"); // t=164.6; Ability B25D from Doomtrain
+    Timeout(id + 0x1B0, 9.7f, "Unlimited Express").SetHint(StateMachine.StateHint.Raidwide); // t=174.3; Ability B238 from Doomtrain; cactbot StartsUsing B237 [Doomtrain Unlimited Express]
+    Targetable(id + 0x1C0, false, 0.2f, "--untargetable--"); // t=174.5
+    Targetable(id + 0x1D0, true, 6.0f, "--targetable--"); // t=180.5
+    Timeout(id + 0x1E0, 9.2f, "Runaway Train"); // t=189.7; Ability B246 from Doomtrain; cactbot StartsUsing B246 [Doomtrain Phase Tracker Add Phase Start]
+    Timeout(id + 0x1F0, 3.2f, "Overdraught"); // t=192.9; Ability B247 from Aether
+    Targetable(id + 0x200, false, 0.4f, "--untargetable--"); // t=193.3
+    Targetable(id + 0x210, true, 7.0f, "--targetable--"); // t=200.3
+    Condition(id + 0x220, 5.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB24A), "", 5f, 0.3f); // t=205.6; StartsUsing B24A from Aether
+    Timeout(id + 0x230, 5.7f, "Aether Surge"); // t=211.3; Ability B24A from Aether
+    Timeout(id + 0x240, 1.7f, "Aetherial Ray"); // t=213.0; Ability B248 from Ghost Train
+    Condition(id + 0x250, 3.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB24A), "", 5f, 0.0f); // t=216.2; StartsUsing B24A from Aether
+    Timeout(id + 0x260, 5.7f, "Aether Surge"); // t=221.9; Ability B24A from Aether
+    Timeout(id + 0x270, 1.7f, "Aetherial Ray"); // t=223.6; Ability B248 from Ghost Train
+    Condition(id + 0x280, 1.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB24A), "", 5f, 0.0f); // t=225.5; StartsUsing B24A from Aether
+    Timeout(id + 0x290, 5.7f, "Aether Surge"); // t=231.2; Ability B24A from Aether
+    Timeout(id + 0x2A0, 1.7f, "Aetherial Ray"); // t=232.9; Ability B248 from Ghost Train
+    Condition(id + 0x2B0, 5.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB24A), "", 5f, 0.9f); // t=238.8; StartsUsing B24A from Aether
+    Timeout(id + 0x2C0, 5.7f, "Aether Surge"); // t=244.5; Ability B24A from Aether
+    Timeout(id + 0x2D0, 1.6f, "Aetherial Ray"); // t=246.1; Ability B248 from Ghost Train
+    Condition(id + 0x2E0, 3.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB24A), "", 5f, 0.0f); // t=249.8; StartsUsing B24A from Aether
+    Timeout(id + 0x2F0, 5.7f, "Aether Surge"); // t=255.5; Ability B24A from Aether
+    Timeout(id + 0x300, 1.7f, "Aetherial Ray"); // t=257.2; Ability B248 from Ghost Train
+    Targetable(id + 0x310, false, 3.8f, "--untargetable--"); // t=261.0
+    Timeout(id + 0x320, 254.1f, "Runaway Train"); // t=515.1; Ability B24D from Doomtrain
+    Targetable(id + 0x330, true, 0.3f, "--targetable--"); // t=515.4
+    Timeout(id + 0x340, 17.8f, "Shockwave").SetHint(StateMachine.StateHint.Raidwide); // t=533.2; Ability B24F from Doomtrain; cactbot Ability B24E [Doomtrain Shockwave]
+    Timeout(id + 0x350, 7.3f, "Arcane Revelation"); // t=540.5; Ability B9A7 from Doomtrain; cactbot StartsUsing B9A7 [Doomtrain Arcane Revelation]
+    Timeout(id + 0x360, 14.1f, "Hail of Thunder"); // t=554.6; Ability B25B from Doomtrain; cactbot StartsUsing B25B [Doomtrain Hail of Thunder Reset]
+    Timeout(id + 0x370, 14.1f, "Hail of Thunder"); // t=568.7; Ability B25B from Doomtrain; cactbot StartsUsing B25B [Doomtrain Hail of Thunder Reset]
+    Timeout(id + 0x380, 10.1f, "Derailment Siege x3"); // t=578.8
+    Timeout(id + 0x390, 12.9f, "Derail"); // t=591.7; Ability B256 from Doomtrain; cactbot StartsUsing B250 [Doomtrain Derailment Siege]
+    Timeout(id + 0x3A0, 13.2f, "Arcane Revelation"); // t=604.9; Ability B9A7 from Doomtrain; cactbot StartsUsing B9A7 [Doomtrain Arcane Revelation]
+    Timeout(id + 0x3B0, 17.1f, "Hail of Thunder"); // t=622.0; Ability B25B from Doomtrain; cactbot StartsUsing B25B [Doomtrain Hail of Thunder Reset]
+    Timeout(id + 0x3C0, 11.0f, "Hail of Thunder"); // t=633.0; Ability B25B from Doomtrain; cactbot StartsUsing B25B [Doomtrain Hail of Thunder Reset]
+    Timeout(id + 0x3D0, 7.0f, "Turret Crossing"); // t=640.0; Ability B23C from Doomtrain
+    Timeout(id + 0x3E0, 8.0f, "Head-on Emission"); // t=648.0; Ability B244 from Doomtrain; cactbot StartsUsing B244 [Doomtrain Headlight]
+    Timeout(id + 0x3F0, 1.0f, "Headlight"); // t=649.0; Ability B245 from Doomtrain; cactbot StartsUsing B244 [Doomtrain Headlight]
+    Timeout(id + 0x400, 3.2f, "Electray"); // t=652.2; Ability B23D from Kinematic Turret; cactbot StartsUsing B23D [Doomtrain Turret Side]
+    Timeout(id + 0x410, 8.9f, "Head-on Emission"); // t=661.1; Ability B242 from Doomtrain; cactbot StartsUsing B242 [Doomtrain Thunderous Breath]
+    Timeout(id + 0x420, 1.0f, "Thunderous Breath"); // t=662.1; Ability B243 from Doomtrain; cactbot StartsUsing B242 [Doomtrain Thunderous Breath]
+    Timeout(id + 0x430, 3.1f, "Electray"); // t=665.2; Ability B23D from Kinematic Turret; cactbot StartsUsing B23D [Doomtrain Turret Side]
+    Timeout(id + 0x440, 9.9f, "Windpipe/Lightning Express"); // t=675.1; Ability B263/B232 from Doomtrain; cactbot StartsUsing B232 [Doomtrain Lightning Express]
+    Timeout(id + 0x450, 2.0f, "Blastpipe/Plasma Beam"); // t=677.1; Ability B23B/B233 from Doomtrain/Levin Signal
+    Timeout(id + 0x460, 2.1f, "Electray"); // t=679.2; Ability B23D from Kinematic Turret; cactbot StartsUsing B23D [Doomtrain Turret Side]
+    Timeout(id + 0x470, 11.9f, "Battering Arms x3"); // t=691.1
+    Timeout(id + 0x480, 10.5f, "Lightning Burst"); // t=701.6; Ability B25D from Doomtrain
+    Condition(id + 0x490, 7.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0xB9A7), "", 5f, 2.8f); // t=709.4; StartsUsing B9A7 from Doomtrain; cactbot StartsUsing B9A7 [Doomtrain Arcane Revelation]
+    Timeout(id + 0x4A0, 1309.9f, "Runaway Train (enrage)"); // t=2019.3; Ability B24D from Doomtrain
+}
+

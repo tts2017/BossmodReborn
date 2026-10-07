@@ -1,0 +1,91 @@
+// Generated development skeleton from temple_of_the_fist.txt (TerritoryType 663).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 13 static/dynamic trigger definitions from ui/raidboss/data/04-sb/dungeon/temple_of_the_fist.ts.
+
+private void Phase_change_after_one_dies(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Basic Instinct"); // t=150.0; Ability 1FD5 from Coeurl Sruti/Coeurl Smriti
+    Timeout(id + 0x10, 6.2f, "Electric Burst").SetHint(StateMachine.StateHint.Raidwide); // t=156.2; Ability 1FD6 from Coeurl Sruti/Coeurl Smriti; cactbot StartsUsing 1FD6 [Temple Electric Burst Sruti] | StartsUsing 1FD6 [Temple Electric Burst Smriti]
+    Timeout(id + 0x20, 4.1f, "Pounce"); // t=160.3; Ability 1FD1 from Coeurl Sruti/Coeurl Smriti
+    Timeout(id + 0x30, 7.5f, "Heat Lightning"); // t=167.8; Ability 1FD7 from Coeurl Sruti
+    Timeout(id + 0x40, 7.4f, "Radial/Wide Blaster"); // t=175.2
+    Timeout(id + 0x50, 5.2f, "Pounce"); // t=180.4; Ability 1FD1 from Coeurl Sruti/Coeurl Smriti
+    Timeout(id + 0x60, 11.2f, "Electric Burst").SetHint(StateMachine.StateHint.Raidwide); // t=191.6; Ability 1FD6 from Coeurl Sruti/Coeurl Smriti; cactbot StartsUsing 1FD6 [Temple Electric Burst Sruti] | StartsUsing 1FD6 [Temple Electric Burst Smriti]
+    Timeout(id + 0x70, 4.1f, "Pounce"); // t=195.7; Ability 1FD1 from Coeurl Sruti/Coeurl Smriti
+    Timeout(id + 0x80, 7.5f, "Heat Lightning"); // t=203.2; Ability 1FD7 from Coeurl Sruti/Coeurl Smriti
+    Timeout(id + 0x90, 7.4f, "Radial/Wide Blaster"); // t=210.6
+    Timeout(id + 0xA0, 5.2f, "Pounce"); // t=215.8; Ability 1FD1 from Coeurl Sruti/Coeurl Smriti
+    Timeout(id + 0xB0, 11.2f, "Electric Burst"); // t=227.0; cactbot StartsUsing 1FD6 [Temple Electric Burst Sruti] | StartsUsing 1FD6 [Temple Electric Burst Smriti]
+    Timeout(id + 0xC0, 4.1f, "Pounce"); // t=231.1
+    Timeout(id + 0xD0, 7.5f, "Heat Lightning"); // t=238.6
+    Timeout(id + 0xE0, 7.4f, "Radial/Wide Blaster"); // t=246.0
+    Timeout(id + 0xF0, 5.2f, "Pounce"); // t=251.2
+    Timeout(id + 0x100, 755.3f, "Cardinal Shift"); // t=1006.5; Ability 1FDA from Arbuda
+    Timeout(id + 0x110, 8.1f, "Fourfold Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=1014.6; Ability 1FD9 from Arbuda; cactbot StartsUsing 1FD9 [Temple Fourfold Shear]
+    Timeout(id + 0x120, 8.0f, "Front/Back?Sides?"); // t=1022.6
+    Timeout(id + 0x130, 4.1f, "Cardinal Shift"); // t=1026.7; Ability 1FDA from Arbuda
+    Timeout(id + 0x140, 7.1f, "Killer Instinct"); // t=1033.8; Ability 1FDE from Arbuda; cactbot StartsUsing 1FDE [Temple Killer Instinct]
+    Timeout(id + 0x150, 13.0f, "Front/Back?Sides?"); // t=1046.8
+    Timeout(id + 0x160, 8.2f, "Fourfold Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=1055.0; Ability 1FD9 from Arbuda; cactbot StartsUsing 1FD9 [Temple Fourfold Shear]
+    Timeout(id + 0x170, 9.9f, "Hellseal"); // t=1064.9; Ability 1FE1 from Arbuda
+    Timeout(id + 0x180, 6.6f, "Front/Back?Sides?"); // t=1071.5
+    Timeout(id + 0x190, 4.1f, "Cardinal Shift"); // t=1075.6; Ability 1FDA from Arbuda
+    Timeout(id + 0x1A0, 4.1f, "Cardinal Shift"); // t=1079.7; Ability 1FDA from Arbuda
+    Timeout(id + 0x1B0, 9.2f, "Tapas"); // t=1088.9; Ability 1FE3 from Arbuda
+    Timeout(id + 0x1C0, 6.0f, "Front/Back?Sides?"); // t=1094.9
+    Timeout(id + 0x1D0, 4.1f, "Cardinal Shift"); // t=1099.0; Ability 1FDA from Arbuda
+    Timeout(id + 0x1E0, 8.2f, "Fourfold Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=1107.2; Ability 1FD9 from Arbuda; cactbot StartsUsing 1FD9 [Temple Fourfold Shear]
+    Timeout(id + 0x1F0, 8.0f, "Front/Back?Sides?"); // t=1115.2
+    Timeout(id + 0x200, 4.1f, "Cardinal Shift"); // t=1119.3; Ability 1FDA from Arbuda
+    Timeout(id + 0x210, 7.1f, "Killer Instinct"); // t=1126.4; Ability 1FDE from Arbuda; cactbot StartsUsing 1FDE [Temple Killer Instinct]
+    Timeout(id + 0x220, 13.0f, "Front/Back?Sides?"); // t=1139.4
+    Timeout(id + 0x230, 8.3f, "Fourfold Shear").SetHint(StateMachine.StateHint.Tankbuster); // t=1147.7; Ability 1FD9 from Arbuda; cactbot StartsUsing 1FD9 [Temple Fourfold Shear]
+    Timeout(id + 0x240, 9.7f, "Hellseal"); // t=1157.4; Ability 1FE1 from Arbuda
+    Timeout(id + 0x250, 6.1f, "Front/Back?Sides?"); // t=1163.5
+    Timeout(id + 0x260, 4.1f, "Cardinal Shift"); // t=1167.6; Ability 1FDA from Arbuda
+    Timeout(id + 0x270, 4.1f, "Cardinal Shift"); // t=1171.7; Ability 1FDA from Arbuda
+    Timeout(id + 0x280, 9.2f, "Tapas"); // t=1180.9; Ability 1FE3 from Arbuda
+    Timeout(id + 0x290, 6.0f, "Front/Back?Sides?"); // t=1186.9
+    Timeout(id + 0x2A0, 4.1f, "Cardinal Shift"); // t=1191.0
+    Timeout(id + 0x2B0, 8.2f, "Fourfold Shear"); // t=1199.2; cactbot StartsUsing 1FD9 [Temple Fourfold Shear]
+    Timeout(id + 0x2C0, 8.0f, "Front/Back?Sides?"); // t=1207.2
+    Timeout(id + 0x2D0, 4.1f, "Cardinal Shift"); // t=1211.3
+    Timeout(id + 0x2E0, 7.1f, "Killer Instinct"); // t=1218.4; cactbot StartsUsing 1FDE [Temple Killer Instinct]
+    Timeout(id + 0x2F0, 792.5f, "Spirit Wave").SetHint(StateMachine.StateHint.Raidwide); // t=2010.9; Ability 1FE7 from Ivon Coeurlfist; cactbot StartsUsing 1FE7 [Temple Spirit Wave]
+    Timeout(id + 0x300, 7.7f, "Hurricane Kick"); // t=2018.6; Ability 1FE5 from Ivon Coeurlfist
+    Timeout(id + 0x310, 8.1f, "Touch of Slaughter"); // t=2026.7; Ability 1FE6 from Ivon Coeurlfist; cactbot StartsUsing 1FE6 [Temple Touch Of Slaughter]
+    Timeout(id + 0x320, 4.2f, "Coeurl Whisper"); // t=2030.9; Ability 1FE9 from Ivon Coeurlfist; cactbot Ability 1FE9 [Temple Coeurl Heads]
+    Timeout(id + 0x330, 11.1f, "Silent Roar"); // t=2042.0; Ability 1FEB from Ivon Coeurlfist
+    Timeout(id + 0x340, 20.0f, "Rhalgr's Piece"); // t=2062.0; Ability 1FED from Ivon Coeurlfist; cactbot StartsUsing 1FED [Temple Rhalgr\]
+    Timeout(id + 0x350, 7.1f, "The Rose Of Destruction"); // t=2069.1; Ability 1FEE from Ivon Coeurlfist; cactbot StartsUsing 1FEE [Temple Rose Of Destruction]
+    Timeout(id + 0x360, 4.6f, "Hurricane Kick"); // t=2073.7; Ability 1FE5 from Ivon Coeurlfist
+    Timeout(id + 0x370, 32.5f, "Furious Fists"); // t=2106.2; Ability 1FEF from Ivon Coeurlfist
+    Timeout(id + 0x380, 8.4f, "Impact"); // t=2114.6; Ability 1FF1 from Ivon Coeurlfist
+    Timeout(id + 0x390, 10.7f, "Spirit Wave").SetHint(StateMachine.StateHint.Raidwide); // t=2125.3; Ability 1FE7 from Ivon Coeurlfist; cactbot StartsUsing 1FE7 [Temple Spirit Wave]
+    Timeout(id + 0x3A0, 2.2f, "Coeurl Whisper"); // t=2127.5; Ability 1FE9 from Ivon Coeurlfist; cactbot Ability 1FE9 [Temple Coeurl Heads]
+    Timeout(id + 0x3B0, 9.9f, "Rhalgr's Piece"); // t=2137.4; Ability 1FED from Ivon Coeurlfist; cactbot StartsUsing 1FED [Temple Rhalgr\]
+    Timeout(id + 0x3C0, 5.4f, "Silent Roar"); // t=2142.8; Ability 1FEB from Ivon Coeurlfist
+    Timeout(id + 0x3D0, 14.1f, "Touch of Slaughter"); // t=2156.9; Ability 1FE6 from Ivon Coeurlfist; cactbot StartsUsing 1FE6 [Temple Touch Of Slaughter]
+    Timeout(id + 0x3E0, 4.7f, "Hurricane Kick"); // t=2161.6; Ability 1FE5 from Ivon Coeurlfist
+    Timeout(id + 0x3F0, 14.2f, "Spirit Wave").SetHint(StateMachine.StateHint.Raidwide); // t=2175.8; Ability 1FE7 from Ivon Coeurlfist; cactbot StartsUsing 1FE7 [Temple Spirit Wave]
+    Timeout(id + 0x400, 2.2f, "Coeurl Whisper"); // t=2178.0; Ability 1FE9 from Ivon Coeurlfist; cactbot Ability 1FE9 [Temple Coeurl Heads]
+    Timeout(id + 0x410, 9.2f, "The Rose Of Destruction"); // t=2187.2; Ability 1FEE from Ivon Coeurlfist; cactbot StartsUsing 1FEE [Temple Rose Of Destruction]
+    Timeout(id + 0x420, 5.1f, "Silent Roar"); // t=2192.3; Ability 1FEB from Ivon Coeurlfist
+    Timeout(id + 0x430, 18.2f, "Spirit Wave").SetHint(StateMachine.StateHint.Raidwide); // t=2210.5; Ability 1FE7 from Ivon Coeurlfist; cactbot StartsUsing 1FE7 [Temple Spirit Wave]
+    Timeout(id + 0x440, 2.2f, "Coeurl Whisper"); // t=2212.7; Ability 1FE9 from Ivon Coeurlfist; cactbot Ability 1FE9 [Temple Coeurl Heads]
+    Timeout(id + 0x450, 9.9f, "Rhalgr's Piece"); // t=2222.6; Ability 1FED from Ivon Coeurlfist; cactbot StartsUsing 1FED [Temple Rhalgr\]
+    Timeout(id + 0x460, 5.4f, "Silent Roar"); // t=2228.0; Ability 1FEB from Ivon Coeurlfist
+    Timeout(id + 0x470, 14.1f, "Touch of Slaughter"); // t=2242.1; Ability 1FE6 from Ivon Coeurlfist; cactbot StartsUsing 1FE6 [Temple Touch Of Slaughter]
+    Timeout(id + 0x480, 4.7f, "Hurricane Kick"); // t=2246.8; Ability 1FE5 from Ivon Coeurlfist
+    Timeout(id + 0x490, 14.2f, "Spirit Wave").SetHint(StateMachine.StateHint.Raidwide); // t=2261.0; Ability 1FE7 from Ivon Coeurlfist; cactbot StartsUsing 1FE7 [Temple Spirit Wave]
+    Timeout(id + 0x4A0, 2.2f, "Coeurl Whisper"); // t=2263.2; Ability 1FE9 from Ivon Coeurlfist; cactbot Ability 1FE9 [Temple Coeurl Heads]
+    Timeout(id + 0x4B0, 9.2f, "The Rose Of Destruction"); // t=2272.4; Ability 1FEE from Ivon Coeurlfist; cactbot StartsUsing 1FEE [Temple Rose Of Destruction]
+    Timeout(id + 0x4C0, 5.1f, "Silent Roar"); // t=2277.5; Ability 1FEB from Ivon Coeurlfist
+    Timeout(id + 0x4D0, 18.2f, "Spirit Wave"); // t=2295.7; cactbot StartsUsing 1FE7 [Temple Spirit Wave]
+    Timeout(id + 0x4E0, 2.2f, "Coeurl Whisper"); // t=2297.9
+    Timeout(id + 0x4F0, 9.9f, "Rhalgr's Piece"); // t=2307.8
+    Timeout(id + 0x500, 5.4f, "Silent Roar"); // t=2313.2
+    Timeout(id + 0x510, 14.1f, "Touch of Slaughter"); // t=2327.3; cactbot StartsUsing 1FE6 [Temple Touch Of Slaughter]
+}
+

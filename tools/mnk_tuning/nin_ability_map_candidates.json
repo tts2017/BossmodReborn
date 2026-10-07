@@ -1,0 +1,86 @@
+{
+  "abilities": {
+    "2264": {
+      "confirmed": true,
+      "name": "Kassatsu",
+      "role": "kassatsu"
+    },
+    "2267": {
+      "confirmed": true,
+      "name": "Raiton",
+      "role": "raiton"
+    },
+    "3566": {
+      "confirmed": true,
+      "name": "Dream Within a Dream",
+      "role": "dreamWithinADream"
+    },
+    "7401": {
+      "confirmed": true,
+      "name": "Hellfrog Medium",
+      "role": "hellfrogMedium"
+    },
+    "7402": {
+      "confirmed": true,
+      "name": "Bhavacakra",
+      "role": "bhavacakra"
+    },
+    "7403": {
+      "confirmed": true,
+      "name": "Ten Chi Jin",
+      "role": "tenChiJin"
+    },
+    "16489": {
+      "confirmed": true,
+      "name": "Meisui",
+      "role": "meisui"
+    },
+    "16492": {
+      "confirmed": true,
+      "name": "Hyosho Ranryu",
+      "role": "hyoshoRanryu"
+    },
+    "16493": {
+      "confirmed": true,
+      "name": "Bunshin",
+      "role": "bunshin"
+    },
+    "25774": {
+      "confirmed": true,
+      "name": "Phantom Kamaitachi",
+      "role": "phantomKamaitachi"
+    },
+    "25777": {
+      "confirmed": true,
+      "name": "Forked Raiju",
+      "role": "forkedRaiju"
+    },
+    "25778": {
+      "confirmed": true,
+      "name": "Fleeting Raiju",
+      "role": "fleetingRaiju"
+    },
+    "36957": {
+      "confirmed": true,
+      "name": "Dokumori",
+      "role": "dokumori"
+    },
+    "36958": {
+      "confirmed": true,
+      "name": "Kunai's Bane",
+      "role": "kunaisBane"
+    },
+    "36960": {
+      "confirmed": true,
+      "name": "Zesho Meppo",
+      "role": "zeshoMeppo"
+    },
+    "36961": {
+      "confirmed": true,
+      "name": "Tenri Jindo",
+      "role": "tenriJindo"
+    }
+  },
+  "job": "NIN",
+  "source": "nin_ability_usage_summary_top200_candidate"
+}

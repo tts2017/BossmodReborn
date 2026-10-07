@@ -1,0 +1,93 @@
+// Generated development skeleton from e12n.txt (TerritoryType 945).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 15 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e12n.ts.
+
+private void Eden_12__Normal(uint id)
+{
+    Timeout(id + 0x0, 14.9f, "Maleficium").SetHint(StateMachine.StateHint.Raidwide); // t=14.9; Ability 5872 from Eden's Promise; cactbot StartsUsing 5872 [E12N Maleficium]
+    Timeout(id + 0x10, 10.4f, "Initialize Recall"); // t=25.3; Ability 5859 from Eden's Promise
+    Timeout(id + 0x20, 9.6f, "Judgment Jolt"); // t=34.9; Ability 585F from Eden's Promise
+    Timeout(id + 0x30, 10.7f, "Temporary Current"); // t=45.6; Ability 585C from Eden's Promise
+    Timeout(id + 0x40, 10.7f, "Judgment Jolt"); // t=56.3; Ability 585F from Eden's Promise
+    Timeout(id + 0x50, 10.7f, "Temporary Current"); // t=67.0; Ability 585C from Eden's Promise
+    Timeout(id + 0x60, 13.0f, "Formless Judgment"); // t=80.0; Ability 5873 from Eden's Promise; cactbot StartsUsing 5873 [E12N Formless Judgment]
+    Timeout(id + 0x70, 16.7f, "Conflag Strike"); // t=96.7; Ability 585D from Eden's Promise
+    Timeout(id + 0x80, 10.7f, "Ferostorm"); // t=107.4; Ability 585E from Eden's Promise
+    Timeout(id + 0x90, 10.7f, "Conflag Strike"); // t=118.1; Ability 585D from Eden's Promise
+    Timeout(id + 0xA0, 10.6f, "Ferostorm"); // t=128.7; Ability 585E from Eden's Promise
+    Timeout(id + 0xB0, 11.4f, "Maleficium").SetHint(StateMachine.StateHint.Raidwide); // t=140.1; Ability 5872 from Eden's Promise; cactbot StartsUsing 5872 [E12N Maleficium]
+    Targetable(id + 0xC0, false, 8.3f, "--untargetable--"); // t=148.4
+    Timeout(id + 0xD0, 48.1f, "Eternal Oblivion"); // t=196.5; Ability 587A from Eden's Promise
+    Timeout(id + 0xE0, 36.4f, "Earth Shaker / Obliteration"); // t=232.9; Ability 5885 from Eden's Promise | Ability 4B43 from Eden's Promise
+    Timeout(id + 0xF0, 18.3f, "Eternal Oblivion"); // t=251.2; Ability 587B from Eden's Promise
+    Timeout(id + 0x100, 16.1f, "Classical Sculpture"); // t=267.3; Ability 5886 from Chiseled Sculpture
+    Timeout(id + 0x110, 22.9f, "Rapturous Reach / Palm Of Temperance"); // t=290.2; Ability 5889 from Eden's Promise | Ability 4B44 from Eden's Promise
+    Timeout(id + 0x120, 18.2f, "Eternal Oblivion"); // t=308.4; Ability 587C from Eden's Promise
+    Timeout(id + 0x130, 29.1f, "Laser Eye"); // t=337.5; Ability 4B47 from Eden's Promise
+    Timeout(id + 0x140, 18.8f, "Eternal Oblivion"); // t=356.3; Ability 587D from Eden's Promise
+    Condition(id + 0x150, 143.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x4B48), "", 5f, 138.7f); // t=500.0; StartsUsing 4B48 from Eden's Promise; cactbot Ability 4B48 [E12N Intermission Completion]
+    Timeout(id + 0x160, 4.9f, "Paradise Lost"); // t=504.9; Ability 4B48 from Eden's Promise; cactbot Ability 4B48 [E12N Intermission Completion]
+    Targetable(id + 0x170, true, 7.0f, "--targetable--"); // t=511.9
+    Timeout(id + 0x180, 10.1f, "Initialize Recall"); // t=522.0; Ability 5859 from Eden's Promise
+    Timeout(id + 0x190, 12.1f, "Stock"); // t=534.1; Ability 5860 from Eden's Promise
+    Timeout(id + 0x1A0, 8.7f, "Formless Judgment"); // t=542.8; Ability 5873 from Eden's Promise; cactbot StartsUsing 5873 [E12N Formless Judgment]
+    Timeout(id + 0x1B0, 12.9f, "Release"); // t=555.7; Ability 5861 from Eden's Promise; cactbot StartsUsing 4E2C/585B/5861 [E12N Cast Release] | StartsUsing 4E2C/585B/5861 [E12N Tether Cleanup]
+    Timeout(id + 0x1C0, 12.9f, "Stock"); // t=568.6; Ability 5860 from Eden's Promise
+    Timeout(id + 0x1D0, 9.7f, "Junction Shiva? / Junction Titan?"); // t=578.3; Ability 5862 from Eden's Promise | Ability 5863 from Eden's Promise
+    Timeout(id + 0x1E0, 10.7f, "Diamond Dust? / Earthen Fury?"); // t=589.0
+    Timeout(id + 0x1F0, 5.0f, "Impact 1?"); // t=594.0
+    Timeout(id + 0x200, 3.0f, "Impact 2?"); // t=597.0
+    Timeout(id + 0x210, 3.2f, "Frigid Stone?"); // t=600.2; cactbot HeadMarker 60 [E12N Frigid Stone]
+    Timeout(id + 0x220, 90.2f, "Stock"); // t=690.4; Ability 5860 from Eden's Promise
+    Timeout(id + 0x230, 9.6f, "Junction Shiva"); // t=700.0; Ability 5862 from Eden's Promise
+    Timeout(id + 0x240, 10.7f, "Diamond Dust").SetHint(StateMachine.StateHint.Raidwide); // t=710.7; Ability 5864 from Eden's Promise; cactbot StartsUsing 5864 [E12N Diamond Dust Mitigate] | StartsUsing 5864 [E12N Diamond Dust Stop]
+    Timeout(id + 0x250, 11.2f, "Frigid Stone"); // t=721.9; Ability 5867 from Eden's Promise; cactbot HeadMarker 60 [E12N Frigid Stone]
+    Timeout(id + 0x260, 6.0f, "Ice Floe"); // t=727.9; Ability 5868 from Eden's Promise
+    Timeout(id + 0x270, 5.0f, "Rapturous Reach"); // t=732.9; cactbot HeadMarker 3E [E12N Rapturous Reach Double] | HeadMarker 3E [E12N Rapturous Reach Cleanup] | HeadMarker 3E [E12N Rapturous Reach Single]
+    Timeout(id + 0x280, 2.5f, "Frigid Stone"); // t=735.4; cactbot HeadMarker 60 [E12N Frigid Stone]
+    Timeout(id + 0x290, 12.2f, "Release"); // t=747.6; Ability 5861 from Eden's Promise; cactbot StartsUsing 4E2C/585B/5861 [E12N Cast Release] | StartsUsing 4E2C/585B/5861 [E12N Tether Cleanup]
+    Timeout(id + 0x2A0, 13.9f, "Stock?"); // t=761.5; Ability 5860 from Eden's Promise
+    Timeout(id + 0x2B0, 4.7f, "Cast?"); // t=766.2
+    Timeout(id + 0x2C0, 4.0f, "Formless Judgment?"); // t=770.2; cactbot StartsUsing 5873 [E12N Formless Judgment]
+    Timeout(id + 0x2D0, 6.7f, "Cast?"); // t=776.9
+    Timeout(id + 0x2E0, 5.5f, "Release?"); // t=782.4; cactbot StartsUsing 4E2C/585B/5861 [E12N Cast Release]
+    Timeout(id + 0x2F0, 2.2f, "Maleficium?"); // t=784.6; cactbot StartsUsing 5872 [E12N Maleficium]
+    Timeout(id + 0x300, 5.7f, "Stock"); // t=790.3; Ability 5860 from Eden's Promise
+    Timeout(id + 0x310, 9.7f, "Junction Titan"); // t=800.0; Ability 5863 from Eden's Promise
+    Timeout(id + 0x320, 10.7f, "Earthen Fury"); // t=810.7; Ability 586A from Eden's Promise
+    Timeout(id + 0x330, 5.0f, "Impact 1"); // t=815.7; Ability 586E from Titanic Bomb Boulder; cactbot Ability 586E [E12N Boulders Impact]
+    Timeout(id + 0x340, 3.0f, "Impact 2"); // t=818.7
+    Timeout(id + 0x350, 4.0f, "Explosion 1"); // t=822.7; Ability 586F from Titanic Bomb Boulder; cactbot Ability 586F [E12N Boulders Explosion]
+    Timeout(id + 0x360, 3.0f, "Explosion 2"); // t=825.7
+    Timeout(id + 0x370, 6.0f, "Rapturous Reach"); // t=831.7; cactbot HeadMarker 3E [E12N Rapturous Reach Double] | HeadMarker 3E [E12N Rapturous Reach Cleanup] | HeadMarker 3E [E12N Rapturous Reach Single]
+    Timeout(id + 0x380, 2.5f, "Under The Weight"); // t=834.2; Ability 5870 from Eden's Promise
+    Timeout(id + 0x390, 12.1f, "Release"); // t=846.3; Ability 5861 from Eden's Promise; cactbot StartsUsing 4E2C/585B/5861 [E12N Cast Release] | StartsUsing 4E2C/585B/5861 [E12N Tether Cleanup]
+    Timeout(id + 0x3A0, 13.9f, "Stock?"); // t=860.2; Ability 5860 from Eden's Promise
+    Timeout(id + 0x3B0, 4.7f, "Cast?"); // t=864.9
+    Timeout(id + 0x3C0, 4.0f, "Formless Judgment?"); // t=868.9; cactbot StartsUsing 5873 [E12N Formless Judgment]
+    Timeout(id + 0x3D0, 6.7f, "Cast?"); // t=875.6
+    Timeout(id + 0x3E0, 5.5f, "Release?"); // t=881.1; cactbot StartsUsing 4E2C/585B/5861 [E12N Cast Release]
+    Timeout(id + 0x3F0, 2.2f, "Maleficium?"); // t=883.3; cactbot StartsUsing 5872 [E12N Maleficium]
+    Timeout(id + 0x400, 26.3f, "Cast"); // t=909.6; Ability 4E2C from Eden's Promise; cactbot StartsUsing 4E2C/585B/5861 [E12N Cast Release] | StartsUsing 4E2C/585B/5861 [E12N Tether Cleanup]
+    Timeout(id + 0x410, 10.7f, "Cast"); // t=920.3; Ability 4E2C from Eden's Promise; cactbot StartsUsing 4E2C/585B/5861 [E12N Cast Release] | StartsUsing 4E2C/585B/5861 [E12N Tether Cleanup]
+    Timeout(id + 0x420, 7.7f, "Maleficium").SetHint(StateMachine.StateHint.Raidwide); // t=928.0; Ability 5872 from Eden's Promise; cactbot StartsUsing 5872 [E12N Maleficium]
+    Timeout(id + 0x430, 12.9f, "Stock"); // t=940.9; Ability 5860 from Eden's Promise
+    Timeout(id + 0x440, 9.6f, "Junction Shiva? / Junction Titan?"); // t=950.5; Ability 5862 from Eden's Promise | Ability 5863 from Eden's Promise
+    Timeout(id + 0x450, 10.7f, "Diamond Dust? / Earthen Fury?"); // t=961.2
+    Timeout(id + 0x460, 5.0f, "Impact 1?"); // t=966.2
+    Timeout(id + 0x470, 3.0f, "Impact 2?"); // t=969.2
+    Timeout(id + 0x480, 3.2f, "Frigid Stone?"); // t=972.4; cactbot HeadMarker 60 [E12N Frigid Stone]
+    Timeout(id + 0x490, 0.8f, "Explosion 1?"); // t=973.2
+    Timeout(id + 0x4A0, 26.8f, "Stock"); // t=1000.0; Ability 5860 from Eden's Promise
+    Timeout(id + 0x4B0, 8.7f, "Formless Judgment"); // t=1008.7; Ability 5873 from Eden's Promise; cactbot StartsUsing 5873 [E12N Formless Judgment]
+    Timeout(id + 0x4C0, 12.2f, "Release"); // t=1020.9; Ability 5861 from Eden's Promise; cactbot StartsUsing 4E2C/585B/5861 [E12N Cast Release] | StartsUsing 4E2C/585B/5861 [E12N Tether Cleanup]
+    Timeout(id + 0x4D0, 13.9f, "Stock"); // t=1034.8; Ability 5860 from Eden's Promise
+    Timeout(id + 0x4E0, 9.6f, "Junction Shiva? / Junction Titan?"); // t=1044.4; Ability 5862 from Eden's Promise | Ability 5863 from Eden's Promise
+    Timeout(id + 0x4F0, 10.7f, "Diamond Dust? / Earthen Fury?"); // t=1055.1
+    Timeout(id + 0x500, 5.0f, "Impact 1?"); // t=1060.1
+    Timeout(id + 0x510, 3.0f, "Impact 2?"); // t=1063.1
+    Timeout(id + 0x520, 3.2f, "Frigid Stone?"); // t=1066.3; cactbot HeadMarker 60 [E12N Frigid Stone]
+    Timeout(id + 0x530, 0.8f, "Explosion 1?"); // t=1067.1
+}
+

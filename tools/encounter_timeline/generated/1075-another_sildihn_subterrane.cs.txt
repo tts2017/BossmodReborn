@@ -1,0 +1,157 @@
+// Generated development skeleton from another_sildihn_subterrane.txt (TerritoryType 1075).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 73 static/dynamic trigger definitions from ui/raidboss/data/06-ew/dungeon/another_sildihn_subterrane.ts.
+
+private void Timeline(uint id)
+{
+    Condition(id + 0x0, 12.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7759), "", 5f, 7.2f); // t=12.2; StartsUsing 7759 from Silkie
+    Timeout(id + 0x10, 2.7f, "Fizzling Suds"); // t=14.9; Ability 7759 from Silkie
+    Timeout(id + 0x20, 6.1f, "Soap's Up"); // t=21.0; Ability 775A from Silkie; cactbot StartsUsing 775A [ASS Soap\]
+    Timeout(id + 0x30, 1.0f, "Fizzling Duster"); // t=22.0; Ability 775D from Silkie
+    Timeout(id + 0x40, 10.2f, "Dust Bluster / --middle--").SetHint(StateMachine.StateHint.Knockback); // t=32.2; Ability 776C from Silkie; cactbot StartsUsing 776C [ASS Dust Bluster]
+    Timeout(id + 0x50, 6.2f, "Fresh Puff 1"); // t=38.4; Ability 7766 from Silkie; cactbot StartsUsing 7766 [ASS Fresh Puff Tracker]
+    Timeout(id + 0x60, 5.1f, "Bracing Suds"); // t=43.5; Ability 7757 from Silkie
+    Timeout(id + 0x70, 8.1f, "Squeaky Clean"); // t=51.6; Ability 7753 from Silkie
+    Timeout(id + 0x80, 10.3f, "Chilling Suds"); // t=61.9; Ability 7758 from Silkie; cactbot StartsUsing 775E [ASS Slippery Soap with Chilling Suds]
+    Timeout(id + 0x90, 7.1f, "Slippery Soap"); // t=69.0; Ability 775E from Silkie; cactbot StartsUsing 775E [ASS Slippery Soap with Chilling Suds] | Ability 775E [ASS Slippery Soap After]
+    Timeout(id + 0xA0, 4.0f, "Chilling Duster"); // t=73.0; Ability 7763 from Silkie
+    Timeout(id + 0xB0, 7.6f, "Carpet Beater"); // t=80.6; Ability 774F from Silkie; cactbot StartsUsing 774F [ASS Carpet Beater]
+    Timeout(id + 0xC0, 9.1f, "Soaping Spree / Chilling Duster / Fizzling Duster / Bracing Duster / Chilling Duster"); // t=89.7; Ability 7767 from Silkie; cactbot StartsUsing 7767 [ASS Soaping Spree]
+    Timeout(id + 0xD0, 11.2f, "Total Wash 1"); // t=100.9; Ability 7750 from Silkie; cactbot StartsUsing 7750 [ASS Total Wash]
+    Timeout(id + 0xE0, 5.1f, "Bracing Suds / Chilling Suds"); // t=106.0; Ability 7757/7758 from Silkie
+    Timeout(id + 0xF0, 6.1f, "Fresh Puff 2"); // t=112.1; Ability 7766 from Silkie; cactbot StartsUsing 7766 [ASS Fresh Puff Tracker]
+    Timeout(id + 0x100, 4.2f, "--middle--"); // t=116.3
+    Timeout(id + 0x110, 6.8f, "Puff and Tumble"); // t=123.1
+    Timeout(id + 0x120, 6.4f, "Soaping Spree / Fizzling Duster x2 / Chilling Duster x2 / Bracing Duster / Chilling Duster"); // t=129.5; Ability 7767 from Silkie; cactbot StartsUsing 7767 [ASS Soaping Spree]
+    Timeout(id + 0x130, 5.1f, "Bracing Suds / Fizzling Suds"); // t=134.6; Ability 7757/7759 from Silkie
+    Timeout(id + 0x140, 7.1f, "Slippery Soap"); // t=141.7; Ability 775E from Silkie; cactbot StartsUsing 775E [ASS Slippery Soap with Chilling Suds] | Ability 775E [ASS Slippery Soap After]
+    Timeout(id + 0x150, 4.0f, "Bracing Duster / Fizzling Duster"); // t=145.7; Ability 7764/7765 from Silkie
+    Timeout(id + 0x160, 14.4f, "Total Wash 2"); // t=160.1; Ability 7750 from Silkie; cactbot StartsUsing 7750 [ASS Total Wash]
+    Timeout(id + 0x170, 6.1f, "Fresh Puff 3"); // t=166.2; Ability 7766 from Silkie; cactbot StartsUsing 7766 [ASS Fresh Puff Tracker]
+    Timeout(id + 0x180, 6.1f, "Eastern Ewers"); // t=172.3; Ability 776D from Silkie
+    Timeout(id + 0x190, 6.3f, "Rinse"); // t=178.6; Ability 776F from Eastern Ewer; cactbot Ability 776F [ASS Fresh Puff 3]
+    Timeout(id + 0x1A0, 9.5f, "Soaping Spree / Bracing Duster / Chilling Duster / Fizzling Duster / Fizzling Duster"); // t=188.1; Ability 7767 from Silkie; cactbot StartsUsing 7767 [ASS Soaping Spree]
+    Timeout(id + 0x1B0, 7.1f, "Chilling Suds"); // t=195.2; Ability 7758 from Silkie; cactbot StartsUsing 775E [ASS Slippery Soap with Chilling Suds]
+    Timeout(id + 0x1C0, 7.1f, "Carpet Beater"); // t=202.3; Ability 774F from Silkie; cactbot StartsUsing 774F [ASS Carpet Beater]
+    Timeout(id + 0x1D0, 7.1f, "Slippery Soap"); // t=209.4; Ability 775E from Silkie; cactbot StartsUsing 775E [ASS Slippery Soap with Chilling Suds] | Ability 775E [ASS Slippery Soap After]
+    Timeout(id + 0x1E0, 4.0f, "Chilling Duster"); // t=213.4; Ability 7763 from Silkie
+    Timeout(id + 0x1F0, 12.5f, "Bracing Suds"); // t=225.9; Ability 7757 from Silkie
+    Timeout(id + 0x200, 7.1f, "Soaping Spree / Chilling Duster x6 / Bracing Duster"); // t=233.0; Ability 7767 from Silkie; cactbot StartsUsing 7767 [ASS Soaping Spree]
+    Timeout(id + 0x210, 11.2f, "Dust Bluster / --north--").SetHint(StateMachine.StateHint.Knockback); // t=244.2; Ability 776C from Silkie; cactbot StartsUsing 776C [ASS Dust Bluster]
+    Timeout(id + 0x220, 5.4f, "Bracing Suds"); // t=249.6; Ability 7757 from Silkie
+    Timeout(id + 0x230, 6.1f, "Fresh Puff 4"); // t=255.7; Ability 7766 from Silkie; cactbot StartsUsing 7766 [ASS Fresh Puff Tracker]
+    Timeout(id + 0x240, 8.1f, "Squeaky Clean"); // t=263.8; Ability 7753 from Silkie
+    Timeout(id + 0x250, 3.1f, "Puff and Tumble x4"); // t=266.9
+    Timeout(id + 0x260, 9.1f, "Soaping Spree / Chilling Duster x4 / Bracing Duster"); // t=276.0; Ability 7767 from Silkie; cactbot StartsUsing 7767 [ASS Soaping Spree]
+    Timeout(id + 0x270, 7.1f, "Total Wash 3"); // t=283.1; Ability 7750 from Silkie; cactbot StartsUsing 7750 [ASS Total Wash]
+    Timeout(id + 0x280, 9.2f, "Bracing Suds / Chilling Suds / Fizzling Suds"); // t=292.3; Ability 7757/7758/7759 from Silkie
+    Timeout(id + 0x290, 7.1f, "Slippery Soap"); // t=299.4; Ability 775E from Silkie; cactbot StartsUsing 775E [ASS Slippery Soap with Chilling Suds] | Ability 775E [ASS Slippery Soap After]
+    Timeout(id + 0x2A0, 4.1f, "Bracing Duster / Chilling Duster / Fizzling Duster"); // t=303.5; Ability 7764/7763/7765 from Silkie
+    Timeout(id + 0x2B0, 5.5f, "Bracing Suds / Chilling Suds / Fizzling Suds"); // t=309.0; Ability 7757/7758/7759 from Silkie
+    Timeout(id + 0x2C0, 7.1f, "Slippery Soap"); // t=316.1; Ability 775E from Silkie; cactbot StartsUsing 775E [ASS Slippery Soap with Chilling Suds] | Ability 775E [ASS Slippery Soap After]
+    Timeout(id + 0x2D0, 3.9f, "Bracing Duster / Chilling Duster / Fizzling Duster"); // t=320.0; Ability 7764/7763/7765 from Silkie
+    Condition(id + 0x2E0, 2.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x79E0), "", 5f, 0.0f); // t=322.9; StartsUsing 79E0 from Silkie
+    Timeout(id + 0x2F0, 10.0f, "Total Wash (enrage)"); // t=332.9; Ability 79E0 from Silkie
+    Timeout(id + 0x300, 5.2f, "Total Wash (enrage)"); // t=338.1; Ability 79F9 from Silkie
+    Condition(id + 0x310, 668.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7671), "", 5f, 663.7f); // t=1006.8; StartsUsing 7671 from Gladiator of Sil'dih; cactbot StartsUsing 7671 [ASS Flash of Steel]
+    Timeout(id + 0x320, 4.7f, "Flash of Steel").SetHint(StateMachine.StateHint.Raidwide); // t=1011.5; Ability 7671 from Gladiator of Sil'dih; cactbot StartsUsing 7671 [ASS Flash of Steel]
+    Timeout(id + 0x330, 12.1f, "Specter of Might"); // t=1023.6; Ability 7673 from Gladiator of Sil'dih
+    Timeout(id + 0x340, 14.7f, "Rush of Might 1"); // t=1038.3; Ability 765B from Gladiator of Sil'dih; cactbot Ability 765B [ASS Rush of Might 2]
+    Timeout(id + 0x350, 2.1f, "Rush of Might 2"); // t=1040.4; Ability 765C from Gladiator of Sil'dih; cactbot Ability 765B [ASS Rush of Might 2]
+    Timeout(id + 0x360, 2.4f, "Specter of Might"); // t=1042.8; Ability 7673 from Gladiator of Sil'dih
+    Timeout(id + 0x370, 14.7f, "Rush of Might 1"); // t=1057.5; Ability 765B from Gladiator of Sil'dih; cactbot Ability 765B [ASS Rush of Might 2]
+    Timeout(id + 0x380, 2.1f, "Rush of Might 2"); // t=1059.6; Ability 765C from Gladiator of Sil'dih; cactbot Ability 765B [ASS Rush of Might 2]
+    Timeout(id + 0x390, 7.4f, "Sculptor's Passion"); // t=1067.0; Ability 766C from Gladiator of Sil'dih
+    Timeout(id + 0x3A0, 15.4f, "Mighty Smite").SetHint(StateMachine.StateHint.Tankbuster); // t=1082.4; Ability 7672 from Gladiator of Sil'dih; cactbot StartsUsing 7672 [ASS Mighty Smite]
+    Timeout(id + 0x3B0, 13.1f, "Curse of the Fallen"); // t=1095.5; Ability 7674 from Gladiator of Sil'dih; cactbot GainsEffect CDA [ASS Curse of the Fallen] | Ability 7660/7661/7662 [ASS Curse of the Fallen Reminder]
+    Timeout(id + 0x3C0, 2.1f, "--middle--"); // t=1097.6; Ability 7639 from Gladiator of Sil'dih
+    Timeout(id + 0x3D0, 16.0f, "Echo of the Fallen"); // t=1113.6; Ability 7675 from Gladiator of Sil'dih
+    Timeout(id + 0x3E0, 7.7f, "Flash of Steel").SetHint(StateMachine.StateHint.Raidwide); // t=1121.3; Ability 7671 from Gladiator of Sil'dih; cactbot StartsUsing 7671 [ASS Flash of Steel]
+    Timeout(id + 0x3F0, 10.2f, "--middle--"); // t=1131.5; Ability 7639 from Gladiator of Sil'dih
+    Timeout(id + 0x400, 5.1f, "Hateful Visage"); // t=1136.6; Ability 766E from Gladiator of Sil'dih
+    Timeout(id + 0x410, 5.1f, "Wrath of Ruin"); // t=1141.7; Ability 7663 from Gladiator of Sil'dih
+    Timeout(id + 0x420, 9.0f, "Gold Flame x4 / Silver Flame x4"); // t=1150.7; Ability 766F from Hateful Visage; cactbot StartsUsing 766F/7670 [ASS Golden/Silver Flame Collector] | StartsUsing 766F/7670 [ASS Golden/Silver Flame]
+    Timeout(id + 0x430, 1.6f, "Nothing beside Remains"); // t=1152.3; Ability 768B/768C from Gladiator of Sil'dih; cactbot StartsUsing 768C [ASS Nothing beside Remains]
+    Timeout(id + 0x440, 9.1f, "Flash of Steel").SetHint(StateMachine.StateHint.Raidwide); // t=1161.4; Ability 7671 from Gladiator of Sil'dih; cactbot StartsUsing 7671 [ASS Flash of Steel]
+    Timeout(id + 0x450, 10.2f, "Accursed Visage"); // t=1171.6; Ability 768D from Gladiator of Sil'dih; cactbot GainsEffect CDF/CE0 [ASS Accursed Visage Collect]
+    Timeout(id + 0x460, 5.1f, "Wrath of Ruin"); // t=1176.7; Ability 7663 from Gladiator of Sil'dih
+    Timeout(id + 0x470, 9.0f, "Gold Flame x4 / Silver Flame x4"); // t=1185.7; Ability 766F from Hateful Visage; cactbot StartsUsing 766F/7670 [ASS Golden/Silver Flame Collector] | StartsUsing 766F/7670 [ASS Golden/Silver Flame]
+    Timeout(id + 0x480, 1.6f, "Nothing beside Remains"); // t=1187.3; Ability 768B/768C from Gladiator of Sil'dih; cactbot StartsUsing 768C [ASS Nothing beside Remains]
+    Timeout(id + 0x490, 9.1f, "Flash of Steel").SetHint(StateMachine.StateHint.Raidwide); // t=1196.4; Ability 7671 from Gladiator of Sil'dih; cactbot StartsUsing 7671 [ASS Flash of Steel]
+    Timeout(id + 0x4A0, 10.2f, "--middle--"); // t=1206.6; Ability 7639 from Gladiator of Sil'dih
+    Timeout(id + 0x4B0, 6.1f, "Curse of the Monument"); // t=1212.7; Ability 7666 from Gladiator of Sil'dih; cactbot StartsUsing 7666 [ASS Sundered Remains] | Ability 7666 [ASS Curse of the Monument]
+    Timeout(id + 0x4C0, 7.2f, "Sundered Remains 1"); // t=1219.9
+    Timeout(id + 0x4D0, 0.6f, "Sundered Remains 2"); // t=1220.5
+    Timeout(id + 0x4E0, 0.6f, "Sundered Remains 3"); // t=1221.1
+    Timeout(id + 0x4F0, 0.6f, "Sundered Remains 4"); // t=1221.7
+    Timeout(id + 0x500, 0.6f, "Sundered Remains 5"); // t=1222.3
+    Timeout(id + 0x510, 2.6f, "--middle--"); // t=1224.9; Ability 7639 from Gladiator of Sil'dih
+    Timeout(id + 0x520, 8.0f, "Scream of the Fallen"); // t=1232.9; Ability 7678 from Gladiator of Sil'dih; cactbot Ability 7678 [ASS Scream of the Fallen Towers Second]
+    Timeout(id + 0x530, 0.4f, "Colossal Wreck"); // t=1233.3; Ability 7669 from Gladiator of Sil'dih
+    Timeout(id + 0x540, 0.5f, "Explosion"); // t=1233.8; Ability 766A from Gladiator of Sil'dih; cactbot Ability 766A [ASS Scream of the Fallen Spread Second]
+    Timeout(id + 0x550, 3.2f, "Scream of the Fallen"); // t=1237.0; Ability 7678 from Gladiator of Sil'dih; cactbot Ability 7678 [ASS Scream of the Fallen Towers Second]
+    Timeout(id + 0x560, 0.8f, "Explosion"); // t=1237.8; Ability 766A from Gladiator of Sil'dih; cactbot Ability 766A [ASS Scream of the Fallen Spread Second]
+    Timeout(id + 0x570, 7.2f, "Flash of Steel").SetHint(StateMachine.StateHint.Raidwide); // t=1245.0; Ability 7671 from Gladiator of Sil'dih; cactbot StartsUsing 7671 [ASS Flash of Steel]
+    Timeout(id + 0x580, 14.2f, "Specter of Might"); // t=1259.2; Ability 7673 from Gladiator of Sil'dih
+    Timeout(id + 0x590, 14.7f, "Rush of Might 1"); // t=1273.9; Ability 765B from Gladiator of Sil'dih; cactbot Ability 765B [ASS Rush of Might 2]
+    Timeout(id + 0x5A0, 2.1f, "Rush of Might 2"); // t=1276.0; Ability 765C from Gladiator of Sil'dih; cactbot Ability 765B [ASS Rush of Might 2]
+    Timeout(id + 0x5B0, 2.3f, "Specter of Might"); // t=1278.3; Ability 7673 from Gladiator of Sil'dih
+    Timeout(id + 0x5C0, 14.7f, "Rush of Might 1"); // t=1293.0; Ability 765B from Gladiator of Sil'dih; cactbot Ability 765B [ASS Rush of Might 2]
+    Timeout(id + 0x5D0, 2.1f, "Rush of Might 2"); // t=1295.1; Ability 765C from Gladiator of Sil'dih; cactbot Ability 765B [ASS Rush of Might 2]
+    Timeout(id + 0x5E0, 7.5f, "Sculptor's Passion"); // t=1302.6; Ability 766C from Gladiator of Sil'dih
+    Timeout(id + 0x5F0, 8.9f, "--middle--"); // t=1311.5; Ability 7639 from Gladiator of Sil'dih
+    Timeout(id + 0x600, 7.4f, "Flash of Steel").SetHint(StateMachine.StateHint.Raidwide); // t=1318.9; Ability 7671 from Gladiator of Sil'dih; cactbot StartsUsing 7671 [ASS Flash of Steel]
+    Condition(id + 0x610, 2.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7679), "", 5f, 0.0f); // t=1321.0; StartsUsing 7679 from Gladiator of Sil'dih
+    Timeout(id + 0x620, 10.0f, "Flash of Steel (enrage)"); // t=1331.0; Ability 7679 from Gladiator of Sil'dih
+    Condition(id + 0x630, 675.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x74AF), "", 5f, 670.8f); // t=2006.8; StartsUsing 74AF from Shadowcaster Zeless Gah; cactbot StartsUsing 74AF [ASS Show of Strength]
+    Timeout(id + 0x640, 4.7f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=2011.5; Ability 74AF from Shadowcaster Zeless Gah; cactbot StartsUsing 74AF [ASS Show of Strength]
+    Timeout(id + 0x650, 12.2f, "Infern Brand"); // t=2023.7; Ability 7491 from Shadowcaster Zeless Gah; cactbot StartsUsing 7491 [ASS Infern Brand Counter]
+    Timeout(id + 0x660, 7.1f, "Cryptic Portal"); // t=2030.8; Ability 7494 from Shadowcaster Zeless Gah
+    Timeout(id + 0x670, 11.5f, "Firesteel Strike 1"); // t=2042.3
+    Timeout(id + 0x680, 1.0f, "Burn x4"); // t=2043.3; Ability 7490 from Ball of Fire
+    Timeout(id + 0x690, 0.4f, "Firesteel Strike 2"); // t=2043.7
+    Timeout(id + 0x6A0, 8.3f, "Blessed Beacon 1"); // t=2052.0; Ability 74B4 from Shadowcaster Zeless Gah
+    Timeout(id + 0x6B0, 2.1f, "Blessed Beacon 2"); // t=2054.1; Ability 74B5 from Shadowcaster Zeless Gah
+    Timeout(id + 0x6C0, 10.3f, "Firesteel Fracture"); // t=2064.4; Ability 74AD from Shadowcaster Zeless Gah; cactbot StartsUsing 74AD [ASS Firesteel Fracture]
+    Timeout(id + 0x6D0, 12.2f, "Infern Brand"); // t=2076.6; Ability 7491 from Shadowcaster Zeless Gah; cactbot StartsUsing 7491 [ASS Infern Brand Counter]
+    Timeout(id + 0x6E0, 11.4f, "Cryptic Flames"); // t=2088.0; Ability 74B6 from Shadowcaster Zeless Gah
+    Timeout(id + 0x6F0, 6.9f, "--middle--"); // t=2094.9; Ability 74BE from Shadowcaster Zeless Gah
+    Timeout(id + 0x700, 6.5f, "Blazing Benifice 1"); // t=2101.4; Ability 74A6 from Arcane Font
+    Timeout(id + 0x710, 1.3f, "Cast Shadow 1"); // t=2102.7; Ability 749C from Shadowcaster Zeless Gah
+    Timeout(id + 0x720, 2.0f, "Cast Shadow 2"); // t=2104.7; Ability 749E from Shadowcaster Zeless Gah
+    Timeout(id + 0x730, 8.8f, "Blazing Benifice 2"); // t=2113.5; Ability 74A6 from Arcane Font
+    Timeout(id + 0x740, 4.2f, "Firesteel Fracture"); // t=2117.7; Ability 74AD from Shadowcaster Zeless Gah; cactbot StartsUsing 74AD [ASS Firesteel Fracture]
+    Timeout(id + 0x750, 9.1f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=2126.8; Ability 74AF from Shadowcaster Zeless Gah; cactbot StartsUsing 74AF [ASS Show of Strength]
+    Timeout(id + 0x760, 12.2f, "Infern Brand"); // t=2139.0; Ability 7491 from Shadowcaster Zeless Gah; cactbot StartsUsing 7491 [ASS Infern Brand Counter]
+    Timeout(id + 0x770, 11.3f, "--middle--"); // t=2150.3; Ability 74BE from Shadowcaster Zeless Gah
+    Timeout(id + 0x780, 5.2f, "Banishment"); // t=2155.5; Ability 74BC from Shadowcaster Zeless Gah; cactbot GainsEffect B9A [ASS Banishment] | LosesEffect CCC [ASS Banishment First Ward] | LosesEffect CCD [ASS Banishment Bait Second Ward]
+    Timeout(id + 0x790, 8.2f, "Infern Ward"); // t=2163.7; Ability 7496 from Shadowcaster Zeless Gah
+    Timeout(id + 0x7A0, 7.8f, "Infern Wave 1"); // t=2171.5; Ability 74BB from Infern Brand; cactbot Ability 74BB [ASS Infern Brand 5 Infern Wave Counter]
+    Timeout(id + 0x7B0, 8.0f, "Infern Wave 2"); // t=2179.5; Ability 74BB from Infern Brand; cactbot Ability 74BB [ASS Infern Brand 5 Infern Wave Counter]
+    Timeout(id + 0x7C0, 8.4f, "Firesteel Fracture"); // t=2187.9; Ability 74AD from Shadowcaster Zeless Gah; cactbot StartsUsing 74AD [ASS Firesteel Fracture]
+    Timeout(id + 0x7D0, 12.2f, "Infern Brand"); // t=2200.1; Ability 7491 from Shadowcaster Zeless Gah; cactbot StartsUsing 7491 [ASS Infern Brand Counter]
+    Timeout(id + 0x7E0, 7.1f, "Cryptic Portal"); // t=2207.2; Ability 7494 from Shadowcaster Zeless Gah
+    Timeout(id + 0x7F0, 11.4f, "Firesteel Strike 1"); // t=2218.6
+    Timeout(id + 0x800, 1.1f, "Blazing Benifice"); // t=2219.7; Ability 74A6 from Arcane Font
+    Timeout(id + 0x810, 0.4f, "Firesteel Strike 2"); // t=2220.1
+    Timeout(id + 0x820, 8.4f, "Blessed Beacon 1"); // t=2228.5; Ability 74B4 from Shadowcaster Zeless Gah
+    Timeout(id + 0x830, 2.2f, "Blessed Beacon 2"); // t=2230.7; Ability 74B5 from Shadowcaster Zeless Gah
+    Timeout(id + 0x840, 10.1f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=2240.8; Ability 74AF from Shadowcaster Zeless Gah; cactbot StartsUsing 74AF [ASS Show of Strength]
+    Timeout(id + 0x850, 12.2f, "Infern Brand"); // t=2253.0; Ability 7491 from Shadowcaster Zeless Gah; cactbot StartsUsing 7491 [ASS Infern Brand Counter]
+    Timeout(id + 0x860, 20.7f, "Cryptic Flames"); // t=2273.7; Ability 74B6 from Shadowcaster Zeless Gah
+    Timeout(id + 0x870, 4.0f, "Infern Wave 1"); // t=2277.7; Ability 74BB from Infern Brand; cactbot Ability 74BB [ASS Infern Brand 5 Infern Wave Counter]
+    Timeout(id + 0x880, 10.0f, "Infern Wave 2"); // t=2287.7; Ability 74BB from Infern Brand; cactbot Ability 74BB [ASS Infern Brand 5 Infern Wave Counter]
+    Timeout(id + 0x890, 4.7f, "Pure Fire"); // t=2292.4; Ability 74A1 from Shadowcaster Zeless Gah
+    Timeout(id + 0x8A0, 2.4f, "--middle--"); // t=2294.8; Ability 74BE from Shadowcaster Zeless Gah
+    Timeout(id + 0x8B0, 2.8f, "Infern Wave 3"); // t=2297.6; Ability 74BB from Infern Brand; cactbot Ability 74BB [ASS Infern Brand 5 Infern Wave Counter]
+    Timeout(id + 0x8C0, 5.1f, "Cast Shadow 1"); // t=2302.7; Ability 749C from Shadowcaster Zeless Gah
+    Timeout(id + 0x8D0, 2.0f, "Cast Shadow 2"); // t=2304.7; Ability 749E from Shadowcaster Zeless Gah
+    Timeout(id + 0x8E0, 2.9f, "Infern Wave 4"); // t=2307.6; Ability 74BB from Shadowcaster Zeless Gah; cactbot Ability 74BB [ASS Infern Brand 5 Infern Wave Counter]
+    Timeout(id + 0x8F0, 6.9f, "Firesteel Fracture"); // t=2314.5; Ability 74AD from Shadowcaster Zeless Gah; cactbot StartsUsing 74AD [ASS Firesteel Fracture]
+    Timeout(id + 0x900, 9.1f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=2323.6; Ability 74AF from Shadowcaster Zeless Gah; cactbot StartsUsing 74AF [ASS Show of Strength]
+    Condition(id + 0x910, 5.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x74BF), "", 5f, 0.0f); // t=2328.6; StartsUsing 74BF from Shadowcaster Zeless Gah
+    Timeout(id + 0x920, 10.0f, "Show of Strength (enrage)"); // t=2338.6; Ability 74BF from Shadowcaster Zeless Gah
+    Timeout(id + 0x930, 3.1f, "Show of Strength (enrage)"); // t=2341.7; Ability 73C9 from Shadowcaster Zeless Gah
+}
+

@@ -1,0 +1,78 @@
+// Generated development skeleton from strayborough-deadwalk.txt (TerritoryType 1204).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 20 static/dynamic trigger definitions from ui/raidboss/data/07-dt/dungeon/strayborough-deadwalk.ts.
+
+private void THE_STRAYBOROUGH_DEADWALK(uint id)
+{
+    Timeout(id + 0x0, 11.1f, "Malicious Mist").SetHint(StateMachine.StateHint.Raidwide); // t=1011.1; Ability 8EB1 from His Royal Headness Leonogg I; cactbot StartsUsing 8EB1 [Strayborough Deadwalk Leonogg Malicious Mist]
+    Timeout(id + 0x10, 7.1f, "Falling Nightmare (cast)"); // t=1018.2; Ability 8EAE from His Royal Headness Leonogg I; cactbot Ability 8EAE [Strayborough Deadwalk Falling Nightmare]
+    Timeout(id + 0x20, 5.0f, "Falling Nightmare (plonk)"); // t=1023.2
+    Timeout(id + 0x30, 12.4f, "Team Spirit"); // t=1035.6; Ability 8EAF from His Royal Headness Leonogg I
+    Timeout(id + 0x40, 6.1f, "Spirited Charge"); // t=1041.7; Ability 8EF6 from His Royal Headness Leonogg I; cactbot StartsUsing 8EF6 [Strayborough Deadwalk Spirited Charge]
+    Timeout(id + 0x50, 12.2f, "Evil Scheme 1"); // t=1053.9; Ability 9B03 from His Royal Headness Leonogg I
+    Timeout(id + 0x60, 7.8f, "Evil Scheme 2"); // t=1061.7; Ability 9B03 from His Royal Headness Leonogg I
+    Timeout(id + 0x70, 8.7f, "Team Spirit"); // t=1070.4; Ability 8EAF from His Royal Headness Leonogg I
+    Timeout(id + 0x80, 5.1f, "Spirited Charge"); // t=1075.5; Ability 8EF6 from His Royal Headness Leonogg I; cactbot StartsUsing 8EF6 [Strayborough Deadwalk Spirited Charge]
+    Timeout(id + 0x90, 9.2f, "Looming Nightmare 1"); // t=1084.7; Ability 9B06 from His Royal Headness Leonogg I
+    Timeout(id + 0xA0, 1.7f, "Looming Nightmare 2"); // t=1086.4
+    Timeout(id + 0xB0, 1.6f, "Looming Nightmare 3"); // t=1088.0
+    Timeout(id + 0xC0, 1.6f, "Looming Nightmare 4"); // t=1089.6
+    Timeout(id + 0xD0, 1.6f, "Looming Nightmare 5"); // t=1091.2
+    Timeout(id + 0xE0, 12.2f, "Team Spirit"); // t=1103.4; Ability 8EAF from His Royal Headness Leonogg I
+    Timeout(id + 0xF0, 5.1f, "Spirited Charge"); // t=1108.5; Ability 8EF6 from His Royal Headness Leonogg I; cactbot StartsUsing 8EF6 [Strayborough Deadwalk Spirited Charge]
+    Timeout(id + 0x100, 7.2f, "Scream 1"); // t=1115.7; Ability 8EB2 from His Royal Headness Leonogg I
+    Timeout(id + 0x110, 1.8f, "Scream 2"); // t=1117.5
+    Timeout(id + 0x120, 1.7f, "Scream 3"); // t=1119.2
+    Timeout(id + 0x130, 9.0f, "Looming Nightmare 1"); // t=1128.2; Ability 9B06 from His Royal Headness Leonogg I
+    Timeout(id + 0x140, 1.7f, "Looming Nightmare 2"); // t=1129.9
+    Timeout(id + 0x150, 1.6f, "Looming Nightmare 3"); // t=1131.5
+    Timeout(id + 0x160, 1.6f, "Looming Nightmare 4"); // t=1133.1
+    Timeout(id + 0x170, 6.4f, "Evil Scheme 1"); // t=1139.5; Ability 9B03 from His Royal Headness Leonogg I
+    Timeout(id + 0x180, 7.8f, "Evil Scheme 2"); // t=1147.3; Ability 9B03 from His Royal Headness Leonogg I
+    Timeout(id + 0x190, 4.0f, "Malicious Mist").SetHint(StateMachine.StateHint.Raidwide); // t=1151.3; Ability 8EB1 from His Royal Headness Leonogg I; cactbot StartsUsing 8EB1 [Strayborough Deadwalk Leonogg Malicious Mist]
+    Timeout(id + 0x1A0, 8.7f, "Falling Nightmare (cast)"); // t=1160.0; Ability 8EAE from His Royal Headness Leonogg I; cactbot Ability 8EAE [Strayborough Deadwalk Falling Nightmare]
+    Timeout(id + 0x1B0, 5.0f, "Falling Nightmare (plonk)"); // t=1165.0
+    Timeout(id + 0x1C0, 7.1f, "Malicious Mist").SetHint(StateMachine.StateHint.Raidwide); // t=1172.1; Ability 8EB1 from His Royal Headness Leonogg I; cactbot StartsUsing 8EB1 [Strayborough Deadwalk Leonogg Malicious Mist]
+    Timeout(id + 0x1D0, 10.6f, "Team Spirit"); // t=1182.7; Ability 8EAF from His Royal Headness Leonogg I
+    Timeout(id + 0x1E0, 828.3f, "Troubling Teacups"); // t=2011.0; Ability 8F6C from Jack-in-the-Pot
+    Timeout(id + 0x1F0, 11.1f, "Tea Awhirl"); // t=2022.1; Ability 8F6D from Jack-in-the-Pot
+    Timeout(id + 0x200, 12.1f, "Tricksome Treat"); // t=2034.2; Ability 8F70 from Stray Phantagenitrix
+    Timeout(id + 0x210, 8.8f, "Troubling Teacups"); // t=2043.0; Ability 8F6C from Jack-in-the-Pot
+    Timeout(id + 0x220, 10.1f, "Tea Awhirl"); // t=2053.1; Ability 8F6D from Jack-in-the-Pot
+    Timeout(id + 0x230, 15.1f, "Tricksome Treat"); // t=2068.2; Ability 8F70 from Stray Phantagenitrix
+    Timeout(id + 0x240, 6.6f, "Toiling Teapots"); // t=2074.8; Ability 8F72 from Jack-in-the-Pot
+    Timeout(id + 0x250, 4.7f, "Piping Pour 1"); // t=2079.5; Ability 8F73 from Spectral Samovar
+    Timeout(id + 0x260, 5.0f, "Piping Pour 2"); // t=2084.5; Ability 8F73 from Spectral Samovar
+    Timeout(id + 0x270, 5.0f, "Piping Pour 3"); // t=2089.5; Ability 8F73 from Spectral Samovar
+    Timeout(id + 0x280, 7.4f, "Last Drop"); // t=2096.9; Ability 8F76 from Jack-in-the-Pot; cactbot HeadMarker DA [Strayborough Deadwalk Last Drop]
+    Timeout(id + 0x290, 9.4f, "Troubling Teacups"); // t=2106.3; Ability 8F6C from Jack-in-the-Pot
+    Timeout(id + 0x2A0, 10.1f, "Tea Awhirl"); // t=2116.4; Ability 8F6D from Jack-in-the-Pot
+    Timeout(id + 0x2B0, 15.1f, "Tricksome Treat"); // t=2131.5; Ability 8F70 from Stray Phantagenitrix
+    Timeout(id + 0x2C0, 9.0f, "Sordid Steam").SetHint(StateMachine.StateHint.Raidwide); // t=2140.5; Ability 8F75 from Jack-in-the-Pot; cactbot StartsUsing 8F75 [Strayborough Deadwalk Sordid Steam]
+    Timeout(id + 0x2D0, 10.0f, "Toiling Teapots"); // t=2150.5; Ability 8F72 from Jack-in-the-Pot
+    Timeout(id + 0x2E0, 861.5f, "Bitter Regret (middle)"); // t=3012.0; Ability 9113 from Träumerei; cactbot StartsUsing 9113 [Strayborough Deadwalk Bitter Regret Middle]
+    Timeout(id + 0x2F0, 10.1f, "Bitter Regret (sides)"); // t=3022.1; Ability 9114 from Träumerei; cactbot StartsUsing 9114 [Strayborough Deadwalk Bitter Regret Sides]
+    Timeout(id + 0x300, 5.2f, "Poltergeist"); // t=3027.3; Ability 910C from Träumerei
+    Timeout(id + 0x310, 6.1f, "Memorial March"); // t=3033.4; Ability 9110 from Träumerei
+    Timeout(id + 0x320, 1.3f, "Impact"); // t=3034.7
+    Timeout(id + 0x330, 12.7f, "Ill Intent"); // t=3047.4; cactbot StartsUsing 9AB7 [Strayborough Deadwalk Ill Intent]
+    Timeout(id + 0x340, 15.0f, "Fleshbuster/Ghostduster"); // t=3062.4; Ability 9119/911C from Träumerei; cactbot StartsUsing 911C [Strayborough Deadwalk Fleshbuster] | StartsUsing 9119 [Strayborough Deadwalk Ghostduster] | Ability 9119/911C [Strayborough Deadwalk Alternate Lines Next]
+    Timeout(id + 0x350, 8.0f, "Malicious Mist"); // t=3070.4; Ability 9130 from Träumerei; cactbot StartsUsing 9130 [Strayborough Deadwalk Träumerei Malicious Mist]
+    Timeout(id + 0x360, 9.1f, "Memorial March"); // t=3079.5; Ability 90C9 from Träumerei
+    Timeout(id + 0x370, 6.1f, "Bitter Regret (lines 1)"); // t=3085.6
+    Timeout(id + 0x380, 2.6f, "Bitter Regret (lines 2)"); // t=3088.2
+    Timeout(id + 0x390, 2.4f, "Bitter Regret (middle/sides)"); // t=3090.6; Ability 9113/9114 from Träumerei; cactbot StartsUsing 9113 [Strayborough Deadwalk Bitter Regret Middle] | StartsUsing 9114 [Strayborough Deadwalk Bitter Regret Sides]
+    Timeout(id + 0x3A0, 12.2f, "Fleshbuster/Ghostduster"); // t=3102.8; Ability 9119/911C from Träumerei; cactbot StartsUsing 911C [Strayborough Deadwalk Fleshbuster] | StartsUsing 9119 [Strayborough Deadwalk Ghostduster] | Ability 9119/911C [Strayborough Deadwalk Alternate Lines Next]
+    Timeout(id + 0x3B0, 9.1f, "Poltergeist"); // t=3111.9; Ability 910C from Träumerei
+    Timeout(id + 0x3C0, 7.0f, "Impact"); // t=3118.9
+    Timeout(id + 0x3D0, 1.1f, "Memorial March"); // t=3120.0; Ability 9110 from Träumerei
+    Timeout(id + 0x3E0, 13.9f, "Malicious Mist / Bitter Regret (solid lines)"); // t=3133.9; Ability 91DC from Stray Phantagenitrix; cactbot StartsUsing 91DC [Strayborough Deadwalk Bitter Regret Alternate Lines] | StartsUsing 91DC [Strayborough Deadwalk Bitter Regret Solid Lines]
+    Timeout(id + 0x3F0, 9.0f, "Fleshbuster/Ghostduster"); // t=3142.9; Ability 9119/911C from Träumerei; cactbot StartsUsing 911C [Strayborough Deadwalk Fleshbuster] | StartsUsing 9119 [Strayborough Deadwalk Ghostduster] | Ability 9119/911C [Strayborough Deadwalk Alternate Lines Next]
+    Timeout(id + 0x400, 8.0f, "Ghostcrusher"); // t=3150.9; Ability 9117 from Träumerei; cactbot Ability 9118 [Strayborough Deadwalk Ghostcrusher]
+    Timeout(id + 0x410, 7.2f, "Memorial March"); // t=3158.1; Ability 9110 from Träumerei
+    Timeout(id + 0x420, 14.0f, "Malicious Mist"); // t=3172.1
+    Timeout(id + 0x430, 2.0f, "Bitter Regret (middle/sides)"); // t=3174.1; Ability 9113/9114 from Träumerei; cactbot StartsUsing 9113 [Strayborough Deadwalk Bitter Regret Middle] | StartsUsing 9114 [Strayborough Deadwalk Bitter Regret Sides]
+    Timeout(id + 0x440, 11.1f, "Fleshbuster/Ghostduster"); // t=3185.2; Ability 9119/911C from Träumerei; cactbot StartsUsing 911C [Strayborough Deadwalk Fleshbuster] | StartsUsing 9119 [Strayborough Deadwalk Ghostduster] | Ability 9119/911C [Strayborough Deadwalk Alternate Lines Next]
+}
+

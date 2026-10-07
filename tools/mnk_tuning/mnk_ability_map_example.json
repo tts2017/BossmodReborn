@@ -1,0 +1,25 @@
+{
+  "abilities": {
+    "0": {
+      "name": "Riddle of Fire",
+      "role": "majorBuff"
+    },
+    "1": {
+      "name": "Brotherhood",
+      "role": "majorBuff"
+    },
+    "2": {
+      "name": "Perfect Balance",
+      "role": "perfectBalance"
+    },
+    "3": {
+      "name": "Riddle of Wind",
+      "role": "riddleOfWind"
+    },
+    "4": {
+      "name": "Potion",
+      "role": "potion"
+    }
+  },
+  "job": "MNK"
+}

@@ -1,0 +1,175 @@
+// Generated development skeleton from p12s.txt (TerritoryType 1154).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 90 static/dynamic trigger definitions from ui/raidboss/data/06-ew/raid/p12s.ts.
+
+private void P12S__Anabaseios__The_Twelfth_Circle__Savage(uint id)
+{
+    // No visible timeline entries in this section.
+}
+
+private void Phase_1__Athena(uint id)
+{
+    Timeout(id + 0x0, 1.0f, ""); // t=1.0
+    Timeout(id + 0x10, 10.1f, "On the Soul").SetHint(StateMachine.StateHint.Raidwide); // t=11.1; Ability 8304 from Athena; cactbot StartsUsing 8304 [P12S On the Soul]
+    Timeout(id + 0x20, 10.1f, "Paradeigma 1"); // t=21.2; Ability 82ED from Athena; cactbot StartsUsing 82ED [P12S Paradeigma Counter]
+    Timeout(id + 0x30, 3.1f, "--middle--"); // t=24.3; Ability 8315 from Athena
+    Timeout(id + 0x40, 12.4f, "Trinity of Souls 1 / White Flame"); // t=36.7; Ability 82E7/82E8 from Athena | Ability 82EF from Anthropos; cactbot StartsUsing 82E7/82E8 [P12S Door Boss Headmarker Tracker] | StartsUsing 82E7/82E8/82E1/82E2 [P12S First Wing] | Ability 82E1/82E2/82E3/82E4/82E7/82E8/82E9/82EA [P12S Wing Followup] | Ability 82EF [P12S Palladion White Flame Followup]
+    Timeout(id + 0x50, 2.6f, "Trinity of Souls 2"); // t=39.3; Ability 82E9/82EA from Athena; cactbot Ability 82E1/82E2/82E3/82E4/82E7/82E8/82E9/82EA [P12S Wing Followup]
+    Timeout(id + 0x60, 2.4f, "White Flame"); // t=41.7; Ability 82EF from Anthropos; cactbot Ability 82EF [P12S Palladion White Flame Followup]
+    Timeout(id + 0x70, 0.2f, "Trinity of Souls 3"); // t=41.9; Ability 82EB/82EC from Athena; cactbot Ability 82E5/82E6/82EB/82EC [P12S Wing Followup Third Wing Superchain IIA]
+    Timeout(id + 0x80, 15.4f, "Paradeigma 2"); // t=57.3; Ability 82ED from Athena; cactbot StartsUsing 82ED [P12S Paradeigma Counter]
+    Timeout(id + 0x90, 7.7f, "Engravement of Souls"); // t=65.0; Ability 8305 from Athena; cactbot Ability 8305 [P12S Engravement of Souls Tracker]
+    Timeout(id + 0xA0, 9.8f, "Searing Radiance/Shadowsear"); // t=74.8
+    Timeout(id + 0xB0, 1.0f, "Astral Glow/Umbral Glow"); // t=75.8
+    Timeout(id + 0xC0, 3.0f, "Astral Advance/Umbral Advance"); // t=78.8
+    Timeout(id + 0xD0, 3.0f, "Ray of Light"); // t=81.8; Ability 82EE from Anthropos; cactbot StartsUsing 82EE [P12S Ray of Light 1] | StartsUsing 82EE [P12S Superchain Theory IIb Second Mechanic + Ray of Light 2]
+    Timeout(id + 0xE0, 7.0f, "On the Soul").SetHint(StateMachine.StateHint.Raidwide); // t=88.8; Ability 8304 from Athena; cactbot StartsUsing 8304 [P12S On the Soul]
+    Timeout(id + 0xF0, 8.2f, "Glaukopis 1"); // t=97.0; Ability 82FC from Athena; cactbot StartsUsing 82FC [P12S Glaukopis First Cleave]
+    Timeout(id + 0x100, 3.0f, "Glaukopis 2"); // t=100.0; Ability 82FD from Athena; cactbot Ability 82FD [P12S Glaukopis Second Cleave Collect] | Ability 82FD [P12S Glaukopis Second Cleave Swap]
+    Timeout(id + 0x110, 16.1f, "Superchain Theory I"); // t=116.1; Ability 82DA from Athena; cactbot StartsUsing 82DA/82F5/86FA/86FB [P12S Phase Tracker 1]
+    Timeout(id + 0x120, 7.1f, "Engravement of Souls"); // t=123.2; Ability 8305 from Athena; cactbot Ability 8305 [P12S Engravement of Souls Tracker]
+    Timeout(id + 0x130, 5.0f, "Superchain Coil/Superchain Burst"); // t=128.2
+    Timeout(id + 0x140, 6.1f, "Polarized Ray"); // t=134.3; Ability 8307 from Athena
+    Timeout(id + 0x150, 0.9f, "Superchain Coil/Superchain Burst"); // t=135.2
+    Timeout(id + 0x160, 0.3f, "Astral Impact/Umbral Impact"); // t=135.5
+    Timeout(id + 0x170, 4.7f, "Superchain Coil/Superchain Burst"); // t=140.2
+    Timeout(id + 0x180, 2.0f, "Superchain Coil/Superchain Burst"); // t=142.2
+    Timeout(id + 0x190, 1.3f, "Astral Glow/Umbral Glow"); // t=143.5
+    Timeout(id + 0x1A0, 1.7f, "Theos's Holy"); // t=145.2; Ability 8306 from Athena
+    Timeout(id + 0x1B0, 1.2f, "Astral Advance/Umbral Advance"); // t=146.4
+    Timeout(id + 0x1C0, 11.0f, "Trinity of Souls 1"); // t=157.4; Ability 82E7/82E8/82E1/82E2 from Athena; cactbot StartsUsing 82E7/82E8 [P12S Door Boss Headmarker Tracker] | StartsUsing 82E7/82E8/82E1/82E2 [P12S First Wing] | Ability 82E1/82E2/82E3/82E4/82E7/82E8/82E9/82EA [P12S Wing Followup]
+    Timeout(id + 0x1D0, 2.7f, "Trinity of Souls 2"); // t=160.1; Ability 82E9/82EA from Athena; cactbot Ability 82E1/82E2/82E3/82E4/82E7/82E8/82E9/82EA [P12S Wing Followup]
+    Timeout(id + 0x1E0, 2.6f, "Trinity of Souls 3"); // t=162.7; Ability 82EB/82EC/82E5/82E6 from Athena; cactbot Ability 82E5/82E6/82EB/82EC [P12S Wing Followup Third Wing Superchain IIA]
+    Timeout(id + 0x1F0, 8.4f, "Apodialogos/Peridialogos"); // t=171.1
+    Timeout(id + 0x200, 1.0f, "Dialogos"); // t=172.1; Ability 8302 from Athena
+    Timeout(id + 0x210, 6.7f, "On the Soul").SetHint(StateMachine.StateHint.Raidwide); // t=178.8; Ability 8304 from Athena; cactbot StartsUsing 8304 [P12S On the Soul]
+    Timeout(id + 0x220, 11.2f, "--middle--"); // t=190.0; Ability 8315 from Athena
+    Timeout(id + 0x230, 5.3f, "Paradeigma 3"); // t=195.3; Ability 82ED from Athena; cactbot StartsUsing 82ED [P12S Paradeigma Counter]
+    Timeout(id + 0x240, 7.1f, "Engravement of Souls"); // t=202.4; Ability 8305 from Athena; cactbot Ability 8305 [P12S Engravement of Souls Tracker]
+    Timeout(id + 0x250, 10.1f, "Shock"); // t=212.5; Ability 8312 from Athena; cactbot Ability 8312 [P12S Engravement 3 Towers Drop Location]
+    Timeout(id + 0x260, 1.1f, "Sample"); // t=213.6; Ability 82E0 from Athena; cactbot Tether E8 [P12S Sample Collect] | Tether E8 [P12S Sample Safe Tile]
+    Timeout(id + 0x270, 0.1f, "Searing Radiance/Shadowsear"); // t=213.7
+    Timeout(id + 0x280, 6.8f, "Theos's Saltire/Theos's Cross"); // t=220.5
+    Timeout(id + 0x290, 0.2f, "White Flame"); // t=220.7; Ability 82EF from Anthropos; cactbot Ability 82EF [P12S Palladion White Flame Followup]
+    Timeout(id + 0x2A0, 0.1f, "Astral Glow/Umbral Glow"); // t=220.8
+    Timeout(id + 0x2B0, 3.0f, "Astral Advance/Umbral Advance"); // t=223.8
+    Timeout(id + 0x2C0, 6.0f, "On the Soul").SetHint(StateMachine.StateHint.Raidwide); // t=229.8; Ability 8304 from Athena; cactbot StartsUsing 8304 [P12S On the Soul]
+    Timeout(id + 0x2D0, 12.3f, "Glaukopis 1"); // t=242.1; Ability 82FC from Athena; cactbot StartsUsing 82FC [P12S Glaukopis First Cleave]
+    Timeout(id + 0x2E0, 3.1f, "Glaukopis 2"); // t=245.2; Ability 82FD from Athena; cactbot Ability 82FD [P12S Glaukopis Second Cleave Collect] | Ability 82FD [P12S Glaukopis Second Cleave Swap]
+    Timeout(id + 0x2F0, 9.1f, "--middle--"); // t=254.3; Ability 8315 from Athena
+    Timeout(id + 0x300, 13.0f, "Ultima Blade"); // t=267.3; Ability 82F4 from Athena
+    Targetable(id + 0x310, false, 12.7f, "--untargetable--"); // t=280.0
+    Timeout(id + 0x320, 10.6f, "Palladion 1"); // t=290.6; Ability 82F6 from Athena
+    Timeout(id + 0x330, 3.1f, "Palladion 2"); // t=293.7; Ability 82F6 from Athena
+    Timeout(id + 0x340, 3.1f, "Palladion 3"); // t=296.8; Ability 82F6 from Athena
+    Timeout(id + 0x350, 3.1f, "Palladion 4"); // t=299.9; Ability 82F6 from Athena
+    Timeout(id + 0x360, 3.1f, "Palladion 5"); // t=303.0; Ability 82F6 from Athena
+    Timeout(id + 0x370, 3.1f, "Palladion 6"); // t=306.1; Ability 82F6 from Athena
+    Timeout(id + 0x380, 3.1f, "Palladion 7"); // t=309.2; Ability 82F6 from Athena
+    Timeout(id + 0x390, 3.2f, "Palladion 8"); // t=312.4; Ability 82F6 from Athena
+    Timeout(id + 0x3A0, 9.1f, "Palladion (Floor Drop)"); // t=321.5; Ability 82F9 from Athena
+    Targetable(id + 0x3B0, true, 2.9f, "--targetable--"); // t=324.4
+    Timeout(id + 0x3C0, 8.8f, "Theos's Ultima"); // t=333.2; Ability 82FA from Athena
+    Timeout(id + 0x3D0, 19.4f, "Superchain Theory IIA"); // t=352.6; Ability 86FA from Athena; cactbot StartsUsing 82DA/82F5/86FA/86FB [P12S Phase Tracker 1]
+    Timeout(id + 0x3E0, 13.1f, "Trinity of Souls 1"); // t=365.7; Ability 82E7/82E8/82E1/82E2 from Athena; cactbot StartsUsing 82E7/82E8 [P12S Door Boss Headmarker Tracker] | StartsUsing 82E7/82E8/82E1/82E2 [P12S First Wing] | Ability 82E1/82E2/82E3/82E4/82E7/82E8/82E9/82EA [P12S Wing Followup]
+    Timeout(id + 0x3F0, 2.6f, "Trinity of Souls 2"); // t=368.3; Ability 82E9/82EA from Athena; cactbot Ability 82E1/82E2/82E3/82E4/82E7/82E8/82E9/82EA [P12S Wing Followup]
+    Timeout(id + 0x400, 2.4f, "Trinity of Souls 3"); // t=370.7; Ability 82EB/82EC/82E5/82E6 from Athena; cactbot Ability 82E5/82E6/82EB/82EC [P12S Wing Followup Third Wing Superchain IIA]
+    Timeout(id + 0x410, 3.3f, "Superchain Coil/Superchain Burst"); // t=374.0
+    Timeout(id + 0x420, 6.2f, "Apodialogos/Peridialogos"); // t=380.2
+    Timeout(id + 0x430, 1.0f, "Dialogos"); // t=381.2; Ability 8302 from Athena
+    Timeout(id + 0x440, 6.7f, "On the Soul").SetHint(StateMachine.StateHint.Raidwide); // t=387.9; Ability 8304 from Athena; cactbot StartsUsing 8304 [P12S On the Soul]
+    Timeout(id + 0x450, 7.2f, "--middle--"); // t=395.1; Ability 8315 from Athena
+    Timeout(id + 0x460, 7.4f, "Superchain Theory IIB"); // t=402.5; Ability 86FB from Athena; cactbot StartsUsing 82DA/82F5/86FA/86FB [P12S Phase Tracker 1]
+    Timeout(id + 0x470, 6.1f, "Paradeigma 4"); // t=408.6; Ability 82ED from Athena; cactbot StartsUsing 82ED [P12S Paradeigma Counter]
+    Timeout(id + 0x480, 7.0f, "Superchain Coil/Superchain Burst"); // t=415.6
+    Timeout(id + 0x490, 3.0f, "Parthenos"); // t=418.6; Ability 8303 from Athena
+    Timeout(id + 0x4A0, 3.9f, "Superchain Coil/Superchain Burst"); // t=422.5
+    Timeout(id + 0x4B0, 2.4f, "Ray of Light"); // t=424.9; Ability 82EE from Anthropos; cactbot StartsUsing 82EE [P12S Ray of Light 1] | StartsUsing 82EE [P12S Superchain Theory IIb Second Mechanic + Ray of Light 2]
+    Timeout(id + 0x4C0, 6.6f, "Superchain Coil/Superchain Burst"); // t=431.5
+    Timeout(id + 0x4D0, 2.8f, "Unnatural Enchainment"); // t=434.3; Ability 82DF from Athena
+    Timeout(id + 0x4E0, 1.1f, "Sample"); // t=435.4; Ability 82E0 from Athena; cactbot Tether E8 [P12S Sample Collect] | Tether E8 [P12S Sample Safe Tile]
+    Timeout(id + 0x4F0, 7.0f, "On the Soul").SetHint(StateMachine.StateHint.Raidwide); // t=442.4; Ability 8304 from Athena; cactbot StartsUsing 8304 [P12S On the Soul]
+    Timeout(id + 0x500, 8.1f, "On the Soul").SetHint(StateMachine.StateHint.Raidwide); // t=450.5; Ability 8304 from Athena; cactbot StartsUsing 8304 [P12S On the Soul]
+    Condition(id + 0x510, 8.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8556), "--untargetable--", 5f, 3.5f); // t=459.0; StartsUsing 8556 from Athena
+    Timeout(id + 0x520, 7.0f, "Theos's Ultima (enrage)"); // t=466.0; Ability 8556 from Athena
+}
+
+private void Phase_2__Pallas_Athena(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8682), "", 5f, 0.0f); // t=1007.1; StartsUsing 8682 from Pallas Athena; cactbot StartsUsing 8682 [P12S Phase Tracker 2] | StartsUsing 8682/86F6 [P12S Ultima]
+    Timeout(id + 0x10, 5.0f, "Ultima 1").SetHint(StateMachine.StateHint.Raidwide); // t=1012.1; Ability 8682 from Pallas Athena; cactbot StartsUsing 8682 [P12S Phase Tracker 2] | StartsUsing 8682/86F6 [P12S Ultima]
+    Timeout(id + 0x20, 12.1f, "Palladian Grasp 1"); // t=1024.2; Ability 831A from Pallas Athena; cactbot StartsUsing 831A [P12S Palladian Grasp]
+    Timeout(id + 0x30, 3.2f, "Palladian Grasp 2"); // t=1027.4; Ability 831B from Pallas Athena
+    Timeout(id + 0x40, 13.4f, "Gaiaochos 1").SetHint(StateMachine.StateHint.Raidwide); // t=1040.8; Ability 8326 from Pallas Athena; cactbot StartsUsing 8326/8331/8338/833F [P12S Phase Tracker 3] | StartsUsing 8326 [P12S Gaiaochos]
+    Timeout(id + 0x50, 11.1f, "Summon Darkness"); // t=1051.9; Ability 832F from Pallas Athena; cactbot StartsUsing 832F [P12S Summon Darkness Preposition]
+    Timeout(id + 0x60, 7.1f, "--tethers--"); // t=1059.0; cactbot Tether E9/EA/FA/FB [P12S Engravement 3 Paradeigma Tethers Collect]
+    Timeout(id + 0x70, 4.8f, "Ultima Ray"); // t=1063.8; Ability 8330 from Hemitheos; cactbot StartsUsing 8330 [P12S Ultima Ray 1] | StartsUsing 8330 [P12S Ultima Ray 2]
+    Timeout(id + 0x80, 1.3f, "Missing Link"); // t=1065.1; Ability 8586 from Pallas Athena
+    Timeout(id + 0x90, 9.0f, "Demi Parhelion"); // t=1074.1; Ability 8327 from Pallas Athena
+    Timeout(id + 0xA0, 10.1f, "Geocentrism"); // t=1084.2
+    Timeout(id + 0xB0, 1.0f, "Divine Excoriation"); // t=1085.2; Ability 832E from Pallas Athena
+    Timeout(id + 0xC0, 9.2f, "Ultima 2").SetHint(StateMachine.StateHint.Raidwide); // t=1094.4; Ability 86F6 from Pallas Athena; cactbot StartsUsing 8682/86F6 [P12S Ultima]
+    Timeout(id + 0xD0, 14.2f, "The Classical Concepts 1"); // t=1108.6; Ability 8331 from Pallas Athena; cactbot StartsUsing 8326/8331/8338/833F [P12S Phase Tracker 3] | StartsUsing 8331/8336 [P12S Classical Concepts]
+    Timeout(id + 0xE0, 21.4f, "Implode"); // t=1130.0; Ability 8333 from Concept of Water
+    Timeout(id + 0xF0, 3.4f, "Palladian Ray"); // t=1133.4; Ability 8324 from Pallas Athena; cactbot LosesEffect E04 [P12S Palladian Ray 1 Initial] | Tether 1 [P12S Palladian Ray 2 Initial] | Ability 8323 [P12S Palladian Ray Followup]
+    Timeout(id + 0x100, 10.4f, "Ultima 3").SetHint(StateMachine.StateHint.Raidwide); // t=1143.8; Ability 8682 from Pallas Athena; cactbot StartsUsing 8682 [P12S Phase Tracker 2] | StartsUsing 8682/86F6 [P12S Ultima]
+    Timeout(id + 0x110, 10.0f, "Crush Helm 1"); // t=1153.8
+    Timeout(id + 0x120, 1.1f, "Crush Helm 2"); // t=1154.9
+    Timeout(id + 0x130, 1.1f, "Crush Helm 3"); // t=1156.0
+    Timeout(id + 0x140, 1.1f, "Crush Helm 4"); // t=1157.1
+    Timeout(id + 0x150, 2.1f, "Crush Helm Buster"); // t=1159.2; Ability 8319 from Pallas Athena
+    Timeout(id + 0x160, 14.0f, "Caloric Theory 1"); // t=1173.2; Ability 8338 from Pallas Athena; cactbot StartsUsing 8326/8331/8338/833F [P12S Phase Tracker 3] | StartsUsing 8338 [P12S Caloric Theory 1 Beacon] | Ability 8338 [P12S Caloric Theory 1 Initial Buff]
+    Timeout(id + 0x170, 12.7f, "Pyre Pulse 1"); // t=1185.9; Ability 833A from Pallas Athena
+    Timeout(id + 0x180, 11.4f, "Pyre Pulse 2 / Dynamic Atmosphere"); // t=1197.3; Ability 833A from Pallas Athena | Ability 833B from Pallas Athena
+    Timeout(id + 0x190, 10.3f, "Ekpyrosis (cast)"); // t=1207.6; Ability 831E from Pallas Athena; cactbot StartsUsing 831E [P12S Ekpyrosis Cast]
+    Timeout(id + 0x1A0, 7.8f, "Ekpyrosis (proximity)"); // t=1215.4; Ability 8683 from Pallas Athena
+    Timeout(id + 0x1B0, 3.1f, "Ekpyrosis (spread)"); // t=1218.5; Ability 8322 from Pallas Athena; cactbot Ability 831F [P12S Ekpyrosis Spread]
+    Timeout(id + 0x1C0, 8.3f, "Ultima 4").SetHint(StateMachine.StateHint.Raidwide); // t=1226.8; Ability 8682 from Pallas Athena; cactbot StartsUsing 8682 [P12S Phase Tracker 2] | StartsUsing 8682/86F6 [P12S Ultima]
+    Timeout(id + 0x1D0, 14.2f, "Pangenesis"); // t=1241.0; Ability 833F from Pallas Athena; cactbot StartsUsing 8326/8331/8338/833F [P12S Phase Tracker 3]
+    Timeout(id + 0x1E0, 13.9f, "Astral Advent/Umbral Advent 1"); // t=1254.9
+    Timeout(id + 0x1F0, 5.1f, "Astral Advent/Umbral Advent 2"); // t=1260.0
+    Timeout(id + 0x200, 5.0f, "Astral Advent/Umbral Advent 3"); // t=1265.0
+    Timeout(id + 0x210, 12.4f, "Factor In"); // t=1277.4; Ability 8347 from Forbidden Factor
+    Timeout(id + 0x220, 3.0f, "Palladian Grasp 1"); // t=1280.4; Ability 831A from Pallas Athena; cactbot StartsUsing 831A [P12S Palladian Grasp]
+    Timeout(id + 0x230, 3.2f, "Palladian Grasp 2"); // t=1283.6; Ability 831B from Pallas Athena
+    Timeout(id + 0x240, 13.2f, "The Classical Concepts 2"); // t=1296.8; Ability 8331 from Pallas Athena; cactbot StartsUsing 8326/8331/8338/833F [P12S Phase Tracker 3] | StartsUsing 8331/8336 [P12S Classical Concepts]
+    Timeout(id + 0x250, 17.1f, "Panta Rhei"); // t=1313.9; Ability 8336 from Pallas Athena; cactbot StartsUsing 8331/8336 [P12S Classical Concepts]
+    Timeout(id + 0x260, 8.8f, "Palladian Ray"); // t=1322.7; Ability 8324 from Pallas Athena; cactbot LosesEffect E04 [P12S Palladian Ray 1 Initial] | Tether 1 [P12S Palladian Ray 2 Initial] | Ability 8323 [P12S Palladian Ray Followup]
+    Timeout(id + 0x270, 2.5f, "Implode"); // t=1325.2; Ability 8333 from Concept of Water
+    Timeout(id + 0x280, 7.9f, "Ultima 5").SetHint(StateMachine.StateHint.Raidwide); // t=1333.1; Ability 8682 from Pallas Athena; cactbot StartsUsing 8682 [P12S Phase Tracker 2] | StartsUsing 8682/86F6 [P12S Ultima]
+    Timeout(id + 0x290, 9.9f, "Crush Helm 1"); // t=1343.0
+    Timeout(id + 0x2A0, 1.1f, "Crush Helm 2"); // t=1344.1
+    Timeout(id + 0x2B0, 1.1f, "Crush Helm 3"); // t=1345.2
+    Timeout(id + 0x2C0, 1.1f, "Crush Helm 4"); // t=1346.3
+    Timeout(id + 0x2D0, 2.1f, "Crush Helm Buster"); // t=1348.4; Ability 8319 from Pallas Athena
+    Timeout(id + 0x2E0, 14.1f, "Caloric Theory 2"); // t=1362.5; Ability 8338 from Pallas Athena; cactbot StartsUsing 8326/8331/8338/833F [P12S Phase Tracker 3] | StartsUsing 8338 [P12S Caloric Theory 1 Beacon] | Ability 8338 [P12S Caloric Theory 1 Initial Buff]
+    Timeout(id + 0x2F0, 6.8f, "Entropic Excess 1"); // t=1369.3; Ability 833C from Pallas Athena
+    Timeout(id + 0x300, 3.0f, "Entropic Excess 2"); // t=1372.3; Ability 833C from Pallas Athena
+    Timeout(id + 0x310, 3.0f, "Entropic Excess 3"); // t=1375.3; Ability 833C from Pallas Athena
+    Timeout(id + 0x320, 3.0f, "Entropic Excess 4"); // t=1378.3; Ability 833C from Pallas Athena
+    Timeout(id + 0x330, 3.0f, "Entropic Excess 5"); // t=1381.3; Ability 833C from Pallas Athena
+    Timeout(id + 0x340, 3.0f, "Entropic Excess 6"); // t=1384.3; Ability 833C from Pallas Athena
+    Timeout(id + 0x350, 3.0f, "Entropic Excess 7"); // t=1387.3; Ability 833C from Pallas Athena
+    Timeout(id + 0x360, 3.0f, "Entropic Excess 8 / Dynamic Atmosphere"); // t=1390.3; Ability 833C from Pallas Athena | Ability 833B from Pallas Athena
+    Timeout(id + 0x370, 2.3f, "Ekpyrosis (cast)"); // t=1392.6; Ability 831E from Pallas Athena; cactbot StartsUsing 831E [P12S Ekpyrosis Cast]
+    Timeout(id + 0x380, 7.8f, "Ekpyrosis (proximity)"); // t=1400.4; Ability 8683 from Pallas Athena
+    Timeout(id + 0x390, 3.1f, "Ekpyrosis (spread)"); // t=1403.5; Ability 8322 from Pallas Athena; cactbot Ability 831F [P12S Ekpyrosis Spread]
+    Timeout(id + 0x3A0, 8.2f, "Ultima 6").SetHint(StateMachine.StateHint.Raidwide); // t=1411.7; Ability 8682 from Pallas Athena; cactbot StartsUsing 8682 [P12S Phase Tracker 2] | StartsUsing 8682/86F6 [P12S Ultima]
+    Timeout(id + 0x3B0, 14.2f, "Gaiaochos 2").SetHint(StateMachine.StateHint.Raidwide); // t=1425.9; Ability 8326 from Pallas Athena; cactbot StartsUsing 8326/8331/8338/833F [P12S Phase Tracker 3] | StartsUsing 8326 [P12S Gaiaochos]
+    Timeout(id + 0x3C0, 11.1f, "Summon Darkness"); // t=1437.0; Ability 832F from Pallas Athena; cactbot StartsUsing 832F [P12S Summon Darkness Preposition]
+    Timeout(id + 0x3D0, 6.1f, "Demi Parhelion"); // t=1443.1; Ability 8327 from Pallas Athena
+    Timeout(id + 0x3E0, 5.0f, "--tethers--"); // t=1448.1; cactbot Tether E9/EA/FA/FB [P12S Engravement 3 Paradeigma Tethers Collect]
+    Timeout(id + 0x3F0, 5.1f, "Geocentrism"); // t=1453.2
+    Timeout(id + 0x400, 0.6f, "Ultima Ray"); // t=1453.8; Ability 8330 from Hemitheos; cactbot StartsUsing 8330 [P12S Ultima Ray 1] | StartsUsing 8330 [P12S Ultima Ray 2]
+    Timeout(id + 0x410, 0.2f, "Missing Link"); // t=1454.0; Ability 8586 from Pallas Athena
+    Timeout(id + 0x420, 3.1f, "Divine Excoriation"); // t=1457.1; Ability 832E from Pallas Athena
+    Timeout(id + 0x430, 8.1f, "Summon Darkness"); // t=1465.2; Ability 832F from Pallas Athena; cactbot StartsUsing 832F [P12S Summon Darkness Preposition]
+    Timeout(id + 0x440, 11.0f, "Ultima Blow"); // t=1476.2; cactbot Tether 1 [P12S Ultima Blow Tether Collect] | Tether 1 [P12S Ultima Blow Tether]
+    Timeout(id + 0x450, 4.2f, "Ultima 7").SetHint(StateMachine.StateHint.Raidwide); // t=1480.4; Ability 86F6 from Pallas Athena; cactbot StartsUsing 8682/86F6 [P12S Ultima]
+    Timeout(id + 0x460, 9.7f, "Ultima Blow"); // t=1490.1; cactbot Tether 1 [P12S Ultima Blow Tether Collect] | Tether 1 [P12S Ultima Blow Tether]
+    Timeout(id + 0x470, 4.5f, "Ultima 8").SetHint(StateMachine.StateHint.Raidwide); // t=1494.6; Ability 86F6 from Pallas Athena; cactbot StartsUsing 8682/86F6 [P12S Ultima]
+    Condition(id + 0x480, 13.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8349), "", 5f, 8.8f); // t=1508.4; StartsUsing 8349 from Pallas Athena
+    Timeout(id + 0x490, 15.0f, "Ignorabimus"); // t=1523.4; Ability 8349 from Pallas Athena
+}
+

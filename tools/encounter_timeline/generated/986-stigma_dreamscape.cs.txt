@@ -1,0 +1,77 @@
+// Generated development skeleton from stigma_dreamscape.txt (TerritoryType 986).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 24 static/dynamic trigger definitions from ui/raidboss/data/06-ew/dungeon/stigma_dreamscape.ts.
+
+private void Stigma_Dreamscape(uint id)
+{
+    Timeout(id + 0x0, 12.6f, "Side Cannons"); // t=12.6; Ability 6320/6321 from Proto-Omega; cactbot StartsUsing 6320 [Dreamscape Side Cannons Left] | StartsUsing 6321 [Dreamscape Side Cannons Right]
+    Timeout(id + 0x10, 11.6f, "Forward Interceptors/Rear Interceptors"); // t=24.2; Ability 6322/6324 from Proto-Omega; cactbot StartsUsing 6322 [Dreamscape Forward Interceptors] | StartsUsing 6324 [Dreamscape Rear Interceptors]
+    Timeout(id + 0x20, 5.1f, "Chemical Missile"); // t=29.3; Ability 6328 from Proto-Omega; cactbot HeadMarker 8B [Dreamscape Chemical Missile]
+    Timeout(id + 0x30, 5.1f, "Burn"); // t=34.4; Ability 6329 from Proto-Omega
+    Timeout(id + 0x40, 6.2f, "Electric Slide"); // t=40.6; Ability 632A from Proto-Omega; cactbot HeadMarker 121 [Dreamscape Electric Slide]
+    Timeout(id + 0x50, 9.1f, "Guided Missile"); // t=49.7; Ability 6326 from Proto-Omega; cactbot Tether 11 [Dreamscape Guided Missile]
+    Timeout(id + 0x60, 15.9f, "Iron Kiss"); // t=65.6; Ability 6327 from Mark II Guided Missile
+    Timeout(id + 0x70, 7.4f, "Electric Slide"); // t=73.0; Ability 632A from Proto-Omega; cactbot HeadMarker 121 [Dreamscape Electric Slide]
+    Timeout(id + 0x80, 11.2f, "Mustard Bomb").SetHint(StateMachine.StateHint.Tankbuster); // t=84.2; Ability 632B from Proto-Omega; cactbot StartsUsing 632B [Dreamscape Mustard Bomb]
+    Timeout(id + 0x90, 12.2f, "Side Cannons"); // t=96.4; Ability 6320/6321 from Proto-Omega; cactbot StartsUsing 6320 [Dreamscape Side Cannons Left] | StartsUsing 6321 [Dreamscape Side Cannons Right]
+    Timeout(id + 0xA0, 8.2f, "Guided Missile"); // t=104.6; Ability 6326 from Proto-Omega; cactbot Tether 11 [Dreamscape Guided Missile]
+    Timeout(id + 0xB0, 7.1f, "Chemical Missile"); // t=111.7; Ability 6328 from Proto-Omega; cactbot HeadMarker 8B [Dreamscape Chemical Missile]
+    Timeout(id + 0xC0, 5.1f, "Burn"); // t=116.8; Ability 6329 from Proto-Omega
+    Timeout(id + 0xD0, 3.6f, "Iron Kiss"); // t=120.4; Ability 6327 from Mark II Guided Missile
+    Timeout(id + 0xE0, 7.4f, "Electric Slide"); // t=127.8; cactbot HeadMarker 121 [Dreamscape Electric Slide]
+    Timeout(id + 0xF0, 11.2f, "Mustard Bomb"); // t=139.0; cactbot StartsUsing 632B [Dreamscape Mustard Bomb]
+    Timeout(id + 0x100, 12.2f, "Side Cannons"); // t=151.2
+    Timeout(id + 0x110, 8.2f, "Guided Missile"); // t=159.4; cactbot Tether 11 [Dreamscape Guided Missile]
+    Timeout(id + 0x120, 7.1f, "Chemical Missile"); // t=166.5; cactbot HeadMarker 8B [Dreamscape Chemical Missile]
+    Timeout(id + 0x130, 5.1f, "Burn"); // t=171.6
+    Timeout(id + 0x140, 839.1f, "Wheel").SetHint(StateMachine.StateHint.Tankbuster); // t=1010.7; Ability 63B5 from Arch-Lambda; cactbot StartsUsing 63B5 [Dreamscape Wheel]
+    Timeout(id + 0x150, 17.7f, "Auto-mobile Assault Cannon"); // t=1028.4; Ability 63AB from Arch-Lambda; cactbot StartsUsing 63AB [Dreamscape Assault Cannon]
+    Timeout(id + 0x160, 0.3f, "Tread x4"); // t=1028.7
+    Timeout(id + 0x170, 7.6f, "Wave Cannon"); // t=1036.3; Ability 63AF from Arch-Lambda
+    Timeout(id + 0x180, 13.2f, "Atomic Flame").SetHint(StateMachine.StateHint.Raidwide); // t=1049.5; Ability 63B4 from Arch-Lambda; cactbot StartsUsing 63B4 [Dreamscape Atomic Flame]
+    Timeout(id + 0x190, 21.2f, "Auto-mobile Sniper Cannon"); // t=1070.7; Ability 63B0 from Arch-Lambda
+    Timeout(id + 0x1A0, 0.5f, "Entrench"); // t=1071.2; Ability 63B1 from Arch-Lambda
+    Timeout(id + 0x1B0, 9.7f, "Wheel").SetHint(StateMachine.StateHint.Tankbuster); // t=1080.9; Ability 63B5 from Arch-Lambda; cactbot StartsUsing 63B5 [Dreamscape Wheel]
+    Timeout(id + 0x1C0, 17.7f, "Auto-mobile Assault Cannon"); // t=1098.6; Ability 63AB from Arch-Lambda; cactbot StartsUsing 63AB [Dreamscape Assault Cannon]
+    Timeout(id + 0x1D0, 0.3f, "Tread x4"); // t=1098.9
+    Timeout(id + 0x1E0, 7.5f, "Wave Cannon"); // t=1106.4; Ability 63AF from Arch-Lambda
+    Timeout(id + 0x1F0, 13.2f, "Atomic Flame").SetHint(StateMachine.StateHint.Raidwide); // t=1119.6; Ability 63B4 from Arch-Lambda; cactbot StartsUsing 63B4 [Dreamscape Atomic Flame]
+    Timeout(id + 0x200, 21.2f, "Auto-mobile Sniper Cannon"); // t=1140.8; Ability 63B0 from Arch-Lambda
+    Timeout(id + 0x210, 0.5f, "Entrench"); // t=1141.3; Ability 63B1 from Arch-Lambda
+    Timeout(id + 0x220, 9.7f, "Wheel").SetHint(StateMachine.StateHint.Tankbuster); // t=1151.0; Ability 63B5 from Arch-Lambda; cactbot StartsUsing 63B5 [Dreamscape Wheel]
+    Timeout(id + 0x230, 17.7f, "Auto-mobile Assault Cannon"); // t=1168.7
+    Timeout(id + 0x240, 0.3f, "Tread x4"); // t=1169.0
+    Timeout(id + 0x250, 7.5f, "Wave Cannon"); // t=1176.5
+    Timeout(id + 0x260, 13.2f, "Atomic Flame"); // t=1189.7; cactbot StartsUsing 63B4 [Dreamscape Atomic Flame]
+    Timeout(id + 0x270, 21.2f, "Auto-mobile Sniper Cannon"); // t=1210.9
+    Timeout(id + 0x280, 0.5f, "Entrench"); // t=1211.4
+    Timeout(id + 0x290, 798.6f, "AI Takeover"); // t=2010.0; Ability 6429 from Stigma-4
+    Timeout(id + 0x2A0, 5.6f, "Touchdown?"); // t=2015.6; Ability 68F9 from Hybrid Dragon; cactbot AddedCombatant [Dreamscape Touchdown]
+    Timeout(id + 0x2B0, 9.1f, "Proto-wave Cannon? / Fire Breath?"); // t=2024.7; Ability 642A/642B from Omega Frame | Ability 642E from Hybrid Dragon; cactbot StartsUsing 642A [Dreamscape Proto-wave Cannons Left] | StartsUsing 642B [Dreamscape Proto-wave Cannons Right]
+    Timeout(id + 0x2C0, 6.6f, "AI Takeover"); // t=2031.3; Ability 6429 from Stigma-4
+    Timeout(id + 0x2D0, 5.8f, "Touchdown?"); // t=2037.1; Ability 68F9 from Hybrid Dragon; cactbot AddedCombatant [Dreamscape Touchdown]
+    Timeout(id + 0x2E0, 7.4f, "Self-Destruct?"); // t=2044.5
+    Timeout(id + 0x2F0, 1.7f, "Fire Breath? / Proto-wave Cannon?"); // t=2046.2; Ability 642E from Hybrid Dragon | Ability 642A/642B from Omega Frame; cactbot StartsUsing 642A [Dreamscape Proto-wave Cannons Left] | StartsUsing 642B [Dreamscape Proto-wave Cannons Right]
+    Timeout(id + 0x300, 6.4f, "AI Takeover"); // t=2052.6; Ability 6429 from Stigma-4
+    Timeout(id + 0x310, 8.9f, "Rush"); // t=2061.5; Ability 642D from Proto-rocket Punch; cactbot StartsUsing 642D [Dreamscape Rush]
+    Timeout(id + 0x320, 4.5f, "Self-Destruct?"); // t=2066.0
+    Timeout(id + 0x330, 11.0f, "Electromagnetic Release"); // t=2077.0; Ability 6434 from Stigma-4; cactbot StartsUsing 6434 [Dreamscape Electromagnetic Release Circle]
+    Timeout(id + 0x340, 18.1f, "Electromagnetic Release"); // t=2095.1; Ability 6432 from Stigma-4; cactbot StartsUsing 6432 [Dreamscape Electromagnetic Release Donut]
+    Timeout(id + 0x350, 13.1f, "Mindhack"); // t=2108.2; Ability 6430 from Stigma-4
+    Timeout(id + 0x360, 15.2f, "Electromagnetic Release"); // t=2123.4; Ability 6432/6434 from Stigma-4; cactbot StartsUsing 6434 [Dreamscape Electromagnetic Release Circle] | StartsUsing 6432 [Dreamscape Electromagnetic Release Donut]
+    Timeout(id + 0x370, 9.1f, "Atomic Ray"); // t=2132.5; Ability 6436 from Stigma-4; cactbot StartsUsing 6436 [Dreamscape Atomic Ray]
+    Timeout(id + 0x380, 10.2f, "Multi-AI Takeover"); // t=2142.7; Ability 6C4B from Stigma-4
+    Timeout(id + 0x390, 5.7f, "Touchdown?"); // t=2148.4; Ability 68F9 from Hybrid Dragon; cactbot AddedCombatant [Dreamscape Touchdown]
+    Timeout(id + 0x3A0, 3.2f, "Rush"); // t=2151.6; Ability 642D from Proto-rocket Punch; cactbot StartsUsing 642D [Dreamscape Rush]
+    Timeout(id + 0x3B0, 5.9f, "Fire Breath? / Proto-wave Cannon?"); // t=2157.5; Ability 642E from Hybrid Dragon | Ability 642A/642B from Omega Frame; cactbot StartsUsing 642A [Dreamscape Proto-wave Cannons Left] | StartsUsing 642B [Dreamscape Proto-wave Cannons Right]
+    Timeout(id + 0x3C0, 10.6f, "Mindhack"); // t=2168.1; Ability 6430 from Stigma-4
+    Timeout(id + 0x3D0, 9.2f, "Self-Destruct?"); // t=2177.3
+    Timeout(id + 0x3E0, 4.9f, "Electromagnetic Release"); // t=2182.2; Ability 6432/6434 from Stigma-4; cactbot StartsUsing 6434 [Dreamscape Electromagnetic Release Circle] | StartsUsing 6432 [Dreamscape Electromagnetic Release Donut]
+    Timeout(id + 0x3F0, 10.1f, "Multi-AI Takeover"); // t=2192.3; Ability 6C4B from Stigma-4
+    Timeout(id + 0x400, 5.7f, "Touchdown?"); // t=2198.0; Ability 68F9 from Hybrid Dragon; cactbot AddedCombatant [Dreamscape Touchdown]
+    Timeout(id + 0x410, 3.1f, "Rush"); // t=2201.1; Ability 642D from Proto-rocket Punch; cactbot StartsUsing 642D [Dreamscape Rush]
+    Timeout(id + 0x420, 6.0f, "Fire Breath? / Proto-wave Cannon?"); // t=2207.1; Ability 642E from Hybrid Dragon | Ability 642A/642B from Omega Frame; cactbot StartsUsing 642A [Dreamscape Proto-wave Cannons Left] | StartsUsing 642B [Dreamscape Proto-wave Cannons Right]
+    Timeout(id + 0x430, 10.5f, "Atomic Ray"); // t=2217.6; Ability 6436 from Stigma-4; cactbot StartsUsing 6436 [Dreamscape Atomic Ray]
+}
+

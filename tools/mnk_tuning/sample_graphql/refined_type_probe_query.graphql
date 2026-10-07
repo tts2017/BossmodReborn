@@ -1,0 +1,62 @@
+fragment TypeRef on __Type {
+  kind
+  name
+  ofType {
+    kind
+    name
+    ofType {
+      kind
+      name
+      ofType {
+        kind
+        name
+      }
+    }
+  }
+}
+
+fragment FieldProbe on __Type {
+  name
+  kind
+  fields {
+    name
+    args {
+      name
+      type {
+        ...TypeRef
+      }
+    }
+    type {
+      ...TypeRef
+    }
+  }
+  enumValues {
+    name
+  }
+}
+
+query {
+  worldData: __type(name: "WorldData") { ...FieldProbe }
+  encounter: __type(name: "Encounter") { ...FieldProbe }
+  reportData: __type(name: "ReportData") { ...FieldProbe }
+  report: __type(name: "Report") { ...FieldProbe }
+  reportFight: __type(name: "ReportFight") { ...FieldProbe }
+  reportEventPaginator: __type(name: "ReportEventPaginator") { ...FieldProbe }
+  reportMasterData: __type(name: "ReportMasterData") { ...FieldProbe }
+  reportActor: __type(name: "ReportActor") { ...FieldProbe }
+  reportAbility: __type(name: "ReportAbility") { ...FieldProbe }
+  characterData: __type(name: "CharacterData") { ...FieldProbe }
+  character: __type(name: "Character") { ...FieldProbe }
+  zone: __type(name: "Zone") { ...FieldProbe }
+  gameZone: __type(name: "GameZone") { ...FieldProbe }
+  partition: __type(name: "Partition") { ...FieldProbe }
+  rank: __type(name: "Rank") { ...FieldProbe }
+
+  fightRankingMetricType: __type(name: "FightRankingMetricType") { ...FieldProbe }
+  characterRankingMetricType: __type(name: "CharacterRankingMetricType") { ...FieldProbe }
+  reportRankingMetricType: __type(name: "ReportRankingMetricType") { ...FieldProbe }
+  rankingCompareType: __type(name: "RankingCompareType") { ...FieldProbe }
+  rankingTimeframeType: __type(name: "RankingTimeframeType") { ...FieldProbe }
+  eventDataType: __type(name: "EventDataType") { ...FieldProbe }
+  tableDataType: __type(name: "TableDataType") { ...FieldProbe }
+}

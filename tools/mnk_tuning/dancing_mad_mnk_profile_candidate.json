@@ -1,0 +1,25 @@
+{
+  "DancingMadCrossCombatPBBurstSnapshotSeconds": 95.0,
+  "DancingMadTuningProfile": {
+    "EvenPreRoFPBStartThreshold": 5.5,
+    "LastBrotherhoodWindowLeeway": 105.0,
+    "LastPotionWindowLeeway": 210.0,
+    "LastRoFWindowLeeway": 45.0,
+    "MajorBurstMeleeSafeGCDs": 6.0,
+    "PBMeleeSafeGCDs": 4.0,
+    "PotionFutureWindowLeeway": 15.0,
+    "RoFBrotherhoodResyncWindow": 90.0,
+    "RoWEndBurnLeeway": 20.0,
+    "RoWTwoMinuteHoldWindow": 45.0,
+    "RoWUptimeRequired": 12.0,
+    "TargetAvailableUptimeRequired": 20.0
+  },
+  "csharp_candidate": "private const float DancingMadCrossCombatPBBurstSnapshotSeconds = 95f;\n\nprivate static readonly MNKTuningProfile DancingMadTuningProfile = DefaultTuningProfile with\n{\n    MajorBurstMeleeSafeGCDs = 6f,\n    PBMeleeSafeGCDs = 4f,\n    EvenPreRoFPBStartThreshold = 5.5f,\n    RoFBrotherhoodResyncWindow = 90f,\n    TargetAvailableUptimeRequired = 20f,\n    PotionFutureWindowLeeway = 15f,\n    RoWTwoMinuteHoldWindow = 45f,\n    RoWUptimeRequired = 12f,\n    RoWEndBurnLeeway = 20f,\n    LastRoFWindowLeeway = 45f,\n    LastBrotherhoodWindowLeeway = 105f,\n    LastPotionWindowLeeway = 210f,\n};",
+  "encounter": "Dancing Mad (Ultimate)",
+  "fflogs_encounter_id": 1085,
+  "fflogs_zone_id": 76,
+  "partition": 1,
+  "recommended_snapshot_rule": "95s when P2->P3 p95 gap <= 65s; 105s when p95 gap is 66-75s",
+  "sample_count": 48,
+  "source": "dancing_mad_timeline_profile"
+}

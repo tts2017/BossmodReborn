@@ -1,0 +1,87 @@
+// Generated development skeleton from o11n.txt (TerritoryType 800).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 10 static/dynamic trigger definitions from ui/raidboss/data/04-sb/raid/o11n.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 12.8f, "Atomic Ray").SetHint(StateMachine.StateHint.Raidwide); // t=12.8; Ability 3286 from Omega; cactbot StartsUsing 3286 [O11N Atomic Ray]
+    Timeout(id + 0x10, 12.1f, "Mustard Bomb").SetHint(StateMachine.StateHint.Tankbuster); // t=24.9; Ability 3287 from Omega; cactbot StartsUsing 3287 [O11N Mustard Bomb]
+    Timeout(id + 0x20, 2.1f, "Ballistic Missile?"); // t=27.0; Ability 327E from Omega; cactbot HeadMarker 65 [O11N Ballistic Missile]
+    Timeout(id + 0x30, 10.1f, "Flamethrower?"); // t=37.1
+    Timeout(id + 0x40, 1.0f, "Starboard/Larboard Cannon?"); // t=38.1
+    Timeout(id + 0x50, 5.7f, "Starboard/Larboard Cannon?"); // t=43.8
+    Timeout(id + 0x60, 1094.3f, "Starboard/Larboard Cannon"); // t=1138.1
+    Timeout(id + 0x70, 5.7f, "Starboard/Larboard Cannon"); // t=1143.8
+    Timeout(id + 0x80, 2.7f, "Ballistic Missile"); // t=1146.5; Ability 327E from Omega; cactbot HeadMarker 65 [O11N Ballistic Missile]
+    Timeout(id + 0x90, 10.2f, "Flamethrower / Ballistic Impact"); // t=1156.7; Ability 327D from Omega | Ability 327F from Omega
+    Timeout(id + 0xA0, 11.1f, "Mustard Bomb").SetHint(StateMachine.StateHint.Tankbuster); // t=1167.8; Ability 3287 from Omega; cactbot StartsUsing 3287 [O11N Mustard Bomb]
+    Timeout(id + 0xB0, 10.9f, "Peripheral Synthesis"); // t=1178.7; Ability 3270 from Omega
+    Timeout(id + 0xC0, 24.8f, "Peripheral Synthesis"); // t=1203.5
+    Timeout(id + 0xD0, 14.1f, "Flamethrower"); // t=1217.6
+    Timeout(id + 0xE0, 10.2f, "Atomic Ray"); // t=1227.8; cactbot StartsUsing 3286 [O11N Atomic Ray]
+    Timeout(id + 0xF0, 999.2f, "Ballistic Missile"); // t=2227.0; Ability 327E from Omega; cactbot HeadMarker 65 [O11N Ballistic Missile]
+    Timeout(id + 0x100, 10.1f, "Flamethrower / Ballistic Impact"); // t=2237.1; Ability 327D from Omega | Ability 327F from Omega
+    Timeout(id + 0x110, 11.1f, "Mustard Bomb").SetHint(StateMachine.StateHint.Tankbuster); // t=2248.2; Ability 3287 from Omega; cactbot StartsUsing 3287 [O11N Mustard Bomb]
+    Timeout(id + 0x120, 13.2f, "Starboard/Larboard Cannon"); // t=2261.4
+    Timeout(id + 0x130, 5.6f, "Starboard/Larboard Cannon"); // t=2267.0
+    Timeout(id + 0x140, 11.7f, "Peripheral Synthesis"); // t=2278.7; Ability 3270 from Omega
+    Timeout(id + 0x150, 24.8f, "Peripheral Synthesis"); // t=2303.5
+    Timeout(id + 0x160, 14.1f, "Flamethrower"); // t=2317.6
+    Timeout(id + 0x170, 10.2f, "Atomic Ray"); // t=2327.8; cactbot StartsUsing 3286 [O11N Atomic Ray]
+    Timeout(id + 0x180, 150.9f, "Peripheral Synthesis"); // t=2478.7; Ability 3270 from Omega
+    Timeout(id + 0x190, 24.8f, "Peripheral Synthesis"); // t=2503.5; Ability 3270 from Omega
+    Timeout(id + 0x1A0, 14.1f, "Flamethrower"); // t=2517.6; Ability 327D from Omega
+    Timeout(id + 0x1B0, 10.2f, "Atomic Ray").SetHint(StateMachine.StateHint.Raidwide); // t=2527.8; Ability 3286 from Omega; cactbot StartsUsing 3286 [O11N Atomic Ray]
+    Timeout(id + 0x1C0, 6.7f, "Program Loop"); // t=2534.5; Ability 3273 from Omega
+    Targetable(id + 0x1D0, false, 0.0f, "--untargetable--"); // t=2534.5
+    Timeout(id + 0x1E0, 15.1f, "Executable 1"); // t=2549.6; Ability 35A8 from Level Checker
+    Timeout(id + 0x1F0, 21.0f, "Executable 2"); // t=2570.6; Ability 35A8 from Level Checker
+    Timeout(id + 0x200, 4.0f, "Reset"); // t=2574.6; Ability 35AA from Level Checker
+    Timeout(id + 0x210, 4.0f, "Reformat"); // t=2578.6; Ability 35A9 from Level Checker
+    Condition(id + 0x220, 9.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x327A), "", 5f, 4.0f); // t=2587.6; StartsUsing 327A from Level Checker
+    Timeout(id + 0x230, 24.0f, "Force Quit"); // t=2611.6; Ability 327A from Level Checker
+    Condition(id + 0x240, 395.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x327B), "", 5f, 390.4f); // t=3007.0; StartsUsing 327B from Omega; cactbot StartsUsing 327B [O11N Delta Attack]
+    Timeout(id + 0x250, 30.0f, "Delta Attack"); // t=3037.0; Ability 327B from Omega; cactbot StartsUsing 327B [O11N Delta Attack]
+    Targetable(id + 0x260, true, 11.4f, "--targetable--"); // t=3048.4
+    Timeout(id + 0x270, 11.9f, "Peripheral Synthesis"); // t=3060.3; Ability 3270 from Omega
+    Timeout(id + 0x280, 10.2f, "Flamethrower"); // t=3070.5; Ability 327D from Omega
+    Timeout(id + 0x290, 2.4f, "Rush"); // t=3072.9; Ability 359C from Rocket Punch
+    Timeout(id + 0x2A0, 5.8f, "Peripheral Synthesis"); // t=3078.7; Ability 3270 from Omega
+    Timeout(id + 0x2B0, 3.1f, "Ballistic Missile"); // t=3081.8; Ability 327E from Omega; cactbot HeadMarker 65 [O11N Ballistic Missile]
+    Timeout(id + 0x2C0, 9.5f, "Rush"); // t=3091.3; Ability 359C from Rocket Punch
+    Timeout(id + 0x2D0, 0.6f, "Ballistic Impact"); // t=3091.9; Ability 327F from Omega
+    Timeout(id + 0x2E0, 9.1f, "Electric Slide"); // t=3101.0; Ability 3285 from Omega; cactbot HeadMarker 3E [O11N Electric Slide]
+    Timeout(id + 0x2F0, 14.3f, "Mustard Bomb").SetHint(StateMachine.StateHint.Tankbuster); // t=3115.3; Ability 3287 from Omega; cactbot StartsUsing 3287 [O11N Mustard Bomb]
+    Timeout(id + 0x300, 2.3f, "Blaster"); // t=3117.6; Ability 3280 from Omega
+    Timeout(id + 0x310, 10.1f, "Starboard/Larboard Cannon"); // t=3127.7
+    Timeout(id + 0x320, 5.7f, "Starboard/Larboard Cannon"); // t=3133.4
+    Timeout(id + 0x330, 6.7f, "Atomic Ray").SetHint(StateMachine.StateHint.Raidwide); // t=3140.1; Ability 3286 from Omega; cactbot StartsUsing 3286 [O11N Atomic Ray]
+    Timeout(id + 0x340, 10.2f, "Peripheral Synthesis"); // t=3150.3; Ability 3270 from Omega
+    Timeout(id + 0x350, 12.7f, "Rush"); // t=3163.0; Ability 359C from Rocket Punch
+    Timeout(id + 0x360, 12.1f, "Peripheral Synthesis"); // t=3175.1; Ability 3270 from Omega
+    Timeout(id + 0x370, 10.2f, "Flamethrower"); // t=3185.3; Ability 327D from Omega
+    Timeout(id + 0x380, 2.3f, "Rush"); // t=3187.6; Ability 359C from Rocket Punch
+    Timeout(id + 0x390, 8.8f, "Atomic Ray").SetHint(StateMachine.StateHint.Raidwide); // t=3196.4; Ability 3286 from Omega; cactbot StartsUsing 3286 [O11N Atomic Ray]
+    Timeout(id + 0x3A0, 8.1f, "Ballistic Missile"); // t=3204.5; Ability 327E from Omega; cactbot HeadMarker 65 [O11N Ballistic Missile]
+    Timeout(id + 0x3B0, 10.1f, "Flamethrower / Ballistic Impact"); // t=3214.6; Ability 327D from Omega | Ability 327F from Omega
+    Timeout(id + 0x3C0, 7.1f, "Starboard/Larboard Cannon"); // t=3221.7
+    Timeout(id + 0x3D0, 5.6f, "Starboard/Larboard Cannon"); // t=3227.3
+    Timeout(id + 0x3E0, 9.8f, "Peripheral Synthesis"); // t=3237.1; Ability 3270 from Omega
+    Timeout(id + 0x3F0, 12.7f, "Rush"); // t=3249.8; Ability 359C from Rocket Punch
+    Timeout(id + 0x400, 5.8f, "Electric Slide"); // t=3255.6; Ability 3285 from Omega; cactbot HeadMarker 3E [O11N Electric Slide]
+    Timeout(id + 0x410, 7.1f, "Starboard/Larboard Cannon"); // t=3262.7
+    Timeout(id + 0x420, 5.7f, "Starboard/Larboard Cannon"); // t=3268.4
+    Timeout(id + 0x430, 6.6f, "Atomic Ray").SetHint(StateMachine.StateHint.Raidwide); // t=3275.0; Ability 3286 from Omega; cactbot StartsUsing 3286 [O11N Atomic Ray]
+    Timeout(id + 0x440, 15.3f, "Mustard Bomb").SetHint(StateMachine.StateHint.Tankbuster); // t=3290.3; Ability 3287 from Omega; cactbot StartsUsing 3287 [O11N Mustard Bomb]
+    Timeout(id + 0x450, 13.2f, "Mustard Bomb").SetHint(StateMachine.StateHint.Tankbuster); // t=3303.5; Ability 3287 from Omega; cactbot StartsUsing 3287 [O11N Mustard Bomb]
+    Timeout(id + 0x460, 2.1f, "Blaster"); // t=3305.6; Ability 3280 from Omega
+    Timeout(id + 0x470, 9.2f, "Atomic Ray").SetHint(StateMachine.StateHint.Raidwide); // t=3314.8; Ability 3286 from Omega; cactbot StartsUsing 3286 [O11N Atomic Ray]
+    Timeout(id + 0x480, 6.1f, "Atomic Ray").SetHint(StateMachine.StateHint.Raidwide); // t=3320.9; Ability 3286 from Omega; cactbot StartsUsing 3286 [O11N Atomic Ray]
+    Timeout(id + 0x490, 13.3f, "Peripheral Synthesis"); // t=3334.2; Ability 3270 from Omega
+    Timeout(id + 0x4A0, 10.2f, "Flamethrower"); // t=3344.4
+    Timeout(id + 0x4B0, 2.4f, "Rush"); // t=3346.8
+    Timeout(id + 0x4C0, 5.8f, "Peripheral Synthesis"); // t=3352.6
+    Timeout(id + 0x4D0, 3.1f, "Ballistic Missile"); // t=3355.7; cactbot HeadMarker 65 [O11N Ballistic Missile]
+}
+

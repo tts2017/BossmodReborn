@@ -1,0 +1,105 @@
+// Generated development skeleton from lakshmi-ex.txt (TerritoryType 720).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 13 static/dynamic trigger definitions from ui/raidboss/data/04-sb/trial/lakshmi-ex.ts.
+
+private void Adds(uint id)
+{
+    Timeout(id + 0x0, 4.0f, "Vril"); // t=4.0; Ability 2146 from Dreaming Kshatriya
+    Timeout(id + 0x10, 8.1f, "Tail Slap"); // t=12.1; Ability 258C from Dreaming Kshatriya
+    Timeout(id + 0x20, 3.9f, "Stotram"); // t=16.0; Ability 2147 from Lakshmi; cactbot StartsUsing 2147 [LakshmiEx Stotram]
+    Timeout(id + 0x30, 0.9f, "Inner Demons"); // t=16.9; Ability 258D from Dreaming Kshatriya
+    Timeout(id + 0x40, 11.2f, "Inner Demons"); // t=28.1; Ability 258D from Dreaming Kshatriya
+    Timeout(id + 0x50, 0.9f, "Tail Slap"); // t=29.0; Ability 258C from Dreaming Kshatriya
+}
+
+private void Warmup(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Hand Of Grace"); // t=500.0; Ability 214C from Lakshmi; cactbot HeadMarker 6B [LakshmiEx Hand of Grace]
+    Timeout(id + 0x10, 7.2f, "The Pull Of Light").SetHint(StateMachine.StateHint.Tankbuster); // t=507.2; Ability 215E from Lakshmi; cactbot StartsUsing 215E [LakshmiEx Pull of Light Tank] | StartsUsing 215E [LakshmiEx Pull of Light Unexpected]
+    Timeout(id + 0x20, 7.0f, "Blissful Arrow"); // t=514.2; Ability 214F from Lakshmi
+    Timeout(id + 0x30, 0.6f, "Blissful Spear"); // t=514.8; Ability 2151 from Lakshmi
+    Timeout(id + 0x40, 2.6f, "Stotram"); // t=517.4; Ability 2147 from Lakshmi; cactbot StartsUsing 2147 [LakshmiEx Stotram]
+    Timeout(id + 0x50, 11.2f, "The Pull Of Light").SetHint(StateMachine.StateHint.Tankbuster); // t=528.6; Ability 215E from Lakshmi; cactbot StartsUsing 215E [LakshmiEx Pull of Light Tank] | StartsUsing 215E [LakshmiEx Pull of Light Unexpected]
+    Timeout(id + 0x60, 7.3f, "The Path Of Light"); // t=535.9; Ability 215A from Lakshmi
+    Timeout(id + 0x70, 10.1f, "Alluring Arm"); // t=546.0; Ability 214E from Lakshmi
+    Timeout(id + 0x80, 7.2f, "The Pull Of Light").SetHint(StateMachine.StateHint.Tankbuster); // t=553.2; Ability 215E from Lakshmi; cactbot StartsUsing 215E [LakshmiEx Pull of Light Tank] | StartsUsing 215E [LakshmiEx Pull of Light Unexpected]
+    Timeout(id + 0x90, 7.1f, "Blissful Hammer"); // t=560.3; Ability 21DC from Lakshmi
+    Timeout(id + 0xA0, 3.1f, "Stotram"); // t=563.4; Ability 2147 from Lakshmi; cactbot StartsUsing 2147 [LakshmiEx Stotram]
+    Timeout(id + 0xB0, 7.2f, "The Pall Of Light"); // t=570.6; Ability 215C from Lakshmi
+    Timeout(id + 0xC0, 9.2f, "The Pull Of Light").SetHint(StateMachine.StateHint.Tankbuster); // t=579.8; Ability 215E from Lakshmi; cactbot StartsUsing 215E [LakshmiEx Pull of Light Tank] | StartsUsing 215E [LakshmiEx Pull of Light Unexpected]
+}
+
+private void Chanchala__1(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Divine Denial"); // t=601.8; Ability 2149 from Lakshmi; cactbot StartsUsing 2149 [LakshmiEx Divine Denial]
+    Timeout(id + 0x10, 8.2f, "Hand Of Beauty"); // t=610.0; Ability 214D from Lakshmi; cactbot HeadMarker 6D [LakshmiEx Hand of Beauty]
+    Timeout(id + 0x20, 7.2f, "The Pull Of Light"); // t=617.2; Ability 215F from Lakshmi
+    Timeout(id + 0x30, 7.0f, "Blissful Hammer"); // t=624.2; Ability 21DD from Lakshmi
+    Timeout(id + 0x40, 0.3f, "The Path Of Light"); // t=624.5; Ability 215B from Lakshmi
+    Timeout(id + 0x50, 13.3f, "Divine Desire"); // t=637.8; Ability 214B from Lakshmi; cactbot StartsUsing 214B [LakshmiEx Divine Desire]
+    Timeout(id + 0x60, 2.1f, "--chanchala end--"); // t=639.9
+    Timeout(id + 0x70, 10.2f, "The Pull Of Light").SetHint(StateMachine.StateHint.Tankbuster); // t=650.1; Ability 215E from Lakshmi; cactbot StartsUsing 215E [LakshmiEx Pull of Light Tank] | StartsUsing 215E [LakshmiEx Pull of Light Unexpected]
+    Timeout(id + 0x80, 12.4f, "The Path Of Light"); // t=662.5; Ability 215A from Lakshmi
+    Timeout(id + 0x90, 8.1f, "Stotram"); // t=670.6; Ability 2147 from Lakshmi; cactbot StartsUsing 2147 [LakshmiEx Stotram]
+    Targetable(id + 0xA0, false, 3.7f, "--untargetable--"); // t=674.3
+}
+
+private void More_Adds(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=679.9
+}
+
+private void Hugging(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Jagadishwari"); // t=2000.0; Ability 2342 from Lakshmi
+    Timeout(id + 0x10, 21.4f, "/dance"); // t=2021.4
+    Timeout(id + 0x20, 15.7f, "Alluring Embrace"); // t=2037.1; Ability 2343 from Lakshmi
+    Targetable(id + 0x30, true, 4.4f, "--targetable--"); // t=2041.5
+}
+
+private void Chanchala__2(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2148), "", 5f, 0.0f); // t=2041.7; StartsUsing 2148 from Lakshmi; cactbot StartsUsing 2148 [LakshmiEx Chanchala Gain]
+    Timeout(id + 0x10, 16.8f, "Divine Doubt"); // t=2058.5; Ability 214A from Lakshmi; cactbot StartsUsing 214A [LakshmiEx Divine Doubt]
+    Timeout(id + 0x20, 15.4f, "The Path Of Light"); // t=2073.9; Ability 215B from Lakshmi
+    Timeout(id + 0x30, 10.1f, "The Pull Of Light"); // t=2084.0; Ability 215F from Lakshmi
+    Timeout(id + 0x40, 2.0f, "--chanchala end--"); // t=2086.0
+    Timeout(id + 0x50, 23.5f, "The Pull Of Light").SetHint(StateMachine.StateHint.Tankbuster); // t=2109.5; Ability 215E from Lakshmi; cactbot StartsUsing 215E [LakshmiEx Pull of Light Tank] | StartsUsing 215E [LakshmiEx Pull of Light Unexpected]
+    Timeout(id + 0x60, 2.0f, "Blissful Spear (Z)"); // t=2111.5; Ability 2166 from Lakshmi
+    Timeout(id + 0x70, 14.4f, "The Path Of Light"); // t=2125.9; Ability 215A from Lakshmi
+    Timeout(id + 0x80, 2.9f, "Blissful Spear (mid)"); // t=2128.8; Ability 2156 from Lakshmi
+    Timeout(id + 0x90, 4.3f, "The Pall Of Light"); // t=2133.1; Ability 215C from Lakshmi
+    Timeout(id + 0xA0, 11.2f, "Alluring Arm"); // t=2144.3; Ability 214E from Lakshmi
+    Timeout(id + 0xB0, 7.2f, "The Pull Of Light").SetHint(StateMachine.StateHint.Tankbuster); // t=2151.5; Ability 215E from Lakshmi; cactbot StartsUsing 215E [LakshmiEx Pull of Light Tank] | StartsUsing 215E [LakshmiEx Pull of Light Unexpected]
+    Timeout(id + 0xC0, 7.1f, "Blissful Hammer"); // t=2158.6; Ability 21DC from Lakshmi
+    Timeout(id + 0xD0, 0.3f, "The Path Of Light"); // t=2158.9; Ability 215A from Lakshmi
+    Timeout(id + 0xE0, 10.1f, "Stotram"); // t=2169.0; Ability 2147 from Lakshmi; cactbot StartsUsing 2147 [LakshmiEx Stotram]
+}
+
+private void Chanchala__3(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Divine Doubt"); // t=2195.6; Ability 214A from Lakshmi; cactbot StartsUsing 214A [LakshmiEx Divine Doubt]
+    Timeout(id + 0x10, 15.2f, "The Pall Of Light"); // t=2210.8; Ability 215D from Lakshmi
+    Timeout(id + 0x20, 25.7f, "Divine Desire"); // t=2236.5; Ability 214B from Lakshmi; cactbot StartsUsing 214B [LakshmiEx Divine Desire]
+    Timeout(id + 0x30, 1.7f, "Blissful Spear (out)"); // t=2238.2; Ability 2154 from Lakshmi
+    Timeout(id + 0x40, 12.6f, "The Pall Of Light"); // t=2250.8; Ability 215D from Lakshmi
+    Timeout(id + 0x50, 1.0f, "Blissful Spear (Z)"); // t=2251.8; Ability 2166 from Lakshmi
+    Timeout(id + 0x60, 12.2f, "Stotram"); // t=2264.0; Ability 249D from Lakshmi; cactbot StartsUsing 2147 [LakshmiEx Stotram]
+    Timeout(id + 0x70, 2.1f, "--chanchala end--"); // t=2266.1
+    Timeout(id + 0x80, 9.2f, "Alluring Arm"); // t=2275.3; Ability 214E from Lakshmi
+    Timeout(id + 0x90, 7.2f, "The Pall Of Light"); // t=2282.5; Ability 215C from Lakshmi
+    Timeout(id + 0xA0, 7.0f, "Blissful Hammer"); // t=2289.5; Ability 21DC from Lakshmi
+    Timeout(id + 0xB0, 0.3f, "The Path Of Light"); // t=2289.8; Ability 215A from Lakshmi
+    Timeout(id + 0xC0, 8.1f, "Stotram"); // t=2297.9; Ability 2147 from Lakshmi; cactbot StartsUsing 2147 [LakshmiEx Stotram]
+    Timeout(id + 0xD0, 10.2f, "The Pull Of Light").SetHint(StateMachine.StateHint.Tankbuster); // t=2308.1; Ability 215E from Lakshmi; cactbot StartsUsing 215E [LakshmiEx Pull of Light Tank] | StartsUsing 215E [LakshmiEx Pull of Light Unexpected]
+    Timeout(id + 0xE0, 10.2f, "Alluring Arm"); // t=2318.3; Ability 214E from Lakshmi
+    Timeout(id + 0xF0, 14.3f, "Blissful Hammer"); // t=2332.6; Ability 21DD from Lakshmi
+}
+
+private void Chanchala__4(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2560), "", 5f, 0.0f); // t=2335.0; StartsUsing 2560 from Lakshmi
+    Timeout(id + 0x10, 15.0f, "Divine Denial Enrage"); // t=2350.0; Ability 2560 from Lakshmi
+}
+

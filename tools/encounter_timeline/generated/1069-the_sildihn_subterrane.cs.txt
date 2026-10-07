@@ -1,0 +1,601 @@
+// Generated development skeleton from the_sildihn_subterrane.txt (TerritoryType 1069).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 46 static/dynamic trigger definitions from ui/raidboss/data/06-ew/dungeon/the_sildihn_subterrane.ts.
+
+private void Geryon_the_Steer__left_door__1st_boss(uint id)
+{
+    Condition(id + 0x0, 5.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x74CF), "", 5f, 0.6f); // t=1005.6; StartsUsing 74CF from Geryon the Steer; cactbot StartsUsing 74CF [Sildihn Geryon Colossal Strike]
+    Timeout(id + 0x10, 5.0f, "Colossal Strike").SetHint(StateMachine.StateHint.Tankbuster); // t=1010.6; Ability 74CF from Geryon the Steer; cactbot StartsUsing 74CF [Sildihn Geryon Colossal Strike]
+    Condition(id + 0x20, 4.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x74D2), "", 5f, 0.0f); // t=1014.7; StartsUsing 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Condition(id + 0x30, 5.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x74C7), "", 5f, 0.0f); // t=1019.7; StartsUsing 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x40, 0.0f, "Subterranean Shudder"); // t=1019.7; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x50, 5.0f, "Exploding Catapult?"); // t=1024.7; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Condition(id + 0x60, 195.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x74C7), "", 5f, 190.0f); // t=1219.7; StartsUsing 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x70, 5.0f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=1224.7; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x80, 16.8f, "Explosion"); // t=1241.5
+    Timeout(id + 0x90, 4.6f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=1246.1; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0xA0, 10.2f, "Colossal Slam"); // t=1256.3; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0xB0, 5.4f, "Explosion"); // t=1261.7
+    Timeout(id + 0xC0, 4.0f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=1265.7; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0xD0, 7.1f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=1272.8; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0xE0, 11.1f, "Runaway Runoff"); // t=1283.9; Ability 74D7 from Geryon the Steer; cactbot StartsUsing 74D7 [Sildihn Geryon Runaway Runoff]
+    Timeout(id + 0xF0, 4.4f, "Explosion"); // t=1288.3
+    Timeout(id + 0x100, 4.4f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=1292.7; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x110, 11.3f, "Colossal Launch"); // t=1304.0; Ability 74C8 from Geryon the Steer; cactbot StartsUsing 74C8 [Sildihn Geryon Colossal Launch]
+    Timeout(id + 0x120, 6.6f, "Explosion"); // t=1310.6
+    Timeout(id + 0x130, 5.9f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=1316.5; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x140, 11.1f, "Colossal Charge"); // t=1327.6
+    Timeout(id + 0x150, 5.4f, "Explosion"); // t=1333.0
+    Timeout(id + 0x160, 5.0f, "Colossal Slam"); // t=1338.0; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x170, 9.4f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=1347.4; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x180, 17.0f, "Explosion"); // t=1364.4
+    Timeout(id + 0x190, 3.2f, "Gigantomill 1"); // t=1367.6
+    Timeout(id + 0x1A0, 1.8f, "Gigantomill 2"); // t=1369.4
+    Timeout(id + 0x1B0, 1.8f, "Gigantomill 3"); // t=1371.2
+    Timeout(id + 0x1C0, 1.8f, "Gigantomill 4"); // t=1373.0
+    Timeout(id + 0x1D0, 9.7f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=1382.7; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x1E0, 7.1f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=1389.8; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x1F0, 11.1f, "Runaway Runoff"); // t=1400.9; Ability 74D7 from Geryon the Steer; cactbot StartsUsing 74D7 [Sildihn Geryon Runaway Runoff]
+    Timeout(id + 0x200, 4.6f, "Explosion"); // t=1405.5
+    Timeout(id + 0x210, 4.6f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=1410.1; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x220, 11.4f, "Colossal Launch / Colossal Swing"); // t=1421.5; Ability 74C8/74D1 from Geryon the Steer; cactbot StartsUsing 74D1 [Sildihn Geryon Colossal Swing] | StartsUsing 74C8 [Sildihn Geryon Colossal Launch]
+    Timeout(id + 0x230, 6.6f, "Explosion"); // t=1428.1
+    Timeout(id + 0x240, 6.8f, "Colossal Slam"); // t=1434.9; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x250, 10.4f, "Colossal Strike").SetHint(StateMachine.StateHint.Tankbuster); // t=1445.3; Ability 74CF from Geryon the Steer; cactbot StartsUsing 74CF [Sildihn Geryon Colossal Strike]
+    Timeout(id + 0x260, 11.4f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=1456.7; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x270, 11.1f, "Colossal Charge"); // t=1467.8
+    Timeout(id + 0x280, 5.4f, "Explosion"); // t=1473.2
+    Timeout(id + 0x290, 5.0f, "Colossal Slam"); // t=1478.2; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x2A0, 9.4f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=1487.6; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x2B0, 17.0f, "Explosion"); // t=1504.6
+    Timeout(id + 0x2C0, 3.2f, "Gigantomill 1"); // t=1507.8
+    Timeout(id + 0x2D0, 1.8f, "Gigantomill 2"); // t=1509.6
+    Timeout(id + 0x2E0, 1.8f, "Gigantomill 3"); // t=1511.4
+    Timeout(id + 0x2F0, 1.8f, "Gigantomill 4"); // t=1513.2
+    Timeout(id + 0x300, 9.7f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=1522.9; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x310, 7.1f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=1530.0; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x320, 11.1f, "Runaway Runoff"); // t=1541.1; cactbot StartsUsing 74D7 [Sildihn Geryon Runaway Runoff]
+    Timeout(id + 0x330, 4.6f, "Explosion"); // t=1545.7
+    Timeout(id + 0x340, 4.6f, "Exploding Catapult"); // t=1550.3; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x350, 11.4f, "Colossal Launch"); // t=1561.7; cactbot StartsUsing 74C8 [Sildihn Geryon Colossal Launch]
+    Timeout(id + 0x360, 6.6f, "Explosion"); // t=1568.3
+    Condition(id + 0x370, 446.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x74D2), "", 5f, 441.4f); // t=2014.7; StartsUsing 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x380, 5.0f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=2019.7; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x390, 7.1f, "Runaway Sludge"); // t=2026.8; Ability 74D6 from Geryon the Steer; cactbot StartsUsing 74D6 [Sildihn Geryon Runaway Sludge Mechs]
+    Timeout(id + 0x3A0, 6.3f, "Shockwave").SetHint(StateMachine.StateHint.Knockback); // t=2033.1; Ability 74CE from Geryon the Steer; cactbot StartsUsing 74CE [Sildihn Geryon Shockwave]
+    Timeout(id + 0x3B0, 9.2f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=2042.3; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x3C0, 16.7f, "Explosion"); // t=2059.0
+    Timeout(id + 0x3D0, 4.6f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=2063.6; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x3E0, 10.2f, "Colossal Slam"); // t=2073.8; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x3F0, 5.4f, "Explosion"); // t=2079.2
+    Timeout(id + 0x400, 4.0f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=2083.2; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x410, 11.3f, "Colossal Launch"); // t=2094.5; Ability 74C8 from Geryon the Steer; cactbot StartsUsing 74C8 [Sildihn Geryon Colossal Launch]
+    Timeout(id + 0x420, 6.7f, "Explosion"); // t=2101.2
+    Timeout(id + 0x430, 3.6f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=2104.8; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x440, 7.1f, "Runaway Sludge"); // t=2111.9; Ability 74D6 from Geryon the Steer; cactbot StartsUsing 74D6 [Sildihn Geryon Runaway Sludge Mechs]
+    Timeout(id + 0x450, 7.0f, "Gigantomill 1"); // t=2118.9
+    Timeout(id + 0x460, 1.8f, "Gigantomill 2"); // t=2120.7
+    Timeout(id + 0x470, 1.8f, "Gigantomill 3"); // t=2122.5
+    Timeout(id + 0x480, 1.8f, "Gigantomill 4"); // t=2124.3
+    Timeout(id + 0x490, 12.0f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=2136.3; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x4A0, 11.1f, "Colossal Charge"); // t=2147.4
+    Timeout(id + 0x4B0, 5.4f, "Explosion"); // t=2152.8
+    Timeout(id + 0x4C0, 5.0f, "Colossal Slam"); // t=2157.8; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x4D0, 9.4f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=2167.2; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x4E0, 7.1f, "Runaway Sludge"); // t=2174.3; Ability 74D6 from Geryon the Steer; cactbot StartsUsing 74D6 [Sildihn Geryon Runaway Sludge Mechs]
+    Timeout(id + 0x4F0, 6.3f, "Shockwave").SetHint(StateMachine.StateHint.Knockback); // t=2180.6; Ability 74CE from Geryon the Steer; cactbot StartsUsing 74CE [Sildihn Geryon Shockwave]
+    Timeout(id + 0x500, 10.1f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=2190.7; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x510, 11.3f, "Colossal Launch / Colossal Swing"); // t=2202.0; Ability 74C8/74D1 from Geryon the Steer; cactbot StartsUsing 74D1 [Sildihn Geryon Colossal Swing] | StartsUsing 74C8 [Sildihn Geryon Colossal Launch]
+    Timeout(id + 0x520, 6.7f, "Explosion"); // t=2208.7
+    Timeout(id + 0x530, 6.6f, "Colossal Slam"); // t=2215.3; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x540, 10.4f, "Colossal Strike").SetHint(StateMachine.StateHint.Tankbuster); // t=2225.7; Ability 74CF from Geryon the Steer; cactbot StartsUsing 74CF [Sildihn Geryon Colossal Strike]
+    Timeout(id + 0x550, 10.1f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=2235.8; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x560, 7.1f, "Runaway Sludge"); // t=2242.9; cactbot StartsUsing 74D6 [Sildihn Geryon Runaway Sludge Mechs]
+    Timeout(id + 0x570, 7.0f, "Gigantomill 1"); // t=2249.9
+    Timeout(id + 0x580, 1.8f, "Gigantomill 2"); // t=2251.7
+    Timeout(id + 0x590, 1.8f, "Gigantomill 3"); // t=2253.5
+    Timeout(id + 0x5A0, 1.8f, "Gigantomill 4"); // t=2255.3
+}
+
+private void Geryon_the_Steer__middle_door__1st_boss(uint id)
+{
+    Condition(id + 0x0, 5.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x74CF), "", 5f, 0.0f); // t=3005.0; StartsUsing 74CF from Geryon the Steer; cactbot StartsUsing 74CF [Sildihn Geryon Colossal Strike]
+    Timeout(id + 0x10, 5.0f, "Colossal Strike").SetHint(StateMachine.StateHint.Tankbuster); // t=3010.0; Ability 74CF from Geryon the Steer; cactbot StartsUsing 74CF [Sildihn Geryon Colossal Strike]
+    Timeout(id + 0x20, 9.1f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=3019.1; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x30, 16.7f, "Explosion"); // t=3035.8
+    Timeout(id + 0x40, 4.6f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=3040.4; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x50, 10.2f, "Colossal Slam"); // t=3050.6; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x60, 5.4f, "Explosion"); // t=3056.0
+    Timeout(id + 0x70, 4.0f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=3060.0; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x80, 7.1f, "Exploding Catapult"); // t=3067.1; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x90, 9.1f, "Intake?"); // t=3076.2
+    Timeout(id + 0xA0, 2.0f, "Rolling Boulder?"); // t=3078.2
+    Timeout(id + 0xB0, 181.8f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=3260.0; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0xC0, 7.1f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=3267.1; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0xD0, 9.1f, "Intake"); // t=3276.2; Ability 74D9 from Geryon the Steer
+    Timeout(id + 0xE0, 4.4f, "Explosion"); // t=3280.6
+    Timeout(id + 0xF0, 4.6f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=3285.2; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x100, 11.3f, "Colossal Launch"); // t=3296.5; Ability 74C8 from Geryon the Steer; cactbot StartsUsing 74C8 [Sildihn Geryon Colossal Launch]
+    Timeout(id + 0x110, 6.7f, "Explosion"); // t=3303.2
+    Timeout(id + 0x120, 3.6f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=3306.8; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x130, 17.1f, "Explosion"); // t=3323.9
+    Timeout(id + 0x140, 3.2f, "Gigantomill 1"); // t=3327.1
+    Timeout(id + 0x150, 1.8f, "Gigantomill 2"); // t=3328.9
+    Timeout(id + 0x160, 1.8f, "Gigantomill 3"); // t=3330.7
+    Timeout(id + 0x170, 1.8f, "Gigantomill 4"); // t=3332.5
+    Timeout(id + 0x180, 11.0f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=3343.5; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x190, 11.1f, "Colossal Charge"); // t=3354.6
+    Timeout(id + 0x1A0, 5.4f, "Explosion"); // t=3360.0
+    Timeout(id + 0x1B0, 5.0f, "Colossal Slam"); // t=3365.0; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x1C0, 9.4f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=3374.4; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x1D0, 7.1f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=3381.5; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x1E0, 9.1f, "Intake"); // t=3390.6; Ability 74D9 from Geryon the Steer
+    Timeout(id + 0x1F0, 4.4f, "Explosion"); // t=3395.0
+    Timeout(id + 0x200, 4.6f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=3399.6; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x210, 11.2f, "Colossal Launch / Colossal Swing"); // t=3410.8; Ability 74C8/74D1 from Geryon the Steer; cactbot StartsUsing 74D1 [Sildihn Geryon Colossal Swing] | StartsUsing 74C8 [Sildihn Geryon Colossal Launch]
+    Timeout(id + 0x220, 6.7f, "Explosion"); // t=3417.5
+    Timeout(id + 0x230, 6.8f, "Colossal Slam"); // t=3424.3; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x240, 9.4f, "Colossal Strike").SetHint(StateMachine.StateHint.Tankbuster); // t=3433.7; Ability 74CF from Geryon the Steer; cactbot StartsUsing 74CF [Sildihn Geryon Colossal Strike]
+    Timeout(id + 0x250, 9.1f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=3442.8; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x260, 16.8f, "Explosion"); // t=3459.6
+    Timeout(id + 0x270, 3.2f, "Gigantomill 1"); // t=3462.8
+    Timeout(id + 0x280, 1.8f, "Gigantomill 2"); // t=3464.6
+    Timeout(id + 0x290, 1.8f, "Gigantomill 3"); // t=3466.4
+    Timeout(id + 0x2A0, 1.8f, "Gigantomill 4"); // t=3468.2
+    Timeout(id + 0x2B0, 11.0f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=3479.2; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x2C0, 11.1f, "Colossal Charge"); // t=3490.3
+    Timeout(id + 0x2D0, 5.4f, "Explosion"); // t=3495.7
+    Timeout(id + 0x2E0, 5.0f, "Colossal Slam"); // t=3500.7; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x2F0, 9.4f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=3510.1; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x300, 7.1f, "Exploding Catapult"); // t=3517.2; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x310, 9.1f, "Intake"); // t=3526.3
+    Timeout(id + 0x320, 4.4f, "Explosion"); // t=3530.7
+    Timeout(id + 0x330, 4.6f, "Exploding Catapult"); // t=3535.3; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x340, 524.7f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=4060.0; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x350, 7.1f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=4067.1; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x360, 11.1f, "Rolling Boulder"); // t=4078.2
+    Timeout(id + 0x370, 3.5f, "Explosion"); // t=4081.7
+    Timeout(id + 0x380, 4.4f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=4086.1; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x390, 11.2f, "Colossal Launch"); // t=4097.3; Ability 74C8 from Geryon the Steer; cactbot StartsUsing 74C8 [Sildihn Geryon Colossal Launch]
+    Timeout(id + 0x3A0, 6.6f, "Explosion"); // t=4103.9
+    Timeout(id + 0x3B0, 5.9f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=4109.8; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x3C0, 11.1f, "Colossal Charge"); // t=4120.9
+    Timeout(id + 0x3D0, 5.4f, "Explosion"); // t=4126.3
+    Timeout(id + 0x3E0, 5.0f, "Colossal Slam"); // t=4131.3; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x3F0, 9.4f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=4140.7; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x400, 16.9f, "Explosion"); // t=4157.6
+    Timeout(id + 0x410, 3.2f, "Gigantomill 1"); // t=4160.8
+    Timeout(id + 0x420, 1.8f, "Gigantomill 2"); // t=4162.6
+    Timeout(id + 0x430, 1.8f, "Gigantomill 3 "); // t=4164.4
+    Timeout(id + 0x440, 1.8f, "Gigantomill 4"); // t=4166.2
+    Timeout(id + 0x450, 8.7f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=4174.9; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x460, 7.1f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=4182.0; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x470, 11.1f, "Rolling Boulder"); // t=4193.1
+    Timeout(id + 0x480, 3.5f, "Explosion"); // t=4196.6
+    Timeout(id + 0x490, 4.5f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=4201.1; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x4A0, 11.2f, "Colossal Launch / Colossal Swing"); // t=4212.3; Ability 74C8/74D1 from Geryon the Steer; cactbot StartsUsing 74D1 [Sildihn Geryon Colossal Swing] | StartsUsing 74C8 [Sildihn Geryon Colossal Launch]
+    Timeout(id + 0x4B0, 5.7f, "Explosion"); // t=4218.0
+    Timeout(id + 0x4C0, 6.7f, "Colossal Slam"); // t=4224.7; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x4D0, 9.4f, "Colossal Strike").SetHint(StateMachine.StateHint.Tankbuster); // t=4234.1; Ability 74CF from Geryon the Steer; cactbot StartsUsing 74CF [Sildihn Geryon Colossal Strike]
+    Timeout(id + 0x4E0, 11.4f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=4245.5; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x4F0, 11.1f, "Colossal Charge"); // t=4256.6
+    Timeout(id + 0x500, 5.4f, "Explosion"); // t=4262.0
+    Timeout(id + 0x510, 5.0f, "Colossal Slam"); // t=4267.0; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x520, 9.4f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=4276.4; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x530, 17.0f, "Explosion"); // t=4293.4
+    Timeout(id + 0x540, 3.2f, "Gigantomill 1"); // t=4296.6
+    Timeout(id + 0x550, 1.8f, "Gigantomill 2"); // t=4298.4
+    Timeout(id + 0x560, 1.8f, "Gigantomill 3"); // t=4300.2
+    Timeout(id + 0x570, 1.8f, "Gigantomill 4"); // t=4302.0
+    Timeout(id + 0x580, 8.7f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=4310.7; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x590, 7.1f, "Exploding Catapult"); // t=4317.8; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x5A0, 11.1f, "Rolling Boulder"); // t=4328.9
+    Timeout(id + 0x5B0, 3.5f, "Explosion"); // t=4332.4
+    Timeout(id + 0x5C0, 4.5f, "Exploding Catapult"); // t=4336.9; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+}
+
+private void Geryon_the_Steer__right_door__1st_boss(uint id)
+{
+    Condition(id + 0x0, 5.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x74CF), "", 5f, 0.0f); // t=5005.0; StartsUsing 74CF from Geryon the Steer; cactbot StartsUsing 74CF [Sildihn Geryon Colossal Strike]
+    Timeout(id + 0x10, 5.0f, "Colossal Strike").SetHint(StateMachine.StateHint.Tankbuster); // t=5010.0; Ability 74CF from Geryon the Steer; cactbot StartsUsing 74CF [Sildihn Geryon Colossal Strike]
+    Timeout(id + 0x20, 10.1f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=5020.1; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x30, 10.1f, "Suddenly Sewage 1"); // t=5030.2
+    Timeout(id + 0x40, 2.0f, "Suddenly Sewage 2"); // t=5032.2
+    Timeout(id + 0x50, 8.0f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=5040.2; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x60, 16.7f, "Explosion"); // t=5056.9
+    Timeout(id + 0x70, 4.6f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=5061.5; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x80, 10.2f, "Colossal Slam"); // t=5071.7; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x90, 5.4f, "Explosion"); // t=5077.1
+    Timeout(id + 0xA0, 4.0f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=5081.1; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0xB0, 11.3f, "Colossal Launch"); // t=5092.4; Ability 74C8 from Geryon the Steer; cactbot StartsUsing 74C8 [Sildihn Geryon Colossal Launch]
+    Timeout(id + 0xC0, 6.7f, "Explosion"); // t=5099.1
+    Timeout(id + 0xD0, 3.6f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=5102.7; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0xE0, 17.0f, "Explosion"); // t=5119.7
+    Timeout(id + 0xF0, 3.2f, "Gigantomill 1"); // t=5122.9
+    Timeout(id + 0x100, 1.8f, "Gigantomill 2"); // t=5124.7
+    Timeout(id + 0x110, 1.8f, "Gigantomill 3"); // t=5126.5
+    Timeout(id + 0x120, 1.8f, "Gigantomill 4"); // t=5128.3
+    Timeout(id + 0x130, 11.0f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=5139.3; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x140, 11.1f, "Colossal Charge"); // t=5150.4
+    Timeout(id + 0x150, 5.4f, "Explosion"); // t=5155.8
+    Timeout(id + 0x160, 5.0f, "Colossal Slam"); // t=5160.8; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x170, 9.4f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=5170.2; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x180, 10.1f, "Suddenly Sewage 1"); // t=5180.3
+    Timeout(id + 0x190, 1.4f, "Colossal Swing"); // t=5181.7; Ability 74D1 from Geryon the Steer; cactbot StartsUsing 74D1 [Sildihn Geryon Colossal Swing]
+    Timeout(id + 0x1A0, 0.6f, "Suddenly Sewage 2"); // t=5182.3
+    Timeout(id + 0x1B0, 8.6f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=5190.9; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x1C0, 11.5f, "Colossal Launch / Colossal Swing"); // t=5202.4; Ability 74C8/74D1 from Geryon the Steer; cactbot StartsUsing 74D1 [Sildihn Geryon Colossal Swing] | StartsUsing 74C8 [Sildihn Geryon Colossal Launch]
+    Timeout(id + 0x1D0, 6.7f, "Explosion"); // t=5209.1
+    Timeout(id + 0x1E0, 6.7f, "Colossal Slam"); // t=5215.8; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x1F0, 9.4f, "Colossal Strike").SetHint(StateMachine.StateHint.Tankbuster); // t=5225.2; Ability 74CF from Geryon the Steer; cactbot StartsUsing 74CF [Sildihn Geryon Colossal Strike]
+    Timeout(id + 0x200, 9.1f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=5234.3; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x210, 17.0f, "Explosion"); // t=5251.3
+    Timeout(id + 0x220, 3.2f, "Gigantomill 1"); // t=5254.5
+    Timeout(id + 0x230, 1.8f, "Gigantomill 2"); // t=5256.3
+    Timeout(id + 0x240, 1.8f, "Gigantomill 3"); // t=5258.1
+    Timeout(id + 0x250, 1.8f, "Gigantomill 4"); // t=5259.9
+    Timeout(id + 0x260, 11.0f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=5270.9; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x270, 11.1f, "Colossal Charge"); // t=5282.0
+    Timeout(id + 0x280, 5.4f, "Explosion"); // t=5287.4
+    Timeout(id + 0x290, 5.0f, "Colossal Slam"); // t=5292.4; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x2A0, 9.4f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=5301.8; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x2B0, 10.1f, "Suddenly Sewage 1"); // t=5311.9
+    Timeout(id + 0x2C0, 1.4f, "Colossal Swing"); // t=5313.3; cactbot StartsUsing 74D1 [Sildihn Geryon Colossal Swing]
+    Timeout(id + 0x2D0, 0.6f, "Suddenly Sewage 2"); // t=5313.9
+    Timeout(id + 0x2E0, 8.6f, "Exploding Catapult"); // t=5322.5; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x2F0, 697.6f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=6020.1; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x300, 15.3f, "Gigantomill 1"); // t=6035.4
+    Timeout(id + 0x310, 1.8f, "Gigantomill 2"); // t=6037.2
+    Timeout(id + 0x320, 1.8f, "Gigantomill 3"); // t=6039.0
+    Timeout(id + 0x330, 1.8f, "Gigantomill 4"); // t=6040.8
+    Timeout(id + 0x340, 8.7f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=6049.5; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x350, 16.7f, "Explosion"); // t=6066.2
+    Timeout(id + 0x360, 4.6f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=6070.8; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x370, 10.2f, "Colossal Slam"); // t=6081.0; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x380, 5.4f, "Explosion"); // t=6086.4
+    Timeout(id + 0x390, 4.0f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=6090.4; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x3A0, 11.2f, "Colossal Launch"); // t=6101.6; Ability 74C8 from Geryon the Steer; cactbot StartsUsing 74C8 [Sildihn Geryon Colossal Launch]
+    Timeout(id + 0x3B0, 6.7f, "Explosion"); // t=6108.3
+    Timeout(id + 0x3C0, 7.9f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=6116.2; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x3D0, 11.1f, "Colossal Charge"); // t=6127.3
+    Timeout(id + 0x3E0, 5.4f, "Explosion"); // t=6132.7
+    Timeout(id + 0x3F0, 5.0f, "Colossal Slam"); // t=6137.7; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x400, 9.4f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=6147.1; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x410, 15.2f, "Gigantomill 1"); // t=6162.3
+    Timeout(id + 0x420, 1.8f, "Gigantomill 2"); // t=6164.1
+    Timeout(id + 0x430, 1.8f, "Gigantomill 3"); // t=6165.9
+    Timeout(id + 0x440, 1.8f, "Gigantomill 4"); // t=6167.7
+    Timeout(id + 0x450, 8.7f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=6176.4; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x460, 11.3f, "Colossal Launch / Colossal Swing"); // t=6187.7; Ability 74C8/74D1 from Geryon the Steer; cactbot StartsUsing 74D1 [Sildihn Geryon Colossal Swing] | StartsUsing 74C8 [Sildihn Geryon Colossal Launch]
+    Timeout(id + 0x470, 6.7f, "Explosion"); // t=6194.4
+    Timeout(id + 0x480, 6.6f, "Colossal Slam"); // t=6201.0; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x490, 9.4f, "Colossal Strike").SetHint(StateMachine.StateHint.Tankbuster); // t=6210.4; Ability 74CF from Geryon the Steer; cactbot StartsUsing 74CF [Sildihn Geryon Colossal Strike]
+    Timeout(id + 0x4A0, 11.4f, "Exploding Catapult").SetHint(StateMachine.StateHint.Raidwide); // t=6221.8; Ability 74C7 from Geryon the Steer; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+    Timeout(id + 0x4B0, 11.1f, "Colossal Charge"); // t=6232.9
+    Timeout(id + 0x4C0, 5.4f, "Explosion"); // t=6238.3
+    Timeout(id + 0x4D0, 5.0f, "Colossal Slam"); // t=6243.3; Ability 74D0 from Geryon the Steer
+    Timeout(id + 0x4E0, 9.4f, "Subterranean Shudder").SetHint(StateMachine.StateHint.Raidwide); // t=6252.7; Ability 74D2 from Geryon the Steer; cactbot StartsUsing 74D2 [Sildihn Geryon Subterranean Shudder]
+    Timeout(id + 0x4F0, 15.2f, "Gigantomill 1"); // t=6267.9
+    Timeout(id + 0x500, 1.8f, "Gigantomill 2"); // t=6269.7
+    Timeout(id + 0x510, 1.8f, "Gigantomill 3"); // t=6271.5
+    Timeout(id + 0x520, 1.8f, "Gigantomill 4"); // t=6273.3
+    Timeout(id + 0x530, 8.7f, "Exploding Catapult"); // t=6282.0; cactbot StartsUsing 74C7 [Sildihn Geryon Exploding Catapult] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Cleanup] | StartsUsing 74C7 [Sildihn Geryon Exploding Catapult Barrels]
+}
+
+private void Silkie__left_door__2nd_boss(uint id)
+{
+    Condition(id + 0x0, 9.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x772C), "", 5f, 4.3f); // t=7009.3; StartsUsing 772C from Silkie; cactbot StartsUsing 772C [Sildihn Silkie Total Wash]
+    Timeout(id + 0x10, 5.0f, "Total Wash").SetHint(StateMachine.StateHint.Raidwide); // t=7014.3; Ability 772C from Silkie; cactbot StartsUsing 772C [Sildihn Silkie Total Wash]
+    Timeout(id + 0x20, 7.7f, "Squeaky Left/Squeaky Right"); // t=7022.0; Ability 772E/772D from Silkie; cactbot StartsUsing 772D [Sildihn Silkie Squeaky Right] | StartsUsing 772E [Sildihn Silkie Squeaky Left]
+    Timeout(id + 0x30, 18.9f, "Carpet Beater").SetHint(StateMachine.StateHint.Tankbuster); // t=7040.9; Ability 772B from Silkie; cactbot StartsUsing 772B [Sildihn Silkie Carpet Buster]
+    Timeout(id + 0x40, 10.7f, "Squeaky Left/Squeaky Right"); // t=7051.6; Ability 772E/772D from Silkie; cactbot StartsUsing 772D [Sildihn Silkie Squeaky Right] | StartsUsing 772E [Sildihn Silkie Squeaky Left]
+    Timeout(id + 0x50, 18.0f, "Chilling Suds"); // t=7069.6; Ability 7736 from Silkie
+    Timeout(id + 0x60, 7.1f, "Soap's Up"); // t=7076.7; Ability 7737 from Silkie
+    Timeout(id + 0x70, 1.0f, "Chilling Duster"); // t=7077.7; Ability 7738 from Silkie; cactbot StartsUsing 7738 [Sildihn Silkie Chilling Duster]
+    Timeout(id + 0x80, 9.1f, "Bracing Suds"); // t=7086.8; Ability 7735 from Silkie
+    Timeout(id + 0x90, 7.1f, "Soap's Up"); // t=7093.9; Ability 7737 from Silkie
+    Timeout(id + 0xA0, 1.0f, "Bracing Duster"); // t=7094.9; Ability 7739 from Silkie; cactbot StartsUsing 7739 [Sildihn Silkie Bracing Duster]
+    Timeout(id + 0xB0, 9.1f, "Bracing Suds / Chilling Suds"); // t=7104.0; Ability 7735/7736 from Silkie
+    Timeout(id + 0xC0, 8.8f, "Slippery Soap"); // t=7112.8; Ability 773A from Silkie
+    Timeout(id + 0xD0, 3.4f, "Bracing Duster / Chilling Duster"); // t=7116.2; Ability 773B/773C from Silkie; cactbot StartsUsing 773B [Sildihn Silkie Chilling Duster Slippery] | StartsUsing 773C [Sildihn Silkie Bracing Duster Slippery]
+    Timeout(id + 0xE0, 12.1f, "Spot Remover"); // t=7128.3; Ability 7742 from Silkie
+    Timeout(id + 0xF0, 9.1f, "Dust Bluster").SetHint(StateMachine.StateHint.Knockback); // t=7137.4; Ability 7744 from Silkie; cactbot StartsUsing 7744 [Sildihn Silkie Dust Bluster]
+    Timeout(id + 0x100, 11.1f, "Total Wash").SetHint(StateMachine.StateHint.Raidwide); // t=7148.5; Ability 772C from Silkie; cactbot StartsUsing 772C [Sildihn Silkie Total Wash]
+    Condition(id + 0x110, 48.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x773D), "", 5f, 43.4f); // t=7196.9; StartsUsing 773D from Silkie
+    Timeout(id + 0x120, 4.0f, "Fresh Puff"); // t=7200.9; Ability 773D from Silkie
+    Timeout(id + 0x130, 9.4f, "Chilling Suds"); // t=7210.3; Ability 7736 from Silkie
+    Timeout(id + 0x140, 6.7f, "Squeaky Left/Squeaky Right"); // t=7217.0; Ability 772E/772D from Silkie; cactbot StartsUsing 772D [Sildihn Silkie Squeaky Right] | StartsUsing 772E [Sildihn Silkie Squeaky Left]
+    Timeout(id + 0x150, 16.9f, "Soaping Spree"); // t=7233.9; Ability 773E from Silkie
+    Timeout(id + 0x160, 1.0f, "Chilling Duster"); // t=7234.9; Ability 773F from Silken Puff; cactbot StartsUsing 773F [Sildihn Silkie Chilling Duster Puffs]
+    Timeout(id + 0x170, 10.1f, "Total Wash").SetHint(StateMachine.StateHint.Raidwide); // t=7245.0; Ability 772C from Silkie; cactbot StartsUsing 772C [Sildihn Silkie Total Wash]
+    Timeout(id + 0x180, 11.2f, "Bracing Suds / Chilling Suds"); // t=7256.2; Ability 7735/7736 from Silkie
+    Timeout(id + 0x190, 7.8f, "Slippery Soap"); // t=7264.0; Ability 773A from Silkie
+    Timeout(id + 0x1A0, 3.6f, "Bracing Duster / Chilling Duster"); // t=7267.6; Ability 773B/773C from Silkie; cactbot StartsUsing 773B [Sildihn Silkie Chilling Duster Slippery] | StartsUsing 773C [Sildihn Silkie Bracing Duster Slippery]
+    Timeout(id + 0x1B0, 11.2f, "Squeaky Left/Squeaky Right"); // t=7278.8; Ability 772E/772D from Silkie; cactbot StartsUsing 772D [Sildihn Silkie Squeaky Right] | StartsUsing 772E [Sildihn Silkie Squeaky Left]
+    Timeout(id + 0x1C0, 19.9f, "Carpet Beater").SetHint(StateMachine.StateHint.Tankbuster); // t=7298.7; Ability 772B from Silkie; cactbot StartsUsing 772B [Sildihn Silkie Carpet Buster]
+    Timeout(id + 0x1D0, 7.7f, "Spot Remover"); // t=7306.4; Ability 7742 from Silkie
+    Timeout(id + 0x1E0, 9.1f, "Dust Bluster").SetHint(StateMachine.StateHint.Knockback); // t=7315.5; Ability 7744 from Silkie; cactbot StartsUsing 7744 [Sildihn Silkie Dust Bluster]
+    Timeout(id + 0x1F0, 11.1f, "Total Wash").SetHint(StateMachine.StateHint.Raidwide); // t=7326.6; Ability 772C from Silkie; cactbot StartsUsing 772C [Sildihn Silkie Total Wash]
+    Timeout(id + 0x200, 11.1f, "Bracing Suds / Chilling Suds"); // t=7337.7; Ability 7735/7736 from Silkie
+    Timeout(id + 0x210, 7.7f, "Slippery Soap"); // t=7345.4; Ability 773A from Silkie
+    Timeout(id + 0x220, 3.4f, "Bracing Duster / Chilling Duster"); // t=7348.8; Ability 773B/773C from Silkie; cactbot StartsUsing 773B [Sildihn Silkie Chilling Duster Slippery] | StartsUsing 773C [Sildihn Silkie Bracing Duster Slippery]
+    Timeout(id + 0x230, 11.1f, "Squeaky Left/Squeaky Right"); // t=7359.9; Ability 772E/772D from Silkie; cactbot StartsUsing 772D [Sildihn Silkie Squeaky Right] | StartsUsing 772E [Sildihn Silkie Squeaky Left]
+    Timeout(id + 0x240, 19.9f, "Carpet Beater"); // t=7379.8
+    Timeout(id + 0x250, 7.7f, "Spot Remover"); // t=7387.5
+    Timeout(id + 0x260, 9.1f, "Dust Bluster"); // t=7396.6; cactbot StartsUsing 7744 [Sildihn Silkie Dust Bluster]
+    Timeout(id + 0x270, 11.1f, "Total Wash"); // t=7407.7; cactbot StartsUsing 772C [Sildihn Silkie Total Wash]
+    Timeout(id + 0x280, 11.1f, "Bracing Suds / Chilling Suds"); // t=7418.8
+    Timeout(id + 0x290, 7.7f, "Slippery Soap"); // t=7426.5
+    Timeout(id + 0x2A0, 3.4f, "Bracing Duster / Chilling Duster"); // t=7429.9
+}
+
+private void Gladiator_of_Sil_dih(uint id)
+{
+    Condition(id + 0x0, 7.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7656), "", 5f, 2.0f); // t=8007.0; StartsUsing 7656 from Gladiator of Sil'dih; cactbot StartsUsing 7656 [Sildihn Gladiator Flash of Steel]
+    Timeout(id + 0x10, 5.0f, "Flash of Steel").SetHint(StateMachine.StateHint.Raidwide); // t=8012.0; Ability 7656 from Gladiator of Sil'dih; cactbot StartsUsing 7656 [Sildihn Gladiator Flash of Steel]
+    Timeout(id + 0x20, 7.2f, "--middle--"); // t=8019.2; Ability 7639 from Gladiator of Sil'dih
+    Timeout(id + 0x30, 12.2f, "Ring of Might (out)"); // t=8031.4; Ability 763F/7640/7641 from Gladiator of Sil'dih; cactbot StartsUsing 763F [Sildihn Gladiator Ring of Might 1] | StartsUsing 7640 [Sildihn Gladiator Ring of Might 2] | StartsUsing 7641 [Sildihn Gladiator Ring of Might 3] | Ability 763F/7640/7641 [Sildihn Gladiator Ring of Might Followup]
+    Timeout(id + 0x40, 2.0f, "Ring of Might (in)"); // t=8033.4; Ability 7642/7643/7644 from Gladiator of Sil'dih
+    Timeout(id + 0x50, 11.2f, "Sculptor's Passion"); // t=8044.6; Ability 764A from Gladiator of Sil'dih; cactbot StartsUsing 764A [Sildihn Gladiator Sculptor\]
+    Timeout(id + 0x60, 6.2f, "--middle--"); // t=8050.8; Ability 7639 from Gladiator of Sil'dih
+    Timeout(id + 0x70, 12.8f, "Ring of Might (out)"); // t=8063.6; Ability 763F/7640/7641 from Gladiator of Sil'dih; cactbot StartsUsing 763F [Sildihn Gladiator Ring of Might 1] | StartsUsing 7640 [Sildihn Gladiator Ring of Might 2] | StartsUsing 7641 [Sildihn Gladiator Ring of Might 3] | Ability 763F/7640/7641 [Sildihn Gladiator Ring of Might Followup]
+    Timeout(id + 0x80, 2.0f, "Ring of Might (in)"); // t=8065.6; Ability 7642/7643/7644 from Gladiator of Sil'dih
+    Timeout(id + 0x90, 13.2f, "Flash of Steel?").SetHint(StateMachine.StateHint.Raidwide); // t=8078.8; Ability 764C from Gladiator of Sil'dih; cactbot StartsUsing 7656 [Sildihn Gladiator Flash of Steel]
+    Condition(id + 0xA0, 38.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7657), "", 5f, 33.2f); // t=8117.0; StartsUsing 7657 from Gladiator of Sil'dih; cactbot StartsUsing 7657 [Sildihn Gladiator Mighty Smite]
+    Timeout(id + 0xB0, 5.0f, "Mighty Smite").SetHint(StateMachine.StateHint.Tankbuster); // t=8122.0; Ability 7657 from Gladiator of Sil'dih; cactbot StartsUsing 7657 [Sildihn Gladiator Mighty Smite]
+    Timeout(id + 0xC0, 6.1f, "--corner--"); // t=8128.1; Ability 7639 from Gladiator of Sil'dih
+    Timeout(id + 0xD0, 13.2f, "Rush of Might (near)"); // t=8141.3; Ability 763D from Gladiator of Sil'dih; cactbot Ability 763D [Sildihn Gladiator Rush of Might Followup]
+    Timeout(id + 0xE0, 2.0f, "Rush of Might (far)"); // t=8143.3; Ability 763E from Gladiator of Sil'dih
+    Timeout(id + 0xF0, 8.7f, "Wrath of Ruin"); // t=8152.0; Ability 7645 from Gladiator of Sil'dih
+    Timeout(id + 0x100, 12.2f, "Rack and Ruin 1"); // t=8164.2; Ability 7646 from Regret
+    Timeout(id + 0x110, 1.0f, "Sculptor's Passion"); // t=8165.2; Ability 764A from Gladiator of Sil'dih; cactbot StartsUsing 764A [Sildihn Gladiator Sculptor\]
+    Timeout(id + 0x120, 2.0f, "Rack and Ruin 2"); // t=8167.2; Ability 7646 from Regret
+    Timeout(id + 0x130, 13.3f, "Rush of Might (near)"); // t=8180.5; Ability 763D from Gladiator of Sil'dih; cactbot Ability 763D [Sildihn Gladiator Rush of Might Followup]
+    Timeout(id + 0x140, 2.0f, "Rush of Might (far)"); // t=8182.5; Ability 763E from Gladiator of Sil'dih
+    Timeout(id + 0x150, 15.7f, "Flash of Steel").SetHint(StateMachine.StateHint.Raidwide); // t=8198.2; Ability 7656 from Gladiator of Sil'dih; cactbot StartsUsing 7656 [Sildihn Gladiator Flash of Steel]
+    Timeout(id + 0x160, 8.1f, "Sundered Remains"); // t=8206.3; Ability 7648 from Gladiator of Sil'dih
+    Timeout(id + 0x170, 8.101f, "--middle--"); // t=8214.4; Ability 7639 from Gladiator of Sil'dih
+    Timeout(id + 0x180, 4.0f, "Sundered Remains (mid)"); // t=8218.4
+    Timeout(id + 0x190, 8.5f, "Ring of Might (out)"); // t=8226.9; Ability 763F/7640/7641 from Gladiator of Sil'dih; cactbot StartsUsing 763F [Sildihn Gladiator Ring of Might 1] | StartsUsing 7640 [Sildihn Gladiator Ring of Might 2] | StartsUsing 7641 [Sildihn Gladiator Ring of Might 3] | Ability 763F/7640/7641 [Sildihn Gladiator Ring of Might Followup]
+    Timeout(id + 0x1A0, 2.0f, "Ring of Might (in)"); // t=8228.9; Ability 7642/7643/7644 from Gladiator of Sil'dih
+    Timeout(id + 0x1B0, 11.199f, "Mighty Smite").SetHint(StateMachine.StateHint.Tankbuster); // t=8240.1; Ability 7657 from Gladiator of Sil'dih; cactbot StartsUsing 7657 [Sildihn Gladiator Mighty Smite]
+    Timeout(id + 0x1C0, 13.101f, "Wrath of Ruin"); // t=8253.2; Ability 7645 from Gladiator of Sil'dih
+    Timeout(id + 0x1D0, 6.1f, "--corner--"); // t=8259.3; Ability 7639 from Gladiator of Sil'dih
+    Timeout(id + 0x1E0, 6.0f, "Rack and Ruin 1"); // t=8265.3; Ability 7646 from Regret
+    Timeout(id + 0x1F0, 3.0f, "Rack and Ruin 2"); // t=8268.3; Ability 7646 from Regret
+    Timeout(id + 0x200, 4.101f, "Rush of Might (near)"); // t=8272.4; Ability 763D from Gladiator of Sil'dih; cactbot Ability 763D [Sildihn Gladiator Rush of Might Followup]
+    Timeout(id + 0x210, 2.0f, "Rush of Might (far)"); // t=8274.4; Ability 763E from Gladiator of Sil'dih
+    Timeout(id + 0x220, 16.699f, "Flash of Steel").SetHint(StateMachine.StateHint.Raidwide); // t=8291.1; Ability 7656 from Gladiator of Sil'dih; cactbot StartsUsing 7656 [Sildihn Gladiator Flash of Steel]
+    Timeout(id + 0x230, 8.101f, "Sundered Remains"); // t=8299.2
+    Timeout(id + 0x240, 8.1f, "--middle--"); // t=8307.3
+    Timeout(id + 0x250, 4.0f, "Sundered Remains (mid)"); // t=8311.3
+    Timeout(id + 0x260, 8.5f, "Ring of Might (out)"); // t=8319.8
+    Timeout(id + 0x270, 2.0f, "Ring of Might (in)"); // t=8321.8
+}
+
+private void Shadowcaster_Zeless_Gah(uint id)
+{
+    Condition(id + 0x0, 10.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x74AE), "", 5f, 5.6f); // t=9010.6; StartsUsing 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x10, 5.0f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=9015.6; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Condition(id + 0x20, 4.101f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x74A2 or 0x74A7), "", 5f, 0.0f); // t=9019.7; StartsUsing 74A2 from Shadowcaster Zeless Gah | StartsUsing 74A7 from Shadowcaster Zeless Gah; cactbot Ability 74A2 [Sildihn Shadowcaster Infern Gale] | Ability 74A7 [Sildihn Shadowcaster Infern Wellw]
+    Timeout(id + 0x30, 4.0f, "Infern Gale? / Infern Well?"); // t=9023.7
+    Condition(id + 0x40, 0.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7491), "", 5f, 0.0f); // t=9023.8; StartsUsing 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x50, 4.0f, "Infern Brand?"); // t=9027.8
+}
+
+private void Path_05(uint id)
+{
+    Condition(id + 0x0, 10.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x74AE), "", 5f, 5.6f); // t=10010.6; StartsUsing 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x10, 5.0f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=10015.6; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Condition(id + 0x20, 4.101f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x74A2), "", 5f, 0.0f); // t=10019.7; StartsUsing 74A2 from Shadowcaster Zeless Gah; cactbot Ability 74A2 [Sildihn Shadowcaster Infern Gale]
+    Timeout(id + 0x30, 4.0f, "Infern Gale").SetHint(StateMachine.StateHint.Knockback); // t=10023.7; Ability 74A2 from Shadowcaster Zeless Gah; cactbot Ability 74A2 [Sildihn Shadowcaster Infern Gale]
+    Timeout(id + 0x40, 6.399f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=10030.1; Ability 74A3 from Infern Brand
+    Timeout(id + 0x50, 10.9f, "Infern Brand"); // t=10041.0; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x60, 11.3f, "Burn"); // t=10052.3; Ability 748F from Ball of Fire
+    Timeout(id + 0x70, 7.9f, "Firesteel Fracture").SetHint(StateMachine.StateHint.Tankbuster); // t=10060.2; Ability 74AC from Shadowcaster Zeless Gah; cactbot StartsUsing 74AC [Sildihn Shadowcaster Firesteel Fracture]
+    Timeout(id + 0x80, 8.1f, "Infern Brand"); // t=10068.3; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x90, 9.2f, "Cryptic Portal"); // t=10077.5; Ability 7492 from Shadowcaster Zeless Gah
+    Timeout(id + 0xA0, 4.5f, "Burn"); // t=10082.0; Ability 748F from Ball of Fire
+    Timeout(id + 0xB0, 3.6f, "Infern Gale").SetHint(StateMachine.StateHint.Knockback); // t=10085.6; Ability 74A2 from Shadowcaster Zeless Gah; cactbot Ability 74A2 [Sildihn Shadowcaster Infern Gale]
+    Timeout(id + 0xC0, 6.4f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=10092.0; Ability 74A3 from Infern Brand
+    Timeout(id + 0xD0, 10.9f, "Infern Brand"); // t=10102.9; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0xE0, 8.199f, "Infern Ward"); // t=10111.1; Ability 7496 from Shadowcaster Zeless Gah
+    Timeout(id + 0xF0, 13.0f, "Pure Fire"); // t=10124.1; Ability 74A0 from Shadowcaster Zeless Gah
+    Timeout(id + 0x100, 10.2f, "Cast Shadow 1"); // t=10134.3; Ability 749B from Shadowcaster Zeless Gah
+    Timeout(id + 0x110, 2.0f, "Cast Shadow 2"); // t=10136.3; Ability 749D from Shadowcaster Zeless Gah
+    Timeout(id + 0x120, 5.601f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=10141.9; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x130, 12.199f, "Infern Brand"); // t=10154.1; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x140, 12.2f, "Cryptic Portal"); // t=10166.3; Ability 7493 from Shadowcaster Zeless Gah
+    Timeout(id + 0x150, 4.5f, "Burn"); // t=10170.8; Ability 748F from Ball of Fire
+    Timeout(id + 0x160, 4.8f, "Firesteel Fracture").SetHint(StateMachine.StateHint.Tankbuster); // t=10175.6; Ability 74AC from Shadowcaster Zeless Gah; cactbot StartsUsing 74AC [Sildihn Shadowcaster Firesteel Fracture]
+    Timeout(id + 0x170, 12.101f, "Infern Brand"); // t=10187.7; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x180, 8.399f, "Infern Ward"); // t=10196.1; Ability 7496 from Shadowcaster Zeless Gah
+    Timeout(id + 0x190, 11.0f, "Pure Fire"); // t=10207.1; Ability 74A0 from Shadowcaster Zeless Gah
+    Timeout(id + 0x1A0, 6.4f, "Infern Gale").SetHint(StateMachine.StateHint.Knockback); // t=10213.5; Ability 74A2 from Shadowcaster Zeless Gah; cactbot Ability 74A2 [Sildihn Shadowcaster Infern Gale]
+    Timeout(id + 0x1B0, 6.4f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=10219.9; Ability 74A3 from Infern Brand
+    Timeout(id + 0x1C0, 5.6f, "Cast Shadow 1"); // t=10225.5; Ability 749B from Shadowcaster Zeless Gah
+    Timeout(id + 0x1D0, 2.0f, "Cast Shadow 2"); // t=10227.5; Ability 749D from Shadowcaster Zeless Gah
+    Timeout(id + 0x1E0, 5.7f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=10233.2; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x1F0, 12.2f, "Infern Brand"); // t=10245.4; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x200, 7.1f, "Infern Gale").SetHint(StateMachine.StateHint.Knockback); // t=10252.5; Ability 74A2 from Shadowcaster Zeless Gah; cactbot Ability 74A2 [Sildihn Shadowcaster Infern Gale]
+    Timeout(id + 0x210, 6.3f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=10258.8; Ability 74A3 from Infern Brand
+    Timeout(id + 0x220, 1.8f, "Cryptic Portal"); // t=10260.6; Ability 7492 from Shadowcaster Zeless Gah
+    Timeout(id + 0x230, 4.5f, "Burn"); // t=10265.1; Ability 748F from Ball of Fire
+    Timeout(id + 0x240, 4.801f, "Firesteel Fracture").SetHint(StateMachine.StateHint.Tankbuster); // t=10269.9; Ability 74AC from Shadowcaster Zeless Gah; cactbot StartsUsing 74AC [Sildihn Shadowcaster Firesteel Fracture]
+    Timeout(id + 0x250, 8.1f, "Infern Brand"); // t=10278.0; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x260, 12.2f, "Cryptic Portal"); // t=10290.2; Ability 7493 from Shadowcaster Zeless Gah
+    Timeout(id + 0x270, 4.5f, "Burn"); // t=10294.7; Ability 748F from Ball of Fire
+    Timeout(id + 0x280, 4.6f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=10299.3; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x290, 12.2f, "Infern Brand"); // t=10311.5; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x2A0, 8.6f, "Infern Ward"); // t=10320.1; Ability 7496 from Shadowcaster Zeless Gah
+    Timeout(id + 0x2B0, 10.9f, "Pure Fire"); // t=10331.0; Ability 74A0 from Shadowcaster Zeless Gah
+    Timeout(id + 0x2C0, 6.4f, "Infern Gale").SetHint(StateMachine.StateHint.Knockback); // t=10337.4; Ability 74A2 from Shadowcaster Zeless Gah; cactbot Ability 74A2 [Sildihn Shadowcaster Infern Gale]
+    Timeout(id + 0x2D0, 6.399f, "--knockback--").SetHint(StateMachine.StateHint.Knockback); // t=10343.8; Ability 74A3 from Infern Brand
+    Timeout(id + 0x2E0, 5.5f, "Cast Shadow 1"); // t=10349.3; Ability 749B from Shadowcaster Zeless Gah
+    Timeout(id + 0x2F0, 2.0f, "Cast Shadow 2"); // t=10351.3; Ability 749D from Shadowcaster Zeless Gah
+    Timeout(id + 0x300, 5.7f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=10357.0; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x310, 12.2f, "Infern Brand"); // t=10369.2
+    Timeout(id + 0x320, 7.1f, "Infern Gale"); // t=10376.3; cactbot Ability 74A2 [Sildihn Shadowcaster Infern Gale]
+}
+
+private void Path_06(uint id)
+{
+    Condition(id + 0x0, 10.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x74AE), "", 5f, 5.6f); // t=11010.6; StartsUsing 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x10, 5.0f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=11015.6; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Condition(id + 0x20, 8.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x7491), "", 5f, 3.2f); // t=11023.8; StartsUsing 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x30, 4.0f, "Infern Brand"); // t=11027.8; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x40, 11.3f, "Blazing Benifice"); // t=11039.1; Ability 74A5 from Arcane Font
+    Timeout(id + 0x50, 7.9f, "Firesteel Fracture").SetHint(StateMachine.StateHint.Tankbuster); // t=11047.0; Ability 74AC from Shadowcaster Zeless Gah; cactbot StartsUsing 74AC [Sildihn Shadowcaster Firesteel Fracture]
+    Timeout(id + 0x60, 8.1f, "Infern Brand"); // t=11055.1; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x70, 11.4f, "Burn"); // t=11066.5; Ability 748F from Ball of Fire
+    Timeout(id + 0x80, 11.9f, "Infern Brand"); // t=11078.4; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x90, 9.199f, "Cryptic Portal"); // t=11087.6; Ability 7492 from Shadowcaster Zeless Gah
+    Timeout(id + 0xA0, 4.5f, "Blazing Benifice"); // t=11092.1; Ability 74A5 from Arcane Font
+    Timeout(id + 0xB0, 5.601f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=11097.7; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0xC0, 8.2f, "Infern Brand"); // t=11105.9; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0xD0, 9.199f, "Cryptic Portal"); // t=11115.1; Ability 7492 from Shadowcaster Zeless Gah
+    Timeout(id + 0xE0, 4.5f, "Burn"); // t=11119.6; Ability 748F from Ball of Fire
+    Timeout(id + 0xF0, 8.7f, "Infern Brand"); // t=11128.3; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x100, 8.101f, "Infern Ward"); // t=11136.4; Ability 7496 from Shadowcaster Zeless Gah
+    Timeout(id + 0x110, 12.899f, "Pure Fire"); // t=11149.3; Ability 74A0 from Shadowcaster Zeless Gah
+    Timeout(id + 0x120, 8.4f, "Infern Brand"); // t=11157.7; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x130, 11.3f, "Burn"); // t=11169.0; Ability 748F from Ball of Fire
+    Timeout(id + 0x140, 8.8f, "Cryptic Portal"); // t=11177.8; Ability 7492 from Shadowcaster Zeless Gah
+    Timeout(id + 0x150, 4.5f, "Blazing Benifice"); // t=11182.3; Ability 74A5 from Arcane Font
+    Timeout(id + 0x160, 6.7f, "Firesteel Fracture").SetHint(StateMachine.StateHint.Tankbuster); // t=11189.0; Ability 74AC from Shadowcaster Zeless Gah; cactbot StartsUsing 74AC [Sildihn Shadowcaster Firesteel Fracture]
+    Timeout(id + 0x170, 12.0f, "Cast Shadow 1"); // t=11201.0; Ability 749B from Shadowcaster Zeless Gah
+    Timeout(id + 0x180, 2.0f, "Cast Shadow 2"); // t=11203.0; Ability 749D from Shadowcaster Zeless Gah
+    Timeout(id + 0x190, 10.7f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=11213.7; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x1A0, 12.2f, "Infern Brand"); // t=11225.9; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x1B0, 8.5f, "Infern Ward"); // t=11234.4; Ability 7496 from Shadowcaster Zeless Gah
+    Timeout(id + 0x1C0, 11.0f, "Pure Fire"); // t=11245.4; Ability 74A0 from Shadowcaster Zeless Gah
+    Timeout(id + 0x1D0, 4.899f, "Cast Shadow 1"); // t=11250.3; Ability 749B from Shadowcaster Zeless Gah
+    Timeout(id + 0x1E0, 2.0f, "Cast Shadow 2"); // t=11252.3; Ability 749D from Shadowcaster Zeless Gah
+    Timeout(id + 0x1F0, 5.7f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=11258.0; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x200, 12.2f, "Infern Brand"); // t=11270.2; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x210, 11.3f, "Blazing Benifice"); // t=11281.5; Ability 74A5 from Arcane Font
+    Timeout(id + 0x220, 0.8f, "Cryptic Portal"); // t=11282.3; Ability 7492 from Shadowcaster Zeless Gah
+    Timeout(id + 0x230, 4.5f, "Burn"); // t=11286.8; Ability 748F from Ball of Fire
+    Timeout(id + 0x240, 6.7f, "Firesteel Fracture").SetHint(StateMachine.StateHint.Tankbuster); // t=11293.5; Ability 74AC from Shadowcaster Zeless Gah; cactbot StartsUsing 74AC [Sildihn Shadowcaster Firesteel Fracture]
+    Timeout(id + 0x250, 8.1f, "Infern Brand"); // t=11301.6; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x260, 11.301f, "Burn"); // t=11312.9; Ability 748F from Ball of Fire
+    Timeout(id + 0x270, 8.8f, "Cryptic Portal"); // t=11321.7; Ability 7492 from Shadowcaster Zeless Gah
+    Timeout(id + 0x280, 4.5f, "Blazing Benifice"); // t=11326.2; Ability 74A5 from Arcane Font
+    Timeout(id + 0x290, 6.6f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=11332.8; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x2A0, 12.2f, "Infern Brand"); // t=11345.0; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x2B0, 8.4f, "Infern Ward"); // t=11353.4; Ability 7496 from Shadowcaster Zeless Gah
+    Timeout(id + 0x2C0, 10.899f, "Pure Fire"); // t=11364.3; Ability 74A0 from Shadowcaster Zeless Gah
+    Timeout(id + 0x2D0, 4.8f, "Cast Shadow 1"); // t=11369.1; Ability 749B from Shadowcaster Zeless Gah
+    Timeout(id + 0x2E0, 2.0f, "Cast Shadow 2"); // t=11371.1; Ability 749D from Shadowcaster Zeless Gah
+    Timeout(id + 0x2F0, 5.601f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=11376.7; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x300, 12.2f, "Infern Brand"); // t=11388.9; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x310, 11.3f, "Blazing Benifice"); // t=11400.2; Ability 74A5 from Arcane Font
+    Timeout(id + 0x320, 0.8f, "Cryptic Portal"); // t=11401.0; Ability 7492 from Shadowcaster Zeless Gah
+    Timeout(id + 0x330, 4.5f, "Burn"); // t=11405.5; Ability 748F from Ball of Fire
+    Timeout(id + 0x340, 6.7f, "Firesteel Fracture").SetHint(StateMachine.StateHint.Tankbuster); // t=11412.2; Ability 74AC from Shadowcaster Zeless Gah; cactbot StartsUsing 74AC [Sildihn Shadowcaster Firesteel Fracture]
+}
+
+private void Path_07(uint id)
+{
+    Condition(id + 0x0, 10.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x74AE), "", 5f, 5.6f); // t=12010.6; StartsUsing 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x10, 5.0f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=12015.6; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Condition(id + 0x20, 4.101f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x74A7), "", 5f, 0.0f); // t=12019.7; StartsUsing 74A7 from Shadowcaster Zeless Gah; cactbot Ability 74A7 [Sildihn Shadowcaster Infern Wellw]
+    Timeout(id + 0x30, 4.0f, "Infern Well"); // t=12023.7; Ability 74A7 from Shadowcaster Zeless Gah; cactbot Ability 74A7 [Sildihn Shadowcaster Infern Wellw]
+    Timeout(id + 0x40, 10.0f, "--draw in--"); // t=12033.7; Ability 74AA from Infern Brand
+    Timeout(id + 0x50, 9.399f, "Infern Brand"); // t=12043.1; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x60, 11.4f, "Burn"); // t=12054.5; Ability 748F from Ball of Fire
+    Timeout(id + 0x70, 8.0f, "Firesteel Fracture").SetHint(StateMachine.StateHint.Tankbuster); // t=12062.5; Ability 74AC from Shadowcaster Zeless Gah; cactbot StartsUsing 74AC [Sildihn Shadowcaster Firesteel Fracture]
+    Timeout(id + 0x80, 8.1f, "Infern Brand"); // t=12070.6; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x90, 9.2f, "Cryptic Portal"); // t=12079.8; Ability 7492 from Shadowcaster Zeless Gah
+    Timeout(id + 0xA0, 4.5f, "Burn"); // t=12084.3; Ability 748F from Ball of Fire
+    Timeout(id + 0xB0, 3.601f, "Infern Well"); // t=12087.9; Ability 74A7 from Shadowcaster Zeless Gah; cactbot Ability 74A7 [Sildihn Shadowcaster Infern Wellw]
+    Timeout(id + 0xC0, 9.8f, "--draw in--"); // t=12097.7; Ability 74AA from Infern Brand
+    Timeout(id + 0xD0, 9.399f, "Infern Brand"); // t=12107.1; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0xE0, 8.101f, "Infern Ward"); // t=12115.2; Ability 7496 from Shadowcaster Zeless Gah
+    Timeout(id + 0xF0, 13.0f, "Pure Fire"); // t=12128.2; Ability 74A0 from Shadowcaster Zeless Gah
+    Timeout(id + 0x100, 10.3f, "Cast Shadow 1"); // t=12138.5; Ability 749B from Shadowcaster Zeless Gah
+    Timeout(id + 0x110, 2.0f, "Cast Shadow 2"); // t=12140.5; Ability 749D from Shadowcaster Zeless Gah
+    Timeout(id + 0x120, 5.6f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=12146.1; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x130, 12.2f, "Infern Brand"); // t=12158.3; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x140, 12.2f, "Cryptic Portal"); // t=12170.5; Ability 7493 from Shadowcaster Zeless Gah
+    Timeout(id + 0x150, 4.5f, "Burn"); // t=12175.0; Ability 748F from Ball of Fire
+    Timeout(id + 0x160, 4.7f, "Firesteel Fracture").SetHint(StateMachine.StateHint.Tankbuster); // t=12179.7; Ability 74AC from Shadowcaster Zeless Gah; cactbot StartsUsing 74AC [Sildihn Shadowcaster Firesteel Fracture]
+    Timeout(id + 0x170, 12.2f, "Infern Brand"); // t=12191.9; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x180, 8.5f, "Infern Ward"); // t=12200.4; Ability 7496 from Shadowcaster Zeless Gah
+    Timeout(id + 0x190, 10.899f, "Pure Fire"); // t=12211.3; Ability 74A0 from Shadowcaster Zeless Gah
+    Timeout(id + 0x1A0, 6.4f, "Infern Well"); // t=12217.7; Ability 74A7 from Shadowcaster Zeless Gah; cactbot Ability 74A7 [Sildihn Shadowcaster Infern Wellw]
+    Timeout(id + 0x1B0, 9.899f, "--draw in--"); // t=12227.6; Ability 74AA from Infern Brand
+    Timeout(id + 0x1C0, 4.2f, "Cast Shadow 1"); // t=12231.8; Ability 749B from Shadowcaster Zeless Gah
+    Timeout(id + 0x1D0, 2.0f, "Cast Shadow 2"); // t=12233.8; Ability 749D from Shadowcaster Zeless Gah
+    Timeout(id + 0x1E0, 5.601f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=12239.4; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x1F0, 12.199f, "Infern Brand"); // t=12251.6; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x200, 7.101f, "Infern Well"); // t=12258.7; Ability 74A7 from Shadowcaster Zeless Gah; cactbot Ability 74A7 [Sildihn Shadowcaster Infern Wellw]
+    Timeout(id + 0x210, 9.899f, "--draw in--"); // t=12268.6; Ability 74AA from Infern Brand
+    Timeout(id + 0x220, 0.301f, "Cryptic Portal"); // t=12268.9; Ability 7492 from Shadowcaster Zeless Gah
+    Timeout(id + 0x230, 4.5f, "Burn"); // t=12273.4; Ability 748F from Ball of Fire
+    Timeout(id + 0x240, 4.8f, "Firesteel Fracture").SetHint(StateMachine.StateHint.Tankbuster); // t=12278.2; Ability 74AC from Shadowcaster Zeless Gah; cactbot StartsUsing 74AC [Sildihn Shadowcaster Firesteel Fracture]
+    Timeout(id + 0x250, 8.1f, "Infern Brand"); // t=12286.3; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x260, 12.2f, "Cryptic Portal"); // t=12298.5; Ability 7493 from Shadowcaster Zeless Gah
+    Timeout(id + 0x270, 4.5f, "Burn"); // t=12303.0; Ability 748F from Ball of Fire
+    Timeout(id + 0x280, 4.6f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=12307.6; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x290, 12.2f, "Infern Brand"); // t=12319.8; Ability 7491 from Shadowcaster Zeless Gah
+    Timeout(id + 0x2A0, 8.3f, "Infern Ward"); // t=12328.1; Ability 7496 from Shadowcaster Zeless Gah
+    Timeout(id + 0x2B0, 10.9f, "Pure Fire"); // t=12339.0; Ability 74A0 from Shadowcaster Zeless Gah
+    Timeout(id + 0x2C0, 6.4f, "Infern Well"); // t=12345.4; Ability 74A7 from Shadowcaster Zeless Gah; cactbot Ability 74A7 [Sildihn Shadowcaster Infern Wellw]
+    Timeout(id + 0x2D0, 9.899f, "Infern Well"); // t=12355.3; Ability 74AA from Infern Brand; cactbot Ability 74A7 [Sildihn Shadowcaster Infern Wellw]
+    Timeout(id + 0x2E0, 4.2f, "Cast Shadow 1"); // t=12359.5; Ability 749B from Shadowcaster Zeless Gah
+    Timeout(id + 0x2F0, 2.0f, "Cast Shadow 2"); // t=12361.5; Ability 749D from Shadowcaster Zeless Gah
+    Timeout(id + 0x300, 5.6f, "Show of Strength").SetHint(StateMachine.StateHint.Raidwide); // t=12367.1; Ability 74AE from Shadowcaster Zeless Gah; cactbot StartsUsing 74AE [Sildihn Shadowcaster Show of Strength]
+    Timeout(id + 0x310, 12.2f, "Infern Brand"); // t=12379.3
+    Timeout(id + 0x320, 7.101f, "Infern Well"); // t=12386.4; cactbot Ability 74A7 [Sildihn Shadowcaster Infern Wellw]
+}
+
+private void Thorne_Knight(uint id)
+{
+    Condition(id + 0x0, 11.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x70EB), "", 5f, 6.8f); // t=13011.8; StartsUsing 70EB from Thorne Knight; cactbot StartsUsing 70EB [Sildihn Thorne Cogwheel]
+    Timeout(id + 0x10, 5.0f, "Cogwheel").SetHint(StateMachine.StateHint.Raidwide); // t=13016.8; Ability 70EB from Thorne Knight; cactbot StartsUsing 70EB [Sildihn Thorne Cogwheel]
+    Timeout(id + 0x20, 13.5f, "Spring to Life"); // t=13030.3; Ability 70ED/70EE from Thorne Knight
+    Timeout(id + 0x30, 3.8f, "Magic Cannon"); // t=13034.1; Ability 70F7 from Magicked Puppet
+    Timeout(id + 0x40, 0.601f, "Amalj'aa Artillery"); // t=13034.7; Ability 70F8 from Amalj'aa Artillery Carriage
+    Timeout(id + 0x50, 17.8f, "Blistering Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=13052.5; Ability 70EA from Thorne Knight; cactbot StartsUsing 70EA [Sildihn Thorne Blistering Blow]
+    Timeout(id + 0x60, 12.1f, "Spring to Life"); // t=13064.6; Ability 70ED/70EE from Thorne Knight
+    Timeout(id + 0x70, 3.801f, "Magic Cannon"); // t=13068.4; Ability 70F7 from Magicked Puppet
+    Timeout(id + 0x80, 0.699f, "Amalj'aa Artillery"); // t=13069.1; Ability 70F8 from Amalj'aa Artillery Carriage
+    Timeout(id + 0x90, 6.0f, "Fore Honor"); // t=13075.1; Ability 70EC from Thorne Knight; cactbot StartsUsing 70EC [Sildihn Fore Honor]
+    Timeout(id + 0xA0, 15.7f, "Slashburn"); // t=13090.8; Ability 70EF/70F0/70F1/7102 from Thorne Knight; cactbot HeadMarker 16B [Sildihn Slashburn Reversed]
+    Timeout(id + 0xB0, 14.2f, "Signal Flare 1"); // t=13105.0
+    Timeout(id + 0xC0, 1.6f, "Signal Flare 2"); // t=13106.6
+    Timeout(id + 0xD0, 1.601f, "Signal Flare 3"); // t=13108.2
+    Timeout(id + 0xE0, 5.899f, "Blistering Blow").SetHint(StateMachine.StateHint.Tankbuster); // t=13114.1; Ability 70EA from Thorne Knight; cactbot StartsUsing 70EA [Sildihn Thorne Blistering Blow]
+    Timeout(id + 0xF0, 17.0f, "Slashburn"); // t=13131.1; Ability 70EF/70F0/70F1/7102 from Thorne Knight; cactbot HeadMarker 16B [Sildihn Slashburn Reversed]
+    Timeout(id + 0x100, 11.601f, "Blaze of Glory"); // t=13142.7; Ability 70F4 from Thorne Knight
+    Timeout(id + 0x110, 9.899f, "Spring to Life"); // t=13152.6; Ability 70ED/70EE from Thorne Knight
+    Timeout(id + 0x120, 3.7f, "Magic Cannon"); // t=13156.3; Ability 70F7 from Magicked Puppet
+    Timeout(id + 0x130, 0.7f, "Amalj'aa Artillery / Explosion"); // t=13157.0; Ability 70F8 from Amalj'aa Artillery Carriage | Ability 70FD from Ball of Fire
+    Timeout(id + 0x140, 12.2f, "Slashburn"); // t=13169.2; Ability 70EF/70F0/70F1/7102 from Thorne Knight; cactbot HeadMarker 16B [Sildihn Slashburn Reversed]
+    Timeout(id + 0x150, 9.5f, "Blaze of Glory"); // t=13178.7; Ability 70F4 from Thorne Knight
+    Timeout(id + 0x160, 14.399f, "Explosion / Slashburn"); // t=13193.1; Ability 70FD from Ball of Fire | Ability 70EF/70F0/70F1/7102 from Thorne Knight
+    Timeout(id + 0x170, 14.2f, "Signal Flare 1"); // t=13207.3
+    Timeout(id + 0x180, 1.601f, "Signal Flare 2"); // t=13208.9
+    Timeout(id + 0x190, 1.5f, "Signal Flare 3"); // t=13210.4
+    Timeout(id + 0x1A0, 3.899f, "Fore Honor"); // t=13214.3; Ability 70EC from Thorne Knight; cactbot StartsUsing 70EC [Sildihn Fore Honor]
+    Timeout(id + 0x1B0, 7.101f, "Cogwheel").SetHint(StateMachine.StateHint.Raidwide); // t=13221.4; Ability 70EB from Thorne Knight; cactbot StartsUsing 70EB [Sildihn Thorne Cogwheel]
+    Timeout(id + 0x1C0, 12.699f, "Blaze of Glory"); // t=13234.1; Ability 70F4 from Thorne Knight
+    Timeout(id + 0x1D0, 10.0f, "Spring to Life"); // t=13244.1; Ability 70ED/70EE from Thorne Knight
+    Timeout(id + 0x1E0, 3.801f, "Magic Cannon"); // t=13247.9; Ability 70F7 from Magicked Puppet
+    Timeout(id + 0x1F0, 0.6f, "Amalj'aa Artillery / Explosion"); // t=13248.5; Ability 70F8 from Amalj'aa Artillery Carriage | Ability 70FD from Ball of Fire
+    Timeout(id + 0x200, 4.7f, "Cogwheel").SetHint(StateMachine.StateHint.Raidwide); // t=13253.2; Ability 70EB from Thorne Knight; cactbot StartsUsing 70EB [Sildihn Thorne Cogwheel]
+    Timeout(id + 0x210, 12.6f, "Blaze of Glory"); // t=13265.8; Ability 70F4 from Thorne Knight
+    Timeout(id + 0x220, 14.5f, "Slashburn / Explosion"); // t=13280.3; Ability 70EF/70F0/70F1/7102 from Thorne Knight | Ability 70FD from Ball of Fire
+    Timeout(id + 0x230, 14.3f, "Signal Flare 1"); // t=13294.6
+    Timeout(id + 0x240, 1.601f, "Signal Flare 2"); // t=13296.2
+    Timeout(id + 0x250, 1.5f, "Signal Flare 3"); // t=13297.7
+    Timeout(id + 0x260, 3.899f, "Fore Honor"); // t=13301.6; Ability 70EC from Thorne Knight; cactbot StartsUsing 70EC [Sildihn Fore Honor]
+    Timeout(id + 0x270, 7.2f, "Cogwheel").SetHint(StateMachine.StateHint.Raidwide); // t=13308.8; Ability 70EB from Thorne Knight; cactbot StartsUsing 70EB [Sildihn Thorne Cogwheel]
+    Timeout(id + 0x280, 12.7f, "Blaze of Glory"); // t=13321.5
+    Timeout(id + 0x290, 10.0f, "Spring to Life"); // t=13331.5
+    Timeout(id + 0x2A0, 3.8f, "Magic Cannon"); // t=13335.3
+    Timeout(id + 0x2B0, 0.601f, "Amalj'aa Artillery / Explosion"); // t=13335.9
+}
+

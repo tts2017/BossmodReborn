@@ -1,0 +1,96 @@
+// Generated development skeleton from fractal_continuum_hard.txt (TerritoryType 743).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 22 static/dynamic trigger definitions from ui/raidboss/data/04-sb/dungeon/fractal_continuum_hard.ts.
+
+private void FRACTAL_CONTINUUM__HARD(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 10.1f, "Electrochemical Transfer"); // t=10.1; Ability 27A4 from Motherbit
+    Timeout(id + 0x20, 8.7f, "Aetherochemical Laser"); // t=18.8
+    Timeout(id + 0x30, 1.3f, "Diffractive Laser"); // t=20.1; Ability 27A8 from Prototype Bit
+    Timeout(id + 0x40, 2.7f, "Aetherochemical Laser"); // t=22.8
+    Timeout(id + 0x50, 7.0f, "Allagan Gravity"); // t=29.8; Ability 27A6 from Motherbit; cactbot StartsUsing 27B5 [Fractal Hard Allagan Gravity]
+    Timeout(id + 0x60, 8.1f, "Electrochemical Transfer"); // t=37.9; Ability 27A4 from Motherbit
+    Timeout(id + 0x70, 16.3f, "Citadel Buster"); // t=54.2; Ability 27A5 from Motherbit; cactbot StartsUsing 27A5 [Fractal Hard Citadel Buster Motherbit]
+    Timeout(id + 0x80, 23.7f, "Electrochemical Transfer"); // t=77.9; Ability 27A4 from Motherbit
+    Timeout(id + 0x90, 8.7f, "Aetherochemical Laser"); // t=86.6
+    Timeout(id + 0xA0, 1.3f, "Diffractive Laser"); // t=87.9
+    Timeout(id + 0xB0, 2.7f, "Aetherochemical Laser"); // t=90.6
+    Timeout(id + 0xC0, 7.0f, "Allagan Gravity"); // t=97.6; cactbot StartsUsing 27B5 [Fractal Hard Allagan Gravity]
+    Timeout(id + 0xD0, 8.1f, "Electrochemical Transfer"); // t=105.7
+    Timeout(id + 0xE0, 894.3f, "Start"); // t=1000.0
+    Timeout(id + 0xF0, 8.5f, "Aetheroplasm").SetHint(StateMachine.StateHint.Tankbuster); // t=1008.5; Ability 2793 from The Ultima Warrior; cactbot StartsUsing 2793 [Fractal Hard Aetheroplasm]
+    Timeout(id + 0x100, 10.4f, "Citadel Buster"); // t=1018.9; Ability 2792 from The Ultima Warrior; cactbot StartsUsing 2792 [Fractal Hard Citadel Buster Warrior]
+    Timeout(id + 0x110, 10.9f, "Ceruleum Vent").SetHint(StateMachine.StateHint.Knockback); // t=1029.8; Ability 2794 from The Ultima Warrior; cactbot StartsUsing 2794 [Fractal Hard Ceruleum Vent]
+    Timeout(id + 0x120, 12.2f, "Aetheroplasm").SetHint(StateMachine.StateHint.Tankbuster); // t=1042.0; Ability 2793 from The Ultima Warrior; cactbot StartsUsing 2793 [Fractal Hard Aetheroplasm]
+    Timeout(id + 0x130, 18.9f, "Primordial Aether"); // t=1060.9
+    Timeout(id + 0x140, 1.1f, "Ceruleum Vent?"); // t=1062.0; cactbot StartsUsing 2794 [Fractal Hard Ceruleum Vent]
+    Timeout(id + 0x150, 1.5f, "Infinite Fire/Infinite Ice?"); // t=1063.5
+    Timeout(id + 0x160, 8.0f, "Ceruleum Vent?"); // t=1071.5; cactbot StartsUsing 2794 [Fractal Hard Ceruleum Vent]
+    Timeout(id + 0x170, 1.0f, "Citadel Buster?"); // t=1072.5
+    Timeout(id + 0x180, 1.0f, "Ratzon?"); // t=1073.5; cactbot HeadMarker 46 [Fractal Hard Ratzon]
+    Timeout(id + 0x190, 5.1f, "Citadel Buster?"); // t=1078.6
+    Timeout(id + 0x1A0, 28.9f, "Primordial Aether"); // t=1107.5; Ability 2796 from The Ultima Warrior
+    Timeout(id + 0x1B0, 11.6f, "Citadel Buster"); // t=1119.1; Ability 2792 from The Ultima Warrior; cactbot StartsUsing 2792 [Fractal Hard Citadel Buster Warrior]
+    Timeout(id + 0x1C0, 1.0f, "Ratzon"); // t=1120.1; Ability 2797 from The Ultima Warrior; cactbot HeadMarker 46 [Fractal Hard Ratzon]
+    Timeout(id + 0x1D0, 5.1f, "Citadel Buster"); // t=1125.2; Ability 2792 from The Ultima Warrior; cactbot StartsUsing 2792 [Fractal Hard Citadel Buster Warrior]
+    Timeout(id + 0x1E0, 14.0f, "Mass Aetheroplasm"); // t=1139.2; Ability 2795 from The Ultima Warrior; cactbot HeadMarker 3E [Fractal Hard Mass Aetheroplasm]
+    Timeout(id + 0x1F0, 10.5f, "Aetheroplasm").SetHint(StateMachine.StateHint.Tankbuster); // t=1149.7; Ability 2793 from The Ultima Warrior; cactbot StartsUsing 2793 [Fractal Hard Aetheroplasm]
+    Timeout(id + 0x200, 12.6f, "Primordial Aether"); // t=1162.3
+    Timeout(id + 0x210, 1.1f, "Ceruleum Vent?"); // t=1163.4; cactbot StartsUsing 2794 [Fractal Hard Ceruleum Vent]
+    Timeout(id + 0x220, 1.5f, "Infinite Fire/Infinite Ice?"); // t=1164.9
+    Timeout(id + 0x230, 8.0f, "Ceruleum Vent?"); // t=1172.9; cactbot StartsUsing 2794 [Fractal Hard Ceruleum Vent]
+    Timeout(id + 0x240, 1.0f, "Citadel Buster?"); // t=1173.9
+    Timeout(id + 0x250, 1.0f, "Ratzon?"); // t=1174.9; cactbot HeadMarker 46 [Fractal Hard Ratzon]
+    Timeout(id + 0x260, 5.1f, "Citadel Buster?"); // t=1180.0
+    Timeout(id + 0x270, 27.5f, "Primordial Aether"); // t=1207.5; Ability 2796 from The Ultima Warrior
+    Timeout(id + 0x280, 10.6f, "Ceruleum Vent").SetHint(StateMachine.StateHint.Knockback); // t=1218.1; Ability 2794 from The Ultima Warrior; cactbot StartsUsing 2794 [Fractal Hard Ceruleum Vent]
+    Timeout(id + 0x290, 7.2f, "Citadel Buster"); // t=1225.3; Ability 2792 from The Ultima Warrior; cactbot StartsUsing 2792 [Fractal Hard Citadel Buster Warrior]
+    Timeout(id + 0x2A0, 1.0f, "Dischordant Cleansing"); // t=1226.3; Ability 279C from The Ultima Warrior
+    Timeout(id + 0x2B0, 5.1f, "Citadel Buster"); // t=1231.4; Ability 2792 from The Ultima Warrior; cactbot StartsUsing 2792 [Fractal Hard Citadel Buster Warrior]
+    Timeout(id + 0x2C0, 0.9f, "Dischordant Cleansing"); // t=1232.3; Ability 279A from The Ultima Warrior
+    Timeout(id + 0x2D0, 10.0f, "Aetheroplasm").SetHint(StateMachine.StateHint.Tankbuster); // t=1242.3; Ability 2793 from The Ultima Warrior; cactbot StartsUsing 2793 [Fractal Hard Aetheroplasm]
+    Timeout(id + 0x2E0, 13.7f, "Primordial Aether"); // t=1256.0
+    Timeout(id + 0x2F0, 1.1f, "Ceruleum Vent?"); // t=1257.1; cactbot StartsUsing 2794 [Fractal Hard Ceruleum Vent]
+    Timeout(id + 0x300, 1.5f, "Infinite Fire/Infinite Ice?"); // t=1258.6
+    Timeout(id + 0x310, 8.0f, "Ceruleum Vent?"); // t=1266.6; cactbot StartsUsing 2794 [Fractal Hard Ceruleum Vent]
+    Timeout(id + 0x320, 1.0f, "Citadel Buster?"); // t=1267.6
+    Timeout(id + 0x330, 1.0f, "Ratzon?"); // t=1268.6; cactbot HeadMarker 46 [Fractal Hard Ratzon]
+    Timeout(id + 0x340, 5.1f, "Citadel Buster?"); // t=1273.7
+    Timeout(id + 0x350, 34.8f, "Primordial Aether"); // t=1308.5; Ability 2796 from The Ultima Warrior
+    Timeout(id + 0x360, 2.6f, "Infinite Fire/Infinite Ice"); // t=1311.1
+    Timeout(id + 0x370, 8.0f, "Ceruleum Vent").SetHint(StateMachine.StateHint.Knockback); // t=1319.1; Ability 2794 from The Ultima Warrior; cactbot StartsUsing 2794 [Fractal Hard Ceruleum Vent]
+    Timeout(id + 0x380, 11.2f, "Northern Star/Southern Star"); // t=1330.3
+    Timeout(id + 0x390, 6.1f, "Mass Aetheroplasm"); // t=1336.4; Ability 2795 from The Ultima Warrior; cactbot HeadMarker 3E [Fractal Hard Mass Aetheroplasm]
+    Timeout(id + 0x3A0, 6.6f, "Citadel Buster"); // t=1343.0; Ability 2792 from The Ultima Warrior; cactbot StartsUsing 2792 [Fractal Hard Citadel Buster Warrior]
+    Timeout(id + 0x3B0, 11.0f, "Aetheroplasm").SetHint(StateMachine.StateHint.Tankbuster); // t=1354.0; Ability 2793 from The Ultima Warrior; cactbot StartsUsing 2793 [Fractal Hard Aetheroplasm]
+    Timeout(id + 0x3C0, 19.0f, "Primordial Aether"); // t=1373.0
+    Timeout(id + 0x3D0, 1.1f, "Ceruleum Vent?"); // t=1374.1; cactbot StartsUsing 2794 [Fractal Hard Ceruleum Vent]
+    Timeout(id + 0x3E0, 1.5f, "Infinite Fire/Infinite Ice?"); // t=1375.6
+    Timeout(id + 0x3F0, 8.0f, "Ceruleum Vent?"); // t=1383.6; cactbot StartsUsing 2794 [Fractal Hard Ceruleum Vent]
+    Timeout(id + 0x400, 1.0f, "Citadel Buster?"); // t=1384.6
+    Timeout(id + 0x410, 1.0f, "Ratzon?"); // t=1385.6; cactbot HeadMarker 46 [Fractal Hard Ratzon]
+    Timeout(id + 0x420, 5.1f, "Citadel Buster?"); // t=1390.7
+    Timeout(id + 0x430, 609.3f, "Start"); // t=2000.0
+    Timeout(id + 0x440, 12.0f, "Death Spin"); // t=2012.0; Ability 27AD from The Ultima Beast; cactbot StartsUsing 27AD/27AE [Fractal Hard Death Spin]
+    Timeout(id + 0x450, 13.6f, "Aether Bend"); // t=2025.6; Ability 27AF from The Ultima Beast; cactbot StartsUsing 27AF/27B0 [Fractal Hard Aether Bend]
+    Timeout(id + 0x460, 18.5f, "Flare Star"); // t=2044.1; Ability 27BD from The Ultima Beast
+    Timeout(id + 0x470, 0.2f, "Allagan Gravity"); // t=2044.3; Ability 27B5 from The Ultima Beast; cactbot StartsUsing 27B5 [Fractal Hard Allagan Gravity]
+    Timeout(id + 0x480, 13.6f, "Light Pillar"); // t=2057.9; Ability 27B7 from The Ultima Beast
+    Timeout(id + 0x490, 18.6f, "Forborn Beast"); // t=2076.5; Ability 27B1 from The Ultima Beast
+    Timeout(id + 0x4A0, 8.5f, "Demi Ultima").SetHint(StateMachine.StateHint.Raidwide); // t=2085.0; Ability 27B2 from The Ultima Beast; cactbot StartsUsing 27B2 [Fractal Hard Demi Ultima]
+    Timeout(id + 0x4B0, 17.9f, "Aether Bend/Death Spin"); // t=2102.9
+    Timeout(id + 0x4C0, 12.5f, "Allagan Flare"); // t=2115.4; Ability 27B8 from The Ultima Beast; cactbot HeadMarker 57 [Fractal Hard Allagan Flare]
+    Timeout(id + 0x4D0, 21.5f, "Flare Star"); // t=2136.9; Ability 27BD from The Ultima Beast
+    Timeout(id + 0x4E0, 6.6f, "Allagan Flare"); // t=2143.5; Ability 27B8 from The Ultima Beast; cactbot HeadMarker 57 [Fractal Hard Allagan Flare]
+    Timeout(id + 0x4F0, 14.6f, "Aether Bend/Death Spin"); // t=2158.1
+    Timeout(id + 0x500, 10.6f, "Light Pillar"); // t=2168.7; Ability 27B7 from The Ultima Beast
+    Timeout(id + 0x510, 8.0f, "Allagan Gravity"); // t=2176.7; Ability 27B5 from The Ultima Beast; cactbot StartsUsing 27B5 [Fractal Hard Allagan Gravity]
+    Timeout(id + 0x520, 28.4f, "Flare Star"); // t=2205.1
+    Timeout(id + 0x530, 6.6f, "Allagan Flare"); // t=2211.7; cactbot HeadMarker 57 [Fractal Hard Allagan Flare]
+    Timeout(id + 0x540, 14.6f, "Aether Bend/Death Spin"); // t=2226.3
+    Condition(id + 0x550, 773.7f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x27B3), "", 5f, 768.7f); // t=3000.0; StartsUsing 27B3 from The Ultima Beast
+    Timeout(id + 0x560, 39.7f, "Demi Ultima (Enrage)"); // t=3039.7; Ability 27B3 from The Ultima Beast
+}
+

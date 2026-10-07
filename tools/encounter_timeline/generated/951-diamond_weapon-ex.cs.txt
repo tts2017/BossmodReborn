@@ -1,0 +1,118 @@
+// Generated development skeleton from diamond_weapon-ex.txt (TerritoryType 951).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 20 static/dynamic trigger definitions from ui/raidboss/data/05-shb/trial/diamond_weapon-ex.ts.
+
+private void Phase_1(uint id)
+{
+    Condition(id + 0x0, 16.3f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x5FA7), "", 5f, 11.3f); // t=16.3; StartsUsing 5FA7 from The Diamond Weapon; cactbot StartsUsing 5FA7 [DiamondEx Diamond Rain]
+    Timeout(id + 0x10, 5.0f, "Diamond Rain").SetHint(StateMachine.StateHint.Raidwide); // t=21.3; Ability 5FA7 from The Diamond Weapon; cactbot StartsUsing 5FA7 [DiamondEx Diamond Rain]
+    Timeout(id + 0x20, 15.2f, "Adamant Purge"); // t=36.5
+    Timeout(id + 0x30, 10.2f, "Claw Swipe"); // t=46.7
+    Timeout(id + 0x40, 3.2f, "Homing Laser/Diamond Flash"); // t=49.9
+    Timeout(id + 0x50, 17.2f, "Photon Burst"); // t=67.1; Ability 5FA8 from The Diamond Weapon; cactbot StartsUsing 5FA8 [DiamondEx Photon Burst]
+    Timeout(id + 0x60, 16.3f, "Adamant Purge"); // t=83.4
+    Timeout(id + 0x70, 10.2f, "Claw Swipe"); // t=93.6
+    Timeout(id + 0x80, 11.2f, "Diamond Rain").SetHint(StateMachine.StateHint.Raidwide); // t=104.8; Ability 5FA7 from The Diamond Weapon; cactbot StartsUsing 5FA7 [DiamondEx Diamond Rain]
+    Timeout(id + 0x90, 15.2f, "Adamant Purge"); // t=120.0
+    Timeout(id + 0xA0, 10.2f, "Claw Swipe"); // t=130.2
+    Timeout(id + 0xB0, 3.5f, "Homing Laser/Diamond Flash"); // t=133.7
+    Timeout(id + 0xC0, 17.7f, "Photon Burst"); // t=151.4; Ability 5FA8 from The Diamond Weapon; cactbot StartsUsing 5FA8 [DiamondEx Photon Burst]
+}
+
+private void Phase_transition(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Code Chi-Xi-Stigma"); // t=167.7; Ability 5FAD from The Diamond Weapon; cactbot StartsUsing 5FAD [DiamondEx Code Chi-Xi-Stigma]
+    Targetable(id + 0x10, false, 0.3f, "--untargetable--"); // t=168.0
+    Timeout(id + 0x20, 15.3f, "Auri Cyclone"); // t=183.3; Ability 5FB9 from The Diamond Weapon
+    Timeout(id + 0x30, 4.7f, "Diamond Shot"); // t=188.0; Ability 5FC0 from Articulated Bit
+}
+
+private void Phase_2(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=197.8
+    Timeout(id + 0x10, 12.2f, "Outrage").SetHint(StateMachine.StateHint.Raidwide); // t=210.0; Ability 5FBC from The Diamond Weapon; cactbot StartsUsing 5FBC [DiamondEx Outrage]
+    Timeout(id + 0x20, 8.2f, "Outrage").SetHint(StateMachine.StateHint.Raidwide); // t=218.2; Ability 5FBC from The Diamond Weapon; cactbot StartsUsing 5FBC [DiamondEx Outrage]
+    Timeout(id + 0x30, 11.4f, "Auri Arts (Z)"); // t=229.6; Ability 5FAF/5FF8 from The Diamond Weapon; cactbot StartsUsing 5FAF [DiamondEx P2 Zig-Zag]
+    Targetable(id + 0x40, false, 0.0f, "--untargetable--"); // t=229.6
+    Timeout(id + 0x50, 6.8f, "Auri Arts (Jump)"); // t=236.4; Ability 5FB2 from The Diamond Weapon; cactbot StartsUsing 5FB2 [DiamondEx P2 Zig-Zag Jump]
+    Targetable(id + 0x60, true, 4.6f, "--targetable--"); // t=241.0
+    Timeout(id + 0x70, 9.4f, "Outrage").SetHint(StateMachine.StateHint.Raidwide); // t=250.4; Ability 5FBC from The Diamond Weapon; cactbot StartsUsing 5FBC [DiamondEx Outrage]
+    Timeout(id + 0x80, 7.2f, "Auri Doomstead").SetHint(StateMachine.StateHint.Tankbuster); // t=257.6; Ability 5FBD from The Diamond Weapon; cactbot StartsUsing 5FBD [DiamondEx Auri Doomstead]
+    Targetable(id + 0x90, false, 7.9f, "--untargetable--"); // t=265.5
+    Timeout(id + 0xA0, 6.3f, "Auri Arts (Cleave)?"); // t=271.8; Ability 5FB5 from The Diamond Weapon; cactbot StartsUsing 5FB5 [DiamondEx P2 North/South Jump]
+    Timeout(id + 0xB0, 1.0f, "Auri Arts (Jump)"); // t=272.8; Ability 5FCF from The Diamond Weapon
+    Targetable(id + 0xC0, true, 0.0f, "--targetable--"); // t=272.8
+    Timeout(id + 0xD0, 5.9f, "Vertical Cleave"); // t=278.7; Ability 5FD0 from The Diamond Weapon; cactbot StartsUsing 5FB7 [DiamondEx P2 Vertical Cleave]
+    Timeout(id + 0xE0, 12.4f, "Outrage").SetHint(StateMachine.StateHint.Raidwide); // t=291.1; Ability 5FBC from The Diamond Weapon; cactbot StartsUsing 5FBC [DiamondEx Outrage]
+    Timeout(id + 0xF0, 10.2f, "Articulated Bits"); // t=301.3; Ability 5FC1 from The Diamond Weapon; cactbot StartsUsing 5FC1 [DiamondEx P2 Articulated Bits]
+    Timeout(id + 0x100, 11.1f, "Aetherial Bullet"); // t=312.4; Ability 5FAB from Articulated Bit
+    Timeout(id + 0x110, 0.5f, "Auri Arts (Z)"); // t=312.9; Ability 5FAF/5FF8 from The Diamond Weapon; cactbot StartsUsing 5FAF [DiamondEx P2 Zig-Zag]
+    Targetable(id + 0x120, false, 0.0f, "--untargetable--"); // t=312.9
+    Timeout(id + 0x130, 6.8f, "Auri Arts (Jump)"); // t=319.7; Ability 5FB2 from The Diamond Weapon; cactbot StartsUsing 5FB2 [DiamondEx P2 Zig-Zag Jump]
+    Timeout(id + 0x140, 0.7f, "Aetherial Bullet"); // t=320.4; Ability 5FAB from Articulated Bit
+    Targetable(id + 0x150, true, 3.8f, "--targetable--"); // t=324.2
+    Timeout(id + 0x160, 9.5f, "Outrage").SetHint(StateMachine.StateHint.Raidwide); // t=333.7; Ability 5FBC from The Diamond Weapon; cactbot StartsUsing 5FBC [DiamondEx Outrage]
+    Timeout(id + 0x170, 7.2f, "Auri Doomstead").SetHint(StateMachine.StateHint.Tankbuster); // t=340.9; Ability 5FBD from The Diamond Weapon; cactbot StartsUsing 5FBD [DiamondEx Auri Doomstead]
+    Timeout(id + 0x180, 12.2f, "Articulated Bits"); // t=353.1; Ability 5FC1 from The Diamond Weapon; cactbot StartsUsing 5FC1 [DiamondEx P2 Articulated Bits]
+    Targetable(id + 0x190, false, 2.6f, "--untargetable--"); // t=355.7
+    Timeout(id + 0x1A0, 5.0f, "Aetherial Bullet"); // t=360.7; Ability 5FAB from Articulated Bit
+    Timeout(id + 0x1B0, 1.5f, "Auri Arts (Cleave)?"); // t=362.2; Ability 5FB5 from The Diamond Weapon; cactbot StartsUsing 5FB5 [DiamondEx P2 North/South Jump]
+    Targetable(id + 0x1C0, true, 1.8f, "--targetable--"); // t=364.0
+    Timeout(id + 0x1D0, 0.0f, "Auri Arts (Jump)"); // t=364.0; Ability 5FCF from The Diamond Weapon
+    Timeout(id + 0x1E0, 5.9f, "Vertical Cleave"); // t=369.9; Ability 5FD0 from The Diamond Weapon; cactbot StartsUsing 5FB7 [DiamondEx P2 Vertical Cleave]
+    Timeout(id + 0x1F0, 0.8f, "Aetherial Bullet"); // t=370.7; Ability 5FAB from Articulated Bit
+    Timeout(id + 0x200, 11.7f, "Outrage").SetHint(StateMachine.StateHint.Raidwide); // t=382.4; Ability 5FBC from The Diamond Weapon; cactbot StartsUsing 5FBC [DiamondEx Outrage]
+    Targetable(id + 0x210, false, 5.6f, "--untargetable--"); // t=388.0
+}
+
+private void Phase_3(uint id)
+{
+    Targetable(id + 0x0, true, 0.0f, "--targetable--"); // t=397.9
+    Timeout(id + 0x10, 24.8f, "Flood Ray 1"); // t=422.7
+    Timeout(id + 0x20, 1.5f, "Flood Ray 2"); // t=424.2
+    Timeout(id + 0x30, 1.5f, "Flood Ray 3"); // t=425.7
+    Timeout(id + 0x40, 1.5f, "Flood Ray 4"); // t=427.2
+    Timeout(id + 0x50, 1.5f, "Flood Ray 5"); // t=428.7
+    Timeout(id + 0x60, 1.5f, "Flood Ray 6"); // t=430.2
+    Timeout(id + 0x70, 1.5f, "Flood Ray 7"); // t=431.7
+    Timeout(id + 0x80, 1.5f, "Flood Ray 8"); // t=433.2
+    Timeout(id + 0x90, 17.5f, "Photon Burst"); // t=450.7; Ability 5FA8 from The Diamond Weapon; cactbot StartsUsing 5FA8 [DiamondEx Photon Burst]
+    Timeout(id + 0xA0, 19.3f, "Articulated Bits"); // t=470.0; Ability 5FA9 from The Diamond Weapon; cactbot StartsUsing 5FA9 [DiamondEx P3 Articulated Bits]
+    Timeout(id + 0xB0, 7.1f, "Adamant Purge"); // t=477.1
+    Timeout(id + 0xC0, 4.5f, "Aetherial Bullet"); // t=481.6; Ability 5FAB from Articulated Bit
+    Timeout(id + 0xD0, 4.6f, "Claw Swipe"); // t=486.2
+    Timeout(id + 0xE0, 3.5f, "Homing Laser/Diamond Flash"); // t=489.7
+    Timeout(id + 0xF0, 0.9f, "Aetherial Bullet"); // t=490.6; Ability 5FAB from Articulated Bit
+    Timeout(id + 0x100, 10.7f, "Diamond Rain").SetHint(StateMachine.StateHint.Raidwide); // t=501.3; Ability 5FA7 from The Diamond Weapon; cactbot StartsUsing 5FA7 [DiamondEx Diamond Rain]
+    Timeout(id + 0x110, 15.2f, "Articulated Bits"); // t=516.5; Ability 5FA9 from The Diamond Weapon; cactbot StartsUsing 5FA9 [DiamondEx P3 Articulated Bits]
+    Timeout(id + 0x120, 7.1f, "Diamond Shrapnel"); // t=523.6; Ability 5FAC from The Diamond Weapon; cactbot StartsUsing 5FAC [DiamondEx Diamond Shrapnel] | StartsUsing 5FAC [DiamondEx Burst]
+    Timeout(id + 0x130, 4.5f, "Aetherial Bullet"); // t=528.1; Ability 5FAB from Articulated Bit
+    Timeout(id + 0x140, 9.0f, "Aetherial Bullet"); // t=537.1; Ability 5FAB from Articulated Bit
+    Timeout(id + 0x150, 4.4f, "Burst"); // t=541.5
+    Timeout(id + 0x160, 5.3f, "Photon Burst"); // t=546.8; Ability 5FA8 from The Diamond Weapon; cactbot StartsUsing 5FA8 [DiamondEx Photon Burst]
+    Timeout(id + 0x170, 19.3f, "Articulated Bits"); // t=566.1; Ability 5FA9 from The Diamond Weapon; cactbot StartsUsing 5FA9 [DiamondEx P3 Articulated Bits]
+    Timeout(id + 0x180, 7.1f, "Adamant Purge"); // t=573.2
+    Timeout(id + 0x190, 4.5f, "Aetherial Bullet"); // t=577.7; Ability 5FAB from Articulated Bit
+    Timeout(id + 0x1A0, 5.7f, "Claw Swipe"); // t=583.4
+    Timeout(id + 0x1B0, 3.4f, "Aetherial Bullet"); // t=586.8; Ability 5FAB from Articulated Bit
+    Timeout(id + 0x1C0, 11.0f, "Diamond Rain").SetHint(StateMachine.StateHint.Raidwide); // t=597.8; Ability 5FA7 from The Diamond Weapon; cactbot StartsUsing 5FA7 [DiamondEx Diamond Rain]
+    Timeout(id + 0x1D0, 23.3f, "Flood Ray 1"); // t=621.1
+    Timeout(id + 0x1E0, 1.5f, "Flood Ray 2"); // t=622.6
+    Timeout(id + 0x1F0, 1.5f, "Flood Ray 3"); // t=624.1
+    Timeout(id + 0x200, 1.5f, "Flood Ray 4"); // t=625.6
+    Timeout(id + 0x210, 1.5f, "Flood Ray 5"); // t=627.1
+    Timeout(id + 0x220, 1.5f, "Flood Ray 6"); // t=628.6
+    Timeout(id + 0x230, 1.5f, "Flood Ray 7"); // t=630.1
+    Timeout(id + 0x240, 1.5f, "Flood Ray 8"); // t=631.6
+    Timeout(id + 0x250, 17.6f, "Photon Burst"); // t=649.2; Ability 5FA8 from The Diamond Weapon; cactbot StartsUsing 5FA8 [DiamondEx Photon Burst]
+    Timeout(id + 0x260, 19.3f, "Articulated Bits"); // t=668.5; Ability 5FA9 from The Diamond Weapon; cactbot StartsUsing 5FA9 [DiamondEx P3 Articulated Bits]
+    Timeout(id + 0x270, 7.1f, "Adamant Purge"); // t=675.6
+    Timeout(id + 0x280, 4.5f, "Aetherial Bullet"); // t=680.1; Ability 5FAB from Articulated Bit
+    Timeout(id + 0x290, 5.7f, "Claw Swipe"); // t=685.8
+    Timeout(id + 0x2A0, 3.2f, "Homing Laser/Diamond Flash"); // t=689.0
+    Timeout(id + 0x2B0, 0.2f, "Aetherial Bullet"); // t=689.2; Ability 5FAB from Articulated Bit
+    Timeout(id + 0x2C0, 11.0f, "Diamond Rain").SetHint(StateMachine.StateHint.Raidwide); // t=700.2; Ability 5FA7 from The Diamond Weapon; cactbot StartsUsing 5FA7 [DiamondEx Diamond Rain]
+    Timeout(id + 0x2D0, 18.4f, "Flood Ray (Enrage)"); // t=718.6; Ability 5FEE from The Diamond Weapon
+}
+

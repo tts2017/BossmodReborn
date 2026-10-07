@@ -1,0 +1,214 @@
+// Generated development skeleton from thaleia.txt (TerritoryType 1178).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 53 static/dynamic trigger definitions from ui/raidboss/data/06-ew/alliance/thaleia.ts.
+
+private void Phase_1(uint id)
+{
+    Timeout(id + 0x0, 4.0f, "Sudden Downpour").SetHint(StateMachine.StateHint.Raidwide); // t=3014.0; Ability 8999 from Oschon; cactbot StartsUsing 8999/899A [Thaleia Oschon Sudden Downpour]
+    Timeout(id + 0x10, 4.1f, "--middle--"); // t=3018.1; Ability 8998 from Oschon
+    Timeout(id + 0x20, 10.8f, "Trek Shot"); // t=3028.9; Ability 8C44 from Oschon; cactbot StartsUsing 898E [Thaleia Oschon Trek Shot]
+    Timeout(id + 0x30, 4.7f, "--middle--"); // t=3033.6; Ability 8998 from Oschon
+    Timeout(id + 0x40, 4.1f, "Reproduce"); // t=3037.7; Ability 8989 from Oschon; cactbot StartsUsing 8989 [Thaleia Oschon Reproduce]
+    Timeout(id + 0x50, 16.1f, "Swinging Draw"); // t=3053.8; Ability 898C from Oschon's Avatar
+    Timeout(id + 0x60, 1.1f, "--middle--"); // t=3054.9; Ability 8998 from Oschon
+    Timeout(id + 0x70, 4.3f, "Reproduce"); // t=3059.2; Ability 8989 from Oschon; cactbot StartsUsing 8989 [Thaleia Oschon Reproduce]
+    Timeout(id + 0x80, 16.1f, "Swinging Draw x2"); // t=3075.3; Ability 898C from Oschon's Avatar
+    Timeout(id + 0x90, 1.1f, "--middle--"); // t=3076.4; Ability 8998 from Oschon
+    Timeout(id + 0xA0, 5.6f, "Flinted Foehn x6"); // t=3082.0; Ability 89A3 from Oschon
+    Timeout(id + 0xB0, 12.2f, "Soaring Minuet"); // t=3094.2; Ability 8D0E from Oschon; cactbot StartsUsing 8D0E/8994 [Thaleia Oschon Soaring Minuet]
+    Timeout(id + 0xC0, 7.1f, "The Arrow"); // t=3101.3; Ability 899B from Oschon; cactbot HeadMarker 158/1F4 [Thaleia Oschon The Arrow / Eulogia Sunbeam]
+    Timeout(id + 0xD0, 8.1f, "Reproduce"); // t=3109.4; Ability 8989 from Oschon; cactbot StartsUsing 8989 [Thaleia Oschon Reproduce]
+    Timeout(id + 0xE0, 16.1f, "Swinging Draw x2"); // t=3125.5; Ability 898C from Oschon's Avatar
+    Timeout(id + 0xF0, 4.0f, "Sudden Downpour").SetHint(StateMachine.StateHint.Raidwide); // t=3129.5; Ability 8999 from Oschon; cactbot StartsUsing 8999/899A [Thaleia Oschon Sudden Downpour]
+    Timeout(id + 0x100, 4.1f, "--middle--"); // t=3133.6; Ability 8998 from Oschon
+    Timeout(id + 0x110, 4.3f, "Downhill (cast)"); // t=3137.9; Ability 899F from Oschon
+    Timeout(id + 0x120, 7.1f, "Climbing Shot"); // t=3145.0; Ability 8990/8991/8992/8993 from Oschon; cactbot StartsUsing 8990/8991/8992/8993 [Thaleia Oschon Climbing Shot]
+    Timeout(id + 0x130, 1.8f, "Downhill"); // t=3146.8; Ability 89A1 from Oschon
+    Timeout(id + 0x140, 6.3f, "Soaring Minuet"); // t=3153.1; Ability 8994 from Oschon; cactbot StartsUsing 8D0E/8994 [Thaleia Oschon Soaring Minuet]
+    Timeout(id + 0x150, 7.7f, "Flinted Foehn x6"); // t=3160.8; Ability 89A3 from Oschon
+    Timeout(id + 0x160, 16.9f, "Trek Shot"); // t=3177.7; Ability 898F/8C44 from Oschon; cactbot StartsUsing 898E [Thaleia Oschon Trek Shot]
+    Timeout(id + 0x170, 6.7f, "Sudden Downpour 1").SetHint(StateMachine.StateHint.Raidwide); // t=3184.4; Ability 8999 from Oschon; cactbot StartsUsing 8999/899A [Thaleia Oschon Sudden Downpour]
+    Timeout(id + 0x180, 6.1f, "Sudden Downpour 2").SetHint(StateMachine.StateHint.Raidwide); // t=3190.5; Ability 8999 from Oschon; cactbot StartsUsing 8999/899A [Thaleia Oschon Sudden Downpour]
+    Timeout(id + 0x190, 7.2f, "--middle--"); // t=3197.7; Ability 8998 from Oschon
+    Timeout(id + 0x1A0, 4.3f, "Reproduce"); // t=3202.0; Ability 8989 from Oschon; cactbot StartsUsing 8989 [Thaleia Oschon Reproduce]
+    Timeout(id + 0x1B0, 291.6f, "--middle--"); // t=3493.6; Ability 8998 from Oschon
+    Condition(id + 0x1C0, 6.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x89A7), "", 5f, 1.4f); // t=3500.0; StartsUsing 89A7 from Oschon; cactbot StartsUsing 89A7 [Thaleia Oschon Lofty Peaks]
+    Timeout(id + 0x1D0, 5.0f, "Lofty Peaks"); // t=3505.0; Ability 89A7 from Oschon; cactbot StartsUsing 89A7 [Thaleia Oschon Lofty Peaks]
+    Targetable(id + 0x1E0, false, 0.0f, "--untargetable--"); // t=3505.0
+    Timeout(id + 0x1F0, 1.0f, "Moving Mountains 1"); // t=3506.0
+    Timeout(id + 0x200, 1.6f, "Moving Mountains 2"); // t=3507.6
+    Timeout(id + 0x210, 1.6f, "Moving Mountains 3"); // t=3509.2
+    Timeout(id + 0x220, 3.9f, "Peak Peril"); // t=3513.1; Ability 8CE4 from Oschon
+    Timeout(id + 0x230, 15.8f, "Shockwave"); // t=3528.9; Ability 89A8 from Oschon
+    Targetable(id + 0x240, true, 2.0f, "--targetable--"); // t=3530.9
+}
+
+private void Phase_2(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Piton Pull 1"); // t=3544.0; Ability 89A9/89AA from Oschon; cactbot StartsUsing 89A9 [Thaleia Oschon Piton Pull NE/SW] | StartsUsing 89AA [Thaleia Oschon Piton Pull NW/SE]
+    Timeout(id + 0x10, 12.1f, "Piton Pull 2"); // t=3556.1; Ability 89A9/89AA from Oschon; cactbot StartsUsing 89A9 [Thaleia Oschon Piton Pull NE/SW] | StartsUsing 89AA [Thaleia Oschon Piton Pull NW/SE]
+    Timeout(id + 0x20, 12.1f, "Altitude"); // t=3568.2; Ability 89AF from Oschon; cactbot StartsUsing 89AF [Thaleia Oschon Altitude]
+    Timeout(id + 0x30, 10.7f, "Flinted Foehn x6"); // t=3578.9; Ability 89A4 from Oschon
+    Timeout(id + 0x40, 16.2f, "Wandering Shot 1"); // t=3595.1; Ability 8CF6/8CF7 from Oschon; cactbot StartsUsing 8CF6 [Thaleia Oschon Wandering Shot North] | StartsUsing 8CF7 [Thaleia Oschon Wandering Shot South]
+    Timeout(id + 0x50, 3.7f, "Great Whirlwind 1"); // t=3598.8; Ability 89AE from Oschon
+    Timeout(id + 0x60, 10.6f, "Wandering Shot 2"); // t=3609.4; Ability 8CF6/8CF7 from Oschon; cactbot StartsUsing 8CF6 [Thaleia Oschon Wandering Shot North] | StartsUsing 8CF7 [Thaleia Oschon Wandering Shot South]
+    Timeout(id + 0x70, 3.7f, "Great Whirlwind 2"); // t=3613.1; Ability 89AE from Oschon
+    Timeout(id + 0x80, 9.4f, "The Arrow"); // t=3622.5; Ability 899C from Oschon; cactbot HeadMarker 158/1F4 [Thaleia Oschon The Arrow / Eulogia Sunbeam]
+    Timeout(id + 0x90, 9.2f, "Arrow Trail"); // t=3631.7; Ability 89B2 from Oschon
+    Timeout(id + 0xA0, 11.2f, "Downhill 1"); // t=3642.9; Ability 8C45 from Oschon
+    Timeout(id + 0xB0, 4.0f, "Downhill 2"); // t=3646.9; Ability 8C45 from Oschon
+    Timeout(id + 0xC0, 4.0f, "Downhill 3"); // t=3650.9; Ability 8C45 from Oschon
+    Timeout(id + 0xD0, 7.0f, "Piton Pull"); // t=3657.9; Ability 89A9/89AA from Oschon; cactbot StartsUsing 89A9 [Thaleia Oschon Piton Pull NE/SW] | StartsUsing 89AA [Thaleia Oschon Piton Pull NW/SE]
+    Timeout(id + 0xE0, 10.2f, "Downhill (cast)"); // t=3668.1; Ability 89A0 from Oschon
+    Timeout(id + 0xF0, 13.1f, "Wandering Volley"); // t=3681.2; Ability 89AC/89AD from Oschon; cactbot StartsUsing 89AC [Thaleia Oschon Wandering Volley North] | StartsUsing 89AD [Thaleia Oschon Wandering Volley South]
+    Timeout(id + 0x100, 1.2f, "Downhill"); // t=3682.4; Ability 89A2 from Oschon
+    Timeout(id + 0x110, 2.3f, "Great Whirlwind"); // t=3684.7; Ability 89AE from Oschon
+    Timeout(id + 0x120, 7.4f, "Piton Pull"); // t=3692.1; Ability 89A9/89AA from Oschon; cactbot StartsUsing 89A9 [Thaleia Oschon Piton Pull NE/SW] | StartsUsing 89AA [Thaleia Oschon Piton Pull NW/SE]
+    Timeout(id + 0x130, 10.5f, "Flinted Foehn x6"); // t=3702.6; Ability 89A4 from Oschon
+    Timeout(id + 0x140, 13.0f, "The Arrow"); // t=3715.6; Ability 899C from Oschon; cactbot HeadMarker 158/1F4 [Thaleia Oschon The Arrow / Eulogia Sunbeam]
+    Timeout(id + 0x150, 9.1f, "Altitude"); // t=3724.7; Ability 89AF from Oschon; cactbot StartsUsing 89AF [Thaleia Oschon Altitude]
+    Timeout(id + 0x160, 12.1f, "Sudden Downpour 1").SetHint(StateMachine.StateHint.Raidwide); // t=3736.8; Ability 899A from Oschon; cactbot StartsUsing 8999/899A [Thaleia Oschon Sudden Downpour]
+    Timeout(id + 0x170, 10.1f, "Sudden Downpour 2").SetHint(StateMachine.StateHint.Raidwide); // t=3746.9; Ability 899A from Oschon; cactbot StartsUsing 8999/899A [Thaleia Oschon Sudden Downpour]
+    Timeout(id + 0x180, 11.2f, "Arrow Trail"); // t=3758.1; Ability 89B2 from Oschon
+    Condition(id + 0x190, 251.5f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8A03), "", 5f, 246.5f); // t=4009.6; StartsUsing 8A03 from Eulogia; cactbot StartsUsing 8A03 [Thaleia Eulogia Dawn of Time]
+    Timeout(id + 0x1A0, 5.0f, "Dawn of Time").SetHint(StateMachine.StateHint.Raidwide); // t=4014.6; Ability 8A03 from Eulogia; cactbot StartsUsing 8A03 [Thaleia Eulogia Dawn of Time]
+    Timeout(id + 0x1B0, 16.8f, "First Form"); // t=4031.4; Ability 8A0A/8A0D/8A10 from Eulogia; cactbot StartsUsing 8A0A/8A0D/8A10/8A0B/8A0E/8A11/8A0C/8A0F/8A12 [Thaleia Eulogia Forms]
+    Timeout(id + 0x1C0, 7.1f, "Second Form"); // t=4038.5; Ability 8A0B/8A0E/8A11 from Eulogia; cactbot StartsUsing 8A0A/8A0D/8A10/8A0B/8A0E/8A11/8A0C/8A0F/8A12 [Thaleia Eulogia Forms]
+    Timeout(id + 0x1D0, 7.1f, "Third Form"); // t=4045.6; Ability 8A0C/8A0F/8A12 from Eulogia; cactbot StartsUsing 8A0A/8A0D/8A10/8A0B/8A0E/8A11/8A0C/8A0F/8A12 [Thaleia Eulogia Forms]
+    Timeout(id + 0x1E0, 4.3f, "Quintessence 1"); // t=4049.9; Ability 8A17/8A18/8A19 from Eulogia
+    Timeout(id + 0x1F0, 3.7f, "Quintessence 2"); // t=4053.6; Ability 8A17/8A18/8A19 from Eulogia
+    Timeout(id + 0x200, 3.6f, "Quintessence 3"); // t=4057.2; Ability 8A17/8A18/8A19 from Eulogia
+    Timeout(id + 0x210, 25.9f, "First Form"); // t=4083.1; Ability 8A0A/8A0D/8A10 from Eulogia; cactbot StartsUsing 8A0A/8A0D/8A10/8A0B/8A0E/8A11/8A0C/8A0F/8A12 [Thaleia Eulogia Forms]
+    Timeout(id + 0x220, 7.2f, "Second Form"); // t=4090.3; Ability 8A0B/8A0E/8A11 from Eulogia; cactbot StartsUsing 8A0A/8A0D/8A10/8A0B/8A0E/8A11/8A0C/8A0F/8A12 [Thaleia Eulogia Forms]
+    Timeout(id + 0x230, 7.1f, "Third Form"); // t=4097.4; Ability 8A0C/8A0F/8A12 from Eulogia; cactbot StartsUsing 8A0A/8A0D/8A10/8A0B/8A0E/8A11/8A0C/8A0F/8A12 [Thaleia Eulogia Forms]
+    Timeout(id + 0x240, 4.3f, "Quintessence 1"); // t=4101.7; Ability 8A17/8A18/8A19 from Eulogia
+    Timeout(id + 0x250, 3.7f, "Quintessence 2"); // t=4105.4; Ability 8A17/8A18/8A19 from Eulogia
+    Timeout(id + 0x260, 3.6f, "Quintessence 3"); // t=4109.0; Ability 8A17/8A18/8A19 from Eulogia
+    Timeout(id + 0x270, 13.0f, "Sunbeam"); // t=4122.0; Ability 8A00 from Eulogia; cactbot HeadMarker 158/1F4 [Thaleia Oschon The Arrow / Eulogia Sunbeam]
+    Timeout(id + 0x280, 6.2f, "--middle--"); // t=4128.2; Ability 8A02 from Eulogia
+    Timeout(id + 0x290, 9.2f, "The Whorl").SetHint(StateMachine.StateHint.Raidwide); // t=4137.4; Ability 8A2F from Eulogia; cactbot StartsUsing 8A2F [Thaleia Eulogia the Whorl]
+    Timeout(id + 0x2A0, 7.1f, "Love's Light"); // t=4144.5; Ability 8A30 from Eulogia; cactbot StartsUsing 8A30 [Thaleia Eulogia Love\]
+    Timeout(id + 0x2B0, 8.1f, "Full Bright"); // t=4152.6; Ability 8A31 from Eulogia
+    Timeout(id + 0x2C0, 11.1f, "First Blush 1"); // t=4163.7; Ability 8A33 from Eulogia
+    Timeout(id + 0x2D0, 2.0f, "First Blush 2"); // t=4165.7; Ability 8A34 from Eulogia
+    Timeout(id + 0x2E0, 2.0f, "First Blush 3"); // t=4167.7; Ability 8A35 from Eulogia
+    Timeout(id + 0x2F0, 2.0f, "First Blush 4"); // t=4169.7; Ability 8A36 from Eulogia
+    Timeout(id + 0x300, 3.0f, "Solar Fans"); // t=4172.7; Ability 8A3B from Eulogia
+    Timeout(id + 0x310, 3.1f, "Radiant Rhythm 1"); // t=4175.8
+    Timeout(id + 0x320, 2.1f, "Radiant Rhythm 2"); // t=4177.9
+    Timeout(id + 0x330, 2.1f, "Radiant Rhythm 3"); // t=4180.0
+    Timeout(id + 0x340, 2.1f, "Radiant Rhythm 4"); // t=4182.1
+    Timeout(id + 0x350, 5.5f, "Radiant Finish"); // t=4187.6; Ability 8A40 from Eulogia
+    Timeout(id + 0x360, 6.1f, "Hydrostasis (cast)"); // t=4193.7; Ability 8A37 from Eulogia; cactbot StartsUsing 8A37 [Thaleia Eulogia Hydrostasis]
+    Timeout(id + 0x370, 8.0f, "Time and Tide"); // t=4201.7; Ability 8A32 from Eulogia
+    Timeout(id + 0x380, 2.9f, "Hydrostasis 3"); // t=4204.6; Ability 8A38 from Eulogia
+    Timeout(id + 0x390, 3.0f, "Hydrostasis 1"); // t=4207.6; Ability 8A39 from Eulogia
+    Timeout(id + 0x3A0, 3.0f, "Hydrostasis 2"); // t=4210.6; Ability 8A3A from Eulogia
+    Timeout(id + 0x3B0, 8.3f, "Destructive Bolt"); // t=4218.9; Ability 8CEC from Eulogia; cactbot StartsUsing 8CFD [Thaleia Eulogia Destructive Bolt]
+    Timeout(id + 0x3C0, 4.1f, "--middle--"); // t=4223.0; Ability 8A02 from Eulogia
+    Timeout(id + 0x3D0, 7.3f, "Hieroglyphika"); // t=4230.3; Ability 8A43 from Eulogia; cactbot StartsUsing 8A43 [Thaleia Eulogia Hieroglyphika]
+    Timeout(id + 0x3E0, 21.9f, "Hand of the Destroyer"); // t=4252.2; Ability 8A47/8A48 from Eulogia; cactbot StartsUsing 8A47 [Thaleia Eulogia Hand of the Destroyer Red] | StartsUsing 8A48 [Thaleia Eulogia Hand of the Destroyer Blue]
+    Timeout(id + 0x3F0, 4.1f, "--middle--"); // t=4256.3; Ability 8A02 from Eulogia
+    Timeout(id + 0x400, 5.1f, "Matron's Breath"); // t=4261.4; Ability 8A4B from Eulogia
+    Timeout(id + 0x410, 15.1f, "Blueblossoms/Giltblossoms 1"); // t=4276.5; Ability 8A4C/8A4D from Eulogia
+    Timeout(id + 0x420, 3.6f, "Blueblossoms/Giltblossoms 2"); // t=4280.1; Ability 8A4C/8A4D from Eulogia
+    Timeout(id + 0x430, 3.6f, "Blueblossoms/Giltblossoms 3"); // t=4283.7; Ability 8A4C/8A4D from Eulogia
+    Timeout(id + 0x440, 3.6f, "Blueblossoms/Giltblossoms 4"); // t=4287.3; Ability 8A4C/8A4D from Eulogia
+    Timeout(id + 0x450, 3.4f, "Torrential Tridents"); // t=4290.7; Ability 8A4E from Eulogia; cactbot StartsUsing 8A4E [Thaleia Eulogia Torrential Tridents]
+    Timeout(id + 0x460, 0.9f, "Landing 1"); // t=4291.6
+    Timeout(id + 0x470, 1.1f, "Landing 2"); // t=4292.7
+    Timeout(id + 0x480, 1.1f, "Landing 3"); // t=4293.8
+    Timeout(id + 0x490, 1.1f, "Landing 4"); // t=4294.9
+    Timeout(id + 0x4A0, 1.0f, "Landing 5"); // t=4295.9
+    Timeout(id + 0x4B0, 1.1f, "Landing 6"); // t=4297.0
+    Timeout(id + 0x4C0, 8.1f, "Lightning Bolt 1"); // t=4305.1
+    Timeout(id + 0x4D0, 1.0f, "Lightning Bolt 2"); // t=4306.1
+    Timeout(id + 0x4E0, 1.0f, "Lightning Bolt 3"); // t=4307.1
+    Timeout(id + 0x4F0, 1.0f, "Lightning Bolt 4"); // t=4308.1
+    Timeout(id + 0x500, 1.0f, "Lightning Bolt 5"); // t=4309.1
+    Timeout(id + 0x510, 1.0f, "Lightning Bolt 6"); // t=4310.1
+    Timeout(id + 0x520, 6.6f, "Destructive Bolt"); // t=4316.7; Ability 8CEC from Eulogia; cactbot StartsUsing 8CFD [Thaleia Eulogia Destructive Bolt]
+    Timeout(id + 0x530, 10.4f, "Byregot's Strike"); // t=4327.1; Ability 8A52 from Eulogia; cactbot StartsUsing 8A52 [Thaleia Eulogia Byregot\]
+    Timeout(id + 0x540, 6.9f, "Thousandfold Thrust"); // t=4334.0; Ability 8A57/8A58 from Eulogia; cactbot HeadMarker 182/183/184/185 [Thaleia Eulogia Thousandfold Thrust]
+    Timeout(id + 0x550, 9.0f, "--middle--"); // t=4343.0; Ability 8A02 from Eulogia
+    Timeout(id + 0x560, 7.2f, "As Above, So Below"); // t=4350.2; Ability 8A5B/8A5C from Eulogia; cactbot StartsUsing 8A5B/8A5C [Thaleia Eulogia As Above So Below]
+    Timeout(id + 0x570, 12.1f, "Climbing Shot").SetHint(StateMachine.StateHint.Knockback); // t=4362.3; Ability 8D0A/8D0B from Eulogia; cactbot StartsUsing 8D0B [Thaleia Eulogia Climbing Shot]
+    Timeout(id + 0x580, 10.5f, "Soaring Minuet"); // t=4372.8; Ability 8A69 from Eulogia; cactbot StartsUsing 8A69 [Thaleia Eulogia Soaring Minuet]
+    Timeout(id + 0x590, 4.3f, "--middle--"); // t=4377.1; Ability 8A08 from Eulogia
+    Timeout(id + 0x5A0, 5.8f, "The Builder's Art"); // t=4382.9; Ability 8A22 from Eulogia
+    Timeout(id + 0x5B0, 1.6f, "The Destroyer's Might"); // t=4384.5; Ability 8A23 from Eulogia
+    Timeout(id + 0x5C0, 1.6f, "The Warden's Radiance"); // t=4386.1; Ability 8A24 from Eulogia
+    Timeout(id + 0x5D0, 1.4f, "The Traders' Equity"); // t=4387.5; Ability 8A25 from Eulogia
+    Timeout(id + 0x5E0, 1.6f, "The Matron's Plenty"); // t=4389.1; Ability 8A26 from Eulogia
+    Timeout(id + 0x5F0, 1.6f, "The Keeper's Gravity"); // t=4390.7; Ability 8A27 from Eulogia
+    Timeout(id + 0x600, 1.4f, "The Fury's Ambition"); // t=4392.1; Ability 8A28 from Eulogia
+    Timeout(id + 0x610, 1.6f, "The Lover's Devotion"); // t=4393.7; Ability 8A29 from Eulogia
+    Timeout(id + 0x620, 1.6f, "The Scholar's Wisdom"); // t=4395.3; Ability 8A2A from Eulogia
+    Timeout(id + 0x630, 1.4f, "The Spinner's Cunning"); // t=4396.7; Ability 8A2B from Eulogia
+    Timeout(id + 0x640, 1.6f, "The Navigator's Command"); // t=4398.3; Ability 8A2D from Eulogia
+    Timeout(id + 0x650, 1.6f, "The Wanderer's Whimsy"); // t=4399.9; Ability 8A2E from Eulogia
+    Condition(id + 0x660, 0.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x8A30 or 0x8A37 or 0x8A3B or 0x8A43 or 0x8A4B or 0x8A4E or 0x8A52 or 0x8A5B or 0x8A5C), "", 5f, 0.0f); // t=4400.0; StartsUsing 8A3B from Eulogia | StartsUsing 8A4B from Eulogia | StartsUsing 8A5B/8A5C from Eulogia | StartsUsing 8A4E from Eulogia | StartsUsing 8A30 from Eulogia | StartsUsing 8A43 from Eulogia | StartsUsing 8A37 from Eulogia | StartsUsing 8A52 from Eulogia; cactbot StartsUsing 8A30 [Thaleia Eulogia Love\] | StartsUsing 8A37 [Thaleia Eulogia Hydrostasis] | StartsUsing 8A43 [Thaleia Eulogia Hieroglyphika] | StartsUsing 8A4E [Thaleia Eulogia Torrential Tridents] | StartsUsing 8A52 [Thaleia Eulogia Byregot\] | StartsUsing 8A5B/8A5C [Thaleia Eulogia As Above So Below]
+    Timeout(id + 0x670, 2.2f, "Eudaimon Eorzea").SetHint(StateMachine.StateHint.Raidwide); // t=4402.2; Ability 8A2C from Eulogia; cactbot StartsUsing 8A2C [Thaleia Eulogia Eudaimon Eorzea]
+    Timeout(id + 0x680, 27.5f, "First Form"); // t=4429.7; Ability 8A0A/8A0D/8A10 from Eulogia; cactbot StartsUsing 8A0A/8A0D/8A10/8A0B/8A0E/8A11/8A0C/8A0F/8A12 [Thaleia Eulogia Forms]
+    Timeout(id + 0x690, 7.2f, "Second Form"); // t=4436.9; Ability 8A0B/8A0E/8A11 from Eulogia; cactbot StartsUsing 8A0A/8A0D/8A10/8A0B/8A0E/8A11/8A0C/8A0F/8A12 [Thaleia Eulogia Forms]
+    Timeout(id + 0x6A0, 7.2f, "Third Form"); // t=4444.1; Ability 8A0C/8A0F/8A12 from Eulogia; cactbot StartsUsing 8A0A/8A0D/8A10/8A0B/8A0E/8A11/8A0C/8A0F/8A12 [Thaleia Eulogia Forms]
+    Timeout(id + 0x6B0, 4.3f, "Quintessence 1"); // t=4448.4; Ability 8A17/8A18/8A19 from Eulogia
+    Timeout(id + 0x6C0, 3.7f, "Quintessence 2"); // t=4452.1; Ability 8A17/8A18/8A19 from Eulogia
+    Timeout(id + 0x6D0, 3.6f, "Quintessence 3"); // t=4455.7; Ability 8A17/8A18/8A19 from Eulogia
+    Timeout(id + 0x6E0, 12.8f, "Sunbeam"); // t=4468.5; Ability 8A00 from Eulogia; cactbot HeadMarker 158/1F4 [Thaleia Oschon The Arrow / Eulogia Sunbeam]
+    Timeout(id + 0x6F0, 8.4f, "--middle--"); // t=4476.9; Ability 8A02 from Eulogia
+    Timeout(id + 0x700, 9.3f, "The Whorl").SetHint(StateMachine.StateHint.Raidwide); // t=4486.2; Ability 8A2F from Eulogia; cactbot StartsUsing 8A2F [Thaleia Eulogia the Whorl]
+    Condition(id + 0x710, 513.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8A3B), "", 5f, 508.8f); // t=5000.0; StartsUsing 8A3B from Eulogia
+    Timeout(id + 0x720, 3.0f, "Solar Fans"); // t=5003.0; Ability 8A3B from Eulogia
+    Timeout(id + 0x730, 3.1f, "Radiant Rhythm 1"); // t=5006.1
+    Timeout(id + 0x740, 2.1f, "Radiant Rhythm 2"); // t=5008.2
+    Timeout(id + 0x750, 2.1f, "Radiant Rhythm 3"); // t=5010.3
+    Timeout(id + 0x760, 2.1f, "Radiant Rhythm 4"); // t=5012.4
+    Timeout(id + 0x770, 5.4f, "Radiant Finish"); // t=5017.8; Ability 8A40 from Eulogia
+    Condition(id + 0x780, 82.2f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8A4B), "", 5f, 77.2f); // t=5100.0; StartsUsing 8A4B from Eulogia
+    Timeout(id + 0x790, 3.0f, "Matron's Breath"); // t=5103.0; Ability 8A4B from Eulogia
+    Timeout(id + 0x7A0, 15.1f, "Blueblossoms/Giltblossoms 1"); // t=5118.1; Ability 8A4C/8A4D from Eulogia
+    Timeout(id + 0x7B0, 3.6f, "Blueblossoms/Giltblossoms 2"); // t=5121.7; Ability 8A4C/8A4D from Eulogia
+    Timeout(id + 0x7C0, 3.6f, "Blueblossoms/Giltblossoms 3"); // t=5125.3; Ability 8A4C/8A4D from Eulogia
+    Timeout(id + 0x7D0, 3.6f, "Blueblossoms/Giltblossoms 4"); // t=5128.9; Ability 8A4C/8A4D from Eulogia
+    Condition(id + 0x7E0, 71.1f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID is 0x8A5B or 0x8A5C), "", 5f, 66.1f); // t=5200.0; StartsUsing 8A5B/8A5C from Eulogia; cactbot StartsUsing 8A5B/8A5C [Thaleia Eulogia As Above So Below]
+    Timeout(id + 0x7F0, 5.0f, "As Above, So Below"); // t=5205.0; Ability 8A5B/8A5C from Eulogia; cactbot StartsUsing 8A5B/8A5C [Thaleia Eulogia As Above So Below]
+    Timeout(id + 0x800, 12.1f, "Climbing Shot").SetHint(StateMachine.StateHint.Knockback); // t=5217.1; Ability 8D0A/8D0B from Eulogia; cactbot StartsUsing 8D0B [Thaleia Eulogia Climbing Shot]
+    Timeout(id + 0x810, 10.3f, "Soaring Minuet"); // t=5227.4; Ability 8A69 from Eulogia; cactbot StartsUsing 8A69 [Thaleia Eulogia Soaring Minuet]
+    Timeout(id + 0x820, 10.2f, "Destructive Bolt"); // t=5237.6; Ability 8CEC from Eulogia; cactbot StartsUsing 8CFD [Thaleia Eulogia Destructive Bolt]
+    Condition(id + 0x830, 62.4f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8A4E), "", 5f, 57.4f); // t=5300.0; StartsUsing 8A4E from Eulogia; cactbot StartsUsing 8A4E [Thaleia Eulogia Torrential Tridents]
+    Timeout(id + 0x840, 2.0f, "Torrential Tridents"); // t=5302.0; Ability 8A4E from Eulogia; cactbot StartsUsing 8A4E [Thaleia Eulogia Torrential Tridents]
+    Timeout(id + 0x850, 0.9f, "Landing 1"); // t=5302.9
+    Timeout(id + 0x860, 1.1f, "Landing 2"); // t=5304.0
+    Timeout(id + 0x870, 1.1f, "Landing 3"); // t=5305.1
+    Timeout(id + 0x880, 1.1f, "Landing 4"); // t=5306.2
+    Timeout(id + 0x890, 1.0f, "Landing 5"); // t=5307.2
+    Timeout(id + 0x8A0, 1.1f, "Landing 6"); // t=5308.3
+    Timeout(id + 0x8B0, 8.1f, "Lightning Bolt 1"); // t=5316.4
+    Timeout(id + 0x8C0, 1.0f, "Lightning Bolt 2"); // t=5317.4
+    Timeout(id + 0x8D0, 1.0f, "Lightning Bolt 3"); // t=5318.4
+    Timeout(id + 0x8E0, 1.0f, "Lightning Bolt 4"); // t=5319.4
+    Timeout(id + 0x8F0, 1.0f, "Lightning Bolt 5"); // t=5320.4
+    Timeout(id + 0x900, 1.0f, "Lightning Bolt 6"); // t=5321.4
+    Condition(id + 0x910, 78.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8A30), "", 5f, 73.6f); // t=5400.0; StartsUsing 8A30 from Eulogia; cactbot StartsUsing 8A30 [Thaleia Eulogia Love\]
+    Timeout(id + 0x920, 4.0f, "Love's Light"); // t=5404.0; Ability 8A30 from Eulogia; cactbot StartsUsing 8A30 [Thaleia Eulogia Love\]
+    Timeout(id + 0x930, 8.1f, "Full Bright"); // t=5412.1; Ability 8A31 from Eulogia
+    Timeout(id + 0x940, 11.1f, "First Blush 1"); // t=5423.2; Ability 8A33 from Eulogia
+    Timeout(id + 0x950, 2.0f, "First Blush 2"); // t=5425.2; Ability 8A34 from Eulogia
+    Timeout(id + 0x960, 2.0f, "First Blush 3"); // t=5427.2; Ability 8A35 from Eulogia
+    Timeout(id + 0x970, 2.0f, "First Blush 4"); // t=5429.2; Ability 8A36 from Eulogia
+    Condition(id + 0x980, 70.8f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8A43), "", 5f, 65.8f); // t=5500.0; StartsUsing 8A43 from Eulogia; cactbot StartsUsing 8A43 [Thaleia Eulogia Hieroglyphika]
+    Timeout(id + 0x990, 5.0f, "Hieroglyphika"); // t=5505.0; Ability 8A43 from Eulogia; cactbot StartsUsing 8A43 [Thaleia Eulogia Hieroglyphika]
+    Timeout(id + 0x9A0, 21.8f, "Hand of the Destroyer"); // t=5526.8; Ability 8A47/8A48 from Eulogia; cactbot StartsUsing 8A47 [Thaleia Eulogia Hand of the Destroyer Red] | StartsUsing 8A48 [Thaleia Eulogia Hand of the Destroyer Blue]
+    Timeout(id + 0x9B0, 11.1f, "Destructive Bolt"); // t=5537.9; Ability 8CEC from Eulogia; cactbot StartsUsing 8CFD [Thaleia Eulogia Destructive Bolt]
+    Timeout(id + 0x9C0, 66.1f, "Hydrostasis"); // t=5604.0; Ability 8A37 from Eulogia; cactbot StartsUsing 8A37 [Thaleia Eulogia Hydrostasis]
+    Timeout(id + 0x9D0, 8.0f, "Time and Tide"); // t=5612.0; Ability 8A32 from Eulogia
+    Timeout(id + 0x9E0, 2.9f, "Hydrostasis 3"); // t=5614.9; Ability 8A38 from Eulogia
+    Timeout(id + 0x9F0, 3.0f, "Hydrostasis 1"); // t=5617.9; Ability 8A39 from Eulogia
+    Timeout(id + 0xA00, 3.0f, "Hydrostasis 2"); // t=5620.9; Ability 8A3A from Eulogia
+    Timeout(id + 0xA10, 85.1f, "Byregot's Strike"); // t=5706.0; Ability 8A52 from Eulogia; cactbot StartsUsing 8A52 [Thaleia Eulogia Byregot\]
+    Timeout(id + 0xA20, 6.9f, "Thousandfold Thrust"); // t=5712.9; Ability 8A57/8A58 from Eulogia; cactbot HeadMarker 182/183/184/185 [Thaleia Eulogia Thousandfold Thrust]
+    Timeout(id + 0xA30, 14.2f, "Destructive Bolt"); // t=5727.1; Ability 8CEC from Eulogia; cactbot StartsUsing 8CFD [Thaleia Eulogia Destructive Bolt]
+}
+

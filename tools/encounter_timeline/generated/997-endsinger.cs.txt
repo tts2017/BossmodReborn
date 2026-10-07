@@ -1,0 +1,42 @@
+// Generated development skeleton from endsinger.txt (TerritoryType 997).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 14 static/dynamic trigger definitions from ui/raidboss/data/06-ew/trial/endsinger.ts.
+
+private void Phase_2__add_spawns(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Planetes"); // t=1000.0; Ability 6B58 from The Endsinger; cactbot StartsUsing 6B58 [Endsinger Planetes]
+    Targetable(id + 0x10, false, 0.0f, "--untargetable--"); // t=1000.0
+    Targetable(id + 0x20, true, 14.3f, "--targetable--"); // t=1014.3
+    Timeout(id + 0x30, 9.1f, "Meteor Radiant"); // t=1023.4; Ability 6656 from Kakodaimon
+    Timeout(id + 0x40, 11.8f, "Crash"); // t=1035.2; Ability 6657 from Kakodaimon
+    Timeout(id + 0x50, 5.0f, "Crash"); // t=1040.2; Ability 6657 from Kakodaimon
+    Timeout(id + 0x60, 5.0f, "Crash"); // t=1045.2; Ability 6657 from Kakodaimon
+    Timeout(id + 0x70, 5.0f, "Crash"); // t=1050.2; Ability 6657 from Kakodaimon
+    Timeout(id + 0x80, 6.4f, "Meteor Outburst"); // t=1056.6; Ability 665C from Kakodaimon
+    Timeout(id + 0x90, 11.2f, "Katastrophe"); // t=1067.8; Ability 665B from Kakodaimon
+    Timeout(id + 0xA0, 11.1f, "Katastrophe"); // t=1078.9; Ability 665B from Kakodaimon
+    Timeout(id + 0xB0, 11.1f, "Katastrophe"); // t=1090.0
+    Timeout(id + 0xC0, 11.1f, "Katastrophe"); // t=1101.1
+    Timeout(id + 0xD0, 11.1f, "Katastrophe"); // t=1112.2
+    Timeout(id + 0xE0, 11.1f, "Katastrophe"); // t=1123.3
+    Timeout(id + 0xF0, 88.9f, "Ultimate Fate"); // t=1212.2; Ability 6B59 from The Endsinger; cactbot StartsUsing 6B59 [Endsinger Ultimate Fate]
+    Targetable(id + 0x100, true, 6.7f, "--targetable--"); // t=1218.9
+}
+
+private void Phase_3__loops_until_soft_enrage(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Fatalism"); // t=2000.0; Ability 6B5B from The Endsinger; cactbot Tether A6 [Endsinger Doomed Stars Fatalism Tether]
+    Targetable(id + 0x10, false, 36.0f, "--untargetable--"); // t=2036.0
+    Targetable(id + 0x20, true, 38.0f, "--targetable--"); // t=2074.0
+    Timeout(id + 0x30, 12.1f, "Telos"); // t=2086.1; Ability 665E from The Endsinger
+    Timeout(id + 0x40, 13.2f, "Telomania (cast)"); // t=2099.3; Ability 665F from The Endsinger
+    Timeout(id + 0x50, 4.3f, "Telomania (small) x4"); // t=2103.6
+    Timeout(id + 0x60, 11.0f, "Telomania (big)"); // t=2114.6; Ability 6661 from The Endsinger
+    Timeout(id + 0x70, 5.5f, "Dead Star x3"); // t=2120.1
+    Timeout(id + 0x80, 4.4f, "Telomania (cast)"); // t=2124.5; Ability 665F from The Endsinger
+    Timeout(id + 0x90, 4.3f, "Telomania (small) x4"); // t=2128.8
+    Timeout(id + 0xA0, 11.0f, "Telomania (big)"); // t=2139.8
+    Timeout(id + 0xB0, 5.5f, "Dead Star x3"); // t=2145.3
+}
+

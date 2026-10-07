@@ -1,0 +1,61 @@
+// Generated development skeleton from r2n.txt (TerritoryType 1227).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 10 static/dynamic trigger definitions from ui/raidboss/data/07-dt/raid/r2n.ts.
+
+private void Arcadion__R2N___AAC_Light_heavyweight_M2(uint id)
+{
+    Condition(id + 0x0, 5.6f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x9164), "", 5f, 0.6f); // t=5.6; StartsUsing 9164 from Honey B. Lovely; cactbot StartsUsing 9164 [R2N Call Me Honey]
+    Timeout(id + 0x10, 5.0f, "Call Me Honey").SetHint(StateMachine.StateHint.Raidwide); // t=10.6; Ability 9164 from Honey B. Lovely; cactbot StartsUsing 9164 [R2N Call Me Honey]
+    Timeout(id + 0x20, 13.5f, "Tempting Twist"); // t=24.1; Ability 9B3A from Honey B. Lovely; cactbot StartsUsing 9B3A/9B3C [R2N Tempting Twist]
+    Timeout(id + 0x30, 9.8f, "Honey Beeline"); // t=33.9; Ability 9B39 from Honey B. Lovely; cactbot StartsUsing 9B39/9B3B [R2N Honey Beeline]
+    Timeout(id + 0x40, 7.3f, "Honeyed Breeze").SetHint(StateMachine.StateHint.Tankbuster); // t=41.2; Ability 9167 from Honey B. Lovely; cactbot StartsUsing 9167 [R2N Honeyed Breeze]
+    Timeout(id + 0x50, 11.6f, "Tempting Twist/Honey Beeline"); // t=52.8; Ability 9B39/9B3A/9B3B/9B3C from Honey B. Lovely; cactbot StartsUsing 9B39/9B3B [R2N Honey Beeline] | StartsUsing 9B3A/9B3C [R2N Tempting Twist]
+    Timeout(id + 0x60, 6.6f, "--middle--"); // t=59.4; Ability 9163 from Honey B. Lovely
+    Timeout(id + 0x70, 10.7f, "Honey B. Live"); // t=70.1; Ability 9A7E from Honey B. Lovely
+    Timeout(id + 0x80, 9.9f, "Love Me Tender"); // t=80.0; Ability 9174 from Honey B. Lovely
+    Timeout(id + 0x90, 8.1f, "Heartsore"); // t=88.1; Ability 917A from Honey B. Lovely; cactbot StartsUsing 917A [R2N Heartsore]
+    Timeout(id + 0xA0, 9.0f, "Fracture"); // t=97.1; Ability 9178 from Honey B. Lovely
+    Timeout(id + 0xB0, 2.0f, "--middle--"); // t=99.1; Ability 9163 from Honey B. Lovely
+    Timeout(id + 0xC0, 6.3f, "Loveseeker / Heart-struck"); // t=105.4; Ability 9AC1 from Honey B. Lovely; cactbot StartsUsing 9AC1 [R2N Loveseeker]
+    Timeout(id + 0xD0, 5.1f, "Love Me Tender"); // t=110.5; Ability 9174 from Honey B. Lovely
+    Timeout(id + 0xE0, 27.9f, "Blow Kiss"); // t=138.4; Ability 9173 from Honey B. Lovely; cactbot StartsUsing 9173 [R2N Blow Kiss]
+    Timeout(id + 0xF0, 7.7f, "Love Me Tender"); // t=146.1; Ability 9174 from Honey B. Lovely
+    Timeout(id + 0x100, 6.1f, "Heart-struck"); // t=152.2
+    Timeout(id + 0x110, 8.5f, "Blow Kiss"); // t=160.7; Ability 9173 from Honey B. Lovely; cactbot StartsUsing 9173 [R2N Blow Kiss]
+    Timeout(id + 0x120, 10.8f, "Honey B. Finale").SetHint(StateMachine.StateHint.Raidwide); // t=171.5; Ability 917B from Honey B. Lovely; cactbot StartsUsing 917B [R2N Honey B. Finale]
+    Timeout(id + 0x130, 9.1f, "Honeyed Breeze").SetHint(StateMachine.StateHint.Tankbuster); // t=180.6; Ability 9167 from Honey B. Lovely; cactbot StartsUsing 9167 [R2N Honeyed Breeze]
+    Timeout(id + 0x140, 6.2f, "--middle--"); // t=186.8; Ability 9163 from Honey B. Lovely
+    Timeout(id + 0x150, 5.3f, "Splash of Venom"); // t=192.1; Ability 9169 from Honey B. Lovely
+    Timeout(id + 0x160, 10.5f, "Tempting Twist/Honey Beeline"); // t=202.6; Ability 9B39/9B3A/9B3B/9B3C from Honey B. Lovely; cactbot StartsUsing 9B39/9B3B [R2N Honey Beeline] | StartsUsing 9B3A/9B3C [R2N Tempting Twist]
+    Timeout(id + 0x170, 10.3f, "Splash of Venom/Drop of Venom"); // t=212.9; Ability 916F/9170 from Honey B. Lovely; cactbot StartsUsing 9170 [R2N Drop of Venom]
+    Timeout(id + 0x180, 7.0f, "Drop of Venom"); // t=219.9; Ability 916A from Honey B. Lovely; cactbot StartsUsing 9170 [R2N Drop of Venom]
+    Timeout(id + 0x190, 9.5f, "Honey Beeline/Tempting Twist"); // t=229.4; Ability 9B39/9B3A/9B3B/9B3C from Honey B. Lovely; cactbot StartsUsing 9B39/9B3B [R2N Honey Beeline] | StartsUsing 9B3A/9B3C [R2N Tempting Twist]
+    Timeout(id + 0x1A0, 10.3f, "Splash of Venom/Drop of Venom"); // t=239.7; Ability 916F/9170 from Honey B. Lovely; cactbot StartsUsing 9170 [R2N Drop of Venom]
+    Timeout(id + 0x1B0, 12.1f, "Alarm Pheromones / Blinding Love"); // t=251.8; Ability 917D from Honey B. Lovely
+    Timeout(id + 0x1C0, 41.3f, "Tempting Twist/Honey Beeline"); // t=293.1; Ability 9B39/9B3A/9B3B/9B3C from Honey B. Lovely; cactbot StartsUsing 9B39/9B3B [R2N Honey Beeline] | StartsUsing 9B3A/9B3C [R2N Tempting Twist]
+    Timeout(id + 0x1D0, 6.6f, "--middle--"); // t=299.7; Ability 9163 from Honey B. Lovely
+    Timeout(id + 0x1E0, 10.7f, "Honey B. Live"); // t=310.4; Ability 9A7E from Honey B. Lovely
+    Timeout(id + 0x1F0, 4.8f, "Love Me Tender"); // t=315.2; Ability 9174 from Honey B. Lovely
+    Timeout(id + 0x200, 8.1f, "Heartsick / Fracture x6"); // t=323.3; Ability 9B8D from Honey B. Lovely; cactbot StartsUsing 9B8D [R2N Heartsick]
+    Timeout(id + 0x210, 16.0f, "--middle--"); // t=339.3; Ability 9163 from Honey B. Lovely
+    Timeout(id + 0x220, 6.2f, "Loveseeker / Heart-struck"); // t=345.5; Ability 9AC1 from Honey B. Lovely; cactbot StartsUsing 9AC1 [R2N Loveseeker]
+    Timeout(id + 0x230, 5.1f, "Love Me Tender"); // t=350.6; Ability 9174 from Honey B. Lovely
+    Timeout(id + 0x240, 26.3f, "Blow Kiss"); // t=376.9; Ability 9173 from Honey B. Lovely; cactbot StartsUsing 9173 [R2N Blow Kiss]
+    Timeout(id + 0x250, 10.7f, "Honey B. Finale").SetHint(StateMachine.StateHint.Raidwide); // t=387.6; Ability 917B from Honey B. Lovely; cactbot StartsUsing 917B [R2N Honey B. Finale]
+    Timeout(id + 0x260, 9.1f, "Honeyed Breeze").SetHint(StateMachine.StateHint.Tankbuster); // t=396.7; Ability 9167 from Honey B. Lovely; cactbot StartsUsing 9167 [R2N Honeyed Breeze]
+    Timeout(id + 0x270, 6.2f, "--middle--"); // t=402.9; Ability 9163 from Honey B. Lovely
+    Timeout(id + 0x280, 5.2f, "Alarm Pheromones / Blinding Love"); // t=408.1; Ability 917D from Honey B. Lovely
+    Timeout(id + 0x290, 5.0f, "Drop of Venom"); // t=413.1; Ability 916A from Honey B. Lovely; cactbot StartsUsing 9170 [R2N Drop of Venom]
+    Timeout(id + 0x2A0, 23.1f, "--middle--"); // t=436.2; Ability 9163 from Honey B. Lovely
+    Timeout(id + 0x2B0, 9.2f, "Tempting Twist/Honey Beeline"); // t=445.4; Ability 9B39/9B3A/9B3B/9B3C from Honey B. Lovely; cactbot StartsUsing 9B39/9B3B [R2N Honey Beeline] | StartsUsing 9B3A/9B3C [R2N Tempting Twist]
+    Timeout(id + 0x2C0, 10.3f, "Splash of Venom/Drop of Venom"); // t=455.7; Ability 916F/9170 from Honey B. Lovely; cactbot StartsUsing 9170 [R2N Drop of Venom]
+    Timeout(id + 0x2D0, 1.0f, "Splash of Venom"); // t=456.7; Ability 9169 from Honey B. Lovely
+    Timeout(id + 0x2E0, 7.1f, "--middle--"); // t=463.8; Ability 9163 from Honey B. Lovely
+    Timeout(id + 0x2F0, 9.8f, "Honey Beeline/Tempting Twist"); // t=473.6; Ability 9B39/9B3A/9B3B/9B3C from Honey B. Lovely; cactbot StartsUsing 9B39/9B3B [R2N Honey Beeline] | StartsUsing 9B3A/9B3C [R2N Tempting Twist]
+    Timeout(id + 0x300, 10.3f, "Splash of Venom/Drop of Venom"); // t=483.9; Ability 916F/9170 from Honey B. Lovely; cactbot StartsUsing 9170 [R2N Drop of Venom]
+    Timeout(id + 0x310, 7.0f, "Call Me Honey").SetHint(StateMachine.StateHint.Raidwide); // t=490.9; Ability 9164 from Honey B. Lovely; cactbot StartsUsing 9164 [R2N Call Me Honey]
+    Timeout(id + 0x320, 9.1f, "Honeyed Breeze").SetHint(StateMachine.StateHint.Tankbuster); // t=500.0; Ability 9167 from Honey B. Lovely; cactbot StartsUsing 9167 [R2N Honeyed Breeze]
+    Timeout(id + 0x330, 10.2f, "--middle--"); // t=510.2; Ability 9163 from Honey B. Lovely
+}
+

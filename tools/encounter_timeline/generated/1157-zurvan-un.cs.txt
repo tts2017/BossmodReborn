@@ -1,0 +1,112 @@
+// Generated development skeleton from zurvan-un.txt (TerritoryType 1157).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 21 static/dynamic trigger definitions from ui/raidboss/data/06-ew/trial/zurvan-un.ts.
+
+private void Phase_push_at__75(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Eidos"); // t=400.0; Ability 8560 from Zurvan
+    Timeout(id + 0x10, 3.1f, "Ice and Fire"); // t=403.1; Ability 8561 from Zurvan; cactbot Ability 8561 [ZurvanUN Ice And Fire]
+    Timeout(id + 0x20, 4.1f, "Metal Cutter"); // t=407.2; Ability 8579 from Zurvan
+    Timeout(id + 0x30, 4.0f, "Metal Cutter"); // t=411.2; Ability 8579 from Zurvan
+    Timeout(id + 0x40, 4.0f, "Metal Cutter"); // t=415.2; Ability 8579 from Zurvan
+    Timeout(id + 0x50, 8.0f, "Biting Halberd"); // t=423.2; Ability 8562 from Zurvan; cactbot StartsUsing 8562 [ZurvanUN Biting Halberd]
+    Timeout(id + 0x60, 6.1f, "Southern Cross (snapshot)"); // t=429.3; Ability 8565 from Zurvan; cactbot StartsUsing 8565 [ZurvanUN Southern Cross Stack]
+    Timeout(id + 0x70, 3.6f, "Southern Cross (puddle)"); // t=432.9; Ability 8566 from Zurvan; cactbot StartsUsing 8566 [ZurvanUN Southern Cross Move]
+    Timeout(id + 0x80, 1.7f, "Metal Cutter"); // t=434.6; Ability 8579 from Zurvan
+    Timeout(id + 0x90, 10.1f, "Biting Halberd/Ciclicle/Tail End"); // t=444.7; Ability 8562/8563/8564 from Zurvan; cactbot StartsUsing 8562 [ZurvanUN Biting Halberd] | StartsUsing 8563 [ZurvanUN Tail End] | StartsUsing 8564 [ZurvanUN Ciclicle]
+    Timeout(id + 0xA0, 4.1f, "Metal Cutter"); // t=448.8; Ability 8579 from Zurvan
+    Timeout(id + 0xB0, 4.1f, "Metal Cutter"); // t=452.9; Ability 8579 from Zurvan
+    Timeout(id + 0xC0, 4.1f, "Metal Cutter"); // t=457.0; Ability 8579 from Zurvan
+    Timeout(id + 0xD0, 8.1f, "Biting Halberd"); // t=465.1; Ability 8562 from Zurvan; cactbot StartsUsing 8562 [ZurvanUN Biting Halberd]
+    Timeout(id + 0xE0, 6.1f, "Southern Cross (snapshot)"); // t=471.2
+    Timeout(id + 0xF0, 3.6f, "Southern Cross (puddle)"); // t=474.8
+    Timeout(id + 0x100, 1.7f, "Metal Cutter"); // t=476.5
+    Timeout(id + 0x110, 10.1f, "Biting Halberd/Ciclicle/Tail End"); // t=486.6
+    Timeout(id + 0x120, 8.3f, "Metal Cutter"); // t=494.9
+    Timeout(id + 0x130, 495.4f, "Eidos"); // t=990.3; Ability 8568 from Zurvan
+    Timeout(id + 0x140, 9.7f, "Ahura Mazda"); // t=1000.0; Ability 8569 from Zurvan
+    Targetable(id + 0x150, true, 18.2f, "--targetable--"); // t=1018.2
+    Timeout(id + 0x160, 6.2f, "Infinite Fire/Infinite Ice"); // t=1024.4; Ability 8570/8571 from Zurvan
+    Timeout(id + 0x170, 8.1f, "Wave Cannon (avoid)"); // t=1032.5; Ability 857C from Zurvan; cactbot HeadMarker E [ZurvanUN Wave Cannon Avoid]
+    Timeout(id + 0x180, 7.2f, "Tyrfing x5"); // t=1039.7; Ability 8576 from Zurvan; cactbot StartsUsing 8576 [ZurvanUN Tyrfing]
+    Timeout(id + 0x190, 5.1f, "Fire III"); // t=1044.8; Ability 8578 from Zurvan
+    Timeout(id + 0x1A0, 6.1f, "Southern Cross (snapshot)"); // t=1050.9; Ability 8565 from Zurvan; cactbot StartsUsing 8565 [ZurvanUN Southern Cross Stack]
+    Timeout(id + 0x1B0, 3.6f, "Southern Cross (puddle)"); // t=1054.5; Ability 8566 from Zurvan; cactbot StartsUsing 8566 [ZurvanUN Southern Cross Move]
+    Timeout(id + 0x1C0, 1.7f, "Metal Cutter"); // t=1056.2; Ability 8579 from Zurvan
+    Timeout(id + 0x1D0, 9.1f, "Broken Seal"); // t=1065.3; Ability 857D from Zurvan; cactbot StartsUsing 857D [ZurvanUN Broken Seal] | Ability 857D [ZurvanUN Seal Cleanup]
+    Timeout(id + 0x1E0, 15.7f, "Biting Halberd/Ciclicle/Tail End"); // t=1081.0; Ability 8562/8564/8563 from Zurvan; cactbot StartsUsing 8562 [ZurvanUN Biting Halberd] | StartsUsing 8563 [ZurvanUN Tail End] | StartsUsing 8564 [ZurvanUN Ciclicle]
+    Timeout(id + 0x1F0, 5.3f, "Metal Cutter"); // t=1086.3; Ability 8579 from Zurvan
+    Timeout(id + 0x200, 4.8f, "Infinite Fire/Infinite Ice"); // t=1091.1; Ability 8570/8571 from Zurvan
+    Timeout(id + 0x210, 8.4f, "Wave Cannon (avoid)"); // t=1099.5; Ability 857C from Zurvan; cactbot HeadMarker E [ZurvanUN Wave Cannon Avoid]
+    Timeout(id + 0x220, 7.1f, "Tyrfing x6"); // t=1106.6; Ability 8576 from Zurvan; cactbot StartsUsing 8576 [ZurvanUN Tyrfing]
+    Timeout(id + 0x230, 6.1f, "Fire III"); // t=1112.7; Ability 8578 from Zurvan
+    Timeout(id + 0x240, 6.1f, "Southern Cross (snapshot)"); // t=1118.8; Ability 8565 from Zurvan; cactbot StartsUsing 8565 [ZurvanUN Southern Cross Stack]
+    Timeout(id + 0x250, 3.6f, "Southern Cross (puddle)"); // t=1122.4; Ability 8566 from Zurvan; cactbot StartsUsing 8566 [ZurvanUN Southern Cross Move]
+    Timeout(id + 0x260, 1.7f, "Metal Cutter"); // t=1124.1; Ability 8579 from Zurvan
+    Timeout(id + 0x270, 9.1f, "Broken Seal"); // t=1133.2; Ability 857D from Zurvan; cactbot StartsUsing 857D [ZurvanUN Broken Seal] | Ability 857D [ZurvanUN Seal Cleanup]
+    Timeout(id + 0x280, 14.7f, "Biting Halberd/Ciclicle/Tail End"); // t=1147.9; Ability 8562/8564/8563 from Zurvan; cactbot StartsUsing 8562 [ZurvanUN Biting Halberd] | StartsUsing 8563 [ZurvanUN Tail End] | StartsUsing 8564 [ZurvanUN Ciclicle]
+    Timeout(id + 0x290, 6.1f, "Metal Cutter"); // t=1154.0; Ability 8579 from Zurvan
+    Timeout(id + 0x2A0, 10.1f, "Soar"); // t=1164.1; Ability 857E from Zurvan
+    Targetable(id + 0x2B0, false, 0.1f, "--untargetable--"); // t=1164.2
+    Timeout(id + 0x2C0, 9.0f, "Flaming Halberd"); // t=1173.2; Ability 855D from Zurvan; cactbot HeadMarker 2C [ZurvanUN Flaming Halberd]
+    Timeout(id + 0x2D0, 5.1f, "Demonic Dive"); // t=1178.3; Ability 855E from Zurvan; cactbot HeadMarker 3E [ZurvanUN Demonic Dive]
+    Timeout(id + 0x2E0, 0.9f, "Cool Flame"); // t=1179.2; Ability 855F from Zurvan; cactbot Ability 855F [ZurvanUN Cool Flame Cleanup]
+    Targetable(id + 0x2F0, true, 2.1f, "--targetable--"); // t=1181.3
+    Timeout(id + 0x300, 6.1f, "The Demon's Claw"); // t=1187.4; Ability 857A from Zurvan; cactbot StartsUsing 857A [ZurvanUN Demon Claw]
+    Timeout(id + 0x310, 7.1f, "Wave Cannon (stack)"); // t=1194.5; Ability 857B from Zurvan; cactbot StartsUsing 857B [ZurvanUN Wave Cannon Stack] | Ability 857B [ZurvanUN Wave Cannon Stack Cleanup]
+    Timeout(id + 0x320, 6.1f, "Infinite Fire/Infinite Ice"); // t=1200.6; Ability 8570/8571 from Zurvan
+    Timeout(id + 0x330, 8.1f, "Wave Cannon (avoid)"); // t=1208.7; Ability 857C from Zurvan; cactbot HeadMarker E [ZurvanUN Wave Cannon Avoid]
+    Timeout(id + 0x340, 7.1f, "Tyrfing x7"); // t=1215.8; Ability 8576 from Zurvan; cactbot StartsUsing 8576 [ZurvanUN Tyrfing]
+    Timeout(id + 0x350, 7.1f, "Fire III"); // t=1222.9; Ability 8578 from Zurvan
+    Timeout(id + 0x360, 6.1f, "Southern Cross (snapshot)"); // t=1229.0; Ability 8565 from Zurvan; cactbot StartsUsing 8565 [ZurvanUN Southern Cross Stack]
+    Timeout(id + 0x370, 3.6f, "Southern Cross (puddle)"); // t=1232.6; Ability 8566 from Zurvan; cactbot StartsUsing 8566 [ZurvanUN Southern Cross Move]
+    Timeout(id + 0x380, 1.7f, "Metal Cutter"); // t=1234.3; Ability 8579 from Zurvan
+    Timeout(id + 0x390, 9.1f, "Broken Seal"); // t=1243.4; Ability 857D from Zurvan; cactbot StartsUsing 857D [ZurvanUN Broken Seal] | Ability 857D [ZurvanUN Seal Cleanup]
+    Timeout(id + 0x3A0, 15.0f, "Biting Halberd/Ciclicle/Tail End"); // t=1258.4; Ability 8562/8564/8563 from Zurvan; cactbot StartsUsing 8562 [ZurvanUN Biting Halberd] | StartsUsing 8563 [ZurvanUN Tail End] | StartsUsing 8564 [ZurvanUN Ciclicle]
+    Timeout(id + 0x3B0, 6.1f, "Metal Cutter"); // t=1264.5; Ability 8579 from Zurvan
+    Timeout(id + 0x3C0, 5.1f, "Infinite Fire/Infinite Ice"); // t=1269.6; Ability 8570/8571 from Zurvan
+    Timeout(id + 0x3D0, 8.1f, "Wave Cannon (avoid)"); // t=1277.7; Ability 857C from Zurvan; cactbot HeadMarker E [ZurvanUN Wave Cannon Avoid]
+    Timeout(id + 0x3E0, 7.1f, "Tyrfing x8"); // t=1284.8; Ability 8576 from Zurvan; cactbot StartsUsing 8576 [ZurvanUN Tyrfing]
+    Timeout(id + 0x3F0, 8.1f, "Fire III"); // t=1292.9; Ability 8578 from Zurvan
+    Timeout(id + 0x400, 6.1f, "Southern Cross (snapshot)"); // t=1299.0; Ability 8565 from Zurvan; cactbot StartsUsing 8565 [ZurvanUN Southern Cross Stack]
+    Timeout(id + 0x410, 3.6f, "Southern Cross (puddle)"); // t=1302.6; Ability 8566 from Zurvan; cactbot StartsUsing 8566 [ZurvanUN Southern Cross Move]
+    Timeout(id + 0x420, 1.7f, "Metal Cutter"); // t=1304.3; Ability 8579 from Zurvan
+    Timeout(id + 0x430, 9.1f, "Broken Seal"); // t=1313.4; Ability 857D from Zurvan; cactbot StartsUsing 857D [ZurvanUN Broken Seal] | Ability 857D [ZurvanUN Seal Cleanup]
+    Timeout(id + 0x440, 15.2f, "Biting Halberd/Ciclicle/Tail End"); // t=1328.6; Ability 8562/8564/8563 from Zurvan; cactbot StartsUsing 8562 [ZurvanUN Biting Halberd] | StartsUsing 8563 [ZurvanUN Tail End] | StartsUsing 8564 [ZurvanUN Ciclicle]
+    Timeout(id + 0x450, 6.2f, "Metal Cutter"); // t=1334.8; Ability 8579 from Zurvan
+    Timeout(id + 0x460, 10.0f, "Soar"); // t=1344.8; Ability 857E from Zurvan
+    Targetable(id + 0x470, false, 0.1f, "--untargetable--"); // t=1344.9
+    Timeout(id + 0x480, 9.0f, "Flaming Halberd"); // t=1353.9; Ability 855D from Zurvan; cactbot HeadMarker 2C [ZurvanUN Flaming Halberd]
+    Timeout(id + 0x490, 5.1f, "Demonic Dive"); // t=1359.0; Ability 855E from Zurvan; cactbot HeadMarker 3E [ZurvanUN Demonic Dive]
+    Timeout(id + 0x4A0, 0.9f, "Cool Flame"); // t=1359.9; Ability 855F from Zurvan; cactbot Ability 855F [ZurvanUN Cool Flame Cleanup]
+    Targetable(id + 0x4B0, true, 2.1f, "--targetable--"); // t=1362.0
+    Timeout(id + 0x4C0, 6.1f, "The Demon's Claw"); // t=1368.1; Ability 857A from Zurvan; cactbot StartsUsing 857A [ZurvanUN Demon Claw]
+    Timeout(id + 0x4D0, 7.1f, "Wave Cannon (stack)"); // t=1375.2; Ability 857B from Zurvan; cactbot StartsUsing 857B [ZurvanUN Wave Cannon Stack] | Ability 857B [ZurvanUN Wave Cannon Stack Cleanup]
+    Timeout(id + 0x4E0, 6.1f, "Infinite Fire/Infinite Ice"); // t=1381.3; Ability 8570/8571 from Zurvan
+    Timeout(id + 0x4F0, 8.2f, "Wave Cannon (avoid)"); // t=1389.5; Ability 857C from Zurvan; cactbot HeadMarker E [ZurvanUN Wave Cannon Avoid]
+    Timeout(id + 0x500, 7.1f, "Tyrfing x9"); // t=1396.6; Ability 8576 from Zurvan; cactbot StartsUsing 8576 [ZurvanUN Tyrfing]
+    Timeout(id + 0x510, 9.1f, "Fire III"); // t=1405.7; Ability 8578 from Zurvan
+    Timeout(id + 0x520, 6.1f, "Southern Cross (snapshot)"); // t=1411.8; Ability 8565 from Zurvan; cactbot StartsUsing 8565 [ZurvanUN Southern Cross Stack]
+    Timeout(id + 0x530, 3.6f, "Southern Cross (puddle)"); // t=1415.4; Ability 8566 from Zurvan; cactbot StartsUsing 8566 [ZurvanUN Southern Cross Move]
+    Timeout(id + 0x540, 1.7f, "Metal Cutter"); // t=1417.1; Ability 8579 from Zurvan
+    Timeout(id + 0x550, 9.1f, "Broken Seal"); // t=1426.2; Ability 857D from Zurvan; cactbot StartsUsing 857D [ZurvanUN Broken Seal] | Ability 857D [ZurvanUN Seal Cleanup]
+    Timeout(id + 0x560, 15.0f, "Biting Halberd/Ciclicle/Tail End"); // t=1441.2; Ability 8562/8564/8563 from Zurvan; cactbot StartsUsing 8562 [ZurvanUN Biting Halberd] | StartsUsing 8563 [ZurvanUN Tail End] | StartsUsing 8564 [ZurvanUN Ciclicle]
+    Timeout(id + 0x570, 6.2f, "Metal Cutter"); // t=1447.4; Ability 8579 from Zurvan
+    Timeout(id + 0x580, 5.1f, "Infinite Fire/Infinite Ice"); // t=1452.5; Ability 8570/8571 from Zurvan
+    Timeout(id + 0x590, 8.1f, "Wave Cannon (avoid)"); // t=1460.6; Ability 857C from Zurvan; cactbot HeadMarker E [ZurvanUN Wave Cannon Avoid]
+    Timeout(id + 0x5A0, 7.1f, "Tyrfing x10"); // t=1467.7; Ability 8576 from Zurvan; cactbot StartsUsing 8576 [ZurvanUN Tyrfing]
+    Timeout(id + 0x5B0, 8.1f, "Fire III"); // t=1475.8; Ability 8578 from Zurvan
+    Timeout(id + 0x5C0, 6.1f, "Southern Cross (snapshot)"); // t=1481.9; Ability 8565 from Zurvan; cactbot StartsUsing 8565 [ZurvanUN Southern Cross Stack]
+    Timeout(id + 0x5D0, 3.6f, "Southern Cross (puddle)"); // t=1485.5; Ability 8566 from Zurvan; cactbot StartsUsing 8566 [ZurvanUN Southern Cross Move]
+    Timeout(id + 0x5E0, 1.7f, "Metal Cutter"); // t=1487.2; Ability 8579 from Zurvan
+    Timeout(id + 0x5F0, 9.1f, "Broken Seal"); // t=1496.3; Ability 857D from Zurvan; cactbot StartsUsing 857D [ZurvanUN Broken Seal] | Ability 857D [ZurvanUN Seal Cleanup]
+    Timeout(id + 0x600, 15.2f, "Biting Halberd/Ciclicle/Tail End"); // t=1511.5; Ability 8562/8564/8563 from Zurvan; cactbot StartsUsing 8562 [ZurvanUN Biting Halberd] | StartsUsing 8563 [ZurvanUN Tail End] | StartsUsing 8564 [ZurvanUN Ciclicle]
+    Timeout(id + 0x610, 6.2f, "Metal Cutter"); // t=1517.7; Ability 8579 from Zurvan
+    Timeout(id + 0x620, 10.0f, "Soar"); // t=1527.7; Ability 857E from Zurvan
+    Targetable(id + 0x630, false, 0.1f, "--untargetable--"); // t=1527.8
+    Condition(id + 0x640, 461.9f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x8592), "", 5f, 456.9f); // t=1989.7; StartsUsing 8592 from Zurvan
+    Timeout(id + 0x650, 9.1f, "Flame Halberd Enrage"); // t=1998.8; Ability 8592 from Zurvan
+    Targetable(id + 0x660, false, 0.0f, "--untargetable--"); // t=1998.8
+}
+

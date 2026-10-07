@@ -1,0 +1,76 @@
+// Generated development skeleton from o5s.txt (TerritoryType 752).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 6 static/dynamic trigger definitions from ui/raidboss/data/04-sb/raid/o5s.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 11.0f, "Encumber"); // t=11.0; Ability 28B6 from Wroth Ghost
+    Timeout(id + 0x10, 7.0f, "Saintly Beam"); // t=18.0
+    Timeout(id + 0x20, 13.0f, "Knockback Whistle").SetHint(StateMachine.StateHint.Knockback); // t=31.0; Ability 28A5 from Phantom Train
+    Timeout(id + 0x30, 10.0f, "All In The Mind"); // t=41.0; Ability 28AD from Remorse
+    Timeout(id + 0x40, 9.0f, "Doom Strike").SetHint(StateMachine.StateHint.Tankbuster); // t=50.0; Ability 28B1 from Phantom Train; cactbot StartsUsing 28B1 [O5S Doom Strike]
+    Timeout(id + 0x50, 14.0f, "Head On"); // t=64.0; Ability 28B7 from Phantom Train; cactbot StartsUsing 28A4 [O5S Head On]
+    Timeout(id + 0x60, 1.0f, "Diabolic Wind"); // t=65.0; Ability 28BD from Phantom Train; cactbot HeadMarker 46 [O5S Diabolic Wind]
+    Timeout(id + 0x70, 6.0f, "Acid Rain"); // t=71.0; Ability 28B5 from Phantom Train
+    Timeout(id + 0x80, 9.0f, "Crossing Whistle"); // t=80.0; Ability 28A5 from Phantom Train
+    Timeout(id + 0x90, 10.0f, "Saintly Beam"); // t=90.0
+    Timeout(id + 0xA0, 14.0f, "Diabolic Headlamp"); // t=104.0; Ability 28B8 from Phantom Train; cactbot StartsUsing 28B2 [O5S Diabolic Headlamp]
+    Timeout(id + 0xB0, 12.0f, "Tether Whistle"); // t=116.0; Ability 28A5 from Phantom Train
+    Timeout(id + 0xC0, 9.0f, "Saintly Beam"); // t=125.0
+    Timeout(id + 0xD0, 16.0f, "Diabolic Light"); // t=141.0; cactbot HeadMarker 1 [O5S Diabolic Light]
+    Timeout(id + 0xE0, 11.0f, "Doom Strike").SetHint(StateMachine.StateHint.Tankbuster); // t=152.0; Ability 28B1 from Phantom Train; cactbot StartsUsing 28B1 [O5S Doom Strike]
+    Timeout(id + 0xF0, 7.0f, "Acid Rain"); // t=159.0; Ability 28B5 from Phantom Train
+    Targetable(id + 0x100, false, 9.0f, "--untargetable--"); // t=168.0; Ability 28A7 from Phantom Train
+    Timeout(id + 0x110, 12.0f, "Add Wave"); // t=180.0
+    Timeout(id + 0x120, 16.0f, "(DPS) Diabolic Wind"); // t=196.0; Ability 28BD from Phantom Train
+    Timeout(id + 0x130, 7.0f, "(T/H) Diabolic Wind"); // t=203.0; Ability 28BD from Phantom Train
+    Timeout(id + 0x140, 102.0f, "(T/H) Ghosts"); // t=305.0
+    Timeout(id + 0x150, 4.0f, "(DPS) Ghosts"); // t=309.0
+    Targetable(id + 0x160, true, 191.0f, "--targetable--"); // t=500.0
+    Timeout(id + 0x170, 17.0f, "Encumber"); // t=517.0; Ability 28B6 from Wroth Ghost
+    Timeout(id + 0x180, 8.0f, "Diabolic Light"); // t=525.0; cactbot HeadMarker 1 [O5S Diabolic Light]
+    Timeout(id + 0x190, 5.0f, "Diabolic Headlamp"); // t=530.0; Ability 28B8 from Phantom Train; cactbot StartsUsing 28B2 [O5S Diabolic Headlamp]
+    Timeout(id + 0x1A0, 4.0f, "Saintly Beam"); // t=534.0
+    Timeout(id + 0x1B0, 13.0f, "Doom Strike").SetHint(StateMachine.StateHint.Tankbuster); // t=547.0; Ability 28B1 from Phantom Train; cactbot StartsUsing 28B1 [O5S Doom Strike]
+    Timeout(id + 0x1C0, 9.0f, "Tether Whistle"); // t=556.0; Ability 28A5 from Phantom Train
+    Timeout(id + 0x1D0, 7.0f, "Saintly Beam"); // t=563.0
+    Timeout(id + 0x1E0, 17.0f, "Knockback Whistle").SetHint(StateMachine.StateHint.Knockback); // t=580.0; Ability 28A5 from Phantom Train
+    Timeout(id + 0x1F0, 9.0f, "All In The Mind"); // t=589.0; Ability 28AD from Remorse
+    Timeout(id + 0x200, 4.0f, "Diabolic Headlamp"); // t=593.0; Ability 28B8 from Phantom Train; cactbot StartsUsing 28B2 [O5S Diabolic Headlamp]
+    Timeout(id + 0x210, 18.0f, "Head On"); // t=611.0; Ability 28B7 from Phantom Train; cactbot StartsUsing 28A4 [O5S Head On]
+    Timeout(id + 0x220, 1.0f, "Saintly Beam"); // t=612.0
+    Timeout(id + 0x230, 4.0f, "Ghosts spawn"); // t=616.0
+    Timeout(id + 0x240, 13.0f, "Crossing Whistle"); // t=629.0; Ability 28A5 from Phantom Train
+    Timeout(id + 0x250, 8.0f, "Diabolic Headlamp"); // t=637.0; Ability 28B8 from Phantom Train; cactbot StartsUsing 28B2 [O5S Diabolic Headlamp]
+    Timeout(id + 0x260, 8.0f, "Diabolic Wind"); // t=645.0; Ability 28BD from Phantom Train; cactbot HeadMarker 46 [O5S Diabolic Wind]
+    Timeout(id + 0x270, 1.0f, "Tether Whistle"); // t=646.0; Ability 28A5 from Phantom Train
+    Timeout(id + 0x280, 7.0f, "Saintly Beam"); // t=653.0
+    Timeout(id + 0x290, 6.0f, "Diabolic Wind"); // t=659.0; Ability 28BD from Phantom Train; cactbot HeadMarker 46 [O5S Diabolic Wind]
+    Timeout(id + 0x2A0, 6.0f, "Diabolic Light"); // t=665.0; cactbot HeadMarker 1 [O5S Diabolic Light]
+    Timeout(id + 0x2B0, 11.0f, "Doom Strike").SetHint(StateMachine.StateHint.Tankbuster); // t=676.0; Ability 28B1 from Phantom Train; cactbot StartsUsing 28B1 [O5S Doom Strike]
+    Timeout(id + 0x2C0, 7.0f, "Acid Rain"); // t=683.0; Ability 28B5 from Phantom Train
+    Timeout(id + 0x2D0, 14.0f, "Diabolic Headlamp"); // t=697.0; Ability 28B8 from Phantom Train; cactbot StartsUsing 28B2 [O5S Diabolic Headlamp]
+    Timeout(id + 0x2E0, 2.0f, "Saintly Beam"); // t=699.0
+    Timeout(id + 0x2F0, 5.0f, "Acid Rain"); // t=704.0; Ability 28B5 from Phantom Train
+    Timeout(id + 0x300, 14.0f, "Tether Whistle"); // t=718.0; Ability 28A5 from Phantom Train
+    Timeout(id + 0x310, 10.0f, "Saintly Beam"); // t=728.0
+    Timeout(id + 0x320, 3.0f, "Encumber"); // t=731.0; Ability 28B6 from Wroth Ghost
+    Timeout(id + 0x330, 1.0f, "Diabolic Wind"); // t=732.0; Ability 28BD from Phantom Train; cactbot HeadMarker 46 [O5S Diabolic Wind]
+    Timeout(id + 0x340, 5.0f, "Diabolic Light"); // t=737.0; cactbot HeadMarker 1 [O5S Diabolic Light]
+    Timeout(id + 0x350, 11.0f, "Doom Strike").SetHint(StateMachine.StateHint.Tankbuster); // t=748.0; Ability 28B1 from Phantom Train; cactbot StartsUsing 28B1 [O5S Doom Strike]
+    Timeout(id + 0x360, 12.0f, "Knockback Whistle").SetHint(StateMachine.StateHint.Knockback); // t=760.0; Ability 28A5 from Phantom Train
+    Timeout(id + 0x370, 9.0f, "All In The Mind"); // t=769.0; Ability 28AD from Remorse
+    Timeout(id + 0x380, 5.0f, "Diabolic Headlamp"); // t=774.0; Ability 28B8 from Phantom Train; cactbot StartsUsing 28B2 [O5S Diabolic Headlamp]
+    Timeout(id + 0x390, 15.0f, "Head On"); // t=789.0; Ability 28B7 from Phantom Train; cactbot StartsUsing 28A4 [O5S Head On]
+    Timeout(id + 0x3A0, 2.0f, "Diabolic Wind"); // t=791.0; Ability 28BD from Phantom Train; cactbot HeadMarker 46 [O5S Diabolic Wind]
+    Timeout(id + 0x3B0, 6.0f, "Acid Rain"); // t=797.0; Ability 28B5 from Phantom Train
+    Timeout(id + 0x3C0, 11.0f, "Encumber"); // t=808.0; Ability 28B6 from Wroth Ghost
+    Timeout(id + 0x3D0, 3.0f, "Crossing Whistle"); // t=811.0; Ability 28A5 from Phantom Train
+    Timeout(id + 0x3E0, 8.0f, "Diabolic Headlamp"); // t=819.0; Ability 28B8 from Phantom Train; cactbot StartsUsing 28B2 [O5S Diabolic Headlamp]
+    Timeout(id + 0x3F0, 8.0f, "Diabolic Wind"); // t=827.0; Ability 28BD from Phantom Train; cactbot HeadMarker 46 [O5S Diabolic Wind]
+    Timeout(id + 0x400, 1.0f, "Tether Whistle"); // t=828.0; Ability 28A5 from Phantom Train
+    Condition(id + 0x410, 193.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x2A87), "", 5f, 188.0f); // t=1021.0; StartsUsing 2A87 from Phantom Train
+    Timeout(id + 0x420, 10.0f, "Saintly Beam"); // t=1031.0; Ability 2A87 from Phantom Train
+}
+

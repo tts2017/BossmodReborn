@@ -1,0 +1,105 @@
+// Generated development skeleton from titan-nm.txt (TerritoryType 1046).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 2 static/dynamic trigger definitions from ui/raidboss/data/02-arr/trial/titan-nm.ts.
+
+private void Phase_1_100____85(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 5.0f, "Rock Buster"); // t=5.0; Ability 281 from Titan
+    Timeout(id + 0x20, 2.0f, "Tumult").SetHint(StateMachine.StateHint.Raidwide); // t=7.0; Ability 282 from Titan; cactbot Ability 282 [TitanNm Tumult]
+    Timeout(id + 0x30, 9.1f, "Tumult").SetHint(StateMachine.StateHint.Raidwide); // t=16.1; Ability 282 from Titan; cactbot Ability 282 [TitanNm Tumult]
+    Timeout(id + 0x40, 3.1f, "Rock Buster"); // t=19.2; Ability 281 from Titan
+    Timeout(id + 0x50, 6.0f, "Tumult").SetHint(StateMachine.StateHint.Raidwide); // t=25.2; Ability 282 from Titan; cactbot Ability 282 [TitanNm Tumult]
+    Timeout(id + 0x60, 7.1f, "Rock Buster"); // t=32.3; Ability 281 from Titan
+    Timeout(id + 0x70, 2.0f, "Tumult").SetHint(StateMachine.StateHint.Raidwide); // t=34.3; Ability 282 from Titan; cactbot Ability 282 [TitanNm Tumult]
+    Timeout(id + 0x80, 9.1f, "Tumult").SetHint(StateMachine.StateHint.Raidwide); // t=43.4; Ability 282 from Titan; cactbot Ability 282 [TitanNm Tumult]
+    Timeout(id + 0x90, 3.1f, "Rock Buster"); // t=46.5; Ability 281 from Titan
+    Timeout(id + 0xA0, 6.0f, "Tumult").SetHint(StateMachine.StateHint.Raidwide); // t=52.5; Ability 282 from Titan; cactbot Ability 282 [TitanNm Tumult]
+    Timeout(id + 0xB0, 7.1f, "Rock Buster"); // t=59.6
+    Timeout(id + 0xC0, 2.0f, "Tumult"); // t=61.6; cactbot Ability 282 [TitanNm Tumult]
+    Timeout(id + 0xD0, 9.1f, "Tumult"); // t=70.7; cactbot Ability 282 [TitanNm Tumult]
+    Timeout(id + 0xE0, 3.1f, "Rock Buster"); // t=73.8
+    Timeout(id + 0xF0, 6.0f, "Tumult"); // t=79.8; cactbot Ability 282 [TitanNm Tumult]
+}
+
+private void Phase_2_85____55(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x28B), "", 5f, 0.0f); // t=200.0; StartsUsing 28B from Titan
+    Timeout(id + 0x10, 3.0f, "Geocrush"); // t=203.0; Ability 28B from Titan
+    Timeout(id + 0x20, 8.6f, "Landslide"); // t=211.6; Ability 28A from Titan
+    Timeout(id + 0x30, 6.2f, "Rock Buster"); // t=217.8; Ability 281 from Titan
+    Timeout(id + 0x40, 4.0f, "Tumult").SetHint(StateMachine.StateHint.Raidwide); // t=221.8; Ability 282 from Titan; cactbot Ability 282 [TitanNm Tumult]
+    Timeout(id + 0x50, 7.3f, "Landslide"); // t=229.1; Ability 28A from Titan
+    Timeout(id + 0x60, 6.2f, "Rock Buster"); // t=235.3; Ability 281 from Titan
+    Timeout(id + 0x70, 4.0f, "Tumult").SetHint(StateMachine.StateHint.Raidwide); // t=239.3; Ability 282 from Titan; cactbot Ability 282 [TitanNm Tumult]
+    Timeout(id + 0x80, 7.3f, "Landslide"); // t=246.6; Ability 28A from Titan
+    Timeout(id + 0x90, 6.2f, "Rock Buster"); // t=252.8; Ability 281 from Titan
+    Timeout(id + 0xA0, 4.0f, "Tumult").SetHint(StateMachine.StateHint.Raidwide); // t=256.8; Ability 282 from Titan; cactbot Ability 282 [TitanNm Tumult]
+    Timeout(id + 0xB0, 7.3f, "Landslide"); // t=264.1; Ability 28A from Titan
+    Timeout(id + 0xC0, 6.1f, "Rock Buster"); // t=270.2; Ability 281 from Titan
+    Timeout(id + 0xD0, 4.0f, "Tumult").SetHint(StateMachine.StateHint.Raidwide); // t=274.2; Ability 282 from Titan; cactbot Ability 282 [TitanNm Tumult]
+}
+
+private void including_syncs_until_a_decision_is_made_to_keep_or_remove_them__Potential_FIX_ME(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Landslide"); // t=281.6; Ability 28A from Titan
+    Timeout(id + 0x10, 6.2f, "Rock Buster"); // t=287.8; Ability 281 from Titan
+    Timeout(id + 0x20, 4.0f, "Tumult").SetHint(StateMachine.StateHint.Raidwide); // t=291.8; Ability 282 from Titan; cactbot Ability 282 [TitanNm Tumult]
+    Timeout(id + 0x30, 7.3f, "Landslide"); // t=299.1; Ability 28A from Titan
+    Timeout(id + 0x40, 6.1f, "Rock Buster"); // t=305.2; Ability 281 from Titan
+    Timeout(id + 0x50, 4.0f, "Tumult").SetHint(StateMachine.StateHint.Raidwide); // t=309.2; Ability 282 from Titan; cactbot Ability 282 [TitanNm Tumult]
+}
+
+private void Phase_3_Heart_Phase__55(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x28B), "", 5f, 0.0f); // t=400.0; StartsUsing 28B from Titan
+    Timeout(id + 0x10, 3.0f, "Geocrush"); // t=403.0; Ability 28B from Titan
+    Timeout(id + 0x20, 10.6f, "Rock Throw"); // t=413.6; Ability 285 from Titan
+    Timeout(id + 0x30, 7.9f, "Landslide"); // t=421.5; Ability 28A from Titan
+    Timeout(id + 0x40, 6.1f, "Rock Buster"); // t=427.6; Ability 281 from Titan
+    Timeout(id + 0x50, 4.0f, "Tumult").SetHint(StateMachine.StateHint.Raidwide); // t=431.6; Ability 282 from Titan; cactbot Ability 282 [TitanNm Tumult]
+    Timeout(id + 0x60, 3.5f, "Rock Throw"); // t=435.1; Ability 285 from Titan
+    Timeout(id + 0x70, 7.8f, "Landslide"); // t=442.9; Ability 28A from Titan
+    Timeout(id + 0x80, 6.2f, "Rock Buster"); // t=449.1; Ability 281 from Titan
+    Timeout(id + 0x90, 4.0f, "Tumult").SetHint(StateMachine.StateHint.Raidwide); // t=453.1; Ability 282 from Titan; cactbot Ability 282 [TitanNm Tumult]
+    Timeout(id + 0xA0, 11.5f, "Landslide"); // t=464.6; Ability 28A from Titan
+    Timeout(id + 0xB0, 9.0f, "Enrage"); // t=473.6
+}
+
+private void Phase_4_55____0(uint id)
+{
+    Condition(id + 0x0, 0.0f, () => Module.WorldState.Actors.Any(actor => actor.CastInfo?.Action.ID == 0x28C), "", 5f, 0.0f); // t=600.0; StartsUsing 28C from Earthen Fury
+    Timeout(id + 0x10, 1.1f, "Earthen Fury"); // t=601.1; Ability 28C from Titan
+    Timeout(id + 0x20, 13.0f, "Landslide"); // t=614.1; Ability 28A from Titan
+    Timeout(id + 0x30, 6.1f, "Rock Buster"); // t=620.2; Ability 281 from Titan
+    Timeout(id + 0x40, 4.0f, "Weight Of The Land"); // t=624.2; Ability 284 from Titan
+    Timeout(id + 0x50, 6.1f, "Tumult x2"); // t=630.3
+    Timeout(id + 0x60, 6.2f, "Rock Throw"); // t=636.5; Ability 285 from Titan
+    Timeout(id + 0x70, 7.1f, "Landslide"); // t=643.6; Ability 28A from Titan
+    Timeout(id + 0x80, 6.1f, "Rock Buster"); // t=649.7; Ability 281 from Titan
+    Timeout(id + 0x90, 4.0f, "Weight Of The Land"); // t=653.7; Ability 284 from Titan
+    Timeout(id + 0xA0, 6.1f, "Tumult x2"); // t=659.8
+    Timeout(id + 0xB0, 7.2f, "Rock Throw"); // t=667.0; Ability 285 from Titan
+    Timeout(id + 0xC0, 7.1f, "Landslide"); // t=674.1; Ability 28A from Titan
+    Timeout(id + 0xD0, 6.1f, "Rock Buster"); // t=680.2; Ability 281 from Titan
+    Timeout(id + 0xE0, 4.0f, "Weight Of The Land"); // t=684.2; Ability 284 from Titan
+    Timeout(id + 0xF0, 6.1f, "Tumult x2"); // t=690.3
+    Timeout(id + 0x100, 6.2f, "Rock Throw"); // t=696.5; Ability 285 from Titan
+    Timeout(id + 0x110, 7.1f, "Landslide"); // t=703.6; Ability 28A from Titan
+    Timeout(id + 0x120, 6.1f, "Rock Buster"); // t=709.7; Ability 281 from Titan
+    Timeout(id + 0x130, 4.0f, "Weight Of The Land"); // t=713.7; Ability 284 from Titan
+    Timeout(id + 0x140, 6.1f, "Tumult x2"); // t=719.8
+    Timeout(id + 0x150, 7.2f, "Rock Throw"); // t=727.0; Ability 285 from Titan
+    Timeout(id + 0x160, 7.1f, "Landslide"); // t=734.1
+    Timeout(id + 0x170, 6.1f, "Rock Buster"); // t=740.2
+    Timeout(id + 0x180, 4.0f, "Weight Of The Land"); // t=744.2
+    Timeout(id + 0x190, 6.1f, "Tumult x2"); // t=750.3
+    Timeout(id + 0x1A0, 6.2f, "Rock Throw"); // t=756.5
+    Timeout(id + 0x1B0, 7.1f, "Landslide"); // t=763.6
+    Timeout(id + 0x1C0, 6.1f, "Rock Buster"); // t=769.7
+    Timeout(id + 0x1D0, 4.0f, "Weight Of The Land"); // t=773.7
+    Timeout(id + 0x1E0, 6.1f, "Tumult x2"); // t=779.8
+    Timeout(id + 0x1F0, 7.2f, "Rock Throw"); // t=787.0
+}
+

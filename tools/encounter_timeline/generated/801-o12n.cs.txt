@@ -1,0 +1,159 @@
+// Generated development skeleton from o12n.txt (TerritoryType 801).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 13 static/dynamic trigger definitions from ui/raidboss/data/04-sb/raid/o12n.ts.
+
+private void Phase_1__loops_until_low(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Start"); // t=0.0
+    Timeout(id + 0x10, 15.3f, "Solar Ray"); // t=15.3; Ability 330F from Omega-M; cactbot StartsUsing 330F/3310 [O12N Solar Ray]
+    Timeout(id + 0x20, 5.1f, "Program Alpha"); // t=20.4; Ability 3308 from Omega-M
+    Timeout(id + 0x30, 3.1f, "Floodlight"); // t=23.5; Ability 3309 from Omega-M
+    Timeout(id + 0x40, 4.0f, "Spotlight"); // t=27.5; Ability 330A from Omega-M
+    Timeout(id + 0x50, 0.2f, "Efficient Bladework"); // t=27.7; Ability 32FF from Omega-M; cactbot Ability 32F4 [O12N Efficient Bladework]
+    Timeout(id + 0x60, 10.3f, "Subject Simulation F"); // t=38.0; Ability 32F1 from Omega-M
+    Timeout(id + 0x70, 12.4f, "Discharger"); // t=50.4; Ability 32F6 from Omega-M
+    Timeout(id + 0x80, 11.3f, "Optimized Fire III"); // t=61.7; Ability 330D from Omega-M; cactbot HeadMarker 60 [O12N Optimized Fire III]
+    Timeout(id + 0x90, 5.2f, "Optimized Blizzard III"); // t=66.9; Ability 3303 from Omega-M
+    Timeout(id + 0xA0, 8.2f, "Laser Shower").SetHint(StateMachine.StateHint.Raidwide); // t=75.1; Ability 3312 from Omega-M; cactbot StartsUsing 3311/3312 [O12N Laser Shower]
+    Timeout(id + 0xB0, 17.4f, "Synthetic Blades"); // t=92.5; Ability 3301 from Omega-M
+    Timeout(id + 0xC0, 8.1f, "Optimized Fire III"); // t=100.6; Ability 330D from Omega-M; cactbot HeadMarker 60 [O12N Optimized Fire III]
+    Timeout(id + 0xD0, 5.3f, "Superliminal Steel"); // t=105.9; Ability 3305 from Omega-M
+    Timeout(id + 0xE0, 5.1f, "Optimized Blizzard III"); // t=111.0; Ability 3303 from Omega-M
+    Timeout(id + 0xF0, 11.3f, "Subject Simulation M"); // t=122.3; Ability 32F4 from Omega-M; cactbot Ability 32F4 [O12N Efficient Bladework]
+    Timeout(id + 0x100, 12.4f, "Efficient Bladework"); // t=134.7; Ability 32F3 from Omega-M; cactbot Ability 32F4 [O12N Efficient Bladework]
+    Timeout(id + 0x110, 6.3f, "Synthetic Shield"); // t=141.0; Ability 32FD from Omega-M
+    Timeout(id + 0x120, 8.1f, "Program Alpha"); // t=149.1; Ability 3308 from Omega-M
+    Timeout(id + 0x130, 3.1f, "Floodlight"); // t=152.2; Ability 3309 from Omega-M
+    Timeout(id + 0x140, 4.0f, "Spotlight"); // t=156.2; Ability 330A from Omega-M
+    Timeout(id + 0x150, 0.2f, "Beyond Strength"); // t=156.4; Ability 3300 from Omega-M
+    Timeout(id + 0x160, 6.2f, "Efficient Bladework"); // t=162.6; Ability 32FF from Omega-M; cactbot Ability 32F4 [O12N Efficient Bladework]
+    Timeout(id + 0x170, 13.3f, "Laser Shower").SetHint(StateMachine.StateHint.Raidwide); // t=175.9; Ability 3311 from Omega-M; cactbot StartsUsing 3311/3312 [O12N Laser Shower]
+    Timeout(id + 0x180, 8.3f, "Solar Ray"); // t=184.2; Ability 330F from Omega-M; cactbot StartsUsing 330F/3310 [O12N Solar Ray]
+    Timeout(id + 0x190, 7.2f, "Laser Shower").SetHint(StateMachine.StateHint.Raidwide); // t=191.4; Ability 3311 from Omega-M; cactbot StartsUsing 3311/3312 [O12N Laser Shower]
+    Timeout(id + 0x1A0, 5.3f, "Subject Simulation F"); // t=196.7; Ability 32F1 from Omega-M
+    Timeout(id + 0x1B0, 12.4f, "Discharger"); // t=209.1; Ability 32F6 from Omega-M
+    Timeout(id + 0x1C0, 6.2f, "Synthetic Blades"); // t=215.3; Ability 3301 from Omega-M
+    Timeout(id + 0x1D0, 8.2f, "Optimized Fire III"); // t=223.5; Ability 330D from Omega-M; cactbot HeadMarker 60 [O12N Optimized Fire III]
+    Timeout(id + 0x1E0, 5.2f, "Superliminal Steel"); // t=228.7; Ability 3305 from Omega-M
+    Timeout(id + 0x1F0, 5.1f, "Optimized Blizzard III"); // t=233.8; Ability 3303 from Omega-M
+    Timeout(id + 0x200, 13.1f, "Laser Shower").SetHint(StateMachine.StateHint.Raidwide); // t=246.9; Ability 3312 from Omega-M; cactbot StartsUsing 3311/3312 [O12N Laser Shower]
+    Timeout(id + 0x210, 35.3f, "Solar Ray"); // t=282.2; Ability 330F from Omega-M; cactbot StartsUsing 330F/3310 [O12N Solar Ray]
+    Timeout(id + 0x220, 5.1f, "Program Alpha"); // t=287.3
+    Timeout(id + 0x230, 3.1f, "Floodlight"); // t=290.4
+    Timeout(id + 0x240, 4.0f, "Spotlight"); // t=294.4
+    Timeout(id + 0x250, 0.2f, "Efficient Bladework"); // t=294.6; cactbot Ability 32F4 [O12N Efficient Bladework]
+    Timeout(id + 0x260, 10.3f, "Subject Simulation F"); // t=304.9
+    Timeout(id + 0x270, 12.4f, "Discharger"); // t=317.3
+}
+
+private void Phase_2__Passage_of_Arms(uint id)
+{
+    Timeout(id + 0x0, 14.0f, "Ground Zero / Electric Slide"); // t=514.0; Ability 3313 from Omega-M | Ability 3314 from Omega
+    Timeout(id + 0x10, 8.0f, "Efficient Bladework / Discharger"); // t=522.0; Ability 32F3 from Omega-M | Ability 32F6 from Omega
+    Timeout(id + 0x20, 4.3f, "Optimized Passage of Arms"); // t=526.3; Ability 3316 from Omega-M
+    Timeout(id + 0x30, 61.2f, "Laser Shower Enrage"); // t=587.5
+}
+
+private void Phase_3__Everyone_dies__loops_forever(uint id)
+{
+    Timeout(id + 0x0, 11.0f, "Ground Zero / Electric Slide"); // t=711.0; Ability 3313 from Omega-M | Ability 3314 from Omega
+    Timeout(id + 0x10, 8.1f, "Efficient Bladework / Discharger"); // t=719.1; Ability 32F3 from Omega-M | Ability 32F6 from Omega
+    Timeout(id + 0x20, 6.0f, "Firewall"); // t=725.1; Ability 3392 from Omega-M
+    Timeout(id + 0x30, 12.0f, "Synthetic Blades/Shield"); // t=737.1
+    Timeout(id + 0x40, 2.0f, "Laser Shower"); // t=739.1; cactbot StartsUsing 3311/3312 [O12N Laser Shower]
+    Timeout(id + 0x50, 198.0f, "Synthetic Shield"); // t=937.1; Ability 32FD from Omega-M
+    Timeout(id + 0x60, 2.0f, "Laser Shower").SetHint(StateMachine.StateHint.Raidwide); // t=939.1; Ability 3312 from Omega; cactbot StartsUsing 3311/3312 [O12N Laser Shower]
+    Timeout(id + 0x70, 8.0f, "Optimized Fire III / Beyond Strength"); // t=947.1; Ability 330D from Omega | Ability 3300 from Omega-M
+    Timeout(id + 0x80, 5.0f, "Optimized Blizzard III"); // t=952.1; Ability 3303 from Omega
+    Timeout(id + 0x90, 1.0f, "Efficient Bladework"); // t=953.1; Ability 32FF from Omega-M; cactbot Ability 32F4 [O12N Efficient Bladework]
+    Timeout(id + 0xA0, 10.0f, "Solar Ray"); // t=963.1; Ability 330F from Omega-M; cactbot StartsUsing 330F/3310 [O12N Solar Ray]
+    Timeout(id + 0xB0, 22.3f, "Cosmo Memory").SetHint(StateMachine.StateHint.Raidwide); // t=985.4; Ability 331B from Omega-M; cactbot StartsUsing 331C/331D [O12N Cosmo Memory]
+    Timeout(id + 0xC0, 7.1f, "Resonance"); // t=992.5; Ability 3394 from Omega-M; cactbot GainsEffect 67E [O12N Local Resonance]
+    Timeout(id + 0xD0, 16.1f, "Suppression"); // t=1008.6; Ability 331E from Omega-M
+    Timeout(id + 0xE0, 5.0f, "Optical Laser"); // t=1013.6; Ability 3320 from Optical Unit
+    Timeout(id + 0xF0, 3.0f, "Optimized Meteor"); // t=1016.6; Ability 3325 from Omega-M; cactbot HeadMarker 57 [O12N Optimized Meteor]
+    Timeout(id + 0x100, 0.2f, "Optimized Sagittarius Arrow"); // t=1016.8; Ability 3323 from Omega-M
+    Timeout(id + 0x110, 10.9f, "Optimized Blade Dance").SetHint(StateMachine.StateHint.Tankbuster); // t=1027.7; Ability 3322 from Omega; cactbot StartsUsing 3321/3322 [O12N Optimized Blade Dance]
+    Timeout(id + 0x120, 8.0f, "Synthetic Blades"); // t=1035.7; Ability 3301 from Omega
+    Timeout(id + 0x130, 2.0f, "Laser Shower"); // t=1037.7; cactbot StartsUsing 3311/3312 [O12N Laser Shower]
+    Timeout(id + 0x140, 7.2f, "Program Alpha / Optimized Fire III"); // t=1044.9
+    Timeout(id + 0x150, 3.0f, "Floodlight"); // t=1047.9
+    Timeout(id + 0x160, 3.2f, "Superliminal Steel"); // t=1051.1
+    Timeout(id + 0x170, 0.8f, "Spotlight"); // t=1051.9
+    Timeout(id + 0x180, 4.0f, "Efficient Bladework"); // t=1055.9; cactbot Ability 32F4 [O12N Efficient Bladework]
+    Timeout(id + 0x190, 0.2f, "Optimized Blizzard III"); // t=1056.1
+    Timeout(id + 0x1A0, 81.0f, "Synthetic Blades"); // t=1137.1; Ability 3301 from Omega
+    Timeout(id + 0x1B0, 2.0f, "Laser Shower").SetHint(StateMachine.StateHint.Raidwide); // t=1139.1; Ability 3311 from Omega-M; cactbot StartsUsing 3311/3312 [O12N Laser Shower]
+    Timeout(id + 0x1C0, 7.3f, "Program Alpha"); // t=1146.4; Ability 3308 from Omega-M
+    Timeout(id + 0x1D0, 0.1f, "Optimized Fire III"); // t=1146.5; Ability 330D from Omega; cactbot HeadMarker 60 [O12N Optimized Fire III]
+    Timeout(id + 0x1E0, 3.0f, "Floodlight"); // t=1149.5; Ability 3309 from Omega-M
+    Timeout(id + 0x1F0, 3.4f, "Superliminal Steel"); // t=1152.9; Ability 3305 from Omega
+    Timeout(id + 0x200, 0.6f, "Spotlight"); // t=1153.5; Ability 331A from Omega-M
+    Timeout(id + 0x210, 4.1f, "Efficient Bladework"); // t=1157.6; Ability 32FF from Omega-M; cactbot Ability 32F4 [O12N Efficient Bladework]
+    Timeout(id + 0x220, 0.5f, "Optimized Blizzard III"); // t=1158.1; Ability 3303 from Omega
+    Timeout(id + 0x230, 10.8f, "Solar Ray"); // t=1168.9; Ability 330F from Omega-M; cactbot StartsUsing 330F/3310 [O12N Solar Ray]
+    Timeout(id + 0x240, 23.1f, "Cosmo Memory").SetHint(StateMachine.StateHint.Raidwide); // t=1192.0; Ability 331B from Omega-M; cactbot StartsUsing 331C/331D [O12N Cosmo Memory]
+    Timeout(id + 0x250, 7.3f, "Resonance"); // t=1199.3; Ability 3394 from Omega-M; cactbot GainsEffect 67E [O12N Local Resonance]
+    Timeout(id + 0x260, 16.5f, "Suppression"); // t=1215.8; Ability 331E from Omega-M
+    Timeout(id + 0x270, 5.1f, "Optical Laser"); // t=1220.9; Ability 3320 from Optical Unit
+    Timeout(id + 0x280, 3.2f, "Optimized Meteor"); // t=1224.1; Ability 3325 from Omega-M; cactbot HeadMarker 57 [O12N Optimized Meteor]
+    Timeout(id + 0x290, 0.2f, "Optimized Sagittarius Arrow"); // t=1224.3; Ability 3323 from Omega-M
+    Timeout(id + 0x2A0, 11.1f, "Optimized Blade Dance").SetHint(StateMachine.StateHint.Tankbuster); // t=1235.4; Ability 3322 from Omega; cactbot StartsUsing 3321/3322 [O12N Optimized Blade Dance]
+    Timeout(id + 0x2B0, 8.2f, "Synthetic Shield"); // t=1243.6; Ability 32FD from Omega-M
+    Timeout(id + 0x2C0, 2.0f, "Laser Shower"); // t=1245.6; cactbot StartsUsing 3311/3312 [O12N Laser Shower]
+    Timeout(id + 0x2D0, 8.5f, "Optimized Fire III"); // t=1254.1; cactbot HeadMarker 60 [O12N Optimized Fire III]
+    Timeout(id + 0x2E0, 0.1f, "Beyond Strength"); // t=1254.2
+    Timeout(id + 0x2F0, 5.1f, "Optimized Blizzard III"); // t=1259.3
+    Timeout(id + 0x300, 1.0f, "Efficient Bladework"); // t=1260.3; cactbot Ability 32F4 [O12N Efficient Bladework]
+    Timeout(id + 0x310, 10.3f, "Cosmo Memory"); // t=1270.6; cactbot StartsUsing 331C/331D [O12N Cosmo Memory]
+    Timeout(id + 0x320, 7.2f, "Resonance"); // t=1277.8; cactbot GainsEffect 67E [O12N Local Resonance]
+    Timeout(id + 0x330, 122.2f, "Synthetic Shield"); // t=1400.0; Ability 32FD from Omega-M
+    Timeout(id + 0x340, 2.0f, "Laser Shower").SetHint(StateMachine.StateHint.Raidwide); // t=1402.0; Ability 3312 from Omega; cactbot StartsUsing 3311/3312 [O12N Laser Shower]
+    Timeout(id + 0x350, 8.5f, "Optimized Fire III"); // t=1410.5; Ability 330D from Omega; cactbot HeadMarker 60 [O12N Optimized Fire III]
+    Timeout(id + 0x360, 0.1f, "Beyond Strength"); // t=1410.6; Ability 3300 from Omega-M
+    Timeout(id + 0x370, 5.1f, "Optimized Blizzard III"); // t=1415.7; Ability 3303 from Omega
+    Timeout(id + 0x380, 1.0f, "Efficient Bladework"); // t=1416.7; Ability 32FF from Omega-M; cactbot Ability 32F4 [O12N Efficient Bladework]
+    Timeout(id + 0x390, 10.3f, "Cosmo Memory").SetHint(StateMachine.StateHint.Raidwide); // t=1427.0; Ability 331B from Omega-M; cactbot StartsUsing 331C/331D [O12N Cosmo Memory]
+    Timeout(id + 0x3A0, 7.2f, "Resonance"); // t=1434.2; Ability 3394 from Omega-M; cactbot GainsEffect 67E [O12N Local Resonance]
+    Timeout(id + 0x3B0, 16.6f, "Suppression"); // t=1450.8; Ability 331E from Omega-M
+    Timeout(id + 0x3C0, 5.0f, "Optical Laser"); // t=1455.8; Ability 3320 from Optical Unit
+    Timeout(id + 0x3D0, 3.2f, "Optimized Meteor"); // t=1459.0; Ability 3325 from Omega-M; cactbot HeadMarker 57 [O12N Optimized Meteor]
+    Timeout(id + 0x3E0, 0.2f, "Optimized Sagittarius Arrow"); // t=1459.2; Ability 3323 from Omega-M
+    Timeout(id + 0x3F0, 11.1f, "Optimized Blade Dance").SetHint(StateMachine.StateHint.Tankbuster); // t=1470.3; Ability 3322 from Omega; cactbot StartsUsing 3321/3322 [O12N Optimized Blade Dance]
+    Timeout(id + 0x400, 8.1f, "Synthetic Blades"); // t=1478.4; Ability 3301 from Omega
+    Timeout(id + 0x410, 2.0f, "Laser Shower").SetHint(StateMachine.StateHint.Raidwide); // t=1480.4; Ability 3311 from Omega-M; cactbot StartsUsing 3311/3312 [O12N Laser Shower]
+    Timeout(id + 0x420, 7.2f, "Program Alpha / Optimized Fire III"); // t=1487.6; Ability 3308 from Omega-M | Ability 330D from Omega
+    Timeout(id + 0x430, 3.0f, "Floodlight"); // t=1490.6; Ability 3309 from Omega-M
+    Timeout(id + 0x440, 3.2f, "Superliminal Steel"); // t=1493.8; Ability 3305 from Omega
+    Timeout(id + 0x450, 0.8f, "Spotlight"); // t=1494.6; Ability 331A from Omega-M
+    Timeout(id + 0x460, 4.0f, "Efficient Bladework"); // t=1498.6; Ability 32FF from Omega-M; cactbot Ability 32F4 [O12N Efficient Bladework]
+    Timeout(id + 0x470, 0.2f, "Optimized Blizzard III"); // t=1498.8; Ability 3303 from Omega
+    Timeout(id + 0x480, 11.0f, "Cosmo Memory").SetHint(StateMachine.StateHint.Raidwide); // t=1509.8; Ability 331B from Omega-M; cactbot StartsUsing 331C/331D [O12N Cosmo Memory]
+    Timeout(id + 0x490, 7.0f, "Resonance"); // t=1516.8; Ability 3394 from Omega-M; cactbot GainsEffect 67E [O12N Local Resonance]
+    Timeout(id + 0x4A0, 16.1f, "Suppression"); // t=1532.9; Ability 331E from Omega-M
+    Timeout(id + 0x4B0, 5.0f, "Optical Laser"); // t=1537.9; Ability 3320 from Optical Unit
+    Timeout(id + 0x4C0, 3.0f, "Optimized Meteor"); // t=1540.9; Ability 3325 from Omega-M; cactbot HeadMarker 57 [O12N Optimized Meteor]
+    Timeout(id + 0x4D0, 0.2f, "Optimized Sagittarius Arrow"); // t=1541.1; Ability 3323 from Omega-M
+    Timeout(id + 0x4E0, 10.8f, "Optimized Blade Dance").SetHint(StateMachine.StateHint.Tankbuster); // t=1551.9; Ability 3322 from Omega; cactbot StartsUsing 3321/3322 [O12N Optimized Blade Dance]
+    Timeout(id + 0x4F0, 8.1f, "Synthetic Shield"); // t=1560.0; Ability 32FD from Omega-M
+    Timeout(id + 0x500, 2.0f, "Laser Shower"); // t=1562.0; cactbot StartsUsing 3311/3312 [O12N Laser Shower]
+    Timeout(id + 0x510, 8.5f, "Optimized Fire III"); // t=1570.5; cactbot HeadMarker 60 [O12N Optimized Fire III]
+    Timeout(id + 0x520, 0.1f, "Beyond Strength"); // t=1570.6
+    Timeout(id + 0x530, 5.1f, "Optimized Blizzard III"); // t=1575.7
+    Timeout(id + 0x540, 1.0f, "Efficient Bladework"); // t=1576.7; cactbot Ability 32F4 [O12N Efficient Bladework]
+    Timeout(id + 0x550, 10.3f, "Cosmo Memory"); // t=1587.0; cactbot StartsUsing 331C/331D [O12N Cosmo Memory]
+    Timeout(id + 0x560, 7.2f, "Resonance"); // t=1594.2; cactbot GainsEffect 67E [O12N Local Resonance]
+}
+
+private void Phase_4__Laser_Show_Forever(uint id)
+{
+    Timeout(id + 0x0, 0.0f, "Enrage"); // t=1800.0
+    Timeout(id + 0x10, 6.0f, "Laser Shower Enrage").SetHint(StateMachine.StateHint.Raidwide); // t=1806.0; Ability 3311 from Omega-M | Ability 3312 from Omega; cactbot StartsUsing 3311/3312 [O12N Laser Shower]
+    Timeout(id + 0x20, 6.0f, "Laser Shower Enrage"); // t=1812.0
+    Timeout(id + 0x30, 6.0f, "Laser Shower Enrage"); // t=1818.0
+    Timeout(id + 0x40, 6.0f, "Laser Shower Enrage"); // t=1824.0
+    Timeout(id + 0x50, 8.0f, "Laser Shower Enrage"); // t=1832.0
+    Timeout(id + 0x60, 6.0f, "Laser Shower Enrage"); // t=1838.0
+}
+

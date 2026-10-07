@@ -1,0 +1,25 @@
+// Generated development skeleton from test.txt (TerritoryType 134).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 1 static/dynamic trigger definitions from ui/raidboss/data/00-misc/test.ts.
+
+private void Timeline(uint id)
+{
+    Timeout(id + 0x0, 3.0f, "Almagest"); // t=3.0
+    Timeout(id + 0x10, 3.0f, "Angry Dummy"); // t=6.0
+    Timeout(id + 0x20, 4.0f, "Long Castbar"); // t=10.0
+    Timeout(id + 0x30, 5.0f, "Final Sting"); // t=15.0
+    Timeout(id + 0x40, 3.0f, "Pentacle Sac (DPS)"); // t=18.0
+    Timeout(id + 0x50, 7.0f, "Super Tankbuster"); // t=25.0
+    Timeout(id + 0x60, 5.0f, "Dummy Stands Still"); // t=30.0
+    Timeout(id + 0x70, 10.0f, "Death"); // t=40.0
+    Timeout(id + 0x80, 62.0f, "Two"); // t=102.0
+    Timeout(id + 0x90, 1.0f, "Three"); // t=103.0
+    Timeout(id + 0xA0, 1.0f, "Four"); // t=104.0
+    Timeout(id + 0xB0, 2.0f, "Six"); // t=106.0
+    Timeout(id + 0xC0, 4.0f, "Ten"); // t=110.0
+    Timeout(id + 0xD0, 5.0f, "Fifteen"); // t=115.0
+    Timeout(id + 0xE0, 3.0f, "Force Jump Three"); // t=118.0
+    Timeout(id + 0xF0, 2.0f, "Invisible"); // t=120.0
+}
+

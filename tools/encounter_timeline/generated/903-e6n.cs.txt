@@ -1,0 +1,91 @@
+// Generated development skeleton from e6n.txt (TerritoryType 903).
+// External EventTrigger/cactbot data only; no replay data was used.
+// Cast-start sync points, targetability, and unambiguous AddedCombatant states use live event conditions; remaining Timeout states preserve expected ordering only.
+// Cactbot: 11 static/dynamic trigger definitions from ui/raidboss/data/05-shb/raid/e6n.ts.
+
+private void Eden_6__Normal(uint id)
+{
+    Timeout(id + 0x0, 13.5f, "Ferostorm"); // t=13.5; cactbot StartsUsing [E6N Ferostorm]
+    Timeout(id + 0x10, 7.1f, "Superstorm").SetHint(StateMachine.StateHint.Raidwide); // t=20.6; Ability 4BD7 from Garuda; cactbot StartsUsing 4BD7 [E6N Superstorm]
+    Timeout(id + 0x20, 10.8f, "Air Bump"); // t=31.4; Ability 4BD1 from Garuda; cactbot HeadMarker D3 [E6N Air Bump]
+    Timeout(id + 0x30, 5.4f, "Thorns"); // t=36.8; Ability 4BDA from Garuda
+    Timeout(id + 0x40, 11.2f, "Downburst"); // t=48.0; Ability 4BDB from Garuda
+    Timeout(id + 0x50, 6.6f, "Air Bump"); // t=54.6; Ability 4BD1 from Garuda; cactbot HeadMarker D3 [E6N Air Bump]
+    Timeout(id + 0x60, 5.4f, "Thorns"); // t=60.0; Ability 4BDA from Garuda
+    Timeout(id + 0x70, 12.2f, "Storm Of Fury"); // t=72.2; Ability 4BE0 from Garuda; cactbot StartsUsing 4BE6 [E6N Storm Of Fury]
+    Timeout(id + 0x80, 9.5f, "Vacuum Slice"); // t=81.7; Ability 4BD5 from Garuda
+    Timeout(id + 0x90, 7.1f, "Occluded Front"); // t=88.8; Ability 4BD2 from Garuda
+    Timeout(id + 0xA0, 9.5f, "Irresistible Pull"); // t=98.3; Ability 4BD6 from Garuda
+    Targetable(id + 0xB0, false, 12.7f, "--untargetable--"); // t=111.0
+    Timeout(id + 0xC0, 3.1f, "Touchdown"); // t=114.1; Ability 4BE8 from Ifrit
+    Targetable(id + 0xD0, true, 1.4f, "--targetable--"); // t=115.5
+    Timeout(id + 0xE0, 13.7f, "Hands Of Flame"); // t=129.2; Ability 4CFE from Ifrit; cactbot StartsUsing 4CFE [E6N Hands of Flame Start]
+    Timeout(id + 0xF0, 14.4f, "Hands Of Hell"); // t=143.6; Ability 4CFF from Ifrit; cactbot HeadMarker 16 [E6N Hands of Hell]
+    Timeout(id + 0x100, 8.7f, "Instant Incineration").SetHint(StateMachine.StateHint.Tankbuster); // t=152.3; Ability 4BED from Ifrit; cactbot StartsUsing 4BED [E6N Instant Incineration]
+    Timeout(id + 0x110, 4.6f, "Eruption"); // t=156.9; Ability 4BF3 from Ifrit
+    Timeout(id + 0x120, 9.2f, "Strike Spark"); // t=166.1; Ability 4BD3 from Ifrit; cactbot Ability 4F98 [E6N Strike Spark]
+    Timeout(id + 0x130, 11.4f, "Hot Foot"); // t=177.5; Ability 4BEF from Ifrit
+    Timeout(id + 0x140, 10.7f, "Inferno Howl").SetHint(StateMachine.StateHint.Raidwide); // t=188.2; Ability 4BF1 from Ifrit; cactbot StartsUsing 4BF1 [E6N Inferno Howl]
+    Targetable(id + 0x150, false, 8.1f, "--untargetable--"); // t=196.3
+    Targetable(id + 0x160, true, 4.3f, "--targetable--"); // t=200.6
+    Timeout(id + 0x170, 6.6f, "Vacuum Slice"); // t=207.2; Ability 4BD5 from Garuda
+    Timeout(id + 0x180, 2.7f, "Eruption"); // t=209.9; Ability 4BF3 from Ifrit | Ability 4BF4 from Ifrit
+    Timeout(id + 0x190, 4.4f, "Occluded Front"); // t=214.3; Ability 4BD2 from Garuda
+    Timeout(id + 0x1A0, 6.9f, "Hot Foot"); // t=221.2; Ability 4BEF from Ifrit
+    Timeout(id + 0x1B0, 2.6f, "Irresistible Pull"); // t=223.8; Ability 4BD6 from Garuda
+    Timeout(id + 0x1C0, 4.2f, "Air Bump"); // t=228.0; Ability 4BD1 from Garuda; cactbot HeadMarker D3 [E6N Air Bump]
+    Timeout(id + 0x1D0, 5.3f, "Thorns"); // t=233.3; Ability 4BDA from Garuda
+    Timeout(id + 0x1E0, 4.6f, "Hands Of Hell"); // t=237.9; Ability 4CFF from Ifrit; cactbot HeadMarker 16 [E6N Hands of Hell]
+    Timeout(id + 0x1F0, 7.6f, "Ferostorm"); // t=245.5; cactbot StartsUsing [E6N Ferostorm]
+    Targetable(id + 0x200, false, 4.7f, "--untargetable--"); // t=250.2
+    Timeout(id + 0x210, 17.7f, "Firestorm"); // t=267.9; Ability 4BD8 from Raktapaksa
+    Targetable(id + 0x220, true, 4.2f, "--targetable--"); // t=272.1
+    Timeout(id + 0x230, 11.1f, "Radiant Plume"); // t=283.2; Ability 4BF2 from Raktapaksa
+    Timeout(id + 0x240, 3.0f, "Ferostorm"); // t=286.2; cactbot StartsUsing [E6N Ferostorm]
+    Timeout(id + 0x250, 11.1f, "Hands Of Flame"); // t=297.3; Ability 4CFE from Raktapaksa; cactbot StartsUsing 4CFE [E6N Hands of Flame Start]
+    Timeout(id + 0x260, 3.8f, "Heat Burst"); // t=301.1; Ability 4C1E from Raktapaksa
+    Timeout(id + 0x270, 10.1f, "Eruption"); // t=311.2; Ability 4BF4 from Raktapaksa
+    Timeout(id + 0x280, 1.4f, "Thorns"); // t=312.6; Ability 4BDA from Raktapaksa
+    Timeout(id + 0x290, 1.1f, "Hands Of Hell"); // t=313.7; Ability 4CFF from Raktapaksa; cactbot HeadMarker 16 [E6N Hands of Hell]
+    Timeout(id + 0x2A0, 3.9f, "Heat Burst"); // t=317.6; Ability 4C1E from Raktapaksa
+    Targetable(id + 0x2B0, false, 7.6f, "--untargetable--"); // t=325.2
+    Timeout(id + 0x2C0, 0.0f, "Downburst"); // t=325.2; Ability 4BDC from Raktapaksa
+    Targetable(id + 0x2D0, true, 4.3f, "--targetable--"); // t=329.5
+    Timeout(id + 0x2E0, 7.1f, "Radiant Plume"); // t=336.6; Ability 4BF2 from Raktapaksa
+    Timeout(id + 0x2F0, 5.0f, "Eruption"); // t=341.6; Ability 4BF4 from Raktapaksa
+    Timeout(id + 0x300, 6.5f, "Radiant Plume"); // t=348.1; Ability 4BF2 from Raktapaksa
+    Timeout(id + 0x310, 5.0f, "Eruption"); // t=353.1; Ability 4BF4 from Raktapaksa
+    Timeout(id + 0x320, 7.3f, "Conflag Strike"); // t=360.4; Ability 4BEE from Raktapaksa
+    Timeout(id + 0x330, 15.2f, "Ferostorm"); // t=375.6; cactbot StartsUsing [E6N Ferostorm]
+    Timeout(id + 0x340, 2.0f, "Air Bump"); // t=377.6; Ability 4BD4 from Raktapaksa; cactbot HeadMarker D3 [E6N Air Bump]
+    Timeout(id + 0x350, 4.9f, "Thorns"); // t=382.5; Ability 4BDA from Raktapaksa
+    Timeout(id + 0x360, 8.2f, "Storm Of Fury"); // t=390.7; Ability 4BE6 from Raktapaksa; cactbot StartsUsing 4BE6 [E6N Storm Of Fury]
+    Timeout(id + 0x370, 1.0f, "Eruption"); // t=391.7; Ability 4BF4 from Raktapaksa
+    Timeout(id + 0x380, 9.7f, "Inferno Howl").SetHint(StateMachine.StateHint.Raidwide); // t=401.4; Ability 4BF1 from Raktapaksa; cactbot StartsUsing 4BF1 [E6N Inferno Howl]
+    Timeout(id + 0x390, 14.2f, "Eruption"); // t=415.6; Ability 4BF4 from Raktapaksa
+    Timeout(id + 0x3A0, 1.0f, "Hands Of Hell"); // t=416.6; Ability 4CFF from Raktapaksa; cactbot HeadMarker 16 [E6N Hands of Hell]
+    Timeout(id + 0x3B0, 3.9f, "Heat Burst"); // t=420.5; Ability 4C1E from Raktapaksa
+    Timeout(id + 0x3C0, 6.7f, "Instant Incineration").SetHint(StateMachine.StateHint.Tankbuster); // t=427.2; Ability 4BED from Raktapaksa; cactbot StartsUsing 4BED [E6N Instant Incineration]
+    Timeout(id + 0x3D0, 6.2f, "Radiant Plume"); // t=433.4; Ability 4BF2 from Raktapaksa
+    Timeout(id + 0x3E0, 6.0f, "Inferno Howl").SetHint(StateMachine.StateHint.Raidwide); // t=439.4; Ability 4BF1 from Raktapaksa; cactbot StartsUsing 4BF1 [E6N Inferno Howl]
+    Timeout(id + 0x3F0, 15.2f, "Ferostorm"); // t=454.6; cactbot StartsUsing [E6N Ferostorm]
+    Timeout(id + 0x400, 2.0f, "Air Bump"); // t=456.6; Ability 4BD4 from Raktapaksa; cactbot HeadMarker D3 [E6N Air Bump]
+    Timeout(id + 0x410, 4.9f, "Thorns"); // t=461.5; Ability 4BDA from Raktapaksa
+    Timeout(id + 0x420, 8.2f, "Storm Of Fury"); // t=469.7; Ability 4BE6 from Raktapaksa; cactbot StartsUsing 4BE6 [E6N Storm Of Fury]
+    Timeout(id + 0x430, 1.0f, "Eruption"); // t=470.7; Ability 4BF4 from Raktapaksa
+    Timeout(id + 0x440, 9.7f, "Inferno Howl").SetHint(StateMachine.StateHint.Raidwide); // t=480.4; Ability 4BF1 from Raktapaksa; cactbot StartsUsing 4BF1 [E6N Inferno Howl]
+    Timeout(id + 0x450, 14.2f, "Eruption"); // t=494.6; Ability 4BF4 from Raktapaksa
+    Timeout(id + 0x460, 1.0f, "Hands Of Hell"); // t=495.6; Ability 4CFF from Raktapaksa; cactbot HeadMarker 16 [E6N Hands of Hell]
+    Timeout(id + 0x470, 3.9f, "Heat Burst"); // t=499.5; Ability 4C1E from Raktapaksa
+    Timeout(id + 0x480, 6.7f, "Instant Incineration").SetHint(StateMachine.StateHint.Tankbuster); // t=506.2; Ability 4BED from Raktapaksa; cactbot StartsUsing 4BED [E6N Instant Incineration]
+    Timeout(id + 0x490, 6.2f, "Radiant Plume"); // t=512.4; Ability 4BF2 from Raktapaksa
+    Timeout(id + 0x4A0, 6.0f, "Inferno Howl").SetHint(StateMachine.StateHint.Raidwide); // t=518.4; Ability 4BF1 from Raktapaksa; cactbot StartsUsing 4BF1 [E6N Inferno Howl]
+    Timeout(id + 0x4B0, 15.2f, "Ferostorm"); // t=533.6; cactbot StartsUsing [E6N Ferostorm]
+    Timeout(id + 0x4C0, 2.0f, "Air Bump"); // t=535.6; cactbot HeadMarker D3 [E6N Air Bump]
+    Timeout(id + 0x4D0, 4.9f, "Thorns"); // t=540.5
+    Timeout(id + 0x4E0, 8.2f, "Storm Of Fury"); // t=548.7; cactbot StartsUsing 4BE6 [E6N Storm Of Fury]
+    Timeout(id + 0x4F0, 1.0f, "Eruption"); // t=549.7
+    Timeout(id + 0x500, 9.7f, "Inferno Howl"); // t=559.4; cactbot StartsUsing 4BF1 [E6N Inferno Howl]
+    Timeout(id + 0x510, 14.2f, "Eruption"); // t=573.6
+}
+
