@@ -465,3 +465,57 @@ SAM 平均 60〜62 µs・p99 396〜424 µs・1 ms 超 102〜111 回 (修正前 4
 - engine_tests: 17/17 合格。
 - 他ジョブ (共通エンジンは未変更、ライブ 1 回): RPR 663,115 (威力 644,253、xan 威力 636,791 / 総合 665,096)、NIN 649,267 (xan 639,456)、
   MNK 581,601 (xan 578,440)、PLD 567,362 (Akechi 540,983)。いずれも前回と同じ値。
+
+## 16. 全体監査の修正 (a88fdf502) とパーティバフ込みの再チューニング
+
+### 16.1 変更内容
+
+- GNB: Bloodfest 中に弾数 0〜2 で Solid Barrel / Demon Slaughter を撃つと 2 発入っていた。Bloodfest 側の加算に「弾数 3 以上」を足し、
+  コンボ締めは常に 1 発にした。条件が 3 つ要るので `JobBuilder` / `Effect` に 3 つ目の条件 `If3` を足した (Simulator で If / If2 と同様に判定)。
+- NIN [Engine]: Forked Raiju は対象のヒットボックスまで 3y 以内なら Fleeting Raiju で押す (xan NIN.cs と同じ規則)。
+- PLD: Intervene (突進) をエンジンのジョブ定義から外した (スキル・リキャスト・リキャスト読み取り)。
+- 下位探索: oGCD の子ノードは GCD 数を減らさないので 1 GCD 枠に 2 回 weave する手順も探索される。枝刈りの上界 `_maxSlotValue` を
+  1 枠あたり oGCD 2 個で数えるようにした (従来は MaxDeepOgcds = 1 個で、上界として不足していた)。
+- アダプタ: 戦闘終了の推定が既知のとき `FightEndIn` を GCD + 0.1 秒以上にした (推定が短すぎて対象スキルが全部不正になるのを防ぐ)。
+- 再チューニング (パーティバフ込みで旧版を下回ったジョブ): `tune-xan --args "timeline-matrix --scenario-limit 8 --party-buffs 7.8" --gens 14 --pop 12`。
+  - MNK: v3 から → `tuned/weights-MNK-v4.json` (決定論 587,534 → 591,239)。
+    `--params "OverCap:0.5:5,Combo:0:2,LambdaScale:0:1,SwitchMargin:0:20,FillerScale:0.5:1.5,BurstBias:0:4,StatusRemainder:0:2,CooldownLambdaScale:0:1,UnlockScale:0:2"`
+  - RPR: rpr_engine_eval の重みから 2 回 → `tuned/weights-RPR-v2.json` → `tuned/weights-RPR-v3.json` (決定論 682,501 → 689,570 → 689,683)。
+    `--params "OverCap:0:4,Combo:0:3,LambdaScale:0:1,SwitchMargin:0:60,FillerScale:0.05:1.5,BurstBias:0:5,StatusRemainder:0:2,CooldownValue.GluttonyCD:0:1500,GaugeValue.Shroud:-400:100"`
+  - BLM: v5 から 2 回 (決定論 554,668 → 558,807 → 558,807)。ライブで旧版に届かず、バフなしでは下がったので採用しない (v5 のまま)。
+    `--params "OverCap:0:3,SwitchMargin:0:20,FillerScale:0.5:1.5,BurstBias:0:5,CycleScale:0.5:1.5,UnlockScale:0:1,StatusValue.Thunderhead:0:150,CooldownValue.LeyLinesCD:0:2000,CooldownValue.TriplecastCD:0:500,CooldownValue.SwiftcastCD:0:1500"`
+
+### 16.2 比較 (xan_timeline_harness、9 戦闘、ライブ = 組み込みデフォルト)
+
+(a) = バフなし、(b) = `--party-buffs 7.8`。値は total / rdps (rdps はパーティ貢献込み。RPR / NIN 以外は total と同じ)。
+「修正前」は 350a5e806、「修正後」は d2e985d95 (RPR は 3 回の範囲)。旧版 = xan [Custom] (RPR / NIN / MNK / SAM / BLM)、Akechi (GNB / PLD)。
+
+| | 修正前 (a) | 修正後 (a) | 旧版 (a) | 修正前 (b) | 修正後 (b) | 旧版 (b) |
+|---|---:|---:|---:|---:|---:|---:|
+| RPR | 663,115 / 679,725 | 666,550〜666,567 / 682,942〜682,960 | 665,096 / 681,239 | 682,516 / 704,809 | 687,291〜689,735 / 709,222〜711,892 | 685,448 / 708,296 |
+| NIN | 649,267 / 678,818 | 649,242 / 678,793 | 639,456 / 667,205 | 653,466 / 691,628 | 653,174 / 691,287 | 639,076 / 677,258 |
+| MNK | 581,601 | 581,190 | 578,440 | 587,534 | 591,239 | 588,786 |
+| SAM | 687,592 | 687,354 | 676,608 | 685,141 | 689,578 | 676,647 |
+| BLM | 560,467 | 560,467 | **564,959** | 554,668 | 554,668 | **565,344** |
+| GNB | 567,568 | 566,864 | 562,116 | 579,108 | 578,686 | 578,388 |
+| PLD | 567,400 | 553,005 | 540,983 | 570,679 | 562,310 | 555,506 |
+
+buffed_potency (b): RPR 206,530〜209,587 (旧版 227,809)、NIN 178,913 (205,099)、SAM 179,440 (190,705)、BLM 125,866 (110,898)、
+GNB 145,146 (175,024)、PLD 155,097 (156,208)。MNK のハーネスは buffed_potency を記録しない。
+
+- BLM だけが両条件で旧版を下回る (修正前から同じ値。−0.8% / −1.9%)。重みの再チューニングでは埋まらなかった。
+- PLD は Intervene を外した分 (約 −14k / −8k) 下がったが旧版より上。
+- failures (ハード失敗): BLM は 1 (a10n 開幕の「manual Ley Lines survives another action's emergency mode」境界チェック。修正前・旧版 xan BLM も同じ 1)、ほかは 0。
+
+Execute (修正後、平均 / p99 µs、1 ms 超の回数): RPR 29〜32 / 121〜127 / 5〜10、NIN 32〜34 / 147〜165 / 22〜25、MNK 37 / 151〜160 / 74〜76、
+SAM 66〜69 / 486〜530 / 119〜151、BLM 26〜27 / 156〜169 / 6〜8、GNB 29〜30 / 168〜180 / 46〜57、PLD 27〜44 / 121〜457 / 20〜151。
+
+### 16.3 回帰
+
+- engine_tests: 17/17 合格。
+- nin_regression engine-compare (138 シナリオ): hard fail 0 (修正前も 0)、soft 139 (修正前 138。NinkiNearOvercap 1 → 2)。
+- sam_regression engine-compare (54 シナリオ): hard fail 0 / soft fail 1 (修正前と同じ)。
+- rpr_engine_eval compare (369 シナリオ、時間予算): ハード失敗のあるシナリオ 27 (修正前) → 134 (修正後・旧重み) → 192 (修正後・v3)、
+  威力/秒 393.0 → 389.7 → 387.5 (旧 RPR.cs 移植 377.3)。修正後・旧重みの悪化は上界の修正 (oGCD 2 個) による: 上界を元に戻すと 28 / 393.4。
+  正しい上界だと枝刈りが減り、時間予算内の探索が浅くなる。v3 は Gluttony のリキャスト価値が 0 になり、drift_full_mode_gluttony_interval が増える
+  (2 → 102)。xan ハーネスの採点にはこの規則がない。
