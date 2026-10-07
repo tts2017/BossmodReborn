@@ -134,6 +134,8 @@ public sealed class JobDefinition
     public int[] CycleSteps = [];
     public int[] CycleStatuses = [];
     public int[] CycleCooldowns = [];
+    // derived at Build: the statuses that matter for each hot-path check (index order kept), so the search does not scan every status
+    public int[] RecastStatuses = [], CastStatuses = [], LockStatuses = [], DamageStatuses = [], ShadowStatuses = [], InstantStatuses = [];
     public GaugeDef[] Gauges = [];
     public StatusDef[] Statuses = [];
     public CooldownDef[] Cooldowns = [];
@@ -242,6 +244,13 @@ public sealed class JobBuilder(string name, float baseGcd)
             st.PeriodicGauge = job.GaugeIndex(gauge);
             st.PeriodicAmount = amount;
         }
+        int[] Where(Func<StatusDef, bool> f) { var l = new List<int>(); for (var i = 0; i < job.Statuses.Length; ++i) if (f(job.Statuses[i])) l.Add(i); return [.. l]; }
+        job.RecastStatuses = Where(st => st.GcdRecastMultiplier != 1 || st.GcdRecastOverride > 0);
+        job.CastStatuses = Where(st => st.CastTimeMultiplier != 1);
+        job.LockStatuses = Where(st => st.AllowedSkills != 0);
+        job.DamageStatuses = Where(st => st.DamageMultiplier != 1);
+        job.ShadowStatuses = Where(st => st.ShadowPotency > 0);
+        job.InstantStatuses = Where(st => st.ConsumedByCast);
         foreach (var s in job.Skills)
             foreach (var e in s.Effects)
                 s.ConditionalEffects |= e.If.Kind != ConditionKind.None || e.If2.Kind != ConditionKind.None;

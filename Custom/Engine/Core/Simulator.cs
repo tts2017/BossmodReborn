@@ -20,7 +20,7 @@ public static class Simulator
     public static float GcdRecast(JobDefinition job, in EngineState s, SkillDef skill)
     {
         var recast = skill.Recast > 0 ? skill.Recast : job.BaseGcd;
-        for (var i = 0; i < job.Statuses.Length; ++i)
+        foreach (var i in job.RecastStatuses)
         {
             if (s.StatusLeft[i] <= 0)
                 continue;
@@ -38,7 +38,7 @@ public static class Simulator
         if (skill.CastTime <= 0)
             return 0;
         var cast = skill.CastTime;
-        for (var i = 0; i < job.Statuses.Length; ++i)
+        foreach (var i in job.CastStatuses)
             if (s.StatusLeft[i] > 0)
                 cast *= job.Statuses[i].CastTimeMultiplier;
         return cast;
@@ -94,8 +94,8 @@ public static class Simulator
         foreach (ref readonly var c in skill.Conditions.AsSpan())
             if (!Check(s, c))
                 return false;
-        for (var i = 0; i < job.Statuses.Length; ++i)
-            if (s.StatusLeft[i] > 0 && job.Statuses[i].AllowedSkills != 0 && (job.Statuses[i].AllowedSkills & (1UL << skill.Index)) == 0)
+        foreach (var i in job.LockStatuses)
+            if (s.StatusLeft[i] > 0 && (job.Statuses[i].AllowedSkills & (1UL << skill.Index)) == 0)
                 return false;
         var t = s.Time;
         var cast = CastTime(job, s, skill);
@@ -203,10 +203,42 @@ public static class Simulator
     public static float DamageMultiplier(JobDefinition job, in EngineState s, in EngineTimeline tl)
     {
         var m = tl.BuffMultiplier(s.Time);
-        for (var i = 0; i < job.Statuses.Length; ++i)
+        foreach (var i in job.DamageStatuses)
             if (s.StatusLeft[i] > 0)
                 m *= job.Statuses[i].DamageMultiplier;
         return m;
+    }
+
+    // Cheap estimate of Execute's value without simulating the skill (potency x multipliers, party value, DoT seconds gained, shadow
+    // hits; no waste terms): the search uses it to choose which moves to simulate below the root. mult = DamageMultiplier at s.
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    public static float QuickValue(JobDefinition job, in EngineState s, in EngineTimeline tl, SkillDef skill, float mult)
+    {
+        if (s.Time >= tl.FightEndIn)
+            return 0;
+        var v = Potency(job, s, skill) * mult + skill.PartyValue;
+        if (skill.DotStatus >= 0)
+        {
+            var fightLeft = tl.FightEndIn - s.Time;
+            var duration = 0f;
+            foreach (ref readonly var e in skill.Effects.AsSpan())
+                if (e.Kind == EffectKind.StatusApply && e.Index == skill.DotStatus)
+                    duration = e.Value;
+            var gained = MathF.Max(0, MathF.Min(duration, fightLeft)) - MathF.Max(0, MathF.Min(s.StatusLeft[skill.DotStatus], fightLeft));
+            v += skill.DotPps * gained * (skill.DotAoe ? Math.Max(1, (int)s.Targets) : 1) * mult;
+        }
+        if (skill.Weaponskill)
+        {
+            foreach (var i in job.ShadowStatuses)
+            {
+                if (s.StatusLeft[i] <= 0)
+                    continue;
+                var st = job.Statuses[i];
+                var aoe = skill.AoeExtraPotency > 0 || skill.AoePotency > 0 && s.Targets >= skill.MinAoeTargets;
+                v += (aoe ? st.ShadowAoePotency * Math.Max(1, (int)s.Targets) : st.ShadowPotency) * mult;
+            }
+        }
+        return v;
     }
 
     // Executes a legal skill at s.Time; returns its immediate value (potency x multipliers + party value - waste).
@@ -347,10 +379,10 @@ public static class Simulator
     private static float ShadowHits(JobDefinition job, ref EngineState s, SkillDef skill, float mult, EvalContext ctx)
     {
         var value = 0f;
-        for (var i = 0; i < job.Statuses.Length; ++i)
+        foreach (var i in job.ShadowStatuses)
         {
             var st = job.Statuses[i];
-            if (st.ShadowPotency <= 0 || s.StatusLeft[i] <= 0)
+            if (s.StatusLeft[i] <= 0)
                 continue;
             var aoe = skill.AoeExtraPotency > 0 || skill.AoePotency > 0 && s.Targets >= skill.MinAoeTargets;
             value += (aoe ? st.ShadowAoePotency * Math.Max(1, (int)s.Targets) : st.ShadowPotency) * mult;
@@ -380,9 +412,9 @@ public static class Simulator
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     private static void ConsumeInstantCast(JobDefinition job, ref EngineState s)
     {
-        for (var i = 0; i < job.Statuses.Length; ++i)
+        foreach (var i in job.InstantStatuses)
         {
-            if (s.StatusLeft[i] <= 0 || !job.Statuses[i].ConsumedByCast)
+            if (s.StatusLeft[i] <= 0)
                 continue;
             if (s.StatusStacks[i] > 1)
             {

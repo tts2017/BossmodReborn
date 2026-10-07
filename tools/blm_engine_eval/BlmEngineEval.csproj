@@ -9,5 +9,8 @@
     <Compile Include="..\..\Custom\Engine\Jobs\NinDefinition.cs" Link="Jobs\NinDefinition.cs" />
     <Compile Include="..\..\Custom\Engine\Jobs\MnkDefinition.cs" Link="Jobs\MnkDefinition.cs" />
     <Compile Include="..\..\Custom\Engine\Jobs\SamDefinition.cs" Link="Jobs\SamDefinition.cs" />
+    <Compile Include="..\..\Custom\Engine\Jobs\GnbDefinition.cs" Link="Jobs\GnbDefinition.cs" />
+    <Compile Include="..\..\Custom\Engine\Jobs\PldDefinition.cs" Link="Jobs\PldDefinition.cs" />
+    <Compile Include="..\..\Custom\Engine\Jobs\RprDefinition.cs" Link="Jobs\RprDefinition.cs" />
   </ItemGroup>
 </Project>

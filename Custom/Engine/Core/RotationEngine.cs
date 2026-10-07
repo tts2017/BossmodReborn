@@ -489,6 +489,54 @@ internal sealed class LowerSearch
         return WaitMove;
     }
 
+    // The legal moves worth simulating below the root: the transposition-table move, the MaxDeepGcds best GCDs and the MaxDeepOgcds best
+    // weaves by Simulator.QuickValue (bit = skill index). anyGcd: whether any GCD is legal at all.
+    private readonly float[] _pickKey = new float[MoveSlots];
+    private readonly byte[] _pickMove = new byte[MoveSlots];
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    private ulong PickCandidates(in EngineState atGcd, in EngineState atOgcd, float tOgcd, float gcdReadyAt, int prevOgcd, byte ttMove, out bool anyGcd)
+    {
+        anyGcd = false;
+        ulong picked = 0;
+        var multGcd = Simulator.DamageMultiplier(_job, atGcd, _tl);
+        var multOgcd = Simulator.DamageMultiplier(_job, atOgcd, _tl);
+        for (var pass = 0; pass < 2; ++pass)
+        {
+            var gcd = pass == 0;
+            var n = 0;
+            foreach (var skill in _job.Skills)
+            {
+                if (skill.IsGcd != gcd)
+                    continue;
+                if (!gcd && (tOgcd + skill.AnimationLock + _job.Latency > gcdReadyAt + 0.01f || skill.Index <= prevOgcd))
+                    continue;
+                ref readonly var at = ref gcd ? ref atGcd : ref atOgcd;
+                if (!Simulator.IsLegal(_job, at, _tl, skill))
+                    continue;
+                anyGcd |= gcd;
+                if (skill.Index == ttMove)
+                {
+                    picked |= 1UL << skill.Index;
+                    continue;
+                }
+                _pickKey[n] = Simulator.QuickValue(_job, at, _tl, skill, gcd ? multGcd : multOgcd);
+                _pickMove[n] = (byte)skill.Index;
+                ++n;
+            }
+            var take = Math.Min(n, gcd ? MaxDeepGcds : MaxDeepOgcds);
+            for (var t = 0; t < take; ++t)
+            {
+                var bi = 0;
+                for (var j = 1; j < n; ++j)
+                    if (_pickKey[j] > _pickKey[bi])
+                        bi = j;
+                picked |= 1UL << _pickMove[bi];
+                _pickKey[bi] = float.MinValue;
+            }
+        }
+        return picked;
+    }
+
     // returns the best future value from s with `gcdsLeft` GCD slots to go
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     private float Search(ref EngineState s, int gcdsLeft, int ply, float acc, int prevOgcd, out byte bestMove)
@@ -532,14 +580,28 @@ internal sealed class LowerSearch
         var wasteGcd = Simulator.Advance(_job, ref atGcd, tGcd - atGcd.Time, _ctx);
         var atOgcd = s;
         var wasteOgcd = Simulator.Advance(_job, ref atOgcd, tOgcd - atOgcd.Time, _ctx);
+        // below the root only the best few GCDs / weaves are searched: pick them by a cheap estimate of their immediate value first and
+        // simulate only those (simulating every legal move was most of the node cost)
+        var selective = ply >= 1;
+        ulong picked = ~0UL;
+        if (selective)
+            picked = PickCandidates(atGcd, atOgcd, tOgcd, s.GcdReadyAt, prevOgcd, ttMove, out anyGcd);
         foreach (var skill in _job.Skills)
         {
-            if (!skill.IsGcd && tOgcd + skill.AnimationLock + _job.Latency > s.GcdReadyAt + 0.01f)
-                continue; // would clip the GCD
-            if (!skill.IsGcd && skill.Index <= prevOgcd)
-                continue; // weaves in one window are searched in index order only (A,B and B,A reach the same state)
-            if (!Simulator.IsLegal(_job, skill.IsGcd ? atGcd : atOgcd, _tl, skill))
-                continue;
+            if (selective)
+            {
+                if ((picked & (1UL << skill.Index)) == 0)
+                    continue;
+            }
+            else
+            {
+                if (!skill.IsGcd && tOgcd + skill.AnimationLock + _job.Latency > s.GcdReadyAt + 0.01f)
+                    continue; // would clip the GCD
+                if (!skill.IsGcd && skill.Index <= prevOgcd)
+                    continue; // weaves in one window are searched in index order only (A,B and B,A reach the same state)
+                if (!Simulator.IsLegal(_job, skill.IsGcd ? atGcd : atOgcd, _tl, skill))
+                    continue;
+            }
             var k = baseIdx + count;
             ref var c = ref _children[k];
             c = skill.IsGcd ? atGcd : atOgcd;
@@ -549,7 +611,8 @@ internal sealed class LowerSearch
             _order[k] = skill.Index == ttMove ? float.MaxValue : _imm[k];
             _perm[k] = (byte)count;
             ++count;
-            anyGcd |= skill.IsGcd;
+            if (!selective)
+                anyGcd |= skill.IsGcd;
         }
         if (!anyGcd)
         {
@@ -709,7 +772,7 @@ internal sealed class LowerSearch
         var fightLeft = _tl.FightEndIn - tEff;
         for (var i = 0; i < _job.Statuses.Length; ++i)
         {
-            if (s.StatusLeft[i] <= 0)
+            if (s.StatusLeft[i] <= 0 || _ctx.StatusValuePerSecond[i] == 0)
                 continue;
             var left = MathF.Min(s.StatusLeft[i] - (tEff - s.Time), fightLeft);
             if (left > 0)

@@ -23,6 +23,7 @@ public static class Program
             "explain" => Explain(args),
             "tune-xan" => XanTuner.Run(args),
             "bench" => Bench(args),
+            "searchbench" => SearchBench.Run(args),
             _ => throw new ArgumentException($"unknown mode {mode}")
         };
     }
@@ -30,12 +31,21 @@ public static class Program
     public static bool IsNin(string[] args) => Arg(args, "--def", "blm") == "nin";
     public static bool IsMnk(string[] args) => Arg(args, "--def", "blm") == "mnk";
     public static bool IsSam(string[] args) => Arg(args, "--def", "blm") == "sam";
-    public static JobDefinition Build(string[] args) => IsSam(args) ? SamDefinition.Build() : IsMnk(args) ? MnkDefinition.Build() : IsNin(args) ? NinDefinition.Build() : BlmDefinition.Build();
+    public static JobDefinition Build(string[] args) => Arg(args, "--def", "blm") switch
+    {
+        "nin" => NinDefinition.Build(), "mnk" => MnkDefinition.Build(), "sam" => SamDefinition.Build(), "gnb" => GnbDefinition.Build(),
+        "pld" => PldDefinition.Build(), "rpr" => RprDefinition.Build(), _ => BlmDefinition.Build()
+    };
+    public static EngineWeights DefaultWeights(string[] args) => Arg(args, "--def", "blm") switch
+    {
+        "nin" => NinDefinition.DefaultWeights(), "mnk" => MnkDefinition.DefaultWeights(), "sam" => SamDefinition.DefaultWeights(), "gnb" => GnbDefinition.DefaultWeights(),
+        "pld" => PldDefinition.DefaultWeights(), "rpr" => RprDefinition.DefaultWeights(), _ => BlmDefinition.DefaultWeights()
+    };
 
     public static EngineWeights Weights(string[] args)
     {
         var path = Arg(args, "--weights", "");
-        var w = path.Length > 0 ? EngineWeights.Load(path) : IsSam(args) ? SamDefinition.DefaultWeights() : IsMnk(args) ? MnkDefinition.DefaultWeights() : IsNin(args) ? NinDefinition.DefaultWeights() : BlmDefinition.DefaultWeights();
+        var w = path.Length > 0 ? EngineWeights.Load(path) : DefaultWeights(args);
         var depth = Arg(args, "--depth", "");
         if (depth.Length > 0)
             w.HorizonGcds = int.Parse(depth);
@@ -72,11 +82,11 @@ public static class Program
     private static int Play(string[] args)
     {
         var secs = float.Parse(Arg(args, "--secs", "120"));
-        var job = BlmDefinition.Build();
+        var job = Build(args);
         var e = new RotationEngine(job, Weights(args));
         var tl = EngineTimeline.Open();
         tl.FightEndIn = secs;
-        var s = ColdState(job);
+        var s = Arg(args, "--def", "blm") != "blm" ? EngineState.Create(job) : ColdState(job);
         var ctx = new EvalContext();
         var total = 0f;
         var now = 0f;
@@ -108,7 +118,7 @@ public static class Program
             var sk = job.Skills[d.Skill];
             var v = Simulator.Execute(job, ref s, tl, sk, ctx);
             total += v;
-            line.Add($"{now:f1} {sk.Name} {v:f0} [mp={s.Gauges[0]} af={s.Gauges[1]} ui={s.Gauges[2]} h={s.Gauges[3]} pg={s.Gauges[4]} as={s.Gauges[5]} px={s.Gauges[6]}]");
+            line.Add($"{now:f1} {sk.Name} {v:f0}");
             var adv = MathF.Max(0.01f, s.AnimLockAt - s.Time);
             Simulator.Advance(job, ref s, adv, ctx);
             now += adv;
@@ -125,7 +135,7 @@ public static class Program
     {
         var job = Build(args);
         var e = new RotationEngine(job, Weights(args));
-        var s = IsNin(args) || IsMnk(args) || IsSam(args) ? EngineState.Create(job) : ColdState(job);
+        var s = Arg(args, "--def", "blm") != "blm" ? EngineState.Create(job) : ColdState(job);
         var i = Array.IndexOf(args, "--state");
         if (i >= 0)
         {
@@ -175,7 +185,7 @@ public static class Program
     {
         var job = Build(args);
         var e = new RotationEngine(job, Weights(args));
-        var s = IsNin(args) || IsMnk(args) || IsSam(args) ? EngineState.Create(job) : ColdState(job);
+        var s = Arg(args, "--def", "blm") != "blm" ? EngineState.Create(job) : ColdState(job);
         var tl = EngineTimeline.Open();
         tl.FightEndIn = 300;
         tl.AddBuff(7.8f, 27.8f, 1.05f);
