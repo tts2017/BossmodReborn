@@ -163,21 +163,24 @@ public static class BlmDefinition
 
     public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
 
+    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-BLM-v3.json), BudgetMs set for live play
     public const string DefaultWeightsJson = """
     {
-      "OverCap": 1.0,
+      "OverCap": 2.092,
       "Combo": 0,
-      "LambdaScale": 1.0,
+      "LambdaScale": 0,
       "TargetPull": 0,
-      "SwitchMargin": 20,
-      "FillerScale": 1.0,
-      "BurstBias": 1.0,
-      "StatusRemainder": 1.0,
-      "StatusValue": { "Thunderhead": 10, "Firestarter": 10 },
-      "CooldownValue": { "LeyLinesCD": 300, "TriplecastCD": 50, "SwiftcastCD": 50 },
+      "SwitchMargin": 0,
+      "FillerScale": 1.6,
+      "BurstBias": 1,
+      "StatusRemainder": 0,
+      "CycleScale": 1.040,
+      "CooldownLambdaScale": 0.284,
+      "StatusValue": { "Thunderhead": 31.6, "Firestarter": 10 },
+      "CooldownValue": { "LeyLinesCD": 1074.4, "TriplecastCD": 163.9, "SwiftcastCD": 873.8 },
       "GaugeValue": {},
-      "HorizonGcds": 5,
-      "BudgetMs": 0.5
+      "HorizonGcds": 4,
+      "BudgetMs": 0.8
     }
     """;
 }

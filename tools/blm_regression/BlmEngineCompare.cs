@@ -53,6 +53,10 @@ public static class BlmEngineCompare
             Console.WriteLine($"| GCDs (sum) | {set.Sum(r => r.Old.Metrics.GcdCount)} | {set.Sum(r => r.New.Metrics.GcdCount)} |");
             Console.WriteLine($"| GCD uptime (mean) | {set.Average(r => r.Old.Metrics.GcdUptime):f4} | {set.Average(r => r.New.Metrics.GcdUptime):f4} |");
             Console.WriteLine($"| soft regressions (sum) | {set.Sum(r => r.Old.Metrics.SoftRegressionCount)} | {set.Sum(r => r.New.Metrics.SoftRegressionCount)} |");
+            Console.WriteLine($"| soft: thunder blank scenarios | {set.Count(r => r.Old.Metrics.ThunderBlankSeconds > 0)} | {set.Count(r => r.New.Metrics.ThunderBlankSeconds > 0)} |");
+            Console.WriteLine($"| soft: polyglot wasted grants | {set.Sum(r => r.Old.Metrics.PolyglotWastedGrantCount)} | {set.Sum(r => r.New.Metrics.PolyglotWastedGrantCount)} |");
+            Console.WriteLine($"| soft: element drops | {set.Sum(r => r.Old.Metrics.ElementDropCount)} | {set.Sum(r => r.New.Metrics.ElementDropCount)} |");
+            Console.WriteLine($"| soft: forced-move hardcasts | {set.Sum(r => r.Old.Metrics.ForcedMovementHardcastAttempts)} | {set.Sum(r => r.New.Metrics.ForcedMovementHardcastAttempts)} |");
             var rules = set.SelectMany(r => r.Old.HardFails.Concat(r.New.HardFails)).Distinct().OrderBy(x => x);
             foreach (var rule in rules)
                 Console.WriteLine($"| fail: {rule} (scenarios) | {set.Count(r => r.Old.HardFails.Contains(rule))} | {set.Count(r => r.New.HardFails.Contains(rule))} |");

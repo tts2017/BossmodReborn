@@ -1,0 +1,24 @@
+{
+  "OverCap": 2.0921142,
+  "Combo": 0,
+  "LambdaScale": 0,
+  "TargetPull": 0,
+  "SwitchMargin": 0,
+  "FillerScale": 1.6,
+  "BurstBias": 1,
+  "StatusRemainder": 0,
+  "CycleScale": 1.0403543,
+  "CooldownLambdaScale": 0.28377795,
+  "StatusValue": {
+    "Thunderhead": 31.617046,
+    "Firestarter": 10
+  },
+  "CooldownValue": {
+    "LeyLinesCD": 1074.4264,
+    "TriplecastCD": 163.94995,
+    "SwiftcastCD": 873.7974
+  },
+  "GaugeValue": {},
+  "HorizonGcds": 4,
+  "BudgetMs": 100
+}
