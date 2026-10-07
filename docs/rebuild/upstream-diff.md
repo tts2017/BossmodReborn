@@ -276,6 +276,40 @@ Custom 側の受け口:
 - `needs-upstream-hook/Modules/Global/DeepDungeon/LiveMapData.cs`: 改変版 DeepDungeon (AutoClear.cs / FloorPathfind.cs) の partial メンバと PathfindTarget / NavigationDecision 改修が必要。ディープダンジョン関連をまとめて扱うまで保留。
 - `superseded-by-upstream/AtomosPiece.cs`: upstream 版があるため不要 (差分があれば PR)。
 
+## 11. 回しモジュールの複製 (Step 3, 2026-10-07)
+
+旧 fork が upstream ファイルを直接改変していた回しを、upstream を触らずに **別名前空間のクラスとして** `Custom/Rotation/` に複製した。upstream の同名モジュールはそのまま残り、プリセットではどちらも選べる (表示名に ` [Custom]` が付く)。
+
+| 表示名 | 型名 (Custom 版) | 元ファイル |
+|---|---|---|
+| xan BLM / BST / DRG / MNK / NIN / RPR / SAM / VPR / MCH / DRK / GNB / PLD [Custom] | `BossMod.Autorotation.xan.Custom.<JOB>` | `Standard/xan/**` |
+| Tank AI / Variant AI [Custom] | `BossMod.Autorotation.xan.Custom.TankAI` / `.VariantAI` | `Standard/xan/AI/*` |
+| Auto-ThirdEye [Custom] | `BossMod.Autorotation.Standard.xan.Utility.Custom.ThirdEye` | `Standard/xan/Utility/ThirdEye.cs` |
+| Akechi BLM / DRG / MCH / SCH / DRK / GNB / PLD [Custom] | `BossMod.Autorotation.akechi.Custom.Akechi<JOB>` | `Standard/akechi/**` (AkechiTools も複製) |
+| Veyn WAR [Custom] | `BossMod.Autorotation.Custom.VeynWAR` | `Standard/veyn/VeynWAR.cs` |
+| Utility: GNB / NIN / SGE [Custom] | `BossMod.Autorotation.Custom.Class<JOB>Utility` | `Utility/*` |
+
+仕組み:
+
+- 名前空間を `xan` → `xan.Custom` のように 1 段深くしただけ。C# の名前解決は内側の名前空間を先に見るので、複製した `Basexan` / `AkechiTools` が upstream 版を隠し、それ以外の xan/akechi の型は upstream のものをそのまま使う。
+- 旧 fork が upstream に足していた API は `Custom/Framework/CustomRotationApi.cs` に移した: `ITargetScorer<P>`、`TargetableWindow`、`DamageCooldownSnapshot` / `DamageBuffWindowSnapshot` (トップレベル型に。複製側の `RaidCooldowns.X` / `PlanExecution.X` 参照は置換済み)、`PlanExecution.CurrentStateOverdue/EstimateTargetableWindows`・`RaidCooldowns.DamageCooldowns/DamageBuffWindows` (拡張メンバ + UnsafeAccessor)、`RotationModuleManager.LastActionRequest` (拡張プロパティ、初回参照時に ActionRequested を購読)、`ActionManagerEx.Instance` (静的拡張プロパティ、CustomPlugin 経由)。
+- `ResolveTargetOverride` / `FindBetterTargetByScorer` は保護メンバなので、複製した `Basexan` に直接持たせた。
+- BST の追加ステータス ID は `BSTStatus` 列挙 (Custom) に置き、複製 BST.cs で `using SID = ...BSTStatus;` として使う。
+- akechi GNB の IPC ブリッジ (`AkechiGNBPlanner74IpcBridge`) は CustomPlugin が登録/解除する。
+
+キュー挙動・視線:
+
+- `ManualActionQueueTweak.cs` に 2 行のフック (§ 差分参照): 黒魔紋の手動キュー保持を 6 秒に、縮地の自動着地点をターゲット外周に。旧 fork が emergency mode 中も黒魔紋を残していた部分は大きめの改変が必要なので未対応。
+- 視線攻撃中の自動実行抑止は `Custom/ActionTweaks/GazeActionBlock.cs` で再実装し、`CustomPlugin.SelectAutoQueue` から適用 (upstream の SmartRotationTweak は無編集)。
+
+upstream 側の変更累計: 4 ファイル +9 / -3 行 (Plugin.cs 5、AIHintsBuilder.cs 1、ActionManagerEx.cs 1、ManualActionQueueTweak.cs 2)。
+
+複製しなかった / 残したもの:
+
+- `xan/AI/DeepDungeon.cs` (Deep Dungeon AI): 改変版 AutoClear / PalaceFloorModule / PathfindTarget / 経路探索改修に依存するため `Custom/_pending/needs-upstream-hook/Rotation/` に退避。LiveMapData と同じくディープダンジョン一式で扱う。
+- 既存プリセット: プリセットはモジュールの型名で紐づくため、旧 fork のプリセット (`BossMod.Autorotation.xan.MNK` など) は upstream 版のモジュールを指す。Custom 版を使うにはプリセット内のモジュールを ` [Custom]` 版に差し替える (型名の一括変換は未実施)。
+- 旧 fork の framework 改修のうち、xan の回しが暗黙に頼っていたもの (AIHints.PathfindTarget、AutoClear 拡張、Strategy の日本語 internal 名互換など) は複製版でも効かない。
+
 ## 付録 A. 全ファイル一覧
 
 列: 分類 / 状態 (A=新規, M=変更) / 追加行 / 削除行 / upstream 状態 / パス / rotation-rebuild での置き場所

@@ -16,12 +16,14 @@ public sealed class CustomPlugin : IDisposable
     private readonly AIHints _hints;
     private readonly BossModuleManager _bossmod;
     private readonly RotationModuleManager _rotation;
+    public ActionManagerEx ActionManager { get; }
     private readonly EventSubscriptions _subscriptions;
     private readonly SplatoonSafeImport _splatoonSafeImport;
     private readonly SplatoonLiveZones _splatoonLiveZones;
     private readonly ExternalTimelineHints _externalTimelineHints;
     private readonly AutoTimelineExtractor _autoTimelines;
     private readonly LocalRotationAICollector _localRotationAICollector;
+    private readonly GazeActionBlock _gazeBlock;
     private readonly List<Action> _ipcUnregister = [];
 
     // fight-time estimate (formerly inside AIHintsBuilder)
@@ -43,6 +45,7 @@ public sealed class CustomPlugin : IDisposable
         _hints = hints;
         _bossmod = bossmod;
         _rotation = rotation;
+        ActionManager = amex;
 
         _splatoonSafeImport = new(dalamud.ConfigDirectory.FullName + "/SplatoonImports");
         ApplyTimelineDirectory(background: false); // the first load stays synchronous, so no consumer ever finds the store empty
@@ -51,6 +54,7 @@ public sealed class CustomPlugin : IDisposable
         _autoTimelines = new(() => TimelineStore.UserDirectory, ReplayDirectory, shouldPause: () => _playerInCombat);
         AutoTimelineExtractor.Instance = _autoTimelines;
         _localRotationAICollector = new(ws, hints);
+        _gazeBlock = new(ws, hints);
 
         _subscriptions = new
         (
@@ -61,6 +65,7 @@ public sealed class CustomPlugin : IDisposable
         );
         _priorStore.RefreshIfStale();
         RegisterIpc();
+        Autorotation.akechi.Custom.AkechiGNBPlanner74IpcBridge.Register(dalamud);
         Instance = this;
     }
 
@@ -70,6 +75,7 @@ public sealed class CustomPlugin : IDisposable
             Instance = null;
         foreach (var unregister in _ipcUnregister)
             unregister();
+        Autorotation.akechi.Custom.AkechiGNBPlanner74IpcBridge.Unregister();
         _subscriptions.Dispose();
         AutoTimelineExtractor.Instance = null;
         _autoTimelines.Dispose();
@@ -120,6 +126,8 @@ public sealed class CustomPlugin : IDisposable
             : baseline;
         _localRotationAICollector.Prepare(queue, baseline, selected, player, animationLock, instantAnimLockDelay, allowDismount);
         _lastSelected = selected;
+        if (_gazeBlock.ShouldBlock(ActionManager, selected, player))
+            return default; // executing it would require looking into an imminent gaze
         return selected;
     }
 

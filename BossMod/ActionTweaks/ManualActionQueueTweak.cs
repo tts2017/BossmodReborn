@@ -126,7 +126,7 @@ public sealed class ManualActionQueueTweak(WorldState ws, AIHints hints)
             return false; // failed to resolve target
         }
 
-        var expireAt = ws.CurrentTime.AddSeconds(expire);
+        var expireAt = ws.CurrentTime.AddSeconds(CustomHooks.ManualQueueLifetime(action, expire));
         var index = _queue.FindIndex(e => e.Definition.MainCooldownGroup == def.MainCooldownGroup); // TODO: what about alt groups and duty actions?..
         if (index < 0)
         {
@@ -251,7 +251,7 @@ public sealed class ManualActionQueueTweak(WorldState ws, AIHints hints)
                 if (t != null)
                 {
                     // auto cast at target's position
-                    targetPos = t.PosRot.XYZ();
+                    targetPos = CustomHooks.GroundTargetAtActor(def, player, t);
                     return true;
                 }
                 return false; // if target isn't found in world, bail
