@@ -75,6 +75,8 @@ internal static partial class Program
         new("rpr", Class.RPR, XanRPR.Definition, static (manager, player) => new XanRPR(manager, player)),
         // RPR on the rotation engine (Custom/Engine), same simulation and scorer as "rpr"
         new("rpr-engine", Class.RPR, BossMod.Autorotation.RprEngineModule.Definition, static (manager, player) => new BossMod.Autorotation.RprEngineModule(manager, player)),
+        // BLM on the rotation engine, same simulation and scorer as "blm"
+        new("blm-engine", Class.BLM, BossMod.Autorotation.BlmEngineModule.Definition, static (manager, player) => new BossMod.Autorotation.BlmEngineModule(manager, player)),
         new("nin", Class.NIN, XanNIN.Definition, static (manager, player) => new XanNIN(manager, player)),
         // the only akechi module in the matrix: AkechiGNB.cs is the production GNB rotation and has no other harness
         new("gnb", Class.GNB, AkechiGNB.Definition, static (manager, player) => new AkechiGNB(manager, player)),
@@ -97,11 +99,23 @@ internal static partial class Program
                 if (Environment.GetEnvironmentVariable("ENGINE_BUDGET_MS") is { Length: > 0 } eb)
                     ew.BudgetMs = float.Parse(eb, System.Globalization.CultureInfo.InvariantCulture);
                 BossMod.Autorotation.RprEngineModule.WeightsOverride = ew;
+                var bw = BossMod.Autorotation.Engine.Jobs.BlmDefinition.DefaultWeights();
+                bw.HorizonGcds = ew.HorizonGcds;
+                bw.BudgetMs = ew.BudgetMs;
+                BossMod.Autorotation.BlmEngineModule.WeightsOverride = bw;
             }
             if (Environment.GetEnvironmentVariable("ENGINE_WEIGHTS") is { Length: > 0 } weightsPath)
+            {
                 BossMod.Autorotation.RprEngineModule.WeightsOverride = BossMod.Autorotation.Engine.EngineWeights.Load(weightsPath);
+                BossMod.Autorotation.BlmEngineModule.WeightsOverride = BossMod.Autorotation.Engine.EngineWeights.Load(weightsPath);
+            }
             if (Environment.GetEnvironmentVariable("ENGINE_FRAME_MS") is { Length: > 0 } frameMs)
+            {
                 BossMod.Autorotation.RprEngineModule.FrameBudgetOverride = float.Parse(frameMs, System.Globalization.CultureInfo.InvariantCulture);
+                BossMod.Autorotation.BlmEngineModule.FrameBudgetOverride = BossMod.Autorotation.RprEngineModule.FrameBudgetOverride;
+            }
+            if (Environment.GetEnvironmentVariable("ENGINE_NO_BUFF_CYCLE") == "1")
+                BossMod.Autorotation.EngineRotationModule.AssumeRaidBuffCycle = false;
             if (Environment.GetEnvironmentVariable("ENGINE_TRACE") == "1")
                 BossMod.Autorotation.EngineRotationModule.DebugTrace = Console.WriteLine;
             var command = args.Length > 0 ? args[0] : "event-timeline";

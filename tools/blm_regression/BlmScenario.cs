@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using ProductionBLM = BossMod.Autorotation.xan.BLM;
+using ProductionBLM = BossMod.Autorotation.xan.Custom.BLM;
 
 namespace BlmRegression;
 

@@ -3,6 +3,8 @@ using BlmRegression;
 try
 {
     BlmRuleset.ValidateProductionParity();
+    if (args.Length > 0 && args[0] == "engine-compare")
+        return BlmEngineCompare.Run(args);
     var options = CliOptions.Parse(args);
     var scenarios = options.All ? BlmScenarioCatalog.BuildAll()
         : options.HighEnd ? BlmScenarioCatalog.BuildHighEndPreflight()

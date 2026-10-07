@@ -118,13 +118,14 @@ public sealed class RotationEngine
         if (_pending)
         {
             if (key == _pendingKey)
-                return Continue(key);
+                return Continue(key, now);
             _pending = false;
         }
         if (_hasLast && key == _lastKey && now - _lastSearchNow < MaxReuseAge && now >= _lastSearchNow)
         {
             var d = _last;
             d.Reused = true;
+            d.ExecuteAt = MathF.Max(0, d.ExecuteAt - (now - _lastSearchNow)); // the decision was timed from the search root
             return d;
         }
 
@@ -137,10 +138,10 @@ public sealed class RotationEngine
 
         _search.Start(state, timeline, now - _lastPlanTime, _prevChoice);
         _lastSearchNow = now;
-        return Continue(key);
+        return Continue(key, now);
     }
 
-    private EngineDecision Continue(ulong key)
+    private EngineDecision Continue(ulong key, float now)
     {
         var frameTicks = FrameBudgetMs > 0 ? (long)(FrameBudgetMs * Stopwatch.Frequency / 1000) : long.MaxValue;
         var finished = _search.Continue(frameTicks, out var decision);
@@ -151,6 +152,7 @@ public sealed class RotationEngine
         _last = decision;
         _lastKey = key;
         _hasLast = true;
+        decision.ExecuteAt = MathF.Max(0, decision.ExecuteAt - (now - _lastSearchNow)); // a search resumed on a later frame was timed from its root
         return decision;
     }
 }
@@ -208,6 +210,7 @@ internal sealed class LowerSearch
     private long _budgetTicks;
     private float _maxSlotValue;
     private float _maxComboBonus;
+    private CycleModel? _cycle;
     private bool _returnedBound;
     private float _maxLeafExtra; // per-decision constant part of the pruning bound (resources, statuses, combo)
 
@@ -237,7 +240,7 @@ internal sealed class LowerSearch
         }
         var tEff = MathF.Max(s.Time, s.GcdReadyAt);
         var fill = (_horizon - tEff) * _ctx.FillerPps;
-        var res = LeafResources(s) * _engine.Weights.LambdaScale;
+        var res = LeafResources(s);
         var st = LeafStatuses(s);
         var leaf = Leaf(s);
         var planner = _engine.Planner;
@@ -281,8 +284,11 @@ internal sealed class LowerSearch
         var maxFlat = 0f;
         for (var g = 0; g < _job.Gauges.Length; ++g)
             maxFlat += MathF.Max(0, _engine.FlatGaugeValue[g]) * _job.Gauges[g].Max;
-        _maxLeafExtra = maxRes * MathF.Max(1, w.LambdaScale) + maxStatus * MathF.Max(1, w.StatusRemainder) + MathF.Max(0, w.Combo) * _maxComboBonus + 1;
+        _maxLeafExtra = maxRes * MathF.Max(1, MathF.Max(w.LambdaScale, w.CooldownLambdaScale)) + maxStatus * MathF.Max(1, w.StatusRemainder) + MathF.Max(0, w.Combo) * _maxComboBonus + 1;
         _maxLeafExtra += maxFlat;
+        _cycle = _engine.Analysis.CycleFor(root.Targets);
+        if (_cycle != null)
+            _maxLeafExtra += MathF.Max(0, w.CycleScale) * _cycle.MaxValue;
         ++_generation;
         _nodes = 0;
         _spentTicks = 0;
@@ -620,10 +626,12 @@ internal sealed class LowerSearch
         var w = _engine.Weights;
         var tEff = MathF.Max(s.Time, s.GcdReadyAt);
         var value = (_horizon - tEff) * _ctx.FillerPps; // shared horizon: under-simulated time earns filler, overshoot pays it back
-        value += LeafResources(s) * w.LambdaScale;
+        value += LeafResources(s);
         value += LeafStatuses(s);
         for (var g = 0; g < _job.Gauges.Length; ++g)
             value += _engine.FlatGaugeValue[g] * s.Gauges[g];
+        if (_cycle != null)
+            value += w.CycleScale * _cycle.Value(s);
         if (s.ComboSkill != EngineLimits.NoCombo && s.ComboLeft > 0)
             value += w.Combo * _engine.Analysis.ComboChainValue[s.ComboSkill];
         if (w.TargetPull != 0)
@@ -641,15 +649,17 @@ internal sealed class LowerSearch
         var planner = _engine.Planner;
         var t = MathF.Max(s.Time, s.GcdReadyAt) + _planOffset;
         var value = 0f;
+        var w = _engine.Weights;
+        var cdScale = w.CooldownLambdaScale >= 0 ? w.CooldownLambdaScale : w.LambdaScale;
         for (var g = 0; g < _job.Gauges.Length; ++g)
             if (s.Gauges[g] > 0)
-                value += _job.Gauges[g].Flat ? 0 : planner.LeafLambda(UpperPlanner.GaugeResource(g), t, s.Gauges[g]) * s.Gauges[g];
+                value += _job.Gauges[g].Flat ? 0 : planner.LeafLambda(UpperPlanner.GaugeResource(g), t, s.Gauges[g]) * s.Gauges[g] * w.LambdaScale;
         for (var c = 0; c < _job.Cooldowns.Length; ++c)
         {
             var cd = _job.Cooldowns[c];
             var holding = s.Charges[c] + (s.Charges[c] < cd.MaxCharges ? 1 - s.CdReadyIn[c] / cd.Recast : 0);
             if (holding > 0)
-                value += planner.LeafLambda(UpperPlanner.CdResource(c), t, holding) * holding;
+                value += planner.LeafLambda(UpperPlanner.CdResource(c), t, holding) * holding * cdScale;
         }
         return value;
     }

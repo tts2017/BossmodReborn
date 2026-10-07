@@ -21,6 +21,10 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
     protected virtual float RaidBuffDuration => 20;
     protected virtual float RaidBuffFirst => 7.8f;
     protected virtual float TransientLossThreshold => 8.5f; // target losses shorter than this are ignored (RPR / BLM practice)
+    // harnesses without party buffs: no assumed 2-minute raid-buff cycle when the party reports none
+    public static bool AssumeRaidBuffCycle = true;
+    // how long a missing / untargetable target is assumed to stay away when nothing forecasts its return
+    protected virtual float UnknownDowntime => 2.5f;
 
     protected abstract void ReadJobState(ref EngineState s, Actor? primaryTarget);
 
@@ -35,6 +39,7 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         s.AnimLockAt = 0; // the queue only runs us when an action could be requested; animation lock is handled by ActionManagerEx
         s.Targets = CountTargets(primaryTarget);
         ReadJobState(ref s, primaryTarget);
+        ApplyCastInProgress(ref s);
 
         var tl = BuildTimeline(isMoving, primaryTarget);
         if (_epoch == default)
@@ -57,6 +62,27 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         }
     }
 
+    // Mid-cast the gauges and statuses do not include the spell being cast yet: plan from the end of the cast with its effects
+    // applied (the variant of that action legal in the current state), so the next GCD is not chosen from a stale state.
+    private void ApplyCastInProgress(ref EngineState s)
+    {
+        if (Player.CastInfo is not { } cast || cast.RemainingTime <= 0 || cast.Action.Type != ActionType.Spell)
+            return;
+        var tl = EngineTimeline.Open();
+        foreach (var sk in Job.Skills)
+        {
+            if (sk.ActionId != cast.Action.ID || !Simulator.IsLegalIgnoringCooldown(Job, s, tl, sk))
+                continue;
+            var gcd = s.GcdReadyAt;
+            Simulator.Execute(Job, ref s, tl, sk, _castCtx);
+            s.GcdReadyAt = gcd;
+            s.AnimLockAt = cast.RemainingTime + 0.1f + Job.Latency;
+            return;
+        }
+        s.AnimLockAt = cast.RemainingTime + 0.1f + Job.Latency;
+    }
+    private readonly EvalContext _castCtx = new();
+
     private IEnumerable<string> LegalGcds(EngineState s, EngineTimeline tl)
     {
         var at = s;
@@ -76,7 +102,7 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         var tl = EngineTimeline.Open();
         // no attackable target right now: treat the next seconds as downtime (nothing that needs a target, e.g. Soulsow instead)
         if (primaryTarget == null || !primaryTarget.IsTargetable)
-            tl.AddDowntime(0, 2.5f);
+            tl.AddDowntime(0, UnknownDowntime);
 
         var fight = Hints.FightRemaining;
         if (fight.Known)
@@ -103,7 +129,7 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         var windows = _buffScratch;
         foreach (var w in windows)
             tl.AddBuff(w.StartsIn, w.StartsIn + w.Duration, 1 + (RaidBuffMultiplier - 1) * w.Weight);
-        if (windows.Count == 0 && Manager.CombatStart != default)
+        if (windows.Count == 0 && AssumeRaidBuffCycle && Manager.CombatStart != default)
         {
             var elapsed = (float)(World.CurrentTime - Manager.CombatStart).TotalSeconds;
             for (var t = RaidBuffFirst; t < elapsed + 360 && tl.NumBuffs < EngineLimits.MaxWindows; t += RaidBuffInterval)

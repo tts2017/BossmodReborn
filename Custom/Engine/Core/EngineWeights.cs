@@ -16,6 +16,8 @@ public sealed class EngineWeights
     public float FillerScale { get; set; } = 1.0f;    // multiplier on the filler rate used to fill/charge the horizon
     public float BurstBias { get; set; } = 1.0f;      // exaggerates (>1) or flattens (<1) raid-buff multipliers in the upper tier
     public float StatusRemainder { get; set; } = 1.0f; // multiplier on the leaf value of remaining damage-multiplier statuses
+    public float CycleScale { get; set; } = 1.0f;      // multiplier on the CycleModel leaf value (jobs that declare a cycle state)
+    public float CooldownLambdaScale { get; set; } = -1;  // multiplier on the shadow prices of cooldown charges; negative = same as LambdaScale
     public Dictionary<string, float> StatusValue { get; set; } = []; // extra per-second leaf value of a status (upkeep debuffs, modes)
     public Dictionary<string, float> CooldownValue { get; set; } = []; // extra value of one charge (potency) on top of what the definition shows (e.g. follow-up GCDs it unlocks)
     public Dictionary<string, float> GaugeValue { get; set; } = [];    // extra value of one spend unit of a gauge
@@ -32,7 +34,7 @@ public sealed class EngineWeights
     public EngineWeights Clone() => Parse(ToJson());
 
     // The tunable scalars as a vector, for the tuner. Order is stable; StatusValue entries follow in key order.
-    public static readonly string[] ScalarNames = [nameof(OverCap), nameof(Combo), nameof(LambdaScale), nameof(TargetPull), nameof(SwitchMargin), nameof(FillerScale), nameof(BurstBias), nameof(StatusRemainder)];
+    public static readonly string[] ScalarNames = [nameof(OverCap), nameof(Combo), nameof(LambdaScale), nameof(TargetPull), nameof(SwitchMargin), nameof(FillerScale), nameof(BurstBias), nameof(StatusRemainder), nameof(CycleScale)];
 
     public float Get(string name) => name switch
     {
@@ -44,6 +46,8 @@ public sealed class EngineWeights
         nameof(FillerScale) => FillerScale,
         nameof(BurstBias) => BurstBias,
         nameof(StatusRemainder) => StatusRemainder,
+        nameof(CycleScale) => CycleScale,
+        nameof(CooldownLambdaScale) => CooldownLambdaScale,
         _ when name.StartsWith("CooldownValue.") => CooldownValue.TryGetValue(name[14..], out var c) ? c : 0,
         _ when name.StartsWith("GaugeValue.") => GaugeValue.TryGetValue(name[11..], out var g) ? g : 0,
         _ when name.StartsWith("StatusValue.") => StatusValue.TryGetValue(name[12..], out var s) ? s : 0,
@@ -62,6 +66,8 @@ public sealed class EngineWeights
             case nameof(FillerScale): FillerScale = value; break;
             case nameof(BurstBias): BurstBias = value; break;
             case nameof(StatusRemainder): StatusRemainder = value; break;
+            case nameof(CycleScale): CycleScale = value; break;
+            case nameof(CooldownLambdaScale): CooldownLambdaScale = value; break;
             default:
                 if (name.StartsWith("CooldownValue."))
                     CooldownValue[name[14..]] = value;

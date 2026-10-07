@@ -61,6 +61,15 @@ public static class Simulator
         _ => false
     };
 
+    // legality apart from the cooldown charge (analysis: what a skill would do if it were available)
+    public static bool IsLegalIgnoringCooldown(JobDefinition job, in EngineState s, in EngineTimeline tl, SkillDef skill)
+    {
+        var c = s;
+        if (skill.Cooldown >= 0)
+            c.Charges[skill.Cooldown] = 1;
+        return IsLegal(job, c, tl, skill);
+    }
+
     // whether `skill` can be used at s.Time (the caller advances the state to the execution time first)
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static bool IsLegal(JobDefinition job, in EngineState s, in EngineTimeline tl, SkillDef skill)
@@ -80,6 +89,10 @@ public static class Simulator
         if (skill.RequiresTarget && (t >= tl.FightEndIn || tl.OverlapsDowntime(t, t + MathF.Max(cast, 0.01f))))
             return false;
         if (cast > 0 && tl.OverlapsNoCast(t, t + cast))
+            return false;
+        if (skill.UptimeNeeded > 0 && (t >= tl.FightEndIn || tl.OverlapsDowntime(t, t + skill.UptimeNeeded)))
+            return false;
+        if (skill.StillNeeded > 0 && tl.OverlapsNoCast(t, t + skill.StillNeeded))
             return false;
         return true;
     }

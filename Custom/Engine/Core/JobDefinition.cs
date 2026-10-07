@@ -72,6 +72,8 @@ public sealed class SkillDef
     public int Cooldown = -1;     // cooldown group index
     public float PartyValue;      // potency-equivalent value for the party (raid buffs)
     public bool RequiresTarget = true;
+    public float UptimeNeeded;    // >0: not usable if downtime starts within this many seconds (buffs and resources that would be wasted into a gap)
+    public float StillNeeded;     // >0: not usable if forced movement (a no-cast window) starts within this many seconds (placed effects)
     public ComboMode Combo;
     public Condition[] Conditions = [];
     public Effect[] Effects = [];
@@ -119,6 +121,10 @@ public sealed class JobDefinition
     public float BaseGcd;
     public float Latency = 0.05f;
     public float FillerOverride;   // >0: nominal filler potency per GCD (jobs without a free filler GCD)
+    public int[] CycleGauges = [];   // CycleModel state: gauges (bucketed by CycleSteps) and statuses (present / absent)
+    public int[] CycleSteps = [];
+    public int[] CycleStatuses = [];
+    public int[] CycleCooldowns = [];
     public GaugeDef[] Gauges = [];
     public StatusDef[] Statuses = [];
     public CooldownDef[] Cooldowns = [];
@@ -144,6 +150,9 @@ public sealed class JobBuilder(string name, float baseGcd)
     private float _latency = 0.05f;
     private float _filler;
     private readonly List<(string Status, string Gauge, int Amount)> _periodic = [];
+    private readonly List<(string Gauge, int Step)> _cycleGauges = [];
+    private readonly List<string> _cycleStatuses = [];
+    private readonly List<string> _cycleCooldowns = [];
 
     public JobBuilder Latency(float seconds) { _latency = seconds; return this; }
     public JobBuilder Gauge(string gauge, int max, bool flat = false) { _gauges.Add(new() { Name = gauge, Max = max, Flat = flat }); return this; }
@@ -151,6 +160,10 @@ public sealed class JobBuilder(string name, float baseGcd)
     public JobBuilder FillerPotency(float perGcd) { _filler = perGcd; return this; }
     // `status` is a repeating timer that adds `amount` to `gauge` each time it runs out
     public JobBuilder Periodic(string status, string gauge, int amount) { _periodic.Add((status, gauge, amount)); return this; }
+    // long-run cycle state for CycleModel (resources whose trade-offs span more than the search horizon); the first gauge starts full
+    public JobBuilder CycleGauge(string gauge, int step) { _cycleGauges.Add((gauge, step)); return this; }
+    public JobBuilder CycleStatus(string status) { _cycleStatuses.Add(status); return this; }
+    public JobBuilder CycleCooldown(string cd) { _cycleCooldowns.Add(cd); return this; } // a short cooldown the cycle relies on (single charge)
     public JobBuilder Cooldown(string cd, float recast, int maxCharges = 1) { _cooldowns.Add(new() { Name = cd, Recast = recast, MaxCharges = maxCharges }); return this; }
 
     public JobBuilder Status(string status, float maxDuration, float damageMultiplier = 1, int maxStacks = 1, bool upkeep = false, bool mustNotExpire = false,
@@ -199,6 +212,10 @@ public sealed class JobBuilder(string name, float baseGcd)
             b.Resolve(job);
         foreach (var b in _statusLocks)
             b(job);
+        job.CycleGauges = [.. _cycleGauges.ConvertAll(c => job.GaugeIndex(c.Gauge))];
+        job.CycleSteps = [.. _cycleGauges.ConvertAll(c => Math.Max(1, c.Step))];
+        job.CycleStatuses = [.. _cycleStatuses.ConvertAll(job.StatusIndex)];
+        job.CycleCooldowns = [.. _cycleCooldowns.ConvertAll(job.CooldownIndex)];
         foreach (var (status, gauge, amount) in _periodic)
         {
             var st = job.Statuses[job.StatusIndex(status)];
@@ -217,8 +234,6 @@ public sealed class JobBuilder(string name, float baseGcd)
         foreach (var s in job.Skills)
         {
             s.RequiresTarget &= s.Potency > 0 || s.AoePotency > 0 || s.PotencyIf.Length > 0;
-            if (s.CastTime > 0 && s.AnimationLock == 0.6f)
-                s.AnimationLock = s.CastTime + 0.1f;
         }
         foreach (var s in job.Skills)
         {
@@ -282,6 +297,8 @@ public sealed class JobBuilder(string name, float baseGcd)
         public SkillBuilder Recast(float seconds) { Def.Recast = seconds; return this; }
         public SkillBuilder PartyValue(float potency) { Def.PartyValue = potency; return this; }
         public SkillBuilder NoTarget() { Def.RequiresTarget = false; return this; }
+        public SkillBuilder NeedsUptime(float seconds) { Def.UptimeNeeded = seconds; return this; }
+        public SkillBuilder NeedsStanding(float seconds) { Def.StillNeeded = seconds; return this; }
         public SkillBuilder UsesCooldown(string cd) { _cooldown = cd; return this; }
 
         public SkillBuilder StartsCombo() { Def.Combo = ComboMode.Start; return this; }

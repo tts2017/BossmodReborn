@@ -13,9 +13,11 @@ public sealed class BlmRegressionRunner
         Converters = { new JsonStringEnumConverter() }
     };
 
+    public BlmRotationEmulator Emulator { get; init; } = new();
+
     public BlmRegressionOutput Run(IReadOnlyList<BlmScenario> scenarios)
     {
-        var emulator = new BlmRotationEmulator();
+        var emulator = Emulator;
         var results = scenarios.Select(emulator.Run).ToList();
         return BuildOutput(results, emulator);
     }

@@ -2,6 +2,12 @@ namespace BlmRegression;
 
 public sealed class BlmRotationEmulator
 {
+    // Optional external policy (engine evaluation): gets the frame state, returns the oGCDs to weave before the GCD and the GCD;
+    // null = use the built-in policy for this frame. PolicyMicros / PolicyAllocBytes record its cost per call.
+    public Func<BlmScenario, BlmPolicyView, (BlmAction Gcd, IReadOnlyList<BlmAction> Ogcds)?>? PolicyOverride;
+    public List<double>? PolicyMicros;
+    public List<long>? PolicyAllocBytes;
+
     private const uint WindurstThirdWalkCFCID = 1117;
     private const uint WindurstShantottoNameID = 14778;
     private const uint WindurstAlexanderNameID = 14529;
@@ -155,9 +161,27 @@ public sealed class BlmRotationEmulator
 
             TrackPhantomPassiveCoverage(scenario, state, env, metrics);
 
-            var plannedGcd = SelectGcd(scenario, state, env);
-            var maxWeaves = MaxWeavesAfter(state, plannedGcd);
-            var ogcds = SelectOgcds(scenario, state, env, maxWeaves);
+            (BlmAction Gcd, IReadOnlyList<BlmAction> Ogcds)? external = null;
+            if (PolicyOverride != null)
+            {
+                var view = View(state, env);
+                var alloc0 = GC.GetAllocatedBytesForCurrentThread();
+                var t0 = System.Diagnostics.Stopwatch.GetTimestamp();
+                external = PolicyOverride(scenario, view);
+                PolicyMicros?.Add(System.Diagnostics.Stopwatch.GetElapsedTime(t0).TotalMicroseconds);
+                PolicyAllocBytes?.Add(GC.GetAllocatedBytesForCurrentThread() - alloc0);
+            }
+            IReadOnlyList<BlmAction> ogcds;
+            if (external != null)
+            {
+                ogcds = external.Value.Ogcds;
+            }
+            else
+            {
+                var plannedGcd = SelectGcd(scenario, state, env);
+                var maxWeaves = MaxWeavesAfter(state, plannedGcd);
+                ogcds = SelectOgcds(scenario, state, env, maxWeaves);
+            }
             foreach (var ogcd in ogcds)
             {
                 var ogcdFails = ValidateOgcd(scenario, state, env, ogcd);
@@ -165,7 +189,7 @@ public sealed class BlmRotationEmulator
                 ApplyOgcd(scenario, state, ogcd, metrics);
             }
 
-            var gcd = SelectGcd(scenario, state, env);
+            var gcd = external?.Gcd ?? SelectGcd(scenario, state, env);
             var elapsed = gcd == BlmAction.None ? CurrentGcdDuration(state) : ActionCycleTime(state, gcd);
             var frameFails = new List<BlmHardFailRule>();
             frameFails.AddRange(ValidateState(state));
@@ -936,6 +960,11 @@ public sealed class BlmRotationEmulator
                 state.InLeyLines = state.HaveLeyLines;
                 metrics.RetraceCount++;
                 break;
+            case BlmAction.Transpose:
+                // an oGCD in the game; only external policies weave it (the built-in policy casts it in the GCD slot)
+                EnterElement(state, state.Element > 0 ? -1 : 1);
+                state.TransposeReadyIn = 5;
+                break;
         }
     }
 
@@ -1507,6 +1536,19 @@ public sealed class BlmRotationEmulator
         return "normal";
     }
 
+    private static BlmPolicyView View(State s, EnvironmentState e) => new()
+    {
+        Time = s.Time, Targets = e.Targets, Element = s.Element, MP = s.MP, Hearts = s.Hearts, Polyglot = s.Polyglot, NextPolyglot = s.NextPolyglot,
+        AstralSoul = s.AstralSoul, Paradox = s.Paradox, Thunderhead = s.Thunderhead, Firestarter = s.Firestarter,
+        ThunderLeft = UseAoeThunder(s) ? s.AoeThunderLeft : s.TargetThunderLeft, TriplecastLeft = s.TriplecastLeft, TriplecastStacks = s.TriplecastStacks,
+        TriplecastCharges = s.TriplecastCharges, TriplecastChargeReadyIn = s.TriplecastChargeReadyIn, SwiftcastLeft = s.SwiftcastLeft, SwiftcastReadyIn = s.SwiftcastReadyIn,
+        LeyLinesLeft = s.LeyLinesLeft, InLeyLines = s.InLeyLines, LeyLinesCharges = s.LeyLinesCharges, LeyLinesChargeReadyIn = s.LeyLinesChargeReadyIn,
+        ManafontReadyIn = s.ManafontReadyIn, AmplifierReadyIn = s.AmplifierReadyIn, TransposeReadyIn = s.TransposeReadyIn,
+        TargetAvailable = e.TargetAvailable, DowntimeNow = e.DowntimeNow, ForcedMoveNow = e.ForcedMoveNow, MovementEscapeHatchHeld = e.MovementEscapeHatchHeld,
+        LookAwayNow = e.LookAwayNow, TargetDying = e.TargetDying, DowntimeIn = e.DowntimeIn, ForcedMoveIn = e.ForcedMoveIn, LeyLinesUnsafeIn = e.LeyLinesUnsafeIn, LookAwayIn = e.LookAwayIn,
+        Rotation = s.Rotation, Level = s.Level
+    };
+
     private sealed record EnvironmentState(
         bool TargetAvailable,
         bool DowntimeNow,
@@ -1520,4 +1562,46 @@ public sealed class BlmRotationEmulator
         double ForcedMoveIn,
         double LeyLinesUnsafeIn,
         double LookAwayIn);
+}
+
+// Read-only view of one emulator frame for an external policy (BlmRotationEmulator.PolicyOverride).
+public sealed record BlmPolicyView
+{
+    public double Time { get; init; }
+    public int Level { get; init; }
+    public BlmRotationStrategy Rotation { get; init; }
+    public int Targets { get; init; }
+    public int Element { get; init; }
+    public int MP { get; init; }
+    public int Hearts { get; init; }
+    public int Polyglot { get; init; }
+    public double NextPolyglot { get; init; }
+    public int AstralSoul { get; init; }
+    public bool Paradox { get; init; }
+    public bool Thunderhead { get; init; }
+    public bool Firestarter { get; init; }
+    public double ThunderLeft { get; init; }
+    public double TriplecastLeft { get; init; }
+    public int TriplecastStacks { get; init; }
+    public int TriplecastCharges { get; init; }
+    public double TriplecastChargeReadyIn { get; init; }
+    public double SwiftcastLeft { get; init; }
+    public double SwiftcastReadyIn { get; init; }
+    public double LeyLinesLeft { get; init; }
+    public bool InLeyLines { get; init; }
+    public int LeyLinesCharges { get; init; }
+    public double LeyLinesChargeReadyIn { get; init; }
+    public double ManafontReadyIn { get; init; }
+    public double AmplifierReadyIn { get; init; }
+    public double TransposeReadyIn { get; init; }
+    public bool TargetAvailable { get; init; }
+    public bool DowntimeNow { get; init; }
+    public bool ForcedMoveNow { get; init; }
+    public bool MovementEscapeHatchHeld { get; init; }
+    public bool LookAwayNow { get; init; }
+    public bool TargetDying { get; init; }
+    public double DowntimeIn { get; init; }
+    public double ForcedMoveIn { get; init; }
+    public double LeyLinesUnsafeIn { get; init; }
+    public double LookAwayIn { get; init; }
 }

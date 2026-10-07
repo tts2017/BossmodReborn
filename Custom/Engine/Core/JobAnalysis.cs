@@ -22,6 +22,11 @@ public sealed class JobAnalysis
     public readonly float MaxSkillValue;        // upper bound of one skill's immediate value (single target, unbuffed)
     public readonly float[] ComboChainValue;    // per skill: value of having it as the last combo step = sum over the remaining chain of (combo potency - filler per GCD)
     public readonly float MaxComboChainValue;
+    public readonly CycleModel?[] Cycles = new CycleModel?[4]; // by target count (1..3; 3 = three or more), when the job declares a cycle state
+
+    public CycleModel? CycleFor(int targets) => Cycles[Math.Clamp(targets, 1, 3)];
+
+    private static readonly System.Collections.Concurrent.ConcurrentDictionary<(string, float, int), CycleModel> _cycleCache = new();
 
     public JobAnalysis(JobDefinition job)
     {
@@ -31,6 +36,13 @@ public sealed class JobAnalysis
         {
             FillerPerGcd = job.FillerOverride;
             FillerPps = job.FillerOverride / job.BaseGcd;
+        }
+        if (job.CycleGauges.Length > 0)
+        {
+            // the long-run optimal rate is the rate every line is compared to
+            System.Threading.Tasks.Parallel.For(1, 4, t => Cycles[t] = _cycleCache.GetOrAdd((job.Name, job.BaseGcd, t), k => new CycleModel(job, k.Item3)));
+            FillerPps = Cycles[1]!.Rate;
+            FillerPerGcd = FillerPps * job.BaseGcd;
         }
 
         StatusValuePerSecond = new float[job.Statuses.Length];
@@ -91,6 +103,21 @@ public sealed class JobAnalysis
             ComboChainValue[i] = ChainValue(job, i, 0);
         foreach (var v in ComboChainValue)
             MaxComboChainValue = MathF.Max(MaxComboChainValue, v);
+        // cooldowns whose skill changes the cycle state (Manafont refilling MP): worth their best use on the optimal cycle
+        if (Cycles[1] is { } cycle)
+        {
+            foreach (var s in job.Skills)
+            {
+                if (s.Cooldown < 0)
+                    continue;
+                var gain = cycle.BestUseGain(s);
+                if (gain > CdUnitValue[s.Cooldown])
+                {
+                    CdUnitValue[s.Cooldown] = gain;
+                    CdSpentByGcd[s.Cooldown] = s.IsGcd;
+                }
+            }
+        }
         GaugeUnitValueBase = [.. GaugeUnitValue];
         CdUnitValueBase = [.. CdUnitValue];
     }
