@@ -141,7 +141,16 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
             Forbid(ref s, "Manafont");
         else if (st.Manafont.Value == OffensiveStrategy.Force)
             Force("Manafont");
+
+        // in a fight where the party has used a raid buff, Astral Fire is not left for ice while Manafont comes off cooldown within 5 s:
+        // the fire phase runs into Manafont (the xan harness with party buffs: +0.44% on the 9 fights, -0.83% without them)
+        if (st.Manafont.Value != OffensiveStrategy.Delay && Bossmods.RaidCooldowns.NextDamageBuffIn2() != null
+            && s.Gauges[Job.GaugeIndex(BlmDefinition.AstralFire)] > 0 && s.CdReadyIn[Job.CooldownIndex(BlmDefinition.ManafontCD)] <= 5)
+            foreach (var exit in AstralFireExits)
+                Forbid(ref s, exit);
     }
+
+    private static readonly string[] AstralFireExits = ["Blizzard3", "Blizzard3LowFire", "HighBlizzard2", "HighBlizzard2Cold", "Transpose"];
 
     public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
