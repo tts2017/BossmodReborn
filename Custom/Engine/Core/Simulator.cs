@@ -97,6 +97,23 @@ public static class Simulator
             if (s.StatusLeft[i] <= 0)
                 continue;
             s.StatusLeft[i] -= dt;
+            var pg = job.Statuses[i].PeriodicGauge;
+            if (pg >= 0)
+            {
+                // repeating timer: grant the gauge on each expiry, restart (lost grants over the cap are waste)
+                while (s.StatusLeft[i] <= 0)
+                {
+                    var gv = s.Gauges[pg] + job.Statuses[i].PeriodicAmount;
+                    if (gv > job.Gauges[pg].Max)
+                    {
+                        waste += (gv - job.Gauges[pg].Max) * ctx.GaugeWastePerPoint[pg];
+                        gv = job.Gauges[pg].Max;
+                    }
+                    s.Gauges[pg] = (short)gv;
+                    s.StatusLeft[i] += job.Statuses[i].MaxDuration;
+                }
+                continue;
+            }
             if (s.StatusLeft[i] <= 0)
             {
                 s.StatusLeft[i] = 0;
@@ -151,6 +168,8 @@ public static class Simulator
         var targets = skill.Cone && s.ConeTargets > 0 ? s.ConeTargets : s.Targets;
         if (skill.AoePotency > 0 && targets >= skill.MinAoeTargets)
             p = skill.AoePotency * targets;
+        if (skill.AoeExtraPotency > 0 && targets > 1 && skill.Potency > 0)
+            p += skill.AoeExtraPotency * (p / skill.Potency) * (targets - 1);
         return p;
     }
 
@@ -170,12 +189,22 @@ public static class Simulator
     {
         var t = s.Time;
         var value = 0f;
+        var mult = 1f;
         if (t < tl.FightEndIn)
-            value = Potency(job, s, skill) * DamageMultiplier(job, s, tl) + skill.PartyValue;
+        {
+            mult = DamageMultiplier(job, s, tl);
+            value = Potency(job, s, skill) * mult + skill.PartyValue;
+        }
+        // cast time and instant-cast consumption are decided by the state before the skill's own effects
+        var cast = CastTime(job, s, skill);
+        if (cast <= 0 && skill.CastTime > 0)
+            ConsumeInstantCast(job, ref s);
 
+        // effect conditions see the state before the skill (so e.g. "if Astral Fire: go to Umbral Ice" and "if Umbral Ice: go to Astral Fire" do not chain)
+        var pre = skill.ConditionalEffects ? s : default;
         foreach (ref readonly var e in skill.Effects.AsSpan())
         {
-            if (!Check(s, e.If))
+            if (skill.ConditionalEffects && (!Check(pre, e.If) || !Check(pre, e.If2)))
                 continue;
             switch (e.Kind)
             {
@@ -189,17 +218,35 @@ public static class Simulator
                     }
                     s.Gauges[e.Index] = (short)Math.Max(0, g);
                     break;
+                case EffectKind.GaugeSet:
+                    s.Gauges[e.Index] = (short)Math.Clamp((int)e.Value, 0, job.Gauges[e.Index].Max);
+                    break;
+                case EffectKind.GaugeScale:
+                    s.Gauges[e.Index] = (short)Math.Clamp((int)(s.Gauges[e.Index] * e.Value), 0, job.Gauges[e.Index].Max);
+                    break;
                 case EffectKind.StatusApply:
                     var st = job.Statuses[e.Index];
-                    var left = e.Extend ? s.StatusLeft[e.Index] + e.Value : MathF.Max(s.StatusLeft[e.Index], e.Value);
+                    var oldLeft = s.StatusLeft[e.Index];
+                    var left = e.Extend ? oldLeft + e.Value : MathF.Max(oldLeft, e.Value);
                     if (left > st.MaxDuration)
                     {
                         if (st.Upkeep)
                             value -= (left - st.MaxDuration) * ctx.StatusValuePerSecond[e.Index];
                         left = st.MaxDuration;
                     }
-                    if (!e.Extend && st.Upkeep && s.StatusLeft[e.Index] > 0)
-                        value -= MathF.Min(s.StatusLeft[e.Index], e.Value) * ctx.StatusValuePerSecond[e.Index]; // clipped remainder of the old application
+                    if (e.Index == skill.DotStatus)
+                    {
+                        // a DoT replaces the old one: value = DoT seconds gained before the fight ends, snapshotting the current multipliers
+                        left = e.Value;
+                        var fightLeft = tl.FightEndIn - t;
+                        var gained = MathF.Max(0, MathF.Min(left, fightLeft)) - MathF.Max(0, MathF.Min(oldLeft, fightLeft));
+                        var hits = skill.DotAoe ? Math.Max(1, (int)s.Targets) : 1;
+                        value += skill.DotPps * gained * hits * mult;
+                    }
+                    else if (!e.Extend && st.Upkeep && oldLeft > 0)
+                    {
+                        value -= MathF.Min(oldLeft, e.Value) * ctx.StatusValuePerSecond[e.Index]; // clipped remainder of the old application
+                    }
                     s.StatusLeft[e.Index] = left;
                     s.StatusStacks[e.Index] = (byte)Math.Min(st.MaxStacks, Math.Max(1, (int)e.Stacks));
                     break;
@@ -253,11 +300,31 @@ public static class Simulator
                 break;
         }
 
-        var cast = CastTime(job, s, skill);
         if (skill.IsGcd)
             s.GcdReadyAt = t + MathF.Max(GcdRecast(job, s, skill), cast);
         s.AnimLockAt = t + (cast > 0 ? cast + 0.1f : skill.AnimationLock) + job.Latency;
         return value;
+    }
+
+    // a skill with a cast time was made instant: use up the first active instant-cast status (one stack)
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    private static void ConsumeInstantCast(JobDefinition job, ref EngineState s)
+    {
+        for (var i = 0; i < job.Statuses.Length; ++i)
+        {
+            if (s.StatusLeft[i] <= 0 || !job.Statuses[i].ConsumedByCast)
+                continue;
+            if (s.StatusStacks[i] > 1)
+            {
+                --s.StatusStacks[i];
+            }
+            else
+            {
+                s.StatusStacks[i] = 0;
+                s.StatusLeft[i] = 0;
+            }
+            return;
+        }
     }
 
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]

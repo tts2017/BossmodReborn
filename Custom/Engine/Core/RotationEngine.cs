@@ -25,6 +25,7 @@ public sealed class RotationEngine
 {
     public readonly JobDefinition Job;
     public readonly JobAnalysis Analysis;
+    public readonly float[] FlatGaugeValue = new float[EngineLimits.MaxGauges]; // per point, for Flat gauges (weights.GaugeValue)
     public readonly UpperPlanner Planner;
     public EngineWeights Weights { get; private set; }
 
@@ -92,6 +93,8 @@ public sealed class RotationEngine
 
     private void ApplyWeights()
     {
+        for (var g = 0; g < Job.Gauges.Length; ++g)
+            FlatGaugeValue[g] = Job.Gauges[g].Flat && Weights.GaugeValue.TryGetValue(Job.Gauges[g].Name, out var fv) ? fv : 0;
         for (var g = 0; g < Job.Gauges.Length; ++g)
             Analysis.GaugeUnitValue[g] = Analysis.GaugeUnitValueBase[g] + (Weights.GaugeValue.TryGetValue(Job.Gauges[g].Name, out var gv) ? gv : 0);
         for (var c = 0; c < Job.Cooldowns.Length; ++c)
@@ -275,7 +278,11 @@ internal sealed class LowerSearch
         var maxStatus = 0f;
         for (var i = 0; i < _job.Statuses.Length; ++i)
             maxStatus += _ctx.StatusValuePerSecond[i] * _job.Statuses[i].MaxDuration * maxMult;
+        var maxFlat = 0f;
+        for (var g = 0; g < _job.Gauges.Length; ++g)
+            maxFlat += MathF.Max(0, _engine.FlatGaugeValue[g]) * _job.Gauges[g].Max;
         _maxLeafExtra = maxRes * MathF.Max(1, w.LambdaScale) + maxStatus * MathF.Max(1, w.StatusRemainder) + MathF.Max(0, w.Combo) * _maxComboBonus + 1;
+        _maxLeafExtra += maxFlat;
         ++_generation;
         _nodes = 0;
         _spentTicks = 0;
@@ -358,6 +365,10 @@ internal sealed class LowerSearch
             var p = MathF.Max(s.Potency, s.AoePotency * targets);
             foreach (var c in s.PotencyIf)
                 p = MathF.Max(p, c.Potency);
+            if (s.AoeExtraPotency > 0 && s.Potency > 0)
+                p += s.AoeExtraPotency * (p / s.Potency) * Math.Max(0, targets - 1);
+            if (s.DotStatus >= 0)
+                p += s.DotPps * _job.Statuses[s.DotStatus].MaxDuration * (s.DotAoe ? Math.Max(1, targets) : 1);
             m = MathF.Max(m, p + s.PartyValue);
         }
         return m;
@@ -611,6 +622,8 @@ internal sealed class LowerSearch
         var value = (_horizon - tEff) * _ctx.FillerPps; // shared horizon: under-simulated time earns filler, overshoot pays it back
         value += LeafResources(s) * w.LambdaScale;
         value += LeafStatuses(s);
+        for (var g = 0; g < _job.Gauges.Length; ++g)
+            value += _engine.FlatGaugeValue[g] * s.Gauges[g];
         if (s.ComboSkill != EngineLimits.NoCombo && s.ComboLeft > 0)
             value += w.Combo * _engine.Analysis.ComboChainValue[s.ComboSkill];
         if (w.TargetPull != 0)
@@ -630,7 +643,7 @@ internal sealed class LowerSearch
         var value = 0f;
         for (var g = 0; g < _job.Gauges.Length; ++g)
             if (s.Gauges[g] > 0)
-                value += planner.LeafLambda(UpperPlanner.GaugeResource(g), t, s.Gauges[g]) * s.Gauges[g];
+                value += _job.Gauges[g].Flat ? 0 : planner.LeafLambda(UpperPlanner.GaugeResource(g), t, s.Gauges[g]) * s.Gauges[g];
         for (var c = 0; c < _job.Cooldowns.Length; ++c)
         {
             var cd = _job.Cooldowns[c];

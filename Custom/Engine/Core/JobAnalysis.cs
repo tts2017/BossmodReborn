@@ -27,6 +27,11 @@ public sealed class JobAnalysis
     {
         Job = job;
         (FillerPps, FillerPerGcd, GaugeGainPerSecond) = MeasureFiller(job);
+        if (job.FillerOverride > 0)
+        {
+            FillerPerGcd = job.FillerOverride;
+            FillerPps = job.FillerOverride / job.BaseGcd;
+        }
 
         StatusValuePerSecond = new float[job.Statuses.Length];
         for (var i = 0; i < job.Statuses.Length; ++i)
@@ -48,7 +53,7 @@ public sealed class JobAnalysis
             {
                 // a spend is a gauge decrease the skill requires (SpendGauge / RequiresGauge); a decrease without that condition is a reset
                 // (e.g. Communio clearing the Void gauge) and does not make the skill a user of that gauge
-                if (e.Kind != EffectKind.GaugeAdd || e.Value >= 0 || !RequiresGauge(s, e.Index))
+                if (e.Kind != EffectKind.GaugeAdd || e.Value >= 0 || !RequiresGauge(s, e.Index) || job.Gauges[e.Index].Flat)
                     continue;
                 var cost = -e.Value;
                 if (GaugeUnit[e.Index] == 0 || cost < GaugeUnit[e.Index])
@@ -74,7 +79,7 @@ public sealed class JobAnalysis
                 continue;
             var net = SkillValue(s) - (s.IsGcd ? FillerPerGcd : 0) + gained;
             foreach (var e in s.Effects)
-                if (e.Kind == EffectKind.GaugeAdd && e.Value < 0 && RequiresGauge(s, e.Index) && net / -e.Value > perPoint[e.Index])
+                if (e.Kind == EffectKind.GaugeAdd && e.Value < 0 && RequiresGauge(s, e.Index) && !job.Gauges[e.Index].Flat && net / -e.Value > perPoint[e.Index])
                     perPoint[e.Index] = net / -e.Value;
             if (s.Cooldown >= 0 && net > CdUnitValue[s.Cooldown])
                 CdUnitValue[s.Cooldown] = net;
@@ -116,6 +121,8 @@ public sealed class JobAnalysis
         foreach (var c in s.PotencyIf)
             p = MathF.Max(p, c.Potency);
         var v = p + s.PartyValue;
+        if (s.DotStatus >= 0)
+            v += s.DotPps * Job.Statuses[s.DotStatus].MaxDuration;
         foreach (var e in s.Effects)
             if (e.Kind == EffectKind.StatusApply)
                 v += MathF.Max(0, Job.Statuses[e.Index].DamageMultiplier - 1) * FillerPps * e.Value;

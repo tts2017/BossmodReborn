@@ -31,9 +31,15 @@ public enum EffectKind : byte
     StatusConsumeStacks, // removes the status when stacks reach 0
     StatusRemove,
     CooldownReduce,
+    GaugeSet,        // gauge = Value (element stance, a refilled bar)
+    GaugeScale,      // gauge = floor(gauge x Value)
 }
 
-public readonly record struct Effect(EffectKind Kind, short Index, float Value, byte Stacks, bool Extend, Condition If);
+// If / If2: the effect applies only when both hold; conditions are checked against the state before the skill (all effects see the same state)
+public readonly record struct Effect(EffectKind Kind, short Index, float Value, byte Stacks, bool Extend, Condition If)
+{
+    public Condition If2 { get; init; } = Condition.Always;
+}
 
 public enum ComboMode : byte
 {
@@ -55,6 +61,10 @@ public sealed class SkillDef
     public float Potency;
     public float AoePotency;      // per target, used when Targets >= MinAoeTargets
     public int MinAoeTargets = 99;
+    public float AoeExtraPotency; // potency on each target after the first (falloff AoE: first target Potency, others this x the same multiplier); always used
+    public int DotStatus = -1;    // damage-over-time status this skill applies (value = DotPps x seconds of DoT gained, before the fight ends)
+    public float DotPps;          // DoT potency per second on one target (tick potency / tick interval)
+    public bool DotAoe;           // the DoT lands on every target
     public bool Cone;             // AoE shape counted with EngineState.ConeTargets instead of Targets
     public float CastTime;
     public float AnimationLock = 0.6f;
@@ -69,12 +79,14 @@ public sealed class SkillDef
 
     // derived at Build
     public float ComboBonus;      // best extra potency the next combo step gains if the combo is kept
+    public bool ConditionalEffects; // some effect has a condition (Execute then keeps the pre-skill state for them)
 }
 
 public sealed class GaugeDef
 {
     public required string Name;
     public int Max;
+    public bool Flat;            // not planned by the upper tier and never counted as overcap waste (MP, element stance); its leaf value is weights.GaugeValue per point
 }
 
 public sealed class StatusDef
@@ -89,6 +101,9 @@ public sealed class StatusDef
     public ulong AllowedSkills;           // non-zero: while active only these skills (bit = skill index) may be used
     public bool MustNotExpire;            // expiry inside the search is penalized as invalid (BLM element)
     public bool Upkeep;                   // refresh overflow counts as waste
+    public int PeriodicGauge = -1;        // a running timer: on expiry adds PeriodicAmount to this gauge and restarts at MaxDuration (Polyglot)
+    public int PeriodicAmount;
+    public bool ConsumedByCast;           // instant-cast status (CastTimeMultiplier 0): a skill with a cast time uses it up (one stack); the first active one in definition order is used
 }
 
 public sealed class CooldownDef
@@ -103,6 +118,7 @@ public sealed class JobDefinition
     public required string Name;
     public float BaseGcd;
     public float Latency = 0.05f;
+    public float FillerOverride;   // >0: nominal filler potency per GCD (jobs without a free filler GCD)
     public GaugeDef[] Gauges = [];
     public StatusDef[] Statuses = [];
     public CooldownDef[] Cooldowns = [];
@@ -126,18 +142,24 @@ public sealed class JobBuilder(string name, float baseGcd)
     private readonly List<CooldownDef> _cooldowns = [];
     private readonly List<SkillBuilder> _skills = [];
     private float _latency = 0.05f;
+    private float _filler;
+    private readonly List<(string Status, string Gauge, int Amount)> _periodic = [];
 
     public JobBuilder Latency(float seconds) { _latency = seconds; return this; }
-    public JobBuilder Gauge(string gauge, int max) { _gauges.Add(new() { Name = gauge, Max = max }); return this; }
+    public JobBuilder Gauge(string gauge, int max, bool flat = false) { _gauges.Add(new() { Name = gauge, Max = max, Flat = flat }); return this; }
+    // nominal filler potency per GCD, for jobs whose GCDs all need a resource (the analysis cannot measure a free filler)
+    public JobBuilder FillerPotency(float perGcd) { _filler = perGcd; return this; }
+    // `status` is a repeating timer that adds `amount` to `gauge` each time it runs out
+    public JobBuilder Periodic(string status, string gauge, int amount) { _periodic.Add((status, gauge, amount)); return this; }
     public JobBuilder Cooldown(string cd, float recast, int maxCharges = 1) { _cooldowns.Add(new() { Name = cd, Recast = recast, MaxCharges = maxCharges }); return this; }
 
     public JobBuilder Status(string status, float maxDuration, float damageMultiplier = 1, int maxStacks = 1, bool upkeep = false, bool mustNotExpire = false,
-        float gcdRecastMultiplier = 1, float gcdRecastOverride = 0, float castTimeMultiplier = 1)
+        float gcdRecastMultiplier = 1, float gcdRecastOverride = 0, float castTimeMultiplier = 1, bool consumedByCast = false)
     {
         _statuses.Add(new()
         {
             Name = status, MaxDuration = maxDuration, DamageMultiplier = damageMultiplier, MaxStacks = maxStacks, Upkeep = upkeep, MustNotExpire = mustNotExpire,
-            GcdRecastMultiplier = gcdRecastMultiplier, GcdRecastOverride = gcdRecastOverride, CastTimeMultiplier = castTimeMultiplier
+            GcdRecastMultiplier = gcdRecastMultiplier, GcdRecastOverride = gcdRecastOverride, CastTimeMultiplier = castTimeMultiplier, ConsumedByCast = consumedByCast
         });
         return this;
     }
@@ -164,7 +186,7 @@ public sealed class JobBuilder(string name, float baseGcd)
             throw new InvalidOperationException("job definition exceeds EngineLimits");
         var job = new JobDefinition
         {
-            Name = name, BaseGcd = baseGcd, Latency = _latency,
+            Name = name, BaseGcd = baseGcd, Latency = _latency, FillerOverride = _filler,
             Gauges = [.. _gauges], Statuses = [.. _statuses], Cooldowns = [.. _cooldowns],
             Skills = new SkillDef[_skills.Count]
         };
@@ -177,6 +199,15 @@ public sealed class JobBuilder(string name, float baseGcd)
             b.Resolve(job);
         foreach (var b in _statusLocks)
             b(job);
+        foreach (var (status, gauge, amount) in _periodic)
+        {
+            var st = job.Statuses[job.StatusIndex(status)];
+            st.PeriodicGauge = job.GaugeIndex(gauge);
+            st.PeriodicAmount = amount;
+        }
+        foreach (var s in job.Skills)
+            foreach (var e in s.Effects)
+                s.ConditionalEffects |= e.If.Kind != ConditionKind.None || e.If2.Kind != ConditionKind.None;
         // cone skills check the cone target count
         foreach (var s in job.Skills)
             if (s.Cone)
@@ -224,6 +255,8 @@ public sealed class JobBuilder(string name, float baseGcd)
         private readonly List<Func<JobDefinition, ConditionalPotency>> _potencies = [];
         private string? _cooldown;
         private Func<JobDefinition, Condition>? _pendingEffectCondition;
+        private Func<JobDefinition, Condition>? _pendingEffectCondition2;
+        private string? _dotStatus;
 
         // chaining back to the job builder
         public SkillBuilder Gcd(string skill, float potency, uint actionId = 0) => owner.Gcd(skill, potency, actionId);
@@ -234,6 +267,16 @@ public sealed class JobBuilder(string name, float baseGcd)
         public SkillBuilder ActionId(uint id) { Def.ActionId = id; return this; }
         public SkillBuilder Aoe(float potencyPerTarget, int minTargets) { Def.AoePotency = potencyPerTarget; Def.MinAoeTargets = minTargets; return this; }
         public SkillBuilder Cone() { Def.Cone = true; return this; }
+        // falloff AoE: the primary target takes the skill potency, every other target `extraPerTarget` (scaled like the primary hit)
+        public SkillBuilder AoeFalloff(float extraPerTarget) { Def.AoeExtraPotency = extraPerTarget; return this; }
+        // applies a damage-over-time status; its value is counted when applied (potency per tick / interval x seconds gained)
+        public SkillBuilder Dot(string status, float duration, float potencyPerTick, float tickInterval = 3, bool aoe = false)
+        {
+            _dotStatus = status;
+            Def.DotPps = potencyPerTick / tickInterval;
+            Def.DotAoe = aoe;
+            return ApplyStatus(status, duration);
+        }
         public SkillBuilder Cast(float seconds) { Def.CastTime = seconds; return this; }
         public SkillBuilder Lock(float seconds) { Def.AnimationLock = seconds; return this; }
         public SkillBuilder Recast(float seconds) { Def.Recast = seconds; return this; }
@@ -255,6 +298,8 @@ public sealed class JobBuilder(string name, float baseGcd)
         public SkillBuilder RequiresCombo(string from) { _conditions.Add(job => new(ConditionKind.ComboIs, (short)job.SkillIndex(from), 0)); return ComboFrom(from, Def.Potency); }
 
         public SkillBuilder PotencyIfStatus(string status, float potency) { _potencies.Add(job => new(new(ConditionKind.StatusActive, (short)job.StatusIndex(status), 0), potency)); return this; }
+        // potency when the gauge is at least `atLeast` (first matching PotencyIf wins: list stronger cases first)
+        public SkillBuilder PotencyIfGauge(string gauge, int atLeast, float potency) { _potencies.Add(job => new(new(ConditionKind.GaugeAtLeast, (short)job.GaugeIndex(gauge), atLeast), potency)); return this; }
 
         public SkillBuilder RequiresGauge(string gauge, int atLeast) { _conditions.Add(job => new(ConditionKind.GaugeAtLeast, (short)job.GaugeIndex(gauge), atLeast)); return this; }
         public SkillBuilder RequiresGaugeAtMost(string gauge, int atMost) { _conditions.Add(job => new(ConditionKind.GaugeAtMost, (short)job.GaugeIndex(gauge), atMost)); return this; }
@@ -265,9 +310,20 @@ public sealed class JobBuilder(string name, float baseGcd)
         public SkillBuilder RequiresTargets(int atLeast) { _conditions.Add(_ => new(ConditionKind.TargetsAtLeast, 0, atLeast)); return this; }
 
         // the next effect only applies when the condition holds (e.g. a gain unlocked by a trait or a status)
-        public SkillBuilder IfStatus(string status) { _pendingEffectCondition = job => new(ConditionKind.StatusActive, (short)job.StatusIndex(status), 0); return this; }
-        public SkillBuilder IfCombo(string from) { _pendingEffectCondition = job => new(ConditionKind.ComboIs, (short)job.SkillIndex(from), 0); return this; }
-        public SkillBuilder IfGaugeAtMost(string gauge, int atMost) { _pendingEffectCondition = job => new(ConditionKind.GaugeAtMost, (short)job.GaugeIndex(gauge), atMost); return this; }
+        public SkillBuilder IfStatus(string status) => PendingIf(job => new(ConditionKind.StatusActive, (short)job.StatusIndex(status), 0));
+        public SkillBuilder IfStatusInactive(string status) => PendingIf(job => new(ConditionKind.StatusInactive, (short)job.StatusIndex(status), 0));
+        public SkillBuilder IfGaugeAtLeast(string gauge, int atLeast) => PendingIf(job => new(ConditionKind.GaugeAtLeast, (short)job.GaugeIndex(gauge), atLeast));
+        // a second If* before the effect adds a second condition (both must hold)
+        private SkillBuilder PendingIf(Func<JobDefinition, Condition> c)
+        {
+            if (_pendingEffectCondition == null)
+                _pendingEffectCondition = c;
+            else
+                _pendingEffectCondition2 = c;
+            return this;
+        }
+        public SkillBuilder IfCombo(string from) => PendingIf(job => new(ConditionKind.ComboIs, (short)job.SkillIndex(from), 0));
+        public SkillBuilder IfGaugeAtMost(string gauge, int atMost) => PendingIf(job => new(ConditionKind.GaugeAtMost, (short)job.GaugeIndex(gauge), atMost));
         public SkillBuilder ForbidStatuses(params string[] statuses) { foreach (var s in statuses) ForbidStatus(s); return this; }
         public SkillBuilder RemoveStatuses(params string[] statuses) { foreach (var s in statuses) RemoveStatus(s); return this; }
 
@@ -287,12 +343,15 @@ public sealed class JobBuilder(string name, float baseGcd)
         }
         public SkillBuilder RemoveStatus(string status) => AddEffect(job => new(EffectKind.StatusRemove, (short)job.StatusIndex(status), 0, 0, false, Condition.Always));
         public SkillBuilder ReduceCooldown(string cd, float seconds) => AddEffect(job => new(EffectKind.CooldownReduce, (short)job.CooldownIndex(cd), seconds, 0, false, Condition.Always));
+        public SkillBuilder SetGauge(string gauge, int value) => AddEffect(job => new(EffectKind.GaugeSet, (short)job.GaugeIndex(gauge), value, 0, false, Condition.Always));
+        public SkillBuilder ScaleGauge(string gauge, float factor) => AddEffect(job => new(EffectKind.GaugeScale, (short)job.GaugeIndex(gauge), factor, 0, false, Condition.Always));
 
         private SkillBuilder AddEffect(Func<JobDefinition, Effect> make)
         {
             var cond = _pendingEffectCondition;
-            _pendingEffectCondition = null;
-            _effects.Add(cond == null ? make : job => make(job) with { If = cond(job) });
+            var cond2 = _pendingEffectCondition2;
+            _pendingEffectCondition = _pendingEffectCondition2 = null;
+            _effects.Add(cond == null ? make : cond2 == null ? job => make(job) with { If = cond(job) } : job => make(job) with { If = cond(job), If2 = cond2(job) });
             return this;
         }
 
@@ -300,6 +359,8 @@ public sealed class JobBuilder(string name, float baseGcd)
         {
             if (_cooldown != null)
                 Def.Cooldown = job.CooldownIndex(_cooldown);
+            if (_dotStatus != null)
+                Def.DotStatus = job.StatusIndex(_dotStatus);
             Def.Conditions = [.. _conditions.ConvertAll(c => c(job))];
             Def.Effects = [.. _effects.ConvertAll(e => e(job))];
             Def.PotencyIf = [.. _potencies.ConvertAll(p => p(job))];
