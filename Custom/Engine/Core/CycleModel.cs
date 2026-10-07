@@ -202,6 +202,10 @@ public sealed class CycleModel
                     return false;
                 case ConditionKind.CooldownAtLeast:
                     return false;
+                case ConditionKind.AnyStatusActive:
+                case ConditionKind.CooldownAtMost:
+                case ConditionKind.ChargesAtLeast:
+                    return false;
             }
         }
         return true;

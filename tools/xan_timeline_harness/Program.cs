@@ -80,6 +80,7 @@ internal static partial class Program
         new("nin", Class.NIN, XanNIN.Definition, static (manager, player) => new XanNIN(manager, player)),
         // NIN on the rotation engine, same simulation and scorer as "nin"
         new("nin-engine", Class.NIN, BossMod.Autorotation.NinEngineModule.Definition, static (manager, player) => new BossMod.Autorotation.NinEngineModule(manager, player)),
+        new("mnk-engine", Class.MNK, BossMod.Autorotation.MnkEngineModule.Definition, static (manager, player) => new BossMod.Autorotation.MnkEngineModule(manager, player)),
         // the only akechi module in the matrix: AkechiGNB.cs is the production GNB rotation and has no other harness
         new("gnb", Class.GNB, AkechiGNB.Definition, static (manager, player) => new AkechiGNB(manager, player)),
         // reference implementation, run through the same simulation and the same scorer so AkechiGNB's choices can
@@ -111,12 +112,14 @@ internal static partial class Program
                 BossMod.Autorotation.RprEngineModule.WeightsOverride = BossMod.Autorotation.Engine.EngineWeights.Load(weightsPath);
                 BossMod.Autorotation.BlmEngineModule.WeightsOverride = BossMod.Autorotation.Engine.EngineWeights.Load(weightsPath);
                 BossMod.Autorotation.NinEngineModule.WeightsOverride = BossMod.Autorotation.Engine.EngineWeights.Load(weightsPath);
+                BossMod.Autorotation.MnkEngineModule.WeightsOverride = BossMod.Autorotation.Engine.EngineWeights.Load(weightsPath);
             }
             if (Environment.GetEnvironmentVariable("ENGINE_FRAME_MS") is { Length: > 0 } frameMs)
             {
                 BossMod.Autorotation.RprEngineModule.FrameBudgetOverride = float.Parse(frameMs, System.Globalization.CultureInfo.InvariantCulture);
                 BossMod.Autorotation.BlmEngineModule.FrameBudgetOverride = BossMod.Autorotation.RprEngineModule.FrameBudgetOverride;
                 BossMod.Autorotation.NinEngineModule.FrameBudgetOverride = BossMod.Autorotation.RprEngineModule.FrameBudgetOverride;
+                BossMod.Autorotation.MnkEngineModule.FrameBudgetOverride = BossMod.Autorotation.RprEngineModule.FrameBudgetOverride;
             }
             if (Environment.GetEnvironmentVariable("ENGINE_REPLAN_S") is { Length: > 0 } replan)
                 BossMod.Autorotation.NinEngineModule.ReplanOverride = float.Parse(replan, System.Globalization.CultureInfo.InvariantCulture);

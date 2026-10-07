@@ -26,8 +26,15 @@ public sealed class MnkActionSimulator
     private int Level => _scenario.StrategyProfile.LevelCap;
     private double Gcd => MnkPatch75Data.EffectiveGcd(_scenario.StrategyProfile.GcdSeconds, Level);
 
+    // Optional external policy (engine evaluation): built per scenario; called for the GCD slot (true) and the oGCD slot (false),
+    // returns an action name, "None" for nothing this slot, or null for the built-in policy. Actions go through UseGcd / UseOgcd.
+    public static Func<BattleScenario, Func<BattleState, bool, string?>?>? PolicyFactory;
+    public static List<double>? PolicyMicros;
+    private readonly Func<BattleState, bool, string?>? _policy;
+
     public MnkActionSimulator(BattleScenario scenario, CandidateMode candidate = CandidateMode.Baseline)
     {
+        _policy = PolicyFactory?.Invoke(scenario);
         _scenario = scenario;
         _candidate = candidate;
         var openerOffset = scenario.StrategyProfile.OpenerRoFOffset switch
@@ -91,13 +98,35 @@ public sealed class MnkActionSimulator
 
         if (state.GCDReadyIn <= ReadyLeeway)
         {
-            QueueGcd(state);
+            var gcd = External(state, true);
+            if (gcd == null)
+                QueueGcd(state);
+            else if (gcd != "None")
+                UseGcd(state, gcd);
             return;
         }
 
         if (state.AnimationLock <= 0)
-            QueueOgcds(state);
+        {
+            var ogcd = External(state, false);
+            if (ogcd == null)
+                QueueOgcds(state);
+            else if (ogcd != "None")
+                UseOgcd(state, ogcd, ogcd is "ForbiddenChakra" or "Enlightenment" or "SteelPeak" or "HowlingFist");
+        }
     }
+
+    private string? External(BattleState state, bool gcd)
+    {
+        if (_policy == null)
+            return null;
+        var t0 = System.Diagnostics.Stopwatch.GetTimestamp();
+        var action = _policy(state, gcd);
+        lock (_policyGate)
+            PolicyMicros?.Add(System.Diagnostics.Stopwatch.GetElapsedTime(t0).TotalMicroseconds);
+        return action;
+    }
+    private static readonly object _policyGate = new();
 
     private void QueueAutoAttack(BattleState state)
     {

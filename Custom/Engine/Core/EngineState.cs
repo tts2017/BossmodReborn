@@ -5,7 +5,7 @@ namespace BossMod.Autorotation.Engine;
 
 public static class EngineLimits
 {
-    public const int MaxGauges = 8;
+    public const int MaxGauges = 16;
     public const int MaxStatuses = 24;
     public const int MaxCooldowns = 16;
     public const int MaxSkills = 64;

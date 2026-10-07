@@ -7,5 +7,6 @@
   <ItemGroup>
     <Compile Include="..\..\Custom\Engine\Jobs\BlmDefinition.cs" Link="Jobs\BlmDefinition.cs" />
     <Compile Include="..\..\Custom\Engine\Jobs\NinDefinition.cs" Link="Jobs\NinDefinition.cs" />
+    <Compile Include="..\..\Custom\Engine\Jobs\MnkDefinition.cs" Link="Jobs\MnkDefinition.cs" />
   </ItemGroup>
 </Project>

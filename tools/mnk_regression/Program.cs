@@ -21,6 +21,8 @@ public static class Program
                 return 2;
             }
 
+            if (args[0] == "engine-compare")
+                return MnkEngineCompare.Run(args);
             if (args[0] == "--all")
                 return Emulate(["--scenario", "all", "--out", Path.Combine("tools", "mnk_regression", "results", "emulated_current.json"), "--report", Path.Combine("tools", "mnk_regression", "results", "emulated_report.md")]);
             if (args[0] == "--sweep")

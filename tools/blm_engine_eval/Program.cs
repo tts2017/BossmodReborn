@@ -28,12 +28,13 @@ public static class Program
     }
 
     public static bool IsNin(string[] args) => Arg(args, "--def", "blm") == "nin";
-    public static JobDefinition Build(string[] args) => IsNin(args) ? NinDefinition.Build() : BlmDefinition.Build();
+    public static bool IsMnk(string[] args) => Arg(args, "--def", "blm") == "mnk";
+    public static JobDefinition Build(string[] args) => IsMnk(args) ? MnkDefinition.Build() : IsNin(args) ? NinDefinition.Build() : BlmDefinition.Build();
 
     public static EngineWeights Weights(string[] args)
     {
         var path = Arg(args, "--weights", "");
-        var w = path.Length > 0 ? EngineWeights.Load(path) : IsNin(args) ? NinDefinition.DefaultWeights() : BlmDefinition.DefaultWeights();
+        var w = path.Length > 0 ? EngineWeights.Load(path) : IsMnk(args) ? MnkDefinition.DefaultWeights() : IsNin(args) ? NinDefinition.DefaultWeights() : BlmDefinition.DefaultWeights();
         var depth = Arg(args, "--depth", "");
         if (depth.Length > 0)
             w.HorizonGcds = int.Parse(depth);
@@ -123,7 +124,7 @@ public static class Program
     {
         var job = Build(args);
         var e = new RotationEngine(job, Weights(args));
-        var s = IsNin(args) ? EngineState.Create(job) : ColdState(job);
+        var s = IsNin(args) || IsMnk(args) ? EngineState.Create(job) : ColdState(job);
         var i = Array.IndexOf(args, "--state");
         if (i >= 0)
         {
@@ -173,7 +174,7 @@ public static class Program
     {
         var job = Build(args);
         var e = new RotationEngine(job, Weights(args));
-        var s = IsNin(args) ? EngineState.Create(job) : ColdState(job);
+        var s = IsNin(args) || IsMnk(args) ? EngineState.Create(job) : ColdState(job);
         var tl = EngineTimeline.Open();
         tl.FightEndIn = 300;
         tl.AddBuff(7.8f, 27.8f, 1.05f);

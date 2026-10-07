@@ -59,6 +59,9 @@ public static class Simulator
         ConditionKind.ConeTargetsAtLeast => (s.ConeTargets > 0 ? s.ConeTargets : s.Targets) >= c.Value,
         ConditionKind.StatusLeftAtLeast => s.StatusLeft[c.Index] >= c.Value,
         ConditionKind.CooldownAtLeast => s.Charges[c.Index] == 0 && s.CdReadyIn[c.Index] >= c.Value,
+        ConditionKind.AnyStatusActive => s.StatusLeft[c.Index] > 0 || AnyInMask(s, (int)c.Value),
+        ConditionKind.CooldownAtMost => s.Charges[c.Index] > 0 || s.CdReadyIn[c.Index] <= c.Value,
+        ConditionKind.ChargesAtLeast => s.Charges[c.Index] >= c.Value,
         _ => false
     };
 
@@ -69,6 +72,15 @@ public static class Simulator
         if (skill.Cooldown >= 0)
             c.Charges[skill.Cooldown] = 1;
         return IsLegal(job, c, tl, skill);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool AnyInMask(in EngineState s, int mask)
+    {
+        for (var i = 0; mask != 0; ++i, mask >>= 1)
+            if ((mask & 1) != 0 && s.StatusLeft[i] > 0)
+                return true;
+        return false;
     }
 
     // whether `skill` can be used at s.Time (the caller advances the state to the execution time first)

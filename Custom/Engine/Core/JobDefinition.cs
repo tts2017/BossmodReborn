@@ -17,6 +17,9 @@ public enum ConditionKind : byte
     ConeTargetsAtLeast,
     StatusLeftAtLeast, // status active with at least Value seconds left
     CooldownAtLeast,   // cooldown group Index has no charge and its next charge is at least Value seconds away
+    AnyStatusActive,   // status Index or any status in the bit mask Value (status indices) is active
+    CooldownAtMost,    // cooldown group Index has a charge or its next charge is at most Value seconds away
+    ChargesAtLeast,    // cooldown group Index has at least Value charges
 }
 
 public readonly record struct Condition(ConditionKind Kind, short Index, float Value)
@@ -344,6 +347,17 @@ public sealed class JobBuilder(string name, float baseGcd)
         public SkillBuilder RequiresStacks(string status, int atLeast) { _conditions.Add(job => new(ConditionKind.StacksAtLeast, (short)job.StatusIndex(status), atLeast)); return this; }
         public SkillBuilder RequiresTargets(int atLeast) { _conditions.Add(_ => new(ConditionKind.TargetsAtLeast, 0, atLeast)); return this; }
         public SkillBuilder RequiresCooldownAtLeast(string cd, float seconds) { _conditions.Add(job => new(ConditionKind.CooldownAtLeast, (short)job.CooldownIndex(cd), seconds)); return this; }
+        public SkillBuilder RequiresCooldownAtMost(string cd, float seconds) { _conditions.Add(job => new(ConditionKind.CooldownAtMost, (short)job.CooldownIndex(cd), seconds)); return this; }
+        public SkillBuilder RequiresCharges(string cd, int atLeast) { _conditions.Add(job => new(ConditionKind.ChargesAtLeast, (short)job.CooldownIndex(cd), atLeast)); return this; }
+        public SkillBuilder RequiresAnyStatus(params string[] statuses) { _conditions.Add(job => AnyStatus(job, statuses)); return this; }
+        public SkillBuilder PotencyIfAnyStatus(float potency, params string[] statuses) { _potencies.Add(job => new(AnyStatus(job, statuses), potency)); return this; }
+        private static Condition AnyStatus(JobDefinition job, string[] statuses)
+        {
+            var mask = 0;
+            foreach (var s in statuses[1..])
+                mask |= 1 << job.StatusIndex(s);
+            return new(ConditionKind.AnyStatusActive, (short)job.StatusIndex(statuses[0]), mask);
+        }
 
         // the next effect only applies when the condition holds (e.g. a gain unlocked by a trait or a status)
         public SkillBuilder IfStatus(string status) => PendingIf(job => new(ConditionKind.StatusActive, (short)job.StatusIndex(status), 0));
@@ -377,6 +391,8 @@ public sealed class JobBuilder(string name, float baseGcd)
             _conditions.Add(job => new(ConditionKind.StacksAtLeast, (short)job.StatusIndex(status), stacks));
             return AddEffect(job => new(EffectKind.StatusConsumeStacks, (short)job.StatusIndex(status), 0, (byte)stacks, false, Condition.Always));
         }
+        // use one stack of a status if it is active (no requirement; combine with IfStatus)
+        public SkillBuilder UseStack(string status) => AddEffect(job => new(EffectKind.StatusConsumeStacks, (short)job.StatusIndex(status), 0, 1, false, Condition.Always));
         public SkillBuilder RemoveStatus(string status) => AddEffect(job => new(EffectKind.StatusRemove, (short)job.StatusIndex(status), 0, 0, false, Condition.Always));
         public SkillBuilder ReduceCooldown(string cd, float seconds) => AddEffect(job => new(EffectKind.CooldownReduce, (short)job.CooldownIndex(cd), seconds, 0, false, Condition.Always));
         public SkillBuilder SetGauge(string gauge, int value) => AddEffect(job => new(EffectKind.GaugeSet, (short)job.GaugeIndex(gauge), value, 0, false, Condition.Always));
