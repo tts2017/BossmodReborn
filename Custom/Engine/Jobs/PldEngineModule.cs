@@ -10,7 +10,7 @@ namespace BossMod.Autorotation;
 // "PLD [Engine]": Paladin damage rotation on the rotation engine (Custom/Engine). Level 30+ (the full combo and Spirits Within): the
 // definition is built for the player's level, and BMR recreates the module when the level changes (level sync).
 // The strategy tracks are those of Akechi PLD [Custom]; Intervene and the ranged GCDs (Shield Lob / Holy Spirit out of melee range) are
-// pressed by this module. Below level 100 only the AOE / Targeting / MechanicHints settings act. No mitigation, Clemency (no setting
+// pressed by this module; settings for skills not learned at the player's level do nothing. No mitigation, Clemency (no setting
 // of the Akechi module uses it) or tank stance handling.
 public sealed class PldEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
@@ -51,8 +51,6 @@ public sealed class PldEngineModule(RotationModuleManager manager, Actor player)
             s.Targets = 1;
         else if (aoe is AkechiPLD.AOEStrategy.ForceAOEFinish or AkechiPLD.AOEStrategy.ForceAOEBreak)
             ForceAoeTargets(ref s);
-        if (Player.Level < 100)
-            return;
 
         var hold = strategy.Option(Akechi.SharedTrack.Hold).As<Akechi.HoldStrategy>();
         if (hold == Akechi.HoldStrategy.HoldEverything)
@@ -206,7 +204,7 @@ public sealed class PldEngineModule(RotationModuleManager manager, Actor player)
             _firstGcdDone = false;
         else if (GCD > 0)
             _firstGcdDone = true;
-        if (Player.Level < 100 || Target == null || !Target.IsTargetable || strategy.Option(Akechi.SharedTrack.Hold).As<Akechi.HoldStrategy>() == Akechi.HoldStrategy.HoldEverything)
+        if (Target == null || !Target.IsTargetable || strategy.Option(Akechi.SharedTrack.Hold).As<Akechi.HoldStrategy>() == Akechi.HoldStrategy.HoldEverything)
             return;
         var dist = Player.DistanceToHitbox(Target);
         var outOfMelee = dist > 3;
@@ -215,7 +213,7 @@ public sealed class PldEngineModule(RotationModuleManager manager, Actor player)
         var charges = ActionDefinitions.Instance.Spell(AID.Intervene) is { } intervene
             ? intervene.MaxChargesAtLevel(Player.Level) - (int)MathF.Ceiling(intervene.ChargeCapIn(World.Client.Cooldowns, World.Client.DutyActions, Player.Level) / intervene.Cooldown - 1e-3f) : 0;
         var dash = strategy.Option(AkechiPLD.Track.Dash).As<AkechiPLD.DashStrategy>();
-        if (Player.InCombat && dist <= 20 && dash switch
+        if (Player.InCombat && dist <= 20 && ActionUnlocked(AID.Intervene) && dash switch
         {
             AkechiPLD.DashStrategy.Force => charges >= 1,
             AkechiPLD.DashStrategy.Force1 => charges >= 2,
@@ -230,8 +228,8 @@ public sealed class PldEngineModule(RotationModuleManager manager, Actor player)
         if (strategy.Option(AkechiPLD.Track.RotationMode).As<AkechiPLD.RotationModeStrategy>() != AkechiPLD.RotationModeStrategy.FullMode)
             return;
         var holyInstant = SelfStatusLeft(SID.DivineMight) > 0 || SelfStatusLeft(SID.Requiescat) > 0;
-        var canHoly = dist <= 25 && Player.HPMP.CurMP >= 1000 && (!isMoving || holyInstant);
-        var canLob = dist <= 20;
+        var canHoly = dist <= 25 && Player.HPMP.CurMP >= 1000 && (!isMoving || holyInstant) && ActionUnlocked(AID.HolySpirit);
+        var canLob = dist <= 20 && ActionUnlocked(AID.ShieldLob);
         var bestCast = canHoly ? AID.HolySpirit : canLob ? AID.ShieldLob : default;
         var first = !_firstGcdDone && Player.InCombat;
         var (use, aid, prio) = strategy.Option(AkechiPLD.Track.Ranged).As<AkechiPLD.RangedStrategy>() switch
@@ -276,7 +274,7 @@ public sealed class PldEngineModule(RotationModuleManager manager, Actor player)
         ReadStatus(ref s, Job.StatusIndex(PldDefinition.DivineMight), Player, (uint)SID.DivineMight);
 
         ReadCooldown(ref s, Job.CooldownIndex(PldDefinition.FightOrFlightCD), ActionID.MakeSpell(AID.FightOrFlight));
-        ReadCooldown(ref s, Job.CooldownIndex(PldDefinition.ImperatorCD), ActionID.MakeSpell(AID.Imperator));
+        ReadCooldown(ref s, Job.CooldownIndex(PldDefinition.ImperatorCD), ActionID.MakeSpell(ActionUnlocked(AID.Imperator) ? AID.Imperator : AID.Requiescat)); // Requiescat below 96
         ReadCooldown(ref s, Job.CooldownIndex(PldDefinition.ExpiacionCD), ActionID.MakeSpell(AID.Expiacion));
         ReadCooldown(ref s, Job.CooldownIndex(PldDefinition.CircleOfScornCD), ActionID.MakeSpell(AID.CircleOfScorn));
         ReadCombo(ref s);

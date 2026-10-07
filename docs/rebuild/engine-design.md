@@ -598,3 +598,74 @@ SAM 66〜69 / 486〜530 / 119〜151、BLM 26〜27 / 156〜169 / 6〜8、GNB 29�
 - 下限より下のレベル (モジュールは作られない)。MNK の Celestial Revolution、NIN の活殺水遁、BLM の Fire / Blizzard (I) は定義にない
   (Lv100 の定義にもない、または下限より下でしか使わないもの)。
 - 旧版との比較は xan ハーネスのスコアラーの範囲 (各スコアラーのレベル分岐) まで。ゲーム内での確認はしていない。
+
+## 18. 習得スキルに応じたトラック・規則 (レベルシンク下の UI 設定)
+
+### 18.1 変更内容
+
+- 0c0f2e5c3 の UI トラックは `Player.Level >= 100` でだけ動いていた (定義にないスキル名を `SkillIndex` で引くと例外になるため)。
+  このガードを 7 モジュールから外し、どのレベルでも動くようにした。
+  - `JobDefinition.TrySkillIndex` / `HasSkill` を追加。`Force` / `Forbid` は定義にない (そのレベルで未習得の) スキルなら何もしない。
+    トラック名・選択肢・既定値は変更なし。
+  - モジュールが自分で押すアクションは `ActionUnlocked` (レベル・クラス・習得クエスト) で判定: RPR Harpe / Soulsow / Arcane Crest、
+    NIN Hide / Throwing Dagger、MNK Six-sided Star / Riddle of Earth (従来の `Level < 64` を置き換え)、SAM Meikyo Shisui (カウントダウン
+    開幕) / Enpi / Meditate / True North (50 未満は未習得)、BLM Scathe、GNB Lightning Shot / Bloodfest (強制)、PLD Intervene / Shield Lob /
+    Holy Spirit (64 未満は Holy Spirit を選ばず Shield Lob に落ちる)。
+  - 位置取りヒント / True North、薬、Hold、開幕処理など、従来 Lv100 だけで動いていた処理もすべてのレベルで動く。
+- Lv100 前提だった規則のレベル別の扱い (旧 xan / Akechi モジュールに合わせた):
+  - SAM: 2 分バースト (薬 TwoMinuteBurst、返し / 波切の Hold の解除条件) は Ogi Namikiri (90) 未満では Ikishoten (68) 使用後 30 秒
+    (Ogi Namikiri Ready が続く窓と同じ)。68 未満はバースト窓なし (xan も 68 未満は開幕以外で薬を使わない)。これがないと 76〜89 で
+    Hold の返しが失効まで保持される。カウントダウン開幕は Meikyo Shisui (50) 習得から。Meditate の剣気満タン判定は Shoha (80) 未満では
+    瞑想ゲージを見ない (xan と同じ)。
+  - GNB: 「通常 + 溢れ防止」のカートリッジ上限を定義の上限 (88 未満は 2) から取る (従来は 3 固定で、88 未満では一度も消費しなかった)。
+    Fated Circle (72) 未満では OnlyFC は Burst Strike を禁止せず、ForceFC 系は Burst Strike を押す (Akechi と同じ)。
+  - PLD: Imperator のリキャストは 96 未満では Requiescat から読む (Akechi と同じ。ハーネスの数値は変わらず)。
+  - BLM: 「Manafont 直前は Astral Fire を出ない」規則 (6f3ec1133) は Flare Star (100) があるときだけ。Lv90 パーティバフ込みで
+    −0.5% (469,559 → 467,002)、90 未満は待つ間に撃てるものがない場合がある。
+  - そのままにしたもの: RPR の薬は Arcane Circle (72) 必須のまま (xan も 72 未満は使わない)。ReserveGluttony は Gluttony (76) 未満でも
+    Soul 100 まで温存 (xan と同じ)。GNB の Force*3 系 (弾 3 以上) は 88 未満では Bloodfest 中のみ成立 (Akechi と同じ)。
+    NIN (66+)・MNK (70+) の定義の規則が要る Dokumori / Riddle of Fire / Brotherhood は登録レベルで習得済み。
+
+### 18.2 検証
+
+- Release ビルド 0 エラー 0 警告、engine_tests 17/17。
+- 定義の構築 + RotationEngine で 60 秒の自己対戦: 7 ジョブ × Lv1〜100、例外 0。
+- モジュールの smoke (xan_timeline_harness、`--scenario-limit 2`): 各ジョブの登録レベル〜100 の全レベル × 全トラックを k 番目の選択肢に
+  揃えた組 (k = 1〜最大選択肢数−1、奇数 k はカウントダウン 12 秒、偶数 k は追加の敵 3 体) で 2,957 回、例外 0
+  (ハーネスの規則チェック失敗は 532 回。わざと不自然な設定の組なので想定どおり)。
+- Lv100 の同一性: 9 戦闘の決定論 (ENGINE_FRAME_MS=1000、BudgetMs 100) で、バフなし・`--party-buffs 7.8` とも 7 ジョブの出力行が
+  変更前 (6f3ec1133) と完全一致 (RPR 666,657 / NIN 650,308 / MNK 581,190 / SAM 661,610 / BLM 560,467 / GNB 566,864 / PLD 553,005)。
+- シンクレベル、既定トラック、決定論 (前 = 6f3ec1133、後 = 変更後、旧 = xan / Akechi):
+
+| | Lv90 前 → 後 (旧) | Lv80 前 → 後 (旧) | Lv70 前 → 後 (旧) | 下限 前 → 後 (旧) |
+|---|---:|---:|---:|---:|
+| RPR | 554,100 → 554,718 (554,336) | 470,792 → 470,722 (467,597) | 370,575 → 370,575 (365,343) | 294,268 → 294,268 (293,305) (30) |
+| NIN | 527,105 → 527,105 (518,829) | 455,554 → 455,554 (457,925) | 396,112 → 396,112 (385,054) | 372,492 → 372,492 (363,288) (66) |
+| MNK | 471,514 → 470,951 (472,328) | 418,212 → 418,088 (423,978) | 391,985 → 390,772 (396,457) | (70) |
+| SAM | 548,248 → 525,934 (549,301) | 495,279 → 468,669 (503,146) | 391,692 → 375,218 (392,325) | 270,432 → 270,432 (255,420) (30) |
+| BLM | 465,512 → 465,512 (473,492) | 403,900 → 403,900 (408,721) | 365,845 → 365,845 (368,145) | 325,881 → 325,881 (333,347) (60) |
+| GNB | 506,312 → 506,312 (489,456) | 401,776 → 401,776 (385,640) | 355,736 → 355,736 (336,934) | 268,172 → 268,172 (254,656) (30) |
+| PLD | 457,388 → 457,388 (448,482) | 378,273 → 378,273 (376,553) | 339,485 → 339,485 (340,768) | 235,282 → 235,282 (234,948) (30) |
+
+  - SAM の低下はカウントダウン開幕 (Meikyo Shisui → 月光) が 50 以上で動くようになったため。変更前は Lv100 未満でカウントダウン中から
+    殴り始め、ハーネスがそれを数えていた (短い 8 戦闘で 1 戦闘あたり約 6 GCD)。xan も Lv100 の Engine も同じ開幕をする。長い戦闘
+    (z1363) 単体では Lv70 で 286,291 → 288,513。
+  - MNK の差は True North (位置取り) と Riddle of Earth (予測ダメージ) が動くようになったため。Riddle of Earth でハーネスの失敗
+    「DMU predicted damage で Riddle of Earth を使わない」が 1 → 0。True North を Delay にすると変更前と一致。
+  - `--party-buffs 7.8` でも同様 (SAM Lv90 549,456 → 525,947、MNK Lv90 477,421 → 472,968、RPR Lv90 563,638 → 567,573、ほかは一致か ±20)。
+- Lv90 (SAM は Lv80、GNB の溢れ防止は Lv70) の非既定トラック。変更前はすべて既定と同じ結果 (下は変更後の「既定 → 設定」、トレースの回数):
+  RPR Buffs=Delay → Arcane Circle 21 → 0、POT (--potions 5) → 薬 13。NIN Buffs=Delay → Dokumori 21 → 0、Potion=EvenBurst → 13。
+  MNK BH=Delay → Brotherhood 21 → 0、Pot=OpenerAndEvenBursts → 13。SAM (Lv80) Tsubame=Hold → 返し 64 → 28 (Ikishoten の窓で解除)、
+  Delay → 0、Potion=TwoMinuteBurst → 13。BLM LL=Delay → Ley Lines 27 → 0。GNB NM=Delay → No Mercy 34 → 0、Hold=HoldEverything →
+  GCD 0、Potion=AlignWithBuffs → 13、
+  (Lv70) Carts=NormalOvercapOnly → Burst Strike 46・アビリティ 0。PLD Atones=Delay → Atonement 系 168 → 0、FoF=Delay → 0。
+- Execute (ライブ、平均 / p99 µs): Lv100 RPR 35.5 / 138、NIN 35.2 / 157、MNK 42.8 / 168、SAM 72.3 / 486、BLM 28.9 / 171、GNB 36.0 / 198、
+  PLD 33.3 / 142。Lv90 RPR 35.3 / 131、NIN 34.8 / 164、MNK 37.6 / 147、SAM 75.8 / 635、BLM 26.7 / 150、GNB 34.1 / 186、PLD 32.9 / 121。
+  Lv70 RPR 31.9 / 125、NIN 30.7 / 113、MNK 38.3 / 141、SAM 45.4 / 130、BLM 27.0 / 144、GNB 25.8 / 107、PLD 30.0 / 113。
+
+### 18.3 入れていないもの
+
+- 登録レベルの変更 (NIN 66 / MNK 70 / BLM 60 などはそのまま。この下ではモジュールが作られない)。
+- MNK Riddle of Wind は定義が 96 から (72〜95 は Wind's Reply 以外の効果をモデル化していないので入れていない、§17 と同じ)。
+  RoW トラックは 96 未満では何もしない。
+- 新しいトラック・選択肢、レベル別の重みの再チューニング、ゲーム内での確認。

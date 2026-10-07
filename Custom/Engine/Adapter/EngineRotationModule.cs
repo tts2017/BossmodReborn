@@ -58,15 +58,22 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         UseForecast = hints is MechanicHintStrategy.All or MechanicHintStrategy.ForecastOnly;
     }
 
-    // skills pushed whenever they are legal, on top of the engine's choice (Force options); earlier calls win when several are legal
+    // skills pushed whenever they are legal, on top of the engine's choice (Force options); earlier calls win when several are legal.
+    // Force / Forbid of a skill not learned at the player's level (not in the level-synced definition) do nothing
     private readonly int[] _forced = new int[EngineLimits.MaxSkills];
     private int _numForced;
     protected void Force(string skill)
     {
-        if (_numForced < _forced.Length)
-            _forced[_numForced++] = Job.SkillIndex(skill);
+        var i = Job.TrySkillIndex(skill);
+        if (i >= 0 && _numForced < _forced.Length)
+            _forced[_numForced++] = i;
     }
-    protected void Forbid(ref EngineState s, string skill) => s.DisabledSkills |= 1UL << Job.SkillIndex(skill);
+    protected void Forbid(ref EngineState s, string skill)
+    {
+        var i = Job.TrySkillIndex(skill);
+        if (i >= 0)
+            s.DisabledSkills |= 1UL << i;
+    }
     protected void ForbidAll(ref EngineState s) => s.DisabledSkills = ulong.MaxValue;
 
     // xan Targeting Auto / AutoTryPri (Akechi Automatic / AutoHard / AutoTryPrimary): the player's target, or when it is missing or out of

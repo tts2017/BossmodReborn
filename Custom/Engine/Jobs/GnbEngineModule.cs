@@ -9,8 +9,8 @@ namespace BossMod.Autorotation;
 
 // "GNB [Engine]": Gunbreaker damage rotation on the rotation engine (Custom/Engine). Level 30+ (cartridges and Burst Strike): the
 // definition is built for the player's level, and BMR recreates the module when the level changes (level sync).
-// The strategy tracks are those of Akechi GNB [Custom]; Lightning Shot is pressed by this module. Below level 100 only the AOE /
-// Targeting / MechanicHints settings act. No mitigation or tank stance handling.
+// The strategy tracks are those of Akechi GNB [Custom]; Lightning Shot is pressed by this module. Settings for skills not learned
+// at the player's level do nothing. No mitigation or tank stance handling.
 public sealed class GnbEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
     public static EngineWeights? WeightsOverride;
@@ -49,9 +49,10 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
             s.Targets = 1;
         else if (aoe is AkechiGNB.AOEStrategy.ForceAOEFinishWithOvercap or AkechiGNB.AOEStrategy.ForceAOEFinishWithoutOvercap or AkechiGNB.AOEStrategy.ForceAOEBreakWithOvercap or AkechiGNB.AOEStrategy.ForceAOEBreakWithoutOvercap)
             ForceAoeTargets(ref s);
-        if (Player.Level < 100)
-            return;
         var ammo = s.Gauges[Job.GaugeIndex(GnbDefinition.Ammo)];
+        var maxAmmo = Job.Gauges[Job.GaugeIndex(GnbDefinition.Ammo)].Max / 2; // the cartridge cap (2 below 88; the gauge doubles it for Bloodfest)
+        // Fated Circle is learned at 72: below it the Fated Circle options fall back to Burst Strike (as the Akechi module)
+        var fatedCircle = Job.HasSkill("FatedCircle");
 
         var hold = strategy.Option(Akechi.SharedTrack.Hold).As<Akechi.HoldStrategy>();
         if (hold == Akechi.HoldStrategy.HoldEverything)
@@ -94,7 +95,7 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
                 Forbid(ref s, sk);
             foreach (var sk in BurstGcds)
                 Forbid(ref s, sk);
-            if (ammo < 3)
+            if (ammo < maxAmmo)
             {
                 Forbid(ref s, "BurstStrike");
                 Forbid(ref s, "FatedCircle");
@@ -107,7 +108,8 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
                 Forbid(ref s, "FatedCircle");
                 break;
             case AkechiGNB.CartridgeStrategy.OnlyFC:
-                Forbid(ref s, "BurstStrike");
+                if (fatedCircle)
+                    Forbid(ref s, "BurstStrike");
                 break;
             case AkechiGNB.CartridgeStrategy.Delay:
                 Forbid(ref s, "BurstStrike");
@@ -121,7 +123,7 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
             case AkechiGNB.CartridgeStrategy.ForceFC or AkechiGNB.CartridgeStrategy.ForceFC1:
             case AkechiGNB.CartridgeStrategy.ForceFC2 when ammo >= 2:
             case AkechiGNB.CartridgeStrategy.ForceFC3 when ammo >= 3:
-                Force("FatedCircle");
+                Force(fatedCircle ? "FatedCircle" : "BurstStrike");
                 break;
         }
 
@@ -226,9 +228,9 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
             _firstGcdDone = false;
         else if (GCD > 0)
             _firstGcdDone = true;
-        if (Player.Level < 100 || Target == null || strategy.Option(Akechi.SharedTrack.Hold).As<Akechi.HoldStrategy>() == Akechi.HoldStrategy.HoldEverything)
+        if (Target == null || strategy.Option(Akechi.SharedTrack.Hold).As<Akechi.HoldStrategy>() == Akechi.HoldStrategy.HoldEverything)
             return;
-        if (_forceBloodfest && Player.InCombat && ActionDefinitions.Instance.Spell(AID.Bloodfest)?.ReadyIn(World.Client.Cooldowns, World.Client.DutyActions) <= GCD)
+        if (_forceBloodfest && Player.InCombat && ActionUnlocked(AID.Bloodfest) && ActionDefinitions.Instance.Spell(AID.Bloodfest)?.ReadyIn(World.Client.Cooldowns, World.Client.DutyActions) <= GCD)
             Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.Bloodfest), Target, ActionQueue.Priority.Medium + 1);
 
         // Lightning Shot: the pull's first GCD (from 0.8 s before the countdown ends) out of melee range (OpenerFar) or at any range
@@ -236,6 +238,8 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
         var outOfMelee = Player.DistanceToHitbox(Target) > 3;
         var pull = !_firstGcdDone && (Player.InCombat || World.Client.CountdownRemaining < 0.8f);
         var ls = strategy.Option(AkechiGNB.Track.LightningShot).As<AkechiGNB.LightningShotStrategy>();
+        if (!ActionUnlocked(AID.LightningShot))
+            return;
         if (Target.IsTargetable && (ls == AkechiGNB.LightningShotStrategy.OpenerFar && pull && outOfMelee || ls == AkechiGNB.LightningShotStrategy.OpenerForce && pull || ls == AkechiGNB.LightningShotStrategy.Force))
             Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.LightningShot), Target, ActionQueue.Priority.High + 3);
         else if (ls == AkechiGNB.LightningShotStrategy.Allow && Target.IsTargetable && Player.InCombat && outOfMelee)

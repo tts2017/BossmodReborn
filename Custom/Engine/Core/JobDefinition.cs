@@ -151,6 +151,9 @@ public sealed class JobDefinition
     public int StatusIndex(string name) { for (var i = 0; i < Statuses.Length; ++i) if (Statuses[i].Name == name) return i; throw Unknown("status", name); }
     public int CooldownIndex(string name) { for (var i = 0; i < Cooldowns.Length; ++i) if (Cooldowns[i].Name == name) return i; throw Unknown("cooldown", name); }
     public int SkillIndex(string name) { for (var i = 0; i < Skills.Length; ++i) if (Skills[i].Name == name) return i; throw Unknown("skill", name); }
+    // -1 when the skill is not in the definition (not learned at the definition's level)
+    public int TrySkillIndex(string name) { for (var i = 0; i < Skills.Length; ++i) if (Skills[i].Name == name) return i; return -1; }
+    public bool HasSkill(string name) => TrySkillIndex(name) >= 0;
 
     private static ArgumentException Unknown(string kind, string name) => new($"unknown {kind} '{name}'");
 }

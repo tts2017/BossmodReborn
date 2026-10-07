@@ -10,8 +10,7 @@ namespace BossMod.Autorotation;
 // "MNK [Engine]": Monk driven by the rotation engine (Custom/Engine). Level 70+ (the Perfect Balance / Phantom Rush rules need
 // Riddle of Fire and Brotherhood): the definition is built for the player's level, and BMR recreates the module when the level
 // changes (level sync). The strategy tracks are those of xan MNK [Custom]; Six-sided Star, Form Shift, Meditation, Thunderclap,
-// the engage and Riddle of Earth are pressed by this module. Below level 100 only the AOE / Targeting / MechanicHints / FightEnd
-// settings act.
+// the engage and Riddle of Earth are pressed by this module; settings for skills not learned at the player's level do nothing.
 public sealed class MnkEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
     public static EngineWeights? WeightsOverride;
@@ -47,8 +46,6 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
     {
         var st = _strategy;
         ApplyAoe(ref s, st.AOE);
-        if (Player.Level < 100)
-            return;
         var inMelee = Player.DistanceToHitbox(primaryTarget) <= 3;
 
         // basic rotation + Chakra overcap: no Riddle of Fire / Brotherhood / Perfect Balance / Riddle of Wind / potion (the Chakra
@@ -163,8 +160,6 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
     public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
         base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
-        if (Player.Level < 100)
-            return;
         var st = _strategy;
         UpdatePositional(Target, st.TrueNorth.Value);
         if (st.RoE.Value == XanMNK.RoEStrategy.Automatic)
@@ -194,7 +189,7 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
 
         // Six-sided Star and Form Shift when forced (Automatic leaves the GCDs to the engine: a Six-sided Star before a downtime or a Form
         // Shift inside one lowered the 9-fight harness by 85 / 2,600 potency)
-        if (st.SSS.Value == OffensiveStrategy.Force && target != null && inMelee && !pb)
+        if (st.SSS.Value == OffensiveStrategy.Force && target != null && inMelee && !pb && ActionUnlocked(AID.SixSidedStar))
             Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.SixSidedStar), target, ActionQueue.Priority.High + 3);
         if (st.FormShift.Value == OffensiveStrategy.Force && !pb)
             Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.FormShift), Player, ActionQueue.Priority.High + 3);
@@ -228,7 +223,7 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
     // mitigation outside the engine: Riddle of Earth when damage to us is predicted within 10 s (as the regular module)
     private void RiddleOfEarth()
     {
-        if (!Player.InCombat || Player.Level < 64 || CD(AID.RiddleOfEarth) > 0.6f || SelfStatusLeft(SID.RiddleOfEarth) > 0 || SelfStatusLeft(SID.EarthsRumination) > 0)
+        if (!Player.InCombat || !ActionUnlocked(AID.RiddleOfEarth) || CD(AID.RiddleOfEarth) > 0.6f || SelfStatusLeft(SID.RiddleOfEarth) > 0 || SelfStatusLeft(SID.EarthsRumination) > 0)
             return;
         foreach (var damage in Hints.PredictedDamage)
         {

@@ -8,7 +8,7 @@ namespace BossMod.Autorotation;
 
 // "RPR [Engine]": Reaper driven by the rotation engine (Custom/Engine). Level 30+ (the full Slice combo): the definition is
 // built for the player's level, and BMR recreates the module when the level changes (level sync). The strategy tracks are those
-// of xan RPR [Custom]; below level 100 only the AOE / Targeting / MechanicHints settings act.
+// of xan RPR [Custom]; settings for skills not learned at the player's level do nothing.
 public sealed class RprEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
     // harnesses: replaces the built-in weights for modules created afterwards
@@ -41,8 +41,6 @@ public sealed class RprEngineModule(RotationModuleManager manager, Actor player)
     {
         var st = _strategy;
         ApplyAoe(ref s, st.AOE);
-        if (Player.Level < 100)
-            return;
 
         // basic mode: the standard combo and gauge spending only (no Arcane Circle unless forced, no Gluttony, no potion)
         var full = st.RotationMode.Value == XanRPR.RotationModeStrategy.FullMode;
@@ -144,16 +142,14 @@ public sealed class RprEngineModule(RotationModuleManager manager, Actor player)
     public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
         base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
-        if (Player.Level < 100)
-            return;
         var st = _strategy;
         UpdatePositional(Target, st.TrueNorth.Value == XanRPR.TrueNorthStrategy.Auto);
         LastLemure(st);
         Harpe(st, isMoving);
-        if (!Player.InCombat && SelfStatusLeft(SID.Soulsow) <= 0)
+        if (!Player.InCombat && SelfStatusLeft(SID.Soulsow) <= 0 && ActionUnlocked(AID.Soulsow))
             Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.Soulsow), Player, ActionQueue.Priority.High + 2, castTime: 5);
         // Arcane Crest for damage to us predicted within 5 s
-        if (st.AutoCrest.Value == EnabledByDefault.Enabled && Player.InCombat && PredictedDamageWithin(5))
+        if (st.AutoCrest.Value == EnabledByDefault.Enabled && Player.InCombat && ActionUnlocked(AID.ArcaneCrest) && PredictedDamageWithin(5))
             Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.ArcaneCrest), Player, ActionQueue.Priority.Low);
     }
 
@@ -170,7 +166,7 @@ public sealed class RprEngineModule(RotationModuleManager manager, Actor player)
     // Below the engine's GCD, so it only goes off when that one cannot (out of range)
     private void Harpe(in XanRPR.Strategy st, bool isMoving)
     {
-        if (st.Harpe.Value == XanRPR.HarpeStrategy.Forbid || Target == null || !Player.InCombat || SelfStatusLeft(SID.Enshrouded) > 0
+        if (st.Harpe.Value == XanRPR.HarpeStrategy.Forbid || Target == null || !Player.InCombat || !ActionUnlocked(AID.Harpe) || SelfStatusLeft(SID.Enshrouded) > 0
             || SelfStatusLeft(SID.SoulReaver) > 0 || SelfStatusLeft(SID.Executioner) > 0 || Player.DistanceToHitbox(Target) > 25)
             return;
         var outOfReach = Player.DistanceToHitbox(Target) > 3;

@@ -11,8 +11,8 @@ namespace BossMod.Autorotation;
 // Dokumori): the definition is built for the player's level, and BMR recreates the module when the level changes (level sync).
 // The engine plans whole ninjutsu (mudra sequences) and the Ten Chi Jin steps as single skills; this module presses their mudras /
 // steps one by one and keeps the engine out while a sequence runs. The strategy tracks are those of xan NIN [Custom]; Hide,
-// Throwing Dagger and the Phantom cannons are pressed by this module. Below level 100 only the AOE / Targeting / MechanicHints
-// settings act. No Doton / Huton or Mug (Trick Attack below 92, Kunai's Bane from 92).
+// Throwing Dagger and the Phantom cannons are pressed by this module; settings for skills not learned at the player's level do
+// nothing. No Doton / Huton or Mug (Trick Attack below 92, Kunai's Bane from 92).
 public sealed class NinEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
     public static EngineWeights? WeightsOverride;
@@ -36,8 +36,6 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
     {
         var st = _strategy;
         ApplyAoe(ref s, st.AOE);
-        if (Player.Level < 100)
-            return;
         var basic = st.Rotation.Value == XanNIN.RotationStrategy.BasicComboOnly;
         // the potion inside our Dokumori window (the even-minute burst)
         UsePotion(ActionDefinitions.IDPotionDex, !basic && st.Potion.Value == XanNIN.PotionStrategy.EvenBurst && s.HasStatus(Job.StatusIndex(NinDefinition.Dokumori)));
@@ -112,18 +110,16 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
         if (_sequence != null && (World.CurrentTime - _sequenceLockedAt).TotalSeconds < 0.5)
             return;
         base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
-        if (Player.Level < 100)
-            return;
         var st = _strategy;
         UpdatePositional(Target, st.TrueNorth.Value == XanNIN.TrueNorthStrategy.Auto);
         // out of combat Hide restores the mudra charges
-        if (st.Hide.Value == EnabledByDefault.Enabled && !Player.InCombat && mudra.Left <= 0 && GCD <= 0 && MaxChargesIn(AID.Ten1) > 0)
+        if (st.Hide.Value == EnabledByDefault.Enabled && !Player.InCombat && mudra.Left <= 0 && GCD <= 0 && MaxChargesIn(AID.Ten1) > 0 && ActionUnlocked(AID.Hide))
             Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.Hide), Player, ActionQueue.Priority.Medium);
         if (Target == null)
             return;
         // Throwing Dagger: a GCD for when the target is out of melee range (below the engine's GCD, which the queue skips out of range);
         // not with Raiju stacks (Forked Raiju closes the gap) and not right after a Raiton (its Raiju shows up a moment later)
-        if (st.ThrowingDagger.Value == EnabledByDefault.Enabled && Player.DistanceToHitbox(Target) is > 3 and <= 20 && SelfStatusLeft(SID.RaijuReady) <= 0
+        if (st.ThrowingDagger.Value == EnabledByDefault.Enabled && Player.DistanceToHitbox(Target) is > 3 and <= 20 && SelfStatusLeft(SID.RaijuReady) <= 0 && ActionUnlocked(AID.ThrowingDagger)
             && !(Manager.LastCast.Data is { } last && (AID)last.Action.ID is AID.Raiton or AID.TCJRaiton && (World.CurrentTime - Manager.LastCast.Time).TotalSeconds < 3))
             Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.ThrowingDagger), Target, ActionQueue.Priority.High + 1);
         // Phantom Cannoneer (Occult Crescent): cannons on cooldown

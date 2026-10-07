@@ -9,8 +9,8 @@ namespace BossMod.Autorotation;
 
 // "BLM [Engine]": Black Mage driven by the rotation engine (Custom/Engine). Level 60+ (the Fire IV / Umbral Heart loop): the
 // definition is built for the player's level, and BMR recreates the module when the level changes (level sync). The strategy
-// tracks are those of xan BLM [Custom]; Scathe and the Occult Crescent actions are pressed by this module. Below level 100 only
-// the AOE / Targeting / MechanicHints settings act. No Lucid Dreaming or Ley Lines repositioning (Retrace / Between the Lines:
+// tracks are those of xan BLM [Custom]; Scathe and the Occult Crescent actions are pressed by this module. Settings for skills not
+// learned at the player's level do nothing. No Lucid Dreaming or Ley Lines repositioning (Retrace / Between the Lines:
 // the xan module has no setting that uses them either).
 public sealed class BlmEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
@@ -79,8 +79,6 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
         var st = _strategy;
         ApplyAoe(ref s, st.AOE);
         SkipDoubleTransposeIceParadox(ref s);
-        if (Player.Level < 100)
-            return;
 
         // manual control: the player casts, only Polyglot is spent against overcapping (and Manafont follows its own setting)
         if (st.Rotation.Value == XanBLM.RotationStrategy.PolyglotOvercapOnly)
@@ -143,8 +141,10 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
             Force("Manafont");
 
         // in a fight where the party has used a raid buff, Astral Fire is not left for ice while Manafont comes off cooldown within 5 s:
-        // the fire phase runs into Manafont (the xan harness with party buffs: +0.44% on the 9 fights, -0.83% without them)
-        if (st.Manafont.Value != OffensiveStrategy.Delay && Bossmods.RaidCooldowns.NextDamageBuffIn2() != null
+        // the fire phase runs into Manafont (the xan harness with party buffs: +0.44% on the 9 fights, -0.83% without them). Only with
+        // Flare Star (100): the fire phase it was measured on (at level 90 with party buffs it cost 0.5%; below 90 nothing may be left
+        // to cast in Astral Fire while waiting)
+        if (st.Manafont.Value != OffensiveStrategy.Delay && Job.HasSkill("FlareStar") && Bossmods.RaidCooldowns.NextDamageBuffIn2() != null
             && s.Gauges[Job.GaugeIndex(BlmDefinition.AstralFire)] > 0 && s.CdReadyIn[Job.CooldownIndex(BlmDefinition.ManafontCD)] <= 5)
             foreach (var exit in AstralFireExits)
                 Forbid(ref s, exit);
@@ -156,11 +156,11 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
     {
         _moving = isMoving;
         base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
-        if (Player.Level < 100 || Target == null || !Player.InCombat)
+        if (Target == null || !Player.InCombat)
             return;
         var st = _strategy;
         // Scathe: the instant filler while moving with no instant cast available (below the engine's GCD)
-        if (st.Scathe.Value == XanBLM.ScatheStrategy.Allow && isMoving && SelfStatusLeft(ClassShared.SID.Swiftcast) <= 0 && SelfStatusLeft(SID.Triplecast) <= 0 && Player.HPMP.CurMP >= 800)
+        if (st.Scathe.Value == XanBLM.ScatheStrategy.Allow && isMoving && ActionUnlocked(AID.Scathe) && SelfStatusLeft(ClassShared.SID.Swiftcast) <= 0 && SelfStatusLeft(SID.Triplecast) <= 0 && Player.HPMP.CurMP >= 800)
             Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.Scathe), Target, ActionQueue.Priority.High + 1);
         // Occult Crescent: Zeninage under raid buffs, Iainuki and the Time Mage actions after the first 10 s (or under raid buffs; Occult
         // Comet only with an instant cast up)

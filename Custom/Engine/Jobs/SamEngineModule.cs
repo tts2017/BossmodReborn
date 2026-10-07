@@ -9,7 +9,7 @@ namespace BossMod.Autorotation;
 // "SAM [Engine]": Samurai driven by the rotation engine (Custom/Engine). Level 30+ (Gekko and Higanbana): the definition is
 // built for the player's level, and BMR recreates the module when the level changes (level sync). The strategy tracks are those
 // of xan SAM [Custom]; the countdown opener (pre-pull Meikyo Shisui / Gekko or Kasha), Enpi and Meditate are pressed by this
-// module. Below level 100 only the AOE / Targeting / MechanicHints settings act. No Hagakure or Gyoten / Yaten.
+// module; settings for skills not learned at the player's level do nothing. No Hagakure or Gyoten / Yaten.
 public sealed class SamEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
     public static EngineWeights? WeightsOverride;
@@ -45,8 +45,6 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
     {
         var st = _strategy;
         ApplyAoe(ref s, st.AOE);
-        if (Player.Level < 100)
-            return;
         if (st.Buffs.Value == OffensiveStrategy.Delay)
         {
             foreach (var sk in BurstSkills)
@@ -62,8 +60,12 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
             Force("Shoha");
         }
 
-        // the two-minute burst: Ikishoten's Ogi Namikiri / Zanshin are up
-        var burst = s.HasStatus(Job.StatusIndex(SamDefinition.OgiReady)) || s.HasStatus(Job.StatusIndex(SamDefinition.NamikiriReady)) || s.HasStatus(Job.StatusIndex(SamDefinition.ZanshinReady));
+        // the two-minute burst: Ikishoten's Ogi Namikiri / Zanshin are up. Before Ogi Namikiri (90) the 30 s after Ikishoten (68), the
+        // window Ogi Namikiri Ready would last; before Ikishoten there is none
+        var ikishoten = Job.CooldownIndex(SamDefinition.IkishotenCD);
+        var burst = Job.HasSkill("OgiNamikiri")
+            ? s.HasStatus(Job.StatusIndex(SamDefinition.OgiReady)) || s.HasStatus(Job.StatusIndex(SamDefinition.NamikiriReady)) || s.HasStatus(Job.StatusIndex(SamDefinition.ZanshinReady))
+            : Job.HasSkill("Ikishoten") && s.Charges[ikishoten] == 0 && s.CdReadyIn[ikishoten] > Job.Cooldowns[ikishoten].Recast - 30;
         UsePotion(ActionDefinitions.IDPotionStr, st.Potion.Value == XanSAM.SamPotionStrategy.TwoMinuteBurst && burst);
         foreach (var sk in Tsubame)
             HoldOrForce(ref s, sk, st.Tsubame.Value, burst);
@@ -105,14 +107,13 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
 
     public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
-        if (Player.Level >= 100 && !Player.InCombat && World.Client.CountdownRemaining > 0)
+        // the countdown opener needs Meikyo Shisui (the combo finisher on the pull); without it the engine plans the pull
+        if (ActionUnlocked(AID.MeikyoShisui) && !Player.InCombat && World.Client.CountdownRemaining > 0)
         {
             Prepull(ValueConverter.FromValues<XanSAM.Strategy>(strategy), primaryTarget);
             return;
         }
         base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
-        if (Player.Level < 100)
-            return;
         var st = _strategy;
         UpdatePositional(Target, st.TrueNorth.Value == XanSAM.TrueNorthStrategy.Auto);
         Enpi(st);
@@ -138,7 +139,7 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
     // Below the engine's GCD, so it only goes off when that one cannot (out of range)
     private void Enpi(in XanSAM.Strategy st)
     {
-        if (st.Enpi.Value == XanSAM.EnpiStrategy.None || Target == null || !Player.InCombat || Player.DistanceToHitbox(Target) > 20)
+        if (st.Enpi.Value == XanSAM.EnpiStrategy.None || Target == null || !Player.InCombat || !ActionUnlocked(AID.Enpi) || Player.DistanceToHitbox(Target) > 20)
             return;
         var outOfReach = Player.DistanceToHitbox(Target) > 3;
         var use = st.Enpi.Value == XanSAM.EnpiStrategy.Ranged ? outOfReach
@@ -156,8 +157,8 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
         else if (_nothingToAttackSince == default)
             _nothingToAttackSince = World.CurrentTime;
         var gauge = World.Client.GetGauge<SamuraiGauge>();
-        if (st.Meditate.Value == EnabledByDefault.Disabled || !Player.InCombat || isMoving || !nothingToAttack || SelfStatusLeft(SID.Meditate) > 0
-            || gauge.Kenki >= 100 && gauge.MeditationStacks >= 3 || (World.CurrentTime - _nothingToAttackSince).TotalSeconds < 2.5)
+        if (st.Meditate.Value == EnabledByDefault.Disabled || !Player.InCombat || isMoving || !nothingToAttack || !ActionUnlocked(AID.Meditate) || SelfStatusLeft(SID.Meditate) > 0
+            || gauge.Kenki >= 100 && (gauge.MeditationStacks >= 3 || !ActionUnlocked(AID.Shoha)) || (World.CurrentTime - _nothingToAttackSince).TotalSeconds < 2.5)
             return;
         // Meditate puts the GCD on recast: not when the target is known to return before its first tick
         if (Manager.Planner?.EstimateTimeToNextDowntime() is (true, var returnIn) && returnIn < 3.2f
@@ -183,7 +184,7 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
         var correct = trueNorth || (pos == Positional.Flank ? MathF.Abs(dot) < 0.7071067f : dot < -0.7071068f);
         var imminent = !trueNorth && GCD < 2.5f;
         Hints.RecommendedPositional = (target, pos, imminent, correct);
-        if (useTrueNorth && imminent && !correct)
+        if (useTrueNorth && imminent && !correct && ActionUnlocked(ClassShared.AID.TrueNorth))
             Hints.ActionsToExecute.Push(ActionID.MakeSpell(ClassShared.AID.TrueNorth), Player, ActionQueue.Priority.Low + 2, delay: MathF.Max(0, GCD - 0.8f));
     }
 
