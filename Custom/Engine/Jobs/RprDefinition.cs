@@ -139,11 +139,13 @@ public static class RprDefinition
 
     public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
 
-    // replaced by the CMA-ES result (tools/rpr_engine_eval tune)
+    // CMA-ES result (tools/rpr_engine_eval tune --real 300 --limit 80 --generations 8 --seed 1 --depth 4; harness fitness 330.8 -> 436.8).
+    // Several values sit on their search bounds (OverCap, LambdaScale, FillerScale, GluttonyCD, Shroud): a wider search may still improve.
     public const string DefaultWeightsJson = """
     {
-      "OverCap": 1.0, "Combo": 1.0, "LambdaScale": 1.0, "TargetPull": 0.0, "SwitchMargin": 20,
-      "FillerScale": 1.0, "BurstBias": 1.0, "StatusRemainder": 1.0, "StatusValue": {}, "CooldownValue": { "GluttonyCD": 400 }, "GaugeValue": {},
+      "OverCap": 3, "Combo": 0.92711437, "LambdaScale": 0.5, "TargetPull": 0, "SwitchMargin": 41.39401,
+      "FillerScale": 0.5, "BurstBias": 1.2401603, "StatusRemainder": 0.36573336,
+      "StatusValue": { "DeathsDesign": 29.857643 }, "CooldownValue": { "GluttonyCD": 0 }, "GaugeValue": { "Shroud": -500 },
       "HorizonGcds": 4, "BudgetMs": 0.5
     }
     """;

@@ -1,0 +1,21 @@
+{
+  "OverCap": 3,
+  "Combo": 0.92711437,
+  "LambdaScale": 0.5,
+  "TargetPull": 0,
+  "SwitchMargin": 41.39401,
+  "FillerScale": 0.5,
+  "BurstBias": 1.2401603,
+  "StatusRemainder": 0.36573336,
+  "StatusValue": {
+    "DeathsDesign": 29.857643
+  },
+  "CooldownValue": {
+    "GluttonyCD": 0
+  },
+  "GaugeValue": {
+    "Shroud": -500
+  },
+  "HorizonGcds": 4,
+  "BudgetMs": 0.5
+}
