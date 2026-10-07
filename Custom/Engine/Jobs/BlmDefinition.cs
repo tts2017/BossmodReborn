@@ -119,7 +119,7 @@ public static class BlmDefinition
             .SetGauge(MP, 10000).SetGauge(AstralFire, 3).SetGauge(Hearts, 3).SetGauge(Paradox, 1).ApplyStatus(Thunderhead, 30);
         b.Ogcd("Amplifier", 0, AmplifierCD, AidAmplifier).RequiresGauge(AstralFire, 1).GainGauge(Polyglot, 1);
         b.Ogcd("AmplifierIce", 0, AmplifierCD, AidAmplifier).RequiresGauge(UmbralIce, 1).GainGauge(Polyglot, 1);
-        b.Ogcd("LeyLines", 0, LeyLinesCD, AidLeyLines).NeedsUptime(12).NeedsStanding(6).ForbidStatus(LeyLines).ApplyStatus(LeyLines, 20);
+        b.Ogcd("LeyLines", 0, LeyLinesCD, AidLeyLines).NeedsUptime(12.5f).NeedsStanding(6.5f).ForbidStatus(LeyLines).ApplyStatus(LeyLines, 20);
         b.Ogcd("Triplecast", 0, TriplecastCD, AidTriplecast).ForbidStatus(Triplecast).ApplyStatus(Triplecast, 15, 3);
         b.Ogcd("Swiftcast", 0, SwiftcastCD, AidSwiftcast).ForbidStatus(Swiftcast).ApplyStatus(Swiftcast, 10);
         return b.Build();
@@ -163,23 +163,26 @@ public static class BlmDefinition
 
     public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
 
-    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-BLM-v3.json), BudgetMs set for live play
+    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-BLM-v5.json), BudgetMs set for live play.
+    // A 3-GCD horizon: with 4, a sixth of the live searches (casts make long lines) ran out of the budget before the last iteration.
     public const string DefaultWeightsJson = """
     {
-      "OverCap": 2.092,
+      "OverCap": 1.2312877,
       "Combo": 0,
       "LambdaScale": 0,
       "TargetPull": 0,
-      "SwitchMargin": 0,
-      "FillerScale": 1.6,
-      "BurstBias": 1,
+      "SwitchMargin": 3.8592908,
+      "FillerScale": 1.025866,
+      "BurstBias": 2.453738,
       "StatusRemainder": 0,
-      "CycleScale": 1.040,
-      "CooldownLambdaScale": 0.284,
-      "StatusValue": { "Thunderhead": 31.6, "Firestarter": 10 },
-      "CooldownValue": { "LeyLinesCD": 1074.4, "TriplecastCD": 163.9, "SwiftcastCD": 873.8 },
+      "CycleScale": 1.0244133,
+      "CooldownLambdaScale": 0,
+      "ForecastSelfBuffs": 0,
+      "UnlockScale": 0.24033335,
+      "StatusValue": { "Thunderhead": 79.50191, "Firestarter": 10 },
+      "CooldownValue": { "LeyLinesCD": 1074.4264, "TriplecastCD": 163.94995, "SwiftcastCD": 873.7974 },
       "GaugeValue": {},
-      "HorizonGcds": 4,
+      "HorizonGcds": 3,
       "BudgetMs": 0.8
     }
     """;

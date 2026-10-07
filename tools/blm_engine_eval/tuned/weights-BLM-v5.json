@@ -1,0 +1,26 @@
+{
+  "OverCap": 1.2312877,
+  "Combo": 0,
+  "LambdaScale": 0,
+  "TargetPull": 0,
+  "SwitchMargin": 3.8592908,
+  "FillerScale": 1.025866,
+  "BurstBias": 2.453738,
+  "StatusRemainder": 0,
+  "CycleScale": 1.0244133,
+  "CooldownLambdaScale": 0,
+  "ForecastSelfBuffs": 0,
+  "UnlockScale": 0.24033335,
+  "StatusValue": {
+    "Thunderhead": 79.50191,
+    "Firestarter": 10
+  },
+  "CooldownValue": {
+    "LeyLinesCD": 1074.4264,
+    "TriplecastCD": 163.94995,
+    "SwiftcastCD": 873.7974
+  },
+  "GaugeValue": {},
+  "HorizonGcds": 3,
+  "BudgetMs": 100
+}
