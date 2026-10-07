@@ -1,15 +1,18 @@
 using BossMod.Autorotation.Engine;
 using BossMod.Autorotation.Engine.Jobs;
+using BossMod.Data;
 using BossMod.NIN;
 using FFXIVClientStructs.FFXIV.Client.Game.Gauge;
+using XanNIN = BossMod.Autorotation.xan.Custom.NIN;
 
 namespace BossMod.Autorotation;
 
 // "NIN [Engine]": Ninja driven by the rotation engine (Custom/Engine). Level 66+ (the Trick Attack / Kunai's Bane rules need
 // Dokumori): the definition is built for the player's level, and BMR recreates the module when the level changes (level sync).
 // The engine plans whole ninjutsu (mudra sequences) and the Ten Chi Jin steps as single skills; this module presses their mudras /
-// steps one by one and keeps the engine out while a sequence runs. No potion, Hide, Throwing Dagger, Doton / Huton or Mug (Trick
-// Attack below 92, Kunai's Bane from 92).
+// steps one by one and keeps the engine out while a sequence runs. The strategy tracks are those of xan NIN [Custom]; Hide,
+// Throwing Dagger and the Phantom cannons are pressed by this module. Below level 100 only the AOE / Targeting / MechanicHints
+// settings act. No Doton / Huton or Mug (Trick Attack below 92, Kunai's Bane from 92).
 public sealed class NinEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
     public static EngineWeights? WeightsOverride;
@@ -17,7 +20,58 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
     public static float? ReplanOverride;
 
     public static RotationModuleDefinition Definition()
-        => new("NIN [Engine]", "Ninja on the two-tier rotation engine (burst-window planning + short search). Experimental, level 66+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.NIN), 100, 66);
+        => new RotationModuleDefinition("NIN [Engine]", "Ninja on the two-tier rotation engine (burst-window planning + short search). Experimental, level 66+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.NIN), 100, 66)
+            .WithStrategies<XanNIN.Strategy>();
+
+    private XanNIN.Strategy _strategy;
+
+    protected override Actor? SelectTarget(StrategyValues strategy, Actor? primaryTarget)
+    {
+        _strategy = ValueConverter.FromValues<XanNIN.Strategy>(strategy);
+        SetMechanicHints(_strategy.MechanicHints);
+        return SelectTarget(_strategy.Targeting.Value, primaryTarget, 3);
+    }
+
+    protected override void ApplyStrategy(StrategyValues strategy, ref EngineState s, Actor? primaryTarget)
+    {
+        var st = _strategy;
+        ApplyAoe(ref s, st.AOE);
+        if (Player.Level < 100)
+            return;
+        var basic = st.Rotation.Value == XanNIN.RotationStrategy.BasicComboOnly;
+        // the potion inside our Dokumori window (the even-minute burst)
+        UsePotion(ActionDefinitions.IDPotionDex, !basic && st.Potion.Value == XanNIN.PotionStrategy.EvenBurst && s.HasStatus(Job.StatusIndex(NinDefinition.Dokumori)));
+
+        if (st.Buffs.Value == OffensiveStrategy.Delay)
+            Forbid(ref s, "Dokumori");
+        else if (st.Buffs.Value == OffensiveStrategy.Force)
+            Force("Dokumori");
+
+        // Forked Raiju off: no dash, Fleeting Raiju only in melee range
+        if (st.ForkedRaiju.Value == EnabledByDefault.Disabled && Player.DistanceToHitbox(primaryTarget) > 3)
+            Forbid(ref s, "ForkedRaiju");
+
+        if (basic)
+        {
+            // basic combo only: the weaponskill combos and Raiju, ninjutsu only as the valve for mudra charges that would overcap
+            // (Raiton, Katon on 3+ targets), Ninki only spent against overcapping
+            var mudra = Job.CooldownIndex(NinDefinition.MudraCD);
+            var mudraCapping = s.Charges[mudra] >= 2 || s.Charges[mudra] == 1 && s.CdReadyIn[mudra] <= GCD + Job.BaseGcd;
+            var ninkiCapping = s.Gauges[Job.GaugeIndex(NinDefinition.Ninki)] > 85;
+            foreach (var sk in Job.Skills)
+            {
+                var keep = sk.Name switch
+                {
+                    "SpinningEdge" or "GustSlash" or "AeolianEdge" or "AeolianEdgeBare" or "ArmorCrush" or "DeathBlossom" or "HakkeMujinsatsu" or "ForkedRaiju" => true,
+                    "Raiton" or "Katon" => mudraCapping,
+                    "Bhavacakra" or "HellfrogMedium" => ninkiCapping,
+                    _ => false
+                };
+                if (!keep)
+                    s.DisabledSkills |= 1UL << sk.Index;
+            }
+        }
+    }
 
     private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
     {
@@ -30,7 +84,6 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
     private string? _sequence; // ninjutsu skill whose mudras are being pressed
     private int _prevMudraCharges = -1;
     private DateTime _sequenceLockedAt; // a mudra charge was just spent: keep _sequence until the Mudra status shows up
-    private Actor? _primaryTarget; // for ActionFor (Forked Raiju dashes: Fleeting Raiju in melee range)
 
     public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
@@ -58,9 +111,36 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
         // the first mudra went off but its status is not visible yet: wait instead of re-planning (a different ninjutsu would not match it)
         if (_sequence != null && (World.CurrentTime - _sequenceLockedAt).TotalSeconds < 0.5)
             return;
-        _primaryTarget = primaryTarget;
         base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
-        UpdatePositional(primaryTarget);
+        if (Player.Level < 100)
+            return;
+        var st = _strategy;
+        UpdatePositional(Target, st.TrueNorth.Value == XanNIN.TrueNorthStrategy.Auto);
+        // out of combat Hide restores the mudra charges
+        if (st.Hide.Value == EnabledByDefault.Enabled && !Player.InCombat && mudra.Left <= 0 && GCD <= 0 && MaxChargesIn(AID.Ten1) > 0)
+            Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.Hide), Player, ActionQueue.Priority.Medium);
+        if (Target == null)
+            return;
+        // Throwing Dagger: a GCD for when the target is out of melee range (below the engine's GCD, which the queue skips out of range);
+        // not with Raiju stacks (Forked Raiju closes the gap) and not right after a Raiton (its Raiju shows up a moment later)
+        if (st.ThrowingDagger.Value == EnabledByDefault.Enabled && Player.DistanceToHitbox(Target) is > 3 and <= 20 && SelfStatusLeft(SID.RaijuReady) <= 0
+            && !(Manager.LastCast.Data is { } last && (AID)last.Action.ID is AID.Raiton or AID.TCJRaiton && (World.CurrentTime - Manager.LastCast.Time).TotalSeconds < 3))
+            Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.ThrowingDagger), Target, ActionQueue.Priority.High + 1);
+        // Phantom Cannoneer (Occult Crescent): cannons on cooldown
+        if (st.PhantomCannon.Value == EnabledByDefault.Enabled)
+        {
+            var cannonTarget = ResolveTarget(st.PhantomCannon) ?? Target;
+            if (PhantomActionReady(PhantomID.SilverCannon))
+                Hints.ActionsToExecute.Push(ActionID.MakeSpell(PhantomID.SilverCannon), cannonTarget, ActionQueue.Priority.High + 3.5f);
+            if (PhantomActionReady(PhantomID.ShockCannon))
+                Hints.ActionsToExecute.Push(ActionID.MakeSpell(PhantomID.ShockCannon), cannonTarget, ActionQueue.Priority.High + 3.4f);
+            if (PhantomActionReady(PhantomID.DarkCannon))
+                Hints.ActionsToExecute.Push(ActionID.MakeSpell(PhantomID.DarkCannon), cannonTarget, ActionQueue.Priority.High + 3.3f);
+            if (PhantomActionReady(PhantomID.HolyCannon))
+                Hints.ActionsToExecute.Push(ActionID.MakeSpell(PhantomID.HolyCannon), cannonTarget, ActionQueue.Priority.High + 3.2f);
+            if (PhantomActionReady(PhantomID.PhantomFire))
+                Hints.ActionsToExecute.Push(ActionID.MakeSpell(PhantomID.PhantomFire), cannonTarget, ActionQueue.Priority.High + 3.1f);
+        }
     }
 
     // Ten Chi Jin steps: Fuma Ten -> Raiton -> Suiton (Fuma Chi -> Katon -> Suiton on 3+ targets)
@@ -84,7 +164,7 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
         return skill.Name switch
         {
             "TCJCombo" => ActionID.MakeSpell(AID.FumaTen),
-            "ForkedRaiju" => ActionID.MakeSpell(Player.DistanceToHitbox(_primaryTarget) <= 3 ? AID.FleetingRaiju : AID.ForkedRaiju),
+            "ForkedRaiju" => ActionID.MakeSpell(Player.DistanceToHitbox(Target) <= 3 ? AID.FleetingRaiju : AID.ForkedRaiju),
             "AeolianEdgeBare" => ActionID.MakeSpell(AID.AeolianEdge),
             _ => base.ActionFor(skill)
         };
@@ -96,7 +176,7 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
     protected override byte CountTargets(Actor? primaryTarget) => (byte)Math.Max(1, Hints.NumPriorityTargetsInAOECircle(Player.Position, 5));
 
     // Aeolian Edge wants the rear, Armor Crush the flank: publish the positional and use True North when it would be missed
-    private void UpdatePositional(Actor? target)
+    private void UpdatePositional(Actor? target, bool useTrueNorth)
     {
         var next = LastDecision.NextGcd >= 0 ? Job.Skills[LastDecision.NextGcd].Name : "";
         var pos = next is "AeolianEdge" or "AeolianEdgeBare" ? Positional.Rear : next == "ArmorCrush" ? Positional.Flank : Positional.Any;
@@ -110,7 +190,7 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
         var correct = trueNorth || (pos == Positional.Flank ? MathF.Abs(dot) < 0.7071067f : dot < -0.7071068f);
         var imminent = !trueNorth && GCD < 2.5f;
         Hints.RecommendedPositional = (target, pos, imminent, correct);
-        if (imminent && !correct)
+        if (useTrueNorth && imminent && !correct)
             Hints.ActionsToExecute.Push(ActionID.MakeSpell(ClassShared.AID.TrueNorth), Player, ActionQueue.Priority.Low + 2, delay: MathF.Max(0, GCD - 0.8f));
     }
 

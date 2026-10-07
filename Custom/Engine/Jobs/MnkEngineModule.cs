@@ -3,19 +3,23 @@ using BossMod.Autorotation.Engine.Jobs;
 using BossMod.MNK;
 using FFXIVClientStructs.FFXIV.Client.Game.Gauge;
 using static BossMod.AIHints;
+using XanMNK = BossMod.Autorotation.xan.Custom.MNK;
 
 namespace BossMod.Autorotation;
 
 // "MNK [Engine]": Monk driven by the rotation engine (Custom/Engine). Level 70+ (the Perfect Balance / Phantom Rush rules need
 // Riddle of Fire and Brotherhood): the definition is built for the player's level, and BMR recreates the module when the level
-// changes (level sync). No potion, Six-sided Star, Form Shift, Meditation, Thunderclap or Riddle of Earth.
+// changes (level sync). The strategy tracks are those of xan MNK [Custom]; Six-sided Star, Form Shift, Meditation, Thunderclap,
+// the engage and Riddle of Earth are pressed by this module. Below level 100 only the AOE / Targeting / MechanicHints / FightEnd
+// settings act.
 public sealed class MnkEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
     public static EngineWeights? WeightsOverride;
     public static float? FrameBudgetOverride;
 
     public static RotationModuleDefinition Definition()
-        => new("MNK [Engine]", "Monk on the two-tier rotation engine (burst-window planning + short search). Experimental, level 70+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.MNK), 100, 70);
+        => new RotationModuleDefinition("MNK [Engine]", "Monk on the two-tier rotation engine (burst-window planning + short search). Experimental, level 70+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.MNK), 100, 70)
+            .WithStrategies<XanMNK.Strategy>();
 
     private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
     {
@@ -26,11 +30,199 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
         return new RotationEngine(MnkDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? MnkDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.03f, ReplanInterval = 8 };
     }
 
+    private XanMNK.Strategy _strategy;
+
+    protected override Actor? SelectTarget(StrategyValues strategy, Actor? primaryTarget)
+    {
+        _strategy = ValueConverter.FromValues<XanMNK.Strategy>(strategy);
+        SetMechanicHints(_strategy.MechanicHints);
+        UseFightEnd = _strategy.FightEnd.Value == XanMNK.FightEndStrategy.Automatic;
+        return SelectTarget(_strategy.Targeting.Value, primaryTarget, 3);
+    }
+
+    private static readonly string[] Blitzes = ["ElixirBurstOpo", "ElixirBurstRaptor", "ElixirBurstCoeurl", "RisingPhoenix", "PhantomRush"];
+    private static readonly string[] PerfectBalances = ["PerfectBalance", "PerfectBalanceOdd", "PerfectBalancePre"];
+
+    protected override void ApplyStrategy(StrategyValues strategy, ref EngineState s, Actor? primaryTarget)
+    {
+        var st = _strategy;
+        ApplyAoe(ref s, st.AOE);
+        if (Player.Level < 100)
+            return;
+        var inMelee = Player.DistanceToHitbox(primaryTarget) <= 3;
+
+        // basic rotation + Chakra overcap: no Riddle of Fire / Brotherhood / Perfect Balance / Riddle of Wind / potion (the Chakra
+        // spenders only fire at a full gauge anyway). Encounter hints that keep the burst (trash, before the boss returns, hold) do the same
+        var basic = st.RotationMode.Value == XanMNK.RotationModeStrategy.BasicAndChakraOvercap;
+        var holdBurst = basic || st.EncounterHint.Value is XanMNK.MNKEncounterHintStrategy.Trash or XanMNK.MNKEncounterHintStrategy.BossReturn or XanMNK.MNKEncounterHintStrategy.HoldBurst;
+        // the potion in the Riddle of Fire + Brotherhood window (the opener and the even minutes), or at once
+        var evenBurst = s.HasStatus(Job.StatusIndex(MnkDefinition.RiddleOfFire)) && s.HasStatus(Job.StatusIndex(MnkDefinition.Brotherhood));
+        UsePotion(ActionDefinitions.IDPotionStr, !holdBurst && st.Pot.Value switch
+        {
+            XanMNK.PotionStrategy.OpenerAndEvenBursts => evenBurst,
+            XanMNK.PotionStrategy.NonOpenerEvenBursts => evenBurst && CombatTime > 60,
+            XanMNK.PotionStrategy.Now => true,
+            _ => false
+        });
+        if (holdBurst)
+        {
+            Forbid(ref s, "RiddleOfFire");
+            Forbid(ref s, "Brotherhood");
+            Forbid(ref s, "BrotherhoodFirst");
+            Forbid(ref s, "RiddleOfWind");
+            foreach (var pb in PerfectBalances)
+                Forbid(ref s, pb);
+        }
+
+        if (st.Brotherhood.Value == OffensiveStrategy.Delay)
+        {
+            Forbid(ref s, "Brotherhood");
+            Forbid(ref s, "BrotherhoodFirst");
+        }
+        else if (st.Brotherhood.Value == OffensiveStrategy.Force)
+        {
+            Force("BrotherhoodFirst");
+            Force("Brotherhood");
+        }
+
+        if (st.RoF.Value == XanMNK.RoFStrategy.Delay)
+            Forbid(ref s, "RiddleOfFire");
+        else if (st.RoF.Value is XanMNK.RoFStrategy.Force or XanMNK.RoFStrategy.ForceMidWeave)
+            Force("RiddleOfFire");
+
+        switch (st.FiresReply.Value)
+        {
+            case XanMNK.FRStrategy.Delay:
+                Forbid(ref s, "FiresReply");
+                break;
+            case XanMNK.FRStrategy.Force:
+                Force("FiresReply");
+                break;
+            case XanMNK.FRStrategy.Ranged:
+                // kept for when the target cannot be reached in melee
+                if (inMelee)
+                    Forbid(ref s, "FiresReply");
+                else
+                    Force("FiresReply");
+                break;
+        }
+
+        switch (st.RoW.Value)
+        {
+            case XanMNK.RoWStrategy.Delay:
+                Forbid(ref s, "RiddleOfWind");
+                break;
+            case XanMNK.RoWStrategy.Force or XanMNK.RoWStrategy.OpenerCooldown:
+                Force("RiddleOfWind");
+                break;
+            case XanMNK.RoWStrategy.RoFAligned:
+                if (!s.HasStatus(Job.StatusIndex(MnkDefinition.RiddleOfFire)))
+                    Forbid(ref s, "RiddleOfWind");
+                break;
+        }
+
+        if (st.WindsReply.Value == XanMNK.WRStrategy.Delay)
+            Forbid(ref s, "WindsReply");
+        else if (st.WindsReply.Value == XanMNK.WRStrategy.Force)
+            Force("WindsReply");
+
+        if (st.PB.Value == XanMNK.PBStrategy.Delay)
+            foreach (var pb in PerfectBalances)
+                Forbid(ref s, pb);
+
+        switch (st.Nadi.Value)
+        {
+            case XanMNK.NadiStrategy.Lunar:
+                Forbid(ref s, "RisingPhoenix");
+                break;
+            case XanMNK.NadiStrategy.Solar:
+                Forbid(ref s, "ElixirBurstOpo");
+                Forbid(ref s, "ElixirBurstRaptor");
+                Forbid(ref s, "ElixirBurstCoeurl");
+                break;
+        }
+
+        var rof = s.HasStatus(Job.StatusIndex(MnkDefinition.RiddleOfFire));
+        var holdBlitz = st.Blitz.Value switch
+        {
+            XanMNK.BlitzStrategy.Delay => true,
+            XanMNK.BlitzStrategy.RoF => !rof,
+            XanMNK.BlitzStrategy.Multi => s.Targets < 2,
+            XanMNK.BlitzStrategy.MultiRoF => !rof || s.Targets < 2,
+            _ => false
+        };
+        foreach (var blitz in Blitzes)
+        {
+            if (holdBlitz)
+                Forbid(ref s, blitz);
+            else if (st.Blitz.Value == XanMNK.BlitzStrategy.Force)
+                Force(blitz);
+        }
+    }
+
     public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
         base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
-        UpdatePositional(primaryTarget);
-        RiddleOfEarth();
+        if (Player.Level < 100)
+            return;
+        var st = _strategy;
+        UpdatePositional(Target, st.TrueNorth.Value);
+        if (st.RoE.Value == XanMNK.RoEStrategy.Automatic)
+            RiddleOfEarth();
+        Utility(st);
+    }
+
+    // the GCDs and abilities outside the engine's definition
+    private void Utility(in XanMNK.Strategy st)
+    {
+        var target = Target;
+        var dist = Player.DistanceToHitbox(target);
+        var inMelee = dist <= 3;
+        var pb = SelfStatusLeft(SID.PerfectBalance) > 0;
+        var gauge = World.Client.GetGauge<MonkGauge>();
+
+        // Perfect Balance forced: any time a charge is up and no Perfect Balance runs (ForceOpo: after an Opo-opo GCD, i.e. in Raptor form;
+        // ForceNoShift: not with Form Shift's Formless Fist up)
+        if (Player.InCombat && CD(AID.PerfectBalance) <= GCD && !pb && st.PB.Value switch
+        {
+            XanMNK.PBStrategy.Force => true,
+            XanMNK.PBStrategy.ForceOpo => SelfStatusLeft(SID.RaptorForm) > 0,
+            XanMNK.PBStrategy.ForceNoShift => SelfStatusLeft(SID.FormlessFist) <= 0,
+            _ => false
+        })
+            Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.PerfectBalance), Player, ActionQueue.Priority.Medium + 1);
+
+        // Six-sided Star and Form Shift when forced (Automatic leaves the GCDs to the engine: a Six-sided Star before a downtime or a Form
+        // Shift inside one lowered the 9-fight harness by 85 / 2,600 potency)
+        if (st.SSS.Value == OffensiveStrategy.Force && target != null && inMelee && !pb)
+            Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.SixSidedStar), target, ActionQueue.Priority.High + 3);
+        if (st.FormShift.Value == OffensiveStrategy.Force && !pb)
+            Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.FormShift), Player, ActionQueue.Priority.High + 3);
+
+        // Meditation up to 5 Chakra: Safe out of combat, Greedy also in combat out of melee range, Force always
+        if (gauge.Chakra < 5 && !(st.Meditate.Value != XanMNK.MeditationStrategy.Force && gauge.BlitzTimeRemaining > 0) && st.Meditate.Value switch
+        {
+            XanMNK.MeditationStrategy.Force => true,
+            XanMNK.MeditationStrategy.Safe => !Player.InCombat,
+            XanMNK.MeditationStrategy.Greedy => !Player.InCombat || !inMelee,
+            _ => false
+        })
+            Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.SteeledMeditation), Player, st.Meditate.Value == XanMNK.MeditationStrategy.Force ? ActionQueue.Priority.High + 3 : ActionQueue.Priority.High + 1);
+
+        if (target == null)
+            return;
+        // Thunderclap to close the gap
+        if (st.TC.Value == XanMNK.TCStrategy.GapClose && Player.InCombat && dist is > 3 and <= 20)
+            Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.Thunderclap), target, ActionQueue.Priority.Medium);
+
+        // engage on the countdown: Thunderclap into melee (with GapClose) or Sprint
+        if (World.Client.CountdownRemaining is { } countdown && !Player.InCombat)
+        {
+            if (st.Engage.Value == XanMNK.EngageStrategy.TC && st.TC.Value == XanMNK.TCStrategy.GapClose && countdown < 0.7f && dist > 3)
+                Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.Thunderclap), target, ActionQueue.Priority.High);
+            else if (st.Engage.Value == XanMNK.EngageStrategy.Sprint && countdown < 10)
+                Hints.ActionsToExecute.Push(ActionID.MakeSpell(ClassShared.AID.Sprint), Player, ActionQueue.Priority.High);
+        }
     }
 
     // mitigation outside the engine: Riddle of Earth when damage to us is predicted within 10 s (as the regular module)
@@ -56,7 +248,7 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
     protected override byte CountTargets(Actor? primaryTarget) => (byte)Math.Max(1, Hints.NumPriorityTargetsInAOECircle(Player.Position, 5));
 
     // Demolish / Snap Punch: rear / flank (as the regular modules); True North when the next one would be missed
-    private void UpdatePositional(Actor? target)
+    private void UpdatePositional(Actor? target, OffensiveStrategy trueNorthSetting)
     {
         var next = LastDecision.NextGcd >= 0 ? Job.Skills[LastDecision.NextGcd].Name : "";
         var pos = next == "Demolish" ? Positional.Rear : next is "PouncingCoeurl" or "SnapPunch" ? Positional.Flank : Positional.Any;
@@ -70,7 +262,9 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
         var correct = trueNorth || (pos == Positional.Flank ? MathF.Abs(dot) < 0.7071067f : dot < -0.7071068f);
         var imminent = !trueNorth && GCD < 2.0f;
         Hints.RecommendedPositional = (target, pos, imminent, correct);
-        if (imminent && !correct)
+        if (trueNorthSetting == OffensiveStrategy.Force && Player.InCombat && !trueNorth)
+            Hints.ActionsToExecute.Push(ActionID.MakeSpell(ClassShared.AID.TrueNorth), Player, ActionQueue.Priority.Medium);
+        else if (trueNorthSetting == OffensiveStrategy.Automatic && imminent && !correct)
             Hints.ActionsToExecute.Push(ActionID.MakeSpell(ClassShared.AID.TrueNorth), Player, ActionQueue.Priority.Low + 2, delay: MathF.Max(0, GCD - 0.72f));
     }
 

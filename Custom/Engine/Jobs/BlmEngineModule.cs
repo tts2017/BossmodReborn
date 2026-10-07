@@ -1,13 +1,17 @@
 using BossMod.Autorotation.Engine;
 using BossMod.Autorotation.Engine.Jobs;
 using BossMod.BLM;
+using BossMod.Data;
 using FFXIVClientStructs.FFXIV.Client.Game.Gauge;
+using XanBLM = BossMod.Autorotation.xan.Custom.BLM;
 
 namespace BossMod.Autorotation;
 
 // "BLM [Engine]": Black Mage driven by the rotation engine (Custom/Engine). Level 60+ (the Fire IV / Umbral Heart loop): the
-// definition is built for the player's level, and BMR recreates the module when the level changes (level sync). No potion, Lucid
-// Dreaming or Ley Lines repositioning (Retrace / Between the Lines) yet.
+// definition is built for the player's level, and BMR recreates the module when the level changes (level sync). The strategy
+// tracks are those of xan BLM [Custom]; Scathe and the Occult Crescent actions are pressed by this module. Below level 100 only
+// the AOE / Targeting / MechanicHints settings act. No Lucid Dreaming or Ley Lines repositioning (Retrace / Between the Lines:
+// the xan module has no setting that uses them either).
 public sealed class BlmEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
     // harnesses: replaces the built-in weights for modules created afterwards
@@ -15,13 +19,121 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
     public static float? FrameBudgetOverride;
 
     public static RotationModuleDefinition Definition()
-        => new("BLM [Engine]", "Black Mage on the two-tier rotation engine (burst-window planning + short search). Experimental, level 60+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.BLM), 100, 60);
+        => new RotationModuleDefinition("BLM [Engine]", "Black Mage on the two-tier rotation engine (burst-window planning + short search). Experimental, level 60+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.BLM), 100, 60)
+            .WithStrategies<XanBLM.Strategy>();
 
     private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
     {
         var stats = manager.WorldState.Client.PlayerStats;
         var gcd = stats.SpellSpeed > 0 ? ActionSpeed.GCDRounded(stats.SpellSpeed, stats.Haste, player.Level) : 2.5f;
         return new RotationEngine(BlmDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? BlmDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.08f };
+    }
+
+    private XanBLM.Strategy _strategy;
+    private bool _moving;
+
+    protected override Actor? SelectTarget(StrategyValues strategy, Actor? primaryTarget)
+    {
+        _strategy = ValueConverter.FromValues<XanBLM.Strategy>(strategy);
+        SetMechanicHints(_strategy.MechanicHints);
+        return SelectTarget(_strategy.Targeting.Value, primaryTarget, 25);
+    }
+
+    private static readonly string[] Thunders = ["HighThunder", "HighThunder2"];
+
+    protected override void ApplyStrategy(StrategyValues strategy, ref EngineState s, Actor? primaryTarget)
+    {
+        var st = _strategy;
+        ApplyAoe(ref s, st.AOE);
+        if (Player.Level < 100)
+            return;
+
+        // manual control: the player casts, only Polyglot is spent against overcapping (and Manafont follows its own setting)
+        if (st.Rotation.Value == XanBLM.RotationStrategy.PolyglotOvercapOnly)
+        {
+            var polyglotCapping = s.Gauges[Job.GaugeIndex(BlmDefinition.Polyglot)] >= Job.Gauges[Job.GaugeIndex(BlmDefinition.Polyglot)].Max
+                && s.StatusLeft[Job.StatusIndex(BlmDefinition.PolyglotTimer)] <= GCD + Job.BaseGcd;
+            foreach (var sk in Job.Skills)
+                if (!(sk.Name is "Xenoglossy" or "Foul" && polyglotCapping || sk.Name == "Manafont" && st.Manafont.Value != OffensiveStrategy.Delay))
+                    s.DisabledSkills |= 1UL << sk.Index;
+        }
+
+        switch (st.Thunder.Value)
+        {
+            case XanBLM.ThunderStrategy.Delay:
+                foreach (var sk in Thunders)
+                    Forbid(ref s, sk);
+                break;
+            case XanBLM.ThunderStrategy.Force:
+                if (s.Targets >= 3)
+                    Force("HighThunder2");
+                Force("HighThunder");
+                break;
+            case XanBLM.ThunderStrategy.InstantOnly:
+                // not kept up: only as the instant cast while moving
+                if (!_moving)
+                    foreach (var sk in Thunders)
+                        Forbid(ref s, sk);
+                break;
+        }
+
+        switch (st.Leylines.Value)
+        {
+            case XanBLM.LeylinesStrategy.Delay:
+                Forbid(ref s, "LeyLines");
+                break;
+            case XanBLM.LeylinesStrategy.OpenerOnly:
+                if (CombatTime > 30)
+                    Forbid(ref s, "LeyLines");
+                break;
+            case XanBLM.LeylinesStrategy.Force:
+                Force("LeyLines");
+                break;
+        }
+        if (st.LLMove.Value == DisabledByDefault.Disabled && _moving)
+            Forbid(ref s, "LeyLines");
+
+        if (st.Triplecast.Value == XanBLM.TriplecastStrategy.Delay)
+            Forbid(ref s, "Triplecast");
+        else if (st.Triplecast.Value == XanBLM.TriplecastStrategy.Force)
+            Force("Triplecast");
+
+        if (st.Swiftcast.Value == XanBLM.SwiftcastStrategy.Delay)
+            Forbid(ref s, "Swiftcast");
+        else if (st.Swiftcast.Value == XanBLM.SwiftcastStrategy.Force)
+            Force("Swiftcast");
+
+        if (st.Manafont.Value == OffensiveStrategy.Delay)
+            Forbid(ref s, "Manafont");
+        else if (st.Manafont.Value == OffensiveStrategy.Force)
+            Force("Manafont");
+    }
+
+    public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
+    {
+        _moving = isMoving;
+        base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
+        if (Player.Level < 100 || Target == null || !Player.InCombat)
+            return;
+        var st = _strategy;
+        // Scathe: the instant filler while moving with no instant cast available (below the engine's GCD)
+        if (st.Scathe.Value == XanBLM.ScatheStrategy.Allow && isMoving && SelfStatusLeft(ClassShared.SID.Swiftcast) <= 0 && SelfStatusLeft(SID.Triplecast) <= 0 && Player.HPMP.CurMP >= 800)
+            Hints.ActionsToExecute.Push(ActionID.MakeSpell(AID.Scathe), Target, ActionQueue.Priority.High + 1);
+        // Occult Crescent: Zeninage under raid buffs, Iainuki and the Time Mage actions after the first 10 s (or under raid buffs; Occult
+        // Comet only with an instant cast up)
+        var raidBuffs = EstimateRaidBuffTimings(Target).Left > GCD;
+        var warm = CombatTime > 10 || raidBuffs;
+        if (st.Zeninage.Value == EnabledByDefault.Enabled && raidBuffs && PhantomActionReady(PhantomID.Zeninage))
+            Hints.ActionsToExecute.Push(ActionID.MakeSpell(PhantomID.Zeninage), Target, ActionQueue.Priority.High + 3.3f);
+        if (st.Iainuki.Value == EnabledByDefault.Enabled && warm && PhantomActionReady(PhantomID.Iainuki))
+            Hints.ActionsToExecute.Push(ActionID.MakeSpell(PhantomID.Iainuki), Target, ActionQueue.Priority.High + 3.2f);
+        if (st.AutoTimeMage.Value == EnabledByDefault.Enabled)
+        {
+            if (PhantomActionReady(PhantomID.OccultQuick) && (SelfStatusLeft(SID.CircleOfPower) > 0 || CombatTime > 10))
+                Hints.ActionsToExecute.Push(ActionID.MakeSpell(PhantomID.OccultQuick), Player, ActionQueue.Priority.High + 3.1f);
+            if (warm && PhantomActionReady(PhantomID.OccultComet) && (SelfStatusLeft(ClassShared.SID.Swiftcast) > 0 || SelfStatusLeft(SID.Triplecast) > 0))
+                Hints.ActionsToExecute.Push(ActionID.MakeSpell(PhantomID.OccultComet), Target, ActionQueue.Priority.High + 3f);
+        }
     }
 
     // no target: assume it stays away for a while (no buffs or Triplecast stacks wasted into the gap; Umbral Soul keeps the ice phase going)

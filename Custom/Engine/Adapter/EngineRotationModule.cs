@@ -1,4 +1,5 @@
 using BossMod.Autorotation.Engine;
+using BossMod.Data;
 
 namespace BossMod.Autorotation;
 
@@ -42,14 +43,134 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         return (byte)Math.Clamp(count, 1, 255);
     }
 
+    // UI settings (the job's strategy tracks). SelectTarget runs before the state is read (target choice, timeline inputs);
+    // ApplyStrategy after it: forbidden skills go into s.DisabledSkills, forced ones through Force, the AoE setting into s.Targets.
+    protected virtual Actor? SelectTarget(StrategyValues strategy, Actor? primaryTarget) => primaryTarget;
+    protected Actor? Target { get; private set; } // the target chosen this frame
+    protected virtual void ApplyStrategy(StrategyValues strategy, ref EngineState s, Actor? primaryTarget) { }
+
+    // MechanicHints track: which predicted mechanics feed the timeline (boss-module / imported timeline windows, out-of-range and forced-movement forecast)
+    protected bool UseTimelineWindows = true, UseForecast = true;
+    protected bool UseFightEnd = true; // FightEnd tracks: plan for the predicted end of the fight
+    protected void SetMechanicHints(MechanicHintStrategy hints)
+    {
+        UseTimelineWindows = hints is MechanicHintStrategy.All or MechanicHintStrategy.TimelineOnly;
+        UseForecast = hints is MechanicHintStrategy.All or MechanicHintStrategy.ForecastOnly;
+    }
+
+    // skills pushed whenever they are legal, on top of the engine's choice (Force options); earlier calls win when several are legal
+    private readonly int[] _forced = new int[EngineLimits.MaxSkills];
+    private int _numForced;
+    protected void Force(string skill)
+    {
+        if (_numForced < _forced.Length)
+            _forced[_numForced++] = Job.SkillIndex(skill);
+    }
+    protected void Forbid(ref EngineState s, string skill) => s.DisabledSkills |= 1UL << Job.SkillIndex(skill);
+    protected void ForbidAll(ref EngineState s) => s.DisabledSkills = ulong.MaxValue;
+
+    // xan Targeting Auto / AutoTryPri (Akechi Automatic / AutoHard / AutoTryPrimary): the player's target, or when it is missing or out of
+    // range the first priority target within range
+    protected Actor? TargetInRange(Actor? primaryTarget, float range)
+    {
+        if (Player.DistanceToHitbox(primaryTarget) <= range)
+            return primaryTarget;
+        foreach (var t in Hints.PriorityTargetsSpan)
+            if (Player.DistanceToHitbox(t.Actor) <= range)
+                return t.Actor;
+        return primaryTarget;
+    }
+
+    // xan Targeting track
+    protected Actor? SelectTarget(Targeting targeting, Actor? primaryTarget, float range)
+        => targeting is Targeting.Auto or Targeting.AutoTryPri ? TargetInRange(primaryTarget, range) : primaryTarget;
+
+    // Akechi Targeting track (AutoHard also switches the player's hard target)
+    protected Actor? SelectTarget(akechi.Custom.SoftTargetStrategy targeting, Actor? primaryTarget, float range)
+    {
+        if (targeting is akechi.Custom.SoftTargetStrategy.Manual or akechi.Custom.SoftTargetStrategy.AutoPrimary)
+            return primaryTarget;
+        var target = TargetInRange(primaryTarget, range);
+        if (targeting == akechi.Custom.SoftTargetStrategy.AutoHard && target != primaryTarget)
+            Hints.ForcedTarget = target;
+        return target;
+    }
+
+    // xan AOE track: ST / ForceST plan on one target (ForceST also forbids every skill that hits several targets), ForceAOE on enough
+    // targets for every AoE skill
+    protected void ApplyAoe(ref EngineState s, AOEStrategy aoe)
+    {
+        if (aoe is AOEStrategy.ST or AOEStrategy.ForceST)
+            s.Targets = 1;
+        if (aoe == AOEStrategy.ForceST)
+            ForbidMultiTarget(ref s);
+        if (aoe == AOEStrategy.ForceAOE)
+            ForceAoeTargets(ref s);
+    }
+
+    protected void ForbidMultiTarget(ref EngineState s)
+    {
+        foreach (var sk in Job.Skills)
+            if (sk.AoePotency > 0 || sk.AoeExtraPotency > 0 || sk.DotAoe)
+                s.DisabledSkills |= 1UL << sk.Index;
+    }
+
+    protected void ForceAoeTargets(ref EngineState s)
+    {
+        foreach (var sk in Job.Skills)
+            if (sk.MinAoeTargets < 99 && s.Targets < sk.MinAoeTargets)
+                s.Targets = (byte)sk.MinAoeTargets;
+    }
+
+    // the definition's Potion skill (PotionCD / Medicated): usable when the setting allows it and a potion is held, else unavailable
+    protected void ReadPotion(ref EngineState s, ActionID potion, bool allowed)
+    {
+        var cd = Job.CooldownIndex("PotionCD");
+        var held = World.Client.GetInventoryItemQuantity(potion.ID) > 0;
+        s.Charges[cd] = (byte)(allowed && held && PotionCD <= Simulator.CdEpsilon ? 1 : 0);
+        s.CdReadyIn[cd] = allowed && held ? (s.Charges[cd] > 0 ? 0 : PotionCD) : 10000;
+        ReadStatus(ref s, Job.StatusIndex("Medicated"), Player, 49);
+    }
+
+    // jobs whose definition has no Potion skill (adding one changes the search bounds, and the results, with the potion unavailable):
+    // the module presses the potion in the first weave slot when the setting allows it now (`now`: the job's burst window), a potion is
+    // held and it is off cooldown
+    protected void UsePotion(ActionID potion, bool now)
+    {
+        if (now && Player.InCombat && PotionCD <= Simulator.CdEpsilon && World.Client.GetInventoryItemQuantity(potion.ID) > 0)
+            Hints.ActionsToExecute.Push(potion, Player, ActionQueue.Priority.Medium + 2);
+    }
+
+    // damage to the player predicted to land within `seconds`
+    protected bool PredictedDamageWithin(float seconds)
+    {
+        foreach (var damage in Hints.PredictedDamage)
+        {
+            var damageIn = (float)(damage.Activation - World.CurrentTime).TotalSeconds;
+            if (damage.Players[PartyState.PlayerSlot] && damageIn >= 0 && damageIn <= seconds)
+                return true;
+        }
+        return false;
+    }
+
+    // an Occult Crescent duty action held and ready by the next GCD
+    protected bool PhantomActionReady(PhantomID id) => DutyActionCD(ActionID.MakeSpell(id)) <= GCD + 0.05f;
+
+    // seconds since the pull (0 out of combat)
+    protected float CombatTime => Player.InCombat && Manager.CombatStart != default ? (float)(World.CurrentTime - Manager.CombatStart).TotalSeconds : 0;
+
     public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
+        _numForced = 0;
+        UseTimelineWindows = UseForecast = UseFightEnd = true;
+        primaryTarget = Target = SelectTarget(strategy, primaryTarget);
         var s = EngineState.Create(Job);
         s.GcdReadyAt = GCD;
         s.AnimLockAt = 0; // the queue only runs us when an action could be requested; animation lock is handled by ActionManagerEx
         s.Targets = CountTargets(primaryTarget);
         ReadJobState(ref s, primaryTarget);
         ApplyCastInProgress(ref s);
+        ApplyStrategy(strategy, ref s, primaryTarget);
 
         var tl = BuildTimeline(isMoving, primaryTarget);
         if (_epoch == default)
@@ -83,6 +204,13 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         {
             var ogcd = Job.Skills[d.Skill];
             Hints.ActionsToExecute.Push(ActionFor(ogcd), TargetFor(ogcd, primaryTarget), ActionQueue.Priority.Low + 1, delay: d.ExecuteAt);
+        }
+        // forced skills: ahead of the engine's GCD, abilities in the first weave slot
+        for (var i = 0; i < _numForced; ++i)
+        {
+            var sk = Job.Skills[_forced[i]];
+            if (Simulator.IsLegal(Job, s, tl, sk))
+                Hints.ActionsToExecute.Push(ActionFor(sk), TargetFor(sk, primaryTarget), (sk.IsGcd ? ActionQueue.Priority.High + 3 : ActionQueue.Priority.Medium + 1) - i * 0.01f, castTime: sk.CastTime);
         }
     }
 
@@ -166,21 +294,21 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
             tl.AddDowntime(0, UnknownDowntime);
 
         var fight = Hints.FightRemaining;
-        if (fight.Known)
+        if (UseFightEnd && fight.Known)
             tl.FightEndIn = MathF.Max(fight.RemainingSeconds, GCD + 0.1f);
 
         // target loss: disengage forecast, then the planner's targetable windows
         var dis = Hints.Disengage;
-        if (dis.TargetLossIn < float.MaxValue && dis.TargetReturnIn - dis.TargetLossIn >= TransientLossThreshold)
+        if (UseForecast && dis.TargetLossIn < float.MaxValue && dis.TargetReturnIn - dis.TargetLossIn >= TransientLossThreshold)
             tl.AddDowntime(dis.TargetLossIn, dis.TargetReturnIn);
-        if (Manager.Planner is { } plan)
+        if (UseTimelineWindows && Manager.Planner is { } plan)
         {
             plan.EstimateTargetableWindows(60, _windowScratch);
             foreach (var w in _windowScratch)
                 if (!w.Targetable && w.EndIn - w.StartIn >= TransientLossThreshold)
                     tl.AddDowntime(w.StartIn, w.EndIn);
         }
-        if (dis.ForcedMoveIn < float.MaxValue)
+        if (UseForecast && dis.ForcedMoveIn < float.MaxValue)
             tl.AddNoCast(dis.ForcedMoveIn, dis.ForcedMoveIn + MathF.Max(0.5f, dis.ForcedMoveFor));
         if (isMoving)
             tl.AddNoCast(0, 0.5f);
