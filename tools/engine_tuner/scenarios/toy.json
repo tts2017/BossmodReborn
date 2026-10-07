@@ -1,0 +1,7 @@
+[
+  { "Name": "toy-patchwerk-300", "KillTime": 300 },
+  { "Name": "toy-short-95", "KillTime": 95 },
+  { "Name": "toy-downtime", "KillTime": 360, "Downtime": [[100, 130], [230, 250]] },
+  { "Name": "toy-gauge-start", "KillTime": 200, "InitialGauges": { "Heat": 80 } },
+  { "Name": "toy-strong-buffs", "KillTime": 260, "RaidBuffMultiplier": 1.3 }
+]

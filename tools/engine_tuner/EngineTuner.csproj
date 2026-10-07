@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\engine_common\EngineCommon.props" />
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Update="scenarios\*.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

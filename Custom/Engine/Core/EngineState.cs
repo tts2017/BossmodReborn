@@ -56,31 +56,35 @@ public struct EngineState
     public readonly bool HasStatus(int index) => StatusLeft[index] > 0;
 
     // FNV-1a over the decision-relevant fields, times quantized to 0.05 s (relative to Time where it matters).
-    public readonly ulong Hash(JobDefinition job)
+    public readonly ulong Hash(JobDefinition job) => Hash(job, 0.05f);
+
+    // quantum: timer resolution in seconds (0.05 for the transposition table, coarser for "has anything changed" reuse checks)
+    public readonly ulong Hash(JobDefinition job, float quantum)
     {
+        var inv = 1 / quantum;
         var h = 14695981039346656037UL;
-        h = Mix(h, Q(Time));
-        h = Mix(h, Q(MathF.Max(0, GcdReadyAt - Time)));
-        h = Mix(h, Q(MathF.Max(0, AnimLockAt - Time)));
+        h = Mix(h, Q(Time, inv));
+        h = Mix(h, Q(MathF.Max(0, GcdReadyAt - Time), inv));
+        h = Mix(h, Q(MathF.Max(0, AnimLockAt - Time), inv));
         h = Mix(h, ComboSkill);
-        h = Mix(h, ComboSkill == EngineLimits.NoCombo ? 0 : Q(ComboLeft));
+        h = Mix(h, ComboSkill == EngineLimits.NoCombo ? 0 : Q(ComboLeft, inv));
         h = Mix(h, Targets);
         for (var i = 0; i < job.Gauges.Length; ++i)
             h = Mix(h, (uint)(ushort)Gauges[i]);
         for (var i = 0; i < job.Statuses.Length; ++i)
         {
-            h = Mix(h, Q(StatusLeft[i]));
+            h = Mix(h, Q(StatusLeft[i], inv));
             h = Mix(h, StatusStacks[i]);
         }
         for (var i = 0; i < job.Cooldowns.Length; ++i)
         {
-            h = Mix(h, Q(CdReadyIn[i]));
+            h = Mix(h, Q(CdReadyIn[i], inv));
             h = Mix(h, Charges[i]);
         }
         return h;
     }
 
-    private static uint Q(float seconds) => (uint)(int)MathF.Round(seconds * 20);
+    private static uint Q(float seconds, float inv) => (uint)(int)MathF.Round(seconds * inv);
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static ulong Mix(ulong h, uint v)

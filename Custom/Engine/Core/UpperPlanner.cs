@@ -43,6 +43,14 @@ public sealed class UpperPlanner
         public bool GainsDuringDowntime;
     }
 
+    // leaf lambda cache: [resource][time bucket][holding bucket], valid for the current plan generation
+    private const int TimeBuckets = 256;      // 0.25 s each: 64 s ahead of the plan time
+    private const float TimeBucketSize = 0.25f;
+    private const int HoldBuckets = 33;
+    private readonly float[] _lambdaCache = new float[MaxResources * TimeBuckets * HoldBuckets];
+    private readonly int[] _lambdaStamp = new int[MaxResources * TimeBuckets * HoldBuckets];
+    private int _planGeneration;
+
     public UpperPlanner(JobDefinition job, JobAnalysis analysis)
     {
         _job = job;
@@ -66,6 +74,7 @@ public sealed class UpperPlanner
     {
         _tl = tl;
         _burstBias = w.BurstBias;
+        ++_planGeneration;
         BuildSegments(tl, w);
         for (var r = 0; r < MaxResources; ++r)
             _params[r].Active = false;
@@ -94,6 +103,30 @@ public sealed class UpperPlanner
         ref readonly var p = ref _params[r];
         if (!p.Active)
             return 0;
+        var tb = (int)(t / TimeBucketSize);
+        var hb = (int)MathF.Round(holdingRaw / p.RawPerUnit / p.Cap * (HoldBuckets - 1));
+        if ((uint)tb < TimeBuckets && (uint)hb < HoldBuckets)
+        {
+            var idx = (r * TimeBuckets + tb) * HoldBuckets + hb;
+            if (_lambdaStamp[idx] != _planGeneration)
+            {
+                _lambdaCache[idx] = ComputeLambda(r, p, tb * TimeBucketSize, (float)hb / (HoldBuckets - 1) * p.Cap * p.RawPerUnit);
+                _lambdaStamp[idx] = _planGeneration;
+            }
+            return _lambdaCache[idx];
+        }
+        return ComputeLambda(r, p, t, holdingRaw);
+    }
+
+    // upper bound of lambda x holding for a resource (any time, any holding), for the search's pruning bound
+    public float MaxLeafValue(int r, float maxMultiplier)
+    {
+        ref readonly var p = ref _params[r];
+        return p.Active ? p.UnitValue * p.Cap * MathF.Max(1, 1 + (maxMultiplier - 1) * _burstBias) : 0;
+    }
+
+    private float ComputeLambda(int r, in ResourceParams p, float t, float holdingRaw)
+    {
         var i = SegmentAt(t);
         if (i >= NumSegments || t >= SegStart[NumSegments])
             return _horizonIsFightEnd ? 0 : p.UnitValue / p.RawPerUnit;

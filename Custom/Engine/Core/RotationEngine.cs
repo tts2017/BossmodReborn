@@ -36,6 +36,10 @@ public sealed class RotationEngine
     private int _prevChoice = EngineDecision.Wait;
 
     public float ReplanInterval = 2.0f;
+    public float ReuseQuantum = 0.25f; // timer resolution of the "nothing changed, reuse the last result" check
+
+    // forget the cached result (the next Decide searches even if the state is unchanged)
+    public void InvalidateCache() => _hasLast = false;
 
     public RotationEngine(JobDefinition job, EngineWeights weights)
     {
@@ -79,7 +83,7 @@ public sealed class RotationEngine
     // `now`: absolute clock (any monotonic seconds); used to decide when the upper tier is stale.
     public EngineDecision Decide(in EngineState state, in EngineTimeline timeline, float now)
     {
-        var key = state.Hash(Job) ^ ((ulong)(uint)timeline.Version * 0x9E3779B97F4A7C15UL);
+        var key = state.Hash(Job, ReuseQuantum) ^ ((ulong)(uint)timeline.Version * 0x9E3779B97F4A7C15UL);
         if (_hasLast && key == _lastKey)
         {
             var d = _last;
@@ -109,6 +113,7 @@ internal sealed class LowerSearch
     private const int MoveSlots = EngineLimits.MaxSkills + 1;
     private const byte WaitMove = 0xFE;
     private const int TTBits = 16;
+    private const int MaxDeepOgcds = 2; // beyond the first two plies only the best two weave candidates (by immediate value) are searched
 
     private struct TTEntry
     {
@@ -125,6 +130,10 @@ internal sealed class LowerSearch
     private readonly TTEntry[] _tt = new TTEntry[1 << TTBits];
     private readonly byte[] _moves = new byte[MaxPly * MoveSlots];
     private readonly float[] _order = new float[MaxPly * MoveSlots];
+    private readonly EngineState[] _children = new EngineState[MaxPly * MoveSlots];
+    private readonly float[] _imm = new float[MaxPly * MoveSlots];
+    private readonly int[] _nextGcds = new int[MaxPly * MoveSlots];
+    private readonly byte[] _perm = new byte[MaxPly * MoveSlots];
     private readonly float[] _rootValues = new float[MoveSlots];
     private readonly bool[] _rootSeen = new bool[MoveSlots];
     private readonly Stopwatch _clock = new();
@@ -140,6 +149,7 @@ internal sealed class LowerSearch
     private float _maxSlotValue;
     private float _maxComboBonus;
     private bool _returnedBound;
+    private float _maxLeafExtra; // per-decision constant part of the pruning bound (resources, statuses, combo)
 
     public LowerSearch(RotationEngine engine, EvalContext ctx)
     {
@@ -156,10 +166,18 @@ internal sealed class LowerSearch
         _planOffset = planOffset;
         var w = _engine.Weights;
         _horizon = MathF.Max(root.GcdReadyAt, root.AnimLockAt) + w.HorizonGcds * _job.BaseGcd;
-        _maxSlotValue = _engine.Analysis.MaxSkillValue * 3 * tl.MaxBuffMultiplier() * MaxStatusMultiplier() * Math.Max(1, (int)root.Targets);
+        _maxSlotValue = (MaxImmediate(true, root.Targets) + MaxDeepOgcds * MaxImmediate(false, root.Targets)) * tl.MaxBuffMultiplier() * MaxStatusMultiplier();
         _maxComboBonus = 0;
         foreach (var sk in _job.Skills)
             _maxComboBonus = MathF.Max(_maxComboBonus, sk.ComboBonus);
+        var maxMult = tl.MaxBuffMultiplier();
+        var maxRes = 0f;
+        for (var r = 0; r < UpperPlanner.MaxResources; ++r)
+            maxRes += _engine.Planner.MaxLeafValue(r, maxMult);
+        var maxStatus = 0f;
+        for (var i = 0; i < _job.Statuses.Length; ++i)
+            maxStatus += _ctx.StatusValuePerSecond[i] * _job.Statuses[i].MaxDuration * maxMult;
+        _maxLeafExtra = maxRes * MathF.Max(1, w.LambdaScale) + maxStatus * MathF.Max(1, w.StatusRemainder) + MathF.Max(0, w.Combo) * _maxComboBonus + 1;
         _budgetTicks = (long)(w.BudgetMs * Stopwatch.Frequency / 1000);
         ++_generation;
         _nodes = 0;
@@ -172,7 +190,7 @@ internal sealed class LowerSearch
             Array.Clear(_rootSeen);
             _rootBest = float.MinValue;
             _aborted = false;
-            var value = Search(ref rootState, depth, 0, 0, out var move);
+            var value = Search(ref rootState, depth, 0, 0, -1, out var move);
             if (_aborted && depth > 1)
                 break;
             best.Skill = move == WaitMove ? EngineDecision.Wait : move;
@@ -193,6 +211,21 @@ internal sealed class LowerSearch
         FillPrincipalVariation(root, ref best);
         best.Nodes = _nodes;
         return best;
+    }
+
+    private float MaxImmediate(bool gcd, int targets)
+    {
+        var m = 0f;
+        foreach (var s in _job.Skills)
+        {
+            if (s.IsGcd != gcd)
+                continue;
+            var p = MathF.Max(s.Potency, s.AoePotency * targets);
+            foreach (var c in s.PotencyIf)
+                p = MathF.Max(p, c.Potency);
+            m = MathF.Max(m, p + s.PartyValue);
+        }
+        return m;
     }
 
     private float MaxStatusMultiplier()
@@ -227,7 +260,7 @@ internal sealed class LowerSearch
             }
             Simulator.Advance(_job, ref s, t - s.Time, _ctx);
             Simulator.Execute(_job, ref s, _tl, skill, _ctx);
-            var next = ProbeBestMove(s, d.Depth);
+            var next = ProbeBestMove(s, d.Depth, move);
             if (next == WaitMove)
             {
                 d.NextGcd = EngineDecision.Wait;
@@ -238,12 +271,12 @@ internal sealed class LowerSearch
         d.NextGcd = EngineDecision.Wait;
     }
 
-    private byte ProbeBestMove(in EngineState s, int maxDepth)
+    private byte ProbeBestMove(in EngineState s, int maxDepth, int prevOgcd)
     {
         var h = s.Hash(_job);
         for (var d = maxDepth; d >= 1; --d)
         {
-            var key = h ^ ((ulong)d * 0xC2B2AE3D27D4EB4FUL);
+            var key = h ^ ((ulong)d * 0xC2B2AE3D27D4EB4FUL) ^ ((ulong)(prevOgcd + 1) * 0x165667B19E3779F9UL);
             ref var e = ref _tt[(int)(key & ((1 << TTBits) - 1))];
             if (e.Generation == _generation && e.Key == key)
                 return e.BestMove;
@@ -252,7 +285,7 @@ internal sealed class LowerSearch
     }
 
     // returns the best future value from s with `gcdsLeft` GCD slots to go
-    private float Search(ref EngineState s, int gcdsLeft, int ply, float acc, out byte bestMove)
+    private float Search(ref EngineState s, int gcdsLeft, int ply, float acc, int prevOgcd, out byte bestMove)
     {
         bestMove = WaitMove;
         if (gcdsLeft <= 0 || ply >= MaxPly - 1)
@@ -267,7 +300,7 @@ internal sealed class LowerSearch
         if (_aborted)
             return Leaf(s);
 
-        var hash = s.Hash(_job) ^ ((ulong)gcdsLeft * 0xC2B2AE3D27D4EB4FUL);
+        var hash = s.Hash(_job) ^ ((ulong)gcdsLeft * 0xC2B2AE3D27D4EB4FUL) ^ ((ulong)(prevOgcd + 1) * 0x165667B19E3779F9UL); // the weave-order restriction changes the subtree
         ref var tt = ref _tt[(int)(hash & ((1 << TTBits) - 1))];
         var ttMove = WaitMove;
         if (tt.Generation == _generation && tt.Key == hash)
@@ -282,74 +315,77 @@ internal sealed class LowerSearch
             ttMove = tt.BestMove;
         }
 
-        // generate legal moves with their immediate values
+        // generate legal moves; the resulting child states and immediate values are kept for the loop below
         var baseIdx = ply * MoveSlots;
         var count = 0;
         var tGcd = MathF.Max(s.GcdReadyAt, s.AnimLockAt);
         var tOgcd = s.AnimLockAt;
         var anyGcd = false;
+        var atGcd = s;
+        var wasteGcd = Simulator.Advance(_job, ref atGcd, tGcd - atGcd.Time, _ctx);
+        var atOgcd = s;
+        var wasteOgcd = Simulator.Advance(_job, ref atOgcd, tOgcd - atOgcd.Time, _ctx);
         foreach (var skill in _job.Skills)
         {
-            var t = skill.IsGcd ? tGcd : tOgcd;
-            if (!skill.IsGcd && t + skill.AnimationLock + _job.Latency > s.GcdReadyAt + 0.01f)
+            if (!skill.IsGcd && tOgcd + skill.AnimationLock + _job.Latency > s.GcdReadyAt + 0.01f)
                 continue; // would clip the GCD
-            var child = s;
-            var waste = Simulator.Advance(_job, ref child, t - child.Time, _ctx);
-            if (!Simulator.IsLegal(_job, child, _tl, skill))
+            if (!skill.IsGcd && skill.Index <= prevOgcd)
+                continue; // weaves in one window are searched in index order only (A,B and B,A reach the same state)
+            if (!Simulator.IsLegal(_job, skill.IsGcd ? atGcd : atOgcd, _tl, skill))
                 continue;
-            var imm = Simulator.Execute(_job, ref child, _tl, skill, _ctx) - waste;
-            _moves[baseIdx + count] = (byte)skill.Index;
-            _order[baseIdx + count] = skill.Index == ttMove ? float.MaxValue : imm;
+            var k = baseIdx + count;
+            ref var c = ref _children[k];
+            c = skill.IsGcd ? atGcd : atOgcd;
+            _imm[k] = Simulator.Execute(_job, ref c, _tl, skill, _ctx) - (skill.IsGcd ? wasteGcd : wasteOgcd);
+            _nextGcds[k] = skill.IsGcd ? gcdsLeft - 1 : gcdsLeft;
+            _moves[k] = (byte)skill.Index;
+            _order[k] = skill.Index == ttMove ? float.MaxValue : _imm[k];
+            _perm[k] = (byte)count;
             ++count;
             anyGcd |= skill.IsGcd;
         }
         if (!anyGcd)
         {
-            _moves[baseIdx + count] = WaitMove;
-            _order[baseIdx + count] = ttMove == WaitMove ? float.MaxValue : float.MinValue;
+            var k = baseIdx + count;
+            ref var c = ref _children[k];
+            c = s;
+            var target = _tl.InDowntime(tGcd) ? _tl.DowntimeEnd(tGcd) : tGcd + 0.5f;
+            _imm[k] = -Simulator.Advance(_job, ref c, MathF.Max(target, c.Time + 0.1f) - c.Time, _ctx);
+            c.GcdReadyAt = MathF.Max(c.GcdReadyAt, c.Time);
+            c.AnimLockAt = MathF.Max(c.AnimLockAt, c.Time);
+            _nextGcds[k] = gcdsLeft - 1;
+            _moves[k] = WaitMove;
+            _order[k] = ttMove == WaitMove ? float.MaxValue : float.MinValue;
+            _perm[k] = (byte)count;
             ++count;
         }
-        // insertion sort by order desc (count is small)
+        // insertion sort of the permutation by order desc (count is small)
         for (var i = 1; i < count; ++i)
         {
-            var m = _moves[baseIdx + i];
-            var o = _order[baseIdx + i];
+            var p = _perm[baseIdx + i];
+            var o = _order[baseIdx + p];
             var j = i - 1;
-            while (j >= 0 && _order[baseIdx + j] < o)
+            while (j >= 0 && _order[baseIdx + _perm[baseIdx + j]] < o)
             {
-                _moves[baseIdx + j + 1] = _moves[baseIdx + j];
-                _order[baseIdx + j + 1] = _order[baseIdx + j];
+                _perm[baseIdx + j + 1] = _perm[baseIdx + j];
                 --j;
             }
-            _moves[baseIdx + j + 1] = m;
-            _order[baseIdx + j + 1] = o;
+            _perm[baseIdx + j + 1] = p;
         }
 
         var best = float.MinValue;
         var pruned = false;
         var prunedBound = float.MinValue;
+        var ogcdsTaken = 0;
         for (var i = 0; i < count; ++i)
         {
-            var move = _moves[baseIdx + i];
-            var child = s;
-            float imm;
-            int nextGcds;
-            if (move == WaitMove)
-            {
-                var target = _tl.InDowntime(tGcd) ? _tl.DowntimeEnd(tGcd) : tGcd + 0.5f;
-                imm = -Simulator.Advance(_job, ref child, MathF.Max(target, child.Time + 0.1f) - child.Time, _ctx);
-                child.GcdReadyAt = MathF.Max(child.GcdReadyAt, child.Time);
-                child.AnimLockAt = MathF.Max(child.AnimLockAt, child.Time);
-                nextGcds = gcdsLeft - 1;
-            }
-            else
-            {
-                var skill = _job.Skills[move];
-                var t = skill.IsGcd ? tGcd : tOgcd;
-                imm = -Simulator.Advance(_job, ref child, t - child.Time, _ctx);
-                imm += Simulator.Execute(_job, ref child, _tl, skill, _ctx);
-                nextGcds = skill.IsGcd ? gcdsLeft - 1 : gcdsLeft;
-            }
+            var k = baseIdx + _perm[baseIdx + i];
+            var move = _moves[k];
+            if (ply >= 2 && move != WaitMove && !_job.Skills[move].IsGcd && ++ogcdsTaken > MaxDeepOgcds)
+                continue;
+            var imm = _imm[k];
+            var nextGcds = _nextGcds[k];
+            ref var child = ref _children[k];
 
             var bound = imm + UpperBound(child, nextGcds);
             if (ply > 0 && acc + bound <= _rootBest)
@@ -360,7 +396,7 @@ internal sealed class LowerSearch
             }
 
             _returnedBound = false;
-            var f = imm + Search(ref child, nextGcds, ply + 1, acc + imm, out _);
+            var f = imm + Search(ref child, nextGcds, ply + 1, acc + imm, move != WaitMove && !_job.Skills[move].IsGcd ? move : -1, out _);
             var childBounded = _returnedBound;
             if (childBounded)
                 pruned = true;
@@ -402,7 +438,7 @@ internal sealed class LowerSearch
     {
         var w = _engine.Weights;
         var fill = MathF.Max(0, _horizon - MathF.Max(s.Time, s.GcdReadyAt)) * _ctx.FillerPps;
-        return gcdsLeft * _maxSlotValue + fill + LeafResources(s) * MathF.Max(1, w.LambdaScale) + LeafStatuses(s) * MathF.Max(1, w.StatusRemainder) + MathF.Max(0, w.Combo) * _maxComboBonus + 1;
+        return gcdsLeft * _maxSlotValue + fill + _maxLeafExtra;
     }
 
     private float Leaf(in EngineState s)
