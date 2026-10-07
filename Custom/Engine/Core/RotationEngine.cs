@@ -319,6 +319,16 @@ internal sealed class LowerSearch
         var finished = _nextDepth > maxDepth || _spentTicks >= totalTicks;
 
         var best = _best;
+        // weaves of one window: among near-equal oGCD roots press the one defined first (e.g. Arcane Circle before Gluttony), so a
+        // caller that asks one oGCD at a time still gets the definition order the search assumes for a window
+        if (best.Skill >= 0 && !_job.Skills[best.Skill].IsGcd)
+            for (var j = 0; j < best.Skill; ++j)
+                if (_doneSeen[j] && !_job.Skills[j].IsGcd && _doneValues[j] >= best.Value - MathF.Max(1, w.SwitchMargin))
+                {
+                    best.Skill = j;
+                    best.Value = _doneValues[j];
+                    break;
+                }
         // hysteresis: keep the previous choice if it is still available and nearly as good
         var prev = _prevChoiceForRun;
         if (prev >= 0 && prev != best.Skill && _doneSeen[prev] && _doneValues[prev] >= best.Value - w.SwitchMargin)

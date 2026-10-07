@@ -56,6 +56,7 @@ public static class Simulator
         ConditionKind.ComboIs => s.ComboSkill == c.Index && s.ComboLeft > 0,
         ConditionKind.TargetsAtLeast => s.Targets >= c.Value,
         ConditionKind.TargetsAtMost => s.Targets <= c.Value,
+        ConditionKind.ConeTargetsAtLeast => (s.ConeTargets > 0 ? s.ConeTargets : s.Targets) >= c.Value,
         ConditionKind.StatusLeftAtLeast => s.StatusLeft[c.Index] >= c.Value,
         _ => false
     };
@@ -64,6 +65,8 @@ public static class Simulator
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static bool IsLegal(JobDefinition job, in EngineState s, in EngineTimeline tl, SkillDef skill)
     {
+        if ((s.DisabledSkills & (1UL << skill.Index)) != 0)
+            return false;
         if (skill.Cooldown >= 0 && s.Charges[skill.Cooldown] == 0)
             return false;
         foreach (ref readonly var c in skill.Conditions.AsSpan())
@@ -145,8 +148,9 @@ public static class Simulator
                 break;
             }
         }
-        if (skill.AoePotency > 0 && s.Targets >= skill.MinAoeTargets)
-            p = skill.AoePotency * s.Targets;
+        var targets = skill.Cone && s.ConeTargets > 0 ? s.ConeTargets : s.Targets;
+        if (skill.AoePotency > 0 && targets >= skill.MinAoeTargets)
+            p = skill.AoePotency * targets;
         return p;
     }
 

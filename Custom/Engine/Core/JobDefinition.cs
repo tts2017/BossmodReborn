@@ -14,6 +14,7 @@ public enum ConditionKind : byte
     ComboIs,
     TargetsAtLeast,
     TargetsAtMost,
+    ConeTargetsAtLeast,
     StatusLeftAtLeast, // status active with at least Value seconds left
 }
 
@@ -54,6 +55,7 @@ public sealed class SkillDef
     public float Potency;
     public float AoePotency;      // per target, used when Targets >= MinAoeTargets
     public int MinAoeTargets = 99;
+    public bool Cone;             // AoE shape counted with EngineState.ConeTargets instead of Targets
     public float CastTime;
     public float AnimationLock = 0.6f;
     public float Recast;          // GCD recast for GCDs (0 = job base GCD); ignored for oGCDs (they use the cooldown group)
@@ -175,6 +177,12 @@ public sealed class JobBuilder(string name, float baseGcd)
             b.Resolve(job);
         foreach (var b in _statusLocks)
             b(job);
+        // cone skills check the cone target count
+        foreach (var s in job.Skills)
+            if (s.Cone)
+                for (var i = 0; i < s.Conditions.Length; ++i)
+                    if (s.Conditions[i].Kind == ConditionKind.TargetsAtLeast)
+                        s.Conditions[i] = s.Conditions[i] with { Kind = ConditionKind.ConeTargetsAtLeast };
         foreach (var s in job.Skills)
         {
             s.RequiresTarget &= s.Potency > 0 || s.AoePotency > 0 || s.PotencyIf.Length > 0;
@@ -225,6 +233,7 @@ public sealed class JobBuilder(string name, float baseGcd)
 
         public SkillBuilder ActionId(uint id) { Def.ActionId = id; return this; }
         public SkillBuilder Aoe(float potencyPerTarget, int minTargets) { Def.AoePotency = potencyPerTarget; Def.MinAoeTargets = minTargets; return this; }
+        public SkillBuilder Cone() { Def.Cone = true; return this; }
         public SkillBuilder Cast(float seconds) { Def.CastTime = seconds; return this; }
         public SkillBuilder Lock(float seconds) { Def.AnimationLock = seconds; return this; }
         public SkillBuilder Recast(float seconds) { Def.Recast = seconds; return this; }

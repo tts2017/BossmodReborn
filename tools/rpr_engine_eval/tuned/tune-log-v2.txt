@@ -1,0 +1,12 @@
+tuning RPR weights on 80 covered scenarios (of 369), depth 4, 10 generations
+gen   1: best     453.94  mean     386.25  sigma 0.184
+gen   2: best     457.27  mean     429.62  sigma 0.167
+gen   3: best     459.84  mean     437.61  sigma 0.165
+gen   4: best     460.21  mean     416.31  sigma 0.164
+gen   5: best     460.26  mean     451.18  sigma 0.164
+gen   6: best     460.37  mean     451.05  sigma 0.166
+gen   7: best     460.58  mean     453.31  sigma 0.183
+gen   8: best     460.90  mean     439.37  sigma 0.192
+gen   9: best     462.67  mean     453.42  sigma 0.201
+gen  10: best     462.67  mean     449.18  sigma 0.203
+fitness baseline 435.83 -> tuned 462.67; written tuned/weights-RPR-v2.json

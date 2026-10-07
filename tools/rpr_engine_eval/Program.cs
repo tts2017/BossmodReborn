@@ -37,6 +37,7 @@ public static class Program
             "plancheck" => PlanCheck.Run(),
             "prof2" => Prof2.Run(),
             "diagnose" => DiagnoseAll(args),
+            "failing" => Failing(args),
             _ => throw new ArgumentException("usage: compare|tune [options]")
         };
     }
@@ -176,7 +177,21 @@ public static class Program
         Console.WriteLine($"tuning RPR weights on {scenarios.Count} covered scenarios (of {pool.Count}), depth {baseWeights.HorizonGcds}, {generations} generations");
 
         static double Fitness(ScenarioResult r) => r.Score / r.Scenario.KillTime - 50.0 * r.HardFails.Count;
-        TunedParameter[] parameters = [.. Tuning.DefaultParameters, new("CooldownValue.GluttonyCD", 0, 1200), new("StatusValue.DeathsDesign", 0, 60), new("GaugeValue.Shroud", -500, 1500)];
+        // ranges widened where the first run pinned a value to its bound (OverCap, LambdaScale, FillerScale, GluttonyCD, Shroud)
+        TunedParameter[] parameters =
+        [
+            new(nameof(EngineWeights.OverCap), 0, 10),
+            new(nameof(EngineWeights.Combo), 0, 2),
+            new(nameof(EngineWeights.LambdaScale), 0.05f, 1.5f),
+            new(nameof(EngineWeights.TargetPull), 0, 1),
+            new(nameof(EngineWeights.SwitchMargin), 0, 100),
+            new(nameof(EngineWeights.FillerScale), 0.05f, 1.5f),
+            new(nameof(EngineWeights.BurstBias), 0, 3),
+            new(nameof(EngineWeights.StatusRemainder), 0, 2),
+            new("CooldownValue.GluttonyCD", -600, 2500),
+            new("StatusValue.DeathsDesign", 0, 120),
+            new("GaugeValue.Shroud", -2000, 1500),
+        ];
         var best = Tuning.Tune(baseWeights, parameters, scenarios, (w, sc) => Fitness(RunEngine(sc, w)), generations, seed, log: Console.WriteLine);
 
         var tuned = best.weights.Clone();
@@ -199,13 +214,29 @@ public static class Program
         return 0;
     }
 
+    private static int Failing(string[] args)
+    {
+        var w = Weights(args);
+        var rule = Enum.Parse<HardFailRule>(Arg(args, "--rule", "IllegalAction"));
+        Parallel.ForEach(Scenarios(args).Where(s => RprEnginePolicy.Covers(s) && s.InitialMode == RotationMode.Full), sc =>
+        {
+            if (RunEngine(sc, w).HardFails.Contains(rule))
+                Console.WriteLine(sc.Name);
+        });
+        return 0;
+    }
+
     private static int DiagnoseAll(string[] args)
     {
         var w = Weights(args);
         var counts = new System.Collections.Concurrent.ConcurrentDictionary<string, int>();
         Parallel.ForEach(Scenarios(args).Where(s => RprEnginePolicy.Covers(s) && s.InitialMode == RotationMode.Full), sc =>
         {
-            foreach (var k in Diagnose.Illegal(RunEngine(sc, w)).Distinct())
+            var res = RunEngine(sc, w);
+            var bucket = Arg(args, "--bucket", "illegal");
+            IEnumerable<string> raw = bucket switch { "gauge" => res.HardFails.Contains(HardFailRule.GaugeFailure) ? DiagnoseBuckets.Gauge(res) : [], "dd" => res.HardFails.Contains(HardFailRule.DeathsDesignFailure) ? (DiagnoseBuckets.Dd(res).ToList() is { Count: > 0 } dl ? dl : ["dd_unmirrored"]) : [], "burst" => res.HardFails.Contains(HardFailRule.BurstFailure) ? (DiagnoseBuckets.Burst(res).ToList() is { Count: > 0 } bl ? bl : ["burst_unmirrored"]) : [], _ => Diagnose.Illegal(res) };
+            var lines = Arg(args, "--detail", "") == "1" ? raw.Select(l => l + " | " + sc.Name) : raw.Select(l => l.IndexOf(" (") is var p && p >= 0 ? l[..p] : l);
+            foreach (var k in lines.Distinct())
                 counts.AddOrUpdate(k, 1, (_, v) => v + 1);
         });
         foreach (var (k, v) in counts.OrderByDescending(kv => kv.Value))

@@ -345,3 +345,73 @@ Step 2 ではモジュールを UI に登録しない (トイジョブはテス�
 - 根が oGCD のときに次の GCD を特定できず GCD を積まないことがあった → 三角主変化列で追跡。
 - 名前→番号の検索がラムダで毎フレーム確保していた → ループに変更。
 - 短い計測では JIT が最適化前 (Tier0) のままで 10 倍遅かった → 主要メソッドに `AggressiveOptimization`。
+
+## 14. RPR [Engine] の詰め (Step 3b)
+
+### 14.1 Execute p99 を旧 RPR.cs 以下に
+
+- **探索をフレームに分割**: 反復深化を `Start` / `Continue` に分け、1 回の呼び出しで使うのは `FrameBudgetMs` (RPR: 0.08 ms) まで。状態が変わらない間は次のフレームで続きから再開する (置換表と完了済みの深さを保持)。途中は「完了した最深の結果」を返す。打ち切り判定は 8 ノードごと。
+- これだけでは与ダメが不安定だった (GCD 数 117〜131)。原因は 2 つで、どちらも直した:
+  1. 根が oGCD のとき、置換表のヒットで主変化列が途中で切れて次の GCD が不明 → 置換表をたどる方式へフォールバック。
+  2. 対象不在 (ダウンタイム中) に Slice を選び続けていた → アダプタが「対象なし / 選択不可」を直近のダウンタイムとして渡す。
+- 効果がなかった / 不要だったもの: 総予算を 1.0 ms に増やす (与ダメ変わらず)、フレーム予算 0.1 ms (p99 が 157〜171 µs で旧と同等)。
+
+### 14.2 ハード失敗の原因と対処
+
+| 原因 | 種類 | 対処 |
+|---|---|---|
+| 範囲の対象がいない (best ranged AoE / line / cone が null) のに Communio 等を選ぶ | 実バグ (エンジンが照準可否を知らない) | 状態に `DisabledSkills` (ビットマスク) を追加。アダプタが照準不可のスキルを立てる |
+| Soul Slice のチャージ 0.9999 を 1 とみなす | 実バグ (変換の誤差補正) | 補正なしの切り捨て |
+| Soul 50 超で Soul Slice (Soul 溢れ) | 実損 | `SoulSlice` に Soul ≤ 50 の条件 (先に Blood Stalk で消費させる) |
+| Enshroud 終盤 / Reaver 中に DD が切れる | 実損 | Enshroud は DD 残り 13 秒以上、Gluttony は 6 秒以上、Blood Stalk / Grim Swathe は 3.5 秒以上を条件に |
+| 同じ窓で Gluttony → Arcane Circle の順 | 実損 (Gluttony に AC が乗らない) | oGCD を 1 つずつ決める呼び出しでも、ほぼ同価値なら定義順 (AC 先) を選ぶ |
+| 扇形 (Guillotine 等) の対象数を円形と同じとみなす | エンジンの表現不足 | 状態に `ConeTargets`、スキルに `Cone()` を追加 |
+| ポーションの「開幕を除く偶数バースト」設定を無視 | 設定の伝達漏れ | 30 秒未満はポーション不可としてエンジンに渡す |
+| Lemure 1 で Communio に対象がいないと GCD なし | まれな行き止まり | その窓だけ旧方針に委譲 (ハーネス) |
+| Enshroud 中の Slice / Soul Slice (ゲームが拒否、BMR 模擬環境で GCD が止まる) | 実バグ (定義の誤り) | Enshroud 中はフィラー GCD を禁止 |
+| 時間予算で探索が浅くなり失敗が増える | 評価方法 | 分析・チューニングは予算無制限・深さ 4 の決定的設定で行い、実時間は xan で別に測る |
+
+**残り 24 シナリオ** (rpr_regression、決定的評価) の内訳と判断:
+
+- **BurstFailure 10**: すべて旧方針の個別手順を指定したシナリオ (`post_perfectio_combo_priority_*` 4、`ending_duty_*` 4、`patch73_even_burst_two_ws_before_ac`、`perfectio_before_dd_to_fit_arcane` 等)。例: `patch73_even_burst_two_ws_before_ac` は「AC の前にウェポンスキル 2 回」を要求するが、エンジンは HarvestMoon → Void → Cross [AC] と AC を 3 GCD 目に置く (バースト内容は揃っている)。`ending_duty_trash_pack_hold_burst` は「次にボスが来るので雑魚にバーストを使わない」で、エンジンにはその情報が無く通常どおりバーストを使う → **別の妥当な選択 / 情報不足**として残した。
+- **GaugeFailure 11**: 開幕 2GCD の 4 シナリオは、開幕の Enshroud → Communio の間 Soul Slice が 2 チャージのまま約 11 秒 (チャージ回復の損失は約 0.37 回分 ≈ 190 威力)。Soul ≤ 50 の条件と Enshroud 中の禁止が重なるため。**小さな実損**として残した (Soul を先に吐けば解消するが、開幕の Enshroud を遅らせる方が大きい)。他は `soul_slice_before_arcane_6s` などのシナリオ固有規則と、対象不在系の特殊シナリオ。
+- **OpenerFailure 2** (`opener_0s_weave_order` / `opener_2gcd_weave_order`): 開幕の oGCD の並び順指定。エンジンは SoD [Potion, AC] → Soul Slice [Gluttony] と、ポーションと AC を 1 GCD 目に入れる → **別の妥当な選択**。
+- **AoeFailure 1** (`grim_swathe_three_targets_enhanced_single_wins`): シナリオ固有規則。
+
+### 14.3 再チューニング (範囲拡大)
+
+範囲: OverCap 0〜10、LambdaScale 0.05〜1.5、FillerScale 0.05〜1.5、Gluttony 価値補正 −600〜2500、Shroud 価値補正 −2000〜1500、DD 維持価値 0〜120。1 回目の結果から開始して 10 世代: 適合度 435.8 → 462.7。LambdaScale と FillerScale は再び下限 (0.05) に張り付いた。定義側に RPR の規則が入った分、上位層の shadow price と地平線のフィラー補完の影響は小さいという結果で、外さずに小さい値で残した。Gluttony 補正は 0 → 728 (ドリフト失敗の解消に効いた)。
+
+### 14.4 比較 (最終)
+
+**A. xan_timeline_harness (実モジュール、BMR 模擬ワールド)**
+
+| | 旧 RPR [Custom] | RPR [Engine] |
+|---|---:|---:|
+| 1 戦闘 300 秒: 威力 | 104,753 | **104,770** |
+| 1 戦闘 300 秒: 総合 | 107,518 | **107,576** |
+| 1 戦闘 300 秒: GCD 数 | 128 | 129 |
+| 1 戦闘: Execute 平均 / p99 | 76.1 / 169 µs | **33.4 / 133 µs** |
+| 9 戦闘 (timeline-matrix): 威力 | 636,791 | **639,926** (+0.5%) |
+| 9 戦闘: 総合 (威力 + 終端資源価値) | **665,096** | 659,014 (−0.9%) |
+| 9 戦闘: Execute 平均 / p99 | 61.7 / 152 µs | **28.9 / 135 µs** |
+| ヒープ確保 / 呼び出し | 886〜1,053 B | **0〜1 B** |
+
+9 戦闘の総合値の差は終端資源価値 (戦闘終了時に残ったゲージ等の評価) で、旧版は終了時に資源を多く抱えている。agents_rpr.md の方針 (「資源を貯めるだけの変更は利得ではない」) に従い、威力の方を主指標とした。
+
+**B. rpr_regression (369 シナリオ、決定的評価)**
+
+| | 旧 (移植版) | Step 3 | Step 3b |
+|---|---:|---:|---:|
+| DPS 指標 | 377.3 | 386.4 | **393.5** (+4.3%) |
+| ハーネススコア | 144,131 | 144,545 | **146,773** |
+| 失敗シナリオ | 0 | 177 | **24** |
+| AoeFailure | 0 | 5 | 1 |
+| BurstFailure | 0 | 46 | 10 |
+| DeathsDesignFailure | 0 | 45 | 0 |
+| drift_full_mode_gluttony_interval | 0 | 48 | 0 |
+| GaugeFailure | 0 | 86 | 11 |
+| IllegalAction | 0 | 6 | **0** |
+| OpenerFailure | 0 | 2 | 2 |
+| PotionFailure | 0 | 1 | 0 |
+| WeaveOrderFailure | 0 | 13 | 0 |

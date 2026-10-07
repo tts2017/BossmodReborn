@@ -42,7 +42,7 @@ public sealed class RprEnginePolicy
         ++EngineWindows;
         var engine = EngineFor(sc.Gcd);
         var job = engine.Job;
-        var s = ReadState(job, sc, st, ctx);
+        var s = ReadState(job, sc, st, ctx, time);
         var tl = BuildTimeline(sc, time);
 
         var ogcds = new List<string>(2);
@@ -75,6 +75,9 @@ public sealed class RprEnginePolicy
                 // harness rule: a weave Enshroud is judged on the gauge at the start of the window (except after Plentiful Harvest); wait one window
                 if (og.Name == "Enshroud" && st.BlueGauge < 50 && !st.IdealHost && gcd != "PlentifulHarvest")
                     break;
+                // harness rule: the potion cooldown is judged at the start of the window
+                if (og.Name == "Potion" && st.PotionReadyIn > 0.1)
+                    break;
                 ogcds.Add(RprDefinition.HarnessName(og, local, job));
                 Simulator.Execute(job, ref local, tl, og, ctxEval);
                 s = local;
@@ -85,13 +88,29 @@ public sealed class RprEnginePolicy
         var pot = ogcds.IndexOf("Potion");
         if (ac >= 0 && pot > ac && time < 240)
             (ogcds[ac], ogcds[pot]) = (ogcds[pot], ogcds[ac]);
+        // the engine found no usable GCD although there is a target (e.g. one Lemure left but Communio has no target): let the built-in policy decide
+        if (gcd == null && ctx.TargetAvailable)
+        {
+            --EngineWindows;
+            ++FallbackWindows;
+            return null;
+        }
         return (gcd, ogcds);
     }
 
-    public static EngineState ReadState(JobDefinition job, ScenarioDefinition sc, RprState st, RprContext ctx)
+    public static EngineState ReadState(JobDefinition job, ScenarioDefinition sc, RprState st, RprContext ctx, double time = 0)
     {
         var s = EngineState.Create(job);
         s.Targets = (byte)Math.Max(1, ctx.AoeTargets);
+        s.ConeTargets = (byte)Math.Max(1, ctx.ConeTargets);
+        // targeting the harness reports as unavailable (null best AoE / line / cone target)
+        ulong Mask(params string[] names) { ulong m = 0; foreach (var n in names) m |= 1UL << job.SkillIndex(n); return m; }
+        if (!ctx.BestRangedAoeTargetAvailable)
+            s.DisabledSkills |= Mask("Communio", "Perfectio", "HarvestMoon", "Gluttony", "Sacrificium");
+        if (!ctx.BestLineTargetAvailable)
+            s.DisabledSkills |= Mask("PlentifulHarvest");
+        if (!ctx.BestConeTargetAvailable)
+            s.DisabledSkills |= Mask("Guillotine", "ExecutionersGuillotine", "GrimReaping", "GrimSwathe", "LemuresScythe");
         s.Gauges[job.GaugeIndex(RprDefinition.Soul)] = (short)st.RedGauge;
         s.Gauges[job.GaugeIndex(RprDefinition.Shroud)] = (short)st.BlueGauge;
         s.Gauges[job.GaugeIndex(RprDefinition.Lemure)] = (short)st.BlueSouls;
@@ -140,13 +159,13 @@ public sealed class RprEnginePolicy
             s.CdReadyIn[i] = (float)Math.Max(0, readyIn);
         }
         var ss = job.CooldownIndex(RprDefinition.SoulSliceCD);
-        var whole = (int)Math.Floor(st.SoulSliceCharges + 1e-6);
+        var whole = (int)Math.Floor(st.SoulSliceCharges); // no epsilon: the harness treats 0.9999 as "no charge"
         s.Charges[ss] = (byte)Math.Min(2, whole);
         s.CdReadyIn[ss] = whole >= 2 ? 0 : (float)((1 - (st.SoulSliceCharges - whole)) * 30);
         Cd(RprDefinition.ArcaneCircleCD, st.ArcaneCircleReadyIn);
         Cd(RprDefinition.GluttonyCD, st.GluttonyReadyIn);
         Cd(RprDefinition.EnshroudCD, st.EnshroudReadyIn);
-        if (sc.Potion == PotionMode.Off)
+        if (sc.Potion == PotionMode.Off || sc.Potion == PotionMode.EvenBurstExceptOpener && time < 30)
             Cd(RprDefinition.PotionCD, 10000);
         else
             Cd(RprDefinition.PotionCD, st.PotionReadyIn);

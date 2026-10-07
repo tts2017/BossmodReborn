@@ -39,11 +39,13 @@ public struct EngineState
     public byte ComboSkill;
     public float ComboLeft;
     public byte Targets;
+    public byte ConeTargets;  // targets hit by cone-shaped skills (SkillDef.Cone); 0 = same as Targets
     public GaugeArray Gauges;
     public StatusTimeArray StatusLeft;
     public StatusStackArray StatusStacks;
     public CooldownTimeArray CdReadyIn; // time until the next charge comes back (0 when at max charges)
     public ChargeArray Charges;
+    public ulong DisabledSkills; // bit = skill index: unusable for reasons outside the definition (no target in range for that shape, game refuses it)
 
     public static EngineState Create(JobDefinition job)
     {
@@ -71,6 +73,9 @@ public struct EngineState
         h = Mix(h, ComboSkill);
         h = Mix(h, ComboSkill == EngineLimits.NoCombo ? 0 : Q(ComboLeft, inv));
         h = Mix(h, Targets);
+        h = Mix(h, ConeTargets);
+        h = Mix(h, (uint)DisabledSkills);
+        h = Mix(h, (uint)(DisabledSkills >> 32));
         for (var i = 0; i < job.Gauges.Length; ++i)
             h = Mix(h, (uint)(ushort)Gauges[i]);
         for (var i = 0; i < job.Statuses.Length; ++i)

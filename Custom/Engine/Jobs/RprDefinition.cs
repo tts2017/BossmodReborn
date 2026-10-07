@@ -66,17 +66,17 @@ public static class RprDefinition
             .Cooldown(EnshroudCD, 5)
             .Cooldown(PotionCD, 270);
 
-        // --- combo and fillers (any other weaponskill ends Soul Reaver / Executioner) ---
-        b.Gcd("Slice", 420, 24373).StartsCombo().GainGauge(Soul, 10).ForbidStatuses(ReaverStatuses)
-            .Gcd("WaxingSlice", 200, 24374).ComboFrom("Slice", 500).IfCombo("Slice").GainGauge(Soul, 10).ForbidStatuses(ReaverStatuses)
-            .Gcd("InfernalSlice", 200, 24375).ComboFrom("WaxingSlice", 600).IfCombo("WaxingSlice").GainGauge(Soul, 10).EndsCombo().ForbidStatuses(ReaverStatuses)
-            .Gcd("SpinningScythe", 0, 24376).Aoe(140, 3).RequiresTargets(3).StartsCombo().GainGauge(Soul, 10).ForbidStatuses(ReaverStatuses)
-            .Gcd("NightmareScythe", 0, 24377).Aoe(180, 3).RequiresTargets(3).RequiresCombo("SpinningScythe").GainGauge(Soul, 10).EndsCombo().ForbidStatuses(ReaverStatuses)
+        // --- combo and fillers (blocked under Soul Reaver / Executioner and while Enshrouded: the game refuses them there) ---
+        b.Gcd("Slice", 420, 24373).StartsCombo().GainGauge(Soul, 10).ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded)
+            .Gcd("WaxingSlice", 200, 24374).ComboFrom("Slice", 500).IfCombo("Slice").GainGauge(Soul, 10).ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded)
+            .Gcd("InfernalSlice", 200, 24375).ComboFrom("WaxingSlice", 600).IfCombo("WaxingSlice").GainGauge(Soul, 10).EndsCombo().ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded)
+            .Gcd("SpinningScythe", 0, 24376).Aoe(140, 3).RequiresTargets(3).StartsCombo().GainGauge(Soul, 10).ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded)
+            .Gcd("NightmareScythe", 0, 24377).Aoe(180, 3).RequiresTargets(3).RequiresCombo("SpinningScythe").GainGauge(Soul, 10).EndsCombo().ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded)
             .Gcd("ShadowOfDeath", 300, 24378).ComboNeutral().ForbidStatus(Enshrouded).ApplyStatus(DeathsDesign, 30, extend: true).ForbidStatuses(ReaverStatuses)
             .Gcd("WhorlOfDeath", 0, 24379).Aoe(100, 3).RequiresTargets(3).ComboNeutral().ForbidStatus(Enshrouded).ApplyStatus(DeathsDesign, 30, extend: true).ForbidStatuses(ReaverStatuses)
-            .Gcd("SoulSlice", 520, 24380).UsesCooldown(SoulSliceCD).ComboNeutral().GainGauge(Soul, 50).ForbidStatuses(ReaverStatuses)
-            .Gcd("SoulScythe", 0, 24381).Aoe(180, 3).RequiresTargets(3).UsesCooldown(SoulSliceCD).ComboNeutral().GainGauge(Soul, 50).ForbidStatuses(ReaverStatuses)
-            .Gcd("HarvestMoon", 800, 24388).ComboNeutral().RequiresStatus(Soulsow).RemoveStatus(Soulsow).GainGauge(Soul, 10).ForbidStatuses(ReaverStatuses)
+            .Gcd("SoulSlice", 520, 24380).UsesCooldown(SoulSliceCD).RequiresGaugeAtMost(Soul, 50).ComboNeutral().GainGauge(Soul, 50).ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded)
+            .Gcd("SoulScythe", 0, 24381).Aoe(180, 3).RequiresTargets(3).UsesCooldown(SoulSliceCD).RequiresGaugeAtMost(Soul, 50).ComboNeutral().GainGauge(Soul, 50).ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded)
+            .Gcd("HarvestMoon", 800, 24388).ComboNeutral().RequiresStatus(Soulsow).RemoveStatus(Soulsow).GainGauge(Soul, 10).ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded)
             .Gcd("Soulsow", 0, 24387).NoTarget().Cast(5).ComboNeutral().ForbidStatus(Soulsow).ForbidStatuses(ReaverStatuses).ApplyStatus(Soulsow, 3600)
 
             // --- Soul Reaver / Executioner GCDs ---
@@ -84,12 +84,12 @@ public static class RprDefinition
                 .RemoveStatus(EnhancedGibbet).ApplyStatus(EnhancedGallows, 60).GainGauge(Shroud, 10)
             .Gcd("Gallows", 500, 24383).ComboNeutral().ConsumeStacks(SoulReaver).ForbidStatus(EnhancedGibbet).PotencyIfStatus(EnhancedGallows, 560)
                 .RemoveStatus(EnhancedGallows).ApplyStatus(EnhancedGibbet, 60).GainGauge(Shroud, 10)
-            .Gcd("Guillotine", 0, 24384).Aoe(200, 4).RequiresTargets(4).ComboNeutral().ConsumeStacks(SoulReaver).GainGauge(Shroud, 10)
+            .Gcd("Guillotine", 0, 24384).Aoe(200, 4).Cone().RequiresTargets(4).ComboNeutral().ConsumeStacks(SoulReaver).GainGauge(Shroud, 10)
             .Gcd("ExecutionersGibbet", 700, 36970).ComboNeutral().ConsumeStacks(Executioner).ForbidStatus(EnhancedGallows).PotencyIfStatus(EnhancedGibbet, 760)
                 .RemoveStatus(EnhancedGibbet).ApplyStatus(EnhancedGallows, 60).GainGauge(Shroud, 10)
             .Gcd("ExecutionersGallows", 700, 36971).ComboNeutral().ConsumeStacks(Executioner).ForbidStatus(EnhancedGibbet).PotencyIfStatus(EnhancedGallows, 760)
                 .RemoveStatus(EnhancedGallows).ApplyStatus(EnhancedGibbet, 60).GainGauge(Shroud, 10)
-            .Gcd("ExecutionersGuillotine", 0, 36972).Aoe(260, 4).RequiresTargets(4).ComboNeutral().ConsumeStacks(Executioner).GainGauge(Shroud, 10)
+            .Gcd("ExecutionersGuillotine", 0, 36972).Aoe(260, 4).Cone().RequiresTargets(4).ComboNeutral().ConsumeStacks(Executioner).GainGauge(Shroud, 10)
 
             // --- Enshroud (1.5 s reapings while 2+ Lemure remain; the last one is always Communio, which ends it) ---
             .Gcd("VoidReaping", 580, 24395).Recast(1.5f).ComboNeutral().RequiresStatus(Enshrouded).RequiresGauge(Lemure, 2).PotencyIfStatus(EnhancedVoid, 640)
@@ -98,7 +98,7 @@ public static class RprDefinition
             .Gcd("CrossReaping", 580, 24396).Recast(1.5f).ComboNeutral().RequiresStatus(Enshrouded).RequiresGauge(Lemure, 2).PotencyIfStatus(EnhancedCross, 640)
                 .GainGauge(Lemure, -1).GainGauge(Void, 1).RemoveStatus(EnhancedCross).ApplyStatus(EnhancedVoid, 30)
                 .IfGaugeAtMost(Lemure, 0).RemoveStatus(Enshrouded).IfGaugeAtMost(Lemure, 0).GainGauge(Void, -5).IfGaugeAtMost(Lemure, 0).RemoveStatus(Oblatio).IfGaugeAtMost(Lemure, 0).ApplyStatus(EnshroudEnding, 1.2f)
-            .Gcd("GrimReaping", 0, 24397).Aoe(220, 3).RequiresTargets(3).Recast(1.5f).ComboNeutral().RequiresStatus(Enshrouded).RequiresGauge(Lemure, 2)
+            .Gcd("GrimReaping", 0, 24397).Aoe(220, 3).Cone().RequiresTargets(3).Recast(1.5f).ComboNeutral().RequiresStatus(Enshrouded).RequiresGauge(Lemure, 2)
                 .GainGauge(Lemure, -1).GainGauge(Void, 1)
                 .IfGaugeAtMost(Lemure, 0).RemoveStatus(Enshrouded).IfGaugeAtMost(Lemure, 0).GainGauge(Void, -5).IfGaugeAtMost(Lemure, 0).RemoveStatus(Oblatio).IfGaugeAtMost(Lemure, 0).ApplyStatus(EnshroudEnding, 1.2f)
             .Gcd("Communio", 1100, 24398).Cast(1.3f).ComboNeutral().RequiresStatus(Enshrouded).RequiresGauge(Lemure, 1).RequiresGaugeAtMost(Lemure, 1)
@@ -108,21 +108,21 @@ public static class RprDefinition
             .Gcd("PlentifulHarvest", 1000, 24385).ComboNeutral().RequiresStatus(ImmortalSacrifice).ForbidStatuses(Bloodsown, SoulReaver, Executioner, Enshrouded)
                 .RemoveStatus(ImmortalSacrifice).ApplyStatus(IdealHost, 30).ApplyStatus(PerfectioOcculta, 30)
 
-            // --- oGCDs ---
+            // --- oGCDs --- (Soul spenders need enough Death's Design left for the reaver GCDs that follow: Shadow of Death cannot interrupt them)
             // Arcane Circle and the potion first: weaves of one window are searched in definition order, and the burst opens with AC
             .Ogcd("ArcaneCircle", 0, ArcaneCircleCD, 24405).NoTarget().PartyValue(0)
                 .ApplyStatus(ArcaneCircle, 20).ApplyStatus(ImmortalSacrifice, 30, stacks: 8).ApplyStatus(Bloodsown, 6)
             .Ogcd("Potion", 0, PotionCD).NoTarget().RequiresStatus(ArcaneCircle).ApplyStatus(Medicated, 30)
-            .Ogcd("BloodStalk", 340, actionId: 24389).SpendGauge(Soul, 50).ForbidStatuses(Enshrouded, SoulReaver, Executioner, EnshroudEnding)
+            .Ogcd("BloodStalk", 340, actionId: 24389).RequiresStatusLeft(DeathsDesign, 3.5f).SpendGauge(Soul, 50).ForbidStatuses(Enshrouded, SoulReaver, Executioner, EnshroudEnding)
                 .PotencyIfStatus(EnhancedGibbet, 440).PotencyIfStatus(EnhancedGallows, 440).ApplyStatus(SoulReaver, 30)
-            .Ogcd("GrimSwathe", 0, actionId: 24392).Aoe(140, 3).RequiresTargets(3).SpendGauge(Soul, 50).ForbidStatuses(Enshrouded, SoulReaver, Executioner, EnshroudEnding).ApplyStatus(SoulReaver, 30)
-            .Ogcd("Gluttony", 560, GluttonyCD, 24393).SpendGauge(Soul, 50).ForbidStatuses(Enshrouded, SoulReaver, Executioner, EnshroudEnding).ApplyStatus(Executioner, 30, stacks: 2)
-            .Ogcd("Enshroud", 0, EnshroudCD, 24394).NoTarget().RequiresStatusLeft(DeathsDesign, 10).SpendGauge(Shroud, 50).ForbidStatuses(IdealHost, Enshrouded, SoulReaver, Executioner)
+            .Ogcd("GrimSwathe", 0, actionId: 24392).RequiresStatusLeft(DeathsDesign, 3.5f).Aoe(140, 3).Cone().RequiresTargets(3).SpendGauge(Soul, 50).ForbidStatuses(Enshrouded, SoulReaver, Executioner, EnshroudEnding).ApplyStatus(SoulReaver, 30)
+            .Ogcd("Gluttony", 560, GluttonyCD, 24393).RequiresStatusLeft(DeathsDesign, 6).SpendGauge(Soul, 50).ForbidStatuses(Enshrouded, SoulReaver, Executioner, EnshroudEnding).ApplyStatus(Executioner, 30, stacks: 2)
+            .Ogcd("Enshroud", 0, EnshroudCD, 24394).NoTarget().RequiresStatusLeft(DeathsDesign, 13).SpendGauge(Shroud, 50).ForbidStatuses(IdealHost, Enshrouded, SoulReaver, Executioner)
                 .GainGauge(Lemure, 5).ApplyStatus(Enshrouded, 30).ApplyStatus(Oblatio, 30).RemoveStatus(PerfectioParata)
-            .Ogcd("EnshroudIdeal", 0, EnshroudCD, 24394).NoTarget().RequiresStatusLeft(DeathsDesign, 10).RequiresStatus(IdealHost).ForbidStatuses(Enshrouded, SoulReaver, Executioner)
+            .Ogcd("EnshroudIdeal", 0, EnshroudCD, 24394).NoTarget().RequiresStatusLeft(DeathsDesign, 13).RequiresStatus(IdealHost).ForbidStatuses(Enshrouded, SoulReaver, Executioner)
                 .RemoveStatus(IdealHost).GainGauge(Lemure, 5).ApplyStatus(Enshrouded, 30).ApplyStatus(Oblatio, 30).RemoveStatus(PerfectioParata)
             .Ogcd("LemuresSlice", 280, actionId: 24399).RequiresStatus(Enshrouded).SpendGauge(Void, 2)
-            .Ogcd("LemuresScythe", 0, actionId: 24400).Aoe(100, 3).RequiresTargets(3).RequiresStatus(Enshrouded).SpendGauge(Void, 2)
+            .Ogcd("LemuresScythe", 0, actionId: 24400).Aoe(100, 3).Cone().RequiresTargets(3).RequiresStatus(Enshrouded).SpendGauge(Void, 2)
             .Ogcd("Sacrificium", 700, actionId: 36969).ConsumeStacks(Oblatio)
             ;
         return b.Build();
@@ -139,13 +139,14 @@ public static class RprDefinition
 
     public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
 
-    // CMA-ES result (tools/rpr_engine_eval tune --real 300 --limit 80 --generations 8 --seed 1 --depth 4; harness fitness 330.8 -> 436.8).
-    // Several values sit on their search bounds (OverCap, LambdaScale, FillerScale, GluttonyCD, Shroud): a wider search may still improve.
+    // CMA-ES result, second run with widened ranges (tools/rpr_engine_eval tune --real 300 --limit 80 --generations 10 --seed 2 --depth 4,
+    // started from the first run; harness fitness 435.8 -> 462.7). LambdaScale and FillerScale settle at their lower bound (0.05): the
+    // shadow prices and horizon filler matter little once the definition carries the RPR rules; kept small rather than removed.
     public const string DefaultWeightsJson = """
     {
-      "OverCap": 3, "Combo": 0.92711437, "LambdaScale": 0.5, "TargetPull": 0, "SwitchMargin": 41.39401,
-      "FillerScale": 0.5, "BurstBias": 1.2401603, "StatusRemainder": 0.36573336,
-      "StatusValue": { "DeathsDesign": 29.857643 }, "CooldownValue": { "GluttonyCD": 0 }, "GaugeValue": { "Shroud": -500 },
+      "OverCap": 2.0607274, "Combo": 1.0372564, "LambdaScale": 0.05, "TargetPull": 0, "SwitchMargin": 33.370934,
+      "FillerScale": 0.05, "BurstBias": 2.5960407, "StatusRemainder": 1.0677418,
+      "StatusValue": { "DeathsDesign": 0 }, "CooldownValue": { "GluttonyCD": 727.738 }, "GaugeValue": { "Shroud": -188.75427 },
       "HorizonGcds": 4, "BudgetMs": 0.5
     }
     """;
