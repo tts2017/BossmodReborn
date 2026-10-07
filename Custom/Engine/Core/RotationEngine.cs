@@ -16,6 +16,7 @@ public struct EngineDecision
     public int Nodes;
     public bool Reused;      // returned from the cache without searching
     public bool Hysteresis;  // previous choice kept by the switch margin
+    public bool Partial;     // search not finished yet (it continues on the next call with the same state)
 }
 
 // Facade: upper-tier planning on timeline changes, lower-tier iterative-deepening branch-and-bound search per decision,
@@ -39,10 +40,14 @@ public sealed class RotationEngine
 
     public float ReplanInterval = 2.0f;
     public float MaxReuseAge = 1.0f; // seconds a result is reused while only timers change
+    // > 0: per-call slice of the search budget; the search then spreads over several calls (frames) and returns its best-so-far meanwhile
+    public float FrameBudgetMs = 0;
+    private bool _pending;
+    private ulong _pendingKey;
     private float _lastSearchNow = float.NegativeInfinity;
 
     // forget the cached result (the next Decide searches even if the state is unchanged)
-    public void InvalidateCache() => _hasLast = false;
+    public void InvalidateCache() { _hasLast = false; _pending = false; }
 
     public RotationEngine(JobDefinition job, EngineWeights weights)
     {
@@ -78,6 +83,7 @@ public sealed class RotationEngine
 
     public void Reset()
     {
+        _pending = false;
         _hasLast = false;
         _lastTimelineVersion = int.MinValue;
         _lastPlanTime = float.NegativeInfinity;
@@ -105,6 +111,13 @@ public sealed class RotationEngine
         // reuse while nothing discrete changed (gauges, charges, which statuses are up, combo, targets) and the last search is recent:
         // timers ticking down alone do not trigger a new search more often than every MaxReuseAge seconds
         var key = state.Hash(Job, 1000) ^ ((ulong)(uint)timeline.Version * 0x9E3779B97F4A7C15UL);
+        // an unfinished search continues while the state is unchanged (it was started on an earlier call; timers drifting a few frames do not matter)
+        if (_pending)
+        {
+            if (key == _pendingKey)
+                return Continue(key);
+            _pending = false;
+        }
         if (_hasLast && key == _lastKey && now - _lastSearchNow < MaxReuseAge && now >= _lastSearchNow)
         {
             var d = _last;
@@ -119,9 +132,19 @@ public sealed class RotationEngine
             _lastPlanTime = now;
         }
 
-        var decision = _search.Run(state, timeline, now - _lastPlanTime, _prevChoice);
+        _search.Start(state, timeline, now - _lastPlanTime, _prevChoice);
         _lastSearchNow = now;
-        _prevChoice = decision.Skill;
+        return Continue(key);
+    }
+
+    private EngineDecision Continue(ulong key)
+    {
+        var frameTicks = FrameBudgetMs > 0 ? (long)(FrameBudgetMs * Stopwatch.Frequency / 1000) : long.MaxValue;
+        var finished = _search.Continue(frameTicks, out var decision);
+        _pending = !finished;
+        _pendingKey = key;
+        if (finished)
+            _prevChoice = decision.Skill;
         _last = decision;
         _lastKey = key;
         _hasLast = true;
@@ -163,6 +186,13 @@ internal sealed class LowerSearch
     private int _rootPvLen;
     private readonly float[] _rootValues = new float[MoveSlots];
     private readonly bool[] _rootSeen = new bool[MoveSlots];
+    private readonly float[] _doneValues = new float[MoveSlots];
+    private readonly bool[] _doneSeen = new bool[MoveSlots];
+    private EngineState _root;
+    private int _nextDepth;
+    private int _prevChoiceForRun;
+    private EngineDecision _best;
+    private long _spentTicks;
     private readonly Stopwatch _clock = new();
     private int _generation;
 
@@ -218,10 +248,19 @@ internal sealed class LowerSearch
         return total + leaf;
     }
 
-    public float RootValue(int skill) => _rootSeen[skill] ? _rootValues[skill] : float.NaN;
+    public float RootValue(int skill) => _doneSeen[skill] ? _doneValues[skill] : float.NaN;
 
-    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    // one-shot search within the whole budget
     public EngineDecision Run(in EngineState root, in EngineTimeline tl, float planOffset, int prevChoice)
+    {
+        Start(root, tl, planOffset, prevChoice);
+        Continue(long.MaxValue, out var d);
+        return d;
+    }
+
+    // Prepares a new search from `root`. The iterative deepening then runs in Continue, possibly over several calls:
+    // the transposition table and the completed depths survive between calls, so each call picks up where the last stopped.
+    public void Start(in EngineState root, in EngineTimeline tl, float planOffset, int prevChoice)
     {
         _tl = tl;
         _planOffset = planOffset;
@@ -237,44 +276,66 @@ internal sealed class LowerSearch
         for (var i = 0; i < _job.Statuses.Length; ++i)
             maxStatus += _ctx.StatusValuePerSecond[i] * _job.Statuses[i].MaxDuration * maxMult;
         _maxLeafExtra = maxRes * MathF.Max(1, w.LambdaScale) + maxStatus * MathF.Max(1, w.StatusRemainder) + MathF.Max(0, w.Combo) * _maxComboBonus + 1;
-        _budgetTicks = (long)(w.BudgetMs * Stopwatch.Frequency / 1000);
         ++_generation;
         _nodes = 0;
-        _clock.Restart();
+        _spentTicks = 0;
+        _root = root;
+        _nextDepth = 1;
+        _prevChoiceForRun = prevChoice;
+        _best = new EngineDecision { Skill = EngineDecision.Wait, NextGcd = EngineDecision.Wait, Value = float.MinValue };
+        _rootPvLen = 0;
+        Array.Clear(_doneSeen);
+    }
 
-        var best = new EngineDecision { Skill = EngineDecision.Wait, NextGcd = EngineDecision.Wait, Value = float.MinValue };
-        var rootState = root;
-        for (var depth = 1; depth <= Math.Max(1, w.HorizonGcds); ++depth)
+    // Runs iterations until this call's slice or the total budget is used, or the horizon depth is done (returns true).
+    // Depth 1 always completes. `result` is the best line of the deepest completed iteration.
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    public bool Continue(long sliceTicks, out EngineDecision result)
+    {
+        var w = _engine.Weights;
+        var totalTicks = (long)(w.BudgetMs * Stopwatch.Frequency / 1000);
+        var maxDepth = Math.Max(1, w.HorizonGcds);
+        var allowed = Math.Min(sliceTicks, Math.Max(0, totalTicks - _spentTicks));
+        _clock.Restart();
+        while (_nextDepth <= maxDepth)
         {
+            _budgetTicks = _nextDepth == 1 ? long.MaxValue : allowed;
             Array.Clear(_rootSeen);
             _rootBest = float.MinValue;
             _aborted = false;
-            var value = Search(ref rootState, depth, 0, 0, -1, out var move);
-            if (_aborted && depth > 1)
-                break;
-            best.Skill = move == WaitMove ? EngineDecision.Wait : move;
-            best.Value = value;
-            best.Depth = depth;
-            _rootPvLen = _pvLen[0];
-            Array.Copy(_pv, 0, _rootPv, 0, _rootPvLen);
+            var value = Search(ref _root, _nextDepth, 0, 0, -1, out var move);
             if (_aborted)
                 break;
+            _best.Skill = move == WaitMove ? EngineDecision.Wait : move;
+            _best.Value = value;
+            _best.Depth = _nextDepth;
+            _rootPvLen = _pvLen[0];
+            Array.Copy(_pv, 0, _rootPv, 0, _rootPvLen);
+            Array.Copy(_rootSeen, _doneSeen, _rootSeen.Length);
+            Array.Copy(_rootValues, _doneValues, _rootValues.Length);
+            ++_nextDepth;
         }
+        _spentTicks += _clock.ElapsedTicks;
+        var finished = _nextDepth > maxDepth || _spentTicks >= totalTicks;
 
+        var best = _best;
         // hysteresis: keep the previous choice if it is still available and nearly as good
-        if (prevChoice >= 0 && prevChoice != best.Skill && _rootSeen[prevChoice] && _rootValues[prevChoice] >= best.Value - w.SwitchMargin)
+        var prev = _prevChoiceForRun;
+        if (prev >= 0 && prev != best.Skill && _doneSeen[prev] && _doneValues[prev] >= best.Value - w.SwitchMargin)
         {
-            best.Skill = prevChoice;
-            best.Value = _rootValues[prevChoice];
+            best.Skill = prev;
+            best.Value = _doneValues[prev];
             best.Hysteresis = true;
         }
-
         if (!best.Hysteresis && _rootPvLen > 0 && _rootPv[0] == best.Skill)
-            PrincipalVariationFromTable(root, ref best);
-        else
-            FillPrincipalVariation(root, ref best);
+            PrincipalVariationFromTable(_root, ref best);
+        // the table line can stop early (a transposition-table hit returns no line below it): walk the table instead
+        if (best.NextGcd < 0 && best.Skill >= 0)
+            FillPrincipalVariation(_root, ref best);
         best.Nodes = _nodes;
-        return best;
+        best.Partial = !finished;
+        result = best;
+        return finished;
     }
 
     private float MaxImmediate(bool gcd, int targets)
@@ -379,7 +440,7 @@ internal sealed class LowerSearch
                 _rootBest = acc + leaf;
             return leaf;
         }
-        if ((++_nodes & 31) == 0 && _clock.ElapsedTicks > _budgetTicks)
+        if ((++_nodes & 7) == 0 && _clock.ElapsedTicks > _budgetTicks)
             _aborted = true;
         if (_aborted)
             return Leaf(s);

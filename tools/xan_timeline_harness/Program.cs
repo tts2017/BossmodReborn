@@ -100,6 +100,8 @@ internal static partial class Program
             }
             if (Environment.GetEnvironmentVariable("ENGINE_WEIGHTS") is { Length: > 0 } weightsPath)
                 BossMod.Autorotation.RprEngineModule.WeightsOverride = BossMod.Autorotation.Engine.EngineWeights.Load(weightsPath);
+            if (Environment.GetEnvironmentVariable("ENGINE_FRAME_MS") is { Length: > 0 } frameMs)
+                BossMod.Autorotation.RprEngineModule.FrameBudgetOverride = float.Parse(frameMs, System.Globalization.CultureInfo.InvariantCulture);
             if (Environment.GetEnvironmentVariable("ENGINE_TRACE") == "1")
                 BossMod.Autorotation.EngineRotationModule.DebugTrace = Console.WriteLine;
             var command = args.Length > 0 ? args[0] : "event-timeline";

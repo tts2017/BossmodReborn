@@ -12,6 +12,7 @@ public sealed class RprEngineModule(RotationModuleManager manager, Actor player)
 {
     // harnesses: replaces the built-in weights for modules created afterwards
     public static EngineWeights? WeightsOverride;
+    public static float? FrameBudgetOverride;
 
     public static RotationModuleDefinition Definition()
         => new("RPR [Engine]", "Reaper on the two-tier rotation engine (burst-window planning + short search). Experimental, level 100.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.RPR), 100, 100);
@@ -20,7 +21,9 @@ public sealed class RprEngineModule(RotationModuleManager manager, Actor player)
     {
         var stats = manager.WorldState.Client.PlayerStats;
         var gcd = stats.SkillSpeed > 0 ? ActionSpeed.GCDRounded(stats.SkillSpeed, stats.Haste, player.Level) : 2.5f;
-        return new RotationEngine(RprDefinition.Build(gcd), WeightsOverride?.Clone() ?? RprDefinition.DefaultWeights());
+        // the search runs in slices of FrameBudgetMs per frame (continuing on the next frames while the state is unchanged), so a
+        // single frame never pays for the whole BudgetMs
+        return new RotationEngine(RprDefinition.Build(gcd), WeightsOverride?.Clone() ?? RprDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.08f };
     }
 
     public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)

@@ -36,14 +36,14 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         s.Targets = CountTargets(primaryTarget);
         ReadJobState(ref s, primaryTarget);
 
-        var tl = BuildTimeline(isMoving);
+        var tl = BuildTimeline(isMoving, primaryTarget);
         if (_epoch == default)
             _epoch = World.CurrentTime;
         var now = (float)(World.CurrentTime - _epoch).TotalSeconds; // small numbers: float keeps millisecond precision
         var d = Engine.Decide(s, tl, now);
         LastDecision = d;
         if (DebugTrace != null && !d.Reused)
-            DebugTrace(FormattableString.Invariant($"[engine {Job.Name}] t={now:f2} gcd={GCD:f2} skill={(d.Skill >= 0 ? Job.Skills[d.Skill].Name : "wait")} nextGcd={(d.NextGcd >= 0 ? Job.Skills[d.NextGcd].Name : "wait")} at={d.ExecuteAt:f2} depth={d.Depth} nodes={d.Nodes} hyst={d.Hysteresis} combo={(s.ComboSkill != EngineLimits.NoCombo ? Job.Skills[s.ComboSkill].Name : "-")}/{World.Client.ComboState.Action}:{World.Client.ComboState.Remaining:f1} targets={s.Targets} legalGcds={string.Join(",", LegalGcds(s, tl))}"));
+            DebugTrace(FormattableString.Invariant($"[engine {Job.Name}] t={now:f2} gcd={GCD:f2} skill={(d.Skill >= 0 ? Job.Skills[d.Skill].Name : "wait")} nextGcd={(d.NextGcd >= 0 ? Job.Skills[d.NextGcd].Name : "wait")} at={d.ExecuteAt:f2} depth={d.Depth} nodes={d.Nodes} hyst={d.Hysteresis} partial={d.Partial} combo={(s.ComboSkill != EngineLimits.NoCombo ? Job.Skills[s.ComboSkill].Name : "-")}/{World.Client.ComboState.Action}:{World.Client.ComboState.Remaining:f1} targets={s.Targets} legalGcds={string.Join(",", LegalGcds(s, tl))}"));
 
         if (d.NextGcd >= 0)
         {
@@ -71,9 +71,12 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
     private int _timelineHash;
     private int _timelineVersion;
 
-    protected EngineTimeline BuildTimeline(bool isMoving)
+    protected EngineTimeline BuildTimeline(bool isMoving, Actor? primaryTarget = null)
     {
         var tl = EngineTimeline.Open();
+        // no attackable target right now: treat the next seconds as downtime (nothing that needs a target, e.g. Soulsow instead)
+        if (primaryTarget == null || !primaryTarget.IsTargetable)
+            tl.AddDowntime(0, 2.5f);
 
         var fight = Hints.FightRemaining;
         if (fight.Known)
