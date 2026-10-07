@@ -94,7 +94,7 @@ public sealed record SamStateSnapshot
     public double RaidBuffsLeft { get; init; }
 }
 
-internal sealed class SamState
+public sealed class SamState
 {
     public double Time;
     public double GcdReadyAt;
@@ -177,9 +177,14 @@ internal sealed class SamState
 
 public sealed class SamSim
 {
+    // Optional external policy (engine evaluation): built per scenario; called with slot -1 for the GCD and 0 / 1 for the weave slots;
+    // returns the action (None = nothing) or null for the built-in policy. Actions go through ApplyGcd / ApplyOgcd.
+    public static Func<SamScenario, Func<SamState, int, SamAction?>?>? PolicyFactory;
+
     public SamScenarioResult Run(SamScenario scenario)
     {
         var state = new SamState();
+        var policy = PolicyFactory?.Invoke(scenario);
         var result = new SamScenarioResult { Scenario = scenario };
 
         while (state.Time <= scenario.Duration)
@@ -187,7 +192,7 @@ public sealed class SamSim
             TickState(scenario, state, state.Time);
             if (state.Time + 0.001 >= state.GcdReadyAt)
             {
-                var gcd = ChooseGcd(scenario, state);
+                var gcd = policy?.Invoke(state, -1) ?? ChooseGcd(scenario, state);
                 if (gcd == SamAction.None)
                 {
                     state.SameInvalidActions++;
@@ -202,7 +207,7 @@ public sealed class SamSim
 
                 for (var slot = 0; slot < 2; ++slot)
                 {
-                    var ogcd = ChooseOgcd(scenario, state, slot);
+                    var ogcd = policy?.Invoke(state, slot) ?? ChooseOgcd(scenario, state, slot);
                     if (ogcd == SamAction.None)
                         continue;
 

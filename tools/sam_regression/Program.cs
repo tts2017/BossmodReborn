@@ -6,6 +6,8 @@ using SamRegression;
 
 try
 {
+    if (args.Length > 0 && args[0] == "engine-compare")
+        return SamEngineCompare.Run(args);
     var options = CliOptions.Parse(args);
     var scenarios = options.All ? SamScenarioCatalog.BuildAll(options.Seed) : SamScenarioCatalog.Select(options.Scenario ?? "", options.Seed);
     if (scenarios.Count == 0)
