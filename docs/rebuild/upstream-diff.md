@@ -35,7 +35,7 @@ F: は `Framework/ClientStructsEx.cs`・`Network/*`・フック定義に一切�
 
 ## 2. 隔離の構成 (rotation-rebuild ブランチで実施済み)
 
-upstream のファイルは **1 つも編集していない** (`git diff upstream/main -- BossMod BossMod.SourceGen` は空)。追加したものはすべて upstream に存在しないパス。
+Step 1 時点では upstream のファイルは **1 つも編集していない** (Step 2 で 3 ファイル +7 / -1 行のフックを追加、§10)。(`git diff upstream/main -- BossMod BossMod.SourceGen` は空)。追加したものはすべて upstream に存在しないパス。
 
 ```
 Directory.Build.targets      … Custom/**/*.cs を BossModReborn アセンブリにコンパイル (upstream csproj は無変更)
@@ -235,6 +235,46 @@ xan / akechi / veyn の回しは upstream にも存在するファイルを直�
 6. **UnsafeAccessor の脆さ**: upstream が対象メンバの名前やシグネチャを変えると、ビルドは通り実行時に失敗する。同期後にスモークテストが必要。
 7. **tools/**: ハーネスの csproj は `..\..\BossMod\BossModReborn.csproj` を参照しており、改変済みフレームワーク前提のコードもあるため、このブランチでのビルドは未確認 (sln にも入っていない)。生成物 (`blm_regression/results*`, `mch_regression/fflogs_out`, `mnk_tuning/tmp_probe*`, 計約 600 MB) はコピーせず F: に残した。
 8. `.kimi-dotnet-env.sh` (別エージェント用のマシン固有ラッパー) は持ち込んでいない。
+
+## 10. 配線 (Step 2, 2026-10-07)
+
+§3 の最小フックのうち Plugin.cs / AIHintsBuilder.cs / ActionManagerEx.cs の分を入れた。upstream 側の変更は 3 ファイル +7 / -1 行のみ。
+
+```diff
+// BossMod/Framework/Plugin.cs
++    private CustomPlugin _custom = null!; // local fork: Custom/Framework/CustomPlugin.cs
++        _custom = new(_dalamud, _ws, _hints, _bossmod, _rotation, _amex);          // ctor, _ipc の直後
++        _custom.AfterHintsBuilt();                                                 // Update, _hintsBuilder.Update の直後
+-        _rotation.Update(..., _movementOverride.IsMoving(), ...);
++        _rotation.Update(..., _movementOverride.IsMoving() || CustomPlugin.MoveKeyHeld, ...);
++        _custom.Dispose();                                                         // Dispose, _ipc.Dispose の直前
+// BossMod/BossModule/AIHintsBuilder.cs
++        CustomHooks.HintsGathered(hints, _ws);                                     // hints.Normalize() の直前
+// BossMod/Framework/ActionManagerEx.cs
++        AutoQueue = CustomHooks.SelectAutoQueue(AutoQueue, _ws, player, _hints, EffectiveAnimationLock, _animLockTweak.DelayEstimate, _dismountTweak.AutoDismountEnabled); // FindBest の直後
+```
+
+Custom 側の受け口:
+
+- `Custom/Framework/CustomPlugin.cs`: SplatoonSafeImport / SplatoonLiveZones / ExternalTimelineHints / TimelineStore のフォルダ管理 / AutoTimelineExtractor / LocalRotationAICollector / FightTimeEstimator + FightPriorStore / DisengageForecaster を保持し、Update・Dispose を担当。旧 fork の IPC (`BossMod.ExternalAOE.*`, `ExternalEncounterHint.*`, `ExternalMechanicHint.*`, `AI.SetEnabled`) も自前で登録 (IPCProvider.cs は無編集)。
+- `Custom/Framework/CustomHooks.cs`: upstream から呼ぶ static 入口。CustomPlugin が無いとき (リプレイ解析等) は何もしない。
+- `Custom/Framework/CustomHintsExtensions.cs`: C# 14 の拡張メンバで `hints.Disengage` / `hints.FightRemaining` / `PlanExecution.OverdueGraceSeconds` / `module.StateMachineFromTimeline` を提供 (upstream 型は無編集、値は ConditionalWeakTable)。AIHints.Clear() 相当のリセットは AfterHintsBuilt で行う。
+- `CustomConfig.DrawCustom`: タイムライン再読込・自動タイムライン再構築ボタン (旧 BossModuleConfig にあったもの)。
+
+これで `_pending` から 13 本 (MechanicHints, WindDown, DisengageForecast, FightPriorBuilder, FightPriorStore, Timeline/External の 8 本) がビルドに戻った。
+
+旧 fork との挙動差 (今回フックを入れていない部分):
+
+- **外部プランナータイムライン**: BossModule コンストラクタのフックが無いので StateMachine の差し替えは起きない (`StateMachineFromTimeline` は常に false、`UseExternalPlannerTimelines` は効かない)。BossModuleRegistry の PlanLevel 補完も無し。
+- **録画終了時の自動タイムライン抽出**: ReplayManagementWindow の `RecordingFinished` が無いので自動では走らない。設定画面の「Rebuild automatic timelines from all replays」で手動実行する。
+- **LocalRotationAICollector の記録対象**: 旧 fork は auto queue 実行中フラグで絞っていた。今は「そのフレームで選ばれたアクション ID と一致するリクエスト」で判定しており、ゲーム側でアクションが置換された場合 (コンボ置換など) は記録されない。Collector.Prepare は pyretic / forbidden target フィルタ前の選択で呼ばれる。
+- **視線攻撃でのアクション抑止**、キャスト終了後の移動ブロック解除フォールバック、ActionManagerEx.Instance は未導入 (SmartRotationTweak の改修が必要、PR 候補)。
+- akechi GNB の IPC ブリッジ (`AkechiGNBPlanner74IpcBridge`) は改変版 AkechiGNB.cs 内にあるため、回しを Custom に複製するまで未登録。
+
+まだ `_pending` に残るもの:
+
+- `needs-upstream-hook/Modules/Global/DeepDungeon/LiveMapData.cs`: 改変版 DeepDungeon (AutoClear.cs / FloorPathfind.cs) の partial メンバと PathfindTarget / NavigationDecision 改修が必要。ディープダンジョン関連をまとめて扱うまで保留。
+- `superseded-by-upstream/AtomosPiece.cs`: upstream 版があるため不要 (差分があれば PR)。
 
 ## 付録 A. 全ファイル一覧
 

@@ -141,6 +141,7 @@ public sealed unsafe class ActionManagerEx : IDisposable
 
         _oocActionsTweak.FillActions(player, _hints);
         AutoQueue = _hints.ActionsToExecute.FindBest(_ws, player, _ws.Client.Cooldowns, EffectiveAnimationLock, _hints, _animLockTweak.DelayEstimate, _dismountTweak.AutoDismountEnabled);
+        AutoQueue = CustomHooks.SelectAutoQueue(AutoQueue, _ws, player, _hints, EffectiveAnimationLock, _animLockTweak.DelayEstimate, _dismountTweak.AutoDismountEnabled);
         if (AutoQueue.Delay > 0)
         {
             AutoQueue = default;

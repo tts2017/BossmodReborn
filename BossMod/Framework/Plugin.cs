@@ -35,6 +35,7 @@ public sealed class Plugin : IAsyncDalamudPlugin
     private AI.AIManager _ai = null!;
     private AI.Broadcast _broadcast = null!;
     private IPCProvider _ipc = null!;
+    private CustomPlugin _custom = null!; // local fork: Custom/Framework/CustomPlugin.cs
     private DTRProvider _dtr = null!;
     private MultiboxManager _mbox = null!;
     private PartyRolesManager _partyRoles = null!;
@@ -130,6 +131,7 @@ public sealed class Plugin : IAsyncDalamudPlugin
         _ai = new(_rotation, _amex, _movementOverride);
         _broadcast = new();
         _ipc = new(_bossmod, _hints, _rotation, _amex, _movementOverride, _ai, _hintsBuilder.Obstacles);
+        _custom = new(_dalamud, _ws, _hints, _bossmod, _rotation, _amex);
         _dtr = new(_rotation, _ai);
         _mbox = new(_rotation, _ws);
         _partyRoles = new(_ws);
@@ -175,6 +177,7 @@ public sealed class Plugin : IAsyncDalamudPlugin
         _partyRoles.Dispose();
         _mbox.Dispose();
         _dtr.Dispose();
+        _custom.Dispose();
         _ipc.Dispose();
         _ai.Dispose();
         _rotation.Dispose();
@@ -317,8 +320,9 @@ public sealed class Plugin : IAsyncDalamudPlugin
         _bossmod.Update();
         _zonemod.ActiveModule?.Update();
         _hintsBuilder.Update(_hints, PartyState.PlayerSlot, moveImminent);
+        _custom.AfterHintsBuilt();
         _amex.QueueManualActions();
-        _rotation.Update(_amex.AnimationLockDelayEstimate, _movementOverride.IsMoving(), Service.Condition[ConditionFlag.DutyRecorderPlayback]);
+        _rotation.Update(_amex.AnimationLockDelayEstimate, _movementOverride.IsMoving() || CustomPlugin.MoveKeyHeld, Service.Condition[ConditionFlag.DutyRecorderPlayback]);
         _ai.Update();
         _broadcast.Update();
         _amex.FinishActionGather();

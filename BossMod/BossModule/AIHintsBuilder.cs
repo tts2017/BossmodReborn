@@ -95,6 +95,7 @@ public sealed class AIHintsBuilder : IDisposable
                 _zmm.ActiveModule?.CalculateAIHints(playerSlot, player, hints);
             }
         }
+        CustomHooks.HintsGathered(hints, _ws);
         hints.Normalize();
         if (_rsr != null)
         {

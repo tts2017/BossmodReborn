@@ -31,4 +31,18 @@ public sealed class CustomConfig : ConfigNode
     // --- formerly ActionTweaksConfig ---
     [PropertyDisplay("Enable in-process rotation AI second opinion (experimental)", tooltip: "Lets the local rotation AI (LocalRotationAI, MchRealtimeValuePlanner, FunctionGemma supervisor) override the action selected by the queue. Off by default; models and endpoints are configured with BOSSMOD_* process environment variables.")]
     public bool EnableLocalRotationAI = false;
+
+    public override void DrawCustom(UITree tree, WorldState ws)
+    {
+        if (Dalamud.Bindings.ImGui.ImGui.Button(Loc.Tr("Reload fight timelines")))
+            TimelineStore.ReloadInBackground();
+        if (AutoTimelineExtractor.Instance is { } auto)
+        {
+            if (Dalamud.Bindings.ImGui.ImGui.Button(Loc.Tr("Rebuild automatic timelines from all replays")))
+                auto.EnqueueAll();
+            if (Dalamud.Bindings.ImGui.ImGui.IsItemHovered())
+                Dalamud.Bindings.ImGui.ImGui.SetTooltip(Loc.Tr("May take several minutes; best used outside duties."));
+            Dalamud.Bindings.ImGui.ImGui.TextUnformatted(Loc.Trf("Automatic timelines: {0}", auto.Status));
+        }
+    }
 }
