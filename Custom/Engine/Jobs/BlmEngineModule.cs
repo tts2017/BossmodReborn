@@ -32,6 +32,39 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
     private XanBLM.Strategy _strategy;
     private bool _moving;
 
+    // Double Transpose (Transpose out of Astral Fire, Triplecast in the ice phase, Firestarter kept, Transpose back): in a fight where
+    // the party has used a raid buff, the Umbral Ice Paradox is skipped (the xan harness with party buffs: +0.49% on the 9 fights,
+    // -0.49% without them). The marker carries over to the fire phase.
+    private int _prevElement;
+    private bool _dtrIce; // Umbral Ice I entered straight from Astral Fire (Transpose)
+    private bool _dtrIceTriplecast; // Triplecast was up during that ice phase
+
+    // Transpose is the only swap that lands on Umbral Ice I from Astral Fire
+    private void SkipDoubleTransposeIceParadox(ref EngineState s)
+    {
+        int element = World.Client.GetGauge<BlackMageGauge>().ElementStance;
+        var prev = _prevElement;
+        _prevElement = element;
+        if (prev > 0 && element == -1)
+        {
+            _dtrIce = true;
+            _dtrIceTriplecast = false;
+        }
+        else if (element >= 0)
+        {
+            _dtrIce = false;
+        }
+        if (element < 0 && _dtrIce && SelfStatusLeft(SID.Triplecast) > 0)
+            _dtrIceTriplecast = true;
+
+        if (Player.Level < 90 || Bossmods.RaidCooldowns.NextDamageBuffIn2() == null) // no Paradox before 90; no party raid buff seen in this fight
+            return;
+        // the engine casts the ice Paradox before it weaves Triplecast: a Triplecast charge that is ready counts as the one the ice phase will use
+        var triplecastCharge = s.Charges[Job.CooldownIndex(BlmDefinition.TriplecastCD)] > 0;
+        if (element < 0 && _dtrIce && (_dtrIceTriplecast || triplecastCharge) && SelfStatusLeft(SID.Firestarter) > 0)
+            Forbid(ref s, "ParadoxIce");
+    }
+
     protected override Actor? SelectTarget(StrategyValues strategy, Actor? primaryTarget)
     {
         _strategy = ValueConverter.FromValues<XanBLM.Strategy>(strategy);
@@ -45,6 +78,7 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
     {
         var st = _strategy;
         ApplyAoe(ref s, st.AOE);
+        SkipDoubleTransposeIceParadox(ref s);
         if (Player.Level < 100)
             return;
 
