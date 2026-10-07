@@ -83,6 +83,22 @@ public static class Simulator
         return false;
     }
 
+    // bit = status index, set while the status is active (for IsLegal's quick pre-check)
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    public static uint ActiveStatusMask(JobDefinition job, in EngineState s)
+    {
+        var m = 0u;
+        for (var i = 0; i < job.Statuses.Length; ++i)
+            if (s.StatusLeft[i] > 0)
+                m |= 1u << i;
+        return m;
+    }
+
+    // IsLegal with a precomputed ActiveStatusMask: skills whose status conditions fail are rejected without evaluating them
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    public static bool IsLegal(JobDefinition job, in EngineState s, in EngineTimeline tl, SkillDef skill, uint activeStatuses)
+        => (skill.RequiredStatusMask & ~activeStatuses) == 0 && (skill.ForbiddenStatusMask & activeStatuses) == 0 && IsLegal(job, s, tl, skill);
+
     // whether `skill` can be used at s.Time (the caller advances the state to the execution time first)
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static bool IsLegal(JobDefinition job, in EngineState s, in EngineTimeline tl, SkillDef skill)
@@ -262,11 +278,18 @@ public static class Simulator
             value += ShadowHits(job, ref s, skill, mult, ctx);
 
         // effect conditions see the state before the skill (so e.g. "if Astral Fire: go to Umbral Ice" and "if Umbral Ice: go to Astral Fire" do not chain)
-        var pre = skill.ConditionalEffects ? s : default;
-        foreach (ref readonly var e in skill.Effects.AsSpan())
+        // (evaluated up front into a mask instead of copying the state)
+        var effects = skill.Effects;
+        var apply = ~0UL;
+        if (skill.ConditionalEffects)
+            for (var i = 0; i < effects.Length; ++i)
+                if (!Check(s, effects[i].If) || !Check(s, effects[i].If2))
+                    apply &= ~(1UL << i);
+        for (var ei = 0; ei < effects.Length; ++ei)
         {
-            if (skill.ConditionalEffects && (!Check(pre, e.If) || !Check(pre, e.If2)))
+            if ((apply & (1UL << ei)) == 0)
                 continue;
+            ref readonly var e = ref effects[ei];
             switch (e.Kind)
             {
                 case EffectKind.GaugeAdd:

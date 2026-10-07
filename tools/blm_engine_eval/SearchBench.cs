@@ -106,6 +106,19 @@ public static class SearchBench
             }
             double Us(long ticks) => ticks * 1e6 / Stopwatch.Frequency;
             var nr = roots.Count;
+            var eng = new RotationEngine(job, full);
+            eng.Decide(roots[0].S, tl0, 0);
+            var cyc = eng.Analysis.CycleFor(1);
+            long tc = 0, tl2 = 0;
+            foreach (var (rs, _, _) in roots)
+            {
+                if (cyc != null) { MicroLeaf.Cycle(cyc, rs, 50); var a = Stopwatch.GetTimestamp(); MicroLeaf.Cycle(cyc, rs, Reps * 10); tc += Stopwatch.GetTimestamp() - a; }
+                MicroLeaf.Lambdas(eng, rs, 50); var b = Stopwatch.GetTimestamp(); MicroLeaf.Lambdas(eng, rs, Reps * 10); tl2 += Stopwatch.GetTimestamp() - b;
+            }
+            long tq = 0;
+            foreach (var (rs, _, _) in roots) { MicroQuick.Run(job, rs, tl0, 50); var q0 = Stopwatch.GetTimestamp(); MicroQuick.Run(job, rs, tl0, Reps); tq += Stopwatch.GetTimestamp() - q0; }
+            Console.WriteLine($"  micro: QuickValue all {job.Skills.Length} skills + multiplier {Us(tq) / (nr * Reps) * 1000:f0} ns");
+            Console.WriteLine($"  micro: cycle value {Us(tc) / (nr * Reps * 10) * 1000:f0} ns, all lambdas {Us(tl2) / (nr * Reps * 10) * 1000:f0} ns ({job.Gauges.Length + job.Cooldowns.Length} resources)");
             Console.WriteLine($"  micro: IsLegal over all {job.Skills.Length} skills {Us(tLegal) / (nr * Reps):f2} us ({legal / (double)(nr * Reps):f1} legal), legal+Execute all {Us(tExec - tLegal) / (nr * Reps):f2} us, Hash {Us(tHash) / (nr * Reps * 10) * 1000:f0} ns, Advance {Us(tAdv) / (nr * Reps * 10) * 1000:f0} ns {sink % 2}");
         }
         static double P(List<double> xs, double q) { var s = xs.OrderBy(x => x).ToList(); return s.Count == 0 ? 0 : s[(int)Math.Min(s.Count - 1, s.Count * q)]; }
@@ -167,5 +180,50 @@ public static class MicroHash
         for (var r = 0; r < reps; ++r)
             h ^= s.Hash(job);
         return h;
+    }
+}
+
+public static class MicroLeaf
+{
+    [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveOptimization)]
+    public static float Cycle(CycleModel m, in EngineState s, int reps)
+    {
+        var v = 0f;
+        for (var r = 0; r < reps; ++r)
+            v += m.Value(s);
+        return v;
+    }
+
+    [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveOptimization)]
+    public static float Lambdas(RotationEngine e, in EngineState s, int reps)
+    {
+        var v = 0f;
+        var job = e.Job;
+        for (var r = 0; r < reps; ++r)
+        {
+            var t = (r % 40) * 0.25f;
+            for (var g = 0; g < job.Gauges.Length; ++g)
+                v += e.Planner.LeafLambda(UpperPlanner.GaugeResource(g), t, s.Gauges[g]);
+            for (var c = 0; c < job.Cooldowns.Length; ++c)
+                v += e.Planner.LeafLambda(UpperPlanner.CdResource(c), t, s.Charges[c] + 0.5f);
+        }
+        return v;
+    }
+}
+
+public static class MicroQuick
+{
+    [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveOptimization)]
+    public static float Run(JobDefinition job, in EngineState s, in EngineTimeline tl, int reps)
+    {
+        var v = 0f;
+        var skills = job.Skills;
+        for (var r = 0; r < reps; ++r)
+        {
+            var m = Simulator.DamageMultiplier(job, s, tl);
+            for (var i = 0; i < skills.Length; ++i)
+                v += Simulator.QuickValue(job, s, tl, skills[i], m);
+        }
+        return v;
     }
 }

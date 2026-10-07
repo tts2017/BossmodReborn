@@ -172,6 +172,14 @@ public sealed class CycleModel
             cur = g.To[best[cur]];
         }
         _cycleKeys = [.. onCycle];
+        // states the model never reaches take the nearest reachable state with less of the first cycle gauge (0 if none): filled in once,
+        // so a leaf lookup is a single read
+        var stride = 1;
+        for (var i = 1; i < _radix.Length; ++i)
+            stride *= _radix[i];
+        for (var k = 0; k < _value.Length; ++k)
+            if (float.IsNaN(_value[k]))
+                _value[k] = k >= stride ? _value[k - stride] : 0;
         _targets = targets;
     }
 
@@ -286,6 +294,7 @@ public sealed class CycleModel
         return c;
     }
 
+    [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveOptimization)]
     private int Key(in EngineState s)
     {
         var key = 0;
@@ -334,25 +343,8 @@ public sealed class CycleModel
         return s;
     }
 
-    // h of the state's cycle part; a state the model never reaches (e.g. MP between buckets after natural regen) takes the
+    // h of the state's cycle part; a state the model never reaches (e.g. MP between buckets after natural regen) has the value of the
     // nearest reachable state with less of the first cycle gauge
-    public float Value(in EngineState s)
-    {
-        var key = Key(s);
-        var v = _value[key];
-        if (!float.IsNaN(v))
-            return v;
-        var stride = 1;
-        for (var i = 1; i < _radix.Length; ++i)
-            stride *= _radix[i];
-        var bucket = key / stride;
-        for (var b = bucket - 1; b >= 0; --b)
-        {
-            key -= stride;
-            v = _value[key];
-            if (!float.IsNaN(v))
-                return v;
-        }
-        return 0;
-    }
+    [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveOptimization)]
+    public float Value(in EngineState s) => _value[Key(s)];
 }

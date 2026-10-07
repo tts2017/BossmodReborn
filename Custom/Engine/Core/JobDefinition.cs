@@ -87,6 +87,8 @@ public sealed class SkillDef
     // derived at Build
     public float ComboBonus;      // best extra potency the next combo step gains if the combo is kept
     public bool ConditionalEffects; // some effect has a condition (Execute then keeps the pre-skill state for them)
+    public uint RequiredStatusMask;  // statuses the conditions need active / inactive (bit = status index): a quick legality pre-check
+    public uint ForbiddenStatusMask;
 }
 
 public sealed class GaugeDef
@@ -251,6 +253,17 @@ public sealed class JobBuilder(string name, float baseGcd)
         job.DamageStatuses = Where(st => st.DamageMultiplier != 1);
         job.ShadowStatuses = Where(st => st.ShadowPotency > 0);
         job.InstantStatuses = Where(st => st.ConsumedByCast);
+        foreach (var s in job.Skills)
+            foreach (var c in s.Conditions)
+            {
+                if (c.Kind is ConditionKind.StatusActive or ConditionKind.StacksAtLeast or ConditionKind.StatusLeftAtLeast)
+                    s.RequiredStatusMask |= 1u << c.Index;
+                else if (c.Kind == ConditionKind.StatusInactive)
+                    s.ForbiddenStatusMask |= 1u << c.Index;
+            }
+        foreach (var s in job.Skills)
+            if (s.Effects.Length > 64)
+                throw new InvalidOperationException($"skill {s.Name} has more than 64 effects");
         foreach (var s in job.Skills)
             foreach (var e in s.Effects)
                 s.ConditionalEffects |= e.If.Kind != ConditionKind.None || e.If2.Kind != ConditionKind.None;

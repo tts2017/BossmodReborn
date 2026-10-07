@@ -500,39 +500,47 @@ internal sealed class LowerSearch
         ulong picked = 0;
         var multGcd = Simulator.DamageMultiplier(_job, atGcd, _tl);
         var multOgcd = Simulator.DamageMultiplier(_job, atOgcd, _tl);
-        for (var pass = 0; pass < 2; ++pass)
+        var activeGcd = Simulator.ActiveStatusMask(_job, atGcd);
+        var activeOgcd = Simulator.ActiveStatusMask(_job, atOgcd);
+        // one pass: GCD candidates fill the key arrays from the front, weave candidates from the back
+        var nG = 0;
+        var nO = 0;
+        var last = MoveSlots - 1;
+        foreach (var skill in _job.Skills)
         {
-            var gcd = pass == 0;
-            var n = 0;
-            foreach (var skill in _job.Skills)
+            var gcd = skill.IsGcd;
+            if (!gcd && (tOgcd + skill.AnimationLock + _job.Latency > gcdReadyAt + 0.01f || skill.Index <= prevOgcd))
+                continue;
+            ref readonly var at = ref gcd ? ref atGcd : ref atOgcd;
+            if (!Simulator.IsLegal(_job, at, _tl, skill, gcd ? activeGcd : activeOgcd))
+                continue;
+            anyGcd |= gcd;
+            if (skill.Index == ttMove)
             {
-                if (skill.IsGcd != gcd)
-                    continue;
-                if (!gcd && (tOgcd + skill.AnimationLock + _job.Latency > gcdReadyAt + 0.01f || skill.Index <= prevOgcd))
-                    continue;
-                ref readonly var at = ref gcd ? ref atGcd : ref atOgcd;
-                if (!Simulator.IsLegal(_job, at, _tl, skill))
-                    continue;
-                anyGcd |= gcd;
-                if (skill.Index == ttMove)
-                {
-                    picked |= 1UL << skill.Index;
-                    continue;
-                }
-                _pickKey[n] = Simulator.QuickValue(_job, at, _tl, skill, gcd ? multGcd : multOgcd);
-                _pickMove[n] = (byte)skill.Index;
-                ++n;
+                picked |= 1UL << skill.Index;
+                continue;
             }
-            var take = Math.Min(n, gcd ? MaxDeepGcds : MaxDeepOgcds);
-            for (var t = 0; t < take; ++t)
-            {
-                var bi = 0;
-                for (var j = 1; j < n; ++j)
-                    if (_pickKey[j] > _pickKey[bi])
-                        bi = j;
-                picked |= 1UL << _pickMove[bi];
-                _pickKey[bi] = float.MinValue;
-            }
+            var k = gcd ? nG++ : last - nO++;
+            _pickKey[k] = Simulator.QuickValue(_job, at, _tl, skill, gcd ? multGcd : multOgcd);
+            _pickMove[k] = (byte)skill.Index;
+        }
+        for (var t = Math.Min(nG, MaxDeepGcds); t > 0; --t)
+        {
+            var bi = 0;
+            for (var j = 1; j < nG; ++j)
+                if (_pickKey[j] > _pickKey[bi])
+                    bi = j;
+            picked |= 1UL << _pickMove[bi];
+            _pickKey[bi] = float.MinValue;
+        }
+        for (var t = Math.Min(nO, MaxDeepOgcds); t > 0; --t)
+        {
+            var bi = last;
+            for (var j = last - 1; j > last - nO; --j)
+                if (_pickKey[j] > _pickKey[bi])
+                    bi = j;
+            picked |= 1UL << _pickMove[bi];
+            _pickKey[bi] = float.MinValue;
         }
         return picked;
     }
