@@ -20,6 +20,7 @@ public enum ConditionKind : byte
     AnyStatusActive,   // status Index or any status in the bit mask Value (status indices) is active
     CooldownAtMost,    // cooldown group Index has a charge or its next charge is at most Value seconds away
     ChargesAtLeast,    // cooldown group Index has at least Value charges
+    RechargeAtMost,    // cooldown group Index is full or its next charge is at most Value seconds away (whatever charges it has now)
 }
 
 public readonly record struct Condition(ConditionKind Kind, short Index, float Value)
@@ -370,6 +371,7 @@ public sealed class JobBuilder(string name, float baseGcd)
         public SkillBuilder RequiresTargets(int atLeast) { _conditions.Add(_ => new(ConditionKind.TargetsAtLeast, 0, atLeast)); return this; }
         public SkillBuilder RequiresCooldownAtLeast(string cd, float seconds) { _conditions.Add(job => new(ConditionKind.CooldownAtLeast, (short)job.CooldownIndex(cd), seconds)); return this; }
         public SkillBuilder RequiresCooldownAtMost(string cd, float seconds) { _conditions.Add(job => new(ConditionKind.CooldownAtMost, (short)job.CooldownIndex(cd), seconds)); return this; }
+        public SkillBuilder RequiresRechargeAtMost(string cd, float seconds) { _conditions.Add(job => new(ConditionKind.RechargeAtMost, (short)job.CooldownIndex(cd), seconds)); return this; }
         public SkillBuilder RequiresCharges(string cd, int atLeast) { _conditions.Add(job => new(ConditionKind.ChargesAtLeast, (short)job.CooldownIndex(cd), atLeast)); return this; }
         public SkillBuilder RequiresAnyStatus(params string[] statuses) { _conditions.Add(job => AnyStatus(job, statuses)); return this; }
         public SkillBuilder PotencyIfAnyStatus(float potency, params string[] statuses) { _potencies.Add(job => new(AnyStatus(job, statuses), potency)); return this; }

@@ -1,0 +1,19 @@
+{
+  "OverCap": 1.8783638,
+  "Combo": 1.3461448,
+  "LambdaScale": 0.11714483,
+  "TargetPull": 0,
+  "SwitchMargin": 8.127334,
+  "FillerScale": 1.0461823,
+  "BurstBias": 3.108613,
+  "StatusRemainder": 1.1427639,
+  "CycleScale": 1,
+  "CooldownLambdaScale": 0.4475983,
+  "ForecastSelfBuffs": -1,
+  "UnlockScale": 1.4355175,
+  "StatusValue": {},
+  "CooldownValue": {},
+  "GaugeValue": {},
+  "HorizonGcds": 4,
+  "BudgetMs": 100
+}

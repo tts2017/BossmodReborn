@@ -4,7 +4,10 @@ namespace BossMod.Autorotation.Engine.Jobs;
 // Mechanics and potencies follow tools/xan_timeline_harness/GnbCombatState.cs + GnbPotencyScorer.cs (No Mercy x1.20; Sonic Break /
 // Bow Shock DoTs credited in full at the press; any GCD drops pending Continuation procs). Cartridges cap at 3, or 6 under Bloodfest
 // (gains past the cap are lost). The Gnashing Fang / Reign chains are statuses for their next step.
-// Spec (agents_gnb.md): Bloodfest right before No Mercy; Double Down inside No Mercy.
+// Spec (agents_gnb.md): Bloodfest paired with No Mercy (right before it, or right after it in the same burst); Double Down inside No Mercy
+// (no hard requirement: the search keeps every Double Down inside No Mercy by itself, and as a requirement it made a live search that
+// ends early drift its No Mercy windows). Bloodfest recast is 60 s (the action sheet the harness
+// reads, as agents_gnb.md says).
 // Every GCD outside the 1-2-3 combo breaks it (as in the harness).
 public static class GnbDefinition
 {
@@ -32,7 +35,7 @@ public static class GnbDefinition
             .Status(NoMercy, 20, damageMultiplier: 1.20f).Status(Bloodfest, 30).Status(ReadyToBreak, 30).Status(ReadyToReign, 30)
             .Status(SavageReady, 30).Status(TalonReady, 30).Status(NobleReady, 30).Status(LionReady, 30)
             .Status(ReadyToRip, 10).Status(ReadyToTear, 10).Status(ReadyToGouge, 10).Status(ReadyToBlast, 10).Status(ReadyToRaze, 10)
-            .Cooldown(NoMercyCD, 60).Cooldown(BloodfestCD, 120).Cooldown(GnashingFangCD, 30, 2).Cooldown(DoubleDownCD, 60)
+            .Cooldown(NoMercyCD, 60).Cooldown(BloodfestCD, 60).Cooldown(GnashingFangCD, 30, 2).Cooldown(DoubleDownCD, 60)
             .Cooldown(SonicBreakCD, 60).Cooldown(ZoneCD, 30).Cooldown(BowShockCD, 60);
 
         // ---- 1-2-3 combo ----
@@ -51,7 +54,7 @@ public static class GnbDefinition
             .ForbidStatuses(SavageReady, TalonReady, NobleReady, LionReady)).ApplyStatus(SavageReady, 30).ApplyStatus(ReadyToRip, 10);
         Gcd(b.Gcd("SavageClaw", 560, AidSavageClaw).RequiresStatus(SavageReady).RemoveStatus(SavageReady)).ApplyStatus(TalonReady, 30).ApplyStatus(ReadyToTear, 10);
         Gcd(b.Gcd("WickedTalon", 620, AidWickedTalon).RequiresStatus(TalonReady).RemoveStatus(TalonReady)).ApplyStatus(ReadyToGouge, 10);
-        Gcd(b.Gcd("DoubleDown", 1200, AidDoubleDown).AoeFalloff(1200 * 0.85f).UsesCooldown(DoubleDownCD).SpendGauge(Ammo, 2).RequiresStatus(NoMercy));
+        Gcd(b.Gcd("DoubleDown", 1200, AidDoubleDown).AoeFalloff(1200 * 0.85f).UsesCooldown(DoubleDownCD).SpendGauge(Ammo, 2));
         Gcd(b.Gcd("SonicBreak", 900, AidSonicBreak).RequiresStatus(ReadyToBreak).RemoveStatus(ReadyToBreak));
         Gcd(b.Gcd("ReignOfBeasts", 800, AidReignOfBeasts).RequiresStatus(ReadyToReign).RemoveStatus(ReadyToReign)).ApplyStatus(NobleReady, 30);
         Gcd(b.Gcd("NobleBlood", 900, AidNobleBlood).RequiresStatus(NobleReady).RemoveStatus(NobleReady)).ApplyStatus(LionReady, 30);
@@ -60,6 +63,10 @@ public static class GnbDefinition
         // ---- abilities ----
         b.Ogcd("NoMercy", 0, NoMercyCD, AidNoMercy).NeedsUptime(2).ApplyStatus(NoMercy, 20).ApplyStatus(ReadyToBreak, 30);
         b.Ogcd("Bloodfest", 0, BloodfestCD, AidBloodfest).NeedsUptime(2).RequiresCooldownAtMost(NoMercyCD, 2.5f)
+            .ApplyStatus(Bloodfest, 30).GainGauge(Ammo, 3).ApplyStatus(ReadyToReign, 30);
+        // the same press paired the other way round: right after No Mercy, in its first weave window (otherwise a No Mercy pressed first would
+        // lock Bloodfest out until the next one)
+        b.Ogcd("BloodfestAfter", 0, BloodfestCD, AidBloodfest).NeedsUptime(2).RequiresStatusLeft(NoMercy, 17)
             .ApplyStatus(Bloodfest, 30).GainGauge(Ammo, 3).ApplyStatus(ReadyToReign, 30);
         b.Ogcd("BlastingZone", 800, ZoneCD, AidBlastingZone);
         b.Ogcd("BowShock", 450, BowShockCD, AidBowShock).AoeFalloff(450);
@@ -76,11 +83,11 @@ public static class GnbDefinition
 
     public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
 
-    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-GNB-v1.json), BudgetMs for live play
+    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-GNB-v3.json), BudgetMs for live play
     public const string DefaultWeightsJson = """
     {
-      "OverCap": 0, "Combo": 0.834, "LambdaScale": 0.697, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 1.302, "BurstBias": 2.416,
-      "StatusRemainder": 1.680, "CycleScale": 1, "CooldownLambdaScale": 0.013, "ForecastSelfBuffs": 0, "UnlockScale": 1.272,
+      "OverCap": 2.4946623, "Combo": 3, "LambdaScale": 0.29133114, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 1.2356534, "BurstBias": 0,
+      "StatusRemainder": 1.1895698, "CycleScale": 1, "CooldownLambdaScale": 0.73212945, "ForecastSelfBuffs": -1, "UnlockScale": 1.8829567,
       "StatusValue": {}, "CooldownValue": {}, "GaugeValue": {},
       "HorizonGcds": 4,
       "BudgetMs": 0.8

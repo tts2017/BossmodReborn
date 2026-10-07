@@ -43,12 +43,19 @@ public sealed class RotationEngine
     public float MaxReuseAge = 1.0f; // seconds a result is reused while only timers change
     // > 0: per-call slice of the search budget; the search then spreads over several calls (frames) and returns its best-so-far meanwhile
     public float FrameBudgetMs = 0;
+    // multiplies the total search budget, not the frame slice (the caller raises it for the opener, where every cooldown is up at once
+    // and a full search is several times the usual size; the extra is spent when the answer is about to be acted on, see FinishPending)
+    public float BudgetScale = 1;
     private bool _pending;
     private ulong _pendingKey;
+    private EngineDecision _finished; // the last finished search and the discrete state (key) it was searched for
+    private ulong _finishedKey;
+    private float _finishedNow;
+    private bool _hasFinished;
     private float _lastSearchNow = float.NegativeInfinity;
 
     // forget the cached result (the next Decide searches even if the state is unchanged)
-    public void InvalidateCache() { _hasLast = false; _pending = false; }
+    public void InvalidateCache() { _hasLast = false; _pending = false; _hasFinished = false; }
 
     public RotationEngine(JobDefinition job, EngineWeights weights)
     {
@@ -86,6 +93,7 @@ public sealed class RotationEngine
     {
         _pending = false;
         _hasLast = false;
+        _hasFinished = false;
         _lastTimelineVersion = int.MinValue;
         _lastPlanTime = float.NegativeInfinity;
         _prevChoice = EngineDecision.Wait;
@@ -172,15 +180,37 @@ public sealed class RotationEngine
         return Continue(key, now, planTicks);
     }
 
-    // spentTicks: work already done this frame (a replan) counts against the frame budget
-    private EngineDecision Continue(ulong key, float now, long spentTicks)
+    // an unfinished search gets the rest of its total budget now (the caller is about to act on its answer); otherwise the last decision
+    public EngineDecision FinishPending(float now)
     {
-        var frameTicks = FrameBudgetMs > 0 ? Math.Max(1, (long)(FrameBudgetMs * Stopwatch.Frequency / 1000) - spentTicks) : long.MaxValue;
+        if (!_pending)
+            return _last;
+        return Continue(_pendingKey, now, 0, long.MaxValue);
+    }
+
+    // spentTicks: work already done this frame (a replan) counts against the frame budget
+    private EngineDecision Continue(ulong key, float now, long spentTicks, long sliceTicks = 0)
+    {
+        var frameTicks = sliceTicks > 0 ? sliceTicks : FrameBudgetMs > 0 ? Math.Max(1, (long)(FrameBudgetMs * Stopwatch.Frequency / 1000) - spentTicks) : long.MaxValue;
         var finished = _search.Continue(frameTicks, out var decision);
         _pending = !finished;
         _pendingKey = key;
         if (finished)
+        {
             _prevChoice = decision.Skill;
+            _finished = decision;
+            _finishedKey = key;
+            _finishedNow = _lastSearchNow;
+            _hasFinished = true;
+        }
+        else if (_hasFinished && key == _finishedKey && now >= _finishedNow)
+        {
+            // a refresh of a finished search (only timers changed since) keeps acting on the finished answer until it completes
+            var d = _finished;
+            d.Reused = true;
+            d.ExecuteAt = MathF.Max(0, d.ExecuteAt - (now - _finishedNow));
+            return d;
+        }
         _last = decision;
         _lastKey = key;
         _hasLast = true;
@@ -197,6 +227,7 @@ internal sealed class LowerSearch
     private const int TTBits = 16;
     private const int MaxDeepOgcds = 1; // below the root only the best two weave candidates (by immediate value) are searched
     private const int MaxDeepGcds = 3;  // below the root only the best three GCD candidates (previous best move first, then immediate value)
+    private const int MaxRootGcds = 4;  // at the root: every legal weave, the best four GCD candidates
 
     private struct TTEntry
     {
@@ -239,6 +270,8 @@ internal sealed class LowerSearch
     private float _rootBest;
     private int _nodes;
     private bool _aborted;
+    private int _abortedDepth; // iteration depth an earlier slice stopped in (0: none); its finished root moves are kept and skipped on resume
+    private bool _resuming;
     private long _budgetTicks;
     private float _maxSlotValue;
     private float _maxComboBonus;
@@ -326,6 +359,7 @@ internal sealed class LowerSearch
         _spentTicks = 0;
         _root = root;
         _nextDepth = 1;
+        _abortedDepth = 0;
         _prevChoiceForRun = prevChoice;
         _best = new EngineDecision { Skill = EngineDecision.Wait, NextGcd = EngineDecision.Wait, Value = float.MinValue };
         _rootPvLen = 0;
@@ -338,19 +372,27 @@ internal sealed class LowerSearch
     public bool Continue(long sliceTicks, out EngineDecision result)
     {
         var w = _engine.Weights;
-        var totalTicks = (long)(w.BudgetMs * Stopwatch.Frequency / 1000);
+        var totalTicks = (long)(w.BudgetMs * _engine.BudgetScale * Stopwatch.Frequency / 1000);
         var maxDepth = Math.Max(1, w.HorizonGcds);
         var allowed = Math.Min(sliceTicks, Math.Max(0, totalTicks - _spentTicks));
         _clock.Restart();
         while (_nextDepth <= maxDepth)
         {
             _budgetTicks = _nextDepth == 1 ? long.MaxValue : allowed;
-            Array.Clear(_rootSeen);
-            _rootBest = float.MinValue;
+            _resuming = _abortedDepth == _nextDepth;
+            if (!_resuming)
+            {
+                Array.Clear(_rootSeen);
+                _rootBest = float.MinValue;
+            }
             _aborted = false;
             var value = Search(ref _root, _nextDepth, 0, 0, -1, out var move);
             if (_aborted)
+            {
+                _abortedDepth = _nextDepth;
                 break;
+            }
+            _abortedDepth = 0;
             _best.Skill = move == WaitMove ? EngineDecision.Wait : move;
             _best.Value = value;
             _best.Depth = _nextDepth;
@@ -494,7 +536,7 @@ internal sealed class LowerSearch
     private readonly float[] _pickKey = new float[MoveSlots];
     private readonly byte[] _pickMove = new byte[MoveSlots];
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-    private ulong PickCandidates(in EngineState atGcd, in EngineState atOgcd, float tOgcd, float gcdReadyAt, int prevOgcd, byte ttMove, out bool anyGcd)
+    private ulong PickCandidates(in EngineState atGcd, in EngineState atOgcd, float tOgcd, float gcdReadyAt, int prevOgcd, byte ttMove, int keep, int maxGcds, int maxOgcds, out bool anyGcd)
     {
         anyGcd = false;
         ulong picked = 0;
@@ -515,7 +557,7 @@ internal sealed class LowerSearch
             if (!Simulator.IsLegal(_job, at, _tl, skill, gcd ? activeGcd : activeOgcd))
                 continue;
             anyGcd |= gcd;
-            if (skill.Index == ttMove)
+            if (skill.Index == ttMove || skill.Index == keep)
             {
                 picked |= 1UL << skill.Index;
                 continue;
@@ -524,7 +566,7 @@ internal sealed class LowerSearch
             _pickKey[k] = Simulator.QuickValue(_job, at, _tl, skill, gcd ? multGcd : multOgcd);
             _pickMove[k] = (byte)skill.Index;
         }
-        for (var t = Math.Min(nG, MaxDeepGcds); t > 0; --t)
+        for (var t = Math.Min(nG, maxGcds); t > 0; --t)
         {
             var bi = 0;
             for (var j = 1; j < nG; ++j)
@@ -533,7 +575,7 @@ internal sealed class LowerSearch
             picked |= 1UL << _pickMove[bi];
             _pickKey[bi] = float.MinValue;
         }
-        for (var t = Math.Min(nO, MaxDeepOgcds); t > 0; --t)
+        for (var t = Math.Min(nO, maxOgcds); t > 0; --t)
         {
             var bi = last;
             for (var j = last - 1; j > last - nO; --j)
@@ -590,26 +632,15 @@ internal sealed class LowerSearch
         var wasteOgcd = Simulator.Advance(_job, ref atOgcd, tOgcd - atOgcd.Time, _ctx);
         // below the root only the best few GCDs / weaves are searched: pick them by a cheap estimate of their immediate value first and
         // simulate only those (simulating every legal move was most of the node cost)
-        var selective = ply >= 1;
-        ulong picked = ~0UL;
-        if (selective)
-            picked = PickCandidates(atGcd, atOgcd, tOgcd, s.GcdReadyAt, prevOgcd, ttMove, out anyGcd);
+        // the root keeps every weave and the best few GCDs (plus the previous choice, for the hysteresis): a GCD that is not among them
+        // by immediate value (an AoE version on one target, a combo break) does not get a subtree
+        var picked = ply == 0
+            ? PickCandidates(atGcd, atOgcd, tOgcd, s.GcdReadyAt, prevOgcd, ttMove, _prevChoiceForRun, MaxRootGcds, MoveSlots, out anyGcd)
+            : PickCandidates(atGcd, atOgcd, tOgcd, s.GcdReadyAt, prevOgcd, ttMove, -1, MaxDeepGcds, MaxDeepOgcds, out anyGcd);
         foreach (var skill in _job.Skills)
         {
-            if (selective)
-            {
-                if ((picked & (1UL << skill.Index)) == 0)
-                    continue;
-            }
-            else
-            {
-                if (!skill.IsGcd && tOgcd + skill.AnimationLock + _job.Latency > s.GcdReadyAt + 0.01f)
-                    continue; // would clip the GCD
-                if (!skill.IsGcd && skill.Index <= prevOgcd)
-                    continue; // weaves in one window are searched in index order only (A,B and B,A reach the same state)
-                if (!Simulator.IsLegal(_job, skill.IsGcd ? atGcd : atOgcd, _tl, skill))
-                    continue;
-            }
+            if ((picked & (1UL << skill.Index)) == 0)
+                continue;
             var k = baseIdx + count;
             ref var c = ref _children[k];
             c = skill.IsGcd ? atGcd : atOgcd;
@@ -619,8 +650,6 @@ internal sealed class LowerSearch
             _order[k] = skill.Index == ttMove ? float.MaxValue : _imm[k];
             _perm[k] = (byte)count;
             ++count;
-            if (!selective)
-                anyGcd |= skill.IsGcd;
         }
         if (!anyGcd)
         {
@@ -674,6 +703,18 @@ internal sealed class LowerSearch
                 continue;
             }
 
+            if (ply == 0 && _resuming && move != WaitMove && _rootSeen[move])
+            {
+                // finished by an earlier slice of this iteration (exact value; its line is recovered from the table if it is best)
+                if (_rootValues[move] > best)
+                {
+                    best = _rootValues[move];
+                    bestMove = move;
+                    _pv[0] = move;
+                    _pvLen[0] = 1;
+                }
+                continue;
+            }
             _returnedBound = false;
             var f = imm + Search(ref child, nextGcds, ply + 1, acc + imm, move != WaitMove && !_job.Skills[move].IsGcd ? move : -1, out _);
             var childBounded = _returnedBound;

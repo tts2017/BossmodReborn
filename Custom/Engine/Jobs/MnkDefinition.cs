@@ -71,7 +71,7 @@ public static class MnkDefinition
         Blitz(b.Gcd("RisingPhoenix", 900, AidRisingPhoenix).AoeFalloff(900 * 0.65f).RequiresGauge(BeastOpo, 1).RequiresGauge(BeastRaptor, 1).RequiresGauge(BeastCoeurl, 1)
             .RequiresGaugeAtMost(NadiCount, 1).IfGaugeAtMost(Solar, 0).GainGauge(NadiCount, 1).SetGauge(Solar, 1));
         Blitz(b.Gcd("PhantomRush", 1500, AidPhantomRush).AoeFalloff(1500 * 0.65f).RequiresGauge(BeastTotal, 3).RequiresGauge(NadiCount, 2).RequiresStatus(Brotherhood)
-            .SetGauge(Lunar, 0).SetGauge(Solar, 0).SetGauge(NadiCount, 0));
+            .SetGauge(Lunar, 0).SetGauge(Solar, 0).GainGauge(NadiCount, -2)); // a counted spend: the Nadi get a shadow price
 
         // ---- Riddle follow-ups ----
         b.Gcd("FiresReply", 1400, AidFiresReply).ComboNeutral().AoeFalloff(1400 * 0.65f).Weaponskill().RequiresStatus(FiresRumination).RemoveStatus(FiresRumination)
@@ -83,10 +83,11 @@ public static class MnkDefinition
         b.Ogcd("ForbiddenChakra", 400, null, AidForbiddenChakra).SpendGauge(ChakraQ, 20);
         b.Ogcd("Enlightenment", 160, null, AidEnlightenment).AoeFalloff(160 * 0.65f).SpendGauge(ChakraQ, 20);
         // spec (agents_mnk.md, mnk_regression rules): two Perfect Balances in the even (Brotherhood) window, the first just before Riddle of
-        // Fire; one in the odd window, only while it leaves a charge coming back for the next even window; Phantom Rush inside Brotherhood;
+        // Fire; one in the odd window, only while it leaves a charge coming back for the next even window (the next charge within 20 s:
+        // with the even window about 60 s away, the one after it is back in time); Phantom Rush inside Brotherhood;
         // Brotherhood with Riddle of Fire
         b.Ogcd("PerfectBalance", 0, PerfectBalanceCD, AidPerfectBalance).RequiresStatus(RiddleOfFire).RequiresStatus(Brotherhood).RequiresGaugeAtMost(BeastTotal, 0).ForbidStatus(PerfectBalance).ApplyStatus(PerfectBalance, 20, 3);
-        b.Ogcd("PerfectBalanceOdd", 0, PerfectBalanceCD, AidPerfectBalance).RequiresStatus(RiddleOfFire).ForbidStatus(Brotherhood).RequiresCooldownAtLeast(BrotherhoodCD, 20).RequiresCharges(PerfectBalanceCD, 2).RequiresGaugeAtMost(BeastTotal, 0).ForbidStatus(PerfectBalance).ApplyStatus(PerfectBalance, 20, 3);
+        b.Ogcd("PerfectBalanceOdd", 0, PerfectBalanceCD, AidPerfectBalance).RequiresStatus(RiddleOfFire).ForbidStatus(Brotherhood).RequiresCooldownAtLeast(BrotherhoodCD, 20).RequiresRechargeAtMost(PerfectBalanceCD, 20).RequiresGaugeAtMost(BeastTotal, 0).ForbidStatus(PerfectBalance).ApplyStatus(PerfectBalance, 20, 3);
         b.Ogcd("PerfectBalancePre", 0, PerfectBalanceCD, AidPerfectBalance).ForbidStatus(RiddleOfFire).RequiresCooldownAtMost(RiddleOfFireCD, 4).RequiresCooldownAtMost(BrotherhoodCD, 5).RequiresGaugeAtMost(BeastTotal, 0).ForbidStatus(PerfectBalance).ApplyStatus(PerfectBalance, 20, 3);
         b.Ogcd("RiddleOfFire", 0, RiddleOfFireCD, AidRiddleOfFire).NeedsUptime(2).ApplyStatus(RiddleOfFire, 20).ApplyStatus(FiresRumination, 20);
         b.Ogcd("Brotherhood", 0, BrotherhoodCD, AidBrotherhood).NeedsUptime(2).RequiresStatusLeft(RiddleOfFire, 15.5f).ApplyStatus(Brotherhood, 20).ApplyStatus(MeditativeBrotherhood, 20);
@@ -124,12 +125,12 @@ public static class MnkDefinition
 
     public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
 
-    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-MNK-v2.json), BudgetMs for live play
+    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-MNK-v3.json), BudgetMs for live play
     public const string DefaultWeightsJson = """
     {
-      "OverCap": 2.901, "Combo": 0, "LambdaScale": 0.305, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 0.621, "BurstBias": 0,
-      "StatusRemainder": 1.222, "CycleScale": 1, "CooldownLambdaScale": 0.025, "ForecastSelfBuffs": 1, "UnlockScale": 0.657,
-      "StatusValue": {}, "CooldownValue": {}, "GaugeValue": {},
+      "OverCap": 3.2322094, "Combo": 0.14532924, "LambdaScale": 0.37984324, "TargetPull": 0, "SwitchMargin": 2.063169, "FillerScale": 1.1005285, "BurstBias": 0,
+      "StatusRemainder": 2, "CycleScale": 1, "CooldownLambdaScale": 0.12746207, "ForecastSelfBuffs": 1, "UnlockScale": 1.0827847,
+      "StatusValue": {}, "CooldownValue": { "PerfectBalanceCD": 0, "BrotherhoodCD": 0 }, "GaugeValue": {},
       "HorizonGcds": 4,
       "BudgetMs": 0.8
     }

@@ -22,7 +22,8 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
         return new RotationEngine(GnbDefinition.Build(gcd), WeightsOverride?.Clone() ?? GnbDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.05f, ReplanInterval = 8 };
     }
 
-    protected override byte CountTargets(Actor? primaryTarget) => (byte)Math.Max(1, Hints.NumPriorityTargetsInAOECircle(Player.Position, 5));
+    // counted like the Akechi module (hitbox to hitbox), which is also how the AoE lands
+    protected override byte CountTargets(Actor? primaryTarget) => CountTargetsByHitbox(5);
 
     protected override void ReadJobState(ref EngineState s, Actor? primaryTarget)
     {

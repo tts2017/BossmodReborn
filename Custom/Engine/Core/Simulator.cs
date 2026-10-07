@@ -16,6 +16,10 @@ public sealed class EvalContext
 // The shared game mechanics: legality, time advance and skill execution. All methods are allocation-free.
 public static class Simulator
 {
+    // a cooldown this close to ready counts as ready: recasts read from the client land a hair after the GCD they line up with
+    // (float timers), and the client lets an action through that much early anyway
+    public const float CdEpsilon = 0.005f;
+
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static float GcdRecast(JobDefinition job, in EngineState s, SkillDef skill)
     {
@@ -62,6 +66,7 @@ public static class Simulator
         ConditionKind.AnyStatusActive => s.StatusLeft[c.Index] > 0 || AnyInMask(s, (int)c.Value),
         ConditionKind.CooldownAtMost => s.Charges[c.Index] > 0 || s.CdReadyIn[c.Index] <= c.Value,
         ConditionKind.ChargesAtLeast => s.Charges[c.Index] >= c.Value,
+        ConditionKind.RechargeAtMost => s.CdReadyIn[c.Index] <= c.Value,
         _ => false
     };
 
@@ -170,7 +175,7 @@ public static class Simulator
             var remaining = dt;
             while (remaining > 0 && s.Charges[i] < cd.MaxCharges)
             {
-                if (s.CdReadyIn[i] > remaining)
+                if (s.CdReadyIn[i] > remaining + CdEpsilon)
                 {
                     s.CdReadyIn[i] -= remaining;
                     remaining = 0;
@@ -458,7 +463,7 @@ public static class Simulator
         var cd = job.Cooldowns[index];
         while (seconds > 0 && s.Charges[index] < cd.MaxCharges)
         {
-            if (s.CdReadyIn[index] > seconds)
+            if (s.CdReadyIn[index] > seconds + CdEpsilon)
             {
                 s.CdReadyIn[index] -= seconds;
                 return;

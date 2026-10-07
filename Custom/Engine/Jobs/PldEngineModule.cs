@@ -38,7 +38,8 @@ public sealed class PldEngineModule(RotationModuleManager manager, Actor player)
             return;
         }
 
-        s.Gauges[Job.GaugeIndex(PldDefinition.MP)] = (short)Math.Min(10000, Player.HPMP.CurMP);
+        // whole 1000s only (what a spell costs): natural regen would otherwise change the state, and start a new search, every tick
+        s.Gauges[Job.GaugeIndex(PldDefinition.MP)] = (short)(Math.Min(10000, Player.HPMP.CurMP) / 1000 * 1000);
         var step = World.Client.GetGauge<PaladinGauge>().ConfiteorComboStep switch { 1 => PldDefinition.FaithReady, 2 => PldDefinition.TruthReady, 3 => PldDefinition.ValorReady, _ => null };
         if (step != null)
         {
