@@ -183,21 +183,29 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         if (_epoch == default)
             _epoch = World.CurrentTime;
         var now = (float)(World.CurrentTime - _epoch).TotalSeconds; // small numbers: float keeps millisecond precision
-        // opener (the pull, or the return after a downtime): every cooldown is up at once and a full search is several times its usual size;
-        // from the first GCD after an idle stretch it gets a larger total budget for a few seconds (the usual slice per frame, the rest
-        // just before the answer is acted on)
-        if (GCD > 0)
+        EngineDecision d;
+        if (Player.Level < 100 && HasSyncedRules)
         {
-            if (now - _lastGcdRunning > IdleSeconds)
-                _openerStart = now;
-            _lastGcdRunning = now;
+            d = DecideSynced(s, tl);
         }
-        Engine.BudgetScale = now - _openerStart < OpenerSeconds || now - _lastGcdRunning > IdleSeconds ? OpenerBudgetScale : InBurst(s, tl) ? BurstBudgetScale : 1;
-        var d = Engine.Decide(s, tl, now);
-        // an unfinished search while something could be pressed (the queue would act on its answer this frame): it uses the rest of its
-        // budget now. Holding the ability for later frames instead cost more than the occasional longer frame
-        if (d.Partial && CanPressNow())
-            d = Engine.FinishPending(now);
+        else
+        {
+            // opener (the pull, or the return after a downtime): every cooldown is up at once and a full search is several times its usual size;
+            // from the first GCD after an idle stretch it gets a larger total budget for a few seconds (the usual slice per frame, the rest
+            // just before the answer is acted on)
+            if (GCD > 0)
+            {
+                if (now - _lastGcdRunning > IdleSeconds)
+                    _openerStart = now;
+                _lastGcdRunning = now;
+            }
+            Engine.BudgetScale = now - _openerStart < OpenerSeconds || now - _lastGcdRunning > IdleSeconds ? OpenerBudgetScale : InBurst(s, tl) ? BurstBudgetScale : 1;
+            d = Engine.Decide(s, tl, now);
+            // an unfinished search while something could be pressed (the queue would act on its answer this frame): it uses the rest of its
+            // budget now. Holding the ability for later frames instead cost more than the occasional longer frame
+            if (d.Partial && CanPressNow())
+                d = Engine.FinishPending(now);
+        }
         LastDecision = d;
         if (DebugTrace != null && !d.Reused)
             DebugTrace(FormattableString.Invariant($"[engine {Job.Name}] t={now:f2} gcd={GCD:f2} skill={(d.Skill >= 0 ? Job.Skills[d.Skill].Name : "wait")} nextGcd={(d.NextGcd >= 0 ? Job.Skills[d.NextGcd].Name : "wait")} at={d.ExecuteAt:f2} depth={d.Depth} nodes={d.Nodes} hyst={d.Hysteresis} partial={d.Partial} combo={(s.ComboSkill != EngineLimits.NoCombo ? Job.Skills[s.ComboSkill].Name : "-")}/{World.Client.ComboState.Action}:{World.Client.ComboState.Remaining:f1} targets={s.Targets} legalGcds={string.Join(",", LegalGcds(s, tl))}"));
@@ -219,6 +227,83 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
             if (Simulator.IsLegal(Job, s, tl, sk))
                 Hints.ActionsToExecute.Push(ActionFor(sk), TargetFor(sk, primaryTarget), (sk.IsGcd ? ActionQueue.Priority.High + 3 : ActionQueue.Priority.Medium + 1) - i * 0.01f, castTime: sk.CastTime);
         }
+    }
+
+    // Level sync (below 100): the job's fixed priority rules choose the next GCD and the ability to weave instead of the search, favouring
+    // reliability over potency (no gauge or charge overcap, no buff / DoT dropped, no combo broken, burst cooldowns on recast or inside the
+    // buff, no long holds). Legality is the level-synced definition's, so the strategy tracks' Forbid applies, and Force still pushes on top.
+    // SyncedOgcd sees the state now (it may set SyncedOgcdDelay for a late weave, and SyncedOgcdFirst for an ability the next GCD depends on:
+    // with no weave window left it goes first and the GCD waits); SyncedGcd sees the state advanced to the GCD, with the chosen ability
+    // applied when it goes before it.
+    protected virtual bool HasSyncedRules => false;
+    protected virtual int SyncedOgcd(in EngineState s, in EngineTimeline tl) => -1;
+    protected virtual int SyncedGcd(in EngineState s, in EngineTimeline tl) => -1;
+    protected float SyncedOgcdDelay;
+    protected bool SyncedOgcdFirst;
+    private readonly EvalContext _syncedCtx = new();
+
+    private EngineDecision DecideSynced(in EngineState state, in EngineTimeline tl)
+    {
+        // a charged cooldown at its maximum is idle in the client and ReadCooldown reads it as one charge with nothing recharging
+        // (the simulator restores the maximum on its first time step): the rules see the real count
+        var s = state;
+        for (var i = 0; i < Job.Cooldowns.Length; ++i)
+            if (Job.Cooldowns[i].MaxCharges > 1 && s.Charges[i] > 0 && s.CdReadyIn[i] <= 0)
+                s.Charges[i] = (byte)Job.Cooldowns[i].MaxCharges;
+        SyncedOgcdDelay = 0;
+        SyncedOgcdFirst = false;
+        var ogcd = SyncedOgcd(s, tl);
+        var gcdAt = MathF.Max(s.GcdReadyAt, s.AnimLockAt);
+        var weaveAt = MathF.Max(SyncedOgcdDelay, s.AnimLockAt);
+        var weave = ogcd >= 0 && gcdAt - weaveAt >= Job.Skills[ogcd].AnimationLock + Job.Latency;
+        var first = ogcd >= 0 && !weave && SyncedOgcdFirst;
+        var g = s;
+        if (weave || first)
+        {
+            Simulator.Advance(Job, ref g, weaveAt - g.Time, _syncedCtx);
+            Simulator.Execute(Job, ref g, tl, Job.Skills[ogcd], _syncedCtx);
+        }
+        Simulator.Advance(Job, ref g, MathF.Max(gcdAt, g.AnimLockAt) - g.Time, _syncedCtx);
+        var gcd = SyncedGcd(g, tl);
+        return new() { Skill = ogcd >= 0 ? ogcd : gcd, ExecuteAt = ogcd >= 0 ? SyncedOgcdDelay : gcdAt, NextGcd = first ? -1 : gcd };
+    }
+
+    // helpers for the synced rules: the skill's index when it is in the level's definition and legal in s, else -1; the first legal of several
+    protected int Legal(in EngineState s, in EngineTimeline tl, string skill)
+    {
+        var i = Job.TrySkillIndex(skill);
+        return i >= 0 && Simulator.IsLegal(Job, s, tl, Job.Skills[i]) ? i : -1;
+    }
+
+    protected int FirstLegal(in EngineState s, in EngineTimeline tl, params string[] skills)
+    {
+        foreach (var sk in skills)
+        {
+            var i = Legal(s, tl, sk);
+            if (i >= 0)
+                return i;
+        }
+        return -1;
+    }
+
+    protected int Gauge(in EngineState s, string gauge) => s.Gauges[Job.GaugeIndex(gauge)];
+    protected float StatusLeft(in EngineState s, string status) => s.StatusLeft[Job.StatusIndex(status)];
+    protected int Stacks(in EngineState s, string status) => s.StatusLeft[Job.StatusIndex(status)] > 0 ? s.StatusStacks[Job.StatusIndex(status)] : 0;
+    protected int Charges(in EngineState s, string cooldown) => s.Charges[Job.CooldownIndex(cooldown)];
+    // seconds until the next charge (0 with a charge up)
+    protected float ReadyIn(in EngineState s, string cooldown) => s.Charges[Job.CooldownIndex(cooldown)] > 0 ? 0 : s.CdReadyIn[Job.CooldownIndex(cooldown)];
+    // seconds until the cooldown is at its maximum charges (0 when it is)
+    protected float FullIn(in EngineState s, string cooldown)
+    {
+        var i = Job.CooldownIndex(cooldown);
+        var missing = Job.Cooldowns[i].MaxCharges - s.Charges[i];
+        return missing <= 0 ? 0 : s.CdReadyIn[i] + (missing - 1) * Job.Cooldowns[i].Recast;
+    }
+    protected bool ComboIs(in EngineState s, string skill) => s.ComboSkill != EngineLimits.NoCombo && s.ComboLeft > 0 && Job.Skills[s.ComboSkill].Name == skill;
+    protected bool Disabled(in EngineState s, string skill)
+    {
+        var i = Job.TrySkillIndex(skill);
+        return i < 0 || (s.DisabledSkills & (1UL << i)) != 0;
     }
 
     // something can be pressed now: no animation lock or cast (the GCD when it is up, or an ability, late weaves included)

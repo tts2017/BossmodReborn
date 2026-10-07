@@ -196,6 +196,77 @@ public sealed class RprEngineModule(RotationModuleManager manager, Actor player)
 
     protected override byte CountTargets(Actor? primaryTarget) => (byte)Math.Max(1, Hints.NumPriorityTargetsInAOECircle(Player.Position, 5));
 
+    // Level sync (below 100): The Balance RPR Leveling Guide's per-band priorities (docs/rebuild/engine-design.md section 20)
+    protected override bool HasSyncedRules => true;
+
+    protected override int SyncedOgcd(in EngineState s, in EngineTimeline tl)
+    {
+        // Arcane Circle on cooldown, once Death's Design is up (Shadow of Death > Arcane Circle); the potion inside it
+        if (StatusLeft(s, RprDefinition.DeathsDesign) > 0 && Legal(s, tl, "ArcaneCircle") is var ac and >= 0)
+            return ac;
+        if (Legal(s, tl, "Potion") is var potion and >= 0)
+            return potion;
+        // Enshroud: Sacrificium (92+), Lemure's Slice / Scythe with 2 Void Shroud (after every second reaping)
+        if (FirstLegal(s, tl, "Sacrificium", "LemuresScythe", "LemuresSlice") is var lemure and >= 0)
+            return lemure;
+        var soul = Gauge(s, RprDefinition.Soul);
+        // Gluttony on cooldown at 50 Soul
+        if (Legal(s, tl, "Gluttony") is var gluttony and >= 0)
+            return gluttony;
+        // Enshroud at 50 Shroud or with Ideal Host, unless Soul Slice is about to sit at two charges or Gluttony is about to come back
+        // (10 s; 13 s from 90) while it could be spent; never held when the next reaver GCDs would overcap Shroud
+        var enshroud = FirstLegal(s, tl, "EnshroudIdeal", "Enshroud");
+        if (enshroud >= 0)
+        {
+            var shroud = Gauge(s, RprDefinition.Shroud);
+            var sliceCapping = Job.HasSkill("SoulSlice") && soul <= 50 && Job.Cooldowns[Job.CooldownIndex(RprDefinition.SoulSliceCD)].MaxCharges > 1
+                && (Charges(s, RprDefinition.SoulSliceCD) >= 2 || Charges(s, RprDefinition.SoulSliceCD) == 1 && s.CdReadyIn[Job.CooldownIndex(RprDefinition.SoulSliceCD)] <= 10);
+            var gluttonySoon = Job.HasSkill("Gluttony") && soul >= 50 && ReadyIn(s, RprDefinition.GluttonyCD) < (Job.HasSkill("Communio") ? 13 : 10);
+            if (!(sliceCapping || gluttonySoon) || shroud + 20 > 100)
+                return enshroud;
+        }
+        // Blood Stalk / Unveiled (Grim Swathe on 3+ targets) at 50 Soul with no reaver, keeping 50 for a Gluttony back within 10 s
+        if (soul >= 50 && (!Job.HasSkill("Gluttony") || ReadyIn(s, RprDefinition.GluttonyCD) > 10 || soul >= 100))
+            return FirstLegal(s, tl, "GrimSwathe", "BloodStalk");
+        return -1;
+    }
+
+    protected override int SyncedGcd(in EngineState s, in EngineTimeline tl)
+    {
+        // Enshroud: Communio (90+) with the last Lemure, else the reapings, alternating for the enhanced one
+        if (StatusLeft(s, RprDefinition.Enshrouded) > 0)
+            return FirstLegal(s, tl, "Communio", "GrimReaping", StatusLeft(s, RprDefinition.EnhancedCross) > 0 ? "CrossReaping" : "VoidReaping", "VoidReaping", "CrossReaping");
+        // reavers from Gluttony / Blood Stalk at once (Gibbet / Gallows alternate through the enhanced statuses; Guillotine on 3+ targets)
+        if (FirstLegal(s, tl, "ExecutionersGuillotine", "ExecutionersGibbet", "ExecutionersGallows", "Guillotine", "Gibbet", "Gallows") is var reaver and >= 0)
+            return reaver;
+        // Death's Design: refreshed before it runs out, before an Enshroud that needs 13 s of it, and with Arcane Circle coming up below 30 s
+        var dd = StatusLeft(s, RprDefinition.DeathsDesign);
+        var enshroudNext = (Gauge(s, RprDefinition.Shroud) >= 50 || StatusLeft(s, RprDefinition.IdealHost) > 0) && Job.HasSkill("Enshroud") && ReadyIn(s, RprDefinition.EnshroudCD) <= Job.BaseGcd && dd < 15;
+        var circleNext = Job.HasSkill("ArcaneCircle") && !Disabled(s, "ArcaneCircle") && ReadyIn(s, RprDefinition.ArcaneCircleCD) <= Job.BaseGcd && dd < 30;
+        if (dd < 5 || enshroudNext || circleNext)
+            if (FirstLegal(s, tl, "WhorlOfDeath", "ShadowOfDeath") is var sod and >= 0)
+                return sod;
+        // Plentiful Harvest (88+) with Immortal Sacrifice and no Bloodsown Circle
+        if (Legal(s, tl, "PlentifulHarvest") is var harvest and >= 0)
+            return harvest;
+        // Soul Slice / Soul Scythe at 50 Soul or less
+        if (FirstLegal(s, tl, "SoulScythe", "SoulSlice") is var slice and >= 0)
+            return slice;
+        // Harvest Moon inside Arcane Circle (the pre-pull Soulsow), or before the fight ends
+        if ((StatusLeft(s, RprDefinition.ArcaneCircle) > 0 || tl.FightEndIn - s.Time < 5) && Legal(s, tl, "HarvestMoon") is var moon and >= 0)
+            return moon;
+        // the combo (Spinning Scythe -> Nightmare Scythe on 3+ targets)
+        var combo = ComboIs(s, "WaxingSlice") ? Legal(s, tl, "InfernalSlice")
+            : ComboIs(s, "Slice") ? Legal(s, tl, "WaxingSlice")
+            : ComboIs(s, "SpinningScythe") ? Legal(s, tl, "NightmareScythe") : -1;
+        if (combo >= 0)
+            return combo;
+        if (FirstLegal(s, tl, "SpinningScythe", "Slice") is var start and >= 0)
+            return start;
+        // nothing to attack: Soulsow (the track keeps it to downtime)
+        return Legal(s, tl, "Soulsow");
+    }
+
     protected override ActionID ActionFor(SkillDef skill) => skill.Name switch
     {
         "Potion" => ActionDefinitions.IDPotionStr,

@@ -750,3 +750,218 @@ SAM 66〜69 / 486〜530 / 119〜151、BLM 26〜27 / 156〜169 / 6〜8、GNB 29�
 
 - 上の差を埋める規則・機能 (MNK の Six-sided Star / Meditation、SAM の彼岸花の掛け直し間隔、BLM 60 の回し) は入れていない (指示どおり)。
 - パーティバフ込み (`--party-buffs 7.8`) でのシンクレベルの再チューニング・比較、ゲーム内での確認。
+
+## 20. レベルシンク時の固定優先順位ルール (Lv100 未満)
+
+### 20.1 方針
+
+- vin の方針「レベルシンク時は rDPS より確実性を重視する」に合わせ、`Player.Level < 100` では探索 (RotationEngine の分枝限定探索 + 重み) を
+  使わず、ジョブごとの固定の優先順位ルールで次の GCD とウィーブする oGCD を決める。Lv100 は定義・重み・探索・出力とも変更なし。
+- ここでの「確実性」: ゲージ・チャージを溢れさせない、DoT / バフ (RPR 死の意匠、SAM 彼岸花・風月 / 風花、BLM サンダー、GNB No Mercy 内の
+  必須 GCD など) を落とさない、コンボを切らない、バースト CD はガイドどおり「リキャストごと / バフ内」、ガイドにない賭け (長いホールド・
+  ドリフト) はしない。rDPS は結果として報告するだけで、受け入れ基準にはしていない。
+- 出典: The Balance の各ジョブ Leveling Guide / Basic Guide、Icy Veins、公式ジョブガイドから起こしたレベル帯別仕様 (2026-10-07 の調査)。
+  ガイドに直接の記述がなく Lv100 のルールと習得表から導いたものは [DERIVED] と書く。
+- 既存のレベル帯別重み (`WeightsL90Json` など、`tools/blm_engine_eval/tuned/weights-*-L*.json`) とファイルは削除も変更もしていない。
+  エンジンはこれまでどおり `DefaultWeights(player.Level)` で作られるが、Lv100 未満では `Decide` を呼ばないので判断には使われない。
+
+### 20.2 仕組み (EngineRotationModule)
+
+- `HasSyncedRules` / `SyncedOgcd` / `SyncedGcd` (virtual) と `DecideSynced` を追加。`Execute` は `Player.Level < 100 && HasSyncedRules` のときだけ
+  `Engine.Decide` の代わりに `DecideSynced` を使う。Lv100 の分岐 (開幕・バーストの予算倍率、`Decide`、`FinishPending`) は中身を変えずに else 側に
+  入れただけ。`ReadJobState` / `ApplyStrategy` / Push の流れ (GCD は High+2、oGCD は Low+1、Force は従来どおり上乗せ) は共通。
+- 合法性はレベル同期済みの定義と `Simulator.IsLegal` で判定する。UI トラックの Forbid (`DisabledSkills`) はそのまま効き、Force は従来どおり
+  押される。補助: `Legal` / `FirstLegal` / `Gauge` / `StatusLeft` / `Stacks` / `Charges` / `ReadyIn` / `FullIn` / `ComboIs` / `Disabled`。
+- `SyncedOgcd` は現在の状態で oGCD を 1 つ選ぶ (遅らせるときは `SyncedOgcdDelay`)。`SyncedGcd` は GCD の時点まで進めた状態 (その oGCD が GCD
+  の前に入るときは実行後の状態) で GCD を選ぶ。次の GCD がその oGCD に依存し、ウィーブ枠がないときは `SyncedOgcdFirst` で oGCD を先に押し、
+  その回は GCD を出さない (BLM の Manafont / Transpose / 移動中の即時化、SAM の溢れ直前の Shinten)。
+- `ReadCooldown` は最大チャージで止まっているチャージ制 CD を「1 チャージ・リチャージなし」と読む (クライアントの CD グループが空になり、
+  単発 CD の分岐に入るため)。シミュレーターは時間を進めた時点で最大に戻すので、GCD を押す瞬間 (経過 0) だけ値がずれ、ルールが揺れた
+  (NIN の印チャージ上限の弁が効かなかった)。`DecideSynced` の中でだけ状態のコピーを補正している (Lv100 の探索側は変えていない。20.6)。
+
+### 20.3 ジョブ別ルール
+
+各ジョブの `*EngineModule.cs` の `SyncedOgcd` / `SyncedGcd`。レベル帯の違いは「そのレベルで定義にないスキルは選ばれない」ことと、下に書いた
+レベル分岐で表している。AoE は特記がなければ 3 体以上 (`s.Targets`)。
+
+- RPR (30〜99、Balance RPR Leveling Guide 1-49 / 50-69 / 70-79 / 80 / 81-90、Icy Veins の優先順位、91〜99 は [DERIVED]):
+  - oGCD: Arcane Circle (72+) をリキャストごと (死の意匠が付いてから = SoD > AC)、薬は AC 中 (定義の条件)。Sacrificium (92+) / Lemure's
+    Slice・Scythe (86+、Void Shroud 2 = リーピング 2 回ごと)。Gluttony (76+) をリキャストごと (Soul 50)。Enshroud (80+、Shroud 50 または
+    Ideal Host) は Soul Slice が 2 チャージ寸前 (Soul 50 以下で 2 チャージ、または 1 チャージで 10 秒以内に 2) と Gluttony が 10 秒以内
+    (90+ は 13 秒、Soul 50 以上のとき) なら待つ。ただし次の reaver 2 回で Shroud が溢れるなら待たない。Blood Stalk / Unveiled (Grim
+    Swathe は 3 体以上) は Soul 50 以上で、Gluttony が 10 秒以内に戻るなら 50 を残す (Soul 100 なら使う)。
+  - GCD: Enshroud 中は Communio (90+、最後の Lemure) > リーピング (強化のある側、3 体以上 Grim Reaping)。Soul Reaver / Executioner は
+    即座に Gibbet / Gallows (強化側、96+ は Executioner's、Guillotine は 4 体以上)。死の意匠 (Whorl は 3 体以上) は残り 5 秒未満、Enshroud
+    直前で 15 秒未満 (定義の Enshroud 条件 13 秒)、AC 直前で 30 秒未満 (Balance の Lv90 2 分:「DD 30 秒未満で入る」)。Plentiful Harvest
+    (88+)、Soul Slice / Scythe (Soul 50 以下)、Harvest Moon は AC 中 (プリプルの Soulsow、Balance Lv90 オープナー) か戦闘終了 5 秒前、
+    コンボ (Spinning → Nightmare は 3 体以上)、何もできないときは Soulsow (トラックがダウンタイムに限定)。
+  - [DERIVED]: 死の意匠の 5 秒 (ガイドは「切らさない」のみ)、Blood Stalk の 10 秒の温存、Enshroud を待たない Shroud 条件。
+- SAM (30〜99、Balance SAM Leveling Guide 50 / 52 / 60 / 62 / 68 / 70 / 74 / 76 / 80 / 90、Basic Guide、Icy Veins):
+  - oGCD: 明鏡止水はコンボの間 (仕上げの後) でチャージが満タンか満タン寸前のとき (1 分ごと、2 チャージは 76+)。Ikishoten (68+) は剣気
+    35 以下 (+50 と次の GCD の 15 が入る余地)。Zanshin (96+)、Senei (72+) / Guren (70+、3 体以上) をリキャストごと、Shoha (80+) は瞑想 3。
+    Shinten (3 体以上は Kyuten): 70 未満は剣気 25 以上ならいつでも (Balance 60-69「25 以上で」)、70 以上は 75 以上 (溢れ防止) と Ikishoten が
+    2 GCD 以内で 35 超のとき。Senei が 2 GCD 以内なら 25、Zanshin Ready なら 50 を残す (90 以上は使う)。次の GCD で溢れる (剣気 86 以上)
+    ときは最優先で Senei / Shinten を GCD の前に押す (ダウンタイムの Meditate 明け)。
+  - GCD: 返し (波切 > 雪月花 > 五剣) は直後に使う (保持しない)。閃 3 で Midare、閃 2 で Tenka Goken (3 体以上、または Yukikaze (50) 未満)、
+    Ogi Namikiri (90+)、彼岸花は閃 1 で残り 15 秒未満 (無しを含む) かつ対象が 48 秒以上生きるとき (Balance の 15 秒ルール、Icy Veins の 48 秒;
+    40 未満は月光しかないので残り 3 秒。3 体以上では掛けない)。明鏡止水中は月光 > 花車 > 雪風 (欠けている閃、全部あるときはバフの短い方、
+    3 体以上は満月 / 桜花)。コンボは始めたものを仕上げ、刃風の次は 10 秒未満のバフ > 欠けている閃 (花車 > 月光 > 雪風、仕様の Lv100 の閃の
+    順「明鏡止水なしは Kasha > Gekko > Yukikaze」) > バフの短い方。3 体以上は風光 → 満月 / 桜花。
+  - 明鏡止水のスタックが使い切れずに切れる (カウントダウン開幕の 14 秒前に押した分) ときは Ogi Namikiri と彼岸花より先に明鏡止水の技を使う。
+  - [DERIVED]: バフ 10 秒の閾値、Ikishoten の剣気 35、Shinten の 75、明鏡止水を先にする条件。
+- GNB (30〜99、Balance GNB Leveling Guide 26-39 / 40-59 / 60-71 / 72-93 / 94-100、Basic Guide、FAQ):
+  - oGCD: 続剣 (Jugular / Abdomen / Eye / Hypervelocity / Fated Brand) を最優先、No Mercy をリキャストごと、Bloodfest は 94+ が定義の組
+    (No Mercy の直前 / 直後)、94 未満は「ゲージが空のとき、No Mercy 内」(No Mercy 中ならいつでも。定義の組は最初のウィーブだけなので
+    94 未満は条件を外して押す)、Danger / Blasting Zone をリキャストごと、Bow Shock は No Mercy 内 (No Mercy が Delay なら制限なし)。
+  - GCD: Gnashing Fang の連撃は切らない。No Mercy 中は Double Down > Sonic Break > Gnashing Fang (4 体以上 (94+ は 3 体) は使わない) > 残りの
+    カートリッジ (No Mercy の残り時間内に戻る Double Down 分 2 と Gnashing Fang 分 1 を残す) を Burst Strike / Fated Circle (72+、2 体以上)。
+    No Mercy 外は Sonic Break の残り、Double Down は No Mercy まで保持 (No Mercy が Delay なら使う)、Gnashing Fang は 2 チャージに達する
+    寸前だけ、Bloodfest の上限超え分の消化。コンボは仕上げで溢れるときだけ先に Gnashing Fang / Burst Strike。AoE コンボは 40+ で 2 体以上
+    (Demon Slaughter)、40 未満は 3 体以上 (Demon Slice)。
+  - [DERIVED]: カートリッジ予約の数え方 (ガイドは「Double Down 用 2 + Gnashing Fang 用 1」)、損失優先 DD > SB > GF。
+- PLD (30〜99、Balance PLD Leveling Guide の各レベルの記述、Basic Guide):
+  - oGCD: Fight or Flight をリキャストごと。Requiescat (68) 未満は Fast Blade (3 体以上は Total Eclipse) の後に遅らせて入れる (Balance 50 / 54 /
+    60: 9 GCD を窓に入れる)。Requiescat は Fight or Flight 中。Circle of Scorn と Spirits Within / Expiacion はリキャストごと。
+  - GCD: Confiteor の連携 (80+、90+ は Blade 3 段) > Requiescat のスタックで Holy Spirit (3 体以上は Holy Circle、72+) > Goring Blade (54+) >
+    Divine Might と Sword Oath (76+) を次の Royal Authority の前に使い切る: Fight or Flight 中は 94 未満 Divine Might 先 (「DM Holy Spirit は
+    Sepulchre より強い」)、94 以上は Sepulchre 先。外では Atonement → Supplication → Sepulchre → Divine Might。その後にコンボ
+    (Prominence 連携は 3 体以上)。Holy Spirit の詠唱 (DM / Requiescat なし) は使わない (「DM があるときだけ」)。
+  - 予報されたダウンタイムが 4 GCD 以内に始まるときは Goring Blade を先に使う (失効防止)。
+  - Intervene は定義にない (従来どおり Dash トラックが押す)。
+- MNK (70〜99、Balance Leveling / Basic Guide、Icy Veins。Lv90 / 80 / 70 の公開ガイドがないので全体に [DERIVED]):
+  - oGCD: Brotherhood を Riddle of Fire の直前に重ね (定義の BrotherhoodFirst)、Riddle of Fire、以後リキャストごと。Perfect Balance は
+    Opo-opo の GCD の直後 (Raptor の型) だけ: 偶数 (Brotherhood) 窓で 2 回 (定義の Pre / 通常)、奇数窓で 1 回 (定義の Odd)、ただし奇数は
+    Nadi が 1 つ以下のとき (両方あると Phantom Rush になり、定義の「Phantom Rush は Brotherhood 内」で使えない)。Riddle of Wind は 96+
+    (72〜95 は従来どおりトラックが押す)、Forbidden Chakra はチャクラ 5 (Enlightenment / Howling Fist は 3 体以上)。
+  - GCD: 闘気が満ちたら即 (Phantom Rush > Elixir > Rising Phoenix)、Wind's Reply (96+)。Perfect Balance 中: Nadi 両方なら Opo-opo を 3 回、
+    そうでなければ Lunar (Opo-opo 3 回) を先、90 以上で Nadi がないときは Solar 先 (Solar Lunar オープナー)。始めた組み合わせは続ける。
+    通常は型の順 (Opo-opo → Raptor → Coeurl) で、それぞれ Fury があれば消費技、なければ付与技 (Dragon Kick / Twin Snakes / Demolish)。
+- NIN (66〜99、Balance NIN Leveling Guide、Basic Guide、Icy Veins):
+  - oGCD: Dokumori (66+、忍気 60 以下)、Trick Attack / Kunai's Bane (定義の Dokumori 窓・奇数条件)、Kassatsu は Trick が 10 秒以内か窓中
+    (「次の 1 分窓の前に」)、Ten Chi Jin (70+) は窓中で Kassatsu の後、Meisui (72+、忍気 50 以下)、Dream Within a Dream は窓中 (Trick が
+    30 秒以上先なら待たない)、Bunshin (80+) をリキャストごと。忍気: 窓中は使い切る、外は 90 以上か Dokumori 直前 (60 超) だけ、Bunshin が
+    5 秒以内なら 50 を残す。Bhavacakra (68+) / Hellfrog (3 体以上と 68 未満)。
+  - GCD: Ten Chi Jin の連携、雷獣 (90+、他の武器技で消えるので即)、Kassatsu の忍術 (窓中か Kassatsu 残り 4 秒未満。76 未満は活殺雷遁)、
+    Suiton は Trick が 20 秒以内でまだ Shadow Walker がないとき (「Trick の CD が 20 秒を切ったら」)、Raiton (3 体以上 Katon) は窓中、
+    窓外は印が上限で Trick が 5 秒より先のときだけ (チャージを溢れさせない)、Phantom Kamaitachi (82+) は Dokumori 中か残り 10 秒未満、
+    コンボ: 風魔の装束があれば Aeolian Edge、なければ Armor Crush (4 以上で Armor Crush にならない)、Death Blossom → Hakke は 3 体以上。
+  - [DERIVED]: 窓外の印の弁 (ガイドは「2 チャージになる前に Suiton」)、忍気 90、Phantom Kamaitachi の 10 秒。
+- BLM (60〜99、Balance BLM Leveling Guide 60-71 / 72-89 / 90-99 単体、58-99 範囲):
+  - 単体 (2 体以下): Astral Fire は Fire IV を MP が Despair (72+) の 800 を残せるまで、Paradox (90+) はハートを使い切った後 (「F4×3 >
+    Paradox > F4×3」)、Firestarter は残り 5 秒未満のときだけ (氷に持ち越す)、Despair、Blizzard III。Umbral Ice は Blizzard IV (ハート
+    3 未満) > Paradox (90+) > ポリグロット (「Xenoglossy はいつでも」) > Fire III (Firestarter があれば即時の方)。属性なしは Blizzard III
+    から (ガイドに Lv100 未満のオープナーがないため、ループの入り口)。サンダーは DoT 残り 3 秒未満だけ (戦闘終了 10 秒前は打たない)。
+    ポリグロットは満タンで次が 3 GCD 以内なら使う、戦闘終了前に使い切る。
+  - 範囲 (3 体以上): 「(Umbral Ice から) Freeze > Foul / Thunder / Freeze > Transpose > Flare ×2 > Transpose」。氷でハート 3 未満は Freeze、
+    3 なら Foul / Freeze、ハート 3 で Transpose、炎は Flare、MP 800 未満で Transpose。
+  - oGCD: ダウンタイムは Astral Fire を Transpose で抜けて Umbral Soul (氷 III・ハート 3 まで。それ以上は押さない)、Manafont は炎の終わり
+    (単体 MP 800 未満、72 未満は 1600 未満)、Ley Lines / Amplifier (86+、ポリグロット満タンでなければ) をリキャストごと、移動中で即時の GCD
+    がなければ Triplecast > Swiftcast、Triplecast が 2 チャージで Astral Fire 中なら使う、ダウンタイム明けで Umbral Ice・ハート 3 なら
+    Swiftcast (なければ Triplecast) で Fire III を即時に。
+  - [DERIVED]: Firestarter の 5 秒、ポリグロットの 3 GCD、Triplecast の 2 チャージ、ダウンタイム明けの Swiftcast (ハーネスの「目標復帰後
+    3.5 秒以内に GCD」を Fire III の詠唱 3.0 秒が 0.1 秒超えていた)。
+
+### 20.4 検証
+
+- Lv100 の同一性: 9 戦闘の決定論 (ENGINE_FRAME_MS=1000、BudgetMs 100) で、バフなし・`--party-buffs 7.8` とも 7 ジョブの出力行が変更前
+  (37cf028ef) と完全一致 (RPR 666,657 / NIN 650,308 / MNK 581,190 / SAM 661,610 / BLM 560,467 / GNB 566,864 / PLD 553,005)。
+- engine_tests 17/17。xan_timeline_harness / blm_engine_eval / rpr_engine_eval / engine_bench / engine_tuner / *_regression (blm / mnk / nin /
+  sam / rpr) の Release ビルドは 0 エラー (警告は既存のもののみ)。
+- シンクレベル、xan_timeline_harness 9 戦闘 (`timeline-matrix --scenario-limit 8 --level L`、既定トラック)。ルールは探索をしないので決定論と
+  ライブが同じ (2 回の実行で一致)。前 = 37cf028ef のライブ (組み込みのレベル帯の重み)、旧 = xan RPR / NIN / MNK / SAM / BLM、Akechi GNB / PLD。
+  確実性の指標はハーネスのカウンター (溢れは失った量、失効は回数、「s」は秒)。コンボ切れは直接のカウンターがない (GNB は続剣失効、PLD は
+  Proc 失効が近い)。
+
+| RPR | ルール | 前 (37cf028ef) | 旧 | 旧比 | 失敗 ルール / 前 / 旧 | DD 維持率 / Soul 溢れ / Shroud 溢れ (ルール ／ 前 ／ 旧) |
+|---|---:|---:|---:|---:|---|---|
+| Lv90 | 555,306 | 554,718 | 554,336 | 0.2% | 0 / 0 / 0 | 0.9958 / 0 / 0 ／ 0.9842 / 0 / 0 ／ 0.9964 / 40 / 0 |
+| Lv80 | 469,211 | 470,722 | 467,597 | 0.3% | 0 / 0 / 0 | 0.9982 / 0 / 0 ／ 0.9787 / 0 / 0 ／ 0.9950 / 0 / 0 |
+| Lv70 | 366,106 | 370,575 | 365,343 | 0.2% | 0 / 0 / 0 | 0.9967 / 0 / 0 ／ 0.9822 / 0 / 0 ／ 0.9938 / 0 / 0 |
+| Lv60 | 324,989 | 327,878 | 323,467 | 0.5% | 0 / 0 / 0 | 0.9982 / 0 / 0 ／ 0.9822 / 0 / 0 ／ 0.9953 / 0 / 0 |
+| Lv50 | 303,994 | 305,704 | 303,994 | 0.0% | 0 / 0 / 0 | 0.9990 / 0 / 0 ／ 0.9961 / 0 / 0 ／ 0.9990 / 0 / 0 |
+
+| NIN | ルール | 前 (37cf028ef) | 旧 | 旧比 | 失敗 ルール / 前 / 旧 | 忍気溢れ / 雷獣失効 / 印チャージ上限 s (ルール ／ 前 ／ 旧) |
+|---|---:|---:|---:|---:|---|---|
+| Lv90 | 539,116 | 527,285 | 518,829 | 3.9% | 0 / 0 / 0 | 10 / 2 / 19.5 ／ 0 / 4 / 0.2 ／ 5 / 5 / 35.7 |
+| Lv80 | 479,604 | 457,079 | 457,925 | 4.7% | 0 / 0 / 0 | 5 / 0 / 15.2 ／ 0 / 0 / 0.1 ／ 0 / 0 / 31.4 |
+| Lv70 | 403,665 | 400,003 | 385,054 | 4.8% | 0 / 0 / 0 | 0 / 0 / 15.2 ／ 0 / 0 / 0.1 ／ 0 / 0 / 25.0 |
+| Lv68 | 383,067 | 370,589 | 366,186 | 4.6% | 0 / 0 / 0 | 5 / 0 / 17.5 ／ 0 / 0 / 0.1 ／ 0 / 0 / 20.0 |
+
+| MNK | ルール | 前 (37cf028ef) | 旧 | 旧比 | 失敗 ルール / 前 / 旧 | チャクラ溢れ / 闘気失効 / PB 失効 (ルール ／ 前 ／ 旧) |
+|---|---:|---:|---:|---:|---|---|
+| Lv90 | 473,845 | 473,324 | 472,328 | 0.3% | 0 / 0 / 0 | 1 / 1 / 2 ／ 1 / 2 / 2 ／ 1 / 0 / 4 |
+| Lv80 | 422,984 | 420,217 | 423,978 | -0.2% | 0 / 0 / 0 | 1 / 0 / 3 ／ 5 / 1 / 2 ／ 1 / 0 / 4 |
+| Lv70 | 391,772 | 393,995 | 396,457 | -1.2% | 0 / 0 / 0 | 0 / 1 / 3 ／ 4 / 1 / 3 ／ 0 / 0 / 1 |
+
+| SAM | ルール | 前 (37cf028ef) | 旧 | 旧比 | 失敗 ルール / 前 / 旧 | 剣気溢れ / 閃溢れ / Proc 失効 / 彼岸花切れ s / 風月なし GCD (ルール ／ 前 ／ 旧) |
+|---|---:|---:|---:|---:|---|---|
+| Lv90 | 534,066 | 537,867 | 549,301 | -2.8% | 0 / 0 / 0 | 10 / 0 / 5 / 38.6 / 6 ／ 85 / 3 / 9 / 29.6 / 3 ／ 20 / 0 / 6 / 114.7 / 1 |
+| Lv80 | 489,536 | 486,526 | 503,146 | -2.7% | 0 / 0 / 0 | 10 / 0 / 3 / 37.9 / 9 ／ 20 / 17 / 11 / 31.9 / 2 ／ 20 / 0 / 4 / 118.2 / 1 |
+| Lv70 | 395,394 | 387,940 | 392,325 | 0.8% | 0 / 0 / 0 | 20 / 0 / 2 / 42.2 / 1 ／ 0 / 11 / 9 / 42.6 / 2 ／ 25 / 0 / 3 / 153.6 / 2 |
+| Lv60 | 336,216 | 321,875 | 332,428 | 1.1% | 0 / 0 / 0 | 0 / 0 / 2 / 35.1 / 1 ／ 0 / 18 / 9 / 30.5 / 2 ／ 0 / 0 / 3 / 153.6 / 2 |
+| Lv50 | 318,674 | 306,661 | 314,278 | 1.4% | 0 / 0 / 0 | 0 / 0 / 2 / 36.9 / 1 ／ 0 / 17 / 9 / 34.7 / 7 ／ 0 / 1 / 3 / 189.8 / 2 |
+
+| BLM | ルール | 前 (37cf028ef) | 旧 | 旧比 | 失敗 ルール / 前 / 旧 | ポリグロット溢れ (ルール ／ 前 ／ 旧) |
+|---|---:|---:|---:|---:|---|---|
+| Lv90 | 443,574 | 476,093 | 473,492 | -6.3% | 1 / 1 / 1 | 1 ／ 0 ／ 1 |
+| Lv80 | 397,478 | 410,069 | 408,721 | -2.8% | 1 / 1 / 1 | 0 ／ 0 ／ 2 |
+| Lv70 | 356,780 | 370,475 | 368,145 | -3.1% | 1 / 1 / 1 | 2 ／ 1 ／ 16 |
+| Lv60 | 322,167 | 327,848 | 333,347 | -3.4% | 1 / 1 / 2 | 0 ／ 0 ／ 0 |
+
+| GNB | ルール | 前 (37cf028ef) | 旧 | 旧比 | 失敗 ルール / 前 / 旧 | 弾溢れ / 続剣失効 / NM 外バースト (ルール ／ 前 ／ 旧) |
+|---|---:|---:|---:|---:|---|---|
+| Lv90 | 497,188 | 506,312 | 489,456 | 1.6% | 0 / 0 / 0 | 0 / 0 / 0 ／ 3 / 10 / 4 ／ 0 / 0 / 0 |
+| Lv80 | 404,952 | 401,776 | 385,640 | 5.0% | 0 / 0 / 0 | 0 / 0 / 0 ／ 8 / 11 / 0 ／ 0 / 0 / 0 |
+| Lv70 | 347,598 | 355,736 | 336,934 | 3.2% | 0 / 0 / 0 | 0 / 0 / 0 ／ 28 / 0 / 0 ／ 8 / 0 / 0 |
+| Lv60 | 280,962 | 285,368 | 272,010 | 3.3% | 0 / 0 / 0 | 0 / 0 / 0 ／ 24 / 0 / 0 ／ 8 / 0 / 0 |
+| Lv50 | 224,016 | 232,820 | 222,300 | 0.8% | 0 / 0 / 0 | 0 / 0 / 0 ／ 0 / 0 / 0 ／ 0 / 0 / 0 |
+
+| PLD | ルール | 前 (37cf028ef) | 旧 | 旧比 | 失敗 ルール / 前 / 旧 | Goring 失効 / DM 失効 / Oath 失効 (ルール ／ 前 ／ 旧) |
+|---|---:|---:|---:|---:|---|---|
+| Lv90 | 462,705 | 456,752 | 448,482 | 3.2% | 0 / 0 / 0 | 2 / 1 / 1 ／ 0 / 0 / 1 ／ 0 / 3 / 22 |
+| Lv80 | 385,452 | 379,729 | 376,553 | 2.4% | 0 / 0 / 0 | 2 / 1 / 1 ／ 0 / 0 / 1 ／ 0 / 3 / 22 |
+| Lv70 | 347,416 | 345,795 | 340,768 | 2.0% | 0 / 0 / 0 | 2 / 0 / 0 ／ 2 / 2 / 0 ／ 0 / 1 / 0 |
+| Lv60 | 253,810 | 250,845 | 248,645 | 2.1% | 0 / 0 / 0 | 0 / 0 / 0 ／ 2 / 0 / 0 ／ 0 / 0 / 0 |
+| Lv50 | 230,258 | 232,418 | 225,832 | 2.0% | 0 / 0 / 0 | 0 / 0 / 0 ／ 0 / 0 / 0 ／ 0 / 0 / 0 |
+
+- BLM の失敗 1 は全レベル・全版に共通のハーネスの境界テスト (「manual Ley Lines survives another action's emergency mode」)。それ以外の
+  失敗は 0。ルール実装の途中で出た「目標復帰後 3.5 秒以内に GCD がない」(Umbral Soul を復帰直前まで押していた、Fire III の詠唱) は上の
+  Umbral Soul の上限とダウンタイム明けの即時化で 0 にした。
+- 残っている確実性の指標の内訳: PLD の Goring 失効 2 は 42 秒戦闘が 10 秒で予報なしに対象を失うもの (ガイドの順で Requiescat のスタックを
+  先に使う)。SAM の Proc 失効は、カウントダウン開幕の明鏡止水 (従来のモジュール処理、14 秒前) の残りを明鏡止水優先にして減らした
+  (Lv90 9 → 5、Lv80 以下は 2〜3)。Lv90 の残り 5 は、開幕直後に対象が消える 27.5 秒戦闘 2 本の明鏡止水 2 と Ogi Namikiri Ready 2、長い戦闘の
+  明鏡止水 1。SAM の剣気溢れはすべてダウンタイム中の Meditate (モジュールの既存処理) の分。NIN の印チャージ上限は窓の直前 (Trick 5 秒
+  以内) に上限に達した分など (旧版の約半分)。
+- 旧版との差の主な理由: BLM はガイドの範囲閾値 3 体 (旧 xan と探索は 2 体から Flare。閾値を 2 にすると Lv90 452,709 / Lv70 365,626 で
+  約 +9,000) と、ガイドどおり Blizzard III から入る開幕 (探索は Fire III + Manafont で入り、10 秒で対象が消える短い戦闘で差が大きい)。
+  SAM 90 / 80 は旧版が彼岸花をほぼ 1 分おきに保持するのに対し、ルールは 15 秒ルールで早めに掛け直す (彼岸花切れは旧版の 1/3)。MNK 70 は
+  旧 xan の Six-sided Star / Meditation 分 (§19.3、ルールでも変えていない)。
+- UI トラック (Lv90、SAM は Lv80、GNB の溢れ防止は Lv70、トレースの回数): RPR Buffs=Delay → Arcane Circle 21 → 0、POT (--potions 5) → 薬 13。
+  NIN Buffs=Delay → Dokumori 21 → 0、Potion=EvenBurst → 13。MNK BH=Delay → Brotherhood 21 → 0、Pot=OpenerAndEvenBursts → 13。
+  SAM Tsubame=Hold → 返し 80 → 30、Delay → 0、Potion=TwoMinuteBurst → 13。BLM LL=Delay → Ley Lines 27 → 0。GNB NM=Delay → No Mercy 34 → 0、
+  Hold=HoldEverything → GCD 0、Potion=AlignWithBuffs → 13、ST/AOE=ForceSTFinishWithOvercap → 範囲技 213 → 0、(Lv70) Carts=NormalOvercapOnly →
+  アビリティ 0。PLD Atones=Delay → Atonement 系 224 → 0、FoF=Delay → 0。
+- 全レベル × 全トラックのスモーク: §18.2 と同じ 2,957 回 (各ジョブの登録レベル〜100 の全レベル × 全トラックを k 番目の選択肢に揃えた組、
+  奇数 k はカウントダウン 12 秒、偶数 k は追加の敵 3 体、`--scenario-limit 2`) で例外 0。ハーネスの規則チェックの失敗がある実行は 532 回
+  (BLM 164 / GNB 142 / MNK 155 / PLD 71、前回と同じ組。わざと不自然な設定の組)、失敗数の合計は 1,173 → 1,108。
+
+### 20.5 ガイドから外れた判断
+
+- GNB: 94 未満の Bloodfest は定義の組 (No Mercy の直前 / 最初のウィーブ) を外し、「ゲージが空、No Mercy 内」ならいつでも押す (ガイドどおりに
+  するため定義の条件のほうを外した)。
+- BLM: ダウンタイム明けの Swiftcast / Triplecast による Fire III の即時化 (ガイドは Triplecast を「移動・ウィーブ用」とだけ書く)。
+  Triplecast を 2 チャージで Astral Fire 中に使う (チャージを溢れさせないため)。
+- NIN: 窓外でも印が上限なら Raiton を撃つ (ガイドは窓外の忍術を Suiton だけとし、上限になる前に Suiton を撃つとだけ書く)。
+- SAM: 返し (Tsubame) は保持せず直後に使う (ガイドは「次のバフ窓まで保持」も挙げるが、30 秒で失う賭けなので採らない。Hold トラックは従来どおり)。
+- PLD: 予報されたダウンタイム直前は Goring Blade を Requiescat のスタックより先に使う。
+- MNK: 奇数窓の Perfect Balance は Nadi が 1 つ以下のときだけ (定義の Phantom Rush の Brotherhood 条件と合わせるため)。Riddle of Fire は
+  早めのウィーブ (ガイドの Lv100 は遅め)。
+- [DERIVED] の採用箇所は 20.3 の各ジョブの末尾に書いた。
+
+### 20.6 入れていないもの
+
+- `ReadCooldown` の最大チャージの読み違い (20.2) は Lv100 の探索側では直していない (直すと Lv100 の出力が変わる)。Lv100 でも満タンの
+  チャージ制 CD (明鏡止水、Gnashing Fang、Perfect Balance、印、Triplecast、Soul Slice、Ley Lines) を 1 チャージと読んでいる。ハーネスで確認;
+  ゲーム内も満タンの CD グループは空になるので同じはずだが、ゲーム内では確認していない。
+- Lv100 の探索・重み・定義、レベル帯の重みファイル、登録レベル (NIN 66 / MNK 70 / BLM 60 など) は変更なし。
+- 新しいトラック・設定・ログ出力。Intervene (Dash トラック)、Doton / Huton、Six-sided Star / Meditation の自動化、ゲーム内での確認。

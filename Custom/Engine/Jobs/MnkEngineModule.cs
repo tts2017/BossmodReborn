@@ -245,6 +245,67 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
 
     protected override byte CountTargets(Actor? primaryTarget) => (byte)Math.Max(1, Hints.NumPriorityTargetsInAOECircle(Player.Position, 5));
 
+    // Level sync (below 100): The Balance MNK Leveling / Basic Guides and Icy Veins, per band (docs/rebuild/engine-design.md section 20)
+    protected override bool HasSyncedRules => true;
+
+    protected override int SyncedOgcd(in EngineState s, in EngineTimeline tl)
+    {
+        // Brotherhood double-woven before the first Riddle of Fire, then both on cooldown (Brotherhood as close to Riddle of Fire as possible)
+        if (FirstLegal(s, tl, "BrotherhoodFirst", "RiddleOfFire", "Brotherhood") is var buff and >= 0)
+            return buff;
+        // Perfect Balance only right after an Opo-opo GCD (Raptor form): two in the Brotherhood window, one in the other Riddle of Fire
+        // windows while it builds a Nadi (with both Nadi the blitz would be Phantom Rush, which needs Brotherhood)
+        if (StatusLeft(s, MnkDefinition.RaptorForm) > 0)
+        {
+            if (FirstLegal(s, tl, "PerfectBalancePre", "PerfectBalance") is var pb and >= 0)
+                return pb;
+            if (Gauge(s, MnkDefinition.NadiCount) <= 1 && Legal(s, tl, "PerfectBalanceOdd") is var odd and >= 0)
+                return odd;
+        }
+        // Riddle of Wind (96+; below it the strategy presses it), Forbidden Chakra at 5 Chakra (Enlightenment / Howling Fist on 3+ targets)
+        if (Legal(s, tl, "RiddleOfWind") is var wind and >= 0 && Job.HasSkill("WindsReply"))
+            return wind;
+        return FirstLegal(s, tl, s.Targets >= 3 ? "Enlightenment" : "ForbiddenChakra", "ForbiddenChakra", "Enlightenment");
+    }
+
+    protected override int SyncedGcd(in EngineState s, in EngineTimeline tl)
+    {
+        var aoe = s.Targets >= 3;
+        // a full Beast Chakra gauge: the blitz at once (Phantom Rush with both Nadi)
+        if (FirstLegal(s, tl, "PhantomRush", "ElixirBurstOpo", "ElixirBurstRaptor", "ElixirBurstCoeurl", "RisingPhoenix") is var blitz and >= 0)
+            return blitz;
+        // Wind's Reply (96+) inside Riddle of Wind
+        if (Legal(s, tl, "WindsReply") is var reply and >= 0)
+            return reply;
+        var opo = aoe ? "ShadowOfTheDestroyer" : Gauge(s, MnkDefinition.OpoFury) > 0 ? "LeapingOpo" : "DragonKick";
+        var raptor = aoe ? "FourPointFury" : Gauge(s, MnkDefinition.RaptorFury) > 0 ? "RisingRaptor" : "TwinSnakes";
+        var coeurl = aoe ? "Rockbreaker" : Gauge(s, MnkDefinition.CoeurlFury) > 0 ? "PouncingCoeurl" : "Demolish";
+        if (StatusLeft(s, MnkDefinition.PerfectBalance) > 0)
+        {
+            // Perfect Balance: with both Nadi anything (Opo-opo GCDs) for Phantom Rush; else Lunar (three Opo-opo) and Solar (one of each).
+            // Lunar first below 90; from 90 Solar first (the Solar Lunar opener)
+            var lunar = Gauge(s, MnkDefinition.Lunar) > 0;
+            var solar = Gauge(s, MnkDefinition.Solar) > 0;
+            var both = lunar && solar;
+            var beastOpo = Gauge(s, MnkDefinition.BeastOpo);
+            // a mix already started is finished (a gauge that is neither three of a kind nor one of each has no blitz)
+            var solarNext = !both && (Gauge(s, MnkDefinition.BeastRaptor) > 0 || Gauge(s, MnkDefinition.BeastCoeurl) > 0
+                || beastOpo < 2 && (Disabled(s, "ElixirBurstOpo") || !Disabled(s, "RisingPhoenix") && (lunar || !solar && Player.Level >= 90)));
+            if (solarNext)
+            {
+                var pick = Gauge(s, MnkDefinition.BeastRaptor) == 0 ? raptor : Gauge(s, MnkDefinition.BeastCoeurl) == 0 ? coeurl : opo;
+                return FirstLegal(s, tl, pick, opo);
+            }
+            return FirstLegal(s, tl, opo, "LeapingOpo", "DragonKick", "Bootshine");
+        }
+        // the form loop: Opo-opo -> Raptor -> Coeurl, each spending its fury stack or building it
+        if (StatusLeft(s, MnkDefinition.RaptorForm) > 0 && FirstLegal(s, tl, raptor, "TwinSnakes", "TrueStrike") is var r and >= 0)
+            return r;
+        if (StatusLeft(s, MnkDefinition.CoeurlForm) > 0 && FirstLegal(s, tl, coeurl, "Demolish", "SnapPunch") is var c and >= 0)
+            return c;
+        return FirstLegal(s, tl, opo, "LeapingOpo", "DragonKick", "Bootshine");
+    }
+
     // Demolish / Snap Punch: rear / flank (as the regular modules); True North when the next one would be missed
     private void UpdatePositional(Actor? target, OffensiveStrategy trueNorthSetting)
     {

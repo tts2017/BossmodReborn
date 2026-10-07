@@ -251,6 +251,64 @@ public sealed class PldEngineModule(RotationModuleManager manager, Actor player)
 
     protected override byte CountTargets(Actor? primaryTarget) => (byte)Math.Max(1, Hints.NumPriorityTargetsInAOECircle(Player.Position, 5));
 
+    // Level sync (below 100): The Balance PLD Leveling Guide's per-level priorities (docs/rebuild/engine-design.md section 20)
+    protected override bool HasSyncedRules => true;
+
+    protected override int SyncedOgcd(in EngineState s, in EngineTimeline tl)
+    {
+        // Fight or Flight on cooldown; below Requiescat (68) late-woven after Fast Blade (Total Eclipse on 3+ targets) so the window holds
+        // the whole combo
+        if (Legal(s, tl, "FightOrFlight") is var fof and >= 0)
+        {
+            if (Job.HasSkill("Imperator"))
+                return fof;
+            if (ComboIs(s, "FastBlade") || ComboIs(s, "TotalEclipse"))
+            {
+                SyncedOgcdDelay = MathF.Max(0, s.GcdReadyAt - Job.Skills[fof].AnimationLock - Job.Latency - 0.1f);
+                return fof;
+            }
+        }
+        // Requiescat inside Fight or Flight
+        if (StatusLeft(s, PldDefinition.FightOrFlight) > 0 && Legal(s, tl, "Imperator") is var req and >= 0)
+            return req;
+        // Circle of Scorn and Spirits Within / Expiacion on cooldown (one of each lands in every Fight or Flight)
+        return FirstLegal(s, tl, "CircleOfScorn", "Expiacion");
+    }
+
+    protected override int SyncedGcd(in EngineState s, in EngineTimeline tl)
+    {
+        var fof = StatusLeft(s, PldDefinition.FightOrFlight) > 0;
+        var aoe = s.Targets >= 3;
+        // a downtime forecast within 4 GCDs: Goring Blade first so it is not lost
+        if (tl.OverlapsDowntime(s.Time, s.Time + 4 * Job.BaseGcd) && Legal(s, tl, "GoringBlade") is var goringFirst and >= 0)
+            return goringFirst;
+        // Requiescat: the Confiteor chain (80+), then its stacks on Holy Spirit (Holy Circle on 3+ targets)
+        if (FirstLegal(s, tl, "Confiteor", "BladeOfFaith", "BladeOfTruth", "BladeOfValor") is var blade and >= 0)
+            return blade;
+        if (FirstLegal(s, tl, aoe ? "HolyCircleReq" : "HolySpiritReq", "HolySpiritReq") is var requiescat and >= 0)
+            return requiescat;
+        // Goring Blade inside Fight or Flight
+        if (Legal(s, tl, "GoringBlade") is var goring and >= 0)
+            return goring;
+        // Divine Might (Holy Spirit; Holy Circle on 3+ targets) and the Sword Oath chain, all spent before the next Royal Authority (it
+        // ends them): inside Fight or Flight Divine Might first below 94, Sepulchre first from 94
+        var divine = FirstLegal(s, tl, aoe ? "HolyCircleDM" : "HolySpiritDM", "HolySpiritDM");
+        var oath = FirstLegal(s, tl, "Atonement", "Supplication", "Sepulchre");
+        if (fof && divine >= 0 && (Player.Level < 94 || oath < 0 || Job.Skills[oath].Name != "Sepulchre"))
+            return divine;
+        if (oath >= 0)
+            return oath;
+        if (divine >= 0)
+            return divine;
+        // the combo (Total Eclipse -> Prominence on 3+ targets)
+        var combo = ComboIs(s, "RiotBlade") ? Legal(s, tl, "RoyalAuthority")
+            : ComboIs(s, "FastBlade") ? Legal(s, tl, "RiotBlade")
+            : ComboIs(s, "TotalEclipse") ? Legal(s, tl, "Prominence") : -1;
+        if (combo >= 0)
+            return combo;
+        return FirstLegal(s, tl, aoe ? "TotalEclipse" : "FastBlade", "FastBlade");
+    }
+
     protected override void ReadJobState(ref EngineState s, Actor? primaryTarget)
     {
         // whole 1000s only (what a spell costs): natural regen would otherwise change the state, and start a new search, every tick

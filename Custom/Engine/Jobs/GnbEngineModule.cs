@@ -249,6 +249,99 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
     // counted like the Akechi module (hitbox to hitbox), which is also how the AoE lands
     protected override byte CountTargets(Actor? primaryTarget) => CountTargetsByHitbox(5);
 
+    // Level sync (below 100): The Balance GNB Leveling Guide's per-band priorities (docs/rebuild/engine-design.md section 20)
+    protected override bool HasSyncedRules => true;
+
+    protected override int SyncedOgcd(in EngineState s, in EngineTimeline tl)
+    {
+        // Continuations first (any GCD drops them)
+        if (FirstLegal(s, tl, "JugularRip", "AbdomenTear", "EyeGouge", "Hypervelocity", "FatedBrand") is var cont and >= 0)
+            return cont;
+        // No Mercy on cooldown; Bloodfest from 94 off cooldown next to it (the definition pairs them), below 94 inside No Mercy with the
+        // gauge empty (anywhere in No Mercy: the definition's pairing only allows its first weave)
+        if (Legal(s, tl, "NoMercy") is var noMercy and >= 0)
+            return noMercy;
+        if (Player.Level >= 94)
+        {
+            if (FirstLegal(s, tl, "Bloodfest", "BloodfestAfter") is var bloodfest and >= 0)
+                return bloodfest;
+        }
+        else if (Job.TrySkillIndex("BloodfestAfter") is var after and >= 0 && !Disabled(s, "BloodfestAfter") && Charges(s, GnbDefinition.BloodfestCD) > 0
+            && Gauge(s, GnbDefinition.Ammo) == 0 && StatusLeft(s, GnbDefinition.NoMercy) > 0 && !tl.InDowntime(s.Time))
+        {
+            return after;
+        }
+        // Danger Zone / Blasting Zone on cooldown; Bow Shock in every No Mercy
+        if (Legal(s, tl, "BlastingZone") is var zone and >= 0)
+            return zone;
+        if ((StatusLeft(s, GnbDefinition.NoMercy) > 0 || Disabled(s, "NoMercy")) && Legal(s, tl, "BowShock") is var bow and >= 0)
+            return bow;
+        return -1;
+    }
+
+    protected override int SyncedGcd(in EngineState s, in EngineTimeline tl)
+    {
+        var ammo = Gauge(s, GnbDefinition.Ammo);
+        var cap = Job.Gauges[Job.GaugeIndex(GnbDefinition.Ammo)].Max / 2;
+        var bloodfest = StatusLeft(s, GnbDefinition.Bloodfest) > 0;
+        var nm = StatusLeft(s, GnbDefinition.NoMercy);
+        var aoe = s.Targets >= (Job.HasSkill("DemonSlaughter") ? 2 : 3);
+        // Gnashing Fang stops at 4 targets (3 from 94); Double Down at any count
+        var fangOk = s.Targets < (Player.Level >= 94 ? 3 : 4);
+        var spender = Job.HasSkill("FatedCircle") && s.Targets >= 2 ? "FatedCircle" : "BurstStrike";
+
+        // the Gnashing Fang combo is never broken
+        if (FirstLegal(s, tl, "SavageClaw", "WickedTalon") is var chain and >= 0)
+            return chain;
+        if (nm > 0)
+        {
+            // inside No Mercy: Double Down > Sonic Break > Gnashing Fang, then the cartridges left over beyond what Double Down / Gnashing
+            // Fang coming back before it ends need
+            if (Legal(s, tl, "DoubleDown") is var dd and >= 0)
+                return dd;
+            if (Legal(s, tl, "SonicBreak") is var sb and >= 0)
+                return sb;
+            if (fangOk && Legal(s, tl, "GnashingFang") is var gf and >= 0)
+                return gf;
+            var reserve = 0;
+            if (Job.HasSkill("DoubleDown") && !Disabled(s, "DoubleDown") && ReadyIn(s, GnbDefinition.DoubleDownCD) < nm)
+                reserve += 2;
+            if (Job.HasSkill("GnashingFang") && fangOk && !Disabled(s, "GnashingFang") && ReadyIn(s, GnbDefinition.GnashingFangCD) < nm)
+                reserve += 1;
+            if (ammo > reserve && FirstLegal(s, tl, spender, "BurstStrike") is var burst and >= 0)
+                return burst;
+        }
+        else
+        {
+            // Sonic Break left from No Mercy is not lost
+            if (Legal(s, tl, "SonicBreak") is var sb and >= 0)
+                return sb;
+            // Double Down is held for No Mercy (unless No Mercy is off)
+            if (Disabled(s, "NoMercy") && Legal(s, tl, "DoubleDown") is var dd and >= 0)
+                return dd;
+            // Gnashing Fang outside No Mercy only so it does not sit at two charges (or with No Mercy off)
+            if (fangOk && (FullIn(s, GnbDefinition.GnashingFangCD) <= Job.BaseGcd || Disabled(s, "NoMercy")) && Legal(s, tl, "GnashingFang") is var gf and >= 0)
+                return gf;
+            // Bloodfest's cartridges beyond the cap are spent before it ends
+            if (bloodfest && ammo > cap && FirstLegal(s, tl, spender, "BurstStrike") is var extra and >= 0)
+                return extra;
+        }
+        // the combo; a cartridge is spent first when the finisher would overcap
+        var finisher = ComboIs(s, "BrutalShell") ? Legal(s, tl, "SolidBarrel") : ComboIs(s, "DemonSlice") ? Legal(s, tl, "DemonSlaughter") : -1;
+        if (finisher >= 0 && ammo >= (bloodfest ? cap * 2 : cap))
+        {
+            if (fangOk && Legal(s, tl, "GnashingFang") is var gf and >= 0)
+                return gf;
+            if (FirstLegal(s, tl, spender, "BurstStrike") is var overcap and >= 0)
+                return overcap;
+        }
+        if (finisher >= 0)
+            return finisher;
+        if (ComboIs(s, "KeenEdge") && Legal(s, tl, "BrutalShell") is var brutal and >= 0)
+            return brutal;
+        return FirstLegal(s, tl, aoe ? "DemonSlice" : "KeenEdge", "KeenEdge");
+    }
+
     protected override void ReadJobState(ref EngineState s, Actor? primaryTarget)
     {
         var gauge = World.Client.GetGauge<GunbreakerGauge>();

@@ -169,6 +169,99 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
 
     protected override byte CountTargets(Actor? primaryTarget) => (byte)Math.Max(1, Hints.NumPriorityTargetsInAOECircle(Player.Position, 5));
 
+    // Level sync (below 100): The Balance SAM Leveling Guide / Icy Veins per-band priorities (docs/rebuild/engine-design.md section 20)
+    protected override bool HasSyncedRules => true;
+
+    protected override int SyncedOgcd(in EngineState s, in EngineTimeline tl)
+    {
+        var kenki = Gauge(s, SamDefinition.Kenki);
+        // about to overcap with the next GCD's Kenki (back from a downtime spent in Meditate): a spender first, before that GCD
+        if (kenki + 15 > 100 && FirstLegal(s, tl, s.Targets >= 3 ? "HissatsuGuren" : "HissatsuSenei", s.Targets >= 3 ? "HissatsuKyuten" : "HissatsuShinten", "HissatsuShinten") is var overcap and >= 0)
+        {
+            SyncedOgcdFirst = true;
+            return overcap;
+        }
+        // Meikyo Shisui between combos (after a finisher), once a minute: whenever the charges are full or about to be
+        if (s.ComboSkill == EngineLimits.NoCombo && FullIn(s, SamDefinition.MeikyoCD) <= Job.BaseGcd && Legal(s, tl, "MeikyoShisui") is var meikyo and >= 0)
+            return meikyo;
+        // Ikishoten on cooldown with 35 Kenki or less (room for its 50 and the next GCD's 15)
+        if (kenki <= 35 && Legal(s, tl, "Ikishoten") is var ikishoten and >= 0)
+            return ikishoten;
+        if (Legal(s, tl, "Zanshin") is var zanshin and >= 0)
+            return zanshin;
+        // Senei (Guren on 3+ targets) on cooldown
+        if (FirstLegal(s, tl, s.Targets >= 3 ? "HissatsuGuren" : "HissatsuSenei", "HissatsuSenei", "HissatsuGuren") is var senei and >= 0)
+            return senei;
+        if (Legal(s, tl, "Shoha") is var shoha and >= 0)
+            return shoha;
+        // Shinten (Kyuten on 3+ targets): below Senei / Guren (70) whenever there are 25; from 70 against overcapping, before an Ikishoten
+        // about to come back, and keeping 25 for a Senei / Guren about to come back and 50 for Zanshin
+        var spend = !Job.HasSkill("HissatsuGuren") ? kenki >= 25
+            : kenki >= 75 || Job.HasSkill("Ikishoten") && ReadyIn(s, SamDefinition.IkishotenCD) <= Job.BaseGcd * 2 && kenki > 35;
+        if (Job.HasSkill("HissatsuGuren") && ReadyIn(s, SamDefinition.SeneiCD) <= Job.BaseGcd * 2 && kenki - 25 < 25 && kenki < 90)
+            spend = false;
+        if (StatusLeft(s, SamDefinition.ZanshinReady) > 0 && kenki - 25 < 50 && kenki < 90)
+            spend = false;
+        return spend ? FirstLegal(s, tl, s.Targets >= 3 ? "HissatsuKyuten" : "HissatsuShinten", "HissatsuShinten") : -1;
+    }
+
+    protected override int SyncedGcd(in EngineState s, in EngineTimeline tl)
+    {
+        var sen = Gauge(s, SamDefinition.SenCount);
+        var aoe = s.Targets >= 3;
+        // Kaeshi: Namikiri right after Ogi Namikiri, Tsubame-gaeshi right after the Iaijutsu (not held: it would be lost after 30 s)
+        if (FirstLegal(s, tl, "KaeshiNamikiri", "KaeshiSetsugekka", "KaeshiGoken") is var kaeshi and >= 0)
+            return kaeshi;
+        // Midare Setsugekka at 3 Sen (Tenka Goken at 2 on 3+ targets, and at 2 below Yukikaze (50))
+        if (sen >= 3 && Legal(s, tl, "MidareSetsugekka") is var midare and >= 0)
+            return midare;
+        if (sen == 2 && (aoe || !Job.HasSkill("MidareSetsugekka")) && Legal(s, tl, "TenkaGoken") is var tenka and >= 0)
+            return tenka;
+        // Meikyo Shisui stacks that would run out unused (the countdown one, 20 s from 14 s before the pull) go before Ogi Namikiri and Higanbana
+        var meikyoStacks = Stacks(s, SamDefinition.Meikyo);
+        var meikyoExpiring = meikyoStacks > 0 && StatusLeft(s, SamDefinition.Meikyo) < (meikyoStacks + 1) * Job.BaseGcd;
+        // Ogi Namikiri (90+) from Ikishoten
+        if (!meikyoExpiring && Legal(s, tl, "OgiNamikiri") is var ogi and >= 0)
+            return ogi;
+        // Higanbana at 1 Sen when it has under 15 s left (or none) and the target lives 48 s more; with only Getsu (below 40) at the last tick
+        var bana = StatusLeft(s, SamDefinition.Higanbana);
+        if (sen == 1 && !aoe && !meikyoExpiring && bana < (Job.HasSkill("Kasha") ? 15 : 3) && tl.FightEndIn - s.Time >= 48 && Legal(s, tl, "Higanbana") is var higanbana and >= 0)
+            return higanbana;
+
+        var fugetsu = StatusLeft(s, SamDefinition.Fugetsu);
+        var fuka = StatusLeft(s, SamDefinition.Fuka);
+        var getsu = Gauge(s, SamDefinition.Getsu) > 0;
+        var ka = Gauge(s, SamDefinition.Ka) > 0;
+        var setsu = Gauge(s, SamDefinition.Setsu) > 0;
+        // Meikyo Shisui: Gekko > Kasha > Yukikaze (the missing Sen; Mangetsu / Oka on 3+ targets)
+        if (StatusLeft(s, SamDefinition.Meikyo) > 0)
+        {
+            if (aoe)
+                return FirstLegal(s, tl, !getsu || ka && fugetsu <= fuka ? "MangetsuMeikyo" : "OkaMeikyo", "MangetsuMeikyo", "OkaMeikyo");
+            return FirstLegal(s, tl, !getsu ? "GekkoMeikyo" : !ka ? "KashaMeikyo" : !setsu ? "YukikazeMeikyo" : fugetsu <= fuka ? "GekkoMeikyo" : "KashaMeikyo", "GekkoMeikyo", "KashaMeikyo", "YukikazeMeikyo");
+        }
+        // the combos (never broken): finish the one started
+        if (ComboIs(s, "Jinpu") && Legal(s, tl, "Gekko") is var gekko and >= 0)
+            return gekko;
+        if (ComboIs(s, "Shifu") && Legal(s, tl, "Kasha") is var kasha and >= 0)
+            return kasha;
+        if (ComboIs(s, "Fuko") && FirstLegal(s, tl, !getsu || ka && fugetsu <= fuka ? "Mangetsu" : "Oka", "Mangetsu", "Oka") is var aoeFinisher and >= 0)
+            return aoeFinisher;
+        if (ComboIs(s, "Gyofu"))
+        {
+            // the buff about to run out first (under 10 s), else the missing Sen: Kasha > Gekko > Yukikaze, else the buff with less time left
+            var next = Job.HasSkill("Shifu") && fuka < 10 && fuka <= fugetsu ? "Shifu"
+                : fugetsu < 10 ? "Jinpu"
+                : !ka && Job.HasSkill("Kasha") ? "Shifu"
+                : !getsu ? "Jinpu"
+                : !setsu && Job.HasSkill("Yukikaze") ? "Yukikaze"
+                : Job.HasSkill("Kasha") && fuka <= fugetsu ? "Shifu" : "Jinpu";
+            if (FirstLegal(s, tl, next, "Jinpu") is var step and >= 0)
+                return step;
+        }
+        return FirstLegal(s, tl, aoe ? "Fuko" : "Gyofu", "Gyofu");
+    }
+
     // Gekko wants the rear, Kasha the flank; True North when the next one would be missed
     private void UpdatePositional(Actor? target, bool useTrueNorth)
     {

@@ -179,6 +179,132 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
         }
     }
 
+    // Level sync (below 100): The Balance BLM Leveling Guide's per-band loops (docs/rebuild/engine-design.md section 20)
+    protected override bool HasSyncedRules => true;
+    private bool _downtimeIce; // a downtime since the last Astral Fire
+
+    protected override int SyncedOgcd(in EngineState s, in EngineTimeline tl)
+    {
+        var fire = Gauge(s, BlmDefinition.AstralFire);
+        var ice = Gauge(s, BlmDefinition.UmbralIce);
+        var mp = Gauge(s, BlmDefinition.MP);
+        var aoe = s.Targets >= 3;
+        // the swaps, Manafont and the movement instant casts decide the next GCD: they go first when there is no weave window left
+        SyncedOgcdFirst = true;
+        // nothing to attack: out of Astral Fire (Umbral Soul keeps the ice phase going)
+        if (fire > 0 && tl.InDowntime(s.Time) && Legal(s, tl, "Transpose") is var down and >= 0)
+            return down;
+        // Manafont at the end of the fire phase (after the last spender)
+        if (fire > 0 && mp < (aoe ? 800 : Job.HasSkill("Despair") ? 800 : 1600) && Legal(s, tl, "Manafont") is var manafont and >= 0)
+            return manafont;
+        // AoE (3+ targets): Transpose out of Umbral Ice with full hearts, and out of Astral Fire once Flare cannot be cast
+        if (aoe)
+        {
+            if (ice > 0 && Gauge(s, BlmDefinition.Hearts) >= 3 && Legal(s, tl, "TransposeIce") is var toFire and >= 0)
+                return toFire;
+            if (fire > 0 && mp < 800 && Legal(s, tl, "Transpose") is var toIce and >= 0)
+                return toIce;
+        }
+        // moving with no instant GCD up: Triplecast, else Swiftcast
+        var instantUp = StatusLeft(s, BlmDefinition.Triplecast) > 0 || StatusLeft(s, BlmDefinition.Swiftcast) > 0;
+        if (_moving && !instantUp && InstantGcd(s, tl) < 0 && FirstLegal(s, tl, "Triplecast", "Swiftcast") is var instant and >= 0)
+            return instant;
+        // back from a downtime in Umbral Ice with full hearts: the Fire III into Astral Fire instant (Swiftcast, else a Triplecast charge)
+        if (tl.InDowntime(s.Time))
+            _downtimeIce = true;
+        else if (fire > 0)
+            _downtimeIce = false;
+        if (_downtimeIce && ice > 0 && Gauge(s, BlmDefinition.Hearts) >= 3 && !tl.InDowntime(s.Time) && !instantUp && StatusLeft(s, BlmDefinition.Firestarter) <= 0
+            && FirstLegal(s, tl, "Swiftcast", "Triplecast") is var resume and >= 0)
+            return resume;
+        SyncedOgcdFirst = false;
+        // Ley Lines and Amplifier (86+, not into a full Polyglot gauge) on cooldown
+        if (Legal(s, tl, "LeyLines") is var leyLines and >= 0)
+            return leyLines;
+        if (Gauge(s, BlmDefinition.Polyglot) < Job.Gauges[Job.GaugeIndex(BlmDefinition.Polyglot)].Max && FirstLegal(s, tl, "Amplifier", "AmplifierIce") is var amplifier and >= 0)
+            return amplifier;
+        // Triplecast in Astral Fire when its charges are full
+        if (fire > 0 && !instantUp && Charges(s, BlmDefinition.TriplecastCD) >= Job.Cooldowns[Job.CooldownIndex(BlmDefinition.TriplecastCD)].MaxCharges
+            && Legal(s, tl, "Triplecast") is var triplecast and >= 0)
+            return triplecast;
+        return -1;
+    }
+
+    // an instant GCD worth casting: Polyglot, Paradox, Firestarter, Thunder
+    private int InstantGcd(in EngineState s, in EngineTimeline tl)
+        => FirstLegal(s, tl, s.Targets >= 3 ? "Foul" : "Xenoglossy", "Xenoglossy", "Foul", "Paradox", "ParadoxIce", "Fire3Proc", s.Targets >= 3 ? "HighThunder2" : "HighThunder", "HighThunder");
+
+    protected override int SyncedGcd(in EngineState s, in EngineTimeline tl)
+    {
+        var fire = Gauge(s, BlmDefinition.AstralFire);
+        var ice = Gauge(s, BlmDefinition.UmbralIce);
+        var mp = Gauge(s, BlmDefinition.MP);
+        var hearts = Gauge(s, BlmDefinition.Hearts);
+        var aoe = s.Targets >= 3;
+        var polyglot = Gauge(s, BlmDefinition.Polyglot);
+        var spender = aoe || !Job.HasSkill("Xenoglossy") ? "Foul" : "Xenoglossy";
+
+        // Thunder only when its DoT has under 3 s left (Thunder II / IV / High Thunder II on 3+ targets)
+        if (StatusLeft(s, BlmDefinition.Thunder) < 3 && tl.FightEndIn - s.Time > 10 && FirstLegal(s, tl, aoe ? "HighThunder2" : "HighThunder", "HighThunder") is var thunder and >= 0)
+            return thunder;
+        // Polyglot never overcapped: spent when the gauge is full and the next stack is about to come
+        if (polyglot >= Job.Gauges[Job.GaugeIndex(BlmDefinition.Polyglot)].Max && StatusLeft(s, BlmDefinition.PolyglotTimer) < Job.BaseGcd * 3
+            && FirstLegal(s, tl, spender, "Xenoglossy", "Foul") is var poly and >= 0)
+            return poly;
+        // Polyglot before the fight ends
+        if (polyglot > 0 && tl.FightEndIn - s.Time < Job.BaseGcd * polyglot && FirstLegal(s, tl, spender, "Xenoglossy", "Foul") is var last and >= 0)
+            return last;
+
+        int pick;
+        if (aoe)
+        {
+            // (from Umbral Ice) Freeze > Foul / Thunder / Freeze > Transpose > Flare x2 > Transpose
+            if (ice > 0)
+                pick = hearts < 3 ? FirstLegal(s, tl, "Freeze") : FirstLegal(s, tl, "Foul", "Freeze");
+            else if (fire > 0)
+                pick = FirstLegal(s, tl, "Flare");
+            else
+                pick = FirstLegal(s, tl, "HighBlizzard2Cold", "Blizzard3Cold");
+        }
+        else if (fire > 0)
+        {
+            // Astral Fire: Fire IV while the MP leaves Despair (72+) its 800; Paradox (90+) once the hearts are spent; Firestarter only
+            // when it is about to run out (kept for the next Umbral Ice); then Despair, then Blizzard III
+            var keep = Job.HasSkill("Despair") ? 800 : 0;
+            var f4Cost = hearts > 0 ? 800 : 1600;
+            pick = -1;
+            if (StatusLeft(s, BlmDefinition.Firestarter) is > 0 and < 5)
+                pick = Legal(s, tl, "Fire3Proc");
+            if (pick < 0 && hearts == 0 && mp - 1600 >= keep)
+                pick = Legal(s, tl, "Paradox");
+            if (pick < 0 && mp - f4Cost >= keep)
+                pick = FirstLegal(s, tl, "Fire4", "Fire4NoHeart");
+            if (pick < 0)
+                pick = FirstLegal(s, tl, "Despair", "Blizzard3", "Blizzard3LowFire");
+        }
+        else if (ice > 0)
+        {
+            // Umbral Ice: Blizzard IV for the hearts, Paradox (90+), the Polyglot stacks, then Fire III (Firestarter's instant one first)
+            pick = hearts < 3 ? FirstLegal(s, tl, "Blizzard4") : -1;
+            if (pick < 0)
+                pick = Legal(s, tl, "ParadoxIce");
+            if (pick < 0 && polyglot > 0)
+                pick = FirstLegal(s, tl, spender, "Xenoglossy", "Foul");
+            // nothing to attack: Umbral Soul up to Umbral Ice III and full hearts (no GCD after that, ready for the target's return)
+            if (pick < 0 && tl.InDowntime(s.Time))
+                return ice < 3 || hearts < 3 ? Legal(s, tl, "UmbralSoul") : -1;
+            if (pick < 0)
+                pick = FirstLegal(s, tl, "Fire3Proc", "Fire3", "Fire3LowIce");
+        }
+        else
+        {
+            // no element: the loop starts from Blizzard III
+            pick = FirstLegal(s, tl, "Blizzard3Cold", "Fire3Cold");
+        }
+        // moving (no cast possible): an instant GCD instead
+        return pick >= 0 ? pick : InstantGcd(s, tl);
+    }
+
     // no target: assume it stays away for a while (no buffs or Triplecast stacks wasted into the gap; Umbral Soul keeps the ice phase going)
     protected override float UnknownDowntime => 10;
 

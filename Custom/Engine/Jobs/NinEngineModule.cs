@@ -171,6 +171,79 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
 
     protected override byte CountTargets(Actor? primaryTarget) => (byte)Math.Max(1, Hints.NumPriorityTargetsInAOECircle(Player.Position, 5));
 
+    // Level sync (below 100): The Balance NIN Leveling / Basic Guides and Icy Veins, per band (docs/rebuild/engine-design.md section 20)
+    protected override bool HasSyncedRules => true;
+
+    protected override int SyncedOgcd(in EngineState s, in EngineTimeline tl)
+    {
+        var ninki = Gauge(s, NinDefinition.Ninki);
+        var trick = StatusLeft(s, NinDefinition.KunaisBane) > 0;
+        var trickIn = ReadyIn(s, NinDefinition.KunaisBaneCD);
+        // Dokumori every two minutes (spending Ninki first when its 40 would overcap), then Trick Attack / Kunai's Bane after Suiton
+        if (ninki <= 60 && Legal(s, tl, "Dokumori") is var dokumori and >= 0)
+            return dokumori;
+        if (FirstLegal(s, tl, "KunaisBane", "KunaisBaneOdd") is var bane and >= 0)
+            return bane;
+        // Kassatsu right before the window (Trick Attack back within 10 s) or inside it
+        if ((trick || trickIn <= 10) && Legal(s, tl, "Kassatsu") is var kassatsu and >= 0)
+            return kassatsu;
+        // inside the window: Ten Chi Jin (70+) after the Kassatsu ninjutsu, Meisui (72+) after its Suiton, Dream Within a Dream
+        if (trick && StatusLeft(s, NinDefinition.Kassatsu) <= 0 && Legal(s, tl, "TenChiJin") is var tcj and >= 0)
+            return tcj;
+        if (ninki <= 50 && Legal(s, tl, "Meisui") is var meisui and >= 0)
+            return meisui;
+        if ((trick || trickIn >= 30) && Legal(s, tl, "DreamWithinADream") is var dream and >= 0)
+            return dream;
+        // Bunshin (80+) on cooldown
+        if (Legal(s, tl, "Bunshin") is var bunshin and >= 0)
+            return bunshin;
+        // Ninki: everything inside the window, else before 100 (and before Dokumori's 40), keeping 50 for a Bunshin about to come back
+        var bunshinSoon = Job.HasSkill("Bunshin") && !Disabled(s, "Bunshin") && ReadyIn(s, NinDefinition.BunshinCD) <= 5;
+        var dokumoriSoon = Job.HasSkill("Dokumori") && !Disabled(s, "Dokumori") && ReadyIn(s, NinDefinition.DokumoriCD) <= Job.BaseGcd && ninki > 60;
+        var spend = ninki >= 90 || dokumoriSoon || trick && !(bunshinSoon && ninki < 100);
+        if (spend && (!bunshinSoon || ninki >= 90))
+            return FirstLegal(s, tl, s.Targets >= 3 || !Job.HasSkill("Bhavacakra") ? "HellfrogMedium" : "Bhavacakra", "Bhavacakra", "HellfrogMedium");
+        return -1;
+    }
+
+    protected override int SyncedGcd(in EngineState s, in EngineTimeline tl)
+    {
+        var aoe = s.Targets >= 3;
+        var trick = StatusLeft(s, NinDefinition.KunaisBane) > 0;
+        var mudra = Job.CooldownIndex(NinDefinition.MudraCD);
+        if (Legal(s, tl, "TCJCombo") is var tcj and >= 0)
+            return tcj;
+        // Raiju (90+) at once: any other weaponskill clears it
+        if (Legal(s, tl, "ForkedRaiju") is var raiju and >= 0)
+            return raiju;
+        // Kassatsu's ninjutsu inside the window (or before Kassatsu runs out)
+        if ((trick || StatusLeft(s, NinDefinition.Kassatsu) < 4) && FirstLegal(s, tl, aoe ? "GokaMekkyaku" : "HyoshoRanryu", "HyoshoRanryu", aoe ? "KassatsuKaton" : "KassatsuRaiton", "KassatsuRaiton") is var kassatsu and >= 0)
+            return kassatsu;
+        // Suiton once Trick Attack is back within 20 s (Shadow Walker for it)
+        if (StatusLeft(s, NinDefinition.ShadowWalker) <= 0 && ReadyIn(s, NinDefinition.KunaisBaneCD) < 20 && !Disabled(s, "KunaisBane") && Legal(s, tl, "Suiton") is var suiton and >= 0)
+            return suiton;
+        // Raiton inside the window (Katon on 3+ targets); outside it only when the mudra charges sit at the cap (charges are not wasted)
+        // with Trick Attack more than 5 s away
+        var mudraCapped = s.Charges[mudra] >= Job.Cooldowns[mudra].MaxCharges && ReadyIn(s, NinDefinition.KunaisBaneCD) > 5;
+        if ((trick || mudraCapped) && FirstLegal(s, tl, aoe ? "Katon" : "Raiton", "Raiton") is var raiton and >= 0)
+            return raiton;
+        // Phantom Kamaitachi (82+) inside Dokumori, or before it runs out
+        if ((StatusLeft(s, NinDefinition.Dokumori) > 0 || StatusLeft(s, NinDefinition.PhantomReady) < 10) && Legal(s, tl, "PhantomKamaitachi") is var pk and >= 0)
+            return pk;
+        // the combos: Aeolian Edge with Kazematoi, else Armor Crush (+2, so never at 4+); Death Blossom -> Hakke on 3+ targets
+        if (ComboIs(s, "GustSlash"))
+        {
+            var kaze = Gauge(s, NinDefinition.Kazematoi);
+            if (FirstLegal(s, tl, kaze >= 1 ? "AeolianEdge" : "ArmorCrush", "ArmorCrush", "AeolianEdgeBare") is var finisher and >= 0)
+                return finisher;
+        }
+        if (ComboIs(s, "SpinningEdge") && Legal(s, tl, "GustSlash") is var gust and >= 0)
+            return gust;
+        if (ComboIs(s, "DeathBlossom") && Legal(s, tl, "HakkeMujinsatsu") is var hakke and >= 0)
+            return hakke;
+        return FirstLegal(s, tl, aoe ? "DeathBlossom" : "SpinningEdge", "SpinningEdge");
+    }
+
     // Aeolian Edge wants the rear, Armor Crush the flank: publish the positional and use True North when it would be missed
     private void UpdatePositional(Actor? target, bool useTrueNorth)
     {
