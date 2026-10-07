@@ -318,9 +318,16 @@ public static class Simulator
         switch (skill.Combo)
         {
             case ComboMode.Start:
-            case ComboMode.Continue:
                 s.ComboSkill = (byte)skill.Index;
                 s.ComboLeft = 30;
+                break;
+            case ComboMode.Continue:
+                // a middle step continues the combo only when pressed as combo (out of combo it breaks it, as in the game)
+                var continues = false;
+                foreach (ref readonly var c in skill.PotencyIf.AsSpan())
+                    continues |= c.If.Kind == ConditionKind.ComboIs && Check(s, c.If);
+                s.ComboSkill = continues ? (byte)skill.Index : EngineLimits.NoCombo;
+                s.ComboLeft = continues ? 30 : 0;
                 break;
             case ComboMode.End:
             case ComboMode.Break:

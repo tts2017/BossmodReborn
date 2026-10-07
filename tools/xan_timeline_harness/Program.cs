@@ -82,6 +82,8 @@ internal static partial class Program
         new("nin-engine", Class.NIN, BossMod.Autorotation.NinEngineModule.Definition, static (manager, player) => new BossMod.Autorotation.NinEngineModule(manager, player)),
         new("mnk-engine", Class.MNK, BossMod.Autorotation.MnkEngineModule.Definition, static (manager, player) => new BossMod.Autorotation.MnkEngineModule(manager, player)),
         new("sam-engine", Class.SAM, BossMod.Autorotation.SamEngineModule.Definition, static (manager, player) => new BossMod.Autorotation.SamEngineModule(manager, player)),
+        new("gnb-engine", Class.GNB, BossMod.Autorotation.GnbEngineModule.Definition, static (manager, player) => new BossMod.Autorotation.GnbEngineModule(manager, player)),
+        new("pld-engine", Class.PLD, BossMod.Autorotation.PldEngineModule.Definition, static (manager, player) => new BossMod.Autorotation.PldEngineModule(manager, player)),
         // the only akechi module in the matrix: AkechiGNB.cs is the production GNB rotation and has no other harness
         new("gnb", Class.GNB, AkechiGNB.Definition, static (manager, player) => new AkechiGNB(manager, player)),
         // reference implementation, run through the same simulation and the same scorer so AkechiGNB's choices can
@@ -115,6 +117,8 @@ internal static partial class Program
                 BossMod.Autorotation.NinEngineModule.WeightsOverride = BossMod.Autorotation.Engine.EngineWeights.Load(weightsPath);
                 BossMod.Autorotation.MnkEngineModule.WeightsOverride = BossMod.Autorotation.Engine.EngineWeights.Load(weightsPath);
                 BossMod.Autorotation.SamEngineModule.WeightsOverride = BossMod.Autorotation.Engine.EngineWeights.Load(weightsPath);
+                BossMod.Autorotation.GnbEngineModule.WeightsOverride = BossMod.Autorotation.Engine.EngineWeights.Load(weightsPath);
+                BossMod.Autorotation.PldEngineModule.WeightsOverride = BossMod.Autorotation.Engine.EngineWeights.Load(weightsPath);
             }
             if (Environment.GetEnvironmentVariable("ENGINE_FRAME_MS") is { Length: > 0 } frameMs)
             {
@@ -123,6 +127,8 @@ internal static partial class Program
                 BossMod.Autorotation.NinEngineModule.FrameBudgetOverride = BossMod.Autorotation.RprEngineModule.FrameBudgetOverride;
                 BossMod.Autorotation.MnkEngineModule.FrameBudgetOverride = BossMod.Autorotation.RprEngineModule.FrameBudgetOverride;
                 BossMod.Autorotation.SamEngineModule.FrameBudgetOverride = BossMod.Autorotation.RprEngineModule.FrameBudgetOverride;
+                BossMod.Autorotation.GnbEngineModule.FrameBudgetOverride = BossMod.Autorotation.RprEngineModule.FrameBudgetOverride;
+                BossMod.Autorotation.PldEngineModule.FrameBudgetOverride = BossMod.Autorotation.RprEngineModule.FrameBudgetOverride;
             }
             if (Environment.GetEnvironmentVariable("ENGINE_REPLAN_S") is { Length: > 0 } replan)
                 BossMod.Autorotation.NinEngineModule.ReplanOverride = float.Parse(replan, System.Globalization.CultureInfo.InvariantCulture);

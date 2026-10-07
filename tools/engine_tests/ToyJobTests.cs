@@ -173,6 +173,6 @@ public sealed class ToyJobTests(ITestOutputHelper output)
         var engine = ScenarioRunner.Run(Job, new EngineWeights { BudgetMs = 5 }, sc);
         var fillerOnly = new JobAnalysis(Job).FillerPps * sc.KillTime;
         output.WriteLine($"engine damage {engine.Damage:f0} (dps {engine.Dps:f1}) vs filler-only {fillerOnly:f0}; decisions {engine.Decisions}");
-        Assert.True(engine.Damage > fillerOnly * 1.2f);
+        Assert.True(engine.Damage > fillerOnly * 1.15f); // the filler loop is the real 1-2-3 combo (a middle step out of combo breaks it)
     }
 }
