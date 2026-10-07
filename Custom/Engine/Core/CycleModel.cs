@@ -200,6 +200,8 @@ public sealed class CycleModel
                     break;
                 case ConditionKind.ComboIs:
                     return false;
+                case ConditionKind.CooldownAtLeast:
+                    return false;
             }
         }
         return true;

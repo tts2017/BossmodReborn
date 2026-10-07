@@ -18,6 +18,7 @@ public sealed class JobAnalysis
     public readonly float[] CdValueDuration;   // >0 when the charge's value is a timed damage buff: its payoff spans this many seconds
     public readonly float[] GaugeUnitValueBase;  // from the definition alone; GaugeUnitValue = base + weights.GaugeValue
     public readonly float[] CdUnitValueBase;     // from the definition alone; CdUnitValue = base + weights.CooldownValue
+    public readonly float[] CdUnlockValue;       // extra value of a charge from the skills its statuses unlock (added x weights.UnlockScale)
     public readonly float[] StatusValuePerSecond; // damage-multiplier statuses: (m-1) x filler rate
     public readonly float MaxSkillValue;        // upper bound of one skill's immediate value (single target, unbuffed)
     public readonly float[] ComboChainValue;    // per skill: value of having it as the last combo step = sum over the remaining chain of (combo potency - filler per GCD)
@@ -55,6 +56,7 @@ public sealed class JobAnalysis
         CdUnitValue = new float[job.Cooldowns.Length];
         CdSpentByGcd = new bool[job.Cooldowns.Length];
         CdValueDuration = new float[job.Cooldowns.Length];
+        CdUnlockValue = new float[job.Cooldowns.Length];
         var perPoint = new float[job.Gauges.Length];
         foreach (var s in job.Skills)
         {
@@ -103,6 +105,32 @@ public sealed class JobAnalysis
             ComboChainValue[i] = ChainValue(job, i, 0);
         foreach (var v in ComboChainValue)
             MaxComboChainValue = MathF.Max(MaxComboChainValue, v);
+        // cooldowns whose skill grants a status other skills need (Ten Chi Jin -> its steps, Kassatsu -> Hyosho Ranryu) or a shadow (Bunshin):
+        // worth what those skills add over filler
+        foreach (var s in job.Skills)
+        {
+            if (s.Cooldown < 0)
+                continue;
+            var unlocked = SkillValue(s) - (s.IsGcd ? FillerPerGcd : 0);
+            foreach (var e in s.Effects)
+            {
+                if (e.Kind != EffectKind.StatusApply)
+                    continue;
+                var st = job.Statuses[e.Index];
+                if (st.ShadowPotency > 0)
+                    unlocked += st.ShadowPotency * Math.Max(1, (int)e.Stacks);
+                var best = 0f;
+                foreach (var user in job.Skills)
+                {
+                    if (user == s || !RequiresStatus(user, e.Index))
+                        continue;
+                    var time = user.IsGcd ? (user.Recast > 0 ? user.Recast : job.BaseGcd) : 0;
+                    best = MathF.Max(best, SkillValue(user) - FillerPps * time);
+                }
+                unlocked += best;
+            }
+            CdUnlockValue[s.Cooldown] = MathF.Max(CdUnlockValue[s.Cooldown], unlocked - CdUnitValue[s.Cooldown]);
+        }
         // cooldowns whose skill changes the cycle state (Manafont refilling MP): worth their best use on the optimal cycle
         if (Cycles[1] is { } cycle)
         {
@@ -218,6 +246,14 @@ public sealed class JobAnalysis
             if (e.Kind == EffectKind.GaugeAdd && e.Value > 0 && e.If.Kind == ConditionKind.None)
                 v += e.Value * perPoint[e.Index];
         return v;
+    }
+
+    private static bool RequiresStatus(SkillDef s, int status)
+    {
+        foreach (var c in s.Conditions)
+            if (c.Kind is ConditionKind.StatusActive or ConditionKind.StacksAtLeast or ConditionKind.StatusLeftAtLeast && c.Index == status)
+                return true;
+        return false;
     }
 
     private static bool RequiresGauge(SkillDef s, int gauge)

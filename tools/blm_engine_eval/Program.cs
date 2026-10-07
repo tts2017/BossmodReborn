@@ -22,14 +22,18 @@ public static class Program
             "play" => Play(args),
             "explain" => Explain(args),
             "tune-xan" => XanTuner.Run(args),
+            "bench" => Bench(args),
             _ => throw new ArgumentException($"unknown mode {mode}")
         };
     }
 
+    public static bool IsNin(string[] args) => Arg(args, "--def", "blm") == "nin";
+    public static JobDefinition Build(string[] args) => IsNin(args) ? NinDefinition.Build() : BlmDefinition.Build();
+
     public static EngineWeights Weights(string[] args)
     {
         var path = Arg(args, "--weights", "");
-        var w = path.Length > 0 ? EngineWeights.Load(path) : BlmDefinition.DefaultWeights();
+        var w = path.Length > 0 ? EngineWeights.Load(path) : IsNin(args) ? NinDefinition.DefaultWeights() : BlmDefinition.DefaultWeights();
         var depth = Arg(args, "--depth", "");
         if (depth.Length > 0)
             w.HorizonGcds = int.Parse(depth);
@@ -41,7 +45,7 @@ public static class Program
 
     private static int Analysis(string[] args)
     {
-        var e = new RotationEngine(BlmDefinition.Build(), Weights(args));
+        var e = new RotationEngine(Build(args), Weights(args));
         var a = e.Analysis;
         var t0 = System.Diagnostics.Stopwatch.StartNew();
         for (var t = 1; t <= 3; ++t)
@@ -117,16 +121,16 @@ public static class Program
 
     private static int Explain(string[] args)
     {
-        var job = BlmDefinition.Build();
+        var job = Build(args);
         var e = new RotationEngine(job, Weights(args));
-        var s = ColdState(job);
+        var s = IsNin(args) ? EngineState.Create(job) : ColdState(job);
         var i = Array.IndexOf(args, "--state");
         if (i >= 0)
         {
             foreach (var kv in args[(i + 1)..].TakeWhile(a => !a.StartsWith("--")))
             {
                 var p = kv.Split('=');
-                var v = float.Parse(p[1]);
+                var v = float.TryParse(p[1], out var pv) ? pv : 0;
                 switch (p[0])
                 {
                     case "mp": s.Gauges[job.GaugeIndex(BlmDefinition.MP)] = (short)v; break;
@@ -141,7 +145,12 @@ public static class Program
                     case "dot": s.StatusLeft[job.StatusIndex(BlmDefinition.Thunder)] = v; break;
                     case "ptimer": s.StatusLeft[job.StatusIndex(BlmDefinition.PolyglotTimer)] = v; break;
                     case "targets": s.Targets = (byte)v; break;
-                    default: throw new ArgumentException(p[0]);
+                    default:
+                        if (p[0] == "combo") { s.ComboSkill = (byte)job.SkillIndex(p[1]); s.ComboLeft = 20; break; }
+                        if (job.Gauges.Any(g => g.Name == p[0])) { s.Gauges[job.GaugeIndex(p[0])] = (short)v; break; }
+                        if (job.Statuses.Any(st => st.Name == p[0])) { var si = job.StatusIndex(p[0]); s.StatusLeft[si] = v; s.StatusStacks[si] = (byte)(p.Length > 2 ? int.Parse(p[2]) : 1); break; }
+                        if (p[0].StartsWith("cd.")) { var ci = job.CooldownIndex(p[0][3..]); s.Charges[ci] = 0; s.CdReadyIn[ci] = v; break; }
+                        throw new ArgumentException(p[0]);
                 }
             }
         }
@@ -157,6 +166,46 @@ public static class Program
             var idx = args[li + 1].Split('>').Select(job.SkillIndex).ToArray();
             e.ExplainLine(s, tl, 0, idx, Console.WriteLine);
         }
+        return 0;
+    }
+
+    private static int Bench(string[] args)
+    {
+        var job = Build(args);
+        var e = new RotationEngine(job, Weights(args));
+        var s = IsNin(args) ? EngineState.Create(job) : ColdState(job);
+        var tl = EngineTimeline.Open();
+        tl.FightEndIn = 300;
+        tl.AddBuff(7.8f, 27.8f, 1.05f);
+        for (var i = 0; i < 50; ++i)
+            e.Planner.Plan(s, tl, e.Weights);
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+        for (var i = 0; i < 1000; ++i)
+            e.Planner.Plan(s, tl, e.Weights);
+        Console.WriteLine($"planner Plan: {sw.Elapsed.TotalMicroseconds / 1000:f1} us");
+        e.FrameBudgetMs = 0.08f;
+        var times = new List<double>();
+        for (var i = 0; i < 200; ++i)
+        {
+            var st = s;
+            st.Gauges[0] = (short)(i % 100); // a different state each time: a new search
+            var t0 = System.Diagnostics.Stopwatch.GetTimestamp();
+            e.Decide(st, tl, i * 3f); // 3 s apart: the planner replans every call
+            times.Add(System.Diagnostics.Stopwatch.GetElapsedTime(t0).TotalMicroseconds);
+        }
+        times.Sort();
+        Console.WriteLine($"first Decide (replan + new search, 0.08 ms slice): median {times[100]:f0} us, p90 {times[180]:f0} us, max {times[199]:f0} us");
+        times.Clear();
+        for (var i = 0; i < 200; ++i)
+        {
+            var st = s;
+            st.Gauges[0] = (short)(i % 100);
+            var t0 = System.Diagnostics.Stopwatch.GetTimestamp();
+            e.Decide(st, tl, 1000 + i * 0.05f); // no replan
+            times.Add(System.Diagnostics.Stopwatch.GetElapsedTime(t0).TotalMicroseconds);
+        }
+        times.Sort();
+        Console.WriteLine($"new search without replan: median {times[100]:f0} us, p90 {times[180]:f0} us, max {times[199]:f0} us");
         return 0;
     }
 

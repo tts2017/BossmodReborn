@@ -18,6 +18,8 @@ public sealed class EngineWeights
     public float StatusRemainder { get; set; } = 1.0f; // multiplier on the leaf value of remaining damage-multiplier statuses
     public float CycleScale { get; set; } = 1.0f;      // multiplier on the CycleModel leaf value (jobs that declare a cycle state)
     public float CooldownLambdaScale { get; set; } = -1;  // multiplier on the shadow prices of cooldown charges; negative = same as LambdaScale
+    public float ForecastSelfBuffs { get; set; }          // >0: the upper tier plans around the job's own damage-buff cooldowns as if they were raid buffs
+    public float UnlockScale { get; set; }                // multiplier on JobAnalysis.CdUnlockValue (cooldowns that unlock other skills)
     public Dictionary<string, float> StatusValue { get; set; } = []; // extra per-second leaf value of a status (upkeep debuffs, modes)
     public Dictionary<string, float> CooldownValue { get; set; } = []; // extra value of one charge (potency) on top of what the definition shows (e.g. follow-up GCDs it unlocks)
     public Dictionary<string, float> GaugeValue { get; set; } = [];    // extra value of one spend unit of a gauge
@@ -48,6 +50,8 @@ public sealed class EngineWeights
         nameof(StatusRemainder) => StatusRemainder,
         nameof(CycleScale) => CycleScale,
         nameof(CooldownLambdaScale) => CooldownLambdaScale,
+        nameof(UnlockScale) => UnlockScale,
+        nameof(ForecastSelfBuffs) => ForecastSelfBuffs,
         _ when name.StartsWith("CooldownValue.") => CooldownValue.TryGetValue(name[14..], out var c) ? c : 0,
         _ when name.StartsWith("GaugeValue.") => GaugeValue.TryGetValue(name[11..], out var g) ? g : 0,
         _ when name.StartsWith("StatusValue.") => StatusValue.TryGetValue(name[12..], out var s) ? s : 0,
@@ -68,6 +72,8 @@ public sealed class EngineWeights
             case nameof(StatusRemainder): StatusRemainder = value; break;
             case nameof(CycleScale): CycleScale = value; break;
             case nameof(CooldownLambdaScale): CooldownLambdaScale = value; break;
+            case nameof(UnlockScale): UnlockScale = value; break;
+            case nameof(ForecastSelfBuffs): ForecastSelfBuffs = value; break;
             default:
                 if (name.StartsWith("CooldownValue."))
                     CooldownValue[name[14..]] = value;

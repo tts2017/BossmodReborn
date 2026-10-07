@@ -58,6 +58,7 @@ public static class Simulator
         ConditionKind.TargetsAtMost => s.Targets <= c.Value,
         ConditionKind.ConeTargetsAtLeast => (s.ConeTargets > 0 ? s.ConeTargets : s.Targets) >= c.Value,
         ConditionKind.StatusLeftAtLeast => s.StatusLeft[c.Index] >= c.Value,
+        ConditionKind.CooldownAtLeast => s.Charges[c.Index] == 0 && s.CdReadyIn[c.Index] >= c.Value,
         _ => false
     };
 
@@ -213,6 +214,9 @@ public static class Simulator
         if (cast <= 0 && skill.CastTime > 0)
             ConsumeInstantCast(job, ref s);
 
+        if (skill.Weaponskill)
+            value += ShadowHits(job, ref s, skill, mult, ctx);
+
         // effect conditions see the state before the skill (so e.g. "if Astral Fire: go to Umbral Ice" and "if Umbral Ice: go to Astral Fire" do not chain)
         var pre = skill.ConditionalEffects ? s : default;
         foreach (ref readonly var e in skill.Effects.AsSpan())
@@ -316,6 +320,40 @@ public static class Simulator
         if (skill.IsGcd)
             s.GcdReadyAt = t + MathF.Max(GcdRecast(job, s, skill), cast);
         s.AnimLockAt = t + (cast > 0 ? cast + 0.1f : skill.AnimationLock) + job.Latency;
+        return value;
+    }
+
+    // shadows (Bunshin): each active one hits along with a weaponskill, using a stack and adding its gauge
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    private static float ShadowHits(JobDefinition job, ref EngineState s, SkillDef skill, float mult, EvalContext ctx)
+    {
+        var value = 0f;
+        for (var i = 0; i < job.Statuses.Length; ++i)
+        {
+            var st = job.Statuses[i];
+            if (st.ShadowPotency <= 0 || s.StatusLeft[i] <= 0)
+                continue;
+            var aoe = skill.AoeExtraPotency > 0 || skill.AoePotency > 0 && s.Targets >= skill.MinAoeTargets;
+            value += (aoe ? st.ShadowAoePotency * Math.Max(1, (int)s.Targets) : st.ShadowPotency) * mult;
+            if (st.ShadowGauge >= 0)
+            {
+                var g = s.Gauges[st.ShadowGauge] + st.ShadowGaugeAmount;
+                var max = job.Gauges[st.ShadowGauge].Max;
+                if (g > max)
+                {
+                    value -= (g - max) * ctx.GaugeWastePerPoint[st.ShadowGauge];
+                    g = max;
+                }
+                s.Gauges[st.ShadowGauge] = (short)g;
+            }
+            if (s.StatusStacks[i] > 1)
+                --s.StatusStacks[i];
+            else
+            {
+                s.StatusStacks[i] = 0;
+                s.StatusLeft[i] = 0;
+            }
+        }
         return value;
     }
 

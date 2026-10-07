@@ -16,6 +16,7 @@ public enum ConditionKind : byte
     TargetsAtMost,
     ConeTargetsAtLeast,
     StatusLeftAtLeast, // status active with at least Value seconds left
+    CooldownAtLeast,   // cooldown group Index has no charge and its next charge is at least Value seconds away
 }
 
 public readonly record struct Condition(ConditionKind Kind, short Index, float Value)
@@ -65,6 +66,7 @@ public sealed class SkillDef
     public int DotStatus = -1;    // damage-over-time status this skill applies (value = DotPps x seconds of DoT gained, before the fight ends)
     public float DotPps;          // DoT potency per second on one target (tick potency / tick interval)
     public bool DotAoe;           // the DoT lands on every target
+    public bool Weaponskill;      // eligible for shadow hits (StatusDef.ShadowPotency)
     public bool Cone;             // AoE shape counted with EngineState.ConeTargets instead of Targets
     public float CastTime;
     public float AnimationLock = 0.6f;
@@ -106,6 +108,10 @@ public sealed class StatusDef
     public int PeriodicGauge = -1;        // a running timer: on expiry adds PeriodicAmount to this gauge and restarts at MaxDuration (Polyglot)
     public int PeriodicAmount;
     public bool ConsumedByCast;           // instant-cast status (CastTimeMultiplier 0): a skill with a cast time uses it up (one stack); the first active one in definition order is used
+    public float ShadowPotency;           // while active, every Weaponskill hits again for this (x targets for AoE skills: ShadowAoePotency), uses a stack (Bunshin)
+    public float ShadowAoePotency;
+    public int ShadowGauge = -1;          // and adds ShadowGaugeAmount to this gauge
+    public int ShadowGaugeAmount;
 }
 
 public sealed class CooldownDef
@@ -160,6 +166,9 @@ public sealed class JobBuilder(string name, float baseGcd)
     public JobBuilder FillerPotency(float perGcd) { _filler = perGcd; return this; }
     // `status` is a repeating timer that adds `amount` to `gauge` each time it runs out
     public JobBuilder Periodic(string status, string gauge, int amount) { _periodic.Add((status, gauge, amount)); return this; }
+    // `status` is a shadow: while active each Weaponskill also hits for potency (aoePotency per target for AoE skills), uses one stack and adds gaugeAmount to gauge
+    public JobBuilder Shadow(string status, float potency, float aoePotency, string? gauge = null, int gaugeAmount = 0) { _shadows.Add((status, potency, aoePotency, gauge, gaugeAmount)); return this; }
+    private readonly List<(string Status, float Potency, float Aoe, string? Gauge, int Amount)> _shadows = [];
     // long-run cycle state for CycleModel (resources whose trade-offs span more than the search horizon); the first gauge starts full
     public JobBuilder CycleGauge(string gauge, int step) { _cycleGauges.Add((gauge, step)); return this; }
     public JobBuilder CycleStatus(string status) { _cycleStatuses.Add(status); return this; }
@@ -216,6 +225,14 @@ public sealed class JobBuilder(string name, float baseGcd)
         job.CycleSteps = [.. _cycleGauges.ConvertAll(c => Math.Max(1, c.Step))];
         job.CycleStatuses = [.. _cycleStatuses.ConvertAll(job.StatusIndex)];
         job.CycleCooldowns = [.. _cycleCooldowns.ConvertAll(job.CooldownIndex)];
+        foreach (var (status, potency, aoe, gauge, amount) in _shadows)
+        {
+            var st = job.Statuses[job.StatusIndex(status)];
+            st.ShadowPotency = potency;
+            st.ShadowAoePotency = aoe;
+            st.ShadowGauge = gauge != null ? job.GaugeIndex(gauge) : -1;
+            st.ShadowGaugeAmount = amount;
+        }
         foreach (var (status, gauge, amount) in _periodic)
         {
             var st = job.Statuses[job.StatusIndex(status)];
@@ -297,6 +314,7 @@ public sealed class JobBuilder(string name, float baseGcd)
         public SkillBuilder Recast(float seconds) { Def.Recast = seconds; return this; }
         public SkillBuilder PartyValue(float potency) { Def.PartyValue = potency; return this; }
         public SkillBuilder NoTarget() { Def.RequiresTarget = false; return this; }
+        public SkillBuilder Weaponskill() { Def.Weaponskill = true; return this; }
         public SkillBuilder NeedsUptime(float seconds) { Def.UptimeNeeded = seconds; return this; }
         public SkillBuilder NeedsStanding(float seconds) { Def.StillNeeded = seconds; return this; }
         public SkillBuilder UsesCooldown(string cd) { _cooldown = cd; return this; }
@@ -325,6 +343,7 @@ public sealed class JobBuilder(string name, float baseGcd)
         public SkillBuilder RequiresStatusLeft(string status, float seconds) { _conditions.Add(job => new(ConditionKind.StatusLeftAtLeast, (short)job.StatusIndex(status), seconds)); return this; }
         public SkillBuilder RequiresStacks(string status, int atLeast) { _conditions.Add(job => new(ConditionKind.StacksAtLeast, (short)job.StatusIndex(status), atLeast)); return this; }
         public SkillBuilder RequiresTargets(int atLeast) { _conditions.Add(_ => new(ConditionKind.TargetsAtLeast, 0, atLeast)); return this; }
+        public SkillBuilder RequiresCooldownAtLeast(string cd, float seconds) { _conditions.Add(job => new(ConditionKind.CooldownAtLeast, (short)job.CooldownIndex(cd), seconds)); return this; }
 
         // the next effect only applies when the condition holds (e.g. a gain unlocked by a trait or a status)
         public SkillBuilder IfStatus(string status) => PendingIf(job => new(ConditionKind.StatusActive, (short)job.StatusIndex(status), 0));

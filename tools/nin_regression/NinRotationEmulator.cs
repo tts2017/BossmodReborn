@@ -4,6 +4,11 @@ public sealed class NinRotationEmulator
 {
     private const double Step = 0.1;
 
+    // Optional external policy (engine evaluation): called for the oGCD slot (gcd = false) and the GCD slot (gcd = true);
+    // returns the action to use (None = nothing this slot) or null for the built-in policy. Its actions are applied by ApplyExternal.
+    public Func<NinSimState, bool, NinAction?>? PolicyOverride;
+    public List<double>? PolicyMicros;
+
     public NinScenarioResult Run(NinScenario scenario)
     {
         var state = NinSimState.Create(scenario);
@@ -24,10 +29,10 @@ public sealed class NinRotationEmulator
                 nextEvent++;
             }
 
-            if (state.Time >= state.NextOgcdAt && state.CanActOnEnemy)
+            if (state.Time >= state.NextOgcdAt && state.CanActOnEnemy && !External(state, false))
                 ExecuteOgcd(state);
 
-            if (state.Time >= state.NextGcdAt)
+            if (state.Time >= state.NextGcdAt && !External(state, true))
                 ExecuteGcd(state);
 
             NinHardFailRules.CheckFrame(state);
@@ -43,6 +48,106 @@ public sealed class NinRotationEmulator
             SoftRegressions = state.SoftRegressions,
             CoverageGaps = ["CoverageGap: lightweight emulator mirrors NIN.cs decision logic but does not instantiate BossMod Autorotation module directly."]
         };
+    }
+
+    private bool External(NinSimState s, bool gcd)
+    {
+        if (PolicyOverride == null || s.TenChiJinLeft > 0 && gcd)
+            return false; // Ten Chi Jin steps always follow the built-in progression
+        var t0 = System.Diagnostics.Stopwatch.GetTimestamp();
+        var action = PolicyOverride(s, gcd);
+        PolicyMicros?.Add(System.Diagnostics.Stopwatch.GetElapsedTime(t0).TotalMicroseconds);
+        if (action == null)
+            return false;
+        if (action != NinAction.None)
+            ApplyExternal(s, action.Value);
+        return true;
+    }
+
+    // state effects of an externally chosen action, as the built-in branches apply them
+    private static void ApplyExternal(NinSimState s, NinAction a)
+    {
+        var aoe = a is NinAction.DeathBlossom or NinAction.HakkeMujinsatsu or NinAction.Katon or NinAction.GokaMekkyaku or NinAction.HellfrogMedium or NinAction.DeathfrogMedium;
+        var target = aoe ? NinTargetKind.RangedAoe : NinTargetKind.Primary;
+        switch (a)
+        {
+            case NinAction.SpinningEdge or NinAction.GustSlash or NinAction.AeolianEdge or NinAction.ArmorCrush or NinAction.DeathBlossom or NinAction.HakkeMujinsatsu:
+                UseGcd(s, a, NinTargetKind.Primary, "engine");
+                s.ComboLastMove = a;
+                GainNinki(s, 5);
+                if (a == NinAction.ArmorCrush)
+                    s.Kazematoi = Math.Min(5, s.Kazematoi + 2);
+                break;
+            case NinAction.FleetingRaiju or NinAction.ForkedRaiju:
+                UseGcd(s, a, NinTargetKind.Primary, "engine");
+                s.RaijuStacks--;
+                GainNinki(s, 5);
+                break;
+            case NinAction.PhantomKamaitachi:
+                UseGcd(s, a, NinTargetKind.RangedAoe, "engine");
+                s.PhantomKamaitachiLeft = 0;
+                GainNinki(s, 10);
+                break;
+            case NinAction.Raiton or NinAction.Suiton or NinAction.Katon or NinAction.HyoshoRanryu or NinAction.GokaMekkyaku:
+                UseNinjutsu(s, a, "engine");
+                break;
+            case NinAction.Dokumori:
+                UseOgcd(s, a, target, "engine");
+                s.MugReadyIn = 120;
+                s.TargetMugLeft = 20;
+                s.HigiLeft = 30;
+                GainNinki(s, 40);
+                break;
+            case NinAction.KunaisBane:
+                UseOgcd(s, a, target, "engine");
+                s.TrickReadyIn = 60;
+                s.TargetTrickLeft = 15;
+                s.ShadowWalker = 0;
+                break;
+            case NinAction.DreamWithinADream:
+                UseOgcd(s, a, target, "engine");
+                s.DreamReadyIn = 60;
+                break;
+            case NinAction.Kassatsu:
+                UseOgcd(s, a, NinTargetKind.Player, "engine");
+                s.KassatsuReadyIn = 60;
+                s.KassatsuLeft = 15;
+                break;
+            case NinAction.TenChiJin:
+                UseOgcd(s, a, NinTargetKind.Player, "engine");
+                s.TenChiJinReadyIn = 120;
+                s.TenChiJinLeft = 6;
+                s.TenChiJinParam = 0;
+                break;
+            case NinAction.Meisui:
+                UseOgcd(s, a, NinTargetKind.Player, "engine");
+                s.MeisuiReadyIn = 120;
+                s.MeisuiLeft = 30;
+                s.ShadowWalker = 0;
+                GainNinki(s, 50);
+                break;
+            case NinAction.TenriJindo:
+                UseOgcd(s, a, target, "engine");
+                s.TenriJindoReadyIn = 1;
+                s.TenriJindoLeft = 0;
+                break;
+            case NinAction.Bunshin:
+                UseOgcd(s, a, NinTargetKind.Player, "engine");
+                s.BunshinReadyIn = 90;
+                SpendNinki(s, 50);
+                s.PhantomKamaitachiLeft = 45;
+                break;
+            case NinAction.Bhavacakra or NinAction.ZeshoMeppo or NinAction.HellfrogMedium or NinAction.DeathfrogMedium:
+                UseOgcd(s, a, target, "engine");
+                SpendNinki(s, 50);
+                if (a is NinAction.ZeshoMeppo or NinAction.DeathfrogMedium)
+                    s.HigiLeft = 0;
+                if (a != NinAction.DeathfrogMedium)
+                    s.MeisuiLeft = 0;
+                break;
+            default:
+                throw new InvalidOperationException($"no external handling for {a}");
+        }
     }
 
     private static void ExecuteGcd(NinSimState s)

@@ -65,7 +65,7 @@ public sealed class RotationEngine
     {
         if (timeline.Version != _lastTimelineVersion || now - _lastPlanTime >= ReplanInterval)
         {
-            Planner.Plan(state, timeline, Weights);
+            Planner.Plan(state, PlanTimeline(state, timeline), Weights);
             _lastTimelineVersion = timeline.Version;
             _lastPlanTime = now;
         }
@@ -98,7 +98,7 @@ public sealed class RotationEngine
         for (var g = 0; g < Job.Gauges.Length; ++g)
             Analysis.GaugeUnitValue[g] = Analysis.GaugeUnitValueBase[g] + (Weights.GaugeValue.TryGetValue(Job.Gauges[g].Name, out var gv) ? gv : 0);
         for (var c = 0; c < Job.Cooldowns.Length; ++c)
-            Analysis.CdUnitValue[c] = Analysis.CdUnitValueBase[c] + (Weights.CooldownValue.TryGetValue(Job.Cooldowns[c].Name, out var cv) ? cv : 0);
+            Analysis.CdUnitValue[c] = Analysis.CdUnitValueBase[c] + (Weights.CooldownValue.TryGetValue(Job.Cooldowns[c].Name, out var cv) ? cv : 0) + Weights.UnlockScale * Analysis.CdUnlockValue[c];
         _ctx.FillerPps = Analysis.FillerPps * Weights.FillerScale;
         for (var g = 0; g < Job.Gauges.Length; ++g)
             _ctx.GaugeWastePerPoint[g] = Analysis.GaugeUnit[g] > 0 ? Analysis.GaugeUnitValue[g] / Analysis.GaugeUnit[g] * Weights.OverCap : 0;
@@ -106,6 +106,34 @@ public sealed class RotationEngine
             _ctx.CdWastePerSecond[c] = Analysis.CdUnitValue[c] / Job.Cooldowns[c].Recast * Weights.OverCap;
         for (var i = 0; i < Job.Statuses.Length; ++i)
             _ctx.StatusValuePerSecond[i] = Analysis.StatusValuePerSecond[i] + (Weights.StatusValue.TryGetValue(Job.Statuses[i].Name, out var v) ? v : 0);
+    }
+
+    // The upper tier also sees the job's own damage buffs ahead (a cooldown skill applying a damage-multiplier status, assumed used
+    // when ready and every recast after), so other resources are held for them; the search itself sees those statuses directly.
+    private EngineTimeline PlanTimeline(in EngineState s, in EngineTimeline timeline)
+    {
+        if (Weights.ForecastSelfBuffs <= 0)
+            return timeline;
+        var tl = timeline;
+        foreach (var sk in Job.Skills)
+        {
+            if (sk.Cooldown < 0)
+                continue;
+            foreach (var e in sk.Effects)
+            {
+                if (e.Kind != EffectKind.StatusApply || Job.Statuses[e.Index].DamageMultiplier <= 1)
+                    continue;
+                var mult = Job.Statuses[e.Index].DamageMultiplier;
+                var left = s.StatusLeft[e.Index];
+                if (left > 0)
+                    tl.AddBuff(0, left, mult);
+                var recast = Job.Cooldowns[sk.Cooldown].Recast;
+                var start = s.Charges[sk.Cooldown] > 0 ? MathF.Max(0, left) : s.CdReadyIn[sk.Cooldown];
+                for (var k = 0; k < 3 && start < 180 && tl.NumBuffs < EngineLimits.MaxWindows; ++k, start += recast)
+                    tl.AddBuff(start, start + e.Value, mult);
+            }
+        }
+        return tl;
     }
 
     // `now`: absolute clock (any monotonic seconds); used to decide when the upper tier is stale.
@@ -118,7 +146,7 @@ public sealed class RotationEngine
         if (_pending)
         {
             if (key == _pendingKey)
-                return Continue(key, now);
+                return Continue(key, now, 0);
             _pending = false;
         }
         if (_hasLast && key == _lastKey && now - _lastSearchNow < MaxReuseAge && now >= _lastSearchNow)
@@ -129,21 +157,25 @@ public sealed class RotationEngine
             return d;
         }
 
+        var planTicks = 0L;
         if (timeline.Version != _lastTimelineVersion || now - _lastPlanTime >= ReplanInterval)
         {
-            Planner.Plan(state, timeline, Weights);
+            var t0 = Stopwatch.GetTimestamp();
+            Planner.Plan(state, PlanTimeline(state, timeline), Weights);
             _lastTimelineVersion = timeline.Version;
             _lastPlanTime = now;
+            planTicks = Stopwatch.GetTimestamp() - t0;
         }
 
         _search.Start(state, timeline, now - _lastPlanTime, _prevChoice);
         _lastSearchNow = now;
-        return Continue(key, now);
+        return Continue(key, now, planTicks);
     }
 
-    private EngineDecision Continue(ulong key, float now)
+    // spentTicks: work already done this frame (a replan) counts against the frame budget
+    private EngineDecision Continue(ulong key, float now, long spentTicks)
     {
-        var frameTicks = FrameBudgetMs > 0 ? (long)(FrameBudgetMs * Stopwatch.Frequency / 1000) : long.MaxValue;
+        var frameTicks = FrameBudgetMs > 0 ? Math.Max(1, (long)(FrameBudgetMs * Stopwatch.Frequency / 1000) - spentTicks) : long.MaxValue;
         var finished = _search.Continue(frameTicks, out var decision);
         _pending = !finished;
         _pendingKey = key;
@@ -375,6 +407,9 @@ internal sealed class LowerSearch
                 p += s.AoeExtraPotency * (p / s.Potency) * Math.Max(0, targets - 1);
             if (s.DotStatus >= 0)
                 p += s.DotPps * _job.Statuses[s.DotStatus].MaxDuration * (s.DotAoe ? Math.Max(1, targets) : 1);
+            if (s.Weaponskill)
+                foreach (var st in _job.Statuses)
+                    p += MathF.Max(st.ShadowPotency, st.ShadowAoePotency * targets);
             m = MathF.Max(m, p + s.PartyValue);
         }
         return m;
