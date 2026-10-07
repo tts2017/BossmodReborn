@@ -5,7 +5,8 @@ using FFXIVClientStructs.FFXIV.Client.Game.Gauge;
 
 namespace BossMod.Autorotation;
 
-// "GNB [Engine]": Gunbreaker damage rotation on the rotation engine (Custom/Engine). Level 100 only; below that it does nothing.
+// "GNB [Engine]": Gunbreaker damage rotation on the rotation engine (Custom/Engine). Level 30+ (cartridges and Burst Strike): the
+// definition is built for the player's level, and BMR recreates the module when the level changes (level sync).
 // Damage only: no mitigation, Lightning Shot, potion or tank stance handling.
 public sealed class GnbEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
@@ -13,13 +14,13 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
     public static float? FrameBudgetOverride;
 
     public static RotationModuleDefinition Definition()
-        => new("GNB [Engine]", "Gunbreaker damage on the two-tier rotation engine (burst-window planning + short search). Experimental, level 100.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.GNB), 100, 100);
+        => new("GNB [Engine]", "Gunbreaker damage on the two-tier rotation engine (burst-window planning + short search). Experimental, level 30+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.GNB), 100, 30);
 
     private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
     {
         var stats = manager.WorldState.Client.PlayerStats;
         var gcd = stats.SkillSpeed > 0 ? ActionSpeed.GCDRounded(stats.SkillSpeed, stats.Haste, player.Level) : 2.5f;
-        return new RotationEngine(GnbDefinition.Build(gcd), WeightsOverride?.Clone() ?? GnbDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.05f, ReplanInterval = 8 };
+        return new RotationEngine(GnbDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? GnbDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.05f, ReplanInterval = 8 };
     }
 
     // counted like the Akechi module (hitbox to hitbox), which is also how the AoE lands
@@ -27,18 +28,6 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
 
     protected override void ReadJobState(ref EngineState s, Actor? primaryTarget)
     {
-        if (Player.Level < 100)
-        {
-            for (var c = 0; c < Job.Cooldowns.Length; ++c)
-            {
-                s.Charges[c] = 0;
-                s.CdReadyIn[c] = 10000;
-            }
-            for (var i = 0; i < Job.Skills.Length; ++i)
-                s.DisabledSkills |= 1UL << i;
-            return;
-        }
-
         var gauge = World.Client.GetGauge<GunbreakerGauge>();
         s.Gauges[Job.GaugeIndex(GnbDefinition.Ammo)] = gauge.Ammo;
         var step = gauge.AmmoComboStep switch { 1 => GnbDefinition.SavageReady, 2 => GnbDefinition.TalonReady, 3 => GnbDefinition.NobleReady, 4 => GnbDefinition.LionReady, _ => null };

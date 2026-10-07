@@ -5,10 +5,11 @@ using FFXIVClientStructs.FFXIV.Client.Game.Gauge;
 
 namespace BossMod.Autorotation;
 
-// "NIN [Engine]": Ninja driven by the rotation engine (Custom/Engine). Level 100 only; below that it does nothing, so use it
-// next to (not instead of) a regular NIN module when levelling. The engine plans whole ninjutsu (mudra sequences) and the Ten Chi
-// Jin steps as single skills; this module presses their mudras / steps one by one and keeps the engine out while a sequence
-// runs. No potion, Hide, Throwing Dagger, Doton / Huton or Trick Attack / Mug (level 100 uses Kunai's Bane / Dokumori).
+// "NIN [Engine]": Ninja driven by the rotation engine (Custom/Engine). Level 66+ (the Trick Attack / Kunai's Bane rules need
+// Dokumori): the definition is built for the player's level, and BMR recreates the module when the level changes (level sync).
+// The engine plans whole ninjutsu (mudra sequences) and the Ten Chi Jin steps as single skills; this module presses their mudras /
+// steps one by one and keeps the engine out while a sequence runs. No potion, Hide, Throwing Dagger, Doton / Huton or Mug (Trick
+// Attack below 92, Kunai's Bane from 92).
 public sealed class NinEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
     public static EngineWeights? WeightsOverride;
@@ -16,14 +17,14 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
     public static float? ReplanOverride;
 
     public static RotationModuleDefinition Definition()
-        => new("NIN [Engine]", "Ninja on the two-tier rotation engine (burst-window planning + short search). Experimental, level 100.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.NIN), 100, 100);
+        => new("NIN [Engine]", "Ninja on the two-tier rotation engine (burst-window planning + short search). Experimental, level 66+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.NIN), 100, 66);
 
     private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
     {
         var stats = manager.WorldState.Client.PlayerStats;
         // Increase Attack Speed (level 45) is 15% haste on weaponskills
         var gcd = stats.SkillSpeed > 0 ? ActionSpeed.GCDRounded(stats.SkillSpeed, Math.Min(stats.Haste, 85), player.Level) : 2.12f;
-        return new RotationEngine(NinDefinition.Build(gcd), WeightsOverride?.Clone() ?? NinDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.03f, ReplanInterval = ReplanOverride ?? 8 };
+        return new RotationEngine(NinDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? NinDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.03f, ReplanInterval = ReplanOverride ?? 8 };
     }
 
     private string? _sequence; // ninjutsu skill whose mudras are being pressed
@@ -115,18 +116,6 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
 
     protected override void ReadJobState(ref EngineState s, Actor? primaryTarget)
     {
-        if (Player.Level < 100)
-        {
-            for (var c = 0; c < Job.Cooldowns.Length; ++c)
-            {
-                s.Charges[c] = 0;
-                s.CdReadyIn[c] = 10000;
-            }
-            for (var i = 0; i < Job.Skills.Length; ++i)
-                s.DisabledSkills |= 1UL << i;
-            return;
-        }
-
         var gauge = World.Client.GetGauge<NinjaGauge>();
         s.Gauges[Job.GaugeIndex(NinDefinition.Ninki)] = gauge.Ninki;
         s.Gauges[Job.GaugeIndex(NinDefinition.Kazematoi)] = gauge.Kazematoi;
@@ -139,7 +128,7 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
         ReadStatus(ref s, Job.StatusIndex(NinDefinition.TenriReady), Player, (uint)SID.TenriJindoReady);
         ReadStatus(ref s, Job.StatusIndex(NinDefinition.Bunshin), Player, (uint)SID.Bunshin);
         ReadStatus(ref s, Job.StatusIndex(NinDefinition.PhantomReady), Player, (uint)SID.PhantomKamaitachiReady);
-        ReadStatus(ref s, Job.StatusIndex(NinDefinition.KunaisBane), primaryTarget, (uint)SID.KunaisBane);
+        ReadStatus(ref s, Job.StatusIndex(NinDefinition.KunaisBane), primaryTarget, Player.Level >= 92 ? (uint)SID.KunaisBane : (uint)SID.TrickAttack);
         ReadStatus(ref s, Job.StatusIndex(NinDefinition.Dokumori), primaryTarget, (uint)SID.Dokumori);
 
         ReadCooldown(ref s, Job.CooldownIndex(NinDefinition.MudraCD), ActionID.MakeSpell(AID.Ten1));

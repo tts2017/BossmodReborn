@@ -6,23 +6,24 @@ using static BossMod.AIHints;
 
 namespace BossMod.Autorotation;
 
-// "MNK [Engine]": Monk driven by the rotation engine (Custom/Engine). Level 100 only; below that it does nothing, so use it next
-// to (not instead of) a regular MNK module when levelling. No potion, Six-sided Star, Form Shift, Meditation, Thunderclap or
-// Riddle of Earth.
+// "MNK [Engine]": Monk driven by the rotation engine (Custom/Engine). Level 70+ (the Perfect Balance / Phantom Rush rules need
+// Riddle of Fire and Brotherhood): the definition is built for the player's level, and BMR recreates the module when the level
+// changes (level sync). No potion, Six-sided Star, Form Shift, Meditation, Thunderclap or Riddle of Earth.
 public sealed class MnkEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
     public static EngineWeights? WeightsOverride;
     public static float? FrameBudgetOverride;
 
     public static RotationModuleDefinition Definition()
-        => new("MNK [Engine]", "Monk on the two-tier rotation engine (burst-window planning + short search). Experimental, level 100.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.MNK), 100, 100);
+        => new("MNK [Engine]", "Monk on the two-tier rotation engine (burst-window planning + short search). Experimental, level 70+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.MNK), 100, 70);
 
     private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
     {
         var stats = manager.WorldState.Client.PlayerStats;
-        // Greased Lightning (level 76+): 20% haste on weaponskills
-        var gcd = stats.SkillSpeed > 0 ? ActionSpeed.GCDRounded(stats.SkillSpeed, Math.Min(stats.Haste, 80), player.Level) : 2.0f;
-        return new RotationEngine(MnkDefinition.Build(gcd), WeightsOverride?.Clone() ?? MnkDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.03f, ReplanInterval = 8 };
+        // Greased Lightning: haste on weaponskills, 20% from level 76 (15% from 40, 10% from 20, 5% below)
+        var greased = player.Level >= 76 ? 80 : player.Level >= 40 ? 85 : player.Level >= 20 ? 90 : 95;
+        var gcd = stats.SkillSpeed > 0 ? ActionSpeed.GCDRounded(stats.SkillSpeed, Math.Min(stats.Haste, greased), player.Level) : 2.0f;
+        return new RotationEngine(MnkDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? MnkDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.03f, ReplanInterval = 8 };
     }
 
     public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
@@ -75,18 +76,6 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
 
     protected override void ReadJobState(ref EngineState s, Actor? primaryTarget)
     {
-        if (Player.Level < 100)
-        {
-            for (var c = 0; c < Job.Cooldowns.Length; ++c)
-            {
-                s.Charges[c] = 0;
-                s.CdReadyIn[c] = 10000;
-            }
-            for (var i = 0; i < Job.Skills.Length; ++i)
-                s.DisabledSkills |= 1UL << i;
-            return;
-        }
-
         var gauge = World.Client.GetGauge<MonkGauge>();
         s.Gauges[Job.GaugeIndex(MnkDefinition.OpoFury)] = (short)gauge.OpoOpoStacks;
         s.Gauges[Job.GaugeIndex(MnkDefinition.RaptorFury)] = (short)gauge.RaptorStacks;

@@ -5,9 +5,9 @@ using FFXIVClientStructs.FFXIV.Client.Game.Gauge;
 
 namespace BossMod.Autorotation;
 
-// "BLM [Engine]": Black Mage driven by the rotation engine (Custom/Engine). Level 100 only; below that it does nothing,
-// so use it next to (not instead of) a regular BLM module when levelling. No potion, Lucid Dreaming or Ley Lines
-// repositioning (Retrace / Between the Lines) yet.
+// "BLM [Engine]": Black Mage driven by the rotation engine (Custom/Engine). Level 60+ (the Fire IV / Umbral Heart loop): the
+// definition is built for the player's level, and BMR recreates the module when the level changes (level sync). No potion, Lucid
+// Dreaming or Ley Lines repositioning (Retrace / Between the Lines) yet.
 public sealed class BlmEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
     // harnesses: replaces the built-in weights for modules created afterwards
@@ -15,13 +15,13 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
     public static float? FrameBudgetOverride;
 
     public static RotationModuleDefinition Definition()
-        => new("BLM [Engine]", "Black Mage on the two-tier rotation engine (burst-window planning + short search). Experimental, level 100.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.BLM), 100, 100);
+        => new("BLM [Engine]", "Black Mage on the two-tier rotation engine (burst-window planning + short search). Experimental, level 60+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.BLM), 100, 60);
 
     private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
     {
         var stats = manager.WorldState.Client.PlayerStats;
         var gcd = stats.SpellSpeed > 0 ? ActionSpeed.GCDRounded(stats.SpellSpeed, stats.Haste, player.Level) : 2.5f;
-        return new RotationEngine(BlmDefinition.Build(gcd), WeightsOverride?.Clone() ?? BlmDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.08f };
+        return new RotationEngine(BlmDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? BlmDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.08f };
     }
 
     // no target: assume it stays away for a while (no buffs or Triplecast stacks wasted into the gap; Umbral Soul keeps the ice phase going)
@@ -33,18 +33,6 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
 
     protected override void ReadJobState(ref EngineState s, Actor? primaryTarget)
     {
-        if (Player.Level < 100)
-        {
-            for (var c = 0; c < Job.Cooldowns.Length; ++c)
-            {
-                s.Charges[c] = 0;
-                s.CdReadyIn[c] = 10000;
-            }
-            for (var i = 0; i < Job.Skills.Length; ++i)
-                s.DisabledSkills |= 1UL << i;
-            return;
-        }
-
         var gauge = World.Client.GetGauge<BlackMageGauge>();
         s.Gauges[Job.GaugeIndex(BlmDefinition.MP)] = (short)Math.Min(10000, Player.HPMP.CurMP);
         s.Gauges[Job.GaugeIndex(BlmDefinition.AstralFire)] = (short)Math.Max(0, (int)gauge.ElementStance);
@@ -66,9 +54,11 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
         ReadStatus(ref s, Job.StatusIndex(BlmDefinition.Firestarter), Player, (uint)SID.Firestarter);
         ReadStatus(ref s, Job.StatusIndex(BlmDefinition.Thunderhead), Player, (uint)SID.Thunderhead);
         var dot = Job.StatusIndex(BlmDefinition.Thunder);
-        ReadStatus(ref s, dot, primaryTarget, (uint)SID.HighThunder);
+        // the DoTs of the level's Thunder spells (High Thunder (II) from 92, Thunder III from 45, Thunder IV from 64)
+        var level = Player.Level;
+        ReadStatus(ref s, dot, primaryTarget, level >= 92 ? (uint)SID.HighThunder : level >= 45 ? (uint)SID.ThunderIII : (uint)SID.Thunder);
         if (s.StatusLeft[dot] <= 0)
-            ReadStatus(ref s, dot, primaryTarget, (uint)SID.HighThunderII);
+            ReadStatus(ref s, dot, primaryTarget, level >= 92 ? (uint)SID.HighThunderII : level >= 64 ? (uint)SID.ThunderIV : (uint)SID.ThunderII);
 
         ReadCooldown(ref s, Job.CooldownIndex(BlmDefinition.TransposeCD), ActionID.MakeSpell(AID.Transpose));
         ReadCooldown(ref s, Job.CooldownIndex(BlmDefinition.ManafontCD), ActionID.MakeSpell(AID.Manafont));

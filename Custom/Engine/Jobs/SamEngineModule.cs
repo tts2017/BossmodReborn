@@ -5,23 +5,23 @@ using FFXIVClientStructs.FFXIV.Client.Game.Gauge;
 
 namespace BossMod.Autorotation;
 
-// "SAM [Engine]": Samurai driven by the rotation engine (Custom/Engine). Level 100 only; below that it does nothing, so use it next
-// to (not instead of) a regular SAM module when levelling. No potion, opener countdown (pre-pull Meikyo / Gekko), Enpi, Hagakure,
-// Meditate or Gyoten / Yaten.
+// "SAM [Engine]": Samurai driven by the rotation engine (Custom/Engine). Level 30+ (Gekko and Higanbana): the definition is
+// built for the player's level, and BMR recreates the module when the level changes (level sync). No potion, opener countdown
+// (pre-pull Meikyo / Gekko), Enpi, Hagakure, Meditate or Gyoten / Yaten.
 public sealed class SamEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
     public static EngineWeights? WeightsOverride;
     public static float? FrameBudgetOverride;
 
     public static RotationModuleDefinition Definition()
-        => new("SAM [Engine]", "Samurai on the two-tier rotation engine (burst-window planning + short search). Experimental, level 100.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.SAM), 100, 100);
+        => new("SAM [Engine]", "Samurai on the two-tier rotation engine (burst-window planning + short search). Experimental, level 30+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.SAM), 100, 30);
 
     private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
     {
         var stats = manager.WorldState.Client.PlayerStats;
         // the definition applies Fuka's haste itself: the base GCD is without it
         var gcd = stats.SkillSpeed > 0 ? ActionSpeed.GCDRounded(stats.SkillSpeed, 100, player.Level) : 2.5f;
-        return new RotationEngine(SamDefinition.Build(gcd), WeightsOverride?.Clone() ?? SamDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.05f, ReplanInterval = 8 };
+        return new RotationEngine(SamDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? SamDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.05f, ReplanInterval = 8 };
     }
 
     public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
@@ -53,18 +53,6 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
 
     protected override void ReadJobState(ref EngineState s, Actor? primaryTarget)
     {
-        if (Player.Level < 100)
-        {
-            for (var c = 0; c < Job.Cooldowns.Length; ++c)
-            {
-                s.Charges[c] = 0;
-                s.CdReadyIn[c] = 10000;
-            }
-            for (var i = 0; i < Job.Skills.Length; ++i)
-                s.DisabledSkills |= 1UL << i;
-            return;
-        }
-
         var gauge = World.Client.GetGauge<SamuraiGauge>();
         s.Gauges[Job.GaugeIndex(SamDefinition.Kenki)] = gauge.Kenki;
         s.Gauges[Job.GaugeIndex(SamDefinition.Meditation)] = gauge.MeditationStacks;

@@ -5,9 +5,9 @@ using FFXIVClientStructs.FFXIV.Client.Game.Gauge;
 
 namespace BossMod.Autorotation;
 
-// "RPR [Engine]": Reaper driven by the rotation engine (Custom/Engine). Level 100 only; below that it does nothing,
-// so use it next to (not instead of) a regular RPR module when levelling. No potion use yet (the potion cooldown is
-// reported as unavailable).
+// "RPR [Engine]": Reaper driven by the rotation engine (Custom/Engine). Level 30+ (the full Slice combo): the definition is
+// built for the player's level, and BMR recreates the module when the level changes (level sync). No potion use yet (the
+// potion cooldown is reported as unavailable).
 public sealed class RprEngineModule(RotationModuleManager manager, Actor player) : EngineRotationModule(manager, player, CreateEngine(manager, player))
 {
     // harnesses: replaces the built-in weights for modules created afterwards
@@ -15,7 +15,7 @@ public sealed class RprEngineModule(RotationModuleManager manager, Actor player)
     public static float? FrameBudgetOverride;
 
     public static RotationModuleDefinition Definition()
-        => new("RPR [Engine]", "Reaper on the two-tier rotation engine (burst-window planning + short search). Experimental, level 100.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.RPR), 100, 100);
+        => new("RPR [Engine]", "Reaper on the two-tier rotation engine (burst-window planning + short search). Experimental, level 30+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.RPR), 100, 30);
 
     private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
     {
@@ -23,7 +23,7 @@ public sealed class RprEngineModule(RotationModuleManager manager, Actor player)
         var gcd = stats.SkillSpeed > 0 ? ActionSpeed.GCDRounded(stats.SkillSpeed, stats.Haste, player.Level) : 2.5f;
         // the search runs in slices of FrameBudgetMs per frame (continuing on the next frames while the state is unchanged), so a
         // single frame never pays for the whole BudgetMs
-        return new RotationEngine(RprDefinition.Build(gcd), WeightsOverride?.Clone() ?? RprDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.08f };
+        return new RotationEngine(RprDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? RprDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.08f };
     }
 
     public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
@@ -63,17 +63,6 @@ public sealed class RprEngineModule(RotationModuleManager manager, Actor player)
 
     protected override void ReadJobState(ref EngineState s, Actor? primaryTarget)
     {
-        if (Player.Level < 100)
-        {
-            // outside the definition's coverage: make every skill unusable (cooldowns unavailable, no gauge, no combo)
-            for (var c = 0; c < Job.Cooldowns.Length; ++c)
-            {
-                s.Charges[c] = 0;
-                s.CdReadyIn[c] = 10000;
-            }
-            return;
-        }
-
         var gauge = World.Client.GetGauge<ReaperGauge>();
         s.Gauges[Job.GaugeIndex(RprDefinition.Soul)] = gauge.Soul;
         s.Gauges[Job.GaugeIndex(RprDefinition.Shroud)] = gauge.Shroud;

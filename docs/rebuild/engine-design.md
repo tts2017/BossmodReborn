@@ -519,3 +519,82 @@ SAM 66〜69 / 486〜530 / 119〜151、BLM 26〜27 / 156〜169 / 6〜8、GNB 29�
   威力/秒 393.0 → 389.7 → 387.5 (旧 RPR.cs 移植 377.3)。修正後・旧重みの悪化は上界の修正 (oGCD 2 個) による: 上界を元に戻すと 28 / 393.4。
   正しい上界だと枝刈りが減り、時間予算内の探索が浅くなる。v3 は Gluttony のリキャスト価値が 0 になり、drift_full_mode_gluttony_interval が増える
   (2 → 102)。xan ハーネスの採点にはこの規則がない。
+
+## 17. レベルシンク対応
+
+### 17.1 変更内容
+
+- 7 ジョブの定義を `Build(float gcd, int level = 100)` にした。習得前のスキルは定義に入れず、威力・リキャスト・チャージ数・効果は
+  そのレベルの特性に合わせる。値の出典は xan_timeline_harness の各スコアラー / CombatState (l66 / l74 / l84 / l94 などの分岐) と
+  `BossMod/ActionQueue` の習得レベル・特性レベル。主なもの:
+  - RPR: Slice 系 (74 / 84 / 94)、Soul Slice 2 チャージ (78)、Soul Reaver (70、Gluttony は 96 未満も Soul Reaver)、Shroud (80)、
+    Enshroud リキャスト 15 秒 (92 未満)、Void Shroud・Lemure 系 (86)、Communio (90 未満は 5 回目のリーピングで Enshroud が終わる)、
+    Arcane Circle の Immortal Sacrifice (88)、Oblatio / Sacrificium (92)、Executioner (96)、Perfectio (100)。
+  - SAM: 刃風 / 刃風改 (92)、風雅 / 風光 (86)、Kenki 獲得 (52 / 62)、風月・風花 (78 未満 1.10 / 10%)、居合術詠唱 1.8 秒 (74 未満)、
+    燕返し (76)、明鏡止水 2 チャージ (76)、剣気 (80)、奥義波切 (90)、残心 (96)、天道 (100)。威力は l66 / l84 / l94。
+  - MNK: 92 未満は連撃が Bootshine / True Strike / Snap Punch (Fury 込みの威力)、Masterful Blitz は Elixir Field / Flint Strike /
+    Tornado Kick (Elixir Burst 92 / Rising Phoenix 86 / Phantom Rush 90)、Arm of the Destroyer (82 未満)、Howling Fist (74 未満)、
+    Fire's Reply (100)、Wind's Reply (96)。Riddle of Wind は Wind's Reply 以外のモデル化された効果がないので 96 未満は定義に入れない。
+    モジュールの GCD は Greased Lightning のヘイストをレベル別 (76: 20%、40: 15%、20: 10%、それ未満 5%) にした。
+  - NIN: 92 未満は Trick Attack (威力 400、同じ KunaisBane ステータスで 10% 窓。モジュールは SID.TrickAttack を読む)、
+    76 未満は活殺の対象が雷遁 / 火遁 (KassatsuRaiton / KassatsuKaton、30% 増し。印の押し方は MudraSequence に追加)、
+    雷獣 (90)、密の Bhavacakra 強化 (88)、秘技 (96)、天地人 (70)、Tenri Jindo (100)。忍気 (Shukiho 62 / 78 / 84)、風魔 (54)。
+  - GNB: カートリッジ上限 2 (88 未満、Bloodfest 中 4)、Danger Zone (80 未満)、Continuation (70、Hypervelocity 86、Fated Brand 96)、
+    Ready to Break (54)、Ready to Reign (100)。威力は Melee Mastery (84) と Enhanced Brutal Shell (52)。
+  - PLD: Rage of Halone (60 未満)、Spirits Within (86 未満)、Requiescat (96 未満、単体 320)、Divine Might (64、Prominence は 72)、
+    Sword Oath (76)、Confiteor (80)、Blade 連携 (90)、Blade of Honor (100)、Riot Blade の MP (58)。威力は l84 / l94。
+  - BLM: エノキアンの倍率 (96: 1.27、86: 1.22、78: 1.15、70: 1.10、56: 1.05)、Umbral Heart (58)、Paradox (90)、Astral Soul・Flare Star・
+    Despair 即時 (100)、Foul 即時 (80)、Polyglot 上限 (70: 1、80: 2、98: 3)、Fire II / Blizzard II (82 未満)、Thunder / Thunder III /
+    Thunder II / Thunder IV (92 未満。モジュールは対応する DoT の SID を読む)、Manafont 120 秒 (84 未満)、Swiftcast 60 秒 (94 未満)、
+    Ley Lines 1 チャージ (96 未満)。
+- 置き換わるアクションはスキル名を変えずに ActionId と威力だけ替えた (例: SAM の "Gyofu" は 92 未満で刃風)。モジュール側の名前参照
+  (位置取り、ActionFor など) はそのまま使える。
+- モジュールは `Player.Level < 100` で全スキルを無効にしていた処理を外し、`CreateEngine` で `player.Level` を定義に渡す。
+  レベルが変わると (シンク・解除) BMR がプレイヤーの ClassChanged で回転モジュールを作り直すので (RotationModuleManager.RebuildActiveModules)、
+  新しいレベルの定義で組み直される。EngineRotationModule には手を入れていない。
+- 登録レベル (この下では BMR がモジュールを作らない):
+  RPR 30 (Slice 連撃が揃う)、SAM 30 (月光と彼岸花)、GNB 30 (カートリッジと Burst Strike)、PLD 30 (連撃 3 段と Spirits Within)、
+  NIN 66 (Trick Attack / Kunai's Bane の規則が Dokumori の窓を要る)、MNK 70 (Perfect Balance / Phantom Rush の規則が Riddle of Fire と
+  紅蓮の極意を要る)、BLM 60 (Fire IV と Umbral Heart の回し)。
+- 重みは全レベルで Lv100 のもの (再チューニングなし)。MNK の FillerPotency (500) も Lv100 の値のまま。
+
+### 17.2 検証
+
+- Lv100 の同一性: 6909daac1 と変更後で 7 ジョブの `Build(gcd)` を JSON に書き出して比較 (スキル・条件・効果・威力の float まで 27,655 行)、
+  完全一致。Lv1〜100 の全レベルで 7 ジョブとも定義の構築と RotationEngine の生成が例外なく通る。
+- xan_timeline_harness 9 戦闘 (`timeline-matrix --scenario-limit 8`)、Lv100、6909daac1 → 変更後:
+
+| | 決定論 (ENGINE_FRAME_MS=1000、BudgetMs 100) | ライブ (組み込みデフォルト) | Execute 平均 / p99 (ライブ) |
+|---|---:|---:|---:|
+| RPR | 666,657 → 666,657 | 666,550 → 666,641 | 28.0 / 121 → 27.5 / 119 µs |
+| NIN | 649,673 → 649,673 | 649,283 → 649,267 | 30.6 / 142 → 30.7 / 140 µs |
+| MNK | 581,190 → 581,190 | 581,190 → 581,190 | 33.1 / 143 → 33.9 / 150 µs |
+| SAM | 703,069 → 703,069 | 686,682 → 685,726 | 61.9 / 413 → 60.6 / 413 µs |
+| GNB | 566,864 → 566,864 | 566,864 → 566,864 | 28.8 / 174 → 29.2 / 176 µs |
+| PLD | 553,005 → 553,005 | 553,005 → 553,005 | 26.2 / 120 → 25.9 / 115 µs |
+| BLM | 560,467 → 560,467 | 560,467 → 560,467 | 24.6 / 164 → 24.5 / 159 µs |
+
+  RPR / NIN / SAM のライブの差は時間で切るフレーム分割による実行ごとの揺れ (同じビルドでも変わる。SAM は 683k〜687k)。決定論は一致。
+- シンクレベル (`--level`、ライブ、総合値。旧 = xan RPR / NIN / MNK / SAM / BLM、Akechi GNB / PLD):
+
+| | Lv90 Engine | Lv90 旧 | Lv80 Engine | Lv80 旧 | Lv70 Engine | Lv70 旧 | 下限 Engine | 下限 旧 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| RPR | 554,718 | 554,336 | 470,722 | 467,597 | 370,575 | 365,343 | 294,268 (30) | 293,305 |
+| NIN | 527,998 | 518,829 | 447,488 | 457,925 | 399,656 | 385,054 | 367,070 (66) | 363,288 |
+| MNK | 470,951 | 472,328 | 418,088 | 423,978 | 390,772 | 396,457 | 390,772 (70) | 396,457 |
+| SAM | 545,090 | 549,301 | 494,032 | 503,146 | 391,471 | 392,325 | 270,432 (30) | 255,420 |
+| GNB | 506,312 | 489,456 | 401,776 | 385,640 | 355,736 | 336,934 | 268,172 (30) | 254,656 |
+| PLD | 456,752 | 448,482 | 374,451 | 376,553 | 339,775 | 340,768 | 235,282 (30) | 234,948 |
+| BLM | 465,512 | 473,492 | 403,900 | 408,721 | | | 325,881 (60) | 333,347 |
+
+  失敗は BLM のみ (Lv100・Lv90・Lv80 で 1、Lv60 で 2。旧 xan BLM も同数)。Execute はどのレベルでも Lv100 と同程度
+  (例 Lv80: RPR 24 / 117 µs、SAM 70 / 594 µs、BLM 20 / 123 µs)。Lv100 の重みのままで 2.3% を超えて旧版を下回るレベルはなかった
+  (最大は NIN Lv80 −2.3%、BLM Lv60 −2.2%)。
+- engine_tests 17/17。定義を使う tools (blm_engine_eval、rpr_engine_eval、*_regression) はビルドが通る (Lv100 の既定値のまま)。
+
+### 17.3 入れていないもの
+
+- レベル別の重みのチューニング (指示どおり Lv100 の重みのまま)。
+- 下限より下のレベル (モジュールは作られない)。MNK の Celestial Revolution、NIN の活殺水遁、BLM の Fire / Blizzard (I) は定義にない
+  (Lv100 の定義にもない、または下限より下でしか使わないもの)。
+- 旧版との比較は xan ハーネスのスコアラーの範囲 (各スコアラーのレベル分岐) まで。ゲーム内での確認はしていない。
