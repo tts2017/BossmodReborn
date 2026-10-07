@@ -1,6 +1,6 @@
 namespace BossMod.Autorotation.Engine.Jobs;
 
-// Black Mage for the rotation engine (any level; the weights were tuned at level 100): data only, no BossMod dependency (also compiled by tools/blm_engine_eval).
+// Black Mage for the rotation engine (any level; weights tuned at level 100 and per level band, see DefaultWeights): data only, no BossMod dependency (also compiled by tools/blm_engine_eval).
 // Mechanics follow tools/xan_timeline_harness/BlmCombatState.cs (the user's replay-checked model):
 // - damage = potency x element multiplier of the element the spell is cast under x Enochian (1.27 while an element is up);
 // - Astral Fire doubles fire MP costs unless an Umbral Heart absorbs it; ice spells landing in Umbral Ice refill MP;
@@ -271,7 +271,16 @@ public static class BlmDefinition
     // game action of a skill (variants share one action)
     public static uint ActionOf(SkillDef skill) => skill.ActionId;
 
-    public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
+    // level sync: the set tuned at the lowest level of the player's band (90-99 L90, 80-89 L80, 70-79 L70, 60-69 L60); the Lv100 set at 100 and in the other bands
+    public static EngineWeights DefaultWeights(int level = 100) => EngineWeights.Parse(level switch
+    {
+        >= 100 => DefaultWeightsJson,
+        >= 90 => WeightsL90Json,
+        >= 80 => WeightsL80Json,
+        >= 70 => WeightsL70Json,
+        >= 60 => WeightsL60Json,
+        _ => DefaultWeightsJson
+    });
 
     // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-BLM-v5.json), BudgetMs set for live play.
     // A 3-GCD horizon: with 4, a sixth of the live searches (casts make long lines) ran out of the budget before the last iteration.
@@ -296,6 +305,62 @@ public static class BlmDefinition
       "StatusValue": { "Thunderhead": 79.50191, "Firestarter": 10 },
       "CooldownValue": { "LeyLinesCD": 1074.4264, "TriplecastCD": 163.94995, "SwiftcastCD": 873.7974 },
       "GaugeValue": {},
+      "HorizonGcds": 3,
+      "BudgetMs": 0.8,
+      "MinNodes": 1000,
+      "SliceNodes": 50
+    }
+    """;
+
+    // CMA-ES at level 90 on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-BLM-L90.json),
+    // search settings as the Lv100 set
+    public const string WeightsL90Json = """
+    {
+      "OverCap": 0, "Combo": 0, "LambdaScale": 0, "TargetPull": 0, "SwitchMargin": 1.9716182, "FillerScale": 0.8699005, "BurstBias": 2.4193878,
+      "StatusRemainder": 0, "CycleScale": 0.6435867, "CooldownLambdaScale": 0, "ForecastSelfBuffs": 0, "UnlockScale": 0.26489314,
+      "StatusValue": { "Thunderhead": 87.77913, "Firestarter": 10 }, "CooldownValue": { "LeyLinesCD": 1007.45233, "TriplecastCD": 178.22011, "SwiftcastCD": 1088.014 }, "GaugeValue": {},
+      "HorizonGcds": 3,
+      "BudgetMs": 0.8,
+      "MinNodes": 1000,
+      "SliceNodes": 50
+    }
+    """;
+
+    // CMA-ES at level 80 on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-BLM-L80.json),
+    // search settings as the Lv100 set
+    public const string WeightsL80Json = """
+    {
+      "OverCap": 1.2192621, "Combo": 0, "LambdaScale": 0, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 0.9708093, "BurstBias": 3.3788342,
+      "StatusRemainder": 0, "CycleScale": 0.9925814, "CooldownLambdaScale": 0, "ForecastSelfBuffs": 0, "UnlockScale": 0.7071904,
+      "StatusValue": { "Thunderhead": 58.281296, "Firestarter": 10 }, "CooldownValue": { "LeyLinesCD": 1112.7119, "TriplecastCD": 111.60762, "SwiftcastCD": 923.65674 }, "GaugeValue": {},
+      "HorizonGcds": 3,
+      "BudgetMs": 0.8,
+      "MinNodes": 1000,
+      "SliceNodes": 50
+    }
+    """;
+
+    // CMA-ES at level 70 on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-BLM-L70.json),
+    // search settings as the Lv100 set
+    public const string WeightsL70Json = """
+    {
+      "OverCap": 1.1988604, "Combo": 0, "LambdaScale": 0, "TargetPull": 0, "SwitchMargin": 12.460077, "FillerScale": 1.2005736, "BurstBias": 2.7290595,
+      "StatusRemainder": 0, "CycleScale": 1.2019205, "CooldownLambdaScale": 0, "ForecastSelfBuffs": 0, "UnlockScale": 0,
+      "StatusValue": { "Thunderhead": 150, "Firestarter": 10 }, "CooldownValue": { "LeyLinesCD": 545.7163, "TriplecastCD": 87.32902, "SwiftcastCD": 1500 }, "GaugeValue": {},
+      "HorizonGcds": 3,
+      "BudgetMs": 0.8,
+      "MinNodes": 1000,
+      "SliceNodes": 50
+    }
+    """;
+
+    // CMA-ES at level 60 on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-BLM-L60.json),
+    // search settings as the Lv100 set
+    public const string WeightsL60Json = """
+    {
+      "OverCap": 0.16836789, "Combo": 0, "LambdaScale": 0, "TargetPull": 0, "SwitchMargin": 3.0059433, "FillerScale": 1.2867589, "BurstBias": 0.080096856,
+      "StatusRemainder": 0, "CycleScale": 0.5, "CooldownLambdaScale": 0, "ForecastSelfBuffs": 0, "UnlockScale": 0.2444121,
+      "StatusValue": { "Thunderhead": 122.93776, "Firestarter": 10 }, "CooldownValue": { "LeyLinesCD": 702.895, "TriplecastCD": 113.461815, "SwiftcastCD": 776.13776 }, "GaugeValue": {},
       "HorizonGcds": 3,
       "BudgetMs": 0.8,
       "MinNodes": 1000,

@@ -24,7 +24,7 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
         var stats = manager.WorldState.Client.PlayerStats;
         // the definition applies Fuka's haste itself: the base GCD is without it
         var gcd = stats.SkillSpeed > 0 ? ActionSpeed.GCDRounded(stats.SkillSpeed, 100, player.Level) : 2.5f;
-        return new RotationEngine(SamDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? SamDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.05f, ReplanInterval = 8 };
+        return new RotationEngine(SamDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? SamDefinition.DefaultWeights(player.Level)) { FrameBudgetMs = FrameBudgetOverride ?? 0.05f, ReplanInterval = 8 };
     }
 
     private XanSAM.Strategy _strategy;

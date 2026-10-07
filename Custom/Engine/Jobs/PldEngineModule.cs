@@ -28,7 +28,7 @@ public sealed class PldEngineModule(RotationModuleManager manager, Actor player)
     {
         var stats = manager.WorldState.Client.PlayerStats;
         var gcd = stats.SkillSpeed > 0 ? ActionSpeed.GCDRounded(stats.SkillSpeed, stats.Haste, player.Level) : 2.5f;
-        return new RotationEngine(PldDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? PldDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.05f, ReplanInterval = 8 };
+        return new RotationEngine(PldDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? PldDefinition.DefaultWeights(player.Level)) { FrameBudgetMs = FrameBudgetOverride ?? 0.05f, ReplanInterval = 8 };
     }
 
     protected override Actor? SelectTarget(StrategyValues strategy, Actor? primaryTarget)

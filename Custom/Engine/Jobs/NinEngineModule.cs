@@ -76,7 +76,7 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
         var stats = manager.WorldState.Client.PlayerStats;
         // Increase Attack Speed (level 45) is 15% haste on weaponskills
         var gcd = stats.SkillSpeed > 0 ? ActionSpeed.GCDRounded(stats.SkillSpeed, Math.Min(stats.Haste, 85), player.Level) : 2.12f;
-        return new RotationEngine(NinDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? NinDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.03f, ReplanInterval = ReplanOverride ?? 8 };
+        return new RotationEngine(NinDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? NinDefinition.DefaultWeights(player.Level)) { FrameBudgetMs = FrameBudgetOverride ?? 0.03f, ReplanInterval = ReplanOverride ?? 8 };
     }
 
     private string? _sequence; // ninjutsu skill whose mudras are being pressed

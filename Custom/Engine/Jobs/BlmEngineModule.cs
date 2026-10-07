@@ -26,7 +26,7 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
     {
         var stats = manager.WorldState.Client.PlayerStats;
         var gcd = stats.SpellSpeed > 0 ? ActionSpeed.GCDRounded(stats.SpellSpeed, stats.Haste, player.Level) : 2.5f;
-        return new RotationEngine(BlmDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? BlmDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.08f };
+        return new RotationEngine(BlmDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? BlmDefinition.DefaultWeights(player.Level)) { FrameBudgetMs = FrameBudgetOverride ?? 0.08f };
     }
 
     private XanBLM.Strategy _strategy;

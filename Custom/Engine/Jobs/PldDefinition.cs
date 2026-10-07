@@ -1,6 +1,6 @@
 namespace BossMod.Autorotation.Engine.Jobs;
 
-// Paladin for the rotation engine (any level; the weights were tuned at level 100): data only, no BossMod dependency (also compiled by the engine tools).
+// Paladin for the rotation engine (any level; weights tuned at level 100 and per level band, see DefaultWeights): data only, no BossMod dependency (also compiled by the engine tools).
 // Mechanics and potencies follow tools/xan_timeline_harness/PldCombatState.cs + PldPotencyScorer.cs (Fight or Flight x1.25, target
 // splash 40% on the Confiteor chain / Imperator / Blade of Honor / Expiacion, Circle of Scorn's DoT credited at the press).
 // Holy Spirit / Holy Circle: Divine Might first (instant, stronger), else a Requiescat stack (instant, strongest), else a 1.5 s cast.
@@ -135,13 +135,44 @@ public static class PldDefinition
             s.ApplyStatus(next, 30);
     }
 
-    public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
+    // level sync: the set tuned at the lowest level of the player's band (80-89 L80, 70-79 L70); the Lv100 set at 100 and in the other bands
+    public static EngineWeights DefaultWeights(int level = 100) => EngineWeights.Parse(level switch
+    {
+        >= 90 => DefaultWeightsJson,
+        >= 80 => WeightsL80Json,
+        >= 70 => WeightsL70Json,
+        _ => DefaultWeightsJson
+    });
 
     // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-PLD-v1.json), BudgetMs for live play
     public const string DefaultWeightsJson = """
     {
       "OverCap": 1.4915171, "Combo": 0.59287137, "LambdaScale": 0.7683747, "TargetPull": 0, "SwitchMargin": 27.52398, "FillerScale": 1.1636959, "BurstBias": 0.60006064,
       "StatusRemainder": 0.5540458, "CycleScale": 1, "CooldownLambdaScale": 1.1999441, "ForecastSelfBuffs": -0.9779256, "UnlockScale": 1.0974472,
+      "StatusValue": {}, "CooldownValue": {}, "GaugeValue": {},
+      "HorizonGcds": 4,
+      "BudgetMs": 0.8
+    }
+    """;
+
+    // CMA-ES at level 80 on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-PLD-L80.json),
+    // search settings as the Lv100 set
+    public const string WeightsL80Json = """
+    {
+      "OverCap": 1.7296668, "Combo": 0, "LambdaScale": 0.98177767, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 0.9313585, "BurstBias": 0,
+      "StatusRemainder": 1.0600373, "CycleScale": 1, "CooldownLambdaScale": 1.1790073, "ForecastSelfBuffs": -0.9779256, "UnlockScale": 1.345213,
+      "StatusValue": {}, "CooldownValue": {}, "GaugeValue": {},
+      "HorizonGcds": 4,
+      "BudgetMs": 0.8
+    }
+    """;
+
+    // CMA-ES at level 70 on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-PLD-L70.json),
+    // search settings as the Lv100 set
+    public const string WeightsL70Json = """
+    {
+      "OverCap": 2.6594245, "Combo": 0.8553889, "LambdaScale": 1, "TargetPull": 0, "SwitchMargin": 1.6818128, "FillerScale": 1.5, "BurstBias": 0.49591658,
+      "StatusRemainder": 2, "CycleScale": 1, "CooldownLambdaScale": 0, "ForecastSelfBuffs": -0.9779256, "UnlockScale": 3,
       "StatusValue": {}, "CooldownValue": {}, "GaugeValue": {},
       "HorizonGcds": 4,
       "BudgetMs": 0.8

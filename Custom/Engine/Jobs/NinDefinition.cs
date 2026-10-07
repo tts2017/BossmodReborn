@@ -1,6 +1,6 @@
 namespace BossMod.Autorotation.Engine.Jobs;
 
-// Ninja for the rotation engine (any level; the weights were tuned at level 100): data only, no BossMod dependency (also compiled by tools/nin_engine_eval).
+// Ninja for the rotation engine (any level; weights tuned at level 100 and per level band, see DefaultWeights): data only, no BossMod dependency (also compiled by tools/nin_engine_eval).
 // Potencies and rules follow tools/xan_timeline_harness/NinCombatState.cs and NINBurstPlanner.NinPotency (level >= 94), with
 // positionals credited (the harness scores them unconditionally; the module uses True North in the game).
 // A ninjutsu is one engine skill covering its whole mudra sequence: its recast is the sequence's total GCD time (0.5 s per mudra +
@@ -201,13 +201,31 @@ public static class NinDefinition
         _ => []
     };
 
-    public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
+    // level sync: the set tuned at the lowest level of the player's band (80-89 L80); the Lv100 set at 100 and in the other bands
+    public static EngineWeights DefaultWeights(int level = 100) => EngineWeights.Parse(level switch
+    {
+        >= 90 => DefaultWeightsJson,
+        >= 80 => WeightsL80Json,
+        _ => DefaultWeightsJson
+    });
 
     // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-NIN-v1.json), BudgetMs for live play
     public const string DefaultWeightsJson = """
     {
       "OverCap": 1.742, "Combo": 0.729, "LambdaScale": 0.107, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 1.021,
       "BurstBias": 0.114, "StatusRemainder": 1.255, "CycleScale": 1, "CooldownLambdaScale": 0.058, "ForecastSelfBuffs": 1, "UnlockScale": 1.643,
+      "StatusValue": {}, "CooldownValue": {}, "GaugeValue": {},
+      "HorizonGcds": 4,
+      "BudgetMs": 0.8
+    }
+    """;
+
+    // CMA-ES at level 80 on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-NIN-L80.json),
+    // search settings as the Lv100 set
+    public const string WeightsL80Json = """
+    {
+      "OverCap": 1.8853654, "Combo": 1.1045219, "LambdaScale": 0.33225077, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 0.8184667, "BurstBias": 0,
+      "StatusRemainder": 2, "CycleScale": 1, "CooldownLambdaScale": 0, "ForecastSelfBuffs": 1, "UnlockScale": 0.4772834,
       "StatusValue": {}, "CooldownValue": {}, "GaugeValue": {},
       "HorizonGcds": 4,
       "BudgetMs": 0.8

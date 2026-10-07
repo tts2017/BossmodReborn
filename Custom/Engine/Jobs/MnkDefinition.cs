@@ -1,6 +1,6 @@
 namespace BossMod.Autorotation.Engine.Jobs;
 
-// Monk for the rotation engine (any level; the weights were tuned at level 100): data only, no BossMod dependency (also compiled by the engine tools).
+// Monk for the rotation engine (any level; weights tuned at level 100 and per level band, see DefaultWeights): data only, no BossMod dependency (also compiled by the engine tools).
 // Mechanics follow tools/xan_timeline_harness/MnkCombatState.cs + MnkPotencyScorer.cs (positionals credited, Opo-opo guaranteed
 // crit x1.38, Riddle of Fire x1.15, Brotherhood x1.05; a blitz does not grant Formless Fist there).
 // Forms: Opo-opo skills need no form; Raptor / Coeurl skills need their form, Formless Fist or Perfect Balance (RequiresAnyStatus).
@@ -37,8 +37,9 @@ public static class MnkDefinition
     // level: the player's (synced) level. Skills not unlocked there are left out and potencies follow MnkPotencyScorer.cs (l84 / l92 /
     // l94 branches). Below 92 the fury steps are Bootshine / True Strike / Snap Punch with the fury bonus, the blitzes Elixir Field /
     // Flint Strike / Tornado Kick until Elixir Burst (92) / Rising Phoenix (86) / Phantom Rush (90); Arm of the Destroyer until Shadow of
-    // the Destroyer (82), Howling Fist until Enlightenment (74). Riddle of Wind is left out until Wind's Reply (96): its only modelled
-    // effect; Riddle of Fire grants Fire's Rumination from 100.
+    // the Destroyer (82), Howling Fist until Enlightenment (74). Riddle of Wind grants Wind's Reply from 96; from 72 to 95 it only
+    // shortens the auto-attack delay (not scored by the xan harness, as by the xan module): no potency, pressed on cooldown by the module.
+    // Riddle of Fire grants Fire's Rumination from 100.
     public static JobDefinition Build(float gcd = 2.0f, int level = 100)
     {
         var l84 = level >= 84;
@@ -143,6 +144,8 @@ public static class MnkDefinition
         }
         if (level >= 96)
             b.Ogcd("RiddleOfWind", 0, RiddleOfWindCD, AidRiddleOfWind).NeedsUptime(2).ApplyStatus(WindsRumination, 15);
+        else if (level >= 72)
+            b.Ogcd("RiddleOfWind", 0, RiddleOfWindCD, AidRiddleOfWind).NeedsUptime(15); // auto-attack delay -50% for 15 s
         return b.Build();
     }
 
@@ -173,7 +176,15 @@ public static class MnkDefinition
     // the game action of a skill (variants share one); the plugin presses the base actions (Bootshine for Leaping Opo etc.)
     public static uint ActionOf(SkillDef s) => s.ActionId;
 
-    public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
+    // level sync: the set tuned at the lowest level of the player's band (90-99 L90, 80-89 L80, 70-79 L70); the Lv100 set at 100 and in the other bands
+    public static EngineWeights DefaultWeights(int level = 100) => EngineWeights.Parse(level switch
+    {
+        >= 100 => DefaultWeightsJson,
+        >= 90 => WeightsL90Json,
+        >= 80 => WeightsL80Json,
+        >= 70 => WeightsL70Json,
+        _ => DefaultWeightsJson
+    });
 
     // CMA-ES on the xan timeline harness (9 fights with --party-buffs 7.8, deterministic search; tools/blm_engine_eval tuned/weights-MNK-v4.json), BudgetMs for live play
     // MinNodes / SliceNodes: every search (at most about 4400 nodes, the opener) completes and frame slices are counted in nodes, so
@@ -182,6 +193,48 @@ public static class MnkDefinition
     {
       "OverCap": 5, "Combo": 0.32762295, "LambdaScale": 0.4855264, "TargetPull": 0, "SwitchMargin": 3.7251265, "FillerScale": 0.98159325, "BurstBias": 0,
       "StatusRemainder": 1.5845641, "CycleScale": 1, "CooldownLambdaScale": 0, "ForecastSelfBuffs": 1, "UnlockScale": 0.84537625,
+      "StatusValue": {}, "CooldownValue": { "PerfectBalanceCD": 0, "BrotherhoodCD": 0 }, "GaugeValue": {},
+      "HorizonGcds": 4,
+      "BudgetMs": 0.8,
+      "MinNodes": 4500,
+      "SliceNodes": 40
+    }
+    """;
+
+    // CMA-ES at level 90 on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-MNK-L90.json),
+    // search settings as the Lv100 set
+    public const string WeightsL90Json = """
+    {
+      "OverCap": 5, "Combo": 0.90274316, "LambdaScale": 0.5351186, "TargetPull": 0, "SwitchMargin": 7.471606, "FillerScale": 0.98567146, "BurstBias": 0.61154467,
+      "StatusRemainder": 1.4324933, "CycleScale": 1, "CooldownLambdaScale": 0.282588, "ForecastSelfBuffs": 1, "UnlockScale": 1.1236235,
+      "StatusValue": {}, "CooldownValue": { "PerfectBalanceCD": 0, "BrotherhoodCD": 0 }, "GaugeValue": {},
+      "HorizonGcds": 4,
+      "BudgetMs": 0.8,
+      "MinNodes": 4500,
+      "SliceNodes": 40
+    }
+    """;
+
+    // CMA-ES at level 80 on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-MNK-L80.json),
+    // search settings as the Lv100 set
+    public const string WeightsL80Json = """
+    {
+      "OverCap": 4.5484066, "Combo": 0.3721493, "LambdaScale": 0.5616569, "TargetPull": 0, "SwitchMargin": 6.313244, "FillerScale": 1.0582972, "BurstBias": 0,
+      "StatusRemainder": 2, "CycleScale": 1, "CooldownLambdaScale": 0.026330402, "ForecastSelfBuffs": 1, "UnlockScale": 0.07393872,
+      "StatusValue": {}, "CooldownValue": { "PerfectBalanceCD": 0, "BrotherhoodCD": 0 }, "GaugeValue": {},
+      "HorizonGcds": 4,
+      "BudgetMs": 0.8,
+      "MinNodes": 4500,
+      "SliceNodes": 40
+    }
+    """;
+
+    // CMA-ES at level 70 on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-MNK-L70.json),
+    // search settings as the Lv100 set
+    public const string WeightsL70Json = """
+    {
+      "OverCap": 5, "Combo": 0.41527444, "LambdaScale": 0.98386234, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 1.4503132, "BurstBias": 0,
+      "StatusRemainder": 1.5329951, "CycleScale": 1, "CooldownLambdaScale": 0.17076378, "ForecastSelfBuffs": 1, "UnlockScale": 0.84403217,
       "StatusValue": {}, "CooldownValue": { "PerfectBalanceCD": 0, "BrotherhoodCD": 0 }, "GaugeValue": {},
       "HorizonGcds": 4,
       "BudgetMs": 0.8,

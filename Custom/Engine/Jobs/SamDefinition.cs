@@ -1,6 +1,6 @@
 namespace BossMod.Autorotation.Engine.Jobs;
 
-// Samurai for the rotation engine (any level; the weights were tuned at level 100): data only, no BossMod dependency (also compiled by the engine tools).
+// Samurai for the rotation engine (any level; weights tuned at level 100 and per level band, see DefaultWeights): data only, no BossMod dependency (also compiled by the engine tools).
 // Mechanics follow tools/xan_timeline_harness/SamCombatState.cs + SamPotencyScorer.cs: positionals credited, Fugetsu x1.13, Fuka 13%
 // haste on GCDs and casts, Iaijutsu / Ogi Namikiri cast 1.3 s (Enhanced Iaijutsu; scaled by speed and Fuka), Setsugekka and Namikiri scored with the
 // guaranteed-crit factor 1.391, Higanbana 50 per 3 s for 60 s. Sen are three flags plus SenCount (Iaijutsu are gated by the exact
@@ -184,7 +184,15 @@ public static class SamDefinition
             s.GainGauge(Meditation, 1);
     }
 
-    public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
+    // level sync: the set tuned at the lowest level of the player's band (90-99 L90, 80-89 L80, 70-79 L70); the Lv100 set at 100 and in the other bands
+    public static EngineWeights DefaultWeights(int level = 100) => EngineWeights.Parse(level switch
+    {
+        >= 100 => DefaultWeightsJson,
+        >= 90 => WeightsL90Json,
+        >= 80 => WeightsL80Json,
+        >= 70 => WeightsL70Json,
+        _ => DefaultWeightsJson
+    });
 
     // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-SAM-v2.json), BudgetMs for live play
     public const string DefaultWeightsJson = """
@@ -192,6 +200,42 @@ public static class SamDefinition
       "OverCap": 0, "Combo": 1.6498287, "LambdaScale": 0.44048476, "TargetPull": 0, "SwitchMargin": 4.051655, "FillerScale": 0.57231796, "BurstBias": 0,
       "StatusRemainder": 1.3374653, "CycleScale": 1, "CooldownLambdaScale": 0, "ForecastSelfBuffs": 1, "UnlockScale": 1.2380846,
       "StatusValue": { "Fugetsu": 0, "Fuka": 0 }, "CooldownValue": {}, "GaugeValue": {},
+      "HorizonGcds": 4,
+      "BudgetMs": 0.8
+    }
+    """;
+
+    // CMA-ES at level 90 on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-SAM-L90.json),
+    // search settings as the Lv100 set
+    public const string WeightsL90Json = """
+    {
+      "OverCap": 0.28648, "Combo": 1.6719396, "LambdaScale": 0.4268299, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 0.53795385, "BurstBias": 0,
+      "StatusRemainder": 1.2577714, "CycleScale": 1, "CooldownLambdaScale": 0.7710779, "ForecastSelfBuffs": 1, "UnlockScale": 1.2300762,
+      "StatusValue": { "Fugetsu": 0, "Fuka": 6.530524 }, "CooldownValue": {}, "GaugeValue": {},
+      "HorizonGcds": 4,
+      "BudgetMs": 0.8
+    }
+    """;
+
+    // CMA-ES at level 80 on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-SAM-L80.json),
+    // search settings as the Lv100 set
+    public const string WeightsL80Json = """
+    {
+      "OverCap": 0, "Combo": 2, "LambdaScale": 0.33683532, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 0.5, "BurstBias": 0,
+      "StatusRemainder": 1.1185102, "CycleScale": 1, "CooldownLambdaScale": 0.3846011, "ForecastSelfBuffs": 1, "UnlockScale": 2,
+      "StatusValue": { "Fugetsu": 0, "Fuka": 0 }, "CooldownValue": {}, "GaugeValue": {},
+      "HorizonGcds": 4,
+      "BudgetMs": 0.8
+    }
+    """;
+
+    // CMA-ES at level 70 on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-SAM-L70.json),
+    // search settings as the Lv100 set
+    public const string WeightsL70Json = """
+    {
+      "OverCap": 0.03778802, "Combo": 1.7485423, "LambdaScale": 0.30415797, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 0.5606293, "BurstBias": 0.11387898,
+      "StatusRemainder": 0.8727938, "CycleScale": 1, "CooldownLambdaScale": 0.004396679, "ForecastSelfBuffs": 1, "UnlockScale": 1.8318105,
+      "StatusValue": { "Fugetsu": 0.9533995, "Fuka": 10.322646 }, "CooldownValue": {}, "GaugeValue": {},
       "HorizonGcds": 4,
       "BudgetMs": 0.8
     }

@@ -26,7 +26,7 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
         // Greased Lightning: haste on weaponskills, 20% from level 76 (15% from 40, 10% from 20, 5% below)
         var greased = player.Level >= 76 ? 80 : player.Level >= 40 ? 85 : player.Level >= 20 ? 90 : 95;
         var gcd = stats.SkillSpeed > 0 ? ActionSpeed.GCDRounded(stats.SkillSpeed, Math.Min(stats.Haste, greased), player.Level) : 2.0f;
-        return new RotationEngine(MnkDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? MnkDefinition.DefaultWeights()) { FrameBudgetMs = FrameBudgetOverride ?? 0.03f, ReplanInterval = 8 };
+        return new RotationEngine(MnkDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? MnkDefinition.DefaultWeights(player.Level)) { FrameBudgetMs = FrameBudgetOverride ?? 0.03f, ReplanInterval = 8 };
     }
 
     private XanMNK.Strategy _strategy;
@@ -117,6 +117,9 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
                     Forbid(ref s, "RiddleOfWind");
                 break;
         }
+        // below 96 Riddle of Wind only speeds up auto-attacks (no Wind's Reply, nothing the engine values): on cooldown, as the xan module
+        if (!Job.HasSkill("WindsReply") && st.RoW.Value != XanMNK.RoWStrategy.Delay)
+            Force("RiddleOfWind");
 
         if (st.WindsReply.Value == XanMNK.WRStrategy.Delay)
             Forbid(ref s, "WindsReply");
