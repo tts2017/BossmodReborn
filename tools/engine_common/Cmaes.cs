@@ -1,4 +1,4 @@
-namespace EngineTuner;
+namespace EngineTools;
 
 // Plain CMA-ES (Hansen's (mu/mu_w, lambda) with rank-one and rank-mu covariance updates and cumulative step-size
 // adaptation). Minimizes. Dimension is small (tens), so the covariance eigendecomposition uses the Jacobi method.

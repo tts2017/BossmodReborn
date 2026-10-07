@@ -22,7 +22,7 @@ internal static class TimelineHintsValidation
     // drift stretches the replayed fight against the imported times, the way a faster or slower kill does in practice
     public static int Run(int? zoneFilter, bool verbose, float drift = 0f)
     {
-        Service.Config.Get<BossModuleConfig>().UseExternalTimelineHints = true;
+        Service.Config.Get<CustomConfig>().UseExternalTimelineHints = true;
         Debug = verbose && zoneFilter != null;
         var timelines = ExternalPlannerTimeline.AllTimelines()
             .Where(timeline => zoneFilter == null || timeline.ZoneID == zoneFilter)

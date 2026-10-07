@@ -16,6 +16,8 @@ public sealed class JobAnalysis
     public readonly float[] CdUnitValue;        // value of one charge spent
     public readonly bool[] CdSpentByGcd;
     public readonly float[] CdValueDuration;   // >0 when the charge's value is a timed damage buff: its payoff spans this many seconds
+    public readonly float[] GaugeUnitValueBase;  // from the definition alone; GaugeUnitValue = base + weights.GaugeValue
+    public readonly float[] CdUnitValueBase;     // from the definition alone; CdUnitValue = base + weights.CooldownValue
     public readonly float[] StatusValuePerSecond; // damage-multiplier statuses: (m-1) x filler rate
     public readonly float MaxSkillValue;        // upper bound of one skill's immediate value (single target, unbuffed)
 
@@ -34,6 +36,7 @@ public sealed class JobAnalysis
         CdUnitValue = new float[job.Cooldowns.Length];
         CdSpentByGcd = new bool[job.Cooldowns.Length];
         CdValueDuration = new float[job.Cooldowns.Length];
+        var perPoint = new float[job.Gauges.Length];
         foreach (var s in job.Skills)
         {
             var value = SkillValue(s);
@@ -41,14 +44,16 @@ public sealed class JobAnalysis
             var net = value - (s.IsGcd ? FillerPerGcd : 0);
             foreach (var e in s.Effects)
             {
-                if (e.Kind != EffectKind.GaugeAdd || e.Value >= 0)
+                // a spend is a gauge decrease the skill requires (SpendGauge / RequiresGauge); a decrease without that condition is a reset
+                // (e.g. Communio clearing the Void gauge) and does not make the skill a user of that gauge
+                if (e.Kind != EffectKind.GaugeAdd || e.Value >= 0 || !RequiresGauge(s, e.Index))
                     continue;
                 var cost = -e.Value;
                 if (GaugeUnit[e.Index] == 0 || cost < GaugeUnit[e.Index])
                     GaugeUnit[e.Index] = cost;
-                if (net / cost * GaugeUnit[e.Index] > GaugeUnitValue[e.Index])
+                if (net / cost > perPoint[e.Index])
                 {
-                    GaugeUnitValue[e.Index] = net / cost * GaugeUnit[e.Index];
+                    perPoint[e.Index] = net / cost;
                     GaugeSpentByGcd[e.Index] = s.IsGcd;
                 }
             }
@@ -59,6 +64,23 @@ public sealed class JobAnalysis
                 CdValueDuration[s.Cooldown] = BuffDuration(s);
             }
         }
+        // second pass: a skill that generates another gauge (Enshroud -> 5 Lemure, Soul Slice -> 50 Soul) is worth that gauge too
+        foreach (var s in job.Skills)
+        {
+            var gained = GaugeGainValue(s, perPoint);
+            if (gained <= 0)
+                continue;
+            var net = SkillValue(s) - (s.IsGcd ? FillerPerGcd : 0) + gained;
+            foreach (var e in s.Effects)
+                if (e.Kind == EffectKind.GaugeAdd && e.Value < 0 && RequiresGauge(s, e.Index) && net / -e.Value > perPoint[e.Index])
+                    perPoint[e.Index] = net / -e.Value;
+            if (s.Cooldown >= 0 && net > CdUnitValue[s.Cooldown])
+                CdUnitValue[s.Cooldown] = net;
+        }
+        for (var g = 0; g < job.Gauges.Length; ++g)
+            GaugeUnitValue[g] = perPoint[g] * GaugeUnit[g];
+        GaugeUnitValueBase = [.. GaugeUnitValue];
+        CdUnitValueBase = [.. CdUnitValue];
     }
 
     // duration of the damage-multiplier status a skill applies, if that status is where most of its value comes from
@@ -135,10 +157,27 @@ public sealed class JobAnalysis
         return (total / time, gcds > 0 ? total / gcds : 0, gaugeGain);
     }
 
+    private static float GaugeGainValue(SkillDef s, float[] perPoint)
+    {
+        var v = 0f;
+        foreach (var e in s.Effects)
+            if (e.Kind == EffectKind.GaugeAdd && e.Value > 0 && e.If.Kind == ConditionKind.None)
+                v += e.Value * perPoint[e.Index];
+        return v;
+    }
+
+    private static bool RequiresGauge(SkillDef s, int gauge)
+    {
+        foreach (var c in s.Conditions)
+            if (c.Kind == ConditionKind.GaugeAtLeast && c.Index == gauge && c.Value > 0)
+                return true;
+        return false;
+    }
+
     private static bool IsFree(SkillDef s)
     {
         foreach (var c in s.Conditions)
-            if (c.Kind is not (ConditionKind.ComboIs or ConditionKind.TargetsAtLeast or ConditionKind.TargetsAtMost))
+            if (c.Kind is not (ConditionKind.ComboIs or ConditionKind.TargetsAtLeast or ConditionKind.TargetsAtMost or ConditionKind.StatusInactive))
                 return false;
         foreach (var e in s.Effects)
             if (e.Kind == EffectKind.GaugeAdd && e.Value < 0 || e.Kind == EffectKind.StatusConsumeStacks)

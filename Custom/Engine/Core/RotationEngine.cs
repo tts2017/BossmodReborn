@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace BossMod.Autorotation.Engine;
@@ -36,7 +37,7 @@ public sealed class RotationEngine
     private int _prevChoice = EngineDecision.Wait;
 
     public float ReplanInterval = 2.0f;
-    public float ReuseQuantum = 0.25f; // timer resolution of the "nothing changed, reuse the last result" check
+    public float ReuseQuantum = 1.0f; // timer resolution of the "nothing changed, reuse the last result" check
 
     // forget the cached result (the next Decide searches even if the state is unchanged)
     public void InvalidateCache() => _hasLast = false;
@@ -49,6 +50,18 @@ public sealed class RotationEngine
         Weights = weights;
         _search = new(this, _ctx);
         ApplyWeights();
+    }
+
+    // diagnostics: plays a fixed line from the state (each skill at its earliest time) and logs immediate values and the leaf breakdown
+    public float ExplainLine(in EngineState state, in EngineTimeline timeline, float now, ReadOnlySpan<int> skills, Action<string> log)
+    {
+        if (timeline.Version != _lastTimelineVersion || now - _lastPlanTime >= ReplanInterval)
+        {
+            Planner.Plan(state, timeline, Weights);
+            _lastTimelineVersion = timeline.Version;
+            _lastPlanTime = now;
+        }
+        return _search.ExplainLine(state, timeline, now - _lastPlanTime, skills, log);
     }
 
     // diagnostics: value of each root move in the last search (NaN = not searched)
@@ -71,6 +84,10 @@ public sealed class RotationEngine
 
     private void ApplyWeights()
     {
+        for (var g = 0; g < Job.Gauges.Length; ++g)
+            Analysis.GaugeUnitValue[g] = Analysis.GaugeUnitValueBase[g] + (Weights.GaugeValue.TryGetValue(Job.Gauges[g].Name, out var gv) ? gv : 0);
+        for (var c = 0; c < Job.Cooldowns.Length; ++c)
+            Analysis.CdUnitValue[c] = Analysis.CdUnitValueBase[c] + (Weights.CooldownValue.TryGetValue(Job.Cooldowns[c].Name, out var cv) ? cv : 0);
         _ctx.FillerPps = Analysis.FillerPps * Weights.FillerScale;
         for (var g = 0; g < Job.Gauges.Length; ++g)
             _ctx.GaugeWastePerPoint[g] = Analysis.GaugeUnit[g] > 0 ? Analysis.GaugeUnitValue[g] / Analysis.GaugeUnit[g] * Weights.OverCap : 0;
@@ -113,7 +130,8 @@ internal sealed class LowerSearch
     private const int MoveSlots = EngineLimits.MaxSkills + 1;
     private const byte WaitMove = 0xFE;
     private const int TTBits = 16;
-    private const int MaxDeepOgcds = 2; // beyond the first two plies only the best two weave candidates (by immediate value) are searched
+    private const int MaxDeepOgcds = 1; // below the root only the best two weave candidates (by immediate value) are searched
+    private const int MaxDeepGcds = 3;  // below the root only the best three GCD candidates (previous best move first, then immediate value)
 
     private struct TTEntry
     {
@@ -156,6 +174,39 @@ internal sealed class LowerSearch
         _engine = engine;
         _job = engine.Job;
         _ctx = ctx;
+    }
+
+    public float ExplainLine(in EngineState root, in EngineTimeline tl, float planOffset, ReadOnlySpan<int> skills, Action<string> log)
+    {
+        _tl = tl;
+        _planOffset = planOffset;
+        _horizon = MathF.Max(root.GcdReadyAt, root.AnimLockAt) + _engine.Weights.HorizonGcds * _job.BaseGcd;
+        var s = root;
+        var total = 0f;
+        foreach (var idx in skills)
+        {
+            var skill = _job.Skills[idx];
+            var t = skill.IsGcd ? MathF.Max(s.GcdReadyAt, s.AnimLockAt) : s.AnimLockAt;
+            var waste = Simulator.Advance(_job, ref s, t - s.Time, _ctx);
+            var legal = Simulator.IsLegal(_job, s, _tl, skill);
+            var imm = Simulator.Execute(_job, ref s, _tl, skill, _ctx) - waste;
+            total += imm;
+            log($"  {s.Time,5:f1} {skill.Name,-20} imm {imm,7:f0} legal {legal}");
+        }
+        var tEff = MathF.Max(s.Time, s.GcdReadyAt);
+        var fill = (_horizon - tEff) * _ctx.FillerPps;
+        var res = LeafResources(s) * _engine.Weights.LambdaScale;
+        var st = LeafStatuses(s);
+        var leaf = Leaf(s);
+        var planner = _engine.Planner;
+        var tl2 = tEff + _planOffset;
+        var parts = new List<string>();
+        for (var g = 0; g < _job.Gauges.Length; ++g)
+            parts.Add($"{_job.Gauges[g].Name}={s.Gauges[g]}x{planner.LeafLambda(UpperPlanner.GaugeResource(g), tl2, s.Gauges[g]):f1}");
+        for (var c = 0; c < _job.Cooldowns.Length; ++c)
+            parts.Add($"{_job.Cooldowns[c].Name}={s.Charges[c]}+{s.CdReadyIn[c]:f0}s");
+        log($"  leaf {leaf:f0} = fill {fill:f0} + resources {res:f0} + statuses {st:f0} + combo/pull {leaf - fill - res - st:f0}; total {total + leaf:f0}; {string.Join(" ", parts)}");
+        return total + leaf;
     }
 
     public float RootValue(int skill) => _rootSeen[skill] ? _rootValues[skill] : float.NaN;
@@ -377,11 +428,12 @@ internal sealed class LowerSearch
         var pruned = false;
         var prunedBound = float.MinValue;
         var ogcdsTaken = 0;
+        var gcdsTaken = 0;
         for (var i = 0; i < count; ++i)
         {
             var k = baseIdx + _perm[baseIdx + i];
             var move = _moves[k];
-            if (ply >= 2 && move != WaitMove && !_job.Skills[move].IsGcd && ++ogcdsTaken > MaxDeepOgcds)
+            if (ply >= 1 && move != WaitMove && (_job.Skills[move].IsGcd ? ++gcdsTaken > MaxDeepGcds : ++ogcdsTaken > MaxDeepOgcds))
                 continue;
             var imm = _imm[k];
             var nextGcds = _nextGcds[k];

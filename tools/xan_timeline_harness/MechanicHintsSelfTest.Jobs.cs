@@ -7,14 +7,14 @@ internal static partial class MechanicHintsSelfTest
 {
     private static readonly (string Job, Func<RotationModuleDefinition> Definition)[] HintedModules =
     [
-        ("blm", BossMod.Autorotation.xan.BLM.Definition),
-        ("rpr", BossMod.Autorotation.xan.RPR.Definition),
-        ("mnk", BossMod.Autorotation.xan.MNK.Definition),
-        ("nin", BossMod.Autorotation.xan.NIN.Definition),
-        ("vpr", BossMod.Autorotation.xan.VPR.Definition),
-        ("mch", BossMod.Autorotation.xan.MCH.Definition),
-        ("gnb", BossMod.Autorotation.akechi.AkechiGNB.Definition),
-        ("pld", BossMod.Autorotation.akechi.AkechiPLD.Definition),
+        ("blm", BossMod.Autorotation.xan.Custom.BLM.Definition),
+        ("rpr", BossMod.Autorotation.xan.Custom.RPR.Definition),
+        ("mnk", BossMod.Autorotation.xan.Custom.MNK.Definition),
+        ("nin", BossMod.Autorotation.xan.Custom.NIN.Definition),
+        ("vpr", BossMod.Autorotation.xan.Custom.VPR.Definition),
+        ("mch", BossMod.Autorotation.xan.Custom.MCH.Definition),
+        ("gnb", BossMod.Autorotation.akechi.Custom.AkechiGNB.Definition),
+        ("pld", BossMod.Autorotation.akechi.Custom.AkechiPLD.Definition),
     ];
 
     private static partial void RunJobTests()

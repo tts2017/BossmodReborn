@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\engine_common\EngineCommon.props" />
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Custom\Engine\Jobs\RprDefinition.cs" Link="Jobs\RprDefinition.cs" />
+    <ProjectReference Include="..\rpr_regression\RprRegression.csproj" />
+  </ItemGroup>
+</Project>

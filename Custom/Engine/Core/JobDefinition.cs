@@ -14,6 +14,7 @@ public enum ConditionKind : byte
     ComboIs,
     TargetsAtLeast,
     TargetsAtMost,
+    StatusLeftAtLeast, // status active with at least Value seconds left
 }
 
 public readonly record struct Condition(ConditionKind Kind, short Index, float Value)
@@ -255,11 +256,16 @@ public sealed class JobBuilder(string name, float baseGcd)
         public SkillBuilder RequiresGaugeAtMost(string gauge, int atMost) { _conditions.Add(job => new(ConditionKind.GaugeAtMost, (short)job.GaugeIndex(gauge), atMost)); return this; }
         public SkillBuilder RequiresStatus(string status) { _conditions.Add(job => new(ConditionKind.StatusActive, (short)job.StatusIndex(status), 0)); return this; }
         public SkillBuilder ForbidStatus(string status) { _conditions.Add(job => new(ConditionKind.StatusInactive, (short)job.StatusIndex(status), 0)); return this; }
+        public SkillBuilder RequiresStatusLeft(string status, float seconds) { _conditions.Add(job => new(ConditionKind.StatusLeftAtLeast, (short)job.StatusIndex(status), seconds)); return this; }
         public SkillBuilder RequiresStacks(string status, int atLeast) { _conditions.Add(job => new(ConditionKind.StacksAtLeast, (short)job.StatusIndex(status), atLeast)); return this; }
         public SkillBuilder RequiresTargets(int atLeast) { _conditions.Add(_ => new(ConditionKind.TargetsAtLeast, 0, atLeast)); return this; }
 
         // the next effect only applies when the condition holds (e.g. a gain unlocked by a trait or a status)
         public SkillBuilder IfStatus(string status) { _pendingEffectCondition = job => new(ConditionKind.StatusActive, (short)job.StatusIndex(status), 0); return this; }
+        public SkillBuilder IfCombo(string from) { _pendingEffectCondition = job => new(ConditionKind.ComboIs, (short)job.SkillIndex(from), 0); return this; }
+        public SkillBuilder IfGaugeAtMost(string gauge, int atMost) { _pendingEffectCondition = job => new(ConditionKind.GaugeAtMost, (short)job.GaugeIndex(gauge), atMost); return this; }
+        public SkillBuilder ForbidStatuses(params string[] statuses) { foreach (var s in statuses) ForbidStatus(s); return this; }
+        public SkillBuilder RemoveStatuses(params string[] statuses) { foreach (var s in statuses) RemoveStatus(s); return this; }
 
         public SkillBuilder GainGauge(string gauge, int amount) => AddEffect(job => new(EffectKind.GaugeAdd, (short)job.GaugeIndex(gauge), amount, 0, false, Condition.Always));
         public SkillBuilder SpendGauge(string gauge, int amount)

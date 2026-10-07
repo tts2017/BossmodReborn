@@ -52,6 +52,7 @@ public static class Simulator
         ConditionKind.ComboIs => s.ComboSkill == c.Index && s.ComboLeft > 0,
         ConditionKind.TargetsAtLeast => s.Targets >= c.Value,
         ConditionKind.TargetsAtMost => s.Targets <= c.Value,
+        ConditionKind.StatusLeftAtLeast => s.StatusLeft[c.Index] >= c.Value,
         _ => false
     };
 

@@ -143,6 +143,13 @@ public sealed class RprRotationEmulator
 
     private readonly RprTuningProfile _profile;
 
+    // Optional replacement policy (e.g. the rotation engine): returns the GCD and the weaves for this GCD window, or null to use the built-in policy.
+    public Func<ScenarioDefinition, RprState, RprContext, double, (string? Gcd, List<string> Ogcds)?>? PolicyOverride { get; set; }
+    // When set, the wall time (microseconds) of the policy decision of every GCD window is appended here.
+    public List<double>? PolicyMicros { get; set; }
+    // When set, the bytes allocated on this thread by every policy decision are appended here.
+    public List<long>? PolicyAllocBytes { get; set; }
+
     public RprRotationEmulator(RprTuningProfile? profile = null)
     {
         _profile = profile ?? RprTuningProfile.Baseline;
@@ -241,6 +248,8 @@ public sealed class RprRotationEmulator
 
     private ActionFrame SelectActions(ScenarioDefinition scenario, RprState state, RprContext context, double time, int gcdWindowIndex)
     {
+        var builtinStart = System.Diagnostics.Stopwatch.GetTimestamp();
+        var builtinAlloc = GC.GetAllocatedBytesForCurrentThread();
         var candidates = new List<string>();
         var ogcds = new List<string>();
         var reason = "";
@@ -251,9 +260,26 @@ public sealed class RprRotationEmulator
         var ddPreAnyEnshroudRefresh = ShouldRefreshDeathsDesignBeforeAnyEnshroud(scenario, state, context, time, state.DeathsDesignLeft, _profile);
         var enshroudBlockedForDd = ShouldBlockEnshroudForDeathsDesign(scenario, state, context, time, _profile);
         var ddRefreshReason = DeathsDesignRefreshReason(scenario, state, context, time, _profile);
-        var selectedGcd = SelectGcd(scenario, state, context, time, candidates, ref reason, _profile);
+        string? selectedGcd;
+        var overrideStart = System.Diagnostics.Stopwatch.GetTimestamp();
+        var overrideAlloc = GC.GetAllocatedBytesForCurrentThread();
+        var overridden = PolicyOverride?.Invoke(scenario, state, context, time);
+        if (overridden is { } o)
+        {
+            PolicyMicros?.Add(System.Diagnostics.Stopwatch.GetElapsedTime(overrideStart).TotalMilliseconds * 1000);
+            PolicyAllocBytes?.Add(GC.GetAllocatedBytesForCurrentThread() - overrideAlloc);
+            selectedGcd = o.Gcd;
+            ogcds.AddRange(o.Ogcds);
+            reason = "engine";
+        }
+        else
+        {
+            selectedGcd = SelectGcd(scenario, state, context, time, candidates, ref reason, _profile);
+            SelectOgcds(scenario, state, context, time, selectedGcd, ActionGcdLength(scenario, selectedGcd), ogcds, _profile);
+            PolicyMicros?.Add(System.Diagnostics.Stopwatch.GetElapsedTime(builtinStart).TotalMilliseconds * 1000);
+            PolicyAllocBytes?.Add(GC.GetAllocatedBytesForCurrentThread() - builtinAlloc);
+        }
         var currentGcd = ActionGcdLength(scenario, selectedGcd);
-        SelectOgcds(scenario, state, context, time, selectedGcd, currentGcd, ogcds, _profile);
         var castTime = ActionCastTime(selectedGcd, state.EnhancedHarpeLeft > 0);
         var weave = BuildWeaveInfo(scenario, state, time, currentGcd, castTime, ogcds);
 

@@ -17,6 +17,8 @@ public sealed class EngineWeights
     public float BurstBias { get; set; } = 1.0f;      // exaggerates (>1) or flattens (<1) raid-buff multipliers in the upper tier
     public float StatusRemainder { get; set; } = 1.0f; // multiplier on the leaf value of remaining damage-multiplier statuses
     public Dictionary<string, float> StatusValue { get; set; } = []; // extra per-second leaf value of a status (upkeep debuffs, modes)
+    public Dictionary<string, float> CooldownValue { get; set; } = []; // extra value of one charge (potency) on top of what the definition shows (e.g. follow-up GCDs it unlocks)
+    public Dictionary<string, float> GaugeValue { get; set; } = [];    // extra value of one spend unit of a gauge
 
     // search settings (not tuned)
     public int HorizonGcds { get; set; } = 4;
@@ -42,6 +44,9 @@ public sealed class EngineWeights
         nameof(FillerScale) => FillerScale,
         nameof(BurstBias) => BurstBias,
         nameof(StatusRemainder) => StatusRemainder,
+        _ when name.StartsWith("CooldownValue.") => CooldownValue.TryGetValue(name[14..], out var c) ? c : 0,
+        _ when name.StartsWith("GaugeValue.") => GaugeValue.TryGetValue(name[11..], out var g) ? g : 0,
+        _ when name.StartsWith("StatusValue.") => StatusValue.TryGetValue(name[12..], out var s) ? s : 0,
         _ => StatusValue.TryGetValue(name, out var v) ? v : throw new ArgumentException(name)
     };
 
@@ -57,7 +62,14 @@ public sealed class EngineWeights
             case nameof(FillerScale): FillerScale = value; break;
             case nameof(BurstBias): BurstBias = value; break;
             case nameof(StatusRemainder): StatusRemainder = value; break;
-            default: StatusValue[name] = value; break;
+            default:
+                if (name.StartsWith("CooldownValue."))
+                    CooldownValue[name[14..]] = value;
+                else if (name.StartsWith("GaugeValue."))
+                    GaugeValue[name[11..]] = value;
+                else
+                    StatusValue[name.StartsWith("StatusValue.") ? name[12..] : name] = value;
+                break;
         }
     }
 }

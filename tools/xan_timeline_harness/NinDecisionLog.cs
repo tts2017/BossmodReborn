@@ -3,7 +3,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using BossMod.Autorotation.xan;
-using XanNIN = BossMod.Autorotation.xan.NIN;
+using XanNIN = BossMod.Autorotation.xan.Custom.NIN;
 
 namespace XanTimelineHarness;
 

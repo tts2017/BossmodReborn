@@ -101,8 +101,8 @@ internal static partial class MechanicHintsSelfTest
     {
         {
             using var c = new Combat(Class.MCH);
-            var module = new BossMod.Autorotation.xan.MCH(c.Manager, c.Player);
-            var strategy = Strategy(BossMod.Autorotation.xan.MCH.Definition(), MechanicHintStrategy.All);
+            var module = new BossMod.Autorotation.xan.Custom.MCH(c.Manager, c.Player);
+            var strategy = Strategy(BossMod.Autorotation.xan.Custom.MCH.Definition(), MechanicHintStrategy.All);
             SetOption(strategy, "Tools", "Delay");
             c.RefreshTargets();
             Push(c.World, TestNamespace, 2.6f, 40);
@@ -112,8 +112,8 @@ internal static partial class MechanicHintsSelfTest
         {
             // Heat-funded Hypercharge cut to one slot would waste 50 Heat (4 of 5 Blazing Shots lost to the loss)
             using var c = new Combat(Class.MCH);
-            var module = new BossMod.Autorotation.xan.MCH(c.Manager, c.Player);
-            var strategy = Strategy(BossMod.Autorotation.xan.MCH.Definition(), MechanicHintStrategy.All);
+            var module = new BossMod.Autorotation.xan.Custom.MCH(c.Manager, c.Player);
+            var strategy = Strategy(BossMod.Autorotation.xan.Custom.MCH.Definition(), MechanicHintStrategy.All);
             SetGaugeByte<FFXIVClientStructs.FFXIV.Client.Game.Gauge.MachinistGauge>(c.World, "Heat", 50);
             c.Cooldown(BossMod.MCH.AID.Drill, 40);
             c.Cooldown(BossMod.MCH.AID.AirAnchor, 40);
@@ -128,8 +128,8 @@ internal static partial class MechanicHintsSelfTest
             // rotation holds Hypercharge for it, and so must the wind-down
             // (spending it first left the Wildfire without its Blazing Shots: combat matrix -0.6% with hints)
             using var c = new Combat(Class.MCH);
-            var module = new BossMod.Autorotation.xan.MCH(c.Manager, c.Player);
-            var strategy = Strategy(BossMod.Autorotation.xan.MCH.Definition(), MechanicHintStrategy.All);
+            var module = new BossMod.Autorotation.xan.Custom.MCH(c.Manager, c.Player);
+            var strategy = Strategy(BossMod.Autorotation.xan.Custom.MCH.Definition(), MechanicHintStrategy.All);
             SetGaugeByte<FFXIVClientStructs.FFXIV.Client.Game.Gauge.MachinistGauge>(c.World, "Heat", 50);
             c.Cooldown(BossMod.MCH.AID.Drill, 40);
             c.Cooldown(BossMod.MCH.AID.AirAnchor, 40);
@@ -142,8 +142,8 @@ internal static partial class MechanicHintsSelfTest
         }
         {
             using var c = new Combat(Class.VPR);
-            var module = new BossMod.Autorotation.xan.VPR(c.Manager, c.Player);
-            var strategy = Strategy(BossMod.Autorotation.xan.VPR.Definition(), MechanicHintStrategy.All);
+            var module = new BossMod.Autorotation.xan.Custom.VPR(c.Manager, c.Player);
+            var strategy = Strategy(BossMod.Autorotation.xan.Custom.VPR.Definition(), MechanicHintStrategy.All);
             SetOption(strategy, "Buffs", "Delay");
             c.World.Execute(new ActorState.OpStatus(PlayerID, 0, new((uint)BossMod.VPR.SID.ReawakenReady, 0, c.World.FutureTime(30), PlayerID)));
             c.Cooldown(BossMod.VPR.AID.Vicewinder, 40);
@@ -155,8 +155,8 @@ internal static partial class MechanicHintsSelfTest
         {
             // Offering-funded Reawaken cut to one slot would waste 50 Offering (paid back only after the return)
             using var c = new Combat(Class.VPR);
-            var module = new BossMod.Autorotation.xan.VPR(c.Manager, c.Player);
-            var strategy = Strategy(BossMod.Autorotation.xan.VPR.Definition(), MechanicHintStrategy.All);
+            var module = new BossMod.Autorotation.xan.Custom.VPR(c.Manager, c.Player);
+            var strategy = Strategy(BossMod.Autorotation.xan.Custom.VPR.Definition(), MechanicHintStrategy.All);
             SetGaugeByte<FFXIVClientStructs.FFXIV.Client.Game.Gauge.ViperGauge>(c.World, "SerpentOffering", 50);
             c.Cooldown(BossMod.VPR.AID.Vicewinder, 40);
             c.RefreshTargets();
@@ -166,8 +166,8 @@ internal static partial class MechanicHintsSelfTest
         }
         {
             using var c = new Combat(Class.PLD);
-            var module = new BossMod.Autorotation.akechi.AkechiPLD(c.Manager, c.Player);
-            var strategy = Strategy(BossMod.Autorotation.akechi.AkechiPLD.Definition(), MechanicHintStrategy.All);
+            var module = new BossMod.Autorotation.akechi.Custom.AkechiPLD(c.Manager, c.Player);
+            var strategy = Strategy(BossMod.Autorotation.akechi.Custom.AkechiPLD.Definition(), MechanicHintStrategy.All);
             SetOption(strategy, "GB", "Delay");
             c.World.Execute(new ActorState.OpStatus(PlayerID, 0, new((uint)BossMod.PLD.SID.GoringBladeReady, 0, c.World.FutureTime(30), PlayerID)));
             c.RefreshTargets();
@@ -184,8 +184,8 @@ internal static partial class MechanicHintsSelfTest
         foreach (var mode in new[] { MechanicHintStrategy.All, MechanicHintStrategy.Off })
         {
             using var c = new Combat(Class.PLD, targetX: 10f);
-            var module = new BossMod.Autorotation.akechi.AkechiPLD(c.Manager, c.Player);
-            var strategy = Strategy(BossMod.Autorotation.akechi.AkechiPLD.Definition(), mode);
+            var module = new BossMod.Autorotation.akechi.Custom.AkechiPLD(c.Manager, c.Player);
+            var strategy = Strategy(BossMod.Autorotation.akechi.Custom.AkechiPLD.Definition(), mode);
             SetOption(strategy, "Ranged", "RangedCast");
             c.RefreshTargets();
             module.Execute(strategy, c.Target, 0.1f, false);
@@ -202,8 +202,8 @@ internal static partial class MechanicHintsSelfTest
         })
         {
             using var c = new Combat(Class.PLD);
-            var module = new BossMod.Autorotation.akechi.AkechiPLD(c.Manager, c.Player);
-            var strategy = Strategy(BossMod.Autorotation.akechi.AkechiPLD.Definition(), mode);
+            var module = new BossMod.Autorotation.akechi.Custom.AkechiPLD(c.Manager, c.Player);
+            var strategy = Strategy(BossMod.Autorotation.akechi.Custom.AkechiPLD.Definition(), mode);
             c.World.Execute(new ClientState.OpComboChange(new((uint)BossMod.PLD.AID.FastBlade, 25)));
             c.RefreshTargets();
             Push(c.World, TestNamespace, 10, ret);
@@ -225,8 +225,8 @@ internal static partial class MechanicHintsSelfTest
         })
         {
             using var c = new Combat(Class.VPR);
-            var module = new BossMod.Autorotation.xan.VPR(c.Manager, c.Player);
-            var strategy = Strategy(BossMod.Autorotation.xan.VPR.Definition(), mode);
+            var module = new BossMod.Autorotation.xan.Custom.VPR(c.Manager, c.Player);
+            var strategy = Strategy(BossMod.Autorotation.xan.Custom.VPR.Definition(), mode);
             c.World.Execute(new ActorState.OpStatus(PlayerID, 0, new((uint)BossMod.VPR.SID.ReawakenReady, 0, c.World.FutureTime(30), PlayerID)));
             c.World.Execute(new ActorState.OpStatus(PlayerID, 1, new((uint)BossMod.VPR.SID.HuntersInstinct, 0, c.World.FutureTime(40), PlayerID)));
             c.World.Execute(new ActorState.OpStatus(PlayerID, 2, new((uint)BossMod.VPR.SID.Swiftscaled, 0, c.World.FutureTime(40), PlayerID)));
@@ -246,8 +246,8 @@ internal static partial class MechanicHintsSelfTest
         })
         {
             using var c = new Combat(Class.VPR);
-            var module = new BossMod.Autorotation.xan.VPR(c.Manager, c.Player);
-            var strategy = Strategy(BossMod.Autorotation.xan.VPR.Definition(), mode);
+            var module = new BossMod.Autorotation.xan.Custom.VPR(c.Manager, c.Player);
+            var strategy = Strategy(BossMod.Autorotation.xan.Custom.VPR.Definition(), mode);
             c.World.Execute(new ActorState.OpStatus(PlayerID, 0, new((uint)BossMod.VPR.SID.ReawakenReady, 0, c.World.FutureTime(30), PlayerID)));
             c.Cooldown(BossMod.VPR.AID.Vicewinder, 40);
             c.RefreshTargets();
@@ -269,8 +269,8 @@ internal static partial class MechanicHintsSelfTest
         })
         {
             using var c = new Combat(Class.MCH);
-            var module = new BossMod.Autorotation.xan.MCH(c.Manager, c.Player);
-            var strategy = Strategy(BossMod.Autorotation.xan.MCH.Definition(), mode);
+            var module = new BossMod.Autorotation.xan.Custom.MCH(c.Manager, c.Player);
+            var strategy = Strategy(BossMod.Autorotation.xan.Custom.MCH.Definition(), mode);
             c.RefreshTargets();
             Push(c.World, TestNamespace, 2.6f, 40);
             module.Execute(strategy, c.Target, 0.1f, false);
@@ -293,8 +293,8 @@ internal static partial class MechanicHintsSelfTest
         })
         {
             using var c = new Combat(Class.GNB);
-            var module = new BossMod.Autorotation.akechi.AkechiGNB(c.Manager, c.Player);
-            var strategy = Strategy(BossMod.Autorotation.akechi.AkechiGNB.Definition(), mode);
+            var module = new BossMod.Autorotation.akechi.Custom.AkechiGNB(c.Manager, c.Player);
+            var strategy = Strategy(BossMod.Autorotation.akechi.Custom.AkechiGNB.Definition(), mode);
             if (zoneDelay)
                 SetOption(strategy, "Zone", "Delay");
             c.World.Client.GaugePayload = new(2ul, 0); // 2 cartridges
