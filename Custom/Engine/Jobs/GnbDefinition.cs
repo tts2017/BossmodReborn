@@ -3,7 +3,7 @@ namespace BossMod.Autorotation.Engine.Jobs;
 // Gunbreaker (level 100) for the rotation engine: data only, no BossMod dependency (also compiled by the engine tools).
 // Mechanics and potencies follow tools/xan_timeline_harness/GnbCombatState.cs + GnbPotencyScorer.cs (No Mercy x1.20; Sonic Break /
 // Bow Shock DoTs credited in full at the press; any GCD drops pending Continuation procs). Cartridges cap at 3, or 6 under Bloodfest
-// (gains past the cap are lost). The Gnashing Fang / Reign chains are statuses for their next step.
+// (gains past the cap are lost; a combo finisher gives one cartridge: below 3 always, at 3+ only under Bloodfest). The Gnashing Fang / Reign chains are statuses for their next step.
 // Spec (agents_gnb.md): Bloodfest paired with No Mercy (right before it, or right after it in the same burst); Double Down inside No Mercy
 // (no hard requirement: the search keeps every Double Down inside No Mercy by itself, and as a requirement it made a live search that
 // ends early drift its No Mercy windows). Bloodfest recast is 60 s (the action sheet the harness
@@ -42,10 +42,10 @@ public static class GnbDefinition
         Gcd(b.Gcd("KeenEdge", 300, AidKeenEdge).StartsCombo());
         Gcd(b.Gcd("BrutalShell", 160, AidBrutalShell).ComboFrom("KeenEdge", 380));
         Gcd(b.Gcd("SolidBarrel", 140, AidSolidBarrel).ComboFrom("BrutalShell", 460).EndsCombo()
-            .IfCombo("BrutalShell").IfGaugeAtMost(Ammo, 2).GainGauge(Ammo, 1).IfCombo("BrutalShell").IfStatus(Bloodfest).GainGauge(Ammo, 1));
+            .IfCombo("BrutalShell").IfGaugeAtMost(Ammo, 2).GainGauge(Ammo, 1).IfCombo("BrutalShell").IfStatus(Bloodfest).IfGaugeAtLeast(Ammo, 3).GainGauge(Ammo, 1));
         Gcd(b.Gcd("DemonSlice", 100, AidDemonSlice).AoeFalloff(100).StartsCombo());
         Gcd(b.Gcd("DemonSlaughter", 100, AidDemonSlaughter).AoeFalloff(100).ComboFrom("DemonSlice", 160).EndsCombo()
-            .IfCombo("DemonSlice").IfGaugeAtMost(Ammo, 2).GainGauge(Ammo, 1).IfCombo("DemonSlice").IfStatus(Bloodfest).GainGauge(Ammo, 1));
+            .IfCombo("DemonSlice").IfGaugeAtMost(Ammo, 2).GainGauge(Ammo, 1).IfCombo("DemonSlice").IfStatus(Bloodfest).IfGaugeAtLeast(Ammo, 3).GainGauge(Ammo, 1));
 
         // ---- cartridge GCDs ----
         Gcd(b.Gcd("BurstStrike", 420, AidBurstStrike).SpendGauge(Ammo, 1)).ApplyStatus(ReadyToBlast, 10);

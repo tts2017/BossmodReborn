@@ -312,7 +312,7 @@ public static class Simulator
         var apply = ~0UL;
         if (skill.ConditionalEffects)
             for (var i = 0; i < effects.Length; ++i)
-                if (!Check(s, effects[i].If) || !Check(s, effects[i].If2))
+                if (!Check(s, effects[i].If) || !Check(s, effects[i].If2) || !Check(s, effects[i].If3))
                     apply &= ~(1UL << i);
         for (var ei = 0; ei < effects.Length; ++ei)
         {

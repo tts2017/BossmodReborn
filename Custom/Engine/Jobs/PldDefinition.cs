@@ -5,7 +5,7 @@ namespace BossMod.Autorotation.Engine.Jobs;
 // splash 40% on the Confiteor chain / Imperator / Blade of Honor / Expiacion, Circle of Scorn's DoT credited at the press).
 // Holy Spirit / Holy Circle: Divine Might first (instant, stronger), else a Requiescat stack (instant, strongest), else a 1.5 s cast.
 // The Confiteor chain is statuses for its next step; MP is a Flat gauge (costs and the restores the harness grants; natural regen is
-// read from the game every frame).
+// read from the game every frame). No Intervene: it is a dash (gated by the dash setting), left to the regular PLD modules.
 public static class PldDefinition
 {
     public const string MP = "MP";
@@ -14,14 +14,14 @@ public static class PldDefinition
         FaithReady = "BladeOfFaithReady", TruthReady = "BladeOfTruthReady", ValorReady = "BladeOfValorReady", HonorReady = "BladeOfHonorReady",
         AtonementReady = "AtonementReady", SupplicationReady = "SupplicationReady", SepulchreReady = "SepulchreReady", DivineMight = "DivineMight";
 
-    public const string FightOrFlightCD = "FightOrFlightCD", ImperatorCD = "ImperatorCD", ExpiacionCD = "ExpiacionCD", CircleOfScornCD = "CircleOfScornCD", InterveneCD = "InterveneCD";
+    public const string FightOrFlightCD = "FightOrFlightCD", ImperatorCD = "ImperatorCD", ExpiacionCD = "ExpiacionCD", CircleOfScornCD = "CircleOfScornCD";
 
     public const float Splash = 0.4f;
 
     public const uint AidFastBlade = 9, AidRiotBlade = 15, AidRoyalAuthority = 3539, AidTotalEclipse = 7381, AidProminence = 16457, AidAtonement = 16460,
         AidSupplication = 36918, AidSepulchre = 36919, AidHolySpirit = 7384, AidHolyCircle = 16458, AidConfiteor = 16459, AidBladeOfFaith = 25748,
         AidBladeOfTruth = 25749, AidBladeOfValor = 25750, AidGoringBlade = 3538, AidFightOrFlight = 20, AidImperator = 36921, AidBladeOfHonor = 36922,
-        AidExpiacion = 25747, AidCircleOfScorn = 23, AidIntervene = 16461;
+        AidExpiacion = 25747, AidCircleOfScorn = 23;
 
     public static JobDefinition Build(float gcd = 2.5f)
     {
@@ -31,7 +31,7 @@ public static class PldDefinition
             .Status(FightOrFlight, 20, damageMultiplier: 1.25f).Status(GoringReady, 30).Status(Requiescat, 30, maxStacks: 4).Status(ConfiteorReady, 30)
             .Status(FaithReady, 30).Status(TruthReady, 30).Status(ValorReady, 30).Status(HonorReady, 30)
             .Status(AtonementReady, 30).Status(SupplicationReady, 30).Status(SepulchreReady, 30).Status(DivineMight, 30)
-            .Cooldown(FightOrFlightCD, 60).Cooldown(ImperatorCD, 60).Cooldown(ExpiacionCD, 30).Cooldown(CircleOfScornCD, 30).Cooldown(InterveneCD, 30, 2);
+            .Cooldown(FightOrFlightCD, 60).Cooldown(ImperatorCD, 60).Cooldown(ExpiacionCD, 30).Cooldown(CircleOfScornCD, 30);
 
         // ---- combo ----
         b.Gcd("FastBlade", 220, AidFastBlade).StartsCombo();
@@ -68,7 +68,6 @@ public static class PldDefinition
         b.Ogcd("BladeOfHonor", 1000, null, AidBladeOfHonor).AoeFalloff(1000 * Splash).RequiresStatus(HonorReady).RemoveStatus(HonorReady);
         b.Ogcd("Expiacion", 450, ExpiacionCD, AidExpiacion).AoeFalloff(450 * Splash).GainGauge(MP, 500);
         b.Ogcd("CircleOfScorn", 290, CircleOfScornCD, AidCircleOfScorn).AoeFalloff(290);
-        b.Ogcd("Intervene", 150, InterveneCD, AidIntervene);
         return b.Build();
     }
 

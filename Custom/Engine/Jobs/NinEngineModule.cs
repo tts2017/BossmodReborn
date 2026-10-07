@@ -29,6 +29,7 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
     private string? _sequence; // ninjutsu skill whose mudras are being pressed
     private int _prevMudraCharges = -1;
     private DateTime _sequenceLockedAt; // a mudra charge was just spent: keep _sequence until the Mudra status shows up
+    private Actor? _primaryTarget; // for ActionFor (Forked Raiju dashes: Fleeting Raiju in melee range)
 
     public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
@@ -56,6 +57,7 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
         // the first mudra went off but its status is not visible yet: wait instead of re-planning (a different ninjutsu would not match it)
         if (_sequence != null && (World.CurrentTime - _sequenceLockedAt).TotalSeconds < 0.5)
             return;
+        _primaryTarget = primaryTarget;
         base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
         UpdatePositional(primaryTarget);
     }
@@ -81,6 +83,7 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
         return skill.Name switch
         {
             "TCJCombo" => ActionID.MakeSpell(AID.FumaTen),
+            "ForkedRaiju" => ActionID.MakeSpell(Player.DistanceToHitbox(_primaryTarget) <= 3 ? AID.FleetingRaiju : AID.ForkedRaiju),
             "AeolianEdgeBare" => ActionID.MakeSpell(AID.AeolianEdge),
             _ => base.ActionFor(skill)
         };

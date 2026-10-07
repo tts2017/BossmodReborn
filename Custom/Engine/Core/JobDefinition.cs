@@ -40,10 +40,11 @@ public enum EffectKind : byte
     GaugeScale,      // gauge = floor(gauge x Value)
 }
 
-// If / If2: the effect applies only when both hold; conditions are checked against the state before the skill (all effects see the same state)
+// If / If2 / If3: the effect applies only when all of them hold; conditions are checked against the state before the skill (all effects see the same state)
 public readonly record struct Effect(EffectKind Kind, short Index, float Value, byte Stacks, bool Extend, Condition If)
 {
     public Condition If2 { get; init; } = Condition.Always;
+    public Condition If3 { get; init; } = Condition.Always;
 }
 
 public enum ComboMode : byte
@@ -273,7 +274,7 @@ public sealed class JobBuilder(string name, float baseGcd)
                 throw new InvalidOperationException($"skill {s.Name} has more than 64 effects");
         foreach (var s in job.Skills)
             foreach (var e in s.Effects)
-                s.ConditionalEffects |= e.If.Kind != ConditionKind.None || e.If2.Kind != ConditionKind.None;
+                s.ConditionalEffects |= e.If.Kind != ConditionKind.None || e.If2.Kind != ConditionKind.None || e.If3.Kind != ConditionKind.None;
         // cone skills check the cone target count
         foreach (var s in job.Skills)
             if (s.Cone)
@@ -320,6 +321,7 @@ public sealed class JobBuilder(string name, float baseGcd)
         private string? _cooldown;
         private Func<JobDefinition, Condition>? _pendingEffectCondition;
         private Func<JobDefinition, Condition>? _pendingEffectCondition2;
+        private Func<JobDefinition, Condition>? _pendingEffectCondition3;
         private string? _dotStatus;
 
         // chaining back to the job builder
@@ -393,13 +395,15 @@ public sealed class JobBuilder(string name, float baseGcd)
         public SkillBuilder IfStatus(string status) => PendingIf(job => new(ConditionKind.StatusActive, (short)job.StatusIndex(status), 0));
         public SkillBuilder IfStatusInactive(string status) => PendingIf(job => new(ConditionKind.StatusInactive, (short)job.StatusIndex(status), 0));
         public SkillBuilder IfGaugeAtLeast(string gauge, int atLeast) => PendingIf(job => new(ConditionKind.GaugeAtLeast, (short)job.GaugeIndex(gauge), atLeast));
-        // a second If* before the effect adds a second condition (both must hold)
+        // a second (third) If* before the effect adds a second (third) condition (all must hold)
         private SkillBuilder PendingIf(Func<JobDefinition, Condition> c)
         {
             if (_pendingEffectCondition == null)
                 _pendingEffectCondition = c;
-            else
+            else if (_pendingEffectCondition2 == null)
                 _pendingEffectCondition2 = c;
+            else
+                _pendingEffectCondition3 = c;
             return this;
         }
         public SkillBuilder IfCombo(string from) => PendingIf(job => new(ConditionKind.ComboIs, (short)job.SkillIndex(from), 0));
@@ -432,8 +436,10 @@ public sealed class JobBuilder(string name, float baseGcd)
         {
             var cond = _pendingEffectCondition;
             var cond2 = _pendingEffectCondition2;
-            _pendingEffectCondition = _pendingEffectCondition2 = null;
-            _effects.Add(cond == null ? make : cond2 == null ? job => make(job) with { If = cond(job) } : job => make(job) with { If = cond(job), If2 = cond2(job) });
+            var cond3 = _pendingEffectCondition3;
+            _pendingEffectCondition = _pendingEffectCondition2 = _pendingEffectCondition3 = null;
+            _effects.Add(cond == null ? make : cond2 == null ? job => make(job) with { If = cond(job) }
+                : cond3 == null ? job => make(job) with { If = cond(job), If2 = cond2(job) } : job => make(job) with { If = cond(job), If2 = cond2(job), If3 = cond3(job) });
             return this;
         }
 

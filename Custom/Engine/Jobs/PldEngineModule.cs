@@ -62,7 +62,6 @@ public sealed class PldEngineModule(RotationModuleManager manager, Actor player)
         ReadCooldown(ref s, Job.CooldownIndex(PldDefinition.ImperatorCD), ActionID.MakeSpell(AID.Imperator));
         ReadCooldown(ref s, Job.CooldownIndex(PldDefinition.ExpiacionCD), ActionID.MakeSpell(AID.Expiacion));
         ReadCooldown(ref s, Job.CooldownIndex(PldDefinition.CircleOfScornCD), ActionID.MakeSpell(AID.CircleOfScorn));
-        ReadCooldown(ref s, Job.CooldownIndex(PldDefinition.InterveneCD), ActionID.MakeSpell(AID.Intervene));
         ReadCombo(ref s);
     }
 }

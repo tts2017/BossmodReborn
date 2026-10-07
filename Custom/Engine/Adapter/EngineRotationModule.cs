@@ -167,7 +167,7 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
 
         var fight = Hints.FightRemaining;
         if (fight.Known)
-            tl.FightEndIn = fight.RemainingSeconds;
+            tl.FightEndIn = MathF.Max(fight.RemainingSeconds, GCD + 0.1f);
 
         // target loss: disengage forecast, then the planner's targetable windows
         var dis = Hints.Disengage;

@@ -225,7 +225,7 @@ internal sealed class LowerSearch
     private const int MoveSlots = EngineLimits.MaxSkills + 1;
     private const byte WaitMove = 0xFE;
     private const int TTBits = 16;
-    private const int MaxDeepOgcds = 1; // below the root only the best two weave candidates (by immediate value) are searched
+    private const int MaxDeepOgcds = 1; // below the root only the best one weave candidate (by immediate value) is searched
     private const int MaxDeepGcds = 3;  // below the root only the best three GCD candidates (previous best move first, then immediate value)
     private const int MaxRootGcds = 4;  // at the root: every legal weave, the best four GCD candidates
 
@@ -340,7 +340,7 @@ internal sealed class LowerSearch
         _planOffset = planOffset;
         var w = _engine.Weights;
         _horizon = MathF.Max(root.GcdReadyAt, root.AnimLockAt) + w.HorizonGcds * _job.BaseGcd;
-        _maxSlotValue = (MaxImmediate(true, root.Targets) + MaxDeepOgcds * MaxImmediate(false, root.Targets)) * tl.MaxBuffMultiplier() * MaxStatusMultiplier();
+        _maxSlotValue = (MaxImmediate(true, root.Targets) + 2 * MaxImmediate(false, root.Targets)) * tl.MaxBuffMultiplier() * MaxStatusMultiplier();
         _maxComboBonus = MathF.Max(0, _engine.Analysis.MaxComboChainValue);
         var maxMult = tl.MaxBuffMultiplier();
         var maxRes = 0f;
