@@ -126,13 +126,17 @@ public static class MnkDefinition
     public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
 
     // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-MNK-v3.json), BudgetMs for live play
+    // MinNodes / SliceNodes: every search (at most about 4400 nodes, the opener) completes and frame slices are counted in nodes, so
+    // live play does not depend on the machine's timing (it diverged by a few thousand potency between runs otherwise)
     public const string DefaultWeightsJson = """
     {
       "OverCap": 3.2322094, "Combo": 0.14532924, "LambdaScale": 0.37984324, "TargetPull": 0, "SwitchMargin": 2.063169, "FillerScale": 1.1005285, "BurstBias": 0,
       "StatusRemainder": 2, "CycleScale": 1, "CooldownLambdaScale": 0.12746207, "ForecastSelfBuffs": 1, "UnlockScale": 1.0827847,
       "StatusValue": {}, "CooldownValue": { "PerfectBalanceCD": 0, "BrotherhoodCD": 0 }, "GaugeValue": {},
       "HorizonGcds": 4,
-      "BudgetMs": 0.8
+      "BudgetMs": 0.8,
+      "MinNodes": 4500,
+      "SliceNodes": 40
     }
     """;
 }

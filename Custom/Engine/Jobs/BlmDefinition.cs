@@ -165,6 +165,10 @@ public static class BlmDefinition
 
     // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-BLM-v5.json), BudgetMs set for live play.
     // A 3-GCD horizon: with 4, a sixth of the live searches (casts make long lines) ran out of the budget before the last iteration.
+    // MinNodes: the full 3-GCD search is at most about 1000 nodes on the harness fights, so every search completes and live play
+    // matches the deterministic search (a BLM node costs about 1.5 us: 32 skill variants; a few searches outgrow the 0.8 ms otherwise).
+    // SliceNodes: the frame slice is counted in nodes (about the 0.08 ms frame budget), so which frame a search finishes on does not
+    // depend on the machine either.
     public const string DefaultWeightsJson = """
     {
       "OverCap": 1.2312877,
@@ -183,7 +187,9 @@ public static class BlmDefinition
       "CooldownValue": { "LeyLinesCD": 1074.4264, "TriplecastCD": 163.94995, "SwiftcastCD": 873.7974 },
       "GaugeValue": {},
       "HorizonGcds": 3,
-      "BudgetMs": 0.8
+      "BudgetMs": 0.8,
+      "MinNodes": 1000,
+      "SliceNodes": 50
     }
     """;
 }

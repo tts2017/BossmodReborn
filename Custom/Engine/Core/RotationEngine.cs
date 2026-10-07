@@ -273,6 +273,9 @@ internal sealed class LowerSearch
     private int _abortedDepth; // iteration depth an earlier slice stopped in (0: none); its finished root moves are kept and skipped on resume
     private bool _resuming;
     private long _budgetTicks;
+    private long _sliceBudget;
+    private int _nodeFloor;
+    private int _sliceNodeEnd;
     private float _maxSlotValue;
     private float _maxComboBonus;
     private CycleModel? _cycle;
@@ -374,11 +377,16 @@ internal sealed class LowerSearch
         var w = _engine.Weights;
         var totalTicks = (long)(w.BudgetMs * _engine.BudgetScale * Stopwatch.Frequency / 1000);
         var maxDepth = Math.Max(1, w.HorizonGcds);
-        var allowed = Math.Min(sliceTicks, Math.Max(0, totalTicks - _spentTicks));
+        // the slice is a hard stop (a frame); the total budget only stops a search that has done at least MinNodes nodes, so when it stops
+        // depends on the work done, not on the clock, unless the search is that large
+        var totalLeft = Math.Max(0, totalTicks - _spentTicks);
+        _nodeFloor = w.MinNodes;
+        _sliceNodeEnd = w.SliceNodes > 0 && sliceTicks != long.MaxValue ? _nodes + w.SliceNodes : int.MaxValue;
         _clock.Restart();
         while (_nextDepth <= maxDepth)
         {
-            _budgetTicks = _nextDepth == 1 ? long.MaxValue : allowed;
+            _sliceBudget = _nextDepth == 1 || _sliceNodeEnd != int.MaxValue ? long.MaxValue : sliceTicks;
+            _budgetTicks = _nextDepth == 1 ? long.MaxValue : totalLeft;
             _resuming = _abortedDepth == _nextDepth;
             if (!_resuming)
             {
@@ -403,7 +411,7 @@ internal sealed class LowerSearch
             ++_nextDepth;
         }
         _spentTicks += _clock.ElapsedTicks;
-        var finished = _nextDepth > maxDepth || _spentTicks >= totalTicks;
+        var finished = _nextDepth > maxDepth || _spentTicks >= totalTicks && _nodes >= _nodeFloor;
 
         var best = _best;
         // weaves of one window: among near-equal oGCD roots press the one defined first (e.g. Arcane Circle before Gluttony), so a
@@ -544,6 +552,8 @@ internal sealed class LowerSearch
         var multOgcd = Simulator.DamageMultiplier(_job, atOgcd, _tl);
         var activeGcd = Simulator.ActiveStatusMask(_job, atGcd);
         var activeOgcd = Simulator.ActiveStatusMask(_job, atOgcd);
+        var clearGcd = Simulator.WindowsClear(_job, atGcd, _tl);
+        var clearOgcd = Simulator.WindowsClear(_job, atOgcd, _tl);
         // one pass: GCD candidates fill the key arrays from the front, weave candidates from the back
         var nG = 0;
         var nO = 0;
@@ -554,7 +564,7 @@ internal sealed class LowerSearch
             if (!gcd && (tOgcd + skill.AnimationLock + _job.Latency > gcdReadyAt + 0.01f || skill.Index <= prevOgcd))
                 continue;
             ref readonly var at = ref gcd ? ref atGcd : ref atOgcd;
-            if (!Simulator.IsLegal(_job, at, _tl, skill, gcd ? activeGcd : activeOgcd))
+            if (!Simulator.IsLegal(_job, at, _tl, skill, gcd ? activeGcd : activeOgcd, gcd ? clearGcd : clearOgcd))
                 continue;
             anyGcd |= gcd;
             if (skill.Index == ttMove || skill.Index == keep)
@@ -600,7 +610,7 @@ internal sealed class LowerSearch
                 _rootBest = acc + leaf;
             return leaf;
         }
-        if ((++_nodes & 7) == 0 && _clock.ElapsedTicks > _budgetTicks)
+        if ((++_nodes & 7) == 0 && (_nodes >= _sliceNodeEnd && _nextDepth > 1 || _clock.ElapsedTicks > _sliceBudget || _clock.ElapsedTicks > _budgetTicks && _nodes >= _nodeFloor))
             _aborted = true;
         if (_aborted)
             return Leaf(s);
@@ -798,10 +808,11 @@ internal sealed class LowerSearch
         var value = 0f;
         var w = _engine.Weights;
         var cdScale = w.CooldownLambdaScale >= 0 ? w.CooldownLambdaScale : w.LambdaScale;
-        for (var g = 0; g < _job.Gauges.Length; ++g)
+        // (a zero scale skips its loop: the planner lookups are a good part of a leaf)
+        for (var g = 0; g < _job.Gauges.Length && w.LambdaScale != 0; ++g)
             if (s.Gauges[g] > 0)
                 value += _job.Gauges[g].Flat ? 0 : planner.LeafLambda(UpperPlanner.GaugeResource(g), t, s.Gauges[g]) * s.Gauges[g] * w.LambdaScale;
-        for (var c = 0; c < _job.Cooldowns.Length; ++c)
+        for (var c = 0; c < _job.Cooldowns.Length && cdScale != 0; ++c)
         {
             var cd = _job.Cooldowns[c];
             var holding = s.Charges[c] + (s.Charges[c] < cd.MaxCharges ? 1 - s.CdReadyIn[c] / cd.Recast : 0);
@@ -816,6 +827,8 @@ internal sealed class LowerSearch
     private float LeafStatuses(in EngineState s)
     {
         var w = _engine.Weights;
+        if (w.StatusRemainder == 0)
+            return 0;
         var value = 0f;
         var tEff = MathF.Max(s.Time, s.GcdReadyAt);
         var fightLeft = _tl.FightEndIn - tEff;

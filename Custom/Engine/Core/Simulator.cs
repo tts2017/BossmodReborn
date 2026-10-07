@@ -104,6 +104,30 @@ public static class Simulator
     public static bool IsLegal(JobDefinition job, in EngineState s, in EngineTimeline tl, SkillDef skill, uint activeStatuses)
         => (skill.RequiredStatusMask & ~activeStatuses) == 0 && (skill.ForbiddenStatusMask & activeStatuses) == 0 && IsLegal(job, s, tl, skill);
 
+    // whether no downtime or no-cast window starts within the longest span IsLegal looks ahead from s.Time (then IsLegal skips them)
+    public static bool WindowsClear(JobDefinition job, in EngineState s, in EngineTimeline tl)
+        => !tl.OverlapsDowntime(s.Time, s.Time + job.MaxWindowCheck) && !tl.OverlapsNoCast(s.Time, s.Time + job.MaxWindowCheck);
+
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    public static bool IsLegal(JobDefinition job, in EngineState s, in EngineTimeline tl, SkillDef skill, uint activeStatuses, bool windowsClear)
+    {
+        if ((skill.RequiredStatusMask & ~activeStatuses) != 0 || (skill.ForbiddenStatusMask & activeStatuses) != 0)
+            return false;
+        if (!windowsClear)
+            return IsLegal(job, s, tl, skill);
+        if ((s.DisabledSkills & (1UL << skill.Index)) != 0)
+            return false;
+        if (skill.Cooldown >= 0 && s.Charges[skill.Cooldown] == 0)
+            return false;
+        foreach (ref readonly var c in skill.Conditions.AsSpan())
+            if (!Check(s, c))
+                return false;
+        foreach (var i in job.LockStatuses)
+            if (s.StatusLeft[i] > 0 && (job.Statuses[i].AllowedSkills & (1UL << skill.Index)) == 0)
+                return false;
+        return !(skill.RequiresTarget || skill.UptimeNeeded > 0) || s.Time < tl.FightEndIn;
+    }
+
     // whether `skill` can be used at s.Time (the caller advances the state to the execution time first)
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static bool IsLegal(JobDefinition job, in EngineState s, in EngineTimeline tl, SkillDef skill)

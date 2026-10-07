@@ -138,6 +138,7 @@ public sealed class JobDefinition
     public int[] CycleStatuses = [];
     public int[] CycleCooldowns = [];
     // derived at Build: the statuses that matter for each hot-path check (index order kept), so the search does not scan every status
+    public float MaxWindowCheck; // longest span IsLegal checks the timeline windows over (cast, uptime or standing time of any skill)
     public int[] RecastStatuses = [], CastStatuses = [], LockStatuses = [], DamageStatuses = [], ShadowStatuses = [], InstantStatuses = [];
     public GaugeDef[] Gauges = [];
     public StatusDef[] Statuses = [];
@@ -250,6 +251,11 @@ public sealed class JobBuilder(string name, float baseGcd)
         int[] Where(Func<StatusDef, bool> f) { var l = new List<int>(); for (var i = 0; i < job.Statuses.Length; ++i) if (f(job.Statuses[i])) l.Add(i); return [.. l]; }
         job.RecastStatuses = Where(st => st.GcdRecastMultiplier != 1 || st.GcdRecastOverride > 0);
         job.CastStatuses = Where(st => st.CastTimeMultiplier != 1);
+        foreach (var sk in job.Skills)
+            job.MaxWindowCheck = MathF.Max(job.MaxWindowCheck, MathF.Max(MathF.Max(sk.CastTime, 0.01f), MathF.Max(sk.UptimeNeeded, sk.StillNeeded)));
+        foreach (var st in job.Statuses)
+            if (st.CastTimeMultiplier > 1)
+                job.MaxWindowCheck *= st.CastTimeMultiplier;
         job.LockStatuses = Where(st => st.AllowedSkills != 0);
         job.DamageStatuses = Where(st => st.DamageMultiplier != 1);
         job.ShadowStatuses = Where(st => st.ShadowPotency > 0);
