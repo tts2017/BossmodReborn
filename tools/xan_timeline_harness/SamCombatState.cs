@@ -10,7 +10,7 @@ namespace XanTimelineHarness;
 
 // Deterministic action-result simulation for Samurai (7.5), in the style of GnbCombatState and DrgCombatState. Decisions come from
 // production xan SAM.cs; this only models what the client does with them: the combos and Meikyo Shisui, Sen / Kenki / Meditation on
-// the gauge, Fugetsu and Fuka (whose haste shortens the 1.8s Iaijutsu and Ogi Namikiri casts and the GCD), the Tsubame-gaeshi,
+// the gauge, Fugetsu and Fuka (whose haste shortens the 1.3s Iaijutsu and Ogi Namikiri casts and the GCD), the Tsubame-gaeshi,
 // Tendo, Ogi Namikiri and Zanshin states, and the Higanbana dot (ticked every 3s with the buffs snapshotted at the cast). Presses are
 // scored when they land (a cast at its end) with Fugetsu and an expected crit (the guaranteed crits of Setsugekka and Namikiri at the
 // critical multiplier), no damage rolls, so two runs are byte-identical.
@@ -264,8 +264,10 @@ internal sealed class SamCombatState(WorldState world, Actor player, float frame
     {
         if (definition.CastTime <= 0)
             return 0;
+        // Enhanced Iaijutsu (L74) shortens the Iaijutsu / Ogi Namikiri cast from the sheet's 1.8s to 1.3s
+        var baseCast = player.Level >= 74 ? 1.3f : definition.CastTime;
         var stats = world.Client.PlayerStats;
-        return MathF.Floor(definition.CastTime * 1000 * ActionSpeed.SpeedStatToModifier(stats.SkillSpeed, player.Level) / 1000 * stats.Haste / 100) / 1000;
+        return MathF.Floor(baseCast * 1000 * ActionSpeed.SpeedStatToModifier(stats.SkillSpeed, player.Level) / 1000 * stats.Haste / 100) / 1000;
     }
 
     // Fuka is the SAM haste: 13% from 78 (10% before), applied to the weaponskill recast and cast times the client computes

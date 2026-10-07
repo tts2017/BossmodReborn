@@ -43,19 +43,19 @@ public static class GnbDefinition
         Gcd(b.Gcd("BrutalShell", 160, AidBrutalShell).ComboFrom("KeenEdge", 380));
         Gcd(b.Gcd("SolidBarrel", 140, AidSolidBarrel).ComboFrom("BrutalShell", 460).EndsCombo()
             .IfCombo("BrutalShell").IfGaugeAtMost(Ammo, 2).GainGauge(Ammo, 1).IfCombo("BrutalShell").IfStatus(Bloodfest).GainGauge(Ammo, 1));
-        Gcd(b.Gcd("DemonSlice", 160, AidDemonSlice).AoeFalloff(160).StartsCombo());
-        Gcd(b.Gcd("DemonSlaughter", 100, AidDemonSlaughter).AoeFalloff(100).ComboFrom("DemonSlice", 200).EndsCombo()
+        Gcd(b.Gcd("DemonSlice", 100, AidDemonSlice).AoeFalloff(100).StartsCombo());
+        Gcd(b.Gcd("DemonSlaughter", 100, AidDemonSlaughter).AoeFalloff(100).ComboFrom("DemonSlice", 160).EndsCombo()
             .IfCombo("DemonSlice").IfGaugeAtMost(Ammo, 2).GainGauge(Ammo, 1).IfCombo("DemonSlice").IfStatus(Bloodfest).GainGauge(Ammo, 1));
 
         // ---- cartridge GCDs ----
-        Gcd(b.Gcd("BurstStrike", 460, AidBurstStrike).SpendGauge(Ammo, 1)).ApplyStatus(ReadyToBlast, 10);
-        Gcd(b.Gcd("FatedCircle", 320, AidFatedCircle).AoeFalloff(320).SpendGauge(Ammo, 1)).ApplyStatus(ReadyToRaze, 10);
-        Gcd(b.Gcd("GnashingFang", 500, AidGnashingFang).UsesCooldown(GnashingFangCD).SpendGauge(Ammo, 1)
+        Gcd(b.Gcd("BurstStrike", 420, AidBurstStrike).SpendGauge(Ammo, 1)).ApplyStatus(ReadyToBlast, 10);
+        Gcd(b.Gcd("FatedCircle", 300, AidFatedCircle).AoeFalloff(300).SpendGauge(Ammo, 1)).ApplyStatus(ReadyToRaze, 10);
+        Gcd(b.Gcd("GnashingFang", 440, AidGnashingFang).UsesCooldown(GnashingFangCD).SpendGauge(Ammo, 1)
             .ForbidStatuses(SavageReady, TalonReady, NobleReady, LionReady)).ApplyStatus(SavageReady, 30).ApplyStatus(ReadyToRip, 10);
-        Gcd(b.Gcd("SavageClaw", 560, AidSavageClaw).RequiresStatus(SavageReady).RemoveStatus(SavageReady)).ApplyStatus(TalonReady, 30).ApplyStatus(ReadyToTear, 10);
-        Gcd(b.Gcd("WickedTalon", 620, AidWickedTalon).RequiresStatus(TalonReady).RemoveStatus(TalonReady)).ApplyStatus(ReadyToGouge, 10);
-        Gcd(b.Gcd("DoubleDown", 1200, AidDoubleDown).AoeFalloff(1200 * 0.85f).UsesCooldown(DoubleDownCD).SpendGauge(Ammo, 2));
-        Gcd(b.Gcd("SonicBreak", 900, AidSonicBreak).RequiresStatus(ReadyToBreak).RemoveStatus(ReadyToBreak));
+        Gcd(b.Gcd("SavageClaw", 500, AidSavageClaw).RequiresStatus(SavageReady).RemoveStatus(SavageReady)).ApplyStatus(TalonReady, 30).ApplyStatus(ReadyToTear, 10);
+        Gcd(b.Gcd("WickedTalon", 560, AidWickedTalon).RequiresStatus(TalonReady).RemoveStatus(TalonReady)).ApplyStatus(ReadyToGouge, 10);
+        Gcd(b.Gcd("DoubleDown", 1000, AidDoubleDown).AoeFalloff(1000 * 0.85f).UsesCooldown(DoubleDownCD).SpendGauge(Ammo, 2));
+        Gcd(b.Gcd("SonicBreak", 940, AidSonicBreak).RequiresStatus(ReadyToBreak).RemoveStatus(ReadyToBreak));
         Gcd(b.Gcd("ReignOfBeasts", 800, AidReignOfBeasts).RequiresStatus(ReadyToReign).RemoveStatus(ReadyToReign)).ApplyStatus(NobleReady, 30);
         Gcd(b.Gcd("NobleBlood", 900, AidNobleBlood).RequiresStatus(NobleReady).RemoveStatus(NobleReady)).ApplyStatus(LionReady, 30);
         Gcd(b.Gcd("LionHeart", 1000, AidLionHeart).RequiresStatus(LionReady).RemoveStatus(LionReady));
@@ -70,10 +70,10 @@ public static class GnbDefinition
             .ApplyStatus(Bloodfest, 30).GainGauge(Ammo, 3).ApplyStatus(ReadyToReign, 30);
         b.Ogcd("BlastingZone", 800, ZoneCD, AidBlastingZone);
         b.Ogcd("BowShock", 450, BowShockCD, AidBowShock).AoeFalloff(450);
-        b.Ogcd("JugularRip", 240, null, AidJugularRip).RequiresStatus(ReadyToRip).RemoveStatus(ReadyToRip);
-        b.Ogcd("AbdomenTear", 280, null, AidAbdomenTear).RequiresStatus(ReadyToTear).RemoveStatus(ReadyToTear);
-        b.Ogcd("EyeGouge", 320, null, AidEyeGouge).RequiresStatus(ReadyToGouge).RemoveStatus(ReadyToGouge);
-        b.Ogcd("Hypervelocity", 200, null, AidHypervelocity).RequiresStatus(ReadyToBlast).RemoveStatus(ReadyToBlast);
+        b.Ogcd("JugularRip", 220, null, AidJugularRip).RequiresStatus(ReadyToRip).RemoveStatus(ReadyToRip);
+        b.Ogcd("AbdomenTear", 260, null, AidAbdomenTear).RequiresStatus(ReadyToTear).RemoveStatus(ReadyToTear);
+        b.Ogcd("EyeGouge", 300, null, AidEyeGouge).RequiresStatus(ReadyToGouge).RemoveStatus(ReadyToGouge);
+        b.Ogcd("Hypervelocity", 180, null, AidHypervelocity).RequiresStatus(ReadyToBlast).RemoveStatus(ReadyToBlast);
         b.Ogcd("FatedBrand", 120, null, AidFatedBrand).AoeFalloff(120).RequiresStatus(ReadyToRaze).RemoveStatus(ReadyToRaze);
         return b.Build();
     }
@@ -83,11 +83,11 @@ public static class GnbDefinition
 
     public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
 
-    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-GNB-v3.json), BudgetMs for live play
+    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-GNB-v4.json), BudgetMs for live play
     public const string DefaultWeightsJson = """
     {
-      "OverCap": 2.4946623, "Combo": 3, "LambdaScale": 0.29133114, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 1.2356534, "BurstBias": 0,
-      "StatusRemainder": 1.1895698, "CycleScale": 1, "CooldownLambdaScale": 0.73212945, "ForecastSelfBuffs": -1, "UnlockScale": 1.8829567,
+      "OverCap": 2.0351698, "Combo": 3, "LambdaScale": 0.9404562, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 0.6423435, "BurstBias": 0,
+      "StatusRemainder": 1.1710489, "CycleScale": 1, "CooldownLambdaScale": 0, "ForecastSelfBuffs": -1, "UnlockScale": 3,
       "StatusValue": {}, "CooldownValue": {}, "GaugeValue": {},
       "HorizonGcds": 4,
       "BudgetMs": 0.8

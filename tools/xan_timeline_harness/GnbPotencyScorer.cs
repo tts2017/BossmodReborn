@@ -36,17 +36,17 @@ internal static class GnbPotencyScorer
             case AID.KeenEdge: primary = meleeMastery ? 300 : 200; break;
             case AID.BrutalShell: primary = meleeMastery ? 380 : enhancedBrutal ? 300 : 240; break;
             case AID.SolidBarrel: primary = meleeMastery ? 460 : 360; break;
-            case AID.BurstStrike: primary = meleeMastery ? 460 : 380; break;
-            case AID.DemonSlice: primary = meleeMastery ? 160 : 100; shape = Shape.SelfCircle; break;
-            case AID.DemonSlaughter: primary = meleeMastery ? 200 : 160; shape = Shape.SelfCircle; break;
-            case AID.FatedCircle: primary = meleeMastery ? 320 : 300; shape = Shape.SelfCircle; break;
-            case AID.GnashingFang: primary = meleeMastery ? 500 : 380; break;
-            case AID.SavageClaw: primary = meleeMastery ? 560 : 460; break;
-            case AID.WickedTalon: primary = meleeMastery ? 620 : 540; break;
-            case AID.DoubleDown: primary = 1200; falloff = 0.85f; shape = Shape.SelfCircle; break; // tooltip: 15% less on every target after the first
-            // Sonic Break is 300 up front plus a 30s / 60-per-tick dot; the harness has no dot ticker, so the
+            case AID.BurstStrike: primary = meleeMastery ? 420 : 340; break;
+            case AID.DemonSlice: primary = 100; shape = Shape.SelfCircle; break;
+            case AID.DemonSlaughter: primary = 160; shape = Shape.SelfCircle; break;
+            case AID.FatedCircle: primary = 300; shape = Shape.SelfCircle; break;
+            case AID.GnashingFang: primary = meleeMastery ? 440 : 330; break;
+            case AID.SavageClaw: primary = meleeMastery ? 500 : 410; break;
+            case AID.WickedTalon: primary = meleeMastery ? 560 : 490; break;
+            case AID.DoubleDown: primary = 1000; falloff = 0.85f; shape = Shape.SelfCircle; break; // tooltip: 15% less on every target after the first
+            // Sonic Break is 340 up front plus a 15s / 120-per-tick dot (5 ticks); the harness has no dot ticker, so the
             // full expected value is credited at cast time.
-            case AID.SonicBreak: primary = 300 + 600; break;
+            case AID.SonicBreak: primary = 340 + 600; break;
             case AID.ReignOfBeasts: primary = 800; break;
             case AID.NobleBlood: primary = 900; break;
             case AID.LionHeart: primary = 1000; break;
@@ -54,10 +54,10 @@ internal static class GnbPotencyScorer
             case AID.DangerZone: primary = 250; break;
             // Bow Shock is 150 on hit plus a 15s / 60-per-tick dot, again credited up front.
             case AID.BowShock: primary = 150 + 300; shape = Shape.SelfCircle; break;
-            case AID.JugularRip: primary = 240; break;
-            case AID.AbdomenTear: primary = 280; break;
-            case AID.EyeGouge: primary = 320; break;
-            case AID.Hypervelocity: primary = 200; break;
+            case AID.JugularRip: primary = meleeMastery ? 220 : 180; break;
+            case AID.AbdomenTear: primary = meleeMastery ? 260 : 220; break;
+            case AID.EyeGouge: primary = meleeMastery ? 300 : 260; break;
+            case AID.Hypervelocity: primary = meleeMastery ? 180 : 140; break;
             case AID.FatedBrand: primary = 120; shape = Shape.Splash; break;
             case AID.LightningShot: primary = 150; break;
             default: return 0;
@@ -113,15 +113,15 @@ internal static class GnbTerminalValue
     {
         float Left(SID status) => MathF.Max(0, (float)((player.FindStatus((uint)status, player.InstanceID)?.ExpireAt ?? world.CurrentTime) - world.CurrentTime).TotalSeconds);
 
-        // Burst Strike (460) plus its Hypervelocity continuation (200), minus the filler GCD it replaces.
-        const float Cartridge = 460f + 200f - Filler;
+        // Burst Strike (420) plus its Hypervelocity continuation (180), minus the filler GCD it replaces.
+        const float Cartridge = 420f + 180f - Filler;
         var value = combat.Ammo * Cartridge;
 
         // Gnashing Fang / Reign steps already paid for: each remaining step is a free GCD's worth of extra potency.
         value += combat.GunComboStep switch
         {
-            1 => 560f + 280f + 620f + 320f - 2 * Filler,
-            2 => 620f + 320f - Filler,
+            1 => 500f + 260f + 560f + 300f - 2 * Filler,
+            2 => 560f + 300f - Filler,
             3 => 900f + 1000f - 2 * Filler,
             4 => 1000f - Filler,
             _ => 0f,
@@ -130,15 +130,15 @@ internal static class GnbTerminalValue
         if (Left(SID.ReadyToReign) > 0)
             value += 800f + 900f + 1000f - 3 * Filler;
         if (Left(SID.ReadyToBreak) > 0)
-            value += 900f - Filler;
+            value += 940f - Filler;
         if (Left(SID.ReadyToRip) > 0)
-            value += 240f;
+            value += 220f;
         if (Left(SID.ReadyToTear) > 0)
-            value += 280f;
+            value += 260f;
         if (Left(SID.ReadyToGouge) > 0)
-            value += 320f;
+            value += 300f;
         if (Left(SID.ReadyToBlast) > 0)
-            value += 200f;
+            value += 180f;
         if (Left(SID.ReadyToRaze) > 0)
             value += 120f;
         return value;

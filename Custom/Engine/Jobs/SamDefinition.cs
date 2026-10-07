@@ -2,7 +2,7 @@ namespace BossMod.Autorotation.Engine.Jobs;
 
 // Samurai (level 100) for the rotation engine: data only, no BossMod dependency (also compiled by the engine tools).
 // Mechanics follow tools/xan_timeline_harness/SamCombatState.cs + SamPotencyScorer.cs: positionals credited, Fugetsu x1.13, Fuka 13%
-// haste on GCDs and casts, Iaijutsu / Ogi Namikiri cast 1.8 s (scaled by speed and Fuka), Setsugekka and Namikiri scored with the
+// haste on GCDs and casts, Iaijutsu / Ogi Namikiri cast 1.3 s (Enhanced Iaijutsu; scaled by speed and Fuka), Setsugekka and Namikiri scored with the
 // guaranteed-crit factor 1.391, Higanbana 50 per 3 s for 60 s. Sen are three flags plus SenCount (Iaijutsu are gated by the exact
 // count). Meikyo Shisui: every combo step counts as combo and uses a stack; Gekko / Kasha then grant Fugetsu / Fuka.
 // Tsubame-gaeshi is the Kaeshi skills gated by their statuses (as in the harness, no charges).
@@ -30,7 +30,7 @@ public static class SamDefinition
 
     public static JobDefinition Build(float gcd = 2.5f)
     {
-        var cast = 1.8f * gcd / 2.5f;
+        var cast = 1.3f * gcd / 2.5f;
         var b = new JobBuilder("SAM", gcd)
             .Gauge(Kenki, 100).Gauge(Meditation, 3).Gauge(Setsu, 1).Gauge(Getsu, 1).Gauge(Ka, 1).Gauge(SenCount, 3)
             .Status(Fugetsu, 40, damageMultiplier: 1.13f).Status(Fuka, 40, gcdRecastMultiplier: 0.87f, castTimeMultiplier: 0.87f)
@@ -108,12 +108,12 @@ public static class SamDefinition
 
     public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
 
-    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-SAM-v1.json), BudgetMs for live play
+    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-SAM-v2.json), BudgetMs for live play
     public const string DefaultWeightsJson = """
     {
-      "OverCap": 1.560, "Combo": 1.409, "LambdaScale": 0.317, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 0.5, "BurstBias": 1.057,
-      "StatusRemainder": 1.863, "CycleScale": 1, "CooldownLambdaScale": 0, "ForecastSelfBuffs": 1, "UnlockScale": 1.145,
-      "StatusValue": { "Fugetsu": 0, "Fuka": 2.948 }, "CooldownValue": {}, "GaugeValue": {},
+      "OverCap": 0, "Combo": 1.6498287, "LambdaScale": 0.44048476, "TargetPull": 0, "SwitchMargin": 4.051655, "FillerScale": 0.57231796, "BurstBias": 0,
+      "StatusRemainder": 1.3374653, "CycleScale": 1, "CooldownLambdaScale": 0, "ForecastSelfBuffs": 1, "UnlockScale": 1.2380846,
+      "StatusValue": { "Fugetsu": 0, "Fuka": 0 }, "CooldownValue": {}, "GaugeValue": {},
       "HorizonGcds": 4,
       "BudgetMs": 0.8
     }

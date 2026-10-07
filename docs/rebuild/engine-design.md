@@ -415,3 +415,53 @@ Step 2 ではモジュールを UI に登録しない (トイジョブはテス�
 | OpenerFailure | 0 | 2 | 2 |
 | PotionFailure | 0 | 1 | 0 |
 | WeaveOrderFailure | 0 | 13 | 0 |
+
+## 15. 7.5 仕様監査の修正: GNB 威力 / SAM 詠唱時間
+
+### 15.1 変更内容
+
+- GNB: `GnbDefinition.cs` と `tools/xan_timeline_harness/GnbPotencyScorer.cs` (`GnbTerminalValue` を含む) の威力を 7.4 以降の値にした。
+  Burst Strike 420、Gnashing Fang 440、Savage Claw 500、Wicked Talon 560、Jugular Rip 220、Abdomen Tear 260、Eye Gouge 300、
+  Hypervelocity 180、Double Down 1000 (2 体目以降 15% 減)、Sonic Break 340 + DoT 120 × 5 = 940、Demon Slice 100、Demon Slaughter 160 (コンボ時)、
+  Fated Circle 300。スコアラーの特性前 (Lv84 未満) の値は Burst Strike 340、Gnashing Fang 330、Savage Claw 410、Wicked Talon 490、
+  Jugular Rip 180、Abdomen Tear 220、Eye Gouge 260、Hypervelocity 140。Demon Slice / Demon Slaughter / Fated Circle は特性による強化なし。
+- SAM: `SamDefinition.cs` の居合術 / 奥義波切の詠唱を 1.8 秒から 1.3 秒 (Enhanced Iaijutsu) にした。`SamCombatState.CastTime()` も Lv74 以上で
+  1.3 秒を使う (xan SAM.cs の `GetCastTime` と同じ扱い)。
+- 威力モデルが変わったので CMA-ES で再チューニングした (設定は前回と同じ)。
+  - GNB: `tune-xan --def gnb --job gnb-engine --weights tuned/weights-GNB-v3.json --args "timeline-matrix --scenario-limit 8" --gens 14 --pop 12
+    --params "OverCap:0.5:3,Combo:0:3,LambdaScale:0:1,SwitchMargin:0:20,FillerScale:0.5:1.5,BurstBias:0:5,StatusRemainder:0:2,CooldownLambdaScale:0:2,UnlockScale:0:3"`
+    → `tuned/weights-GNB-v4.json` (決定論 555,848 → 567,568)
+  - SAM: `tune-xan --def sam --job sam-engine --weights tuned/weights-SAM-v1.json --args "timeline-matrix --scenario-limit 8" --gens 18 --pop 12
+    --params "OverCap:0:3,Combo:0:2,LambdaScale:0:1.5,CooldownLambdaScale:0:2,SwitchMargin:0:100,FillerScale:0.5:1.5,BurstBias:0:4,StatusRemainder:0:2,UnlockScale:0:2,StatusValue.Fugetsu:0:30,StatusValue.Fuka:0:30"`
+    → `tuned/weights-SAM-v2.json` (決定論 691,649 → 703,069)
+  - 結果を各定義の `DefaultWeightsJson` に貼った (BudgetMs 0.8)。
+
+### 15.2 比較 (xan_timeline_harness、修正後のスコアラー)
+
+9 戦闘 = `timeline-matrix --scenario-limit 8`、ライブ = 組み込みデフォルト (0.8 ms・フレーム分割あり) で 3 回、無制限 = `ENGINE_FRAME_MS=1000` + BudgetMs 100。
+「修正前」は a0ff2bf79 (旧スコアラー・旧詠唱時間) での値。
+
+| | 修正前 Engine | 修正前 旧版 | 修正後 Engine (旧重み) | 修正後 Engine | 修正後 旧版 |
+|---|---:|---:|---:|---:|---:|
+| GNB 9 戦闘 ライブ | 593,492 | Akechi 589,320 | 555,848〜556,812 | **567,568 ×3** | Akechi 562,116 |
+| GNB 9 戦闘 無制限 | | | 555,848 | 567,568 | |
+| GNB 300 秒 | 92,196 | 93,664 | 86,556 | 89,024 | 93,664 → 89,444 |
+| SAM 9 戦闘 ライブ | 687,496 | xan 666,453 | 685,226〜687,162 | **684,973〜688,429** | xan 676,608 |
+| SAM 9 戦闘 無制限 | | | 691,649 | 703,069 | |
+| SAM 300 秒 | 107,248 | 109,030 | 105,656 | 105,119 (無制限 106,840) | 109,030 |
+
+(GNB 300 秒の旧版は修正前のスコアラーで 93,664、修正後 89,444。)
+
+Execute (9 戦闘ライブ): GNB 平均 29〜31 µs・p99 169〜173 µs (修正前 32 / 166)、ヒープ確保 0 B。
+SAM 平均 60〜62 µs・p99 396〜424 µs・1 ms 超 102〜111 回 (修正前 42 / 144、37 回)。SAM-v2 は探索が重く、v1 の重みのままなら
+ライブ 685,226〜687,162・p99 124〜134 µs。ライブで v2 の利得は +1.7〜3k に留まる (決定論では +11k)。
+
+300 秒単発は修正前から両ジョブとも旧版を下回っていた (GNB −1.6%、SAM −1.6%)。修正後は GNB −0.5%、SAM −3.6%。
+チューニングの対象は 9 戦闘で、300 秒単発は含めていない。
+
+### 15.3 回帰・他ジョブ
+
+- sam_regression engine-compare (54 シナリオ、0.8 ms): hard fail 0 / soft fail 1 で a0ff2bf79 と同じ。
+- engine_tests: 17/17 合格。
+- 他ジョブ (共通エンジンは未変更、ライブ 1 回): RPR 663,115 (威力 644,253、xan 威力 636,791 / 総合 665,096)、NIN 649,267 (xan 639,456)、
+  MNK 581,601 (xan 578,440)、PLD 567,362 (Akechi 540,983)。いずれも前回と同じ値。
