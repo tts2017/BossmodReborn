@@ -8,9 +8,46 @@ namespace BossMod.Autorotation;
 //  - ReadJobState: game state -> EngineState (gauges, statuses, job cooldowns; GCD / animation lock / combo / targets are filled here),
 //  - optionally ActionFor / TargetFor when the definition's ActionId or the default targeting is not enough.
 // No module is registered from this file: the class is abstract.
-public abstract class EngineRotationModule(RotationModuleManager manager, Actor player, RotationEngine engine) : RotationModule(manager, player)
+public abstract class EngineRotationModule : RotationModule
 {
-    protected readonly RotationEngine Engine = engine;
+    protected EngineRotationModule(RotationModuleManager manager, Actor player, RotationEngine engine) : base(manager, player) => _engine = engine;
+
+    // an engine whose construction takes long (BLM's cycle model, about 0.8 s on its first build for a GCD): built on a worker thread so
+    // the frame that selects the module does not stall the game; until it is ready the module pushes nothing. Harnesses and tests set
+    // SynchronousCreation (every run starts with the engine ready, as before)
+    protected EngineRotationModule(RotationModuleManager manager, Actor player, Func<RotationEngine> create) : base(manager, player)
+    {
+        if (SynchronousCreation)
+            _engine = create();
+        else
+            _pendingEngine = System.Threading.Tasks.Task.Run(() => WarmUp(create()));
+    }
+
+    public static bool SynchronousCreation;
+    private RotationEngine? _engine;
+    private readonly System.Threading.Tasks.Task<RotationEngine>? _pendingEngine;
+    protected RotationEngine Engine => _engine!;
+    // the engine can decide (always, unless it is still being built)
+    protected bool EngineReady
+    {
+        get
+        {
+            if (_engine == null && _pendingEngine is { IsCompleted: true } pending)
+                _engine = pending.Result; // a failed build rethrows here, on the frame thread, where BMR logs it
+            return _engine != null;
+        }
+    }
+
+    // the first search JIT-compiles the search code (30-40 ms): done on the worker thread, on a throwaway engine of the same job so the
+    // returned engine starts from a clean state
+    private static RotationEngine WarmUp(RotationEngine engine)
+    {
+        var scratch = new RotationEngine(engine.Job, engine.Weights);
+        var s = EngineState.Create(engine.Job);
+        s.Targets = 1;
+        scratch.Decide(s, EngineTimeline.Open(), 0);
+        return engine;
+    }
     protected JobDefinition Job => Engine.Job;
     public EngineDecision LastDecision { get; private set; }
     // diagnostics (harnesses): called for every decision that ran a search
@@ -159,12 +196,23 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
     private void Push(SkillDef skill, Actor? primaryTarget, float priority, float castTime = 0, float delay = 0, bool trace = false)
     {
         var target = TargetFor(skill, primaryTarget);
-        Hints.ActionsToExecute.Push(ActionFor(skill), target, priority, castTime: castTime, delay: delay);
+        var action = ActionFor(skill);
+        Hints.ActionsToExecute.Push(action, target, priority, castTime: castTime, delay: delay, targetPos: AreaPosition(action, target));
         if (trace && DebugTrace != null && skill.Shape >= 0)
         {
             var shape = Job.Shapes[skill.Shape];
             DebugTrace(FormattableString.Invariant($"[target {Job.Name}] t={CombatTime:f2} skill={skill.Name} shape={shape.Kind}:{shape.Size:g}{(shape.Width > 0 ? "/" + shape.Width.ToString("g", System.Globalization.CultureInfo.InvariantCulture) : "")} targeting={_targeting} aoe={_aoe} target={(target != null ? target.Name + "#" + target.InstanceID.ToString("X") : "none")} hits={_shapeHits[skill.Shape]}"));
         }
+    }
+
+    // a ground-targeted action (Ley Lines) is placed at the player when it has no range, else at its target (Basexan.PushAction): without a
+    // location the client places it at the map origin and refuses it, and the engine would keep planning it every weave window
+    private Vector3 AreaPosition(ActionID action, Actor? target)
+    {
+        var def = ActionDefinitions.Instance[action];
+        if (def == null || (def.AllowedTargets & ActionTargets.Area) == 0)
+            return default;
+        return def.Range == 0 ? Player.PosRot.XYZ() : target?.PosRot.XYZ() ?? Player.PosRot.XYZ();
     }
 
     // priority targets within `radius` of the player measured hitbox to hitbox (the Akechi modules' convention)
@@ -339,6 +387,8 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
 
     public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
+        if (!EngineReady)
+            return;
         _numForced = 0;
         UseTimelineWindows = UseForecast = UseFightEnd = true;
         primaryTarget = Target = SelectTarget(strategy, primaryTarget);

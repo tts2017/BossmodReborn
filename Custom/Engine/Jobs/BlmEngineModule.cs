@@ -22,11 +22,15 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
         => new RotationModuleDefinition("BLM [Engine]", "Black Mage on the two-tier rotation engine (burst-window planning + short search). Experimental, level 60+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.BLM), 100, 60)
             .WithStrategies<XanBLM.Strategy>();
 
-    private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
+    // the engine is built on a worker thread (EngineRotationModule): its cycle model takes about 0.8 s on the first build for a GCD
+    private static Func<RotationEngine> CreateEngine(RotationModuleManager manager, Actor player)
     {
         var stats = manager.WorldState.Client.PlayerStats;
-        var gcd = stats.SpellSpeed > 0 ? ActionSpeed.GCDRounded(stats.SpellSpeed, stats.Haste, player.Level) : 2.5f;
-        return new RotationEngine(BlmDefinition.Build(gcd, player.Level), WeightsOverride?.Clone() ?? BlmDefinition.DefaultWeights(player.Level)) { FrameBudgetMs = FrameBudgetOverride ?? 0.08f };
+        var level = player.Level;
+        var gcd = stats.SpellSpeed > 0 ? ActionSpeed.GCDRounded(stats.SpellSpeed, stats.Haste, level) : 2.5f;
+        var weights = WeightsOverride?.Clone() ?? BlmDefinition.DefaultWeights(level);
+        var frameBudget = FrameBudgetOverride ?? 0.08f;
+        return () => new RotationEngine(BlmDefinition.Build(gcd, level), weights) { FrameBudgetMs = frameBudget };
     }
 
     private XanBLM.Strategy _strategy;
@@ -79,6 +83,16 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
         var st = _strategy;
         ApplyAoe(ref s, st.AOE);
         SkipDoubleTransposeIceParadox(ref s);
+        // Umbral Soul (a 0-potency GCD) keeps the ice phase going while there is nothing to attack, or as the instant while moving; with the
+        // target up and standing it only replaced a cast (section 31)
+        if (Player.Level >= 100 && primaryTarget is { IsTargetable: true } && !_moving)
+            Forbid(ref s, "UmbralSoul");
+        // Flare is the AoE fire spender (three or more targets, as the old module); on one or two targets it only cut the Fire IV phase short
+        if (Player.Level >= 100 && ShapeTargets(s, "Flare") < 3)
+            Forbid(ref s, "Flare");
+        // Freeze likewise is the AoE ice spell; on one or two targets the ice phase uses Blizzard IV
+        if (Player.Level >= 100 && ShapeTargets(s, "Freeze") < 3)
+            Forbid(ref s, "Freeze");
 
         // manual control: the player casts, only Polyglot is spent against overcapping (and Manafont follows its own setting)
         if (st.Rotation.Value == XanBLM.RotationStrategy.PolyglotOvercapOnly)

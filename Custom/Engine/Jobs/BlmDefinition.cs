@@ -99,6 +99,10 @@ public static class BlmDefinition
                 .RequiresGauge(AstralFire, 1).RequiresGauge(MP, 800).SetGauge(MP, 0).SetGauge(AstralFire, 3);
             if (!astralSoul)
                 despair.Cast(3.0f * k);
+            // level 100 (the search): Despair closes an Astral Fire III phase. In Astral Fire I (a Transpose out of Umbral Ice) it would dump
+            // the ice phase's MP straight into Blizzard III, a line neither the standard loop nor the double Transpose plays (section 31)
+            if (level >= 100)
+                despair.RequiresGauge(AstralFire, 3).RequiresGaugeAtMost(MP, 2399); // and once Fire IV has used the MP (no Despair to open Manafont early)
         }
         if (astralSoul)
             Fire(b.Gcd("FlareStar", 500, AidFlareStar).Shape(AoeShape.TargetCircle, 5, 0, 25).Cast(2.0f * k).AoeFalloff(500 * 0.35f), 500, e)
@@ -123,8 +127,14 @@ public static class BlmDefinition
         // Fire III: every variant enters Astral Fire III
         if (level >= 35)
         {
-            EnterFire(Fire(b.Gcd("Fire3Proc", 290, AidFire3), 290, e).RequiresStatus(Firestarter).RemoveStatus(Firestarter), paradox);
-            EnterFire(Fire(b.Gcd("Fire3", 290, AidFire3).Cast(3.5f * 0.5f * k), 290, e).RequiresGauge(UmbralIce, 3).ForbidStatus(Firestarter), paradox);
+            var fire3Proc = EnterFire(Fire(b.Gcd("Fire3Proc", 290, AidFire3), 290, e).RequiresStatus(Firestarter).RemoveStatus(Firestarter), paradox);
+            // level 100: Firestarter is kept for the Fire III that ends an ice phase (after a Transpose), not spent inside Astral Fire III
+            if (level >= 100)
+                fire3Proc.RequiresGaugeAtMost(AstralFire, 2);
+            var fire3 = EnterFire(Fire(b.Gcd("Fire3", 290, AidFire3).Cast(3.5f * 0.5f * k), 290, e).RequiresGauge(UmbralIce, 3).ForbidStatus(Firestarter), paradox);
+            // level 100: out of Umbral Ice III once Blizzard IV has given the hearts (Blizzard III -> Blizzard IV -> Paradox -> Fire III)
+            if (level >= 100 && hearts)
+                fire3.RequiresGauge(Hearts, 3);
             EnterFire(Fire(b.Gcd("Fire3LowIce", 290, AidFire3).Cast(3.5f * k), 290, e).RequiresGauge(UmbralIce, 1).RequiresGaugeAtMost(UmbralIce, 2).ForbidStatus(Firestarter), paradox);
             EnterFire(Fire(b.Gcd("Fire3Cold", 290, AidFire3).Cast(3.5f * k), 290, e).RequiresGaugeAtMost(AstralFire, 0).RequiresGaugeAtMost(UmbralIce, 0).ForbidStatus(Firestarter).SpendGauge(MP, 2000), paradox);
         }
@@ -137,15 +147,29 @@ public static class BlmDefinition
         if (level >= 35)
         {
             EnterIce(Ice(b.Gcd("Blizzard3", 290, AidBlizzard3).Cast(3.5f * 0.5f * k), 290, e).RequiresGauge(AstralFire, 3), paradox);
-            EnterIce(Ice(b.Gcd("Blizzard3LowFire", 290, AidBlizzard3).Cast(3.5f * k), 290, e).RequiresGauge(AstralFire, 1).RequiresGaugeAtMost(AstralFire, 2), paradox);
-            EnterIce(Ice(b.Gcd("Blizzard3Cold", 290, AidBlizzard3).Cast(3.5f * k), 290, e).RequiresGaugeAtMost(AstralFire, 0).RequiresGaugeAtMost(UmbralIce, 0).SpendGauge(MP, 800), paradox);
+            var blizzard3LowFire = EnterIce(Ice(b.Gcd("Blizzard3LowFire", 290, AidBlizzard3).Cast(3.5f * k), 290, e).RequiresGauge(AstralFire, 1).RequiresGaugeAtMost(AstralFire, 2), paradox);
+            // level 100: Umbral Ice III is entered from Astral Fire III (the end of a fire phase), not from the Astral Fire I a Transpose leaves
+            if (level >= 100)
+                blizzard3LowFire.RequiresGaugeAtMost(AstralFire, 0);
+            var blizzard3Cold = EnterIce(Ice(b.Gcd("Blizzard3Cold", 290, AidBlizzard3).Cast(3.5f * k), 290, e).RequiresGaugeAtMost(AstralFire, 0).RequiresGaugeAtMost(UmbralIce, 0).SpendGauge(MP, 800), paradox);
+            // level 100: a pull from no element with full MP opens on Fire III (the guide's opener), not on an ice phase (section 31)
+            if (level >= 100)
+                blizzard3Cold.RequiresGaugeAtMost(MP, 9999);
             var blizzard2 = level >= 82 ? 100 : 80;
             var blizzard2Aid = level >= 82 ? AidHighBlizzard2 : AidBlizzard2;
             EnterIce(Ice(b.Gcd("HighBlizzard2", blizzard2, blizzard2Aid).Shape(AoeShape.TargetCircle, 5, 0, 25).Cast(3.0f * 0.5f * k).AoeFalloff(blizzard2), blizzard2, e).RequiresGauge(AstralFire, 3), paradox);
-            EnterIce(Ice(b.Gcd("HighBlizzard2Cold", blizzard2, blizzard2Aid).Shape(AoeShape.TargetCircle, 5, 0, 25).Cast(3.0f * k).AoeFalloff(blizzard2), blizzard2, e).RequiresGaugeAtMost(AstralFire, 2).RequiresGaugeAtMost(UmbralIce, 0), paradox);
+            var blizzard2Cold = EnterIce(Ice(b.Gcd("HighBlizzard2Cold", blizzard2, blizzard2Aid).Shape(AoeShape.TargetCircle, 5, 0, 25).Cast(3.0f * k).AoeFalloff(blizzard2), blizzard2, e).RequiresGaugeAtMost(AstralFire, 2).RequiresGaugeAtMost(UmbralIce, 0), paradox);
+            if (level >= 100)
+                blizzard2Cold.RequiresGaugeAtMost(MP, 9999);
         }
         if (level >= 58)
-            IceMp(Ice(b.Gcd("Blizzard4", 300, AidBlizzard4).Cast(2.0f * k), 300, e).RequiresGauge(UmbralIce, 1).SetGauge(Hearts, 3));
+        {
+            var blizzard4 = IceMp(Ice(b.Gcd("Blizzard4", 300, AidBlizzard4).Cast(2.0f * k), 300, e).RequiresGauge(UmbralIce, 1).SetGauge(Hearts, 3));
+            // level 100: the hearts are taken in Umbral Ice III (after Blizzard III); the Umbral Ice I of a double Transpose is spent on
+            // instants (Paradox, High Thunder, Polyglot) before the Transpose back (section 31)
+            if (level >= 100)
+                blizzard4.RequiresGauge(UmbralIce, 3);
+        }
         if (level >= 40)
         {
             var freeze = Ice(b.Gcd("Freeze", 120, AidFreeze).Shape(AoeShape.TargetCircle, 5, 0, 25).Cast(2.0f * k).AoeFalloff(120), 120, e).RequiresGauge(UmbralIce, 1);
@@ -194,6 +218,9 @@ public static class BlmDefinition
         if (level >= 4)
         {
             var transpose = b.Ogcd("Transpose", 0, TransposeCD, AidTranspose).RequiresGauge(AstralFire, 1).ApplyStatus(Thunderhead, 30);
+            // level 100: out of Astral Fire only at the end of a fire phase (Astral Fire III, its MP spent), the double Transpose's first swap
+            if (level >= 100)
+                transpose.RequiresGauge(AstralFire, 3).RequiresGaugeAtMost(MP, 799);
             if (paradox)
                 transpose.IfGaugeAtLeast(AstralFire, 3).SetGauge(Paradox, 1);
             EnterElementSide(transpose.SetGauge(AstralFire, 0).SetGauge(UmbralIce, 1).SetGauge(AstralSoul, 0));
@@ -201,6 +228,17 @@ public static class BlmDefinition
             if (paradox)
                 transposeIce.IfGaugeAtLeast(UmbralIce, 3).IfGaugeAtLeast(Hearts, 3).SetGauge(Paradox, 1);
             EnterElementSide(transposeIce.SetGauge(UmbralIce, 0).SetGauge(AstralFire, 1));
+            // level 100: out of Umbral Ice III only once the ice phase is done (Blizzard IV's hearts, the ice Paradox), as the guide's
+            // "Blizzard III -> Blizzard IV -> Paradox -> Transpose -> Paradox -> Fire III (Firestarter)"; out of Umbral Ice I (the double
+            // Transpose) at any time (section 31)
+            if (level >= 100)
+                transposeIce.RequiresGaugeAtMost(UmbralIce, 2);
+            if (level >= 100)
+            {
+                var transposeIce3 = b.Ogcd("TransposeIce3", 0, TransposeCD, AidTranspose).RequiresGauge(UmbralIce, 3).RequiresGauge(Hearts, 3).RequiresGaugeAtMost(Paradox, 0)
+                    .ApplyStatus(Thunderhead, 30);
+                EnterElementSide(transposeIce3.SetGauge(Paradox, 1).SetGauge(UmbralIce, 0).SetGauge(AstralFire, 1));
+            }
         }
         if (level >= 30)
         {
@@ -211,6 +249,9 @@ public static class BlmDefinition
             if (paradox)
                 manafont.SetGauge(Paradox, 1);
             manafont.ApplyStatus(Thunderhead, 30);
+            // level 100: Manafont once the fire phase's MP is spent (the guide: after Despair), not into a full MP bar
+            if (level >= 100)
+                manafont.RequiresGaugeAtMost(MP, 799);
         }
         if (level >= 86)
         {
