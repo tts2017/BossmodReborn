@@ -78,6 +78,9 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
             Forbid(ref s, "Higanbana");
         else if (st.Higanbana.Value == XanSAM.BanaStrategy.Force)
             Force("Higanbana");
+        // re-applied only with under 15 s left on the target (or none): an earlier refresh overwrites the ticks it would still deal
+        else if (s.StatusLeft[Job.StatusIndex(SamDefinition.Higanbana)] >= 15)
+            Forbid(ref s, "Higanbana");
 
         var meikyo = Job.CooldownIndex(SamDefinition.MeikyoCD);
         switch (st.Meikyo.Value)
