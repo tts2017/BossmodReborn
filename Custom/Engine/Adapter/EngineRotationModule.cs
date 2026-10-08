@@ -242,14 +242,8 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
     protected bool SyncedOgcdFirst;
     private readonly EvalContext _syncedCtx = new();
 
-    private EngineDecision DecideSynced(in EngineState state, in EngineTimeline tl)
+    private EngineDecision DecideSynced(in EngineState s, in EngineTimeline tl)
     {
-        // a charged cooldown at its maximum is idle in the client and ReadCooldown reads it as one charge with nothing recharging
-        // (the simulator restores the maximum on its first time step): the rules see the real count
-        var s = state;
-        for (var i = 0; i < Job.Cooldowns.Length; ++i)
-            if (Job.Cooldowns[i].MaxCharges > 1 && s.Charges[i] > 0 && s.CdReadyIn[i] <= 0)
-                s.Charges[i] = (byte)Job.Cooldowns[i].MaxCharges;
         SyncedOgcdDelay = 0;
         SyncedOgcdFirst = false;
         var ogcd = SyncedOgcd(s, tl);
@@ -449,7 +443,8 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         }
         else
         {
-            charges = readyIn > Simulator.CdEpsilon ? 0 : 1;
+            // an idle group: every charge is up (a charged cooldown at its maximum stops recharging and its group reads empty)
+            charges = readyIn > Simulator.CdEpsilon ? 0 : cd.MaxCharges;
             s.CdReadyIn[cdIndex] = charges > 0 ? 0 : readyIn;
         }
         s.Charges[cdIndex] = (byte)charges;
