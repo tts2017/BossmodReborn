@@ -67,6 +67,8 @@ public static class Simulator
         ConditionKind.CooldownAtMost => s.Charges[c.Index] > 0 || s.CdReadyIn[c.Index] <= c.Value,
         ConditionKind.ChargesAtLeast => s.Charges[c.Index] >= c.Value,
         ConditionKind.RechargeAtMost => s.CdReadyIn[c.Index] <= c.Value,
+        ConditionKind.ComboIsNot => s.ComboSkill == EngineLimits.NoCombo || s.ComboLeft <= 0 || c.Index >= 0 && s.ComboSkill != c.Index,
+        ConditionKind.StatusLeftAtMost => s.StatusLeft[c.Index] <= c.Value,
         _ => false
     };
 
@@ -115,7 +117,7 @@ public static class Simulator
             return false;
         if (!windowsClear)
             return IsLegal(job, s, tl, skill);
-        if ((s.DisabledSkills & (1UL << skill.Index)) != 0)
+        if ((s.DisabledSkills & (1UL << skill.Index)) != 0 || (s.HeldSkills & (1UL << skill.Index)) != 0 && s.Time < s.HeldUntil)
             return false;
         if (skill.Cooldown >= 0 && s.Charges[skill.Cooldown] == 0)
             return false;
@@ -132,7 +134,7 @@ public static class Simulator
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static bool IsLegal(JobDefinition job, in EngineState s, in EngineTimeline tl, SkillDef skill)
     {
-        if ((s.DisabledSkills & (1UL << skill.Index)) != 0)
+        if ((s.DisabledSkills & (1UL << skill.Index)) != 0 || (s.HeldSkills & (1UL << skill.Index)) != 0 && s.Time < s.HeldUntil)
             return false;
         if (skill.Cooldown >= 0 && s.Charges[skill.Cooldown] == 0)
             return false;

@@ -46,6 +46,8 @@ public struct EngineState
     public CooldownTimeArray CdReadyIn; // time until the next charge comes back (0 when at max charges)
     public ChargeArray Charges;
     public ulong DisabledSkills; // bit = skill index: unusable for reasons outside the definition (no target in range for that shape, game refuses it)
+    public ulong HeldSkills;     // bit = skill index: unusable until HeldUntil (a hold the search can plan past, unlike DisabledSkills)
+    public float HeldUntil;      // absolute seconds (as Time)
 
     public static EngineState Create(JobDefinition job)
     {
@@ -76,6 +78,12 @@ public struct EngineState
         h = Mix(h, ConeTargets);
         h = Mix(h, (uint)DisabledSkills);
         h = Mix(h, (uint)(DisabledSkills >> 32));
+        if (HeldSkills != 0 && HeldUntil > Time)
+        {
+            h = Mix(h, (uint)HeldSkills);
+            h = Mix(h, (uint)(HeldSkills >> 32));
+            h = Mix(h, Q(HeldUntil - Time, inv));
+        }
         for (var i = 0; i < job.Gauges.Length; ++i)
             h = Mix(h, (uint)(ushort)Gauges[i]);
         for (var i = 0; i < job.Statuses.Length; ++i)

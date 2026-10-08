@@ -75,6 +75,16 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
             s.DisabledSkills |= 1UL << i;
     }
     protected void ForbidAll(ref EngineState s) => s.DisabledSkills = ulong.MaxValue;
+    // a hold the search plans past: the skill is unusable for `seconds` from now and legal again after (one hold time per decision: the
+    // latest requested applies to every held skill), unlike Forbid, which lasts the whole search horizon
+    protected void Hold(ref EngineState s, string skill, float seconds)
+    {
+        var i = Job.TrySkillIndex(skill);
+        if (i < 0 || seconds <= 0)
+            return;
+        s.HeldSkills |= 1UL << i;
+        s.HeldUntil = MathF.Max(s.HeldUntil, s.Time + seconds);
+    }
 
     // xan Targeting Auto / AutoTryPri (Akechi Automatic / AutoHard / AutoTryPrimary): the player's target, or when it is missing or out of
     // range the first priority target within range
@@ -210,7 +220,9 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         if (DebugTrace != null && !d.Reused)
             DebugTrace(FormattableString.Invariant($"[engine {Job.Name}] t={now:f2} gcd={GCD:f2} skill={(d.Skill >= 0 ? Job.Skills[d.Skill].Name : "wait")} nextGcd={(d.NextGcd >= 0 ? Job.Skills[d.NextGcd].Name : "wait")} at={d.ExecuteAt:f2} depth={d.Depth} nodes={d.Nodes} hyst={d.Hysteresis} partial={d.Partial} combo={(s.ComboSkill != EngineLimits.NoCombo ? Job.Skills[s.ComboSkill].Name : "-")}/{World.Client.ComboState.Action}:{World.Client.ComboState.Remaining:f1} targets={s.Targets} legalGcds={string.Join(",", LegalGcds(s, tl))}"));
 
-        if (d.NextGcd >= 0)
+        // a GCD the plan makes legal only through the ability before it (Kassatsu -> Hyosho Ranryu, whose first mudra would otherwise go
+        // first when the GCD is already up, and the sequence then does not match the ability): the GCD waits for the ability's frame
+        if (d.NextGcd >= 0 && !(d.Skill >= 0 && !Job.Skills[d.Skill].IsGcd && GcdNeedsAbilityFirst(s, tl, d.Skill, d.NextGcd)))
         {
             var gcd = Job.Skills[d.NextGcd];
             Hints.ActionsToExecute.Push(ActionFor(gcd), TargetFor(gcd, primaryTarget), ActionQueue.Priority.High + 2, castTime: gcd.CastTime);
@@ -298,6 +310,22 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
     {
         var i = Job.TrySkillIndex(skill);
         return i < 0 || (s.DisabledSkills & (1UL << i)) != 0;
+    }
+
+    // whether `gcd` is illegal in s but legal once `ogcd` has been used (the plan's weave unlocks it)
+    private bool GcdNeedsAbilityFirst(in EngineState s, in EngineTimeline tl, int ogcd, int gcd)
+    {
+        var at = s;
+        Simulator.Advance(Job, ref at, MathF.Max(s.GcdReadyAt, s.AnimLockAt) - at.Time, _castCtx);
+        if (Simulator.IsLegal(Job, at, tl, Job.Skills[gcd]))
+            return false;
+        var after = s;
+        Simulator.Advance(Job, ref after, s.AnimLockAt - after.Time, _castCtx);
+        if (!Simulator.IsLegal(Job, after, tl, Job.Skills[ogcd]))
+            return false;
+        Simulator.Execute(Job, ref after, tl, Job.Skills[ogcd], _castCtx);
+        Simulator.Advance(Job, ref after, MathF.Max(after.GcdReadyAt, after.AnimLockAt) - after.Time, _castCtx);
+        return Simulator.IsLegal(Job, after, tl, Job.Skills[gcd]);
     }
 
     // something can be pressed now: no animation lock or cast (the GCD when it is up, or an ability, late weaves included)

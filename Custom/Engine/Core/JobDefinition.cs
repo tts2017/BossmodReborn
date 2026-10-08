@@ -21,6 +21,8 @@ public enum ConditionKind : byte
     CooldownAtMost,    // cooldown group Index has a charge or its next charge is at most Value seconds away
     ChargesAtLeast,    // cooldown group Index has at least Value charges
     RechargeAtMost,    // cooldown group Index is full or its next charge is at most Value seconds away (whatever charges it has now)
+    ComboIsNot,        // the combo is not at skill Index (Index -1: no combo in progress at all); checked at every search node, unlike a root Forbid
+    StatusLeftAtMost,  // status Index inactive or with at most Value seconds left (a refresh window; checked at every search node)
 }
 
 public readonly record struct Condition(ConditionKind Kind, short Index, float Value)
@@ -368,6 +370,10 @@ public sealed class JobBuilder(string name, float baseGcd)
             return this;
         }
         public SkillBuilder RequiresCombo(string from) { _conditions.Add(job => new(ConditionKind.ComboIs, (short)job.SkillIndex(from), 0)); return ComboFrom(from, Def.Potency); }
+        // not usable while the combo is at `from` (a burst ability that must not interrupt a 1-2-3): the search plans the combo's end first
+        public SkillBuilder RequiresComboNot(string from) { _conditions.Add(job => new(ConditionKind.ComboIsNot, (short)job.SkillIndex(from), 0)); return this; }
+        // usable only between combos (no combo step pending)
+        public SkillBuilder RequiresNoCombo() { _conditions.Add(_ => new(ConditionKind.ComboIsNot, -1, 0)); return this; }
 
         public SkillBuilder PotencyIfStatus(string status, float potency) { _potencies.Add(job => new(new(ConditionKind.StatusActive, (short)job.StatusIndex(status), 0), potency)); return this; }
         // potency when the gauge is at least `atLeast` (first matching PotencyIf wins: list stronger cases first)
@@ -378,6 +384,8 @@ public sealed class JobBuilder(string name, float baseGcd)
         public SkillBuilder RequiresStatus(string status) { _conditions.Add(job => new(ConditionKind.StatusActive, (short)job.StatusIndex(status), 0)); return this; }
         public SkillBuilder ForbidStatus(string status) { _conditions.Add(job => new(ConditionKind.StatusInactive, (short)job.StatusIndex(status), 0)); return this; }
         public SkillBuilder RequiresStatusLeft(string status, float seconds) { _conditions.Add(job => new(ConditionKind.StatusLeftAtLeast, (short)job.StatusIndex(status), seconds)); return this; }
+        // usable only while the status is down or has at most `seconds` left (a refresh that must not clip the old application)
+        public SkillBuilder RequiresStatusLeftAtMost(string status, float seconds) { _conditions.Add(job => new(ConditionKind.StatusLeftAtMost, (short)job.StatusIndex(status), seconds)); return this; }
         public SkillBuilder RequiresStacks(string status, int atLeast) { _conditions.Add(job => new(ConditionKind.StacksAtLeast, (short)job.StatusIndex(status), atLeast)); return this; }
         public SkillBuilder RequiresTargets(int atLeast) { _conditions.Add(_ => new(ConditionKind.TargetsAtLeast, 0, atLeast)); return this; }
         public SkillBuilder RequiresCooldownAtLeast(string cd, float seconds) { _conditions.Add(job => new(ConditionKind.CooldownAtLeast, (short)job.CooldownIndex(cd), seconds)); return this; }
