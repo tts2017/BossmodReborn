@@ -63,9 +63,10 @@ public sealed class Plugin : IAsyncDalamudPlugin
         _dalamud = dalamud;
         CommandManager = commandManager;
 
-        if (!dalamud.ConfigDirectory.Exists)
+        ForkConfigPaths.Initialize(dalamud);
+        if (!ForkConfigPaths.Directory.Exists)
         {
-            dalamud.ConfigDirectory.Create();
+            ForkConfigPaths.Directory.Create();
         }
         var type = dalamud.GetType().Assembly;
         var dalamudRoot = type.
@@ -74,7 +75,7 @@ public sealed class Plugin : IAsyncDalamudPlugin
         var dalamudStartInfo = dalamudRoot?.GetType().GetProperty("StartInfo", BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(dalamudRoot) as DalamudStartInfo;
         _gameVersion = dalamudStartInfo?.GameVersion?.ToString() ?? "unknown";
 
-        InteropGenerator.Runtime.Resolver.GetInstance.Setup(sigScanner.SearchBase, _gameVersion, new(dalamud.ConfigDirectory.FullName + "/cs.json"));
+        InteropGenerator.Runtime.Resolver.GetInstance.Setup(sigScanner.SearchBase, _gameVersion, new(ForkConfigPaths.Directory.FullName + "/cs.json"));
         FFXIVClientStructs.Interop.Generated.Addresses.Register();
         Dx11ArenaRenderer.Initialize(_dalamud.UiBuilder.DeviceHandle);
         dalamud.Create<Service>();
@@ -91,9 +92,9 @@ public sealed class Plugin : IAsyncDalamudPlugin
         await Task.Run(() =>
         {
             Service.Config.Initialize();
-            Service.Config.LoadFromFile(_dalamud.ConfigFile);
+            Service.Config.LoadFromFile(ForkConfigPaths.File);
 
-            _rotationDB = new(new(_dalamud.ConfigDirectory.FullName + "/autorot"),
+            _rotationDB = new(new(ForkConfigPaths.Directory.FullName + "/autorot"),
                 new(_dalamud.AssemblyLocation.DirectoryName! + "/RebornPresets.json"),
                 new(_dalamud.AssemblyLocation.DirectoryName! + "/DefaultRotationPresets.json"));
         }, cancellationToken);
@@ -110,7 +111,7 @@ public sealed class Plugin : IAsyncDalamudPlugin
         _worldOverlayNode = new();
         Dx11ArenaRenderer.SetWorldOverlayNode(_worldOverlayNode);
 
-        Service.Config.Modified.Subscribe(() => Task.Run(() => Service.Config.SaveToFile(_dalamud.ConfigFile)));
+        Service.Config.Modified.Subscribe(() => Task.Run(() => Service.Config.SaveToFile(ForkConfigPaths.File)));
 
         CommandManager.AddHandler("/bmr", new CommandInfo(OnCommand) { HelpMessage = "Show boss mod settings UI" });
 
@@ -141,7 +142,7 @@ public sealed class Plugin : IAsyncDalamudPlugin
         _wndBossmodPrePullHints = new(_bossmod);
         _wndZone = new(_zonemod);
         var config = Service.Config.Get<ReplayManagementConfig>();
-        var replayDir = string.IsNullOrEmpty(config.ReplayFolder) ? _dalamud.ConfigDirectory.FullName + "/replays" : config.ReplayFolder;
+        var replayDir = string.IsNullOrEmpty(config.ReplayFolder) ? ForkConfigPaths.Directory.FullName + "/replays" : config.ReplayFolder;
         _wndReplay = new ReplayManagementWindow(_ws, _bossmod, _rotationDB, new DirectoryInfo(replayDir));
         _configUI = new(Service.Config, _ws, new DirectoryInfo(replayDir), _rotationDB);
         config.Modified.ExecuteAndSubscribe(() => _wndReplay.UpdateLogDirectory());

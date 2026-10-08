@@ -47,7 +47,7 @@ public sealed class CustomPlugin : IDisposable
         _rotation = rotation;
         ActionManager = amex;
 
-        _splatoonSafeImport = new(dalamud.ConfigDirectory.FullName + "/SplatoonImports");
+        _splatoonSafeImport = new(ForkConfigPaths.Directory.FullName + "/SplatoonImports");
         ApplyTimelineDirectory(background: false); // the first load stays synchronous, so no consumer ever finds the store empty
         _externalTimelineHints = new(ws);
         _splatoonLiveZones = new(dalamud);
@@ -142,14 +142,14 @@ public sealed class CustomPlugin : IDisposable
     private string? ReplayDirectory()
     {
         var folder = Service.Config.Get<ReplayManagementConfig>().ReplayFolder;
-        return string.IsNullOrEmpty(folder) ? _dalamud.ConfigDirectory.FullName + "/replays" : folder;
+        return string.IsNullOrEmpty(folder) ? ForkConfigPaths.Directory.FullName + "/replays" : folder;
     }
 
     // Called again on every CustomConfig change (for the folder field that means every keystroke) on the framework thread.
     private void ApplyTimelineDirectory(bool background)
     {
         var configured = _config.TimelineUserDirectory;
-        var directory = string.IsNullOrWhiteSpace(configured) ? System.IO.Path.Combine(_dalamud.ConfigDirectory.FullName, "timelines") : configured;
+        var directory = string.IsNullOrWhiteSpace(configured) ? System.IO.Path.Combine(ForkConfigPaths.Directory.FullName, "timelines") : configured;
         if (TimelineStore.UserDirectory == directory)
             return;
         TimelineStore.UserDirectory = directory;
