@@ -55,6 +55,13 @@ internal sealed class DrgCombatState(WorldState world, Actor player, float frame
     private const uint MedicatedStatus = 49;
 
     public int Focus => _focus;
+
+    // --start-gauge: Firstminds' Focus at a fraction of 2
+    public void SetGaugeFraction(float fraction)
+    {
+        _focus = (int)MathF.Round(Math.Clamp(fraction, 0, 1) * 2);
+        PublishGauge();
+    }
     public float LifeOfTheDragonLeft => Seconds(_lotdUntil);
     public bool EnforceRangeAndMovement { get; set; }
     public bool Moving { get; set; }

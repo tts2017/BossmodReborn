@@ -60,6 +60,13 @@ internal sealed class MnkCombatState(WorldState world, Actor player, float frame
     private const float FormDuration = 30f;
 
     public int Chakra => _chakra;
+
+    // --start-gauge: Chakra at a fraction of 5
+    public void SetGaugeFraction(float fraction)
+    {
+        _chakra = (int)MathF.Round(Math.Clamp(fraction, 0, 1) * 5);
+        PublishGauge();
+    }
     public int BeastCount => _beastCount;
     public NadiFlags Nadi => _nadi;
 

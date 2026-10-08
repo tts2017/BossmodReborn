@@ -46,6 +46,13 @@ internal sealed class GnbCombatState(WorldState world, Actor player, float frame
     private const float MeleeRadius = 5f;
 
     public int Ammo => _ammo;
+
+    // --start-gauge: cartridges at a fraction of the level's maximum
+    public void SetGaugeFraction(float fraction)
+    {
+        _ammo = (int)MathF.Round(Math.Clamp(fraction, 0, 1) * BaseMaxAmmo());
+        PublishGauge();
+    }
     public int GunComboStep => _gunComboStep;
     // Gunbreaker has no casts, so nothing can be interrupted by movement.
     public int InterruptedCasts => 0;

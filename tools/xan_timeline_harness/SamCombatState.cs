@@ -57,6 +57,13 @@ internal sealed class SamCombatState(WorldState world, Actor player, float frame
     private const uint MedicatedStatus = 49;
 
     public int Kenki => _kenki;
+
+    // --start-gauge: Kenki at a fraction of 100
+    public void SetGaugeFraction(float fraction)
+    {
+        _kenki = (int)MathF.Round(Math.Clamp(fraction, 0, 1) * 100);
+        PublishGauge();
+    }
     public int Meditation => _meditation;
     public SenFlags Sen => _sen;
     public bool NamikiriReady => _namikiriReady;

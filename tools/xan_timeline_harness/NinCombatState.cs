@@ -91,6 +91,9 @@ internal sealed class NinCombatState(WorldState world, Actor player, float frame
     public int Ninki => _ninki;
     public int Kazematoi => _kazematoi;
 
+    // --start-gauge: Ninki at a fraction of 100
+    public void SetGaugeFraction(float fraction) => Initialize((int)MathF.Round(Math.Clamp(fraction, 0, 1) * 100), _kazematoi);
+
     public void Initialize(int ninki = 0, int kazematoi = 0)
     {
         _ninki = ninki;

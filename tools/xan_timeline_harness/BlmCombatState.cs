@@ -44,6 +44,13 @@ internal sealed class BlmCombatState(WorldState world, Actor player, float frame
     public int Element => _element;
     public int Hearts => _hearts;
     public int Polyglot => _polyglot;
+
+    // --start-gauge: Polyglot at a fraction of 3 (MP stays full)
+    public void SetGaugeFraction(float fraction)
+    {
+        _polyglot = (int)MathF.Round(Math.Clamp(fraction, 0, 1) * 3);
+        Publish();
+    }
     public int AstralSoul => _astralSoul;
     public bool Paradox => _paradox;
     public int MP => _mp;

@@ -27,6 +27,13 @@ internal sealed class RprCombatState(WorldState world, Actor player, float frame
     public int Lemure => _lemure;
     public int Void => _void;
 
+    // --start-gauge: Soul and Shroud at a fraction of 100
+    public void SetGaugeFraction(float fraction)
+    {
+        _soul = _shroud = (int)MathF.Round(Math.Clamp(fraction, 0, 1) * 100);
+        PublishGauge();
+    }
+
     public void Advance()
     {
         foreach (var actor in world.Actors)

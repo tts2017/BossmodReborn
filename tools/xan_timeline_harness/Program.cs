@@ -389,6 +389,13 @@ internal static partial class Program
         ContinuousTimelineRunner.RandomDisengageSeed = options.RandomDisengageSeed;
         ContinuousTimelineRunner.DisengageForecastEnabled = options.DisengageForecastEnabled;
         ContinuousTimelineRunner.StartSoulsow = options.StartSoulsow;
+        ContinuousTimelineRunner.StartCooldownsSpec = options.StartCooldowns;
+        ContinuousTimelineRunner.StartGaugeSpec = options.StartGauge;
+        // printed only when set, so runs without a start preset keep the output of older logs
+        if (options.StartCooldowns != null)
+            Console.WriteLine($"start_cooldowns={options.StartCooldowns}");
+        if (options.StartGauge != null)
+            Console.WriteLine($"start_gauge={options.StartGauge}");
         if (options.RandomDisengageSeed is { } disengageSeed)
             Console.WriteLine($"random_disengage={disengageSeed} forecast={(options.DisengageForecastEnabled ? "on" : "off")}");
         ApplyIrregularOptions(options);
@@ -470,6 +477,13 @@ internal static partial class Program
         ContinuousTimelineRunner.RandomDisengageSeed = options.RandomDisengageSeed;
         ContinuousTimelineRunner.DisengageForecastEnabled = options.DisengageForecastEnabled;
         ContinuousTimelineRunner.StartSoulsow = options.StartSoulsow;
+        ContinuousTimelineRunner.StartCooldownsSpec = options.StartCooldowns;
+        ContinuousTimelineRunner.StartGaugeSpec = options.StartGauge;
+        // printed only when set, so runs without a start preset keep the output of older logs
+        if (options.StartCooldowns != null)
+            Console.WriteLine($"start_cooldowns={options.StartCooldowns}");
+        if (options.StartGauge != null)
+            Console.WriteLine($"start_gauge={options.StartGauge}");
         if (options.RandomDisengageSeed is { } disengageSeed)
             Console.WriteLine($"random_disengage={disengageSeed} forecast={(options.DisengageForecastEnabled ? "on" : "off")}");
         ApplyIrregularOptions(options);
@@ -564,6 +578,13 @@ internal static partial class Program
         ContinuousTimelineRunner.TrackOverrides = options.TrackOverrides;
         ContinuousTimelineRunner.PartyBuffFirstCast = options.PartyBuffFirstCast;
         ContinuousTimelineRunner.StartSoulsow = options.StartSoulsow;
+        ContinuousTimelineRunner.StartCooldownsSpec = options.StartCooldowns;
+        ContinuousTimelineRunner.StartGaugeSpec = options.StartGauge;
+        // printed only when set, so runs without a start preset keep the output of older logs
+        if (options.StartCooldowns != null)
+            Console.WriteLine($"start_cooldowns={options.StartCooldowns}");
+        if (options.StartGauge != null)
+            Console.WriteLine($"start_gauge={options.StartGauge}");
         ContinuousTimelineRunner.RandomDisengageSeed = null;
         var seeds = (options.IrregularSeeds ?? options.IrregularSeed?.ToString(inv) ?? "1,2,3").Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Select(s => int.Parse(s, inv)).ToArray();
         var rates = (options.IrregularRates ?? options.IrregularRate.ToString(inv)).Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Select(s => float.Parse(s, inv)).ToArray();
@@ -1413,6 +1434,9 @@ internal static partial class Program
         public static int? RandomDisengageSeed;
         // Start RPR scenarios with Soulsow up, the way a player who applied it before the pull would enter a mid-fight window.
         public static bool StartSoulsow;
+        // --start-cooldowns / --start-gauge (StartPreset.cs): combat starts with cooldowns and gauges partly used and no countdown
+        public static string? StartCooldownsSpec;
+        public static string? StartGaugeSpec;
         public static bool DisengageForecastEnabled = true;
         public static int DisengageEvents;
         public static int DisengageMovingFrames;
@@ -1685,12 +1709,27 @@ internal static partial class Program
 
         public TimelineResult Run()
         {
-            var prePull = _dmuSchedule != null ? 0f : _job.Class == Class.NIN ? PrePullCountdown ?? DefaultNinPrePull : _job.Class == Class.SAM ? PrePullCountdown ?? DefaultSamPrePull
+            // a start preset (--start-cooldowns / --start-gauge) is a pull without a countdown: combat from time zero for every job
+            var startPreset = StartCooldownsSpec != null ? StartPreset.Parse(StartCooldownsSpec, _job.Class, PlayerLevel) : null;
+            var prePull = _dmuSchedule != null || startPreset != null || StartGaugeSpec != null ? 0f : _job.Class == Class.NIN ? PrePullCountdown ?? DefaultNinPrePull : _job.Class == Class.SAM ? PrePullCountdown ?? DefaultSamPrePull
                 : _job.Class == Class.VPR ? PrePullCountdown ?? DefaultVprPrePull
                 : _job.Class == Class.MCH ? PrePullCountdown ?? DefaultMchPrePull : 0f;
             var world = BuildWorld(out var player, out var target, out var dmuActors, out var hints, prePull);
+            startPreset?.Apply(world, player);
+            if (StartGaugeSpec != null)
+                SetStartGauge(StartPreset.ParseGauge(StartGaugeSpec));
             _ttkScenario = FightRemainingOverride.ScenarioHash(FormattableString.Invariant($"{_zoneID}:{_duration:f1}:{string.Join(';', _targetUnavailableWindows.Select(window => FormattableString.Invariant($"{window.Start:f1}-{window.End:f1}")))}"));
             using var bossmods = new BossModuleManager(world);
+            if (startPreset is { AnchorRemaining: > 0 } && _partyDrg != null && _partyMnk != null)
+            {
+                // the party's buffs are on cooldown like the player's anchors: cast 120 - R s ago (a backdated frame, so RaidCooldowns
+                // learns the cast the way it saw it in game) and due again when the anchors return
+                world.Execute(new WorldState.OpFrameStart(new(BaseTime.AddSeconds(startPreset.AnchorRemaining - PartyBuffCooldown), 0, 0, 0, 0, 1), default, world.Client.GaugePayload, default));
+                EmitPartyCast(world, _partyDrg, ActionID.MakeSpell(BossMod.DRG.AID.BattleLitany));
+                EmitPartyCast(world, _partyMnk, ActionID.MakeSpell(BossMod.MNK.AID.Brotherhood));
+                world.Execute(new WorldState.OpFrameStart(new(BaseTime, 0, 0, 0, 0, 1), default, world.Client.GaugePayload, default));
+                _partyBuffDue = startPreset.AnchorRemaining;
+            }
             var database = new RotationDatabase(new DirectoryInfo("tools/xan_timeline_harness/.autorotation"), new FileInfo("BossMod/DefaultRotationPresets.json"));
             using var manager = new RotationModuleManager(database, bossmods, hints)
             {
@@ -2945,6 +2984,20 @@ internal static partial class Program
 
         private readonly List<ActionID> _burstNew = [];
 
+        // --start-gauge: the job's main gauge at a fraction of its maximum (PLD has none)
+        private void SetStartGauge(float fraction)
+        {
+            _rprCombat?.SetGaugeFraction(fraction);
+            _blmCombat?.SetGaugeFraction(fraction);
+            _mnkCombat?.SetGaugeFraction(fraction);
+            _gnbCombat?.SetGaugeFraction(fraction);
+            _ninCombat?.SetGaugeFraction(fraction);
+            _drgCombat?.SetGaugeFraction(fraction);
+            _samCombat?.SetGaugeFraction(fraction);
+            _vprCombat?.SetGaugeFraction(fraction);
+            _mchCombat?.SetGaugeFraction(fraction);
+        }
+
         private string BurstStateText()
             => _rprCombat?.BurstState() ?? _blmCombat?.BurstState() ?? _mnkCombat?.BurstState() ?? _gnbCombat?.BurstState() ?? _drgCombat?.BurstState() ?? _samCombat?.BurstState()
             ?? _vprCombat?.BurstState() ?? _mchCombat?.BurstState() ?? _pldCombat?.BurstState() ?? _ninCombat?.BurstState() ?? "";
@@ -3229,7 +3282,7 @@ internal static partial class Program
         }
     }
 
-    private sealed record HarnessOptions(string? TimelineRoot, string? Sqpack, string JobSelector, int ZoneID, float? Duration, int? ScenarioLimit, float? TargetLossHintLead, string? ScenarioFilter, string? BlmRotation, float? PartyBuffFirstCast, float? ExtraPostRoll, float? CountdownSeconds, int? RandomDisengageSeed, bool DisengageForecastEnabled, bool StartSoulsow, int PlayerLevel, int ExtraTargets, string? MnkEncounterHint, IReadOnlyList<(string Track, string Option)> TrackOverrides, int Repeat = 1, int? SkillSpeed = null, int? Potions = null)
+    private sealed record HarnessOptions(string? TimelineRoot, string? Sqpack, string JobSelector, int ZoneID, float? Duration, int? ScenarioLimit, float? TargetLossHintLead, string? ScenarioFilter, string? BlmRotation, float? PartyBuffFirstCast, float? ExtraPostRoll, float? CountdownSeconds, int? RandomDisengageSeed, bool DisengageForecastEnabled, bool StartSoulsow, int PlayerLevel, int ExtraTargets, string? MnkEncounterHint, IReadOnlyList<(string Track, string Option)> TrackOverrides, int Repeat = 1, int? SkillSpeed = null, int? Potions = null, string? StartCooldowns = null, string? StartGauge = null)
     {
         // --irregular family (see IrregularDriver); the *-lists are only read by irregular-compare
         public int? IrregularSeed { get; init; }
@@ -3272,6 +3325,7 @@ internal static partial class Program
             int? randomDisengageSeed = null;
             var disengageForecast = true;
             var startSoulsow = false;
+            string? startCooldowns = null, startGauge = null;
 
             for (var index = 0; index < args.Length; ++index)
             {
@@ -3390,6 +3444,15 @@ internal static partial class Program
                         // on: RPR scenarios begin with Soulsow applied, so Harvest Moon is available as a ranged filler.
                         startSoulsow = value == "on" ? true : value == "off" ? false : throw new ArgumentException("--start-soulsow must be on or off.");
                         break;
+                    case "--start-cooldowns":
+                        // anchors-<seconds> (the job's burst anchors with that much left, shorter burst cooldowns at seconds x recast / 120) or
+                        // <Action>=<seconds>,...: the run starts in combat with those cooldowns used and no countdown (StartPreset.cs).
+                        startCooldowns = value;
+                        break;
+                    case "--start-gauge":
+                        // 0 | 50 | full | <percent>: the job's main gauge at that fraction of its maximum at the start.
+                        startGauge = value;
+                        break;
                     case "--disengage-forecast":
                         // on (default) or off: whether DisengageForecaster turns those mechanics into hints for the rotation.
                         disengageForecast = value switch
@@ -3439,7 +3502,7 @@ internal static partial class Program
             }
 
             BurstControl.Configure(burstArgs); // --burst-*: the burst-on-recast study, see BurstControl.cs
-            return new(timelineRoot, sqpack, jobSelector, zoneID, duration, scenarioLimit, targetLossHintLead, scenarioFilter, blmRotation, partyBuffFirstCast, extraPostRoll, countdownSeconds, randomDisengageSeed, disengageForecast, startSoulsow, playerLevel, extraTargets, mnkEncounterHint, trackOverrides, repeat, skillSpeed, potions)
+            return new(timelineRoot, sqpack, jobSelector, zoneID, duration, scenarioLimit, targetLossHintLead, scenarioFilter, blmRotation, partyBuffFirstCast, extraPostRoll, countdownSeconds, randomDisengageSeed, disengageForecast, startSoulsow, playerLevel, extraTargets, mnkEncounterHint, trackOverrides, repeat, skillSpeed, potions, startCooldowns, startGauge)
             {
                 IrregularSeed = irregularSeed,
                 IrregularRate = irregularRate,

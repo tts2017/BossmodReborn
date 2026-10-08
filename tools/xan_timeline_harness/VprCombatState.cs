@@ -62,6 +62,13 @@ internal sealed class VprCombatState(WorldState world, Actor player, float frame
     private const SerpentCombo NoSerpentCombo = 0;
 
     public int Offering => _offering;
+
+    // --start-gauge: Serpent Offering at a fraction of 100
+    public void SetGaugeFraction(float fraction)
+    {
+        _offering = (int)MathF.Round(Math.Clamp(fraction, 0, 1) * 100);
+        PublishGauge();
+    }
     public int Coil => _coil;
     public int Anguine => _anguine;
     public DreadCombo Dread => _dread;

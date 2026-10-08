@@ -82,6 +82,13 @@ internal sealed class MchCombatState(WorldState world, Actor player, float frame
 
     public int Heat => _heat;
     public int Battery => _battery;
+
+    // --start-gauge: Heat at a fraction of 100
+    public void SetGaugeFraction(float fraction)
+    {
+        _heat = (int)MathF.Round(Math.Clamp(fraction, 0, 1) * 100);
+        PublishGauge();
+    }
     public int WildfireStacks => _wildfireStacks;
     public bool SummonActive => world.CurrentTime < _summonUntil;
     public float SummonFactor => _summonBattery / 50f;
