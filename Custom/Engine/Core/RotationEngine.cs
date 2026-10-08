@@ -82,6 +82,9 @@ public sealed class RotationEngine
     // diagnostics: value of each root move in the last search (NaN = not searched)
     public float LastRootValue(int skill) => _search.RootValue(skill);
 
+    // diagnostics (tests): the timeline the upper tier plans on (the input plus the projected self buffs and burst anchors)
+    public EngineTimeline PlannedTimeline(in EngineState state, in EngineTimeline timeline) => PlanTimeline(state, timeline);
+
     public void SetWeights(EngineWeights weights)
     {
         Weights = weights;
@@ -118,27 +121,44 @@ public sealed class RotationEngine
 
     // The upper tier also sees the job's own damage buffs ahead (a cooldown skill applying a damage-multiplier status, assumed used
     // when ready and every recast after), so other resources are held for them; the search itself sees those statuses directly.
+    // A burst anchor (SkillDef.AnchorMultiplier, a 2-minute cooldown without a damage status of its own) is projected the same way
+    // from its cooldown's return, whatever ForecastSelfBuffs says: on a pull without a countdown (the anchor partly down) the next
+    // burst window is where the anchor returns, and the shadow prices hold the gauges for it when it is close and release them when far.
     private EngineTimeline PlanTimeline(in EngineState s, in EngineTimeline timeline)
     {
-        if (Weights.ForecastSelfBuffs <= 0)
+        var forecast = Weights.ForecastSelfBuffs > 0;
+        if (!forecast && !Job.HasBurstAnchors)
             return timeline;
         var tl = timeline;
         foreach (var sk in Job.Skills)
         {
             if (sk.Cooldown < 0)
                 continue;
-            foreach (var e in sk.Effects)
+            var recast = Job.Cooldowns[sk.Cooldown].Recast;
+            if (forecast)
             {
-                if (e.Kind != EffectKind.StatusApply || Job.Statuses[e.Index].DamageMultiplier <= 1)
-                    continue;
-                var mult = Job.Statuses[e.Index].DamageMultiplier;
-                var left = s.StatusLeft[e.Index];
-                if (left > 0)
-                    tl.AddBuff(0, left, mult);
-                var recast = Job.Cooldowns[sk.Cooldown].Recast;
-                var start = s.Charges[sk.Cooldown] > 0 ? MathF.Max(0, left) : s.CdReadyIn[sk.Cooldown];
+                foreach (var e in sk.Effects)
+                {
+                    if (e.Kind != EffectKind.StatusApply || Job.Statuses[e.Index].DamageMultiplier <= 1)
+                        continue;
+                    var mult = Job.Statuses[e.Index].DamageMultiplier;
+                    var left = s.StatusLeft[e.Index];
+                    if (left > 0)
+                        tl.AddBuff(0, left, mult);
+                    var start = s.Charges[sk.Cooldown] > 0 ? MathF.Max(0, left) : s.CdReadyIn[sk.Cooldown];
+                    for (var k = 0; k < 3 && start < 180 && tl.NumBuffs < EngineLimits.MaxWindows; ++k, start += recast)
+                        tl.AddBuff(start, start + e.Value, mult);
+                }
+            }
+            if (sk.AnchorMultiplier > 1 && sk.AnchorDuration > 0 && (s.DisabledSkills & (1UL << sk.Index)) == 0)
+            {
+                // used `recast - CdReadyIn` s ago: the window is still open for the rest of its duration; then from the next return
+                var start = s.Charges[sk.Cooldown] > 0 ? 0 : s.CdReadyIn[sk.Cooldown];
+                var used = s.Charges[sk.Cooldown] > 0 ? float.MaxValue : recast - s.CdReadyIn[sk.Cooldown];
+                if (used < sk.AnchorDuration)
+                    tl.AddBuff(0, sk.AnchorDuration - used, sk.AnchorMultiplier);
                 for (var k = 0; k < 3 && start < 180 && tl.NumBuffs < EngineLimits.MaxWindows; ++k, start += recast)
-                    tl.AddBuff(start, start + e.Value, mult);
+                    tl.AddBuff(start, start + sk.AnchorDuration, sk.AnchorMultiplier);
             }
         }
         return tl;

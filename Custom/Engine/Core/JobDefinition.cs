@@ -80,6 +80,11 @@ public sealed class SkillDef
     public float Recast;          // GCD recast for GCDs (0 = job base GCD); ignored for oGCDs (they use the cooldown group)
     public int Cooldown = -1;     // cooldown group index
     public float PartyValue;      // potency-equivalent value for the party (raid buffs)
+    // a burst anchor (a 2-minute cooldown the job's burst is built around, with no damage-multiplier status of its own: Ikishoten, Serpent's
+    // Ire, Battle Litany): the upper tier projects a window of this multiplier-equivalent for AnchorDuration s from the cooldown's return
+    // (and every recast after), the way it projects the job's own damage buffs, so the gauges are held for the burst and released after it
+    public float AnchorMultiplier = 1;
+    public float AnchorDuration;
     public bool RequiresTarget = true;
     public float UptimeNeeded;    // >0: not usable if downtime starts within this many seconds (buffs and resources that would be wasted into a gap)
     public float StillNeeded;     // >0: not usable if forced movement (a no-cast window) starts within this many seconds (placed effects)
@@ -142,6 +147,7 @@ public sealed class JobDefinition
     public int[] CycleCooldowns = [];
     // derived at Build: the statuses that matter for each hot-path check (index order kept), so the search does not scan every status
     public float MaxWindowCheck; // longest span IsLegal checks the timeline windows over (cast, uptime or standing time of any skill)
+    public bool HasBurstAnchors; // some skill has a BurstAnchor (RotationEngine.PlanTimeline projects them)
     public int[] RecastStatuses = [], CastStatuses = [], LockStatuses = [], DamageStatuses = [], ShadowStatuses = [], InstantStatuses = [];
     public GaugeDef[] Gauges = [];
     public StatusDef[] Statuses = [];
@@ -256,6 +262,7 @@ public sealed class JobBuilder(string name, float baseGcd)
         }
         int[] Where(Func<StatusDef, bool> f) { var l = new List<int>(); for (var i = 0; i < job.Statuses.Length; ++i) if (f(job.Statuses[i])) l.Add(i); return [.. l]; }
         job.RecastStatuses = Where(st => st.GcdRecastMultiplier != 1 || st.GcdRecastOverride > 0);
+        job.HasBurstAnchors = Array.Exists(job.Skills, sk => sk.AnchorMultiplier > 1 && sk.AnchorDuration > 0 && sk.Cooldown >= 0);
         job.CastStatuses = Where(st => st.CastTimeMultiplier != 1);
         foreach (var sk in job.Skills)
             job.MaxWindowCheck = MathF.Max(job.MaxWindowCheck, MathF.Max(MathF.Max(sk.CastTime, 0.01f), MathF.Max(sk.UptimeNeeded, sk.StillNeeded)));
@@ -352,6 +359,8 @@ public sealed class JobBuilder(string name, float baseGcd)
         public SkillBuilder Lock(float seconds) { Def.AnimationLock = seconds; return this; }
         public SkillBuilder Recast(float seconds) { Def.Recast = seconds; return this; }
         public SkillBuilder PartyValue(float potency) { Def.PartyValue = potency; return this; }
+        // a burst anchor: the upper tier sees a window of `multiplierEquivalent` for `duration` s from this cooldown's return (SkillDef.AnchorMultiplier)
+        public SkillBuilder BurstAnchor(float multiplierEquivalent, float duration) { Def.AnchorMultiplier = multiplierEquivalent; Def.AnchorDuration = duration; return this; }
         public SkillBuilder NoTarget() { Def.RequiresTarget = false; return this; }
         public SkillBuilder Weaponskill() { Def.Weaponskill = true; return this; }
         public SkillBuilder NeedsUptime(float seconds) { Def.UptimeNeeded = seconds; return this; }

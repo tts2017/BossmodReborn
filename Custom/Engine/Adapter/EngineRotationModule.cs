@@ -24,6 +24,13 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
     protected virtual float TransientLossThreshold => 8.5f; // target losses shorter than this are ignored (RPR / BLM practice)
     // harnesses without party buffs: no assumed 2-minute raid-buff cycle when the party reports none
     public static bool AssumeRaidBuffCycle = true;
+    // the cooldown group the job's 2-minute burst is built around (Arcane Circle, Ikishoten, Bloodfest ...): when no party buff windows
+    // are known and this cooldown returns well after the assumed cycle's next window would start (a pull without a countdown: a dungeon
+    // pull, a re-engage with the cooldowns partly down), the assumed cycle starts at its return instead of 7.8 s after the pull
+    protected virtual string? MainAnchorCooldown => null;
+    private int _mainAnchor = -2; // cooldown index, -1 none
+    private float _assumedCycleStart; // absolute seconds from combat start of the assumed cycle's first window (this combat)
+    private DateTime _assumedCycleCombat; // the combat it was decided for (once, at the first decision of the combat)
     // how long a missing / untargetable target is assumed to stay away when nothing forecasts its return
     protected virtual float UnknownDowntime => 2.5f;
 
@@ -187,6 +194,7 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         s.Targets = CountTargets(primaryTarget);
         ReadJobState(ref s, primaryTarget);
         ApplyCastInProgress(ref s);
+        _assumedCycleStart = AssumedCycleStart(s);
         ApplyStrategy(strategy, ref s, primaryTarget);
 
         var tl = BuildTimeline(isMoving, primaryTarget);
@@ -435,7 +443,7 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         if (windows.Count == 0 && AssumeRaidBuffCycle && Manager.CombatStart != default)
         {
             var elapsed = (float)(World.CurrentTime - Manager.CombatStart).TotalSeconds;
-            for (var t = RaidBuffFirst; t < elapsed + 360 && tl.NumBuffs < EngineLimits.MaxWindows; t += RaidBuffInterval)
+            for (var t = _assumedCycleStart; t < elapsed + 360 && tl.NumBuffs < EngineLimits.MaxWindows; t += RaidBuffInterval)
                 if (t + RaidBuffDuration > elapsed)
                     tl.AddBuff(t - elapsed, t + RaidBuffDuration - elapsed, RaidBuffMultiplier);
         }
@@ -472,11 +480,34 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         }
         if (!AssumeRaidBuffCycle || Manager.CombatStart == default)
             return (0, 0);
-        var cycle = (float)(World.CurrentTime - Manager.CombatStart).TotalSeconds - RaidBuffFirst;
+        var cycle = (float)(World.CurrentTime - Manager.CombatStart).TotalSeconds - _assumedCycleStart;
         if (cycle < 0)
             return (0, -cycle);
         cycle %= RaidBuffInterval;
         return cycle < RaidBuffDuration ? (RaidBuffDuration - cycle, 0) : (0, RaidBuffInterval - cycle);
+    }
+
+    // the assumed cycle's first window (seconds from combat start), decided once per combat at its first decision: RaidBuffFirst, or
+    // the main anchor's return when it is on cooldown then and comes back after the assumed first window would be half over (a pull
+    // without a countdown with the anchor partly down). Later in the combat the anchor drifting (downtime, a late press) does not move
+    // the cycle: a party's buffs do not follow the player's drift, and the player's own raid buff is known from its cast anyway
+    private float AssumedCycleStart(in EngineState s)
+    {
+        if (Manager.CombatStart == default)
+            return RaidBuffFirst;
+        if (Manager.CombatStart == _assumedCycleCombat)
+            return _assumedCycleStart;
+        _assumedCycleCombat = Manager.CombatStart;
+        if (_mainAnchor == -2)
+            _mainAnchor = MainAnchorCooldown != null ? Array.FindIndex(Job.Cooldowns, cd => cd.Name == MainAnchorCooldown) : -1;
+        if (_mainAnchor < 0 || s.Charges[_mainAnchor] > 0 || !AssumeRaidBuffCycle)
+            return RaidBuffFirst;
+        var elapsed = (float)(World.CurrentTime - Manager.CombatStart).TotalSeconds;
+        var next = RaidBuffFirst;
+        while (next + RaidBuffDuration <= elapsed)
+            next += RaidBuffInterval;
+        var anchorAt = elapsed + s.CdReadyIn[_mainAnchor];
+        return anchorAt > next + RaidBuffDuration * 0.5f ? anchorAt : RaidBuffFirst;
     }
 
     // helpers for ReadJobState
