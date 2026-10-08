@@ -49,7 +49,8 @@ public static class SamDefinition
             .Status(Meikyo, 20, maxStacks: 3).Status(Tendo, 30).Status(OgiReady, 30).Status(NamikiriReady, 30).Status(ZanshinReady, 30)
             .Status(KaeshiGoken, 30).Status(KaeshiSetsugekka, 30).Status(TendoKaeshiGoken, 30).Status(TendoKaeshiSetsugekka, 30)
             .Status(Higanbana, 60)
-            .Cooldown(MeikyoCD, 55, level >= 76 ? 2 : 1).Cooldown(IkishotenCD, 120).Cooldown(SeneiCD, 120).Cooldown(ShohaCD, 15);
+            // Senei / Guren: 60 s from Enhanced Hissatsu (94)
+            .Cooldown(MeikyoCD, 55, level >= 76 ? 2 : 1).Cooldown(IkishotenCD, 120).Cooldown(SeneiCD, level >= 94 ? 60 : 120).Cooldown(ShohaCD, 15);
 
         // ---- combo (Meikyo Shisui: every step counts as combo and uses a stack) ----
         // Gyofu (92) replaces Hakaze

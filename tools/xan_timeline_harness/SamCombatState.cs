@@ -286,9 +286,11 @@ internal sealed class SamCombatState(WorldState world, Actor player, float frame
             return;
         var capCharges = Math.Max(1, definition.MaxChargesAtCap());
         var levelCharges = Math.Clamp(definition.MaxChargesAtLevel(player.Level), 1, capCharges);
+        // Enhanced Hissatsu (94): Senei / Guren recast 60 s (the action sheet keeps the 120 s)
+        var recast = player.Level >= 94 && (AID)definition.ID.ID is AID.HissatsuSenei or AID.HissatsuGuren ? 60 : definition.Cooldown;
         var current = world.Client.Cooldowns[group];
-        var elapsed = current.Total > 0 ? MathF.Max(0, current.Elapsed - definition.Cooldown) : definition.Cooldown * (levelCharges - 1);
-        world.Execute(new ClientState.OpCooldown(false, [(group, new(elapsed, definition.Cooldown * capCharges))]));
+        var elapsed = current.Total > 0 ? MathF.Max(0, current.Elapsed - recast) : recast * (levelCharges - 1);
+        world.Execute(new ClientState.OpCooldown(false, [(group, new(elapsed, recast * capCharges))]));
         if (definition.ExtraCooldownGroup >= 0 && definition.ExtraCooldownGroup != ActionDefinitions.GCDGroup)
             world.Execute(new ClientState.OpCooldown(false, [(definition.ExtraCooldownGroup, new(0, 1))]));
     }
