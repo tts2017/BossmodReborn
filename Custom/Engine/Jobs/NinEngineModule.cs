@@ -20,8 +20,11 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
     public static float? ReplanOverride;
 
     public static RotationModuleDefinition Definition()
-        => new RotationModuleDefinition("NIN [Engine]", "Ninja on the two-tier rotation engine (burst-window planning + short search). Experimental, level 66+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.NIN), 100, 66)
-            .WithStrategies<XanNIN.Strategy>();
+        => WithComposition(new RotationModuleDefinition("NIN [Engine]", "Ninja on the two-tier rotation engine (burst-window planning + short search). Experimental, level 66+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.NIN), 100, 66)
+            .WithStrategies<XanNIN.Strategy>());
+
+    // the first tier (EngineRotationModule.CompositionStrategy): the xan NIN module of the same strategy tracks
+    protected override RotationModule CreateBaseline() => new XanNIN(Manager, Player);
 
     private XanNIN.Strategy _strategy;
 
@@ -83,7 +86,7 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
     private int _prevMudraCharges = -1;
     private DateTime _sequenceLockedAt; // a mudra charge was just spent: keep _sequence until the Mudra status shows up
 
-    public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
+    protected override void ExecuteJob(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
         var tcj = SelfStatusDetails(SID.TenChiJin);
         if (tcj.Left > 0)
@@ -111,7 +114,7 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
         // the first mudra went off but its status is not visible yet: wait instead of re-planning (a different ninjutsu would not match it)
         if (_sequence != null && (World.CurrentTime - _sequenceLockedAt).TotalSeconds < 0.5)
             return;
-        base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
+        base.ExecuteJob(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
         var st = _strategy;
         UpdatePositional(Target, st.TrueNorth.Value == XanNIN.TrueNorthStrategy.Auto);
         // out of combat Hide restores the mudra charges

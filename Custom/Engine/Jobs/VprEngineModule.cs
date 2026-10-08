@@ -17,8 +17,11 @@ public sealed class VprEngineModule(RotationModuleManager manager, Actor player)
     public static float? FrameBudgetOverride;
 
     public static RotationModuleDefinition Definition()
-        => new RotationModuleDefinition("VPR [Engine]", "Viper on the two-tier rotation engine (burst-window planning + short search). Experimental, level 30+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.VPR), 100, 30)
-            .WithStrategies<XanVPR.Strategy>();
+        => WithComposition(new RotationModuleDefinition("VPR [Engine]", "Viper on the two-tier rotation engine (burst-window planning + short search). Experimental, level 30+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.VPR), 100, 30)
+            .WithStrategies<XanVPR.Strategy>());
+
+    // the first tier (EngineRotationModule.CompositionStrategy): the xan VPR module of the same strategy tracks
+    protected override RotationModule CreateBaseline() => new XanVPR(Manager, Player);
 
     private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
     {
@@ -94,7 +97,7 @@ public sealed class VprEngineModule(RotationModuleManager manager, Actor player)
         });
     }
 
-    public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
+    protected override void ExecuteJob(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
         // countdown opener: Steel Fangs (Vicewinder for the 7.5 zero-second opener) landing on the pull, Slither into melee just before it
         if (!Player.InCombat && World.Client.CountdownRemaining is { } countdown && countdown > 0)
@@ -117,7 +120,7 @@ public sealed class VprEngineModule(RotationModuleManager manager, Actor player)
             }
             return;
         }
-        base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
+        base.ExecuteJob(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
         var st = _strategy;
         UpdatePositional(Target, st.TrueNorth.Value == XanVPR.TrueNorthStrategy.Auto);
         WrithingSnap(st);

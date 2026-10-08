@@ -244,6 +244,7 @@ internal sealed class LowerSearch
     private const int MaxPly = 40;
     private const int MoveSlots = EngineLimits.MaxSkills + 1;
     private const byte WaitMove = 0xFE;
+    private const int WaitSlot = EngineLimits.MaxSkills; // the root-value slot of WaitMove (reported only, never resumed from)
     private const int TTBits = 16;
     private const int MaxDeepOgcds = 1; // below the root only the best one weave candidate (by immediate value) is searched
     private const int MaxDeepGcds = 3;  // below the root only the best three GCD candidates (previous best move first, then immediate value)
@@ -342,7 +343,12 @@ internal sealed class LowerSearch
         return total + leaf;
     }
 
-    public float RootValue(int skill) => _doneSeen[skill] ? _doneValues[skill] : float.NaN;
+    // the exact value of a root move from the last completed iteration (NaN when it was not searched to the end); -1 = waiting
+    public float RootValue(int skill)
+    {
+        var slot = skill < 0 ? WaitSlot : skill;
+        return _doneSeen[slot] ? _doneValues[slot] : float.NaN;
+    }
 
     // one-shot search within the whole budget
     public EngineDecision Run(in EngineState root, in EngineTimeline tl, float planOffset, int prevChoice)
@@ -750,10 +756,11 @@ internal sealed class LowerSearch
             var childBounded = _returnedBound;
             if (childBounded)
                 pruned = true;
-            if (ply == 0 && move != WaitMove && !_aborted && !childBounded)
+            if (ply == 0 && !_aborted && !childBounded)
             {
-                _rootValues[move] = f;
-                _rootSeen[move] = true;
+                var slot = move == WaitMove ? WaitSlot : move;
+                _rootValues[slot] = f;
+                _rootSeen[slot] = true;
             }
             if (f > best)
             {

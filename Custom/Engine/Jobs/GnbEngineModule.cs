@@ -20,8 +20,11 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
     {
         var res = new RotationModuleDefinition("GNB [Engine]", "Gunbreaker damage on the two-tier rotation engine (burst-window planning + short search). Experimental, level 30+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.GNB), 100, 30);
         res.Configs.AddRange(AkechiGNB.Definition().Configs);
-        return res;
+        return WithComposition(res);
     }
+
+    // the first tier (EngineRotationModule.CompositionStrategy): the Akechi GNB module of the same strategy tracks
+    protected override RotationModule CreateBaseline() => new AkechiGNB(Manager, Player);
 
     private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
     {
@@ -220,10 +223,10 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
     private bool _forceBloodfest; // Bloodfest forced: pressed as soon as it is ready (the definition only allows it next to No Mercy)
     private bool _firstGcdDone;
 
-    public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
+    protected override void ExecuteJob(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
         _forceBloodfest = false;
-        base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
+        base.ExecuteJob(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
         if (!Player.InCombat)
             _firstGcdDone = false;
         else if (GCD > 0)

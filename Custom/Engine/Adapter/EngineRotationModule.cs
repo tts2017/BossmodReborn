@@ -385,10 +385,261 @@ public abstract class EngineRotationModule : RotationModule
     // seconds since the pull (0 out of combat)
     protected float CombatTime => Player.InCombat && Manager.CombatStart != default ? (float)(World.CurrentTime - Manager.CombatStart).TotalSeconds : 0;
 
-    public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
+    public sealed override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
-        if (!EngineReady)
+        var mode = ReadComposition(strategy);
+        strategy = WithoutComposition(strategy);
+        _baseline ??= mode != CompositionStrategy.EngineOnly ? CreateBaseline() : null;
+        Overriding = false;
+        if (_baseline == null || mode == CompositionStrategy.EngineOnly)
+        {
+            ExecuteJob(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
             return;
+        }
+
+        // two tiers: the xan / Akechi module decides, then the engine replaces its choice only where the predicted mechanics make a better
+        // move (ShouldOverride). Both push into the shared queue; the losing side's entries are taken out again
+        var queue = Hints.ActionsToExecute.Entries;
+        var baseStart = queue.Count;
+        _baseline.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
+        var baseEnd = queue.Count;
+        if (mode == CompositionStrategy.BaselineOnly || !EngineReady)
+            return;
+        var forcedTarget = Hints.ForcedTarget;
+        var positional = Hints.RecommendedPositional;
+        _decided = false;
+        ExecuteJob(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
+        var engineEnd = queue.Count;
+        // the job module answered without a search (Ten Chi Jin, a countdown opener ...): the first tier's answer stands
+        Overriding = _decided && ShouldOverride(queue, baseStart, baseEnd, estimatedAnimLockDelay, isMoving);
+        if (Overriding)
+        {
+            queue.RemoveRange(baseStart, baseEnd - baseStart);
+        }
+        else
+        {
+            queue.RemoveRange(baseEnd, engineEnd - baseEnd);
+            Hints.ForcedTarget = forcedTarget;
+            Hints.RecommendedPositional = positional;
+        }
+    }
+
+    // --- two tiers: the xan / Akechi module first, the engine where the timeline makes a better move ---
+    public enum CompositionStrategy
+    {
+        [Option("xan/Akechi 基本 + 予測で最善手がある時だけ [Engine] に差し替え")]
+        BaselineFirst,
+        [Option("[Engine] のみ (従来の動作)")]
+        EngineOnly,
+        [Option("xan/Akechi のみ (差し替えなし)")]
+        BaselineOnly,
+    }
+    public const string CompositionTrack = "Composition";
+
+    // appended after the job's strategy tracks (presets store tracks by name, so existing presets keep their values; option 0 is the default)
+    protected static RotationModuleDefinition WithComposition(RotationModuleDefinition def)
+    {
+        var track = new StrategyConfigTrack(typeof(CompositionStrategy), CompositionTrack, "回しの組み立て (1 段目 xan/Akechi、2 段目 [Engine])", 100, typeof(TrackRenderer));
+        foreach (var value in Enum.GetValues<CompositionStrategy>())
+        {
+            var field = typeof(CompositionStrategy).GetField(value.ToString())!;
+            var display = field.GetCustomAttributes(typeof(OptionAttribute), false) is [OptionAttribute o, ..] ? o.DisplayName ?? value.ToString() : value.ToString();
+            track.Options.Add(new(value.ToString(), display));
+        }
+        def.Configs.Add(track);
+        return def;
+    }
+
+    private int _compositionIndex = -2;
+    private CompositionStrategy ReadComposition(StrategyValues strategy)
+    {
+        if (_compositionIndex == -2)
+            _compositionIndex = strategy.Configs.FindIndex(c => c.InternalName == CompositionTrack);
+        return _compositionIndex >= 0 && strategy.Values[_compositionIndex] is StrategyValueTrack v ? (CompositionStrategy)v.Option : CompositionStrategy.EngineOnly;
+    }
+
+    // the job's own tracks only (ValueConverter.FromValues requires exactly the strategy struct's track count): the composition track is
+    // the last one; the values are shared, not copied
+    private StrategyValues? _jobValues;
+    private StrategyValues WithoutComposition(StrategyValues strategy)
+    {
+        if (_compositionIndex < 0 || _compositionIndex != strategy.Configs.Count - 1)
+            return strategy;
+        if (_jobValues is not { } values || values.Configs.Count != _compositionIndex)
+            _jobValues = values = new StrategyValues(strategy.Configs.GetRange(0, _compositionIndex));
+        Array.Copy(strategy.Values, values.Values, _compositionIndex);
+        return values;
+    }
+
+    // everything the module does on the engine's side for one frame: the search and the pushes of its decision (ExecuteEngine), plus
+    // whatever a job module adds around it (utility actions, countdown openers ...). In the two-tier mode all of it is dropped on the frames
+    // where the first tier's choice stands
+    protected virtual void ExecuteJob(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
+    {
+        if (EngineReady)
+            ExecuteEngine(strategy, primaryTarget, isMoving);
+    }
+    private bool _decided; // ExecuteEngine ran this frame (LastDecision is this frame's)
+
+    // the module whose decisions are the first tier (the xan / Akechi module of the same strategy tracks); null: the engine alone
+    protected virtual RotationModule? CreateBaseline() => null;
+    private RotationModule? _baseline;
+
+    public override void Dispose()
+    {
+        _baseline?.Dispose();
+        base.Dispose();
+    }
+    // this frame the engine's choice replaced the first tier's (diagnostics, harnesses)
+    public bool Overriding { get; private set; }
+    public static int OverrideFrames, CompareFrames; // harness counters
+
+    // The engine replaces the first tier's move when (a) the two press different things now, (b) the engine's search values its own move
+    // above the best line starting with the first tier's move by OverrideMargin, and (c) that advantage comes from the predicted timeline:
+    // the same comparison on a timeline without predictions (no downtime / forced movement / fight end / raid buff windows ahead, only what
+    // holds now) does not show it. A disagreement the engine also has without predictions is a difference of the two models, where the
+    // first tier is kept. Below level 100 the synced rules give no search values: the first tier is kept.
+    private bool ShouldOverride(List<ActionQueue.Entry> queue, int start, int end, float animLockDelay, bool isMoving)
+    {
+        var d = LastDecision;
+        var baseMove = _lastSynced ? UnknownMove : BaselineMove(queue, start, end, animLockDelay);
+        if (baseMove == d.Skill)
+        {
+            // the tiers agree again: a commitment ends here
+            _overrideMove = UnknownMove;
+            _commitUntil = float.NegativeInfinity;
+            return false;
+        }
+        // an override in progress: the engine plays its line until the first tier's move matches it again (or CommitSeconds pass), so the
+        // two plans are not interleaved move by move
+        if (_lastNow < _commitUntil && !_lastSynced)
+        {
+            ++OverrideFrames;
+            return true;
+        }
+        if (baseMove == UnknownMove)
+        {
+            _overrideMove = UnknownMove;
+            return false;
+        }
+        ++CompareFrames;
+        var real = d.Value - Engine.LastRootValue(baseMove);
+        var margin = OverrideMargin(d.Value);
+        // a move kept from the previous frames needs half the margin (no flipping between the tiers inside one weave window)
+        if (_overrideMove == d.Skill && _overrideBase == baseMove)
+            margin *= 0.5f;
+        if (!(real >= margin))
+        {
+            _overrideMove = UnknownMove;
+            return false;
+        }
+
+        var neutral = NeutralEngine();
+        var tl = NeutralTimeline(isMoving);
+        var nd = neutral.Decide(_lastState, tl, _lastNow);
+        if (nd.Partial && CanPressNow())
+            neutral.FinishPending(_lastNow);
+        var unpredicted = neutral.LastRootValue(d.Skill) - neutral.LastRootValue(baseMove);
+        // the prediction is what makes the difference: without it the engine rates the first tier's move about as good as its own (two models
+        // disagreeing on their own is not a reason to switch, and alternating between their plans loses to either one alone)
+        var over = unpredicted < margin && real - MathF.Max(0, unpredicted) >= margin; // NaN (not searched to the end): no override
+        DebugTrace?.Invoke(FormattableString.Invariant($"[engine {Job.Name}] compare base={MoveName(baseMove)} engine={MoveName(d.Skill)} gap={real:f1} unpredicted={unpredicted:f1} margin={margin:f1} override={over}"));
+        if (over)
+        {
+            ++OverrideFrames;
+            _overrideMove = d.Skill;
+            _overrideBase = baseMove;
+            _commitUntil = _lastNow + CommitSeconds;
+        }
+        else
+        {
+            _overrideMove = UnknownMove;
+        }
+        return over;
+    }
+
+    private const int UnknownMove = -2;
+    private int _overrideMove = UnknownMove, _overrideBase = UnknownMove;
+    private float _commitUntil = float.NegativeInfinity;
+    protected virtual float CommitSeconds => 10;
+    protected virtual float OverrideMargin(float value) => MathF.Max(30, 0.01f * MathF.Abs(value));
+    private string MoveName(int move) => move >= 0 ? Job.Skills[move].Name : move == EngineDecision.Wait ? "wait" : "?";
+
+    // the first tier's move in the engine's terms: what the queue would press now from its entries alone, else (a GCD rolling, nothing to
+    // weave) its highest-priority GCD; UnknownMove when that is an action the definition does not have (role actions, items ...)
+    private readonly ActionQueue _scratchQueue = new();
+    private int BaselineMove(List<ActionQueue.Entry> queue, int start, int end, float animLockDelay)
+    {
+        if (start == end)
+            return EngineDecision.Wait;
+        _scratchQueue.Clear();
+        for (var i = start; i < end; ++i)
+            _scratchQueue.Entries.Add(queue[i]);
+        var best = _scratchQueue.FindBest(World, Player, World.Client.Cooldowns, World.Client.AnimationLock, Hints, animLockDelay, false);
+        if (best.Action)
+            return SkillFor(best.Action);
+        var topGcd = -1;
+        var topPriority = float.MinValue;
+        for (var i = start; i < end; ++i)
+        {
+            var e = queue[i];
+            if (e.Priority > topPriority && SkillFor(e.Action) is var sk && sk >= 0 && Job.Skills[sk].IsGcd)
+            {
+                topGcd = sk;
+                topPriority = e.Priority;
+            }
+        }
+        return topGcd >= 0 ? topGcd : UnknownMove;
+    }
+
+    // the definition's skill pressed by `action`: the variant legal in the state just read, else the first with that action
+    private int SkillFor(ActionID action)
+    {
+        if (action.Type != ActionType.Spell)
+            return UnknownMove;
+        var first = UnknownMove;
+        foreach (var sk in Job.Skills)
+        {
+            if (ActionFor(sk) != action)
+                continue;
+            if (Simulator.IsLegal(Job, _lastState, _lastTimeline, sk))
+                return sk.Index;
+            if (first == UnknownMove)
+                first = sk.Index;
+        }
+        return first;
+    }
+
+    // a second engine searching the same state on the unpredicted timeline (same definition and weights)
+    private RotationEngine? _neutral;
+    private RotationEngine NeutralEngine()
+    {
+        _neutral ??= new RotationEngine(Engine.Job, Engine.Weights) { FrameBudgetMs = Engine.FrameBudgetMs, ReplanInterval = Engine.ReplanInterval, MaxReuseAge = Engine.MaxReuseAge };
+        if (!ReferenceEquals(_neutral.Weights, Engine.Weights))
+            _neutral.SetWeights(Engine.Weights);
+        _neutral.BudgetScale = Engine.BudgetScale;
+        return _neutral;
+    }
+
+    // what holds now only: no target now and moving now (as BuildTimeline), nothing predicted
+    private EngineTimeline NeutralTimeline(bool isMoving)
+    {
+        var tl = EngineTimeline.Open();
+        if (Target == null || !Target.IsTargetable)
+            tl.AddDowntime(0, UnknownDowntime);
+        if (isMoving)
+            tl.AddNoCast(0, 0.5f);
+        tl.Version = isMoving ? 1 : 0;
+        return tl;
+    }
+
+    private EngineState _lastState;
+    private EngineTimeline _lastTimeline;
+    private float _lastNow;
+    private bool _lastSynced;
+
+    private void ExecuteEngine(StrategyValues strategy, Actor? primaryTarget, bool isMoving)
+    {
         _numForced = 0;
         UseTimelineWindows = UseForecast = UseFightEnd = true;
         primaryTarget = Target = SelectTarget(strategy, primaryTarget);
@@ -408,7 +659,11 @@ public abstract class EngineRotationModule : RotationModule
             _epoch = World.CurrentTime;
         var now = (float)(World.CurrentTime - _epoch).TotalSeconds; // small numbers: float keeps millisecond precision
         EngineDecision d;
-        if (Player.Level < 100 && HasSyncedRules)
+        _lastState = s;
+        _lastTimeline = tl;
+        _lastNow = now;
+        _lastSynced = Player.Level < 100 && HasSyncedRules;
+        if (_lastSynced)
         {
             d = DecideSynced(s, tl);
         }
@@ -431,6 +686,7 @@ public abstract class EngineRotationModule : RotationModule
                 d = Engine.FinishPending(now);
         }
         LastDecision = d;
+        _decided = true;
         if (DebugTrace != null && !d.Reused)
             DebugTrace(FormattableString.Invariant($"[engine {Job.Name}] t={now:f2} gcd={GCD:f2} skill={(d.Skill >= 0 ? Job.Skills[d.Skill].Name : "wait")} nextGcd={(d.NextGcd >= 0 ? Job.Skills[d.NextGcd].Name : "wait")} at={d.ExecuteAt:f2} depth={d.Depth} nodes={d.Nodes} hyst={d.Hysteresis} partial={d.Partial} combo={(s.ComboSkill != EngineLimits.NoCombo ? Job.Skills[s.ComboSkill].Name : "-")}/{World.Client.ComboState.Action}:{World.Client.ComboState.Remaining:f1} targets={s.Targets} legalGcds={string.Join(",", LegalGcds(s, tl))}"));
 

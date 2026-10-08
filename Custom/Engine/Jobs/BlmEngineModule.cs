@@ -19,8 +19,11 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
     public static float? FrameBudgetOverride;
 
     public static RotationModuleDefinition Definition()
-        => new RotationModuleDefinition("BLM [Engine]", "Black Mage on the two-tier rotation engine (burst-window planning + short search). Experimental, level 60+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.BLM), 100, 60)
-            .WithStrategies<XanBLM.Strategy>();
+        => WithComposition(new RotationModuleDefinition("BLM [Engine]", "Black Mage on the two-tier rotation engine (burst-window planning + short search). Experimental, level 60+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.BLM), 100, 60)
+            .WithStrategies<XanBLM.Strategy>());
+
+    // the first tier (EngineRotationModule.CompositionStrategy): the xan BLM module of the same strategy tracks
+    protected override RotationModule CreateBaseline() => new XanBLM(Manager, Player);
 
     // the engine is built on a worker thread (EngineRotationModule): its cycle model takes about 0.8 s on the first build for a GCD
     private static Func<RotationEngine> CreateEngine(RotationModuleManager manager, Actor player)
@@ -166,10 +169,10 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
 
     private static readonly string[] AstralFireExits = ["Blizzard3", "Blizzard3LowFire", "HighBlizzard2", "HighBlizzard2Cold", "Transpose"];
 
-    public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
+    protected override void ExecuteJob(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
         _moving = isMoving;
-        base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
+        base.ExecuteJob(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
         if (Target == null || !Player.InCombat)
             return;
         var st = _strategy;

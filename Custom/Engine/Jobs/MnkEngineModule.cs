@@ -17,8 +17,11 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
     public static float? FrameBudgetOverride;
 
     public static RotationModuleDefinition Definition()
-        => new RotationModuleDefinition("MNK [Engine]", "Monk on the two-tier rotation engine (burst-window planning + short search). Experimental, level 70+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.MNK), 100, 70)
-            .WithStrategies<XanMNK.Strategy>();
+        => WithComposition(new RotationModuleDefinition("MNK [Engine]", "Monk on the two-tier rotation engine (burst-window planning + short search). Experimental, level 70+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.MNK), 100, 70)
+            .WithStrategies<XanMNK.Strategy>());
+
+    // the first tier (EngineRotationModule.CompositionStrategy): the xan MNK module of the same strategy tracks
+    protected override RotationModule CreateBaseline() => new XanMNK(Manager, Player);
 
     private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
     {
@@ -160,9 +163,9 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
         }
     }
 
-    public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
+    protected override void ExecuteJob(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
-        base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
+        base.ExecuteJob(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
         var st = _strategy;
         UpdatePositional(Target, st.TrueNorth.Value);
         if (st.RoE.Value == XanMNK.RoEStrategy.Automatic)

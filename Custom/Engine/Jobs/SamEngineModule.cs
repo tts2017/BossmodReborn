@@ -16,8 +16,11 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
     public static float? FrameBudgetOverride;
 
     public static RotationModuleDefinition Definition()
-        => new RotationModuleDefinition("SAM [Engine]", "Samurai on the two-tier rotation engine (burst-window planning + short search). Experimental, level 30+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.SAM), 100, 30)
-            .WithStrategies<XanSAM.Strategy>();
+        => WithComposition(new RotationModuleDefinition("SAM [Engine]", "Samurai on the two-tier rotation engine (burst-window planning + short search). Experimental, level 30+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.SAM), 100, 30)
+            .WithStrategies<XanSAM.Strategy>());
+
+    // the first tier (EngineRotationModule.CompositionStrategy): the xan SAM module of the same strategy tracks
+    protected override RotationModule CreateBaseline() => new XanSAM(Manager, Player);
 
     private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
     {
@@ -117,7 +120,7 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
             Force(skill);
     }
 
-    public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
+    protected override void ExecuteJob(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
         // the countdown opener needs Meikyo Shisui (the combo finisher on the pull); without it the engine plans the pull
         if (ActionUnlocked(AID.MeikyoShisui) && !Player.InCombat && World.Client.CountdownRemaining > 0)
@@ -125,7 +128,7 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
             Prepull(ValueConverter.FromValues<XanSAM.Strategy>(strategy), primaryTarget);
             return;
         }
-        base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
+        base.ExecuteJob(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
         var st = _strategy;
         UpdatePositional(Target, st.TrueNorth.Value == XanSAM.TrueNorthStrategy.Auto);
         Enpi(st);

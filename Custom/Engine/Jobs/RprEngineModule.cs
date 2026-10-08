@@ -16,8 +16,11 @@ public sealed class RprEngineModule(RotationModuleManager manager, Actor player)
     public static float? FrameBudgetOverride;
 
     public static RotationModuleDefinition Definition()
-        => new RotationModuleDefinition("RPR [Engine]", "Reaper on the two-tier rotation engine (burst-window planning + short search). Experimental, level 30+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.RPR), 100, 30)
-            .WithStrategies<XanRPR.Strategy>();
+        => WithComposition(new RotationModuleDefinition("RPR [Engine]", "Reaper on the two-tier rotation engine (burst-window planning + short search). Experimental, level 30+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.RPR), 100, 30)
+            .WithStrategies<XanRPR.Strategy>());
+
+    // the first tier (EngineRotationModule.CompositionStrategy): the xan RPR module of the same strategy tracks
+    protected override RotationModule CreateBaseline() => new XanRPR(Manager, Player);
 
     private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
     {
@@ -147,9 +150,9 @@ public sealed class RprEngineModule(RotationModuleManager manager, Actor player)
             Forbid(ref s, "Soulsow");
     }
 
-    public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
+    protected override void ExecuteJob(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
-        base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
+        base.ExecuteJob(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
         var st = _strategy;
         UpdatePositional(Target, st.TrueNorth.Value == XanRPR.TrueNorthStrategy.Auto);
         LastLemure(st);

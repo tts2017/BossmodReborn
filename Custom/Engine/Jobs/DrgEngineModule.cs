@@ -18,8 +18,11 @@ public sealed class DrgEngineModule(RotationModuleManager manager, Actor player)
     public static float? FrameBudgetOverride;
 
     public static RotationModuleDefinition Definition()
-        => new RotationModuleDefinition("DRG [Engine]", "Dragoon on the two-tier rotation engine (burst-window planning + short search). Experimental, level 30+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.DRG, (int)Class.LNC), 100, 30)
-            .WithStrategies<XanDRG.Strategy>();
+        => WithComposition(new RotationModuleDefinition("DRG [Engine]", "Dragoon on the two-tier rotation engine (burst-window planning + short search). Experimental, level 30+.", "Engine", "local", RotationModuleQuality.WIP, BitMask.Build((int)Class.DRG, (int)Class.LNC), 100, 30)
+            .WithStrategies<XanDRG.Strategy>());
+
+    // the first tier (EngineRotationModule.CompositionStrategy): the xan DRG module of the same strategy tracks
+    protected override RotationModule CreateBaseline() => new XanDRG(Manager, Player);
 
     private static RotationEngine CreateEngine(RotationModuleManager manager, Actor player)
     {
@@ -111,7 +114,7 @@ public sealed class DrgEngineModule(RotationModuleManager manager, Actor player)
                     s.DisabledSkills |= 1UL << sk.Index;
     }
 
-    public override void Execute(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
+    protected override void ExecuteJob(StrategyValues strategy, Actor? primaryTarget, float estimatedAnimLockDelay, bool isMoving)
     {
         // countdown opener: True Thrust landing on the pull (its 0.76 s application delay), Winged Glide to close the gap just before it
         if (!Player.InCombat && World.Client.CountdownRemaining is { } countdown && countdown > 0)
@@ -130,7 +133,7 @@ public sealed class DrgEngineModule(RotationModuleManager manager, Actor player)
             }
             return;
         }
-        base.Execute(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
+        base.ExecuteJob(strategy, primaryTarget, estimatedAnimLockDelay, isMoving);
         var st = _strategy;
         UpdatePositional(Target);
         PiercingTalon(st);
