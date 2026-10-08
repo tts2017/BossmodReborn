@@ -2,7 +2,7 @@ namespace BossMod.Autorotation.Engine.Jobs;
 
 // Monk for the rotation engine (any level; weights tuned at level 100 and per level band, see DefaultWeights): data only, no BossMod dependency (also compiled by the engine tools).
 // Mechanics follow tools/xan_timeline_harness/MnkCombatState.cs + MnkPotencyScorer.cs (positionals credited, Opo-opo guaranteed
-// crit x1.38, Riddle of Fire x1.15, Brotherhood x1.05; a blitz does not grant Formless Fist there).
+// crit x1.38, Riddle of Fire x1.15, Brotherhood x1.05; every blitz and Fire's Reply grant Formless Fist for 30 s).
 // Forms: Opo-opo skills need no form; Raptor / Coeurl skills need their form, Formless Fist or Perfect Balance (RequiresAnyStatus).
 // Outside Perfect Balance each skill sets the next form (and uses up Formless Fist when used through it); under Perfect Balance it
 // banks a Beast Chakra of its type instead. Beast Chakra are counted per type (BeastOpo / BeastRaptor / BeastCoeurl, plus
@@ -171,7 +171,7 @@ public static class MnkDefinition
 
     private static void Blitz(JobBuilder.SkillBuilder s) => s.ComboNeutral().Weaponskill()
         .SetGauge(BeastOpo, 0).SetGauge(BeastRaptor, 0).SetGauge(BeastCoeurl, 0).SetGauge(BeastTotal, 0).RemoveStatus(BlitzReady)
-        .GainGauge(ChakraQ, 1).IfStatus(MeditativeBrotherhood).GainGauge(ChakraQ, 3);
+        .ApplyStatus(Formless, 30).GainGauge(ChakraQ, 1).IfStatus(MeditativeBrotherhood).GainGauge(ChakraQ, 3);
 
     // the game action of a skill (variants share one); the plugin presses the base actions (Bootshine for Leaping Opo etc.)
     public static uint ActionOf(SkillDef s) => s.ActionId;

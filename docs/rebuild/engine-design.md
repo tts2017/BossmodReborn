@@ -1136,3 +1136,87 @@ SAM 66〜69 / 486〜530 / 119〜151、BLM 26〜27 / 156〜169 / 6〜8、GNB 29�
   合計 1,108)。§22 と結果が違ったのは SAM 94〜100 (ハーネスの修正) と Lv100 のライブの揺れ (NIN / PLD) だけ。
 
 出典: [Hissatsu: Senei (consolegameswiki)](https://ffxiv.consolegameswiki.com/wiki/Hissatsu:_Senei)、[Hissatsu: Guren (consolegameswiki)](https://ffxiv.consolegameswiki.com/wiki/Guren)。
+
+## 24. MNK: Masterful Blitz の零の型 (Formless Fist) と、RPR: Enshroud リキャスト 5 秒 (全レベル)
+
+### 24.1 変更内容
+
+- MNK: ゲームでは Masterful Blitz (Elixir Burst / Rising Phoenix / Phantom Rush、低レベルの Elixir Field / Flint Strike / Tornado Kick /
+  Celestial Revolution) のすべてが零の型 (Formless Fist) を 30 秒付与する (consolegameswiki の Elixir Burst、ersharifst の 7.3 Lv100 ガイド
+  「零の型は、演武・必殺技・乾坤闘気弾で付与されます。付与したら必ず双竜脚か猿舞連撃に使う」)。エンジンの定義も xan のハーネスもこれを
+  持っていなかった (定義の先頭コメントには「ブリッツは零の型を付与しない」と書いてあった)。
+  - `MnkDefinition.Blitz()`: `.ApplyStatus(Formless, 30)` を追加 (Fire's Reply は以前から付与している。`Step()` の「Opo-opo の確定クリティカル
+    (零の型でも)」と「型が合わないときは零の型を消費する」はそのまま)。先頭コメントを直した。
+  - `tools/xan_timeline_harness/MnkCombatState.ConsumeBlitz` (4 つのブリッツの case から呼ばれる): `Set(SID.FormlessFist, FormDuration)` を
+    追加 (FiresReply / FormShift と同じ 30 秒)。tools/mnk_regression の `ApplyBlitz` は既に FormlessFistLeft = 30 にしていたので、ハーネスを
+    それに揃えた形 (mnk_regression は変更なし)。Engine と xan の両方の測定に効く。
+  - `MnkEngineModule.SyncedGcd` (Lv100 未満の固定ルール): ブリッツ / Wind's Reply / Perfect Balance 中の分岐の後、型の順のループの前に
+    「零の型が付いていれば Opo-opo の GCD (`opo`、FirstLegal の順は LeapingOpo / DragonKick / Bootshine)」を入れた (上のガイドの規則)。
+    §20.3 の MNK の GCD の項「通常は型の順 (Opo-opo → Raptor → Coeurl)」はこの一段が前に付く。Lv100 の探索は定義の変更で零の型を見る。
+- RPR: パッチ 7.3 で Enshroud のリキャストは 15 秒 → 5 秒になった (レベル 92 の特性ではない。Enhanced Enshroud (92) は Oblatio を
+  付与するだけ。consolegameswiki の Enshroud)。
+  - `RprDefinition`: `.Cooldown(EnshroudCD, level >= 92 ? 5 : 15)` → 全レベル 5 秒。§17.1 の「Enshroud リキャスト 15 秒 (92 未満)」はこれで
+    上書き (旧節は書き換えていない)。
+  - `tools/xan_timeline_harness/RprCombatState.StartCooldown`: `player.Level >= 92 ? 5 : 15` → 5。tools/rpr_regression は旧モジュールの仕様の
+    エミュレーションなので触っていない。Lv100 は以前から 5 秒なので出力は同じ。
+
+### 24.2 検証
+
+決定論 = 9 戦闘 (`timeline-matrix --scenario-limit 8`、ENGINE_FRAME_MS=1000、BudgetMs 100)、ライブ = 組み込み (0.8 ms) を 2 回、
+(b) = `--party-buffs 7.8`、300 秒 = `event-timeline --duration 300`。修正前 = 0ede0b7ed のハーネス + モジュール、修正後 = 両方を直したもの。
+MNK の [Engine] は MinNodes / SliceNodes でライブも決定論と一致する。
+
+| MNK Lv100 | 決定論 | 決定論 (b) | ライブ | ライブ (b) | 300 秒 | Execute 平均 / p99 µs (ライブ) |
+|---|---:|---:|---:|---:|---:|---:|
+| 修正前 Engine (0ede0b7ed) | 581,190 | 591,239 | 581,190 / 581,190 | 591,239 | 92,068 | 39.9〜43.7 / 158〜182 |
+| 修正前 xan | 578,440 | 588,786 | 578,440 / 578,440 | 588,786 | 92,584 | 62.1〜63.5 / 119 |
+| 修正後 Engine | 578,459 | **589,056** | 578,459 / 578,459 | 589,056 | 92,352 | 41.4〜41.8 / 163〜173 |
+| 修正後 xan | 578,440 | 588,786 | 578,440 / 578,440 | 588,786 | 92,584 | 68.9〜69.6 / 142〜144 (他の実行と並列) |
+
+- 受け入れ基準 (9 戦闘 `--party-buffs 7.8` で [Engine] が xan を下回らない) は満たす: 589,056 / 588,786 (+0.05%)。バフなし 578,459 / 578,440
+  (+0.003%)、ライブも同じ。300 秒単体は修正前から xan を下回っていて (92,068 / 92,584)、修正後も下 (92,352、差は縮小)。
+  基準を満たしているので CMA-ES の再調整は回していない (重みは v4 のまま)。
+- 修正前より [Engine] が下がった (決定論 −2,731、(b) −2,183)。9 戦闘のカウンター (修正前 → 修正後): ブリッツ 47 → 45、Phantom Rush 12 → 11、
+  闘気の失効 (blitz_expired) 2 → 3、Beast Chakra の消失 (beast_drop) 8 → 11、Opo-opo の GCD 289 → 279。探索の価値が零の型の分だけ変わり、
+  Perfect Balance とブリッツの並びが数戦闘で変わった。300 秒単体のトレースでは、修正後もブリッツの直後に Opo-opo を打ってはいない
+  (ブリッツの直後は Brotherhood 内の 2 回目の Perfect Balance か Raptor の型の GCD)。
+- xan は修正後も同じ出力 (ブリッツの直後は Raptor の型の GCD で、型が合っている間は零の型が消費されず、30 秒で切れる。零の型を Opo-opo に
+  使う判断がない)。xan の Execute は他の実行と並列に測ったもの。
+- 他 6 ジョブの Lv100 決定論 (バフなし / (b)) は出力行が修正前と完全一致: RPR 666,657 / 689,735、NIN 650,308 / 652,226、SAM 672,188 / 673,349、
+  BLM 560,467 / 560,364、GNB 566,864 / 578,686、PLD 553,005 / 560,806 (RPR は Lv100 では以前から 5 秒)。
+- シンクレベル (9 戦闘、`--level L`、既定トラック。ルールは探索をしないので決定論 = ライブ)。「ルール変更なし」= ハーネスだけ直して
+  `SyncedGcd` の零の型の段を入れない版。カウンターはチャクラ溢れ / 闘気失効 / PB 失効:
+
+| MNK | 修正前 ルール | ルール変更なし | 修正後 ルール | 旧 xan (修正前 / 後) | 旧比 (修正後) | カウンター 修正前 ／ 修正後 ／ 旧 |
+|---|---:|---:|---:|---:|---:|---|
+| Lv90 | 473,845 | 473,845 | 473,352 | 472,328 / 472,328 | 0.2% | 1 / 1 / 2 ／ 0 / 0 / 3 ／ 1 / 0 / 4 |
+| Lv80 | 422,984 | 422,984 | 418,988 | 423,978 / 423,978 | -1.2% | 1 / 0 / 3 ／ 0 / 1 / 3 ／ 1 / 0 / 4 |
+| Lv70 | 391,772 | 391,772 | 394,080 | 396,457 / 396,457 | -0.6% | 0 / 1 / 3 ／ 0 / 1 / 2 ／ 0 / 0 / 1 |
+
+  - ハーネスの修正だけではルールの出力は変わらない (ルールは型の順を守るので零の型を消費せず、xan と同じ)。零の型の段を入れると
+    Lv70 +2,308、Lv90 −493、Lv80 −3,996 (Lv80 は旧版を 1.2% 下回る。修正前は −0.2%)。Opo-opo の GCD は増える (Riddle of Fire 内の Opo-opo
+    Lv80 152 → 167) が、Perfect Balance が「Opo-opo の直後」の規則で後ろにずれ、ブリッツが 46 → 44 回に減る。ガイドの規則どおりに
+    したので採用し、Lv80 の差は残している (§24.3)。失敗は全部 0。
+
+| RPR | 修正前 ルール | 修正後 ルール | 旧 xan 修正前 | 旧 xan 修正後 | 旧比 (修正後) | DD 維持率 / Soul 溢れ (修正後 ルール ／ 旧) |
+|---|---:|---:|---:|---:|---:|---|
+| Lv90 | 555,306 | 555,398 | 554,336 | 552,926 | 0.4% | 0.9955 / 0 ／ 0.9823 / 10 |
+| Lv80 | 469,211 | 469,211 | 467,597 | 467,597 | 0.3% | 0.9982 / 0 ／ 0.9950 / 0 |
+
+  - Lv80 以下 (70 / 60 / 50 も) は両モジュールとも出力が同じ (Enshroud を 15 秒以内に続けて使う場面がない)。Lv90 は xan が 5 秒のリキャストで
+    Enshroud の並びを変えて −1,410 (Soul 溢れは 40 → 10)、ルールは +92。
+- engine_tests 17/17。BossModReborn / xan_timeline_harness / blm_engine_eval / rpr_engine_eval / engine_bench / engine_tuner / *_regression
+  (blm / mnk / nin / sam / rpr) の Release ビルドは 0 エラー (警告は既存のもののみ)。
+- 全レベル × 全トラックのスモーク (§20.4 と同じ 2,957 回、修正後のビルド): 例外 0、規則チェックの失敗がある実行 532 回 (BLM 164 / GNB 142 /
+  MNK 155 / PLD 71)・失敗数の合計 1,108 で §20〜23 と同じ。
+
+### 24.3 入れていないもの
+
+- MNK Lv100 の重みの再調整 (基準を満たしているので回していない。修正前より決定論で 2,731 低い)。
+- MNK Lv80 のルールの差 (旧版 −1.2%): 零の型の段で Perfect Balance の位置がずれる分。ガイドの規則 (零の型は必ず Opo-opo に使う) を
+  優先し、Perfect Balance の規則は変えていない。
+- xan モジュール (MNK / RPR) の判断は変えていない。tools/mnk_regression / tools/rpr_regression、BossMod 本体のアクション定義も変更なし。
+- ゲーム内での確認。
+
+出典: [Elixir Burst (consolegameswiki)](https://ffxiv.consolegameswiki.com/wiki/Elixir_Burst)、[Enshroud (consolegameswiki)](https://ffxiv.consolegameswiki.com/wiki/Enshroud)、
+[ersharifst 7.3 Lv100 MNK ガイド](https://www.ersharifst.com/2024/09/14/nifdv/)。

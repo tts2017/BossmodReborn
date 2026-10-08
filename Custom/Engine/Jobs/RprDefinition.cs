@@ -68,7 +68,7 @@ public static class RprDefinition
             .Cooldown(SoulSliceCD, 30, maxCharges: level >= 78 ? 2 : 1) // Tempered Soul (78)
             .Cooldown(ArcaneCircleCD, 120)
             .Cooldown(GluttonyCD, 60)
-            .Cooldown(EnshroudCD, level >= 92 ? 5 : 15) // Enhanced Enshroud (92)
+            .Cooldown(EnshroudCD, 5) // 5 s at every level since patch 7.3 (Enhanced Enshroud at 92 only grants Oblatio)
             .Cooldown(PotionCD, 270);
         // Gluttony grants Executioner from 96 (Enhanced Gluttony), Soul Reaver before
         var gluttonyReaver = level >= 96 ? Executioner : SoulReaver;

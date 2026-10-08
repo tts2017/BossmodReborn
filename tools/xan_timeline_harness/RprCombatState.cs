@@ -212,7 +212,7 @@ internal sealed class RprCombatState(WorldState world, Actor player, float frame
         var group = definition.ActualMainCooldownGroup(world.Client.DutyActions);
         if (group < 0 || group == ActionDefinitions.GCDGroup || definition.Cooldown <= 0)
             return;
-        var cooldown = definition.ID == ActionID.MakeSpell(AID.Enshroud) ? player.Level >= 92 ? 5 : 15 : definition.Cooldown;
+        var cooldown = definition.ID == ActionID.MakeSpell(AID.Enshroud) ? 5 : definition.Cooldown; // 5 s at every level since patch 7.3
         var capCharges = Math.Max(1, definition.MaxChargesAtCap());
         var levelCharges = Math.Clamp(definition.MaxChargesAtLevel(player.Level), 1, capCharges);
         var current = world.Client.Cooldowns[group];

@@ -298,6 +298,9 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
             }
             return FirstLegal(s, tl, opo, "LeapingOpo", "DragonKick", "Bootshine");
         }
+        // Formless Fist (a blitz, Fire's Reply or Form Shift): the Opo-opo GCD for its guaranteed crit (ersharifst: always Leaping Opo / Dragon Kick)
+        if (StatusLeft(s, MnkDefinition.Formless) > 0)
+            return FirstLegal(s, tl, opo, "LeapingOpo", "DragonKick", "Bootshine");
         // the form loop: Opo-opo -> Raptor -> Coeurl, each spending its fury stack or building it
         if (StatusLeft(s, MnkDefinition.RaptorForm) > 0 && FirstLegal(s, tl, raptor, "TwinSnakes", "TrueStrike") is var r and >= 0)
             return r;

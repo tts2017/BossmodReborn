@@ -457,6 +457,7 @@ internal sealed class MnkCombatState(WorldState world, Actor player, float frame
     {
         ++BlitzesUsed;
         ClearBeast();
+        Set(SID.FormlessFist, FormDuration);
     }
 
     private void ClearBeast()
