@@ -52,9 +52,9 @@ public static class GnbDefinition
             Gcd(b.Gcd("SolidBarrel", 140, AidSolidBarrel).ComboFrom("BrutalShell", mastery ? 460 : 360).EndsCombo()
                 .IfCombo("BrutalShell").IfGaugeAtMost(Ammo, maxAmmo - 1).GainGauge(Ammo, 1).IfCombo("BrutalShell").IfStatus(Bloodfest).IfGaugeAtLeast(Ammo, maxAmmo).GainGauge(Ammo, 1));
         if (level >= 10)
-            Gcd(b.Gcd("DemonSlice", 100, AidDemonSlice).AoeFalloff(100).StartsCombo());
+            Gcd(b.Gcd("DemonSlice", 100, AidDemonSlice).Shape(AoeShape.SelfCircle, 5, 0, 3).AoeFalloff(100).StartsCombo());
         if (level >= 40)
-            Gcd(b.Gcd("DemonSlaughter", 100, AidDemonSlaughter).AoeFalloff(100).ComboFrom("DemonSlice", 160).EndsCombo()
+            Gcd(b.Gcd("DemonSlaughter", 100, AidDemonSlaughter).Shape(AoeShape.SelfCircle, 5, 0, 3).AoeFalloff(100).ComboFrom("DemonSlice", 160).EndsCombo()
                 .IfCombo("DemonSlice").IfGaugeAtMost(Ammo, maxAmmo - 1).GainGauge(Ammo, 1).IfCombo("DemonSlice").IfStatus(Bloodfest).IfGaugeAtLeast(Ammo, maxAmmo).GainGauge(Ammo, 1));
 
         // ---- cartridge GCDs ----
@@ -66,7 +66,7 @@ public static class GnbDefinition
         }
         if (level >= 72)
         {
-            var fated = Gcd(b.Gcd("FatedCircle", 300, AidFatedCircle).AoeFalloff(300).SpendGauge(Ammo, 1));
+            var fated = Gcd(b.Gcd("FatedCircle", 300, AidFatedCircle).Shape(AoeShape.SelfCircle, 5, 0, 3).AoeFalloff(300).SpendGauge(Ammo, 1));
             if (level >= 96)
                 fated.ApplyStatus(ReadyToRaze, 10);
         }
@@ -84,14 +84,14 @@ public static class GnbDefinition
             }
         }
         if (level >= 90)
-            Gcd(b.Gcd("DoubleDown", 1000, AidDoubleDown).AoeFalloff(1000 * 0.85f).UsesCooldown(DoubleDownCD).SpendGauge(Ammo, 2));
+            Gcd(b.Gcd("DoubleDown", 1000, AidDoubleDown).Shape(AoeShape.SelfCircle, 5, 0, 3).AoeFalloff(1000 * 0.85f).UsesCooldown(DoubleDownCD).SpendGauge(Ammo, 2));
         if (level >= 54)
             Gcd(b.Gcd("SonicBreak", 940, AidSonicBreak).RequiresStatus(ReadyToBreak).RemoveStatus(ReadyToBreak));
         if (level >= 100)
         {
-            Gcd(b.Gcd("ReignOfBeasts", 800, AidReignOfBeasts).RequiresStatus(ReadyToReign).RemoveStatus(ReadyToReign)).ApplyStatus(NobleReady, 30);
-            Gcd(b.Gcd("NobleBlood", 900, AidNobleBlood).RequiresStatus(NobleReady).RemoveStatus(NobleReady)).ApplyStatus(LionReady, 30);
-            Gcd(b.Gcd("LionHeart", 1000, AidLionHeart).RequiresStatus(LionReady).RemoveStatus(LionReady));
+            Gcd(b.Gcd("ReignOfBeasts", 800, AidReignOfBeasts).Shape(AoeShape.TargetCircle, 5, 0, 3.5f).RequiresStatus(ReadyToReign).RemoveStatus(ReadyToReign)).ApplyStatus(NobleReady, 30);
+            Gcd(b.Gcd("NobleBlood", 900, AidNobleBlood).Shape(AoeShape.TargetCircle, 5, 0, 3.5f).RequiresStatus(NobleReady).RemoveStatus(NobleReady)).ApplyStatus(LionReady, 30);
+            Gcd(b.Gcd("LionHeart", 1000, AidLionHeart).Shape(AoeShape.TargetCircle, 5, 0, 3.5f).RequiresStatus(LionReady).RemoveStatus(LionReady));
         }
 
         // ---- abilities ----
@@ -118,7 +118,7 @@ public static class GnbDefinition
         else if (level >= 18)
             b.Ogcd("BlastingZone", 250, ZoneCD, AidDangerZone);
         if (level >= 62)
-            b.Ogcd("BowShock", 450, BowShockCD, AidBowShock).AoeFalloff(450);
+            b.Ogcd("BowShock", 450, BowShockCD, AidBowShock).Shape(AoeShape.SelfCircle, 5, 0, 5).AoeFalloff(450);
         if (continuation)
         {
             b.Ogcd("JugularRip", mastery ? 220 : 180, null, AidJugularRip).RequiresStatus(ReadyToRip).RemoveStatus(ReadyToRip);
@@ -128,7 +128,7 @@ public static class GnbDefinition
         if (level >= 86)
             b.Ogcd("Hypervelocity", mastery ? 180 : 140, null, AidHypervelocity).RequiresStatus(ReadyToBlast).RemoveStatus(ReadyToBlast);
         if (level >= 96)
-            b.Ogcd("FatedBrand", 120, null, AidFatedBrand).AoeFalloff(120).RequiresStatus(ReadyToRaze).RemoveStatus(ReadyToRaze);
+            b.Ogcd("FatedBrand", 120, null, AidFatedBrand).Shape(AoeShape.SelfCircle, 5, 0, 5).AoeFalloff(120).RequiresStatus(ReadyToRaze).RemoveStatus(ReadyToRaze);
         return b.Build();
     }
 

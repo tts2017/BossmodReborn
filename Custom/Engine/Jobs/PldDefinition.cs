@@ -59,10 +59,10 @@ public static class PldDefinition
         else if (level >= 26)
             b.Gcd("RoyalAuthority", 100, AidRageOfHalone).ComboFrom("RiotBlade", 330).EndsCombo();
         if (level >= 6)
-            b.Gcd("TotalEclipse", 120, AidTotalEclipse).AoeFalloff(120).StartsCombo();
+            b.Gcd("TotalEclipse", 120, AidTotalEclipse).Shape(AoeShape.SelfCircle, 5, 0, 3).AoeFalloff(120).StartsCombo();
         if (level >= 40)
         {
-            var prominence = b.Gcd("Prominence", 100, AidProminence).AoeFalloff(100).ComboFrom("TotalEclipse", 220).EndsCombo();
+            var prominence = b.Gcd("Prominence", 100, AidProminence).Shape(AoeShape.SelfCircle, 5, 0, 3).AoeFalloff(100).ComboFrom("TotalEclipse", 220).EndsCombo();
             if (level >= 72)
                 prominence.IfCombo("TotalEclipse").ApplyStatus(DivineMight, 30).IfCombo("TotalEclipse").GainGauge(MP, 1000);
         }
@@ -84,18 +84,18 @@ public static class PldDefinition
         }
         if (level >= 72)
         {
-            b.Gcd("HolyCircleDM", 250, AidHolyCircle).AoeFalloff(250).RequiresStatus(DivineMight).RemoveStatus(DivineMight).SpendGauge(MP, 1000);
-            b.Gcd("HolyCircleReq", 350, AidHolyCircle).AoeFalloff(350).ForbidStatus(DivineMight).RequiresStatus(Requiescat).UseStack(Requiescat).SpendGauge(MP, 1000);
+            b.Gcd("HolyCircleDM", 250, AidHolyCircle).Shape(AoeShape.SelfCircle, 5, 0, 5).AoeFalloff(250).RequiresStatus(DivineMight).RemoveStatus(DivineMight).SpendGauge(MP, 1000);
+            b.Gcd("HolyCircleReq", 350, AidHolyCircle).Shape(AoeShape.SelfCircle, 5, 0, 5).AoeFalloff(350).ForbidStatus(DivineMight).RequiresStatus(Requiescat).UseStack(Requiescat).SpendGauge(MP, 1000);
         }
 
         // ---- Confiteor chain (each step uses a Requiescat stack when there is one; the Blades from 90) ----
         if (level >= 80)
-            Blade(b.Gcd("Confiteor", l94 ? 500 : 420, AidConfiteor).PotencyIfStatus(Requiescat, l94 ? 1000 : 920).AoeFalloff(l94 ? 500 * Splash : 420 * Splash), ConfiteorReady, level >= 90 ? FaithReady : null);
+            Blade(b.Gcd("Confiteor", l94 ? 500 : 420, AidConfiteor).Shape(AoeShape.TargetCircle, 5, 0, 25).PotencyIfStatus(Requiescat, l94 ? 1000 : 920).AoeFalloff(l94 ? 500 * Splash : 420 * Splash), ConfiteorReady, level >= 90 ? FaithReady : null);
         if (level >= 90)
         {
-            Blade(b.Gcd("BladeOfFaith", l94 ? 260 : 220, AidBladeOfFaith).PotencyIfStatus(Requiescat, l94 ? 760 : 720).AoeFalloff(l94 ? 260 * Splash : 220 * Splash), FaithReady, TruthReady);
-            Blade(b.Gcd("BladeOfTruth", l94 ? 380 : 320, AidBladeOfTruth).PotencyIfStatus(Requiescat, l94 ? 880 : 820).AoeFalloff(l94 ? 380 * Splash : 320 * Splash), TruthReady, ValorReady);
-            Blade(b.Gcd("BladeOfValor", l94 ? 500 : 420, AidBladeOfValor).PotencyIfStatus(Requiescat, l94 ? 1000 : 920).AoeFalloff(l94 ? 500 * Splash : 420 * Splash), ValorReady, level >= 100 ? HonorReady : null);
+            Blade(b.Gcd("BladeOfFaith", l94 ? 260 : 220, AidBladeOfFaith).Shape(AoeShape.TargetCircle, 5, 0, 25).PotencyIfStatus(Requiescat, l94 ? 760 : 720).AoeFalloff(l94 ? 260 * Splash : 220 * Splash), FaithReady, TruthReady);
+            Blade(b.Gcd("BladeOfTruth", l94 ? 380 : 320, AidBladeOfTruth).Shape(AoeShape.TargetCircle, 5, 0, 25).PotencyIfStatus(Requiescat, l94 ? 880 : 820).AoeFalloff(l94 ? 380 * Splash : 320 * Splash), TruthReady, ValorReady);
+            Blade(b.Gcd("BladeOfValor", l94 ? 500 : 420, AidBladeOfValor).Shape(AoeShape.TargetCircle, 5, 0, 25).PotencyIfStatus(Requiescat, l94 ? 1000 : 920).AoeFalloff(l94 ? 500 * Splash : 420 * Splash), ValorReady, level >= 100 ? HonorReady : null);
         }
         if (level >= 54)
             b.Gcd("GoringBlade", 700, AidGoringBlade).RequiresStatus(GoringReady).RemoveStatus(GoringReady);
@@ -105,25 +105,25 @@ public static class PldDefinition
         if (level >= 54)
             fof.ApplyStatus(GoringReady, 30);
         if (level >= 96)
-            b.Ogcd("Imperator", 580, ImperatorCD, AidImperator).AoeFalloff(580 * Splash).ForbidStatus(HonorReady).ApplyStatus(Requiescat, 30, 4).ApplyStatus(ConfiteorReady, 30);
+            b.Ogcd("Imperator", 580, ImperatorCD, AidImperator).Shape(AoeShape.TargetCircle, 5, 0, 25).AoeFalloff(580 * Splash).ForbidStatus(HonorReady).ApplyStatus(Requiescat, 30, 4).ApplyStatus(ConfiteorReady, 30);
         else if (level >= 68)
         {
-            var req = b.Ogcd("Imperator", 320, ImperatorCD, AidRequiescat).ApplyStatus(Requiescat, 30, 4);
+            var req = b.Ogcd("Imperator", 320, ImperatorCD, AidRequiescat).Shape(AoeShape.TargetCircle, 5, 0, 25).ApplyStatus(Requiescat, 30, 4);
             if (level >= 80)
                 req.ApplyStatus(ConfiteorReady, 30);
         }
         if (level >= 100)
-            b.Ogcd("BladeOfHonor", 1000, null, AidBladeOfHonor).AoeFalloff(1000 * Splash).RequiresStatus(HonorReady).RemoveStatus(HonorReady);
+            b.Ogcd("BladeOfHonor", 1000, null, AidBladeOfHonor).Shape(AoeShape.TargetCircle, 5, 0, 25).AoeFalloff(1000 * Splash).RequiresStatus(HonorReady).RemoveStatus(HonorReady);
         if (level >= 86)
-            b.Ogcd("Expiacion", 450, ExpiacionCD, AidExpiacion).AoeFalloff(450 * Splash).GainGauge(MP, 500);
+            b.Ogcd("Expiacion", 450, ExpiacionCD, AidExpiacion).Shape(AoeShape.TargetCircle, 5, 0, 3).AoeFalloff(450 * Splash).GainGauge(MP, 500);
         else if (level >= 30)
         {
-            var spirits = b.Ogcd("Expiacion", 270, ExpiacionCD, AidSpiritsWithin);
+            var spirits = b.Ogcd("Expiacion", 270, ExpiacionCD, AidSpiritsWithin).Shape(AoeShape.TargetCircle, 5, 0, 3);
             if (level >= 58)
                 spirits.GainGauge(MP, 500);
         }
         if (level >= 50)
-            b.Ogcd("CircleOfScorn", 290, CircleOfScornCD, AidCircleOfScorn).AoeFalloff(290);
+            b.Ogcd("CircleOfScorn", 290, CircleOfScornCD, AidCircleOfScorn).Shape(AoeShape.SelfCircle, 5, 0, 5).AoeFalloff(290);
         return b.Build();
     }
 

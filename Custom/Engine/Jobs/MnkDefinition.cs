@@ -69,9 +69,9 @@ public static class MnkDefinition
         if (level >= 50)
             Step(b.Gcd("DragonKick", l94 ? 320 : l84 ? 280 : 240, AidDragonKick).SetGauge(OpoFury, 1), true, OpoForm, RaptorForm, BeastOpo);
         if (level >= 82)
-            Step(b.Gcd("ShadowOfTheDestroyer", 120, AidShadowOfTheDestroyer).AoeFalloff(120).PotencyIfAnyStatus(120 * Crit, OpoForm, Formless, PerfectBalance), true, OpoForm, RaptorForm, BeastOpo);
+            Step(b.Gcd("ShadowOfTheDestroyer", 120, AidShadowOfTheDestroyer).Shape(AoeShape.SelfCircle, 5, 0, 3).AoeFalloff(120).PotencyIfAnyStatus(120 * Crit, OpoForm, Formless, PerfectBalance), true, OpoForm, RaptorForm, BeastOpo);
         else if (level >= 26)
-            Step(b.Gcd("ShadowOfTheDestroyer", 110, AidArmOfTheDestroyer).AoeFalloff(110).PotencyIfAnyStatus(120, OpoForm, Formless, PerfectBalance), true, OpoForm, RaptorForm, BeastOpo);
+            Step(b.Gcd("ShadowOfTheDestroyer", 110, AidArmOfTheDestroyer).Shape(AoeShape.SelfCircle, 5, 0, 3).AoeFalloff(110).PotencyIfAnyStatus(120, OpoForm, Formless, PerfectBalance), true, OpoForm, RaptorForm, BeastOpo);
         // ---- Raptor step ----
         if (level >= 18)
             Step(b.Gcd("RisingRaptor", l92 ? 540 : l84 ? 500 : 460, AidTrueStrike).SpendGauge(RaptorFury, 1), false, RaptorForm, CoeurlForm, BeastRaptor);
@@ -80,7 +80,7 @@ public static class MnkDefinition
         if (level >= 18)
             Step(b.Gcd("TwinSnakes", l94 ? 420 : l84 ? 380 : 340, AidTwinSnakes).SetGauge(RaptorFury, 1), false, RaptorForm, CoeurlForm, BeastRaptor);
         if (level >= 45)
-            Step(b.Gcd("FourPointFury", 140, AidFourPointFury).AoeFalloff(140), false, RaptorForm, CoeurlForm, BeastRaptor);
+            Step(b.Gcd("FourPointFury", 140, AidFourPointFury).Shape(AoeShape.SelfCircle, 5, 0, 3).AoeFalloff(140), false, RaptorForm, CoeurlForm, BeastRaptor);
         // ---- Coeurl step ----
         if (level >= 30)
             Step(b.Gcd("PouncingCoeurl", l92 ? 520 : l84 ? 480 : 440, AidSnapPunch).SpendGauge(CoeurlFury, 1), false, CoeurlForm, OpoForm, BeastCoeurl);
@@ -89,38 +89,38 @@ public static class MnkDefinition
         if (level >= 30)
         {
             Step(b.Gcd("Demolish", l94 ? 420 : l84 ? 380 : 340, AidDemolish).SetGauge(CoeurlFury, 2), false, CoeurlForm, OpoForm, BeastCoeurl);
-            Step(b.Gcd("Rockbreaker", 150, AidRockbreaker).AoeFalloff(150), false, CoeurlForm, OpoForm, BeastCoeurl);
+            Step(b.Gcd("Rockbreaker", 150, AidRockbreaker).Shape(AoeShape.SelfCircle, 5, 0, 3).AoeFalloff(150), false, CoeurlForm, OpoForm, BeastCoeurl);
         }
 
         // ---- blitzes (Masterful Blitz resolves by the Beast Chakra mix and the Nadi) ----
         if (level >= 60)
         {
             foreach (var kind in new[] { BeastOpo, BeastRaptor, BeastCoeurl })
-                Blitz(b.Gcd("ElixirBurst" + kind[5..], l92 ? 900 : 800, l92 ? AidElixirBurst : AidElixirField).AoeFalloff(l92 ? 900 * 0.65f : 800 * 0.65f).RequiresGauge(kind, 3).RequiresGaugeAtMost(NadiCount, 1)
+                Blitz(b.Gcd("ElixirBurst" + kind[5..], l92 ? 900 : 800, l92 ? AidElixirBurst : AidElixirField).Shape(AoeShape.TargetCircle, 5, 0, 3).AoeFalloff(l92 ? 900 * 0.65f : 800 * 0.65f).RequiresGauge(kind, 3).RequiresGaugeAtMost(NadiCount, 1)
                     .IfGaugeAtMost(Lunar, 0).GainGauge(NadiCount, 1).SetGauge(Lunar, 1));
             var phoenix = level >= 86;
-            Blitz(b.Gcd("RisingPhoenix", phoenix ? 900 : 800, phoenix ? AidRisingPhoenix : AidFlintStrike).AoeFalloff(phoenix ? 900 * 0.65f : 800 * 0.65f).RequiresGauge(BeastOpo, 1).RequiresGauge(BeastRaptor, 1).RequiresGauge(BeastCoeurl, 1)
+            Blitz(b.Gcd("RisingPhoenix", phoenix ? 900 : 800, phoenix ? AidRisingPhoenix : AidFlintStrike).Shape(AoeShape.TargetCircle, 5, 0, 3).AoeFalloff(phoenix ? 900 * 0.65f : 800 * 0.65f).RequiresGauge(BeastOpo, 1).RequiresGauge(BeastRaptor, 1).RequiresGauge(BeastCoeurl, 1)
                 .RequiresGaugeAtMost(NadiCount, 1).IfGaugeAtMost(Solar, 0).GainGauge(NadiCount, 1).SetGauge(Solar, 1));
             var rush = level >= 90 ? l94 ? 1500 : 1400 : 1200;
-            Blitz(b.Gcd("PhantomRush", rush, level >= 90 ? AidPhantomRush : AidTornadoKick).AoeFalloff(l94 ? 1500 * 0.65f : level >= 90 ? 1400 * 0.65f : 1200 * 0.65f).RequiresGauge(BeastTotal, 3).RequiresGauge(NadiCount, 2).RequiresStatus(Brotherhood)
+            Blitz(b.Gcd("PhantomRush", rush, level >= 90 ? AidPhantomRush : AidTornadoKick).Shape(AoeShape.TargetCircle, 5, 0, 3).AoeFalloff(l94 ? 1500 * 0.65f : level >= 90 ? 1400 * 0.65f : 1200 * 0.65f).RequiresGauge(BeastTotal, 3).RequiresGauge(NadiCount, 2).RequiresStatus(Brotherhood)
                 .SetGauge(Lunar, 0).SetGauge(Solar, 0).GainGauge(NadiCount, -2)); // a counted spend: the Nadi get a shadow price
         }
 
         // ---- Riddle follow-ups ----
         if (level >= 100)
-            b.Gcd("FiresReply", 1400, AidFiresReply).ComboNeutral().AoeFalloff(1400 * 0.65f).Weaponskill().RequiresStatus(FiresRumination).RemoveStatus(FiresRumination)
+            b.Gcd("FiresReply", 1400, AidFiresReply).Shape(AoeShape.TargetCircle, 5, 0, 20).ComboNeutral().AoeFalloff(1400 * 0.65f).Weaponskill().RequiresStatus(FiresRumination).RemoveStatus(FiresRumination)
                 .ApplyStatus(Formless, 30).GainGauge(ChakraQ, 1).IfStatus(MeditativeBrotherhood).GainGauge(ChakraQ, 3);
         if (level >= 96)
-            b.Gcd("WindsReply", 1040, AidWindsReply).ComboNeutral().AoeFalloff(1040 * 0.65f).Weaponskill().RequiresStatus(WindsRumination).RemoveStatus(WindsRumination)
+            b.Gcd("WindsReply", 1040, AidWindsReply).Shape(AoeShape.Line, 10, 2, 10).ComboNeutral().AoeFalloff(1040 * 0.65f).Weaponskill().RequiresStatus(WindsRumination).RemoveStatus(WindsRumination)
                 .GainGauge(ChakraQ, 1).IfStatus(MeditativeBrotherhood).GainGauge(ChakraQ, 3);
 
         // ---- abilities ----
         if (level >= 54)
             b.Ogcd("ForbiddenChakra", l84 ? 400 : 310, null, AidForbiddenChakra).SpendGauge(ChakraQ, 20);
         if (level >= 74)
-            b.Ogcd("Enlightenment", 160, null, AidEnlightenment).AoeFalloff(160 * 0.65f).SpendGauge(ChakraQ, 20);
+            b.Ogcd("Enlightenment", 160, null, AidEnlightenment).Shape(AoeShape.Line, 10, 2, 10).AoeFalloff(160 * 0.65f).SpendGauge(ChakraQ, 20);
         else if (level >= 40)
-            b.Ogcd("Enlightenment", 100, null, AidHowlingFist).AoeFalloff(100 * 0.65f).SpendGauge(ChakraQ, 20);
+            b.Ogcd("Enlightenment", 100, null, AidHowlingFist).Shape(AoeShape.Line, 10, 2, 10).AoeFalloff(100 * 0.65f).SpendGauge(ChakraQ, 20);
         // spec (agents_mnk.md, mnk_regression rules): two Perfect Balances in the even (Brotherhood) window, the first just before Riddle of
         // Fire; one in the odd window, only while it leaves a charge coming back for the next even window (the next charge within 20 s:
         // with the even window about 60 s away, the one after it is back in time); Phantom Rush inside Brotherhood;

@@ -53,7 +53,7 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
         else if (st.Buffs.Value == OffensiveStrategy.Force)
         {
             Force("Ikishoten");
-            if (s.Targets >= 3)
+            if (ShapeTargets(s, "HissatsuGuren") >= 3)
                 Force("HissatsuGuren");
             Force("HissatsuSenei");
             Force("Zanshin");
@@ -191,7 +191,7 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
     {
         var kenki = Gauge(s, SamDefinition.Kenki);
         // about to overcap with the next GCD's Kenki (back from a downtime spent in Meditate): a spender first, before that GCD
-        if (kenki + 15 > 100 && FirstLegal(s, tl, s.Targets >= 3 ? "HissatsuGuren" : "HissatsuSenei", s.Targets >= 3 ? "HissatsuKyuten" : "HissatsuShinten", "HissatsuShinten") is var overcap and >= 0)
+        if (kenki + 15 > 100 && FirstLegal(s, tl, ShapeTargets(s, "HissatsuGuren") >= 3 ? "HissatsuGuren" : "HissatsuSenei", ShapeTargets(s, "HissatsuKyuten") >= 3 ? "HissatsuKyuten" : "HissatsuShinten", "HissatsuShinten") is var overcap and >= 0)
         {
             SyncedOgcdFirst = true;
             return overcap;
@@ -205,7 +205,7 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
         if (Legal(s, tl, "Zanshin") is var zanshin and >= 0)
             return zanshin;
         // Senei (Guren on 3+ targets) on cooldown
-        if (FirstLegal(s, tl, s.Targets >= 3 ? "HissatsuGuren" : "HissatsuSenei", "HissatsuSenei", "HissatsuGuren") is var senei and >= 0)
+        if (FirstLegal(s, tl, ShapeTargets(s, "HissatsuGuren") >= 3 ? "HissatsuGuren" : "HissatsuSenei", "HissatsuSenei", "HissatsuGuren") is var senei and >= 0)
             return senei;
         if (Legal(s, tl, "Shoha") is var shoha and >= 0)
             return shoha;
@@ -217,13 +217,13 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
             spend = false;
         if (StatusLeft(s, SamDefinition.ZanshinReady) > 0 && kenki - 25 < 50 && kenki < 90)
             spend = false;
-        return spend ? FirstLegal(s, tl, s.Targets >= 3 ? "HissatsuKyuten" : "HissatsuShinten", "HissatsuShinten") : -1;
+        return spend ? FirstLegal(s, tl, ShapeTargets(s, "HissatsuKyuten") >= 3 ? "HissatsuKyuten" : "HissatsuShinten", "HissatsuShinten") : -1;
     }
 
     protected override int SyncedGcd(in EngineState s, in EngineTimeline tl)
     {
         var sen = Gauge(s, SamDefinition.SenCount);
-        var aoe = s.Targets >= 3;
+        var aoe = ShapeTargets(s, "Fuko") >= 3;
         // Kaeshi: Namikiri right after Ogi Namikiri, Tsubame-gaeshi right after the Iaijutsu (not held: it would be lost after 30 s)
         if (FirstLegal(s, tl, "KaeshiNamikiri", "KaeshiSetsugekka", "KaeshiGoken") is var kaeshi and >= 0)
             return kaeshi;

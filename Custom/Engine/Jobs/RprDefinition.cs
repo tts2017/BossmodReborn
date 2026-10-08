@@ -84,17 +84,17 @@ public static class RprDefinition
         if (level >= 30)
             b.Gcd("InfernalSlice", 200, 24375).ComboFrom("WaxingSlice", m3 ? 600 : m2 ? 500 : m1 ? 460 : 400).IfCombo("WaxingSlice").GainGauge(Soul, 10).EndsCombo().ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded);
         if (level >= 25)
-            b.Gcd("SpinningScythe", 0, 24376).Aoe(m1 ? 140 : 100, 3).RequiresTargets(3).StartsCombo().GainGauge(Soul, 10).ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded);
+            b.Gcd("SpinningScythe", 0, 24376).Shape(AoeShape.SelfCircle, 5, 0, 3).Aoe(m1 ? 140 : 100, 3).RequiresTargets(3).StartsCombo().GainGauge(Soul, 10).ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded);
         if (level >= 45)
-            b.Gcd("NightmareScythe", 0, 24377).Aoe(m1 ? 180 : 140, 3).RequiresTargets(3).RequiresCombo("SpinningScythe").GainGauge(Soul, 10).EndsCombo().ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded);
+            b.Gcd("NightmareScythe", 0, 24377).Shape(AoeShape.SelfCircle, 5, 0, 3).Aoe(m1 ? 180 : 140, 3).RequiresTargets(3).RequiresCombo("SpinningScythe").GainGauge(Soul, 10).EndsCombo().ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded);
         if (level >= 10)
             b.Gcd("ShadowOfDeath", 300, 24378).ComboNeutral().ForbidStatus(Enshrouded).ApplyStatus(DeathsDesign, 30, extend: true).ForbidStatuses(ReaverStatuses);
         if (level >= 35)
-            b.Gcd("WhorlOfDeath", 0, 24379).Aoe(100, 3).RequiresTargets(3).ComboNeutral().ForbidStatus(Enshrouded).ApplyStatus(DeathsDesign, 30, extend: true).ForbidStatuses(ReaverStatuses);
+            b.Gcd("WhorlOfDeath", 0, 24379).Shape(AoeShape.SelfCircle, 5, 0, 3).Aoe(100, 3).RequiresTargets(3).ComboNeutral().ForbidStatus(Enshrouded).ApplyStatus(DeathsDesign, 30, extend: true).ForbidStatuses(ReaverStatuses);
         if (level >= 60)
             b.Gcd("SoulSlice", m3 ? 520 : 460, 24380).UsesCooldown(SoulSliceCD).RequiresGaugeAtMost(Soul, 50).ComboNeutral().GainGauge(Soul, 50).ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded);
         if (level >= 65)
-            b.Gcd("SoulScythe", 0, 24381).Aoe(180, 3).RequiresTargets(3).UsesCooldown(SoulSliceCD).RequiresGaugeAtMost(Soul, 50).ComboNeutral().GainGauge(Soul, 50).ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded);
+            b.Gcd("SoulScythe", 0, 24381).Shape(AoeShape.SelfCircle, 5, 0, 3).Aoe(180, 3).RequiresTargets(3).UsesCooldown(SoulSliceCD).RequiresGaugeAtMost(Soul, 50).ComboNeutral().GainGauge(Soul, 50).ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded);
         if (level >= 82)
             b.Gcd("HarvestMoon", m3 ? 800 : 600, 24388).ComboNeutral().RequiresStatus(Soulsow).RemoveStatus(Soulsow).GainGauge(Soul, 10).ForbidStatuses(ReaverStatuses).ForbidStatus(Enshrouded)
                 .Gcd("Soulsow", 0, 24387).NoTarget().Cast(5).ComboNeutral().ForbidStatus(Soulsow).ForbidStatuses(ReaverStatuses).ApplyStatus(Soulsow, 3600);
@@ -106,7 +106,7 @@ public static class RprDefinition
                 .RemoveStatus(EnhancedGibbet).ApplyStatus(EnhancedGallows, 60);
             var gallows = b.Gcd("Gallows", 500, 24383).ComboNeutral().ConsumeStacks(SoulReaver).ForbidStatus(EnhancedGibbet).PotencyIfStatus(EnhancedGallows, 560)
                 .RemoveStatus(EnhancedGallows).ApplyStatus(EnhancedGibbet, 60);
-            var guillotine = b.Gcd("Guillotine", 0, 24384).Aoe(200, 4).Cone().RequiresTargets(4).ComboNeutral().ConsumeStacks(SoulReaver);
+            var guillotine = b.Gcd("Guillotine", 0, 24384).Shape(AoeShape.Cone, 8, 90, 8).Aoe(200, 4).RequiresTargets(4).ComboNeutral().ConsumeStacks(SoulReaver);
             if (level >= 80)
             {
                 gibbet.GainGauge(Shroud, 10);
@@ -119,7 +119,7 @@ public static class RprDefinition
                     .RemoveStatus(EnhancedGibbet).ApplyStatus(EnhancedGallows, 60).GainGauge(Shroud, 10)
                 .Gcd("ExecutionersGallows", 700, 36971).ComboNeutral().ConsumeStacks(Executioner).ForbidStatus(EnhancedGibbet).PotencyIfStatus(EnhancedGallows, 760)
                     .RemoveStatus(EnhancedGallows).ApplyStatus(EnhancedGibbet, 60).GainGauge(Shroud, 10)
-                .Gcd("ExecutionersGuillotine", 0, 36972).Aoe(260, 4).Cone().RequiresTargets(4).ComboNeutral().ConsumeStacks(Executioner).GainGauge(Shroud, 10);
+                .Gcd("ExecutionersGuillotine", 0, 36972).Shape(AoeShape.Cone, 8, 90, 8).Aoe(260, 4).RequiresTargets(4).ComboNeutral().ConsumeStacks(Executioner).GainGauge(Shroud, 10);
 
         // --- Enshroud (1.5 s reapings while 2+ Lemure remain; the last one is always Communio, which ends it; Void Shroud from 86) ---
         if (level >= 80)
@@ -128,7 +128,7 @@ public static class RprDefinition
                 .GainGauge(Lemure, -1);
             var cross = b.Gcd("CrossReaping", m3 ? 580 : 500, 24396).Recast(1.5f).ComboNeutral().RequiresStatus(Enshrouded).RequiresGauge(Lemure, reapingLemure).PotencyIfStatus(EnhancedCross, m3 ? 640 : 560)
                 .GainGauge(Lemure, -1);
-            var grim = b.Gcd("GrimReaping", 0, 24397).Aoe(220, 3).Cone().RequiresTargets(3).Recast(1.5f).ComboNeutral().RequiresStatus(Enshrouded).RequiresGauge(Lemure, reapingLemure)
+            var grim = b.Gcd("GrimReaping", 0, 24397).Shape(AoeShape.Cone, 8, 90, 8).Aoe(220, 3).RequiresTargets(3).Recast(1.5f).ComboNeutral().RequiresStatus(Enshrouded).RequiresGauge(Lemure, reapingLemure)
                 .GainGauge(Lemure, -1);
             if (level >= 86)
             {
@@ -150,7 +150,7 @@ public static class RprDefinition
             b.Gcd("Perfectio", 1300, 36973).ComboNeutral().ConsumeStacks(PerfectioParata).ForbidStatuses(ReaverStatuses);
         if (level >= 88)
         {
-            var harvest = b.Gcd("PlentifulHarvest", 1000, 24385).ComboNeutral().RequiresStatus(ImmortalSacrifice).ForbidStatuses(Bloodsown, SoulReaver, Executioner, Enshrouded)
+            var harvest = b.Gcd("PlentifulHarvest", 1000, 24385).Shape(AoeShape.Line, 15, 2, 15).ComboNeutral().RequiresStatus(ImmortalSacrifice).ForbidStatuses(Bloodsown, SoulReaver, Executioner, Enshrouded)
                 .RemoveStatus(ImmortalSacrifice).ApplyStatus(IdealHost, 30);
             if (level >= 100)
                 harvest.ApplyStatus(PerfectioOcculta, 30);
@@ -173,7 +173,7 @@ public static class RprDefinition
         }
         if (level >= 55)
         {
-            var swathe = b.Ogcd("GrimSwathe", 0, actionId: 24392).RequiresStatusLeft(DeathsDesign, 3.5f).Aoe(140, 3).Cone().RequiresTargets(3).SpendGauge(Soul, 50).ForbidStatuses(Enshrouded, SoulReaver, Executioner, EnshroudEnding);
+            var swathe = b.Ogcd("GrimSwathe", 0, actionId: 24392).Shape(AoeShape.Cone, 8, 90, 8).RequiresStatusLeft(DeathsDesign, 3.5f).Aoe(140, 3).RequiresTargets(3).SpendGauge(Soul, 50).ForbidStatuses(Enshrouded, SoulReaver, Executioner, EnshroudEnding);
             if (level >= 70)
                 swathe.ApplyStatus(SoulReaver, 30);
         }
@@ -197,9 +197,9 @@ public static class RprDefinition
         }
         if (level >= 86)
             b.Ogcd("LemuresSlice", 280, actionId: 24399).RequiresStatus(Enshrouded).SpendGauge(Void, 2)
-                .Ogcd("LemuresScythe", 0, actionId: 24400).Aoe(100, 3).Cone().RequiresTargets(3).RequiresStatus(Enshrouded).SpendGauge(Void, 2);
+                .Ogcd("LemuresScythe", 0, actionId: 24400).Shape(AoeShape.Cone, 8, 90, 8).Aoe(100, 3).RequiresTargets(3).RequiresStatus(Enshrouded).SpendGauge(Void, 2);
         if (level >= 92)
-            b.Ogcd("Sacrificium", 700, actionId: 36969).ConsumeStacks(Oblatio);
+            b.Ogcd("Sacrificium", 700, actionId: 36969).Shape(AoeShape.TargetCircle, 5, 0, 25).ConsumeStacks(Oblatio);
         return b.Build();
     }
 

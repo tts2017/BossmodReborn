@@ -46,9 +46,9 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
     {
         var aoe = strategy.Option(AkechiGNB.Track.AOE).As<AkechiGNB.AOEStrategy>();
         if (aoe is AkechiGNB.AOEStrategy.ForceSTFinishWithOvercap or AkechiGNB.AOEStrategy.ForceSTFinishWithoutOvercap or AkechiGNB.AOEStrategy.ForceSTBreakWithOvercap or AkechiGNB.AOEStrategy.ForceSTBreakWithoutOvercap)
-            s.Targets = 1;
+            ApplyAoe(ref s, AoeSetting.SingleTarget);
         else if (aoe is AkechiGNB.AOEStrategy.ForceAOEFinishWithOvercap or AkechiGNB.AOEStrategy.ForceAOEFinishWithoutOvercap or AkechiGNB.AOEStrategy.ForceAOEBreakWithOvercap or AkechiGNB.AOEStrategy.ForceAOEBreakWithoutOvercap)
-            ForceAoeTargets(ref s);
+            ApplyAoe(ref s, AoeSetting.ForceAoe);
         var ammo = s.Gauges[Job.GaugeIndex(GnbDefinition.Ammo)];
         var maxAmmo = Job.Gauges[Job.GaugeIndex(GnbDefinition.Ammo)].Max / 2; // the cartridge cap (2 below 88; the gauge doubles it for Bloodfest)
         // Fated Circle is learned at 72: below it the Fated Circle options fall back to Burst Strike (as the Akechi module)
@@ -247,7 +247,7 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
     }
 
     // counted like the Akechi module (hitbox to hitbox), which is also how the AoE lands
-    protected override byte CountTargets(Actor? primaryTarget) => CountTargetsByHitbox(5);
+    protected override byte CountTargets(Actor? primaryTarget) => (byte)Math.Max(1, Hints.NumPriorityTargetsInAOECircle(Player.Position, 5));
 
     // Level sync (below 100): The Balance GNB Leveling Guide's per-band priorities (docs/rebuild/engine-design.md section 20)
     // the 2-minute burst anchor the assumed raid-buff cycle follows on a pull without a countdown (EngineRotationModule.AssumedCycleStart)
@@ -288,10 +288,10 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
         var cap = Job.Gauges[Job.GaugeIndex(GnbDefinition.Ammo)].Max / 2;
         var bloodfest = StatusLeft(s, GnbDefinition.Bloodfest) > 0;
         var nm = StatusLeft(s, GnbDefinition.NoMercy);
-        var aoe = s.Targets >= (Job.HasSkill("DemonSlaughter") ? 2 : 3);
+        var aoe = ShapeTargets(s, "DemonSlice") >= (Job.HasSkill("DemonSlaughter") ? 2 : 3);
         // Gnashing Fang stops at 4 targets (3 from 94); Double Down at any count
-        var fangOk = s.Targets < (Player.Level >= 94 ? 3 : 4);
-        var spender = Job.HasSkill("FatedCircle") && s.Targets >= 2 ? "FatedCircle" : "BurstStrike";
+        var fangOk = ShapeTargets(s, "DemonSlice") < (Player.Level >= 94 ? 3 : 4);
+        var spender = Job.HasSkill("FatedCircle") && ShapeTargets(s, "FatedCircle") >= 2 ? "FatedCircle" : "BurstStrike";
 
         // the Gnashing Fang combo is never broken
         if (FirstLegal(s, tl, "SavageClaw", "WickedTalon") is var chain and >= 0)

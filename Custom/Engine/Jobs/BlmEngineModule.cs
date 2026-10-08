@@ -97,7 +97,7 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
                     Forbid(ref s, sk);
                 break;
             case XanBLM.ThunderStrategy.Force:
-                if (s.Targets >= 3)
+                if (ShapeTargets(s, "HighThunder2") >= 3)
                     Force("HighThunder2");
                 Force("HighThunder");
                 break;
@@ -188,7 +188,7 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
         var fire = Gauge(s, BlmDefinition.AstralFire);
         var ice = Gauge(s, BlmDefinition.UmbralIce);
         var mp = Gauge(s, BlmDefinition.MP);
-        var aoe = s.Targets >= 3;
+        var aoe = ShapeTargets(s, "HighFire2") >= 3;
         // the swaps, Manafont and the movement instant casts decide the next GCD: they go first when there is no weave window left
         SyncedOgcdFirst = true;
         // nothing to attack: out of Astral Fire (Umbral Soul keeps the ice phase going)
@@ -232,7 +232,7 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
 
     // an instant GCD worth casting: Polyglot, Paradox, Firestarter, Thunder
     private int InstantGcd(in EngineState s, in EngineTimeline tl)
-        => FirstLegal(s, tl, s.Targets >= 3 ? "Foul" : "Xenoglossy", "Xenoglossy", "Foul", "Paradox", "ParadoxIce", "Fire3Proc", s.Targets >= 3 ? "HighThunder2" : "HighThunder", "HighThunder");
+        => FirstLegal(s, tl, ShapeTargets(s, "Foul") >= 3 ? "Foul" : "Xenoglossy", "Xenoglossy", "Foul", "Paradox", "ParadoxIce", "Fire3Proc", ShapeTargets(s, "HighThunder2") >= 3 ? "HighThunder2" : "HighThunder", "HighThunder");
 
     protected override int SyncedGcd(in EngineState s, in EngineTimeline tl)
     {
@@ -240,7 +240,7 @@ public sealed class BlmEngineModule(RotationModuleManager manager, Actor player)
         var ice = Gauge(s, BlmDefinition.UmbralIce);
         var mp = Gauge(s, BlmDefinition.MP);
         var hearts = Gauge(s, BlmDefinition.Hearts);
-        var aoe = s.Targets >= 3;
+        var aoe = ShapeTargets(s, "HighFire2") >= 3;
         var polyglot = Gauge(s, BlmDefinition.Polyglot);
         var spender = aoe || !Job.HasSkill("Xenoglossy") ? "Foul" : "Xenoglossy";
 

@@ -86,14 +86,14 @@ public static class NinDefinition
             b.Gcd("ArmorCrush", l94 ? 300 : l74 ? 200 : 160, AidArmorCrush).Weaponskill().ComboFrom("GustSlash", l94 ? 500 : l74 ? 400 : 360).EndsCombo()
                 .IfCombo("GustSlash").GainGauge(Ninki, finisherNinki).IfCombo("GustSlash").GainGauge(Kazematoi, 2).SetGauge(Raiju, 0);
         if (level >= 38)
-            b.Gcd("DeathBlossom", 100, AidDeathBlossom).Weaponskill().AoeFalloff(100).StartsCombo().GainGauge(Ninki, shukiho).SetGauge(Raiju, 0);
+            b.Gcd("DeathBlossom", 100, AidDeathBlossom).Shape(AoeShape.SelfCircle, 5, 0, 3).Weaponskill().AoeFalloff(100).StartsCombo().GainGauge(Ninki, shukiho).SetGauge(Raiju, 0);
         if (level >= 52)
-            b.Gcd("HakkeMujinsatsu", 100, AidHakke).Weaponskill().AoeFalloff(100).ComboFrom("DeathBlossom", 120).EndsCombo()
+            b.Gcd("HakkeMujinsatsu", 100, AidHakke).Shape(AoeShape.SelfCircle, 5, 0, 3).Weaponskill().AoeFalloff(100).ComboFrom("DeathBlossom", 120).EndsCombo()
                 .IfCombo("DeathBlossom").GainGauge(Ninki, shukiho).SetGauge(Raiju, 0);
         if (raiju)
             b.Gcd("ForkedRaiju", l94 ? 700 : 560, AidForkedRaiju).Weaponskill().ComboNeutral().ForbidStatus(Kassatsu).SpendGauge(Raiju, 1).GainGauge(Ninki, 5);
         if (level >= 82)
-            b.Gcd("PhantomKamaitachi", 700, AidPhantomKamaitachi).ComboNeutral().ForbidStatus(Kassatsu).RequiresStatus(PhantomReady).RemoveStatus(PhantomReady).GainGauge(Ninki, 10);
+            b.Gcd("PhantomKamaitachi", 700, AidPhantomKamaitachi).Shape(AoeShape.TargetCircle, 5, 0, 20).ComboNeutral().ForbidStatus(Kassatsu).RequiresStatus(PhantomReady).RemoveStatus(PhantomReady).GainGauge(Ninki, 10);
 
         // ---- ninjutsu (whole mudra sequences) ----
         var raiton = l94 ? 740 : 650;
@@ -106,18 +106,18 @@ public static class NinDefinition
         if (level >= 45)
             Ninjutsu(b.Gcd("Suiton", l94 ? 580 : 500, AidSuiton), 3).UsesCooldown(MudraCD).ForbidStatus(Kassatsu).ApplyStatus(ShadowWalker, 20);
         if (level >= 35)
-            Ninjutsu(b.Gcd("Katon", 350, AidKaton).AoeFalloff(350), 2).UsesCooldown(MudraCD).ForbidStatus(Kassatsu);
+            Ninjutsu(b.Gcd("Katon", 350, AidKaton).Shape(AoeShape.TargetCircle, 5, 0, 20).AoeFalloff(350), 2).UsesCooldown(MudraCD).ForbidStatus(Kassatsu);
         if (level >= 76)
         {
             var hyosho = Ninjutsu(b.Gcd("HyoshoRanryu", 1300 * 1.3f, AidHyosho), 2).RequiresStatus(Kassatsu).RemoveStatus(Kassatsu);
             if (level >= 100)
                 hyosho.RequiresStatus(KunaisBane); // the Kassatsu ninjutsu inside Kunai's Bane (every minute, as the 7.5 guide; see Ten Chi Jin below)
-            Ninjutsu(b.Gcd("GokaMekkyaku", 850 * 1.3f, AidGoka).AoeFalloff(850 * 1.3f), 2).RequiresStatus(Kassatsu).RemoveStatus(Kassatsu);
+            Ninjutsu(b.Gcd("GokaMekkyaku", 850 * 1.3f, AidGoka).Shape(AoeShape.TargetCircle, 5, 0, 20).AoeFalloff(850 * 1.3f), 2).RequiresStatus(Kassatsu).RemoveStatus(Kassatsu);
         }
         else if (level >= 50)
         {
             Ninjutsu(b.Gcd("KassatsuRaiton", 650 * 1.3f, AidRaiton), 2).RequiresStatus(Kassatsu).RemoveStatus(Kassatsu);
-            Ninjutsu(b.Gcd("KassatsuKaton", 350 * 1.3f, AidKaton).AoeFalloff(350 * 1.3f), 2).RequiresStatus(Kassatsu).RemoveStatus(Kassatsu);
+            Ninjutsu(b.Gcd("KassatsuKaton", 350 * 1.3f, AidKaton).Shape(AoeShape.TargetCircle, 5, 0, 20).AoeFalloff(350 * 1.3f), 2).RequiresStatus(Kassatsu).RemoveStatus(Kassatsu);
         }
         // Ten Chi Jin: Fuma (1.0 s) -> Raiton (1.0 s) -> Suiton (1.5 s)
         if (level >= 70)
@@ -186,9 +186,9 @@ public static class NinDefinition
         if (level >= 96)
             b.Ogcd("ZeshoMeppo", 700, null, AidZesho).RequiresStatus(Higi).SpendGauge(Ninki, 50).PotencyIfStatus(Meisui, 850).RemoveStatus(Higi).RemoveStatus(Meisui);
         if (level >= 62)
-            b.Ogcd("HellfrogMedium", 250, null, AidHellfrog).AoeFalloff(250).ForbidStatus(Higi).SpendGauge(Ninki, 50);
+            b.Ogcd("HellfrogMedium", 250, null, AidHellfrog).Shape(AoeShape.TargetCircle, 5, 0, 25).AoeFalloff(250).ForbidStatus(Higi).SpendGauge(Ninki, 50);
         if (level >= 96)
-            b.Ogcd("DeathfrogMedium", 400, null, AidDeathfrog).AoeFalloff(400).RequiresStatus(Higi).SpendGauge(Ninki, 50).RemoveStatus(Higi);
+            b.Ogcd("DeathfrogMedium", 400, null, AidDeathfrog).Shape(AoeShape.TargetCircle, 5, 0, 25).AoeFalloff(400).RequiresStatus(Higi).SpendGauge(Ninki, 50).RemoveStatus(Higi);
         if (level >= 100)
             b.Ogcd("TenriJindo", 1100, null, AidTenriJindo).RequiresStatus(TenriReady).RemoveStatus(TenriReady);
         return b.Build();

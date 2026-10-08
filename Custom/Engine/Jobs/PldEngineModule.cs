@@ -48,9 +48,9 @@ public sealed class PldEngineModule(RotationModuleManager manager, Actor player)
     {
         var aoe = strategy.Option(AkechiPLD.Track.AOE).As<AkechiPLD.AOEStrategy>();
         if (aoe is AkechiPLD.AOEStrategy.ForceSTFinish or AkechiPLD.AOEStrategy.ForceSTBreak)
-            s.Targets = 1;
+            ApplyAoe(ref s, AoeSetting.SingleTarget);
         else if (aoe is AkechiPLD.AOEStrategy.ForceAOEFinish or AkechiPLD.AOEStrategy.ForceAOEBreak)
-            ForceAoeTargets(ref s);
+            ApplyAoe(ref s, AoeSetting.ForceAoe);
 
         var hold = strategy.Option(Akechi.SharedTrack.Hold).As<Akechi.HoldStrategy>();
         if (hold == Akechi.HoldStrategy.HoldEverything)
@@ -281,7 +281,7 @@ public sealed class PldEngineModule(RotationModuleManager manager, Actor player)
     protected override int SyncedGcd(in EngineState s, in EngineTimeline tl)
     {
         var fof = StatusLeft(s, PldDefinition.FightOrFlight) > 0;
-        var aoe = s.Targets >= 3;
+        var aoe = ShapeTargets(s, "TotalEclipse") >= 3;
         // a downtime forecast within 4 GCDs: Goring Blade first so it is not lost
         if (tl.OverlapsDowntime(s.Time, s.Time + 4 * Job.BaseGcd) && Legal(s, tl, "GoringBlade") is var goringFirst and >= 0)
             return goringFirst;

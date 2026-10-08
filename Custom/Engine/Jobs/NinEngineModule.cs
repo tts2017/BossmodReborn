@@ -102,8 +102,10 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
         {
             var seq = NinDefinition.MudraSequence(_sequence, false);
             var done = (mudra.Stacks & 3) == 0 ? 0 : ((mudra.Stacks >> 2) & 3) == 0 ? 1 : ((mudra.Stacks >> 4) & 3) == 0 ? 2 : 3;
-            var aid = done < seq.Length ? seq[done] : Job.Skills[Job.SkillIndex(_sequence)].ActionId;
-            Hints.ActionsToExecute.Push(ActionID.MakeSpell((AID)aid), done < seq.Length ? Player : primaryTarget, ActionQueue.Priority.High + 2);
+            var ninjutsu = Job.Skills[Job.SkillIndex(_sequence)];
+            var aid = done < seq.Length ? seq[done] : ninjutsu.ActionId;
+            // the mudras are self-targeted; the ninjutsu itself goes to its shape's best target (Katon / Goka Mekkyaku), else the player's target
+            Hints.ActionsToExecute.Push(ActionID.MakeSpell((AID)aid), done < seq.Length ? Player : base.TargetFor(ninjutsu, primaryTarget), ActionQueue.Priority.High + 2);
             return;
         }
         // the first mudra went off but its status is not visible yet: wait instead of re-planning (a different ninjutsu would not match it)
@@ -202,13 +204,13 @@ public sealed class NinEngineModule(RotationModuleManager manager, Actor player)
         var dokumoriSoon = Job.HasSkill("Dokumori") && !Disabled(s, "Dokumori") && ReadyIn(s, NinDefinition.DokumoriCD) <= Job.BaseGcd && ninki > 60;
         var spend = ninki >= 90 || dokumoriSoon || trick && !(bunshinSoon && ninki < 100);
         if (spend && (!bunshinSoon || ninki >= 90))
-            return FirstLegal(s, tl, s.Targets >= 3 || !Job.HasSkill("Bhavacakra") ? "HellfrogMedium" : "Bhavacakra", "Bhavacakra", "HellfrogMedium");
+            return FirstLegal(s, tl, ShapeTargets(s, "HellfrogMedium") >= 3 || !Job.HasSkill("Bhavacakra") ? "HellfrogMedium" : "Bhavacakra", "Bhavacakra", "HellfrogMedium");
         return -1;
     }
 
     protected override int SyncedGcd(in EngineState s, in EngineTimeline tl)
     {
-        var aoe = s.Targets >= 3;
+        var aoe = ShapeTargets(s, "DeathBlossom") >= 3;
         var trick = StatusLeft(s, NinDefinition.KunaisBane) > 0;
         var mudra = Job.CooldownIndex(NinDefinition.MudraCD);
         if (Legal(s, tl, "TCJCombo") is var tcj and >= 0)

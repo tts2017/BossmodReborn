@@ -130,18 +130,18 @@ public static class DrgDefinition
         // ---- AoE combo (10y line: every target takes the full potency) ----
         if (level >= 40)
         {
-            var doom = Ws(b.Gcd("DoomSpike", 110, AidDoomSpike).AoeFalloff(110).StartsCombo());
+            var doom = Ws(b.Gcd("DoomSpike", 110, AidDoomSpike).Shape(AoeShape.Line, 10, 2, 10).AoeFalloff(110).StartsCombo());
             if (level >= 82)
             {
                 doom.ForbidStatus(DraconianFire);
-                var fury = Ws(b.Gcd("DraconianFury", 130, AidDraconianFury).AoeFalloff(130).StartsCombo().RequiresStatus(DraconianFire).RemoveStatus(DraconianFire));
+                var fury = Ws(b.Gcd("DraconianFury", 130, AidDraconianFury).Shape(AoeShape.Line, 10, 2, 10).AoeFalloff(130).StartsCombo().RequiresStatus(DraconianFire).RemoveStatus(DraconianFire));
                 if (level >= 90)
                     fury.GainGauge(Focus, 1);
             }
         }
         if (level >= 62)
         {
-            var sonic = Ws(b.Gcd("SonicThrust", 100, AidSonicThrust).AoeFalloff(100).ComboFrom("DoomSpike", 120).IfCombo("DoomSpike").ApplyStatus(PowerSurge, 30));
+            var sonic = Ws(b.Gcd("SonicThrust", 100, AidSonicThrust).Shape(AoeShape.Line, 10, 2, 10).AoeFalloff(100).ComboFrom("DoomSpike", 120).IfCombo("DoomSpike").ApplyStatus(PowerSurge, 30));
             if (level >= 82)
                 sonic.ComboFrom("DraconianFury", 120).IfCombo("DraconianFury").ApplyStatus(PowerSurge, 30);
             if (level < 72)
@@ -149,7 +149,7 @@ public static class DrgDefinition
         }
         if (level >= 72)
         {
-            var torment = Ws(b.Gcd("CoerthanTorment", 150, AidCoerthanTorment).AoeFalloff(150).PotencyIfStatus(LifeSurge, 150 * LifeSurgeRatio).RequiresCombo("SonicThrust"));
+            var torment = Ws(b.Gcd("CoerthanTorment", 150, AidCoerthanTorment).Shape(AoeShape.Line, 10, 2, 10).AoeFalloff(150).PotencyIfStatus(LifeSurge, 150 * LifeSurgeRatio).RequiresCombo("SonicThrust"));
             torment.EndsCombo();
             if (level >= 82)
                 torment.ApplyStatus(DraconianFire, 30);
@@ -185,32 +185,32 @@ public static class DrgDefinition
         if (level >= 60)
         {
             // Life of the Dragon (70; Blood of the Dragon's x1.10 before it) and Nastrond Ready
-            var geirskogul = b.Ogcd("Geirskogul", level >= 90 ? 280 : 200, GeirskogulCD, AidGeirskogul).AoeFalloff((level >= 90 ? 280 : 200) * 0.5f)
+            var geirskogul = b.Ogcd("Geirskogul", level >= 90 ? 280 : 200, GeirskogulCD, AidGeirskogul).Shape(AoeShape.Line, 15, 2, 15).AoeFalloff((level >= 90 ? 280 : 200) * 0.5f)
                 .ApplyStatus(LifeOfTheDragon, 20);
             if (level >= 70)
                 geirskogul.ApplyStatus(NastrondReady, 20);
         }
         if (level >= 70)
-            b.Ogcd("Nastrond", level >= 90 ? 720 : 600, actionId: AidNastrond).AoeFalloff((level >= 90 ? 720 : 600) * 0.5f).RequiresStatus(NastrondReady).RemoveStatus(NastrondReady);
+            b.Ogcd("Nastrond", level >= 90 ? 720 : 600, actionId: AidNastrond).Shape(AoeShape.Line, 15, 2, 15).AoeFalloff((level >= 90 ? 720 : 600) * 0.5f).RequiresStatus(NastrondReady).RemoveStatus(NastrondReady);
         if (level >= 50)
         {
-            var dive = b.Ogcd("DragonfireDive", 500, DragonfireCD, AidDragonfireDive).AoeFalloff(250).Lock(0.8f);
+            var dive = b.Ogcd("DragonfireDive", 500, DragonfireCD, AidDragonfireDive).Shape(AoeShape.TargetCircle, 5, 0, 20).AoeFalloff(250).Lock(0.8f);
             if (level >= 92)
                 dive.ApplyStatus(DragonsFlight, 30);
         }
         if (level >= 92)
-            b.Ogcd("RiseOfTheDragon", 550, actionId: AidRiseOfTheDragon).AoeFalloff(275).RequiresStatus(DragonsFlight).RemoveStatus(DragonsFlight);
+            b.Ogcd("RiseOfTheDragon", 550, actionId: AidRiseOfTheDragon).Shape(AoeShape.TargetCircle, 5, 0, 20).AoeFalloff(275).RequiresStatus(DragonsFlight).RemoveStatus(DragonsFlight);
         if (level >= 80)
         {
             // 1.5 s lock: alone in its weave slot (the search counts the slot by lock time)
-            var stardiver = b.Ogcd("Stardiver", l94 ? 840 : 720, StardiverCD, AidStardiver).AoeFalloff((l94 ? 840 : 720) * 0.6f).Lock(1.5f).RequiresStatus(LifeOfTheDragon);
+            var stardiver = b.Ogcd("Stardiver", l94 ? 840 : 720, StardiverCD, AidStardiver).Shape(AoeShape.TargetCircle, 5, 0, 20).AoeFalloff((l94 ? 840 : 720) * 0.6f).Lock(1.5f).RequiresStatus(LifeOfTheDragon);
             if (level >= 100)
                 stardiver.ApplyStatus(StarcrossReady, 20);
         }
         if (level >= 100)
-            b.Ogcd("Starcross", 1000, actionId: AidStarcross).AoeFalloff(600).RequiresStatus(StarcrossReady).RequiresStatus(LifeOfTheDragon).RemoveStatus(StarcrossReady);
+            b.Ogcd("Starcross", 1000, actionId: AidStarcross).Shape(AoeShape.TargetCircle, 5, 0, 20).AoeFalloff(600).RequiresStatus(StarcrossReady).RequiresStatus(LifeOfTheDragon).RemoveStatus(StarcrossReady);
         if (level >= 90)
-            b.Ogcd("WyrmwindThrust", l94 ? 440 : 420, WyrmwindCD, AidWyrmwindThrust).AoeFalloff((l94 ? 440 : 420) * 0.5f).SpendGauge(Focus, 2);
+            b.Ogcd("WyrmwindThrust", l94 ? 440 : 420, WyrmwindCD, AidWyrmwindThrust).Shape(AoeShape.Line, 15, 2, 15).AoeFalloff((l94 ? 440 : 420) * 0.5f).SpendGauge(Focus, 2);
         return b.Build();
     }
 

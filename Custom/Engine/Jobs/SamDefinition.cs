@@ -70,9 +70,9 @@ public static class SamDefinition
             Step(b, "Yukikaze", AidYukikaze, l94 ? 160 : l84 ? 110 : 100, l94 ? 340 : l84 ? 290 : 280, "Gyofu", ComboMode.End, Kenki62(15, 10), Setsu, null, null, 0, meikyo);
         // Fuko (86) replaces Fuga (a cone)
         if (level >= 86)
-            b.Gcd("Fuko", 100, AidFuko).AoeFalloff(100).StartsCombo().GainGauge(Kenki, 10);
+            b.Gcd("Fuko", 100, AidFuko).Shape(AoeShape.SelfCircle, 5, 0, 3).AoeFalloff(100).StartsCombo().GainGauge(Kenki, 10);
         else if (level >= 26)
-            b.Gcd("Fuko", 90, AidFuga).Cone().AoeFalloff(90).StartsCombo().GainGauge(Kenki, level >= 62 ? 5 : 0);
+            b.Gcd("Fuko", 90, AidFuga).Shape(AoeShape.Cone, 8, 60, 8).AoeFalloff(90).StartsCombo().GainGauge(Kenki, level >= 62 ? 5 : 0);
         if (level >= 35)
             Step(b, "Mangetsu", AidMangetsu, 100, 120, "Fuko", ComboMode.End, Kenki62(10, 5), Getsu, Fugetsu, Fugetsu, 100, meikyo);
         if (level >= 45)
@@ -83,7 +83,7 @@ public static class SamDefinition
             Iai(b.Gcd("Higanbana", 200, AidHiganbana).Cast(cast).Dot(Higanbana, 60, l94 ? 50 : 45), 1, meditation);
         if (level >= 40)
         {
-            var tenka = b.Gcd("TenkaGoken", 300, AidTenkaGoken).Cast(cast).AoeFalloff(300).ForbidStatus(Tendo);
+            var tenka = b.Gcd("TenkaGoken", 300, AidTenkaGoken).Shape(AoeShape.SelfCircle, 8, 0, 8).Cast(cast).AoeFalloff(300).ForbidStatus(Tendo);
             if (kaeshi)
                 tenka.ApplyStatus(KaeshiGoken, 30);
             Iai(tenka, 2, meditation);
@@ -97,24 +97,24 @@ public static class SamDefinition
         }
         if (level >= 100)
         {
-            Iai(b.Gcd("TendoGoken", 410, AidTendoGoken).Cast(cast).AoeFalloff(410).RequiresStatus(Tendo).RemoveStatus(Tendo).ApplyStatus(TendoKaeshiGoken, 30), 2, meditation);
+            Iai(b.Gcd("TendoGoken", 410, AidTendoGoken).Shape(AoeShape.SelfCircle, 8, 0, 8).Cast(cast).AoeFalloff(410).RequiresStatus(Tendo).RemoveStatus(Tendo).ApplyStatus(TendoKaeshiGoken, 30), 2, meditation);
             Iai(b.Gcd("TendoSetsugekka", 1100 * Crit, AidTendoSetsugekka).Cast(cast).RequiresStatus(Tendo).RemoveStatus(Tendo).ApplyStatus(TendoKaeshiSetsugekka, 30), 3, meditation);
         }
         if (kaeshi)
         {
-            b.Gcd("KaeshiGoken", 300, AidKaeshiGoken).ComboNeutral().AoeFalloff(300).RequiresStatus(KaeshiGoken).RemoveStatus(KaeshiGoken);
+            b.Gcd("KaeshiGoken", 300, AidKaeshiGoken).Shape(AoeShape.SelfCircle, 8, 0, 8).ComboNeutral().AoeFalloff(300).RequiresStatus(KaeshiGoken).RemoveStatus(KaeshiGoken);
             b.Gcd("KaeshiSetsugekka", l94 ? 680 * Crit : 620 * Crit, AidKaeshiSetsugekka).ComboNeutral().RequiresStatus(KaeshiSetsugekka).RemoveStatus(KaeshiSetsugekka);
         }
         if (level >= 100)
         {
-            b.Gcd("TendoKaeshiGoken", 410, AidTendoKaeshiGoken).ComboNeutral().AoeFalloff(410).RequiresStatus(TendoKaeshiGoken).RemoveStatus(TendoKaeshiGoken);
+            b.Gcd("TendoKaeshiGoken", 410, AidTendoKaeshiGoken).Shape(AoeShape.SelfCircle, 8, 0, 8).ComboNeutral().AoeFalloff(410).RequiresStatus(TendoKaeshiGoken).RemoveStatus(TendoKaeshiGoken);
             b.Gcd("TendoKaeshiSetsugekka", 1100 * Crit, AidTendoKaeshiSetsugekka).ComboNeutral().RequiresStatus(TendoKaeshiSetsugekka).RemoveStatus(TendoKaeshiSetsugekka);
         }
         if (level >= 90)
         {
-            b.Gcd("OgiNamikiri", l94 ? 1000 * Crit : 860 * Crit, AidOgiNamikiri).Cast(cast).ComboNeutral().Cone().AoeFalloff(l94 ? 600 * Crit : 516 * Crit).RequiresStatus(OgiReady).RemoveStatus(OgiReady)
+            b.Gcd("OgiNamikiri", l94 ? 1000 * Crit : 860 * Crit, AidOgiNamikiri).Shape(AoeShape.Cone, 8, 60, 8).Cast(cast).ComboNeutral().AoeFalloff(l94 ? 600 * Crit : 516 * Crit).RequiresStatus(OgiReady).RemoveStatus(OgiReady)
                 .ApplyStatus(NamikiriReady, 30).GainGauge(Meditation, 1);
-            b.Gcd("KaeshiNamikiri", l94 ? 1000 * Crit : 860 * Crit, AidKaeshiNamikiri).ComboNeutral().Cone().AoeFalloff(l94 ? 600 * Crit : 516 * Crit).RequiresStatus(NamikiriReady).RemoveStatus(NamikiriReady);
+            b.Gcd("KaeshiNamikiri", l94 ? 1000 * Crit : 860 * Crit, AidKaeshiNamikiri).Shape(AoeShape.Cone, 8, 60, 8).ComboNeutral().AoeFalloff(l94 ? 600 * Crit : 516 * Crit).RequiresStatus(NamikiriReady).RemoveStatus(NamikiriReady);
         }
 
         // ---- abilities ----
@@ -135,17 +135,17 @@ public static class SamDefinition
                 ikishoten.ApplyStatus(ZanshinReady, 30);
         }
         if (level >= 96)
-            b.Ogcd("Zanshin", 940, null, AidZanshin).Cone().AoeFalloff(940 * 0.6f).RequiresStatus(ZanshinReady).RemoveStatus(ZanshinReady).SpendGauge(Kenki, 50);
+            b.Ogcd("Zanshin", 940, null, AidZanshin).Shape(AoeShape.Cone, 8, 60, 8).AoeFalloff(940 * 0.6f).RequiresStatus(ZanshinReady).RemoveStatus(ZanshinReady).SpendGauge(Kenki, 50);
         if (level >= 72)
             b.Ogcd("HissatsuSenei", 800, SeneiCD, AidSenei).SpendGauge(Kenki, 25);
         if (level >= 70)
-            b.Ogcd("HissatsuGuren", 400, SeneiCD, AidGuren).AoeFalloff(400).SpendGauge(Kenki, 25);
+            b.Ogcd("HissatsuGuren", 400, SeneiCD, AidGuren).Shape(AoeShape.Line, 10, 4, 10).AoeFalloff(400).SpendGauge(Kenki, 25);
         if (level >= 52)
             b.Ogcd("HissatsuShinten", 250, null, AidShinten).SpendGauge(Kenki, 25);
         if (level >= 62)
-            b.Ogcd("HissatsuKyuten", 100, null, AidKyuten).AoeFalloff(100).SpendGauge(Kenki, 25);
+            b.Ogcd("HissatsuKyuten", 100, null, AidKyuten).Shape(AoeShape.SelfCircle, 5, 0, 5).AoeFalloff(100).SpendGauge(Kenki, 25);
         if (meditation)
-            b.Ogcd("Shoha", l94 ? 640 : 560, ShohaCD, AidShoha).AoeFalloff(l94 ? 640 * 0.6f : 560 * 0.6f).SpendGauge(Meditation, 3);
+            b.Ogcd("Shoha", l94 ? 640 : 560, ShohaCD, AidShoha).Shape(AoeShape.Line, 10, 4, 10).AoeFalloff(l94 ? 640 * 0.6f : 560 * 0.6f).SpendGauge(Meditation, 3);
         return b.Build();
     }
 
@@ -157,7 +157,7 @@ public static class SamDefinition
         if (mode == ComboMode.End)
             s.EndsCombo();
         if (aoe > 0)
-            s.AoeFalloff(aoe);
+            s.AoeFalloff(aoe).Shape(AoeShape.SelfCircle, 5, 0, 3);
         s.IfCombo(from).GainGauge(Kenki, kenki);
         if (sen != null)
             s.IfCombo(from).IfGaugeAtMost(sen, 0).GainGauge(SenCount, 1).IfCombo(from).SetGauge(sen, 1);
@@ -168,7 +168,7 @@ public static class SamDefinition
 
         var m = b.Gcd(name + "Meikyo", comboPotency, aid).EndsCombo().RequiresStatus(Meikyo).UseStack(Meikyo).GainGauge(Kenki, kenki);
         if (aoe > 0)
-            m.AoeFalloff(aoe * comboPotency / potency);
+            m.AoeFalloff(aoe * comboPotency / potency).Shape(AoeShape.SelfCircle, 5, 0, 3);
         if (sen != null)
             m.IfGaugeAtMost(sen, 0).GainGauge(SenCount, 1).SetGauge(sen, 1);
         if (buff != null)

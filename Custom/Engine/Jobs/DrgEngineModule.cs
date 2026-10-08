@@ -223,7 +223,7 @@ public sealed class DrgEngineModule(RotationModuleManager manager, Actor player)
 
     protected override int SyncedGcd(in EngineState s, in EngineTimeline tl)
     {
-        var aoe = s.Targets >= 3 && Job.HasSkill("DoomSpike") && !Disabled(s, "DoomSpike");
+        var aoe = ShapeTargets(s, "DoomSpike") >= 3 && Job.HasSkill("DoomSpike") && !Disabled(s, "DoomSpike");
         if (aoe)
         {
             // Doom Spike / Draconian Fury -> Sonic Thrust -> Coerthan Torment; below Sonic Thrust (62) Power Surge still comes from Disembowel

@@ -123,7 +123,7 @@ public static class VprDefinition
         }
         if (level >= 70)
         {
-            var pit = Ws(b.Gcd("Vicepit", 250, AidVicepit).AoeFalloff(250).UsesCooldown(ViceCD).ComboNeutral().ForbidStatus(Reawakened).ForbidStatuses(CoilChain)
+            var pit = Ws(b.Gcd("Vicepit", 250, AidVicepit).Shape(AoeShape.SelfCircle, 5, 0, 3).AoeFalloff(250).UsesCooldown(ViceCD).ComboNeutral().ForbidStatus(Reawakened).ForbidStatuses(CoilChain)
                 .ApplyStatus(HunterDenOk, 60).ApplyStatus(SwiftDenOk, 60));
             if (coilMax > 0)
                 pit.GainGauge(Coil, 1);
@@ -134,7 +134,7 @@ public static class VprDefinition
         // ---- Uncoiled Fury (ranged, 3.5 s; its twins from 92) ----
         if (level >= 82)
         {
-            var fury = Ws(b.Gcd("UncoiledFury", 680, AidUncoiledFury).AoeFalloff(170).Recast(Recast(3.5f)).ComboNeutral().ForbidStatuses(CoilChain).ForbidStatus(Reawakened).SpendGauge(Coil, 1));
+            var fury = Ws(b.Gcd("UncoiledFury", 680, AidUncoiledFury).Shape(AoeShape.TargetCircle, 5, 0, 20).AoeFalloff(170).Recast(Recast(3.5f)).ComboNeutral().ForbidStatuses(CoilChain).ForbidStatus(Reawakened).SpendGauge(Coil, 1));
             if (level >= 92)
                 fury.ApplyStatus(PoisedForTwinfang, 60).SetGauge(TwinWindow, 5).ApplyStatus(TwinfangReady, 30).ApplyStatus(TwinbloodReady, 30);
         }
@@ -142,9 +142,9 @@ public static class VprDefinition
         // ---- Reawaken: Offering 50 or Ready to Reawaken (Serpent's Ire); Generations 1-4 (Legacies at 100), Ouroboros (96) ----
         if (level >= 90)
         {
-            Ws(b.Gcd("Reawaken", 750, AidReawaken).AoeFalloff(750 * 0.25f).Recast(Recast(2.2f)).ComboNeutral().ForbidStatuses(CoilChain).ForbidStatus(Reawakened)
+            Ws(b.Gcd("Reawaken", 750, AidReawaken).Shape(AoeShape.SelfCircle, 5, 0, 3).AoeFalloff(750 * 0.25f).Recast(Recast(2.2f)).ComboNeutral().ForbidStatuses(CoilChain).ForbidStatus(Reawakened)
                 .ForbidStatus(ReawakenReady).SpendGauge(Offering, 50).SetGauge(Anguine, anguineMax).ApplyStatus(Reawakened, 30));
-            Ws(b.Gcd("ReawakenReady", 750, AidReawaken).AoeFalloff(750 * 0.25f).Recast(Recast(2.2f)).ComboNeutral().ForbidStatuses(CoilChain).ForbidStatus(Reawakened)
+            Ws(b.Gcd("ReawakenReady", 750, AidReawaken).Shape(AoeShape.SelfCircle, 5, 0, 3).AoeFalloff(750 * 0.25f).Recast(Recast(2.2f)).ComboNeutral().ForbidStatuses(CoilChain).ForbidStatus(Reawakened)
                 .RequiresStatus(ReawakenReady).RemoveStatus(ReawakenReady).SetGauge(Anguine, anguineMax).ApplyStatus(Reawakened, 30));
             Generation(b, "FirstGeneration", AidFirstGeneration, anguineMax, level, Recast(2.0f));
             Generation(b, "SecondGeneration", AidSecondGeneration, anguineMax - 1, level, Recast(2.0f));
@@ -153,7 +153,7 @@ public static class VprDefinition
             if (level < 96)
                 fourth.RemoveStatus(Reawakened);
             else
-                Ws(b.Gcd("Ouroboros", 1150, AidOuroboros).AoeFalloff(1150 * 0.25f).Recast(Recast(3.0f)).ComboNeutral().RequiresStatus(Reawakened)
+                Ws(b.Gcd("Ouroboros", 1150, AidOuroboros).Shape(AoeShape.SelfCircle, 5, 0, 3).AoeFalloff(1150 * 0.25f).Recast(Recast(3.0f)).ComboNeutral().RequiresStatus(Reawakened)
                     .RequiresGauge(Anguine, 1).RequiresGaugeAtMost(Anguine, 1).SetGauge(Anguine, 0).RemoveStatus(Reawakened));
         }
 
@@ -161,9 +161,9 @@ public static class VprDefinition
         if (level >= 55)
             b.Ogcd("DeathRattle", 280, actionId: AidDeathRattle).RequiresGauge(Tail, 1).RequiresGaugeAtMost(Tail, 1).SetGauge(Tail, 0);
         if (level >= 60)
-            b.Ogcd("LastLash", 120, actionId: AidLastLash).AoeFalloff(120).RequiresGauge(Tail, 2).RequiresGaugeAtMost(Tail, 2).SetGauge(Tail, 0);
+            b.Ogcd("LastLash", 120, actionId: AidLastLash).Shape(AoeShape.SelfCircle, 5, 0, 5).AoeFalloff(120).RequiresGauge(Tail, 2).RequiresGaugeAtMost(Tail, 2).SetGauge(Tail, 0);
         if (level >= 100)
-            b.Ogcd("Legacy", 320, actionId: AidFirstLegacy).AoeFalloff(80).RequiresGauge(Tail, 3).SetGauge(Tail, 0);
+            b.Ogcd("Legacy", 320, actionId: AidFirstLegacy).Shape(AoeShape.TargetCircle, 5, 0, 5).AoeFalloff(80).RequiresGauge(Tail, 3).SetGauge(Tail, 0);
         if (level >= 75)
         {
             // the twins in the order the window's venom makes them worth: after Hunter's Coil the twinfang (Hunter's Venom) buffs the twinblood,
@@ -179,9 +179,9 @@ public static class VprDefinition
         }
         if (level >= 92)
         {
-            b.Ogcd("UncoiledTwinfang", 120, actionId: AidUncoiledTwinfang).AoeFalloff(30).RequiresStatus(TwinfangReady).RequiresGauge(TwinWindow, 5)
+            b.Ogcd("UncoiledTwinfang", 120, actionId: AidUncoiledTwinfang).Shape(AoeShape.TargetCircle, 5, 0, 20).AoeFalloff(30).RequiresStatus(TwinfangReady).RequiresGauge(TwinWindow, 5)
                 .PotencyIfStatus(PoisedForTwinfang, 170).RemoveStatus(PoisedForTwinfang).RemoveStatus(TwinfangReady).ApplyStatus(PoisedForTwinblood, 60);
-            b.Ogcd("UncoiledTwinblood", 120, actionId: AidUncoiledTwinblood).AoeFalloff(30).RequiresStatus(TwinbloodReady).RequiresGauge(TwinWindow, 5)
+            b.Ogcd("UncoiledTwinblood", 120, actionId: AidUncoiledTwinblood).Shape(AoeShape.TargetCircle, 5, 0, 20).AoeFalloff(30).RequiresStatus(TwinbloodReady).RequiresGauge(TwinWindow, 5)
                 .PotencyIfStatus(PoisedForTwinblood, 170).RemoveStatus(PoisedForTwinblood).RemoveStatus(TwinbloodReady);
         }
         if (level >= 86)
@@ -205,7 +205,7 @@ public static class VprDefinition
         var s = Ws(b.Gcd(name, potency, aid).PotencyIfStatus(honed, potency + (aoe ? 20 : 100)).StartsCombo().ForbidStatus(Reawakened).ForbidStatuses(CoilChain)
             .RemoveStatus(honed)).SetGauge(Step, step);
         if (aoe)
-            s.AoeFalloff(potency);
+            s.AoeFalloff(potency).Shape(AoeShape.SelfCircle, 5, 0, 3);
         if (grant)
             s.ApplyStatus(grants, 60);
     }
@@ -216,7 +216,7 @@ public static class VprDefinition
         var s = Ws(b.Gcd(name, potency, aid).RequiresGauge(Step, fromStep).RequiresGaugeAtMost(Step, fromStep).ComboFrom(from1, potency).ComboFrom(from2, potency)
             .ForbidStatus(Reawakened).ForbidStatuses(CoilChain).ApplyStatus(buff, 40)).SetGauge(Step, step);
         if (aoe)
-            s.AoeFalloff(potency);
+            s.AoeFalloff(potency).Shape(AoeShape.SelfCircle, 5, 0, 3);
     }
 
     // a dual-wield finisher: +100 with its venom (the Venom gauge == venom), grants the next venom, Death Rattle (55), 10 Offering (90)
@@ -233,7 +233,7 @@ public static class VprDefinition
     // an AoE finisher from either bite (Step 5 / 6): +40 with its grim venom, Last Lash (60), 10 Offering (90)
     private static void AoeFinisher(JobBuilder b, string name, uint aid, int venom, int grants, int level)
     {
-        var s = Ws(b.Gcd(name, 180, aid).AoeFalloff(180).PotencyIfGauge(GrimVenom, venom + 1, 180).PotencyIfGauge(GrimVenom, venom, 220).RequiresGauge(Step, 5).RequiresGaugeAtMost(Step, 6)
+        var s = Ws(b.Gcd(name, 180, aid).AoeFalloff(180).Shape(AoeShape.SelfCircle, 5, 0, 3).PotencyIfGauge(GrimVenom, venom + 1, 180).PotencyIfGauge(GrimVenom, venom, 220).RequiresGauge(Step, 5).RequiresGaugeAtMost(Step, 6)
             .ComboFrom("HuntersBite", 180).ComboFrom("SwiftskinsBite", 180).EndsCombo().ForbidStatus(Reawakened).ForbidStatuses(CoilChain).SetGauge(GrimVenom, grants));
         if (level >= 60)
             s.SetGauge(Tail, 2);
@@ -251,8 +251,8 @@ public static class VprDefinition
             .PotencyIfStatus(secondVenom, potency + bonus).RemoveStatus(secondVenom).RemoveStatus(secondReady);
         if (aoe)
         {
-            f.AoeFalloff(potency);
-            s.AoeFalloff(potency);
+            f.AoeFalloff(potency).Shape(AoeShape.SelfCircle, 5, 0, 5);
+            s.AoeFalloff(potency).Shape(AoeShape.SelfCircle, 5, 0, 5);
         }
     }
 
@@ -262,7 +262,7 @@ public static class VprDefinition
     {
         var s = Ws(b.Gcd(name, potency, aid).Recast(recast).ComboNeutral().ForbidStatus(Reawakened).RequiresStatus(ok).RemoveStatus(ok).ApplyStatus(buff, 40));
         if (aoe)
-            s.AoeFalloff(potency);
+            s.AoeFalloff(potency).Shape(AoeShape.SelfCircle, 5, 0, 3);
         if (twins)
             s.ApplyStatus(venom, 30).SetGauge(TwinWindow, window).ApplyStatus(TwinfangReady, 30).ApplyStatus(TwinbloodReady, 30);
         if (level >= 90)
@@ -272,7 +272,7 @@ public static class VprDefinition
     // a Generation step: in sequence (the only weaponskill allowed between the steps is Uncoiled Fury, which does not break it), a Legacy at 100
     private static JobBuilder.SkillBuilder Generation(JobBuilder b, string name, uint aid, int anguine, int level, float recast)
     {
-        var s = Ws(b.Gcd(name, 680, aid).AoeFalloff(170).Recast(recast).ComboNeutral().RequiresStatus(Reawakened).RequiresGauge(Anguine, anguine).RequiresGaugeAtMost(Anguine, anguine)
+        var s = Ws(b.Gcd(name, 680, aid).AoeFalloff(170).Shape(AoeShape.TargetCircle, 5, 0, 3).Recast(recast).ComboNeutral().RequiresStatus(Reawakened).RequiresGauge(Anguine, anguine).RequiresGaugeAtMost(Anguine, anguine)
             .GainGauge(Anguine, -1));
         if (level >= 100)
             s.SetGauge(Tail, 3);

@@ -147,8 +147,8 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
         {
             XanMNK.BlitzStrategy.Delay => true,
             XanMNK.BlitzStrategy.RoF => !rof,
-            XanMNK.BlitzStrategy.Multi => s.Targets < 2,
-            XanMNK.BlitzStrategy.MultiRoF => !rof || s.Targets < 2,
+            XanMNK.BlitzStrategy.Multi => ShapeTargets(s, "PhantomRush") < 2,
+            XanMNK.BlitzStrategy.MultiRoF => !rof || ShapeTargets(s, "PhantomRush") < 2,
             _ => false
         };
         foreach (var blitz in Blitzes)
@@ -265,12 +265,12 @@ public sealed class MnkEngineModule(RotationModuleManager manager, Actor player)
         // Riddle of Wind (96+; below it the strategy presses it), Forbidden Chakra at 5 Chakra (Enlightenment / Howling Fist on 3+ targets)
         if (Legal(s, tl, "RiddleOfWind") is var wind and >= 0 && Job.HasSkill("WindsReply"))
             return wind;
-        return FirstLegal(s, tl, s.Targets >= 3 ? "Enlightenment" : "ForbiddenChakra", "ForbiddenChakra", "Enlightenment");
+        return FirstLegal(s, tl, ShapeTargets(s, "Enlightenment") >= 3 ? "Enlightenment" : "ForbiddenChakra", "ForbiddenChakra", "Enlightenment");
     }
 
     protected override int SyncedGcd(in EngineState s, in EngineTimeline tl)
     {
-        var aoe = s.Targets >= 3;
+        var aoe = ShapeTargets(s, "Rockbreaker") >= 3;
         // a full Beast Chakra gauge: the blitz at once (Phantom Rush with both Nadi)
         if (FirstLegal(s, tl, "PhantomRush", "ElixirBurstOpo", "ElixirBurstRaptor", "ElixirBurstCoeurl", "RisingPhoenix") is var blitz and >= 0)
             return blitz;

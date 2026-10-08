@@ -91,7 +91,7 @@ public sealed class RprEngineModule(RotationModuleManager manager, Actor player)
                 Forbid(ref s, "SoulScythe");
                 break;
             case XanRPR.SliceStrategy.Force:
-                if (s.Targets >= 3)
+                if (ShapeTargets(s, "SoulScythe") >= 3)
                     Force("SoulScythe");
                 Force("SoulSlice");
                 break;
@@ -114,7 +114,7 @@ public sealed class RprEngineModule(RotationModuleManager manager, Actor player)
                 break;
             case XanRPR.RedGaugeStrategy.Force:
                 Force("Gluttony");
-                if (s.Targets >= 3)
+                if (ShapeTargets(s, "GrimSwathe") >= 3)
                     Force("GrimSwathe");
                 Force("BloodStalk");
                 break;

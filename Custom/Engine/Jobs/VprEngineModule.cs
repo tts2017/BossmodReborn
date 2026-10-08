@@ -217,7 +217,7 @@ public sealed class VprEngineModule(RotationModuleManager manager, Actor player)
 
     protected override int SyncedGcd(in EngineState s, in EngineTimeline tl)
     {
-        var aoe = s.Targets >= 3 && Job.HasSkill("SteelMaw") && !Disabled(s, "SteelMaw");
+        var aoe = ShapeTargets(s, "SteelMaw") >= 3 && Job.HasSkill("SteelMaw") && !Disabled(s, "SteelMaw");
         var step = Gauge(s, VprDefinition.Step);
         var instinct = StatusLeft(s, VprDefinition.HuntersInstinct);
         var swift = StatusLeft(s, VprDefinition.Swiftscaled);

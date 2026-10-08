@@ -101,11 +101,11 @@ public static class BlmDefinition
                 despair.Cast(3.0f * k);
         }
         if (astralSoul)
-            Fire(b.Gcd("FlareStar", 500, AidFlareStar).Cast(2.0f * k).AoeFalloff(500 * 0.35f), 500, e)
+            Fire(b.Gcd("FlareStar", 500, AidFlareStar).Shape(AoeShape.TargetCircle, 5, 0, 25).Cast(2.0f * k).AoeFalloff(500 * 0.35f), 500, e)
                 .RequiresGauge(AstralFire, 1).SpendGauge(AstralSoul, 6);
         if (level >= 50)
         {
-            var flare = Fire(b.Gcd("Flare", 240, AidFlare).Cast(2.0f * k).AoeFalloff(240 * 0.7f), 240, e)
+            var flare = Fire(b.Gcd("Flare", 240, AidFlare).Shape(AoeShape.TargetCircle, 5, 0, 25).Cast(2.0f * k).AoeFalloff(240 * 0.7f), 240, e)
                 .RequiresGauge(AstralFire, 1).RequiresGauge(MP, 800)
                 .IfGaugeAtLeast(Hearts, 1).ScaleGauge(MP, 1 / 3f).IfGaugeAtMost(Hearts, 0).SetGauge(MP, 0)
                 .SetGauge(Hearts, 0).SetGauge(AstralFire, 3);
@@ -129,9 +129,9 @@ public static class BlmDefinition
             EnterFire(Fire(b.Gcd("Fire3Cold", 290, AidFire3).Cast(3.5f * k), 290, e).RequiresGaugeAtMost(AstralFire, 0).RequiresGaugeAtMost(UmbralIce, 0).ForbidStatus(Firestarter).SpendGauge(MP, 2000), paradox);
         }
         if (level >= 82)
-            EnterFire(Fire(b.Gcd("HighFire2", 100, AidHighFire2).Cast(3.0f * 0.5f * k).AoeFalloff(100), 100, e).RequiresGauge(UmbralIce, 3), paradox);
+            EnterFire(Fire(b.Gcd("HighFire2", 100, AidHighFire2).Shape(AoeShape.TargetCircle, 5, 0, 25).Cast(3.0f * 0.5f * k).AoeFalloff(100), 100, e).RequiresGauge(UmbralIce, 3), paradox);
         else if (level >= 35)
-            EnterFire(Fire(b.Gcd("HighFire2", 80, AidFire2).Cast(3.0f * 0.5f * k).AoeFalloff(80), 80, e).RequiresGauge(UmbralIce, 3), paradox);
+            EnterFire(Fire(b.Gcd("HighFire2", 80, AidFire2).Shape(AoeShape.TargetCircle, 5, 0, 25).Cast(3.0f * 0.5f * k).AoeFalloff(80), 80, e).RequiresGauge(UmbralIce, 3), paradox);
 
         // ---- ice phase ----
         if (level >= 35)
@@ -141,14 +141,14 @@ public static class BlmDefinition
             EnterIce(Ice(b.Gcd("Blizzard3Cold", 290, AidBlizzard3).Cast(3.5f * k), 290, e).RequiresGaugeAtMost(AstralFire, 0).RequiresGaugeAtMost(UmbralIce, 0).SpendGauge(MP, 800), paradox);
             var blizzard2 = level >= 82 ? 100 : 80;
             var blizzard2Aid = level >= 82 ? AidHighBlizzard2 : AidBlizzard2;
-            EnterIce(Ice(b.Gcd("HighBlizzard2", blizzard2, blizzard2Aid).Cast(3.0f * 0.5f * k).AoeFalloff(blizzard2), blizzard2, e).RequiresGauge(AstralFire, 3), paradox);
-            EnterIce(Ice(b.Gcd("HighBlizzard2Cold", blizzard2, blizzard2Aid).Cast(3.0f * k).AoeFalloff(blizzard2), blizzard2, e).RequiresGaugeAtMost(AstralFire, 2).RequiresGaugeAtMost(UmbralIce, 0), paradox);
+            EnterIce(Ice(b.Gcd("HighBlizzard2", blizzard2, blizzard2Aid).Shape(AoeShape.TargetCircle, 5, 0, 25).Cast(3.0f * 0.5f * k).AoeFalloff(blizzard2), blizzard2, e).RequiresGauge(AstralFire, 3), paradox);
+            EnterIce(Ice(b.Gcd("HighBlizzard2Cold", blizzard2, blizzard2Aid).Shape(AoeShape.TargetCircle, 5, 0, 25).Cast(3.0f * k).AoeFalloff(blizzard2), blizzard2, e).RequiresGaugeAtMost(AstralFire, 2).RequiresGaugeAtMost(UmbralIce, 0), paradox);
         }
         if (level >= 58)
             IceMp(Ice(b.Gcd("Blizzard4", 300, AidBlizzard4).Cast(2.0f * k), 300, e).RequiresGauge(UmbralIce, 1).SetGauge(Hearts, 3));
         if (level >= 40)
         {
-            var freeze = Ice(b.Gcd("Freeze", 120, AidFreeze).Cast(2.0f * k).AoeFalloff(120), 120, e).RequiresGauge(UmbralIce, 1);
+            var freeze = Ice(b.Gcd("Freeze", 120, AidFreeze).Shape(AoeShape.TargetCircle, 5, 0, 25).Cast(2.0f * k).AoeFalloff(120), 120, e).RequiresGauge(UmbralIce, 1);
             if (hearts)
                 freeze.SetGauge(Hearts, 3);
             IceMp(freeze);
@@ -166,7 +166,7 @@ public static class BlmDefinition
         {
             Plain(b.Gcd("HighThunder", 150, AidHighThunder), 150, e)
                 .RequiresStatus(Thunderhead).RemoveStatus(Thunderhead).Dot(Thunder, 30, 60 * e);
-            Plain(b.Gcd("HighThunder2", 100, AidHighThunder2).AoeFalloff(100), 100, e)
+            Plain(b.Gcd("HighThunder2", 100, AidHighThunder2).Shape(AoeShape.TargetCircle, 5, 0, 25).AoeFalloff(100), 100, e)
                 .RequiresStatus(Thunderhead).RemoveStatus(Thunderhead).Dot(Thunder, 24, 40 * e, aoe: true);
         }
         else
@@ -178,14 +178,14 @@ public static class BlmDefinition
                     .RequiresStatus(Thunderhead).RemoveStatus(Thunderhead).Dot(Thunder, thunder3 ? 27 : 24, (thunder3 ? 50 : 45) * e);
             var thunder4 = level >= 64;
             if (level >= 26)
-                Plain(b.Gcd("HighThunder2", thunder4 ? 80 : 60, thunder4 ? AidThunder4 : AidThunder2).AoeFalloff(thunder4 ? 80 : 60), thunder4 ? 80 : 60, e)
+                Plain(b.Gcd("HighThunder2", thunder4 ? 80 : 60, thunder4 ? AidThunder4 : AidThunder2).Shape(AoeShape.TargetCircle, 5, 0, 25).AoeFalloff(thunder4 ? 80 : 60), thunder4 ? 80 : 60, e)
                     .RequiresStatus(Thunderhead).RemoveStatus(Thunderhead).Dot(Thunder, thunder4 ? 21 : 18, (thunder4 ? 35 : 30) * e, aoe: true);
         }
         if (level >= 80)
             Plain(b.Gcd("Xenoglossy", 890, AidXenoglossy), 890, e).SpendGauge(Polyglot, 1);
         if (level >= 70)
         {
-            var foul = Plain(b.Gcd("Foul", 600, AidFoul).AoeFalloff(600 * 0.75f), 600, e).SpendGauge(Polyglot, 1);
+            var foul = Plain(b.Gcd("Foul", 600, AidFoul).Shape(AoeShape.TargetCircle, 5, 0, 25).AoeFalloff(600 * 0.75f), 600, e).SpendGauge(Polyglot, 1);
             if (level < 80)
                 foul.Cast(2.5f * k);
         }
