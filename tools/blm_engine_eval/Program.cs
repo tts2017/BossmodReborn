@@ -34,12 +34,12 @@ public static class Program
     public static JobDefinition Build(string[] args) => Arg(args, "--def", "blm") switch
     {
         "nin" => NinDefinition.Build(), "mnk" => MnkDefinition.Build(), "sam" => SamDefinition.Build(), "gnb" => GnbDefinition.Build(),
-        "pld" => PldDefinition.Build(), "rpr" => RprDefinition.Build(), "drg" => DrgDefinition.Build(), _ => BlmDefinition.Build()
+        "pld" => PldDefinition.Build(), "rpr" => RprDefinition.Build(), "drg" => DrgDefinition.Build(), "vpr" => VprDefinition.Build(), _ => BlmDefinition.Build()
     };
     public static EngineWeights DefaultWeights(string[] args) => Arg(args, "--def", "blm") switch
     {
         "nin" => NinDefinition.DefaultWeights(), "mnk" => MnkDefinition.DefaultWeights(), "sam" => SamDefinition.DefaultWeights(), "gnb" => GnbDefinition.DefaultWeights(),
-        "pld" => PldDefinition.DefaultWeights(), "rpr" => RprDefinition.DefaultWeights(), "drg" => DrgDefinition.DefaultWeights(), _ => BlmDefinition.DefaultWeights()
+        "pld" => PldDefinition.DefaultWeights(), "rpr" => RprDefinition.DefaultWeights(), "drg" => DrgDefinition.DefaultWeights(), "vpr" => VprDefinition.DefaultWeights(), _ => BlmDefinition.DefaultWeights()
     };
 
     public static EngineWeights Weights(string[] args)

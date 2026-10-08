@@ -13,5 +13,6 @@
     <Compile Include="..\..\Custom\Engine\Jobs\PldDefinition.cs" Link="Jobs\PldDefinition.cs" />
     <Compile Include="..\..\Custom\Engine\Jobs\RprDefinition.cs" Link="Jobs\RprDefinition.cs" />
     <Compile Include="..\..\Custom\Engine\Jobs\DrgDefinition.cs" Link="Jobs\DrgDefinition.cs" />
+    <Compile Include="..\..\Custom\Engine\Jobs\VprDefinition.cs" Link="Jobs\VprDefinition.cs" />
   </ItemGroup>
 </Project>
