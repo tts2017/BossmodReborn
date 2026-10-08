@@ -215,14 +215,16 @@ public static class RprDefinition
     public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
 
     // CMA-ES on the xan timeline harness (9 fights with --party-buffs 7.8, deterministic search; tools/blm_engine_eval tuned/weights-RPR-v3.json,
-    // two runs from the rpr_engine_eval weights: 682,501 -> 689,570 -> 689,683), BudgetMs for live play
+    // two runs from the rpr_engine_eval weights: 682,501 -> 689,570 -> 689,683; a 5-GCD horizon scored lower even retuned, 685,919).
+    // MinNodes / SliceNodes: every search (at most about 1,000 nodes in the 9 fights) completes, within the frame it starts (the slice is larger
+    // than any search), so live play equals the deterministic search; BudgetMs only caps a search larger than MinNodes.
     public const string DefaultWeightsJson = """
     {
       "OverCap": 4, "Combo": 0.60711783, "LambdaScale": 0.77821386, "TargetPull": 0, "SwitchMargin": 23.335081,
       "FillerScale": 0.9681626, "BurstBias": 1.7269272, "StatusRemainder": 0.30177203, "CycleScale": 1, "CooldownLambdaScale": -1,
       "ForecastSelfBuffs": 0, "UnlockScale": 0,
       "StatusValue": { "DeathsDesign": 0 }, "CooldownValue": { "GluttonyCD": 0 }, "GaugeValue": { "Shroud": -222.96074 },
-      "HorizonGcds": 4, "BudgetMs": 0.5, "BoundOgcdsPerSlot": 1
+      "HorizonGcds": 4, "BudgetMs": 10, "MinNodes": 1500, "SliceNodes": 1500, "BoundOgcdsPerSlot": 1
     }
     """;
 }
