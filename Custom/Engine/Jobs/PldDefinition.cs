@@ -144,14 +144,18 @@ public static class PldDefinition
         _ => DefaultWeightsJson
     });
 
-    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-PLD-v1.json), BudgetMs for live play
+    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-PLD-v1.json, at horizon 4; the
+    // same weights score higher at a 6-GCD horizon, so no retune). MinNodes / SliceNodes: every search (at most about 38,700 nodes in the 9 fights)
+    // completes and frame slices are counted in nodes, so live play equals the deterministic search; BudgetMs only caps a search larger than MinNodes.
     public const string DefaultWeightsJson = """
     {
       "OverCap": 1.4915171, "Combo": 0.59287137, "LambdaScale": 0.7683747, "TargetPull": 0, "SwitchMargin": 27.52398, "FillerScale": 1.1636959, "BurstBias": 0.60006064,
       "StatusRemainder": 0.5540458, "CycleScale": 1, "CooldownLambdaScale": 1.1999441, "ForecastSelfBuffs": -0.9779256, "UnlockScale": 1.0974472,
       "StatusValue": {}, "CooldownValue": {}, "GaugeValue": {},
-      "HorizonGcds": 4,
-      "BudgetMs": 0.8
+      "HorizonGcds": 6,
+      "BudgetMs": 100,
+      "MinNodes": 46000,
+      "SliceNodes": 3880
     }
     """;
 

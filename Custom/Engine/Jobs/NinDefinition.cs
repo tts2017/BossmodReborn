@@ -210,14 +210,19 @@ public static class NinDefinition
         _ => DefaultWeightsJson
     });
 
-    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-NIN-v1.json), BudgetMs for live play
+    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-NIN-v1.json), at a 5-GCD horizon
+    // (the same weights score higher there once the adapter queues a Kassatsu before its Hyosho Ranryu). MinNodes / SliceNodes: every search
+    // (at most about 8,800 nodes in the 9 fights) completes and frame slices are counted in nodes, so live play equals the deterministic
+    // search; BudgetMs only caps a search larger than MinNodes.
     public const string DefaultWeightsJson = """
     {
       "OverCap": 1.742, "Combo": 0.729, "LambdaScale": 0.107, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 1.021,
       "BurstBias": 0.114, "StatusRemainder": 1.255, "CycleScale": 1, "CooldownLambdaScale": 0.058, "ForecastSelfBuffs": 1, "UnlockScale": 1.643,
       "StatusValue": {}, "CooldownValue": {}, "GaugeValue": {},
-      "HorizonGcds": 4,
-      "BudgetMs": 0.8
+      "HorizonGcds": 5,
+      "BudgetMs": 30,
+      "MinNodes": 14000,
+      "SliceNodes": 2900
     }
     """;
 

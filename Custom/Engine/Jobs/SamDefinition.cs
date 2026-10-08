@@ -197,14 +197,21 @@ public static class SamDefinition
         _ => DefaultWeightsJson
     });
 
-    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-SAM-v2.json), BudgetMs for live play
+    // CMA-ES on the xan timeline harness at a 5-GCD horizon (9 fights with --party-buffs 7.8, deterministic search; tools/blm_engine_eval
+    // tuned/weights-SAM-v3.json, from the v2 set at horizon 4). GaugeValue.SenCount: the analysis values a Sen at Higanbana's DoT (about 1,120),
+    // more than the Iaijutsu that spend them, so the deeper search banked Sen instead of spending them (a wasted Yukikaze every few combos);
+    // the negative value brings a Sen down to what Midare / Tendo Setsugekka pay. MinNodes / SliceNodes: every search (at most about 32,500
+    // nodes in the 9 fights) completes and frame slices are counted in nodes, so live play equals the deterministic search; BudgetMs only
+    // caps a search larger than MinNodes.
     public const string DefaultWeightsJson = """
     {
-      "OverCap": 0, "Combo": 1.6498287, "LambdaScale": 0.44048476, "TargetPull": 0, "SwitchMargin": 4.051655, "FillerScale": 0.57231796, "BurstBias": 0,
-      "StatusRemainder": 1.3374653, "CycleScale": 1, "CooldownLambdaScale": 0, "ForecastSelfBuffs": 1, "UnlockScale": 1.2380846,
-      "StatusValue": { "Fugetsu": 0, "Fuka": 0 }, "CooldownValue": {}, "GaugeValue": {},
-      "HorizonGcds": 4,
-      "BudgetMs": 0.8
+      "OverCap": 0, "Combo": 1.6215403, "LambdaScale": 0.37824416, "TargetPull": 0, "SwitchMargin": 32.189816, "FillerScale": 1.0657052, "BurstBias": 0,
+      "StatusRemainder": 0.36889017, "CycleScale": 1, "CooldownLambdaScale": 0, "ForecastSelfBuffs": 1, "UnlockScale": 1.2401829,
+      "StatusValue": { "Fugetsu": 0, "Fuka": 5.8424788 }, "CooldownValue": {}, "GaugeValue": { "SenCount": -169.10762 },
+      "HorizonGcds": 5,
+      "BudgetMs": 80,
+      "MinNodes": 40000,
+      "SliceNodes": 1600
     }
     """;
 

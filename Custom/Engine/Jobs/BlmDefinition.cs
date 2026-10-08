@@ -282,33 +282,32 @@ public static class BlmDefinition
         _ => DefaultWeightsJson
     });
 
-    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-BLM-v5.json), BudgetMs set for live play.
-    // A 3-GCD horizon: with 4, a sixth of the live searches (casts make long lines) ran out of the budget before the last iteration.
-    // MinNodes: the full 3-GCD search is at most about 1000 nodes on the harness fights, so every search completes and live play
-    // matches the deterministic search (a BLM node costs about 1.5 us: 32 skill variants; a few searches outgrow the 0.8 ms otherwise).
-    // SliceNodes: the frame slice is counted in nodes (about the 0.08 ms frame budget), so which frame a search finishes on does not
-    // depend on the machine either.
+    // CMA-ES on the xan timeline harness at a 4-GCD horizon (9 fights with --party-buffs 7.8, deterministic search; tools/blm_engine_eval
+    // tuned/weights-BLM-v6.json, from the v5 set at horizon 3). MinNodes: the full 4-GCD search is at most about 5,100 nodes on the harness
+    // fights, so every search completes and live play matches the deterministic search (a BLM node costs about 1.5 us: 32 skill variants);
+    // BudgetMs only caps a search larger than MinNodes. SliceNodes: the frame slice is counted in nodes, so which frame a search finishes on
+    // does not depend on the machine either.
     public const string DefaultWeightsJson = """
     {
-      "OverCap": 1.2312877,
+      "OverCap": 0.17453705,
       "Combo": 0,
       "LambdaScale": 0,
       "TargetPull": 0,
-      "SwitchMargin": 3.8592908,
-      "FillerScale": 1.025866,
-      "BurstBias": 2.453738,
+      "SwitchMargin": 5.21513,
+      "FillerScale": 0.9387101,
+      "BurstBias": 3.7759147,
       "StatusRemainder": 0,
-      "CycleScale": 1.0244133,
+      "CycleScale": 0.90034443,
       "CooldownLambdaScale": 0,
       "ForecastSelfBuffs": 0,
-      "UnlockScale": 0.24033335,
-      "StatusValue": { "Thunderhead": 79.50191, "Firestarter": 10 },
-      "CooldownValue": { "LeyLinesCD": 1074.4264, "TriplecastCD": 163.94995, "SwiftcastCD": 873.7974 },
+      "UnlockScale": 0.49027303,
+      "StatusValue": { "Thunderhead": 55.06597, "Firestarter": 10 },
+      "CooldownValue": { "LeyLinesCD": 517.76056, "TriplecastCD": 327.97345, "SwiftcastCD": 1119.0126 },
       "GaugeValue": {},
-      "HorizonGcds": 3,
-      "BudgetMs": 0.8,
-      "MinNodes": 1000,
-      "SliceNodes": 50
+      "HorizonGcds": 4,
+      "BudgetMs": 12,
+      "MinNodes": 6000,
+      "SliceNodes": 100
     }
     """;
 

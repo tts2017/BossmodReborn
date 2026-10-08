@@ -1,0 +1,27 @@
+{
+  "OverCap": 0,
+  "Combo": 1.6215403,
+  "LambdaScale": 0.37824416,
+  "TargetPull": 0,
+  "SwitchMargin": 32.189816,
+  "FillerScale": 1.0657052,
+  "BurstBias": 0,
+  "StatusRemainder": 0.36889017,
+  "CycleScale": 1,
+  "CooldownLambdaScale": 0,
+  "ForecastSelfBuffs": 1,
+  "UnlockScale": 1.2401829,
+  "StatusValue": {
+    "Fugetsu": 0,
+    "Fuka": 5.8424788
+  },
+  "CooldownValue": {},
+  "GaugeValue": {
+    "SenCount": -169.10762
+  },
+  "HorizonGcds": 5,
+  "BudgetMs": 100,
+  "MinNodes": 0,
+  "SliceNodes": 0,
+  "BoundOgcdsPerSlot": 2
+}

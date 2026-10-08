@@ -186,18 +186,19 @@ public static class MnkDefinition
         _ => DefaultWeightsJson
     });
 
-    // CMA-ES on the xan timeline harness (9 fights with --party-buffs 7.8, deterministic search; tools/blm_engine_eval tuned/weights-MNK-v4.json), BudgetMs for live play
-    // MinNodes / SliceNodes: every search (at most about 4400 nodes, the opener) completes and frame slices are counted in nodes, so
-    // live play does not depend on the machine's timing (it diverged by a few thousand potency between runs otherwise)
+    // CMA-ES on the xan timeline harness at a 5-GCD horizon (9 fights with --party-buffs 7.8, deterministic search; tools/blm_engine_eval
+    // tuned/weights-MNK-v5.json, from the v4 set at horizon 4). MinNodes / SliceNodes: every search (at most about 21,000 nodes, the opener)
+    // completes and frame slices are counted in nodes, so live play does not depend on the machine's timing; BudgetMs only caps a search
+    // larger than MinNodes.
     public const string DefaultWeightsJson = """
     {
-      "OverCap": 5, "Combo": 0.32762295, "LambdaScale": 0.4855264, "TargetPull": 0, "SwitchMargin": 3.7251265, "FillerScale": 0.98159325, "BurstBias": 0,
-      "StatusRemainder": 1.5845641, "CycleScale": 1, "CooldownLambdaScale": 0, "ForecastSelfBuffs": 1, "UnlockScale": 0.84537625,
+      "OverCap": 5, "Combo": 0.1746639, "LambdaScale": 0.7356803, "TargetPull": 0, "SwitchMargin": 6.729535, "FillerScale": 0.5, "BurstBias": 0,
+      "StatusRemainder": 1.8136489, "CycleScale": 1, "CooldownLambdaScale": 0, "ForecastSelfBuffs": 1, "UnlockScale": 1.6954117,
       "StatusValue": {}, "CooldownValue": { "PerfectBalanceCD": 0, "BrotherhoodCD": 0 }, "GaugeValue": {},
-      "HorizonGcds": 4,
-      "BudgetMs": 0.8,
-      "MinNodes": 4500,
-      "SliceNodes": 40
+      "HorizonGcds": 5,
+      "BudgetMs": 50,
+      "MinNodes": 25000,
+      "SliceNodes": 525
     }
     """;
 

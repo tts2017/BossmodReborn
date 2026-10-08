@@ -247,19 +247,19 @@ public static class DrgDefinition
 
     public static EngineWeights DefaultWeights(int level = 100) => EngineWeights.Parse(DefaultWeightsJson);
 
-    // CMA-ES on the xan timeline harness (9 fights with --party-buffs 7.8, deterministic search; tools/blm_engine_eval tuned/weights-DRG-v1.json),
-    // BudgetMs for live play. MinNodes / SliceNodes: every search (at most about 4,850 nodes in the 9 fights, the opener) completes and frame
-    // slices are counted in nodes, so live play does not depend on the machine's timing (as MNK; 400 nodes per frame rather than 40: with 40
-    // a search spans many frames and its root goes stale, 300 s 95,703 against 96,542 deterministic)
+    // CMA-ES on the xan timeline harness at a 5-GCD horizon (9 fights with --party-buffs 7.8, deterministic search; tools/blm_engine_eval
+    // tuned/weights-DRG-v2.json, from the v1 set at horizon 4). MinNodes / SliceNodes: every search (at most about 25,000 nodes in the 9 fights,
+    // the opener) completes and frame slices are counted in nodes, so live play does not depend on the machine's timing (as MNK); BudgetMs only
+    // caps a search larger than MinNodes.
     public const string DefaultWeightsJson = """
     {
-      "OverCap": 0.5, "Combo": 0.18947163, "LambdaScale": 0, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 1.5, "BurstBias": 0,
-      "StatusRemainder": 0, "CycleScale": 1, "CooldownLambdaScale": 0.5143151, "ForecastSelfBuffs": 1, "UnlockScale": 1.3001887,
-      "StatusValue": {}, "CooldownValue": { "LanceChargeCD": 699.9417, "LifeSurgeCD": 0 }, "GaugeValue": {},
-      "HorizonGcds": 4,
-      "BudgetMs": 0.8,
-      "MinNodes": 5000,
-      "SliceNodes": 400
+      "OverCap": 0.5, "Combo": 0, "LambdaScale": 0.94642204, "TargetPull": 0, "SwitchMargin": 8.126431, "FillerScale": 1.5, "BurstBias": 0,
+      "StatusRemainder": 0, "CycleScale": 1, "CooldownLambdaScale": 0.32816863, "ForecastSelfBuffs": 1, "UnlockScale": 0.8823015,
+      "StatusValue": {}, "CooldownValue": { "LanceChargeCD": 0, "LifeSurgeCD": 15.592682 }, "GaugeValue": {},
+      "HorizonGcds": 5,
+      "BudgetMs": 60,
+      "MinNodes": 30000,
+      "SliceNodes": 625
     }
     """;
 }

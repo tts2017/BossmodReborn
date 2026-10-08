@@ -137,14 +137,18 @@ public static class GnbDefinition
 
     public static EngineWeights DefaultWeights() => EngineWeights.Parse(DefaultWeightsJson);
 
-    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-GNB-v4.json), BudgetMs for live play
+    // CMA-ES on the xan timeline harness at a 5-GCD horizon (9 fights with --party-buffs 7.8, deterministic search; tools/blm_engine_eval
+    // tuned/weights-GNB-v5.json, from the v4 set at horizon 4). MinNodes / SliceNodes: every search (at most about 11,200 nodes in the 9 fights)
+    // completes and frame slices are counted in nodes, so live play equals the deterministic search; BudgetMs only caps a search larger than MinNodes.
     public const string DefaultWeightsJson = """
     {
-      "OverCap": 2.0351698, "Combo": 3, "LambdaScale": 0.9404562, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 0.6423435, "BurstBias": 0,
-      "StatusRemainder": 1.1710489, "CycleScale": 1, "CooldownLambdaScale": 0, "ForecastSelfBuffs": -1, "UnlockScale": 3,
+      "OverCap": 1.7909456, "Combo": 2.990995, "LambdaScale": 0.7210722, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 0.8202962, "BurstBias": 0,
+      "StatusRemainder": 1.1720376, "CycleScale": 1, "CooldownLambdaScale": 0.36483312, "ForecastSelfBuffs": -1, "UnlockScale": 3,
       "StatusValue": {}, "CooldownValue": {}, "GaugeValue": {},
-      "HorizonGcds": 4,
-      "BudgetMs": 0.8
+      "HorizonGcds": 5,
+      "BudgetMs": 30,
+      "MinNodes": 14000,
+      "SliceNodes": 560
     }
     """;
 }
