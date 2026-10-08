@@ -12,9 +12,8 @@ public enum ConditionKind : byte
     StatusInactive,
     StacksAtLeast,
     ComboIs,
-    TargetsAtLeast,
+    TargetsAtLeast,    // Index 0: the main target count (EngineState.Targets); Index n > 0: the count of the skill's AoE shape n-1 (set at Build)
     TargetsAtMost,
-    ConeTargetsAtLeast,
     StatusLeftAtLeast, // status active with at least Value seconds left
     CooldownAtLeast,   // cooldown group Index has no charge and its next charge is at least Value seconds away
     AnyStatusActive,   // status Index or any status in the bit mask Value (status indices) is active
@@ -60,6 +59,19 @@ public enum ComboMode : byte
 
 public readonly record struct ConditionalPotency(Condition If, float Potency);
 
+// the area a targeted AoE skill covers, used to count the enemies it hits and to choose its target (the Targeting setting)
+public enum AoeShape : byte
+{
+    None,
+    SelfCircle,   // circle of radius Size around the player (the target only marks where the skill may be used)
+    TargetCircle, // circle of radius Size around the target (splash)
+    Line,         // rectangle of length Size and half width Width from the player toward the target
+    Cone,         // cone of radius Size and half-angle Width (degrees) from the player toward the target
+}
+
+// Range: the farthest (hitbox-to-hitbox) distance of an enemy the skill may be aimed at
+public readonly record struct ShapeDef(AoeShape Kind, float Size, float Width, float Range);
+
 public sealed class SkillDef
 {
     public required string Name;
@@ -74,7 +86,7 @@ public sealed class SkillDef
     public float DotPps;          // DoT potency per second on one target (tick potency / tick interval)
     public bool DotAoe;           // the DoT lands on every target
     public bool Weaponskill;      // eligible for shadow hits (StatusDef.ShadowPotency)
-    public bool Cone;             // AoE shape counted with EngineState.ConeTargets instead of Targets
+    public int Shape = -1;        // index into JobDefinition.Shapes (-1: single target): its enemies are counted in EngineState.ShapeTargets[Shape]
     public float CastTime;
     public float AnimationLock = 0.6f;
     public float Recast;          // GCD recast for GCDs (0 = job base GCD); ignored for oGCDs (they use the cooldown group)
@@ -153,6 +165,7 @@ public sealed class JobDefinition
     public StatusDef[] Statuses = [];
     public CooldownDef[] Cooldowns = [];
     public SkillDef[] Skills = [];
+    public ShapeDef[] Shapes = []; // the distinct AoE shapes of the skills (SkillDef.Shape indexes it)
 
     // plain loops (no delegates): called every frame by the state readers, must not allocate
     public int GaugeIndex(string name) { for (var i = 0; i < Gauges.Length; ++i) if (Gauges[i].Name == name) return i; throw Unknown("gauge", name); }
@@ -238,6 +251,22 @@ public sealed class JobBuilder(string name, float baseGcd)
             job.Skills[i] = _skills[i].Def;
             job.Skills[i].Index = i;
         }
+        var shapes = new List<ShapeDef>();
+        for (var i = 0; i < _skills.Count; ++i)
+        {
+            if (_skills[i].ShapeDef is not { } shape || shape.Kind == AoeShape.None)
+                continue;
+            var index = shapes.IndexOf(shape);
+            if (index < 0)
+            {
+                if (shapes.Count >= EngineLimits.MaxShapes)
+                    throw new InvalidOperationException($"job {name} has more than {EngineLimits.MaxShapes} AoE shapes");
+                index = shapes.Count;
+                shapes.Add(shape);
+            }
+            job.Skills[i].Shape = index;
+        }
+        job.Shapes = [.. shapes];
         foreach (var b in _skills)
             b.Resolve(job);
         foreach (var b in _statusLocks)
@@ -287,12 +316,12 @@ public sealed class JobBuilder(string name, float baseGcd)
         foreach (var s in job.Skills)
             foreach (var e in s.Effects)
                 s.ConditionalEffects |= e.If.Kind != ConditionKind.None || e.If2.Kind != ConditionKind.None || e.If3.Kind != ConditionKind.None;
-        // cone skills check the cone target count
+        // shaped skills check their own shape's target count
         foreach (var s in job.Skills)
-            if (s.Cone)
+            if (s.Shape >= 0)
                 for (var i = 0; i < s.Conditions.Length; ++i)
-                    if (s.Conditions[i].Kind == ConditionKind.TargetsAtLeast)
-                        s.Conditions[i] = s.Conditions[i] with { Kind = ConditionKind.ConeTargetsAtLeast };
+                    if (s.Conditions[i].Kind is ConditionKind.TargetsAtLeast or ConditionKind.TargetsAtMost)
+                        s.Conditions[i] = s.Conditions[i] with { Index = (short)(s.Shape + 1) };
         foreach (var s in job.Skills)
         {
             s.RequiresTarget &= s.Potency > 0 || s.AoePotency > 0 || s.PotencyIf.Length > 0;
@@ -335,6 +364,8 @@ public sealed class JobBuilder(string name, float baseGcd)
         private Func<JobDefinition, Condition>? _pendingEffectCondition2;
         private Func<JobDefinition, Condition>? _pendingEffectCondition3;
         private string? _dotStatus;
+        private ShapeDef? _shape;
+        public ShapeDef? ShapeDef => _shape;
 
         // chaining back to the job builder
         public SkillBuilder Gcd(string skill, float potency, uint actionId = 0) => owner.Gcd(skill, potency, actionId);
@@ -344,7 +375,9 @@ public sealed class JobBuilder(string name, float baseGcd)
 
         public SkillBuilder ActionId(uint id) { Def.ActionId = id; return this; }
         public SkillBuilder Aoe(float potencyPerTarget, int minTargets) { Def.AoePotency = potencyPerTarget; Def.MinAoeTargets = minTargets; return this; }
-        public SkillBuilder Cone() { Def.Cone = true; return this; }
+        // the AoE shape the skill covers (see AoeShape): its hit count feeds the AoE potency and the TargetsAtLeast conditions, and the
+        // adapter aims the skill at the enemy whose shape hits the most priority targets
+        public SkillBuilder Shape(AoeShape kind, float size, float width = 0, float range = 0) { _shape = new(kind, size, width, range); return this; }
         // falloff AoE: the primary target takes the skill potency, every other target `extraPerTarget` (scaled like the primary hit)
         public SkillBuilder AoeFalloff(float extraPerTarget) { Def.AoeExtraPotency = extraPerTarget; return this; }
         // applies a damage-over-time status; its value is counted when applied (potency per tick / interval x seconds gained)

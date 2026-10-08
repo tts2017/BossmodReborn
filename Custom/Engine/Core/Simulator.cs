@@ -58,9 +58,8 @@ public static class Simulator
         ConditionKind.StatusInactive => s.StatusLeft[c.Index] <= 0,
         ConditionKind.StacksAtLeast => s.StatusLeft[c.Index] > 0 && s.StatusStacks[c.Index] >= c.Value,
         ConditionKind.ComboIs => s.ComboSkill == c.Index && s.ComboLeft > 0,
-        ConditionKind.TargetsAtLeast => s.Targets >= c.Value,
-        ConditionKind.TargetsAtMost => s.Targets <= c.Value,
-        ConditionKind.ConeTargetsAtLeast => (s.ConeTargets > 0 ? s.ConeTargets : s.Targets) >= c.Value,
+        ConditionKind.TargetsAtLeast => s.TargetsOf(c.Index - 1) >= c.Value,
+        ConditionKind.TargetsAtMost => s.TargetsOf(c.Index - 1) <= c.Value,
         ConditionKind.StatusLeftAtLeast => s.StatusLeft[c.Index] >= c.Value,
         ConditionKind.CooldownAtLeast => s.Charges[c.Index] == 0 && s.CdReadyIn[c.Index] >= c.Value,
         ConditionKind.AnyStatusActive => s.StatusLeft[c.Index] > 0 || AnyInMask(s, (int)c.Value),
@@ -238,7 +237,7 @@ public static class Simulator
                 break;
             }
         }
-        var targets = skill.Cone && s.ConeTargets > 0 ? s.ConeTargets : s.Targets;
+        var targets = s.TargetsOf(skill.Shape);
         if (skill.AoePotency > 0 && targets >= skill.MinAoeTargets)
             p = skill.AoePotency * targets;
         if (skill.AoeExtraPotency > 0 && targets > 1 && skill.Potency > 0)
@@ -272,7 +271,7 @@ public static class Simulator
                 if (e.Kind == EffectKind.StatusApply && e.Index == skill.DotStatus)
                     duration = e.Value;
             var gained = MathF.Max(0, MathF.Min(duration, fightLeft)) - MathF.Max(0, MathF.Min(s.StatusLeft[skill.DotStatus], fightLeft));
-            v += skill.DotPps * gained * (skill.DotAoe ? Math.Max(1, (int)s.Targets) : 1) * mult;
+            v += skill.DotPps * gained * (skill.DotAoe ? Math.Max(1, s.TargetsOf(skill.Shape)) : 1) * mult;
         }
         if (skill.Weaponskill)
         {
@@ -281,8 +280,8 @@ public static class Simulator
                 if (s.StatusLeft[i] <= 0)
                     continue;
                 var st = job.Statuses[i];
-                var aoe = skill.AoeExtraPotency > 0 || skill.AoePotency > 0 && s.Targets >= skill.MinAoeTargets;
-                v += (aoe ? st.ShadowAoePotency * Math.Max(1, (int)s.Targets) : st.ShadowPotency) * mult;
+                var aoe = skill.AoeExtraPotency > 0 || skill.AoePotency > 0 && s.TargetsOf(skill.Shape) >= skill.MinAoeTargets;
+                v += (aoe ? st.ShadowAoePotency * Math.Max(1, s.TargetsOf(skill.Shape)) : st.ShadowPotency) * mult;
             }
         }
         return v;
@@ -355,7 +354,7 @@ public static class Simulator
                         left = e.Value;
                         var fightLeft = tl.FightEndIn - t;
                         var gained = MathF.Max(0, MathF.Min(left, fightLeft)) - MathF.Max(0, MathF.Min(oldLeft, fightLeft));
-                        var hits = skill.DotAoe ? Math.Max(1, (int)s.Targets) : 1;
+                        var hits = skill.DotAoe ? Math.Max(1, s.TargetsOf(skill.Shape)) : 1;
                         value += skill.DotPps * gained * hits * mult;
                     }
                     else if (!e.Extend && st.Upkeep && oldLeft > 0)
@@ -438,8 +437,8 @@ public static class Simulator
             var st = job.Statuses[i];
             if (s.StatusLeft[i] <= 0)
                 continue;
-            var aoe = skill.AoeExtraPotency > 0 || skill.AoePotency > 0 && s.Targets >= skill.MinAoeTargets;
-            value += (aoe ? st.ShadowAoePotency * Math.Max(1, (int)s.Targets) : st.ShadowPotency) * mult;
+            var aoe = skill.AoeExtraPotency > 0 || skill.AoePotency > 0 && s.TargetsOf(skill.Shape) >= skill.MinAoeTargets;
+            value += (aoe ? st.ShadowAoePotency * Math.Max(1, s.TargetsOf(skill.Shape)) : st.ShadowPotency) * mult;
             if (st.ShadowGauge >= 0)
             {
                 var g = s.Gauges[st.ShadowGauge] + st.ShadowGaugeAmount;

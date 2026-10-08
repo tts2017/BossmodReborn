@@ -10,6 +10,7 @@ public static class EngineLimits
     public const int MaxCooldowns = 16;
     public const int MaxSkills = 64;
     public const int MaxWindows = 8;
+    public const int MaxShapes = 8;
     public const byte NoCombo = 0xFF;
 }
 
@@ -28,6 +29,9 @@ public struct CooldownTimeArray { private float _e; }
 [InlineArray(EngineLimits.MaxCooldowns)]
 public struct ChargeArray { private byte _e; }
 
+[InlineArray(EngineLimits.MaxShapes)]
+public struct ShapeTargetArray { private byte _e; }
+
 // Complete, fixed-size simulation state. Copied by value during search; never allocates.
 // Times: Time, GcdReadyAt and AnimLockAt are absolute seconds since the decision started (decision start = 0);
 // status / cooldown / combo timers are remaining seconds at Time.
@@ -39,7 +43,7 @@ public struct EngineState
     public byte ComboSkill;
     public float ComboLeft;
     public byte Targets;
-    public byte ConeTargets;  // targets hit by cone-shaped skills (SkillDef.Cone); 0 = same as Targets
+    public ShapeTargetArray ShapeTargets; // targets hit by the skills of each AoE shape (JobDefinition.Shapes); 0 = same as Targets
     public GaugeArray Gauges;
     public StatusTimeArray StatusLeft;
     public StatusStackArray StatusStacks;
@@ -59,6 +63,19 @@ public struct EngineState
 
     public readonly bool HasStatus(int index) => StatusLeft[index] > 0;
 
+    // the shape counts that differ from Targets, packed (0 when none does: the usual single-target state)
+    public readonly uint ShapeBits(JobDefinition job)
+    {
+        uint bits = 0;
+        for (var i = 0; i < job.Shapes.Length; ++i)
+            if (ShapeTargets[i] != 0 && ShapeTargets[i] != Targets)
+                bits |= (uint)ShapeTargets[i] << (i * 4);
+        return bits;
+    }
+
+    // the count of targets the skills of `shape` hit (-1 or an unset shape: the main target count)
+    public readonly int TargetsOf(int shape) => shape >= 0 && ShapeTargets[shape] > 0 ? ShapeTargets[shape] : Targets;
+
     // FNV-1a over the decision-relevant fields, times quantized to 0.05 s (relative to Time where it matters).
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public readonly ulong Hash(JobDefinition job) => Hash(job, 0.05f);
@@ -75,7 +92,7 @@ public struct EngineState
         h = Mix(h, ComboSkill);
         h = Mix(h, ComboSkill == EngineLimits.NoCombo ? 0 : Q(ComboLeft, inv));
         h = Mix(h, Targets);
-        h = Mix(h, ConeTargets);
+        h = Mix(h, ShapeBits(job));
         h = Mix(h, (uint)DisabledSkills);
         h = Mix(h, (uint)(DisabledSkills >> 32));
         if (HeldSkills != 0 && HeldUntil > Time)

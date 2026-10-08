@@ -102,7 +102,8 @@ public sealed class RprEnginePolicy
     {
         var s = EngineState.Create(job);
         s.Targets = (byte)Math.Max(1, ctx.AoeTargets);
-        s.ConeTargets = (byte)Math.Max(1, ctx.ConeTargets);
+        for (var i = 0; i < job.Shapes.Length; ++i)
+            s.ShapeTargets[i] = (byte)Math.Max(1, job.Shapes[i].Kind == AoeShape.Cone ? ctx.ConeTargets : ctx.AoeTargets);
         // targeting the harness reports as unavailable (null best AoE / line / cone target)
         ulong Mask(params string[] names) { ulong m = 0; foreach (var n in names) m |= 1UL << job.SkillIndex(n); return m; }
         if (!ctx.BestRangedAoeTargetAvailable)

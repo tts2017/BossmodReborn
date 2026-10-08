@@ -37,8 +37,135 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
     protected abstract void ReadJobState(ref EngineState s, Actor? primaryTarget);
 
     protected virtual ActionID ActionFor(SkillDef skill) => new(ActionType.Spell, skill.ActionId);
-    protected virtual Actor? TargetFor(SkillDef skill, Actor? primaryTarget) => skill.RequiresTarget ? primaryTarget : Player;
+    // an AoE skill goes to the enemy its shape hits the most priority targets from (ReadTargets, the Targeting setting); a single-target
+    // DoT to the DoT target; everything else to the player's target
+    protected virtual Actor? TargetFor(SkillDef skill, Actor? primaryTarget)
+    {
+        if (!skill.RequiresTarget)
+            return Player;
+        if (skill.Shape >= 0 && _shapeBest[skill.Shape] is { } best)
+            return best;
+        if (IsSingleTargetDot(skill) && _dotTarget != null)
+            return _dotTarget;
+        return primaryTarget;
+    }
     protected virtual byte CountTargets(Actor? primaryTarget) => 1;
+
+    // --- AoE targeting (the UI Targeting setting, as the xan modules' SelectTarget / AOETargetScorer read it) ---
+    protected enum TargetSetting : byte { Manual, Auto, AutoPrimary, AutoTryPrimary }
+    private TargetSetting _targeting = TargetSetting.Manual;
+    private float _primaryRange = 3; // the range SelectTarget was given (AutoTryPrimary / the DoT target fallback)
+    private AoeSetting _aoe;
+    private AoeCandidate[] _candidates = new AoeCandidate[32];
+    private Actor[] _candidateActors = new Actor[32];
+    private readonly Actor?[] _shapeBest = new Actor?[EngineLimits.MaxShapes];
+    private readonly int[] _shapeHits = new int[EngineLimits.MaxShapes];
+    private Actor? _dotTarget;
+
+    private static bool IsSingleTargetDot(SkillDef skill) => skill.DotStatus >= 0 && !skill.DotAoe && skill.Shape < 0;
+
+    // per decision, after the strategy is applied: for every AoE shape of the job the best target and its hit count (Basexan's scorer for
+    // the Targeting setting, the AOE setting's adjustment, forbidden targets), into s.ShapeTargets for the planner and _shapeBest for
+    // TargetFor. A shape with no usable target (a forbidden target would be hit, no target at all) disables its skills, as the old modules
+    // never pushed a skill whose best target was null. The single-target DoT target follows the ForbidDOTs hint.
+    private void ReadTargets(ref EngineState s, Actor? primaryTarget)
+    {
+        _dotTarget = null;
+        if (Job.Shapes.Length == 0 && !Array.Exists(Job.Skills, IsSingleTargetDot))
+            return;
+        var priority = Hints.PriorityTargetsSpan;
+        var forbidden = Hints.ForbiddenTargetsSpan;
+        var n = priority.Length + forbidden.Length + 1;
+        if (_candidates.Length < n)
+        {
+            _candidates = new AoeCandidate[n * 2];
+            _candidateActors = new Actor[n * 2];
+        }
+        var count = 0;
+        var primary = -1;
+        for (var i = 0; i < priority.Length; ++i)
+            Add(priority[i].Actor, false, false);
+        for (var i = 0; i < forbidden.Length; ++i)
+            Add(forbidden[i].Actor, true, forbidden[i].Priority == AIHints.Enemy.PriorityUndesirable);
+        if (primaryTarget != null && primary < 0)
+        {
+            // the player's target is in neither list: a candidate that hits nothing extra
+            _candidates[count] = new(primaryTarget.Position.X, primaryTarget.Position.Z, primaryTarget.HitboxRadius, false, false, false);
+            _candidateActors[count] = primaryTarget;
+            primary = count++;
+        }
+        var enemies = new ReadOnlySpan<AoeCandidate>(_candidates, 0, count);
+        float px = Player.Position.X, pz = Player.Position.Z;
+        for (var i = 0; i < Job.Shapes.Length; ++i)
+        {
+            var shape = Job.Shapes[i];
+            var mode = _targeting switch
+            {
+                TargetSetting.Manual => TargetMode.Manual,
+                TargetSetting.AutoPrimary => TargetMode.AutoPrimary,
+                TargetSetting.AutoTryPrimary => Player.DistanceToHitbox(primaryTarget) <= shape.Range ? TargetMode.AutoPrimary : TargetMode.Auto,
+                _ => TargetMode.Auto,
+            };
+            if (_aoe == AoeSetting.ForceSingleTarget)
+                mode = TargetMode.Manual;
+            var best = AoeTargeting.Select(shape, mode, _aoe, px, pz, enemies, primary, out var hits);
+            _shapeBest[i] = best >= 0 ? _candidateActors[best] : null;
+            // ForceAOE: the count every AoE skill is planned on (ForceAoeTargets), at least what the shape hits
+            _shapeHits[i] = _aoe == AoeSetting.ForceAoe ? Math.Max(hits, s.Targets) : hits;
+            s.ShapeTargets[i] = (byte)Math.Clamp(_shapeHits[i], 1, 255);
+            // (with no attackable target the timeline's downtime already covers it: a horizon-wide disable would also hide the skills
+            // from the plan for after the target returns)
+            if (hits == 0 && _aoe != AoeSetting.ForceSingleTarget && primaryTarget is { IsTargetable: true })
+                foreach (var sk in Job.Skills)
+                    if (sk.Shape == i)
+                        s.DisabledSkills |= 1UL << sk.Index;
+        }
+
+        // single-target DoTs: the player's target unless DoTs on it are forbidden; then (Auto) the first priority target in range
+        // that allows them, else no DoT
+        if (primaryTarget != null && Hints.FindEnemy(primaryTarget) is { ForbidDOTs: true })
+        {
+            var auto = _targeting is TargetSetting.Auto || _targeting == TargetSetting.AutoTryPrimary && primaryTarget == null;
+            if (auto)
+                foreach (var e in priority)
+                    if (!e.ForbidDOTs && Player.DistanceToHitbox(e.Actor) <= _primaryRange)
+                    {
+                        _dotTarget = e.Actor;
+                        break;
+                    }
+            if (_dotTarget == null)
+                foreach (var sk in Job.Skills)
+                    if (IsSingleTargetDot(sk))
+                        s.DisabledSkills |= 1UL << sk.Index;
+        }
+
+        void Add(Actor actor, bool isForbidden, bool undesirable)
+        {
+            _candidates[count] = new(actor.Position.X, actor.Position.Z, actor.HitboxRadius, isForbidden, undesirable);
+            _candidateActors[count] = actor;
+            if (actor == primaryTarget)
+                primary = count;
+            ++count;
+        }
+    }
+
+    // the hit count of the shape of `skill` (the main count for single-target skills): the synced rules decide AoE skills on it
+    protected int ShapeTargets(in EngineState s, string skill)
+    {
+        var i = Job.TrySkillIndex(skill);
+        return i < 0 ? s.Targets : s.TargetsOf(Job.Skills[i].Shape);
+    }
+
+    private void Push(SkillDef skill, Actor? primaryTarget, float priority, float castTime = 0, float delay = 0, bool trace = false)
+    {
+        var target = TargetFor(skill, primaryTarget);
+        Hints.ActionsToExecute.Push(ActionFor(skill), target, priority, castTime: castTime, delay: delay);
+        if (trace && DebugTrace != null && skill.Shape >= 0)
+        {
+            var shape = Job.Shapes[skill.Shape];
+            DebugTrace(FormattableString.Invariant($"[target {Job.Name}] t={CombatTime:f2} skill={skill.Name} shape={shape.Kind}:{shape.Size:g}{(shape.Width > 0 ? "/" + shape.Width.ToString("g", System.Globalization.CultureInfo.InvariantCulture) : "")} targeting={_targeting} aoe={_aoe} target={(target != null ? target.Name + "#" + target.InstanceID.ToString("X") : "none")} hits={_shapeHits[skill.Shape]}"));
+        }
+    }
 
     // priority targets within `radius` of the player measured hitbox to hitbox (the Akechi modules' convention)
     protected byte CountTargetsByHitbox(float radius)
@@ -105,13 +232,31 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         return primaryTarget;
     }
 
-    // xan Targeting track
+    // xan Targeting track (the setting is kept for the AoE shapes' target choice, ReadTargets)
     protected Actor? SelectTarget(Targeting targeting, Actor? primaryTarget, float range)
-        => targeting is Targeting.Auto or Targeting.AutoTryPri ? TargetInRange(primaryTarget, range) : primaryTarget;
+    {
+        _targeting = targeting switch
+        {
+            Targeting.Auto => TargetSetting.Auto,
+            Targeting.AutoPrimary => TargetSetting.AutoPrimary,
+            Targeting.AutoTryPri => TargetSetting.AutoTryPrimary,
+            _ => TargetSetting.Manual,
+        };
+        _primaryRange = range;
+        return targeting is Targeting.Auto or Targeting.AutoTryPri ? TargetInRange(primaryTarget, range) : primaryTarget;
+    }
 
     // Akechi Targeting track (AutoHard also switches the player's hard target)
     protected Actor? SelectTarget(akechi.Custom.SoftTargetStrategy targeting, Actor? primaryTarget, float range)
     {
+        _targeting = targeting switch
+        {
+            akechi.Custom.SoftTargetStrategy.Manual => TargetSetting.Manual,
+            akechi.Custom.SoftTargetStrategy.AutoPrimary => TargetSetting.AutoPrimary,
+            akechi.Custom.SoftTargetStrategy.AutoTryPrimary => TargetSetting.AutoTryPrimary,
+            _ => TargetSetting.Auto,
+        };
+        _primaryRange = range;
         if (targeting is akechi.Custom.SoftTargetStrategy.Manual or akechi.Custom.SoftTargetStrategy.AutoPrimary)
             return primaryTarget;
         var target = TargetInRange(primaryTarget, range);
@@ -122,13 +267,22 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
 
     // xan AOE track: ST / ForceST plan on one target (ForceST also forbids every skill that hits several targets), ForceAOE on enough
     // targets for every AoE skill
-    protected void ApplyAoe(ref EngineState s, AOEStrategy aoe)
+    protected void ApplyAoe(ref EngineState s, AOEStrategy aoe) => ApplyAoe(ref s, aoe switch
     {
-        if (aoe is AOEStrategy.ST or AOEStrategy.ForceST)
+        AOEStrategy.ST => AoeSetting.SingleTarget,
+        AOEStrategy.ForceST => AoeSetting.ForceSingleTarget,
+        AOEStrategy.ForceAOE => AoeSetting.ForceAoe,
+        _ => AoeSetting.Auto,
+    });
+
+    protected void ApplyAoe(ref EngineState s, AoeSetting aoe)
+    {
+        _aoe = aoe;
+        if (aoe is AoeSetting.SingleTarget or AoeSetting.ForceSingleTarget)
             s.Targets = 1;
-        if (aoe == AOEStrategy.ForceST)
+        if (aoe == AoeSetting.ForceSingleTarget)
             ForbidMultiTarget(ref s);
-        if (aoe == AOEStrategy.ForceAOE)
+        if (aoe == AoeSetting.ForceAoe)
             ForceAoeTargets(ref s);
     }
 
@@ -195,7 +349,9 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         ReadJobState(ref s, primaryTarget);
         ApplyCastInProgress(ref s);
         _assumedCycleStart = AssumedCycleStart(s);
+        _aoe = AoeSetting.Auto;
         ApplyStrategy(strategy, ref s, primaryTarget);
+        ReadTargets(ref s, primaryTarget);
 
         var tl = BuildTimeline(isMoving, primaryTarget);
         if (_epoch == default)
@@ -233,19 +389,19 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         if (d.NextGcd >= 0 && !(d.Skill >= 0 && !Job.Skills[d.Skill].IsGcd && GcdNeedsAbilityFirst(s, tl, d.Skill, d.NextGcd)))
         {
             var gcd = Job.Skills[d.NextGcd];
-            Hints.ActionsToExecute.Push(ActionFor(gcd), TargetFor(gcd, primaryTarget), ActionQueue.Priority.High + 2, castTime: gcd.CastTime);
+            Push(gcd, primaryTarget, ActionQueue.Priority.High + 2, castTime: gcd.CastTime, trace: !d.Reused);
         }
         if (d.Skill >= 0 && !Job.Skills[d.Skill].IsGcd)
         {
             var ogcd = Job.Skills[d.Skill];
-            Hints.ActionsToExecute.Push(ActionFor(ogcd), TargetFor(ogcd, primaryTarget), ActionQueue.Priority.Low + 1, delay: d.ExecuteAt);
+            Push(ogcd, primaryTarget, ActionQueue.Priority.Low + 1, delay: d.ExecuteAt, trace: !d.Reused);
         }
         // forced skills: ahead of the engine's GCD, abilities in the first weave slot
         for (var i = 0; i < _numForced; ++i)
         {
             var sk = Job.Skills[_forced[i]];
             if (Simulator.IsLegal(Job, s, tl, sk))
-                Hints.ActionsToExecute.Push(ActionFor(sk), TargetFor(sk, primaryTarget), (sk.IsGcd ? ActionQueue.Priority.High + 3 : ActionQueue.Priority.Medium + 1) - i * 0.01f, castTime: sk.CastTime);
+                Push(sk, primaryTarget, (sk.IsGcd ? ActionQueue.Priority.High + 3 : ActionQueue.Priority.Medium + 1) - i * 0.01f, castTime: sk.CastTime);
         }
     }
 
