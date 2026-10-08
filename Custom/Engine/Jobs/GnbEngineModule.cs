@@ -250,6 +250,9 @@ public sealed class GnbEngineModule(RotationModuleManager manager, Actor player)
     protected override byte CountTargets(Actor? primaryTarget) => CountTargetsByHitbox(5);
 
     // Level sync (below 100): The Balance GNB Leveling Guide's per-band priorities (docs/rebuild/engine-design.md section 20)
+    // the 2-minute burst anchor the assumed raid-buff cycle follows on a pull without a countdown (EngineRotationModule.AssumedCycleStart)
+    protected override string? MainAnchorCooldown => GnbDefinition.BloodfestCD;
+
     protected override bool HasSyncedRules => true;
 
     protected override int SyncedOgcd(in EngineState s, in EngineTimeline tl)

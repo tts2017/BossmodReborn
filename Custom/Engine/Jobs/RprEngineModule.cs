@@ -205,6 +205,9 @@ public sealed class RprEngineModule(RotationModuleManager manager, Actor player)
     protected override byte CountTargets(Actor? primaryTarget) => (byte)Math.Max(1, Hints.NumPriorityTargetsInAOECircle(Player.Position, 5));
 
     // Level sync (below 100): The Balance RPR Leveling Guide's per-band priorities (docs/rebuild/engine-design.md section 20)
+    // the 2-minute burst anchor the assumed raid-buff cycle follows on a pull without a countdown (EngineRotationModule.AssumedCycleStart)
+    protected override string? MainAnchorCooldown => RprDefinition.ArcaneCircleCD;
+
     protected override bool HasSyncedRules => true;
 
     protected override int SyncedOgcd(in EngineState s, in EngineTimeline tl)
