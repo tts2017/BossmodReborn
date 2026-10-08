@@ -109,7 +109,9 @@ public static class NinDefinition
             Ninjutsu(b.Gcd("Katon", 350, AidKaton).AoeFalloff(350), 2).UsesCooldown(MudraCD).ForbidStatus(Kassatsu);
         if (level >= 76)
         {
-            Ninjutsu(b.Gcd("HyoshoRanryu", 1300 * 1.3f, AidHyosho), 2).RequiresStatus(Kassatsu).RemoveStatus(Kassatsu);
+            var hyosho = Ninjutsu(b.Gcd("HyoshoRanryu", 1300 * 1.3f, AidHyosho), 2).RequiresStatus(Kassatsu).RemoveStatus(Kassatsu);
+            if (level >= 100)
+                hyosho.RequiresStatus(KunaisBane); // the Kassatsu ninjutsu inside Kunai's Bane (every minute, as the 7.5 guide; see Ten Chi Jin below)
             Ninjutsu(b.Gcd("GokaMekkyaku", 850 * 1.3f, AidGoka).AoeFalloff(850 * 1.3f), 2).RequiresStatus(Kassatsu).RemoveStatus(Kassatsu);
         }
         else if (level >= 50)
@@ -135,7 +137,13 @@ public static class NinDefinition
         {
             var tenChiJin = b.Ogcd("TenChiJin", 0, TenChiJinCD, AidTenChiJin).ForbidStatus(Kassatsu).RequiresStatusLeft(Dokumori, 2.5f).ApplyStatus(TenChiJin, 6);
             if (level >= 100)
+            {
                 tenChiJin.ApplyStatus(TenriReady, 30);
+                // the even-minute order of the 7.5 guide (Kunai's Bane -> Raiju + Dream + Kassatsu -> Hyosho Ranryu -> Ten Chi Jin -> Meisui):
+                // Ten Chi Jin inside Kunai's Bane, so its Shadow Walker goes to Meisui and a Suiton before Dokumori gives Kunai's Bane its own
+                // (planned at the search's 5-GCD horizon; a horizon of 4 lost the Suiton -> Kunai's Bane plan, docs section 27.4)
+                tenChiJin.RequiresStatus(KunaisBane);
+            }
         }
         if (level >= 66)
         {
@@ -210,14 +218,14 @@ public static class NinDefinition
         _ => DefaultWeightsJson
     });
 
-    // CMA-ES on the xan timeline harness (9 fights, deterministic search; tools/blm_engine_eval tuned/weights-NIN-v1.json), at a 5-GCD horizon
-    // (the same weights score higher there once the adapter queues a Kassatsu before its Hyosho Ranryu). MinNodes / SliceNodes: every search
-    // (at most about 8,800 nodes in the 9 fights) completes and frame slices are counted in nodes, so live play equals the deterministic
-    // search; BudgetMs only caps a search larger than MinNodes.
+    // CMA-ES on the xan timeline harness at a 5-GCD horizon with the Kunai's Bane conditions on Hyosho Ranryu / Ten Chi Jin (9 fights with
+    // --party-buffs 7.8, deterministic search; tools/blm_engine_eval tuned/weights-NIN-v2.json, from the v1 set at horizon 4). MinNodes /
+    // SliceNodes: every search (at most about 11,700 nodes in the 9 fights) completes and frame slices are counted in nodes, so live play
+    // equals the deterministic search; BudgetMs only caps a search larger than MinNodes.
     public const string DefaultWeightsJson = """
     {
-      "OverCap": 1.742, "Combo": 0.729, "LambdaScale": 0.107, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 1.021,
-      "BurstBias": 0.114, "StatusRemainder": 1.255, "CycleScale": 1, "CooldownLambdaScale": 0.058, "ForecastSelfBuffs": 1, "UnlockScale": 1.643,
+      "OverCap": 1.7916881, "Combo": 1.0238066, "LambdaScale": 0.312714, "TargetPull": 0, "SwitchMargin": 0, "FillerScale": 1.1303678,
+      "BurstBias": 0, "StatusRemainder": 2, "CycleScale": 1, "CooldownLambdaScale": 0.19221139, "ForecastSelfBuffs": 1, "UnlockScale": 2.38436,
       "StatusValue": {}, "CooldownValue": {}, "GaugeValue": {},
       "HorizonGcds": 5,
       "BudgetMs": 30,
