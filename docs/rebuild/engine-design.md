@@ -2008,3 +2008,130 @@ anchors-45 / ゲージ満タン (9 戦闘 バフなし / (b)、180 秒単体 バ
 - Lv100 未満の固定規則: 軸の戻りを見てゲージを残す規則は足していない (SAM の返し / 波切の Hold、RPR の Gluttony、NIN の Bunshin などは
   既存の規則で軸に合わせており、軸の直前にゲージを捨てる規則は見つからなかった)。シンクレベルの出力は HEAD と同じ。
 - ゲーム内での確認は未実施。
+
+## 30. 範囲攻撃の対象選択 (UI の Targeting 設定どおりに対象を選ぶ)
+
+### 30.1 問題
+
+- [Engine] の 9 モジュールは UI の Targeting (対象選択) 設定をほとんど見ていなかった。Adapter の `SelectTarget(Targeting, primary, range)` は
+  Auto / AutoTryPri でプレイヤーのターゲットが射程外のときに射程内の最初の優先対象へ差し替えるだけで、`TargetFor` は範囲攻撃も単体攻撃も
+  その 1 体に向けていた。旧モジュール (xan [Custom] の `Basexan.SelectTarget` + `AOETargetScorer`、Akechi の `GetTarget`) は範囲攻撃ごとに
+  その形 (自分中心の円、対象中心の円 (スプラッシュ)、直線、扇) で「優先対象を最も多く巻き込む敵」を選ぶ: Auto = 射程内のどの敵でも、
+  AutoPrimary = プレイヤーのターゲットも必ず巻き込む敵の中から、AutoTryPri = プレイヤーのターゲットが射程内なら AutoPrimary・外なら Auto、
+  Manual = プレイヤーのターゲットだけ。AOE トラックの ForceST は Manual 扱い。禁止対象 (`Enemy.Priority` が undesirable 以下) を巻き込む敵は
+  0 点、DoT の `ForbidDOTs` も見る。
+- 対象数の数え方も形を見ていなかった: BLM (対象中心 5 y) と GNB (ヒットボックス 5 y) 以外の全ジョブが、技の形に関係なく「自分中心 5 y の
+  優先対象数」を `s.Targets` に入れ、定義は `Cone` (RPR の鎌の扇、SAM の風雅 / 奥義波切 / 残心) しか区別していなかった (しかもどのモジュールも
+  `ConeTargets` を埋めていなかったので常に `Targets` と同じ)。DRG の直線 10 × 4 / 15 × 4、SAM の直線 (紅蓮 10 × 8) と扇 (波切 8 y 60°)、
+  NIN / VPR / MNK / PLD の対象中心スプラッシュ (範囲 20 / 25 / 3 / 3.5 y) などは旧モジュールが形ごとに数えていた。
+
+### 30.2 変更内容
+
+Core / Adapter (仕組み):
+
+- `JobDefinition.cs`: `AoeShape` (SelfCircle / TargetCircle / Line / Cone) と `ShapeDef(Kind, Size, Width, Range)` (Size = 半径または直線の長さ、
+  Width = 直線の半幅または扇の半角 (度)、Range = その技を向けられる敵の最大距離 (ヒットボックス間))。`SkillBuilder.Shape(kind, size, width,
+  range)` で技に付け、`Build` が同じ形をまとめて `JobDefinition.Shapes` (最大 8) にし、`SkillDef.Shape` にその添字を入れる。形のある技の
+  `RequiresTargets` (TargetsAtLeast / AtMost) は `Index = 形 + 1` に書き換わり、その形の対象数を見る (Index 0 = `Targets`)。`Cone()` と
+  `ConeTargetsAtLeast` は廃止 (形に置き換え)。
+- `EngineState.cs`: `ShapeTargets[8]` (形ごとの対象数、0 = `Targets` と同じ) と `TargetsOf(shape)`。ハッシュは `Targets` と異なる形の対象数だけを
+  詰めた `ShapeBits` を混ぜる (単体では 0 のまま: 旧 `ConeTargets` の 0 と同じ位置・同じ値なので、単体の探索は変更前と同一)。
+- `Simulator.cs`: `Potency` / `QuickValue` / `Execute` の AoE 威力・AoE DoT・分身の追撃は `s.TargetsOf(skill.Shape)` を使う。
+- `AoeTargeting.cs` (新規、BossMod 非依存の純関数): `InShape` (AIHints の `TargetInAOECircle / Rect / Cone` と `Intersect.CircleRect /
+  CircleCone` の同じ式)、`InRange` (`FindBetterTargetByScorer` の「射程 + ヒットボックス + 0.5 y」)、`Adjust` (`AdjustNumTargets`: AOE →
+  そのまま、ST → 1、ForceAOE → 10、ForceST → 0)、`Hits` (`AOETargetScorer.Score`: 禁止対象を巻き込めば 0、戦闘外のプレイヤーのターゲットだけ
+  なら 1、それ以外は max(1, 優先対象数))、`Select` (Manual / Auto / AutoPrimary の選び方。AutoTryPrimary は Adapter が形の射程で解決)。
+- `EngineRotationModule.cs`: `SelectTarget` の 2 つのオーバーロード (xan `Targeting` / Akechi `SoftTargetStrategy`) は設定を `TargetSetting`
+  (Manual / Auto / AutoPrimary / AutoTryPrimary; Akechi の Automatic / AutoHard → Auto) に写して保持し、射程外の差し替えと AutoHard の
+  `Hints.ForcedTarget` は今までどおり。`ApplyAoe` は `AoeSetting` (Auto / SingleTarget / ForceSingleTarget / ForceAoe) を保持し、GNB / PLD の
+  `ApplyStrategy` もそれを通す。`Execute` は `ApplyStrategy` の後に `ReadTargets` を呼ぶ: ヒントの優先対象と禁止対象 (とどちらにもいない
+  プレイヤーのターゲット) を `AoeCandidate` に写し、ジョブの形ごとに `AoeTargeting.Select` で最良の敵と巻き込み数を求め、`s.ShapeTargets`
+  (ForceAOE は `ForceAoeTargets` 後の `Targets` 以上) と `_shapeBest` に入れる。巻き込める対象がない形 (禁止対象を巻き込む) はその技を
+  `DisabledSkills` に入れる (旧モジュールが best = null の技を押さなかったのと同じ)。ただし攻撃できるターゲットがいないときは入れない
+  (ダウンタイムはタイムラインに載っていて、地平線全体の無効化は復帰後の計画まで隠す: 最初の版はこれで SAM の 3 戦闘で明鏡止水が動いた)。
+  単体 DoT (DRG 桜花、SAM 彼岸花、BLM サンダー) はプレイヤーのターゲットが `ForbidDOTs` なら Auto で射程内の別の優先対象、なければ無効化。
+  `TargetFor` は形のある技をその形の最良の敵に、DoT を DoT 対象に向ける。`ShapeTargets(s, 技名)` でシンク規則が技の形の対象数を読む。
+  `Push` は `DebugTrace` に技・形・設定・対象・巻き込み数を出す (`[target JOB] t= skill= shape= targeting= aoe= target= hits=`)。
+- engine_tests: `AoeTargetingTests` 10 件 (4 つの形、`Hits` の禁止 / 戦闘外 / AOE 設定、Manual / Auto / AutoPrimary の選び方、射程外、
+  禁止対象の回避、`JobBuilder` の形のまとめと条件の書き換え・`TargetsOf`・ハッシュ)。rpr_engine_eval の `ConeTargets` を形の対象数に置換。
+
+定義 (ジョブごとの形。旧モジュールの `PositionCheck` と `NumNearbyTargets` の半径、アクションの射程から。Range は射程):
+
+| ジョブ | 自分中心の円 | 対象中心の円 (スプラッシュ 5 y) | 直線 | 扇 |
+|---|---|---|---|---|
+| DRG | – | Dragonfire Dive / Stardiver / Starcross / Rise of the Dragon (射程 20) | Doom Spike / Draconian Fury / Sonic Thrust / Coerthan Torment 10 × 半幅 2 (射程 10)、Geirskogul / Nastrond / Wyrmwind Thrust 15 × 2 (射程 15) | – |
+| VPR | Steel Maw / Reaving Maw / Hunter's Bite / Swiftskin's Bite / Jagged Maw / Bloodied Maw / Vicepit / Hunter's Den / Swiftskin's Den / Reawaken / Ouroboros 5 y (射程 3)、Twinfang / Twinblood Thresh / Last Lash 5 y (射程 5) | Uncoiled Fury / Uncoiled Twinfang / Twinblood (射程 20)、Generation 4 つ (射程 3)、Legacy (射程 5) | – | – |
+| SAM | 風光 / 満月 / 桜花 (と明鏡止水版) / 九天 5 y (射程 3 / 5)、天下五剣 / 返し / 天道五剣 / 天道返し 8 y (射程 8) | – | 紅蓮 / 照破 10 × 半幅 4 (射程 10) | 風雅 (Lv86 未満の風光) / 奥義波切 / 返し波切 / 残心 8 y 60° (射程 8) |
+| RPR | Spinning / Nightmare Scythe / Whorl of Death / Soul Scythe 5 y (射程 3) | Sacrificium (射程 25) | Plentiful Harvest 15 × 2 (射程 15) | Guillotine / Executioner's Guillotine / Grim Reaping / Grim Swathe / Lemure's Scythe 8 y 90° (射程 8) |
+| NIN | Death Blossom / Hakke Mujinsatsu 5 y (射程 3) | 火遁 / 活殺火遁 / 劫火滅却 / Phantom Kamaitachi (射程 20)、Hellfrog / Deathfrog Medium (射程 25) | – | – |
+| MNK | Shadow of the Destroyer / Four-point Fury / Rockbreaker 5 y (射程 3) | Elixir Burst / Rising Phoenix / Phantom Rush (射程 3)、Fire's Reply (射程 20) | Wind's Reply / Enlightenment (Howling Fist) 10 × 2 (射程 10) | – |
+| BLM | – | High Fire II / High Blizzard II / Freeze / Flare / Flare Star / Foul / High Thunder II (射程 25。旧 BLM は全部 `IsSplashTarget` 5 y) | – | – |
+| GNB | Demon Slice / Demon Slaughter / Fated Circle / Double Down 5 y (射程 3)、Bow Shock / Fated Brand 5 y (射程 5) | Reign of Beasts / Noble Blood / Lion Heart (射程 3.5、Akechi の `AOESplashRadius`) | – | – |
+| PLD | Total Eclipse / Prominence 5 y (射程 3)、Holy Circle / Circle of Scorn 5 y (射程 5) | Confiteor / Blade of Faith / Truth / Valor / Blade of Honor / Imperator (射程 25)、Expiacion (射程 3。Akechi は 25 y の最良対象に向けるがアクションの射程は 3) | – | – |
+
+- `CountTargets` (`s.Targets`、形のない技と `DotAoe` の数) は今までどおり自分中心 5 y (BLM は対象中心 5 y)。GNB だけ `CountTargetsByHitbox`
+  (ヒットボックス間 ≤ 5: 自分のヒットボックス 0.5 ぶん広く、DMU の Exdeath (7.5 y) を 3 体目に数えていた) から AIHints と同じ円に変えた
+  (Akechi の AoE 判定 `TargetsInAOECircle` と同じ式)。
+- シンク規則 (Lv100 未満) の `s.Targets >= 3` は決める技の形の数に: DRG Doom Spike、VPR Steel Maw、SAM 紅蓮 / 九天 / 風光、NIN Hellfrog /
+  Death Blossom、MNK Phantom Rush (Blitz Multi) / Enlightenment / Rockbreaker、BLM High Thunder II / High Fire II / Foul、PLD Total Eclipse、
+  GNB Demon Slice / Fated Circle、RPR の Force (Soul Scythe / Grim Swathe)。
+- NIN: 印の後の忍術本体 (火遁 / 劫火滅却) はその形の最良の敵に向ける (印は自分)。
+
+### 30.3 検証
+
+- Release ビルド 0 エラー (BossModReborn、xan_timeline_harness、engine_tests 36/36 (新規 10)、engine_bench、engine_tuner、blm_engine_eval、
+  rpr_engine_eval、mnk / nin / sam_regression)。
+- 単体 (9 戦闘 `timeline-matrix --scenario-limit 8`、ENGINE_FRAME_MS=1000、バフなし、Lv100、HEAD ca1dc561c → 変更後): 8 つの汎用タイムライン
+  (z581 / 585 / 586 ...) は 9 ジョブとも出力行と全アクションのトレースが完全一致。DMU (z1363、1,514 秒) は RPR / BLM / DRG が完全一致、
+  NIN / MNK / SAM / GNB / PLD / VPR は 541〜603 秒 (第 3 相: Kefka P3 (2.5, −2.5) / Chaos (2.5, 0) / Exdeath (7.5, 0) が同時に攻撃可能) から
+  変わる。理由はスプラッシュの形が 2〜3 体を数えるようになったこと (NIN は 568 秒に Bhavacakra の代わりに Hellfrog Medium 2 体 500、MNK は
+  602.9 秒に Snap Punch の代わりに Fire's Reply、GNB は Reign of Beasts の前に Savage Claw (自分中心の円が Exdeath を数えなくなった))。
+  それより前は全ジョブ一致。
+
+| | HEAD 9 戦闘 (威力 / 合計) | 変更後 | 差 |
+|---|---|---|---|
+| RPR | 648,645 / 670,681 | 648,645 / 670,681 | 一致 |
+| NIN | 646,997 / 657,855 | 652,970 / 663,907 | +6,052 (DMU のみ) |
+| MNK | 578,603 / 578,603 | 578,963 / 578,963 | +360 (DMU のみ) |
+| SAM | 664,853 / 678,197 | 663,447 / 676,991 | −1,206 (DMU のみ) |
+| BLM | 547,963 / 552,512 | 547,963 / 552,512 | 一致 |
+| GNB | 560,616 / 564,636 | 556,840 / 560,860 | −3,776 (DMU のみ) |
+| PLD | 550,408 / 552,344 | 550,215 / 551,608 | −736 (DMU のみ) |
+| DRG | 635,856 / 636,786 | 635,856 / 636,786 | 一致 |
+| VPR | 679,337 / 710,169 | 679,459 / 710,291 | +122 (DMU のみ) |
+
+- 複数対象 (`event-timeline --zone 581 --duration 60 --extra-targets 3`、ENGINE_TRACE=1、`--track Targeting=` Manual / Auto / AutoPrimary /
+  AutoTryPri (GNB / PLD は Manual / Automatic / AutoPrimary / AutoTryPrimary)): ハーネスの 3 体の追加敵はプレイヤーの 5 y 以内・ターゲットの
+  周り (2.5, ±2) / (4, 0) に詰まっているので、どの形もターゲットに向けて 4 体を巻き込み、4 つの設定とも全押下でプレイヤーのターゲット
+  (`Target#40000001`) に hits=4 (Auto は「より多く巻き込む敵」がないので初期対象のまま、AutoPrimary / Manual はターゲット)。設定ごとの
+  威力・押下数は同じ。押下ごとの対象と巻き込み数 (抜粋、`[target]` 行と CSV の突き合わせ):
+  - DRG Auto: 0.0 s Doom Spike → Target hits=4 (Line 10/2)、2.5 s Sonic Thrust → Target 4、Geirskogul (Line 15/2) 1 回 / Dragonfire Dive /
+    Stardiver / Starcross / Rise of the Dragon (TargetCircle) 各 1 回、Wyrmwind Thrust 3 回、すべて 4。
+  - RPR Auto: 0.0 s Soul Scythe (SelfCircle) 4、3.15 s Grim Swathe (Cone 8/90) → Target 4、5.0 s Guillotine 4、Grim Reaping 8 回 / Lemure's
+    Scythe 4 回 / Sacrificium 2 回 / Plentiful Harvest 1 回、すべて 4。
+  - NIN Auto: 2.7 s 火遁 (TargetCircle、印の後の本体) → Target 4、18.1 s Hellfrog Medium → Target 4、Death Blossom / Hakke 各 4 回。
+  - SAM Auto: 風光 5 / 満月 4 / 桜花 6 回 (SelfCircle 5)、天下五剣系 (SelfCircle 8) 5 回、奥義波切 / 返し波切 / 残心 (Cone 8/60) 各 1 回、
+    紅蓮 1 回 / 照破 2 回 (Line 10/4)、九天 3 回、すべて 4。
+  - MNK / BLM / VPR / GNB / PLD も同様 (MNK: Shadow of the Destroyer 13 回 / Enlightenment 3 回 / Wind's Reply 1 回、BLM: Flare 8 回 /
+    High Thunder II 4 回 / Freeze 4 回 / Foul 2 回 / Flare Star 4 回、VPR: Thresh 各 6 回 / Uncoiled Fury 3 回 / Generation 4 つ、
+    GNB: Demon Slice 7 回 / Fated Circle 7 回 / Fated Brand 7 回 / Double Down 1 回、PLD: Prominence 9 回 / Holy Circle 5 回 / Confiteor 連携
+    4 回 / Expiacion 2 回。全部 hits=4、対象はプレイヤーのターゲット)。
+  - 設定ごとに対象が変わる場面 (Auto が別の敵に移る、AutoPrimary がターゲットを巻き込まない敵を除く、禁止対象で 0 になる) は engine_tests の
+    `AoeTargetingTests` で確認 (ハーネスの追加敵の配置では起きない、30.4)。
+- Execute (9 戦闘 `exec_ms` 合計、変更後): RPR 1,461 / NIN 2,791 / MNK 2,879 / SAM 6,878 / BLM 1,583 / GNB 2,720 / PLD 9,706 / DRG 3,840 /
+  VPR 722 ms (HEAD: 1,231 / 2,307 / 2,284 / 5,953 / 1,372 / 2,036 / 7,744 / 3,408 / 574)。形ごとの採点は毎判断に優先対象 × 候補の二重ループ
+  (単体では 1 × 1)。
+- ゲーム内での確認は未実施。
+
+### 30.4 入れていないもの
+
+- 旧モジュールの DoT 対象の残り: `SelectDotTarget` の「残り時間が最短の優先対象を選ぶ」「非禁止の優先対象が 2 体を超えたら DoT なし」
+  (エンジンは対象ごとの DoT 残りを持たない。`ForbidDOTs` の回避だけ)。GNB の Sonic Break を HP 最大の敵に向ける `BestDOTTarget`。
+- BLM の `SelectTargetByHP` (同数なら HP の多い敵)、`SelectBestAOECenterTarget` (3 体以上を巻き込む中心を全ペアから探す)、AoE サンダーの
+  「DoT が切れかけの敵だけ数える」`AOEThunderCheck`。
+- RPR の Communio / Harvest Moon / Perfectio、NIN の Phantom Kamaitachi 以外の忍術 (雷遁 / 水遁)、SAM の燕飛など単体技の対象は
+  プレイヤーのターゲットのまま。
+- MNK の遠距離の対象取得 (`TargetAcquisitionRange` 25 y の `rangedTarget`) と Thunderclap の飛び込み先。
+- `ShadowAoePotency` (分身) は形の数を使うが、分身の技ごとの形 (忍術の形) は分けていない。
+- ハーネスに追加敵を散らす配置 (直線 / 扇から外れる敵、禁止対象) は足していない: 設定ごとの選び分けは engine_tests で見ている。
+- 複数対象での旧モジュールとの威力比較、全レベル × 全トラックのスモーク (スコープ外とした)。
