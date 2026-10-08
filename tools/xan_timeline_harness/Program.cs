@@ -101,6 +101,8 @@ internal static partial class Program
     {
         try
         {
+            // every run starts with the engine built (the plugin builds a slow one on a worker thread and waits for it)
+            BossMod.Autorotation.EngineRotationModule.SynchronousCreation = true;
             if (Environment.GetEnvironmentVariable("ENGINE_DEPTH") is { Length: > 0 } engineDepth)
             {
                 var ew = BossMod.Autorotation.Engine.Jobs.RprDefinition.DefaultWeights();
@@ -1706,14 +1708,25 @@ internal static partial class Program
         // Machinist presses Reassemble in the last 5s of the countdown and its first tool with 1.15s left (xan MCH.cs)
         public const float DefaultMchPrePull = 6f;
         public static float? PrePullCountdown;
+        // --prepull <s>: a countdown of that length before every pull, for every job (the jobs above keep their own length unless this is set)
+        public static float? PrePullAll;
+        // XAN_HARNESS_DUMMY=1: a striking dummy outside a duty, as in game: the player starts out of combat with no countdown (the rotation
+        // opens on its own as soon as it has a target, 4 s before the scripted pull unless --prepull says otherwise) and the target is a
+        // passive enemy until then
+        public static readonly bool DummyMode = Environment.GetEnvironmentVariable("XAN_HARNESS_DUMMY") == "1";
 
         public TimelineResult Run()
         {
+            ExecProfile.BeginRun();
             // a start preset (--start-cooldowns / --start-gauge) is a pull without a countdown: combat from time zero for every job
             var startPreset = StartCooldownsSpec != null ? StartPreset.Parse(StartCooldownsSpec, _job.Class, PlayerLevel) : null;
             var prePull = _dmuSchedule != null || startPreset != null || StartGaugeSpec != null ? 0f : _job.Class == Class.NIN ? PrePullCountdown ?? DefaultNinPrePull : _job.Class == Class.SAM ? PrePullCountdown ?? DefaultSamPrePull
                 : _job.Class == Class.VPR ? PrePullCountdown ?? DefaultVprPrePull
                 : _job.Class == Class.MCH ? PrePullCountdown ?? DefaultMchPrePull : 0f;
+            if (PrePullAll is { } prePullAll && _dmuSchedule == null && startPreset == null && StartGaugeSpec == null)
+                prePull = prePullAll;
+            if (DummyMode && _dmuSchedule == null)
+                prePull = PrePullAll ?? 4;
             var world = BuildWorld(out var player, out var target, out var dmuActors, out var hints, prePull);
             startPreset?.Apply(world, player);
             if (StartGaugeSpec != null)
@@ -1747,7 +1760,9 @@ internal static partial class Program
                 ValidateBlmPlannerSelection(world, player, target, manager, hints);
                 _blmBoundariesChecked = true;
             }
+            var createStart = System.Diagnostics.Stopwatch.GetTimestamp();
             using var module = _job.CreateModule(manager, player);
+            ExecProfile.RecordCreate(_job.Name, System.Diagnostics.Stopwatch.GetTimestamp() - createStart);
             var strategy = new StrategyValues(_job.Definition().Configs);
             if (_job.Class == Class.BLM && BlmRotationOverride != null)
             {
@@ -2033,14 +2048,25 @@ internal static partial class Program
             {
                 var time = -prePull + k * FrameStep;
                 AdvanceFrameExplicit(world, time, (ulong)(1_000_000 + k), FrameStep);
-                world.Execute(new ClientState.OpCountdownChange(-time));
+                if (!DummyMode)
+                    world.Execute(new ClientState.OpCountdownChange(-time));
+                else
+                    _blmCombat?.Advance();
                 _ninCombat?.Advance();
                 _samCombat?.Advance();
                 _vprCombat?.Advance();
                 _mchCombat?.Advance();
                 RefreshHints(hints, new[] { target });
+                // a striking dummy out of combat is a passive enemy (AIHintsBuilder: not to be pulled by AoE)
+                if (DummyMode)
+                    foreach (var e in hints.PotentialTargets)
+                        e.Priority = AIHints.Enemy.PriorityUndesirable;
                 ApplyFightRemaining(hints, time);
+                var allocStart = ExecProfile.Enabled ? GC.GetAllocatedBytesForCurrentThread() : 0;
+                var executeStart = System.Diagnostics.Stopwatch.GetTimestamp();
                 module.Execute(strategy, target, estimatedAnimLockDelay: FrameStep, isMoving: false);
+                if (ExecProfile.Enabled)
+                    ExecProfile.Record(_job.Name, System.Diagnostics.Stopwatch.GetTimestamp() - executeStart, GC.GetAllocatedBytesForCurrentThread() - allocStart, time);
                 ExecuteBestAction(world, player, hints, true, time);
             }
             world.Execute(new ClientState.OpCountdownChange(null));
@@ -2632,7 +2658,7 @@ internal static partial class Program
 
             const ulong playerID = 0x10000001;
             const ulong targetID = TimelineTargetID;
-            world.Execute(new ActorState.OpCreate(playerID, 0, 0, 0, "Player", 0, ActorType.Player, _job.Class, (byte)PlayerLevel, new Vector4(0, 0, 0, 0), 0.5f, new(100000, 100000, 0, 10000, 10000), true, true, default, default, 0));
+            world.Execute(new ActorState.OpCreate(playerID, 0, 0, 0, "Player", 0, ActorType.Player, _job.Class, (byte)PlayerLevel, new Vector4(BlmCombatState.StrictArea ? 0.5f : 0, 0, 0, 0), 0.5f, new(100000, 100000, 0, 10000, 10000), true, true, default, default, 0));
             world.Execute(new PartyState.OpModify(PartyState.PlayerSlot, new(1, playerID, false)));
             if (PartyBuffFirstCast is { } firstCast)
             {
@@ -2659,6 +2685,9 @@ internal static partial class Program
             // sync in the job combat states carries whatever SkillSpeed it finds here forward unchanged
             if (PlayerSkillSpeed is { } skillSpeed)
                 world.Execute(new ClientState.OpPlayerStatsChange(new(skillSpeed, 400, 100)));
+            // XAN_HARNESS_SPELL_SPEED: a caster's spell speed (a geared Lv100 BLM is near a 2.20 s GCD at about 2,990), opt-in like the above
+            if (int.TryParse(Environment.GetEnvironmentVariable("XAN_HARNESS_SPELL_SPEED"), out var spellSpeed) && spellSpeed > 0)
+                world.Execute(new ClientState.OpPlayerStatsChange(new(PlayerSkillSpeed ?? 400, spellSpeed, 100)));
             // same rule: stocking the inventory is opt-in, because a held potion lets the Potion track act and moves results
             if (Potions is { } potionCount)
                 world.Execute(new ClientState.OpInventoryChange((_job.Class is Class.NIN or Class.VPR or Class.MCH ? ActionDefinitions.IDPotionDex : ActionDefinitions.IDPotionStr).ID, (uint)potionCount));
@@ -3422,6 +3451,12 @@ internal static partial class Program
                         partyBuffFirstCast = float.Parse(value, System.Globalization.CultureInfo.InvariantCulture);
                         if (partyBuffFirstCast <= 0)
                             throw new ArgumentOutOfRangeException(nameof(args), "--party-buffs must be positive.");
+                        break;
+                    case "--prepull":
+                        // a countdown of this length before every pull, for every job (ContinuousTimelineRunner.PrePullAll)
+                        ContinuousTimelineRunner.PrePullAll = float.Parse(value, System.Globalization.CultureInfo.InvariantCulture);
+                        if (ContinuousTimelineRunner.PrePullAll <= 0)
+                            throw new ArgumentOutOfRangeException(nameof(args), "--prepull must be positive.");
                         break;
                     case "--countdown":
                         // rpr-potion natural fights: start out of combat with this countdown so the module pre-pulls (Soulsow, Harpe).

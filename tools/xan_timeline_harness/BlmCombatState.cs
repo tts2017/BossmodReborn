@@ -302,11 +302,18 @@ internal sealed class BlmCombatState(WorldState world, Actor player, float frame
     public string BurstState() => DescribeForSearch();
     public bool BurstFeasible(ActionQueue.Entry entry) => CanExecute(entry);
 
+    public static readonly bool StrictArea = Environment.GetEnvironmentVariable("XAN_HARNESS_STRICT_AREA") == "1";
+
     private bool CanExecute(ActionQueue.Entry entry, bool jobRules = true)
     {
         if (entry.Target != null && entry.Target != player && (entry.Target.IsDead || !entry.Target.IsTargetable))
             return false;
         if (EnforceRangeAndMovement && !InRangeAndAbleToStart(entry))
+            return false;
+        // XAN_HARNESS_STRICT_AREA=1: a ground-targeted action (Ley Lines) needs its location, and the client refuses one sent without it
+        // (UseActionLocation at the map origin). The harness player normally stands at the origin, where a missing location cannot be told
+        // from the player's own, so this mode also moves the player 0.5 y off it
+        if (StrictArea && ActionDefinitions.Instance[entry.Action] is { } def && (def.AllowedTargets & ActionTargets.Area) != 0 && entry.TargetPos == default)
             return false;
         if (!jobRules)
             return true;
