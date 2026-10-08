@@ -72,6 +72,14 @@ public sealed class RprEngineModule(RotationModuleManager manager, Actor player)
             Force("EnshroudIdeal");
             Force("Enshroud");
         }
+        else if (Job.HasSkill("Perfectio") && st.Buffs.Value != OffensiveStrategy.Delay)
+        {
+            // 50 Shroud kept for the raid buffs (ersharifst 7.5: Soul 50 / Shroud 50 before the burst, the Shroud 50 Enshroud and the Ideal
+            // Host one both inside it): a plain Enshroud up to 12 s before them goes off right before the buffs
+            var (raidBuffLeft, raidBuffIn) = RaidBuffTimings();
+            if (raidBuffLeft <= 0 && raidBuffIn is > 0 and <= 12)
+                Forbid(ref s, "Enshroud");
+        }
 
         if (st.Communio.Value == EnabledByDefault.Disabled)
             Forbid(ref s, "Communio");
