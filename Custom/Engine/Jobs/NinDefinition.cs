@@ -150,8 +150,9 @@ public static class NinDefinition
         if (level >= 18)
         {
             b.Ogcd("KunaisBane", kunai, KunaisBaneCD, kunaiAid).RequiresStatus(Dokumori).RequiresStatus(ShadowWalker).RemoveStatus(ShadowWalker).ApplyStatus(KunaisBane, 16.29f);
-            // an odd-minute Kunai's Bane only when it will be back for the next Dokumori
-            b.Ogcd("KunaisBaneOdd", kunai, KunaisBaneCD, kunaiAid).ForbidStatus(Dokumori).RequiresCooldownAtLeast(DokumoriCD, 55).RequiresStatus(ShadowWalker).RemoveStatus(ShadowWalker).ApplyStatus(KunaisBane, 16.29f);
+            // an odd-minute Kunai's Bane only when it will be back for the next Dokumori: within 10 s of it (the even one goes about 6.5 s
+            // after Dokumori, so its recast ends with 53.5 s left on Dokumori; at 55 the odd one was never legal)
+            b.Ogcd("KunaisBaneOdd", kunai, KunaisBaneCD, kunaiAid).ForbidStatus(Dokumori).RequiresCooldownAtLeast(DokumoriCD, 50).RequiresStatus(ShadowWalker).RemoveStatus(ShadowWalker).ApplyStatus(KunaisBane, 16.29f);
         }
         if (level >= 56)
             b.Ogcd("DreamWithinADream", 540, DreamCD, AidDream);
