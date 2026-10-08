@@ -1220,3 +1220,247 @@ MNK の [Engine] は MinNodes / SliceNodes でライブも決定論と一致す�
 
 出典: [Elixir Burst (consolegameswiki)](https://ffxiv.consolegameswiki.com/wiki/Elixir_Burst)、[Enshroud (consolegameswiki)](https://ffxiv.consolegameswiki.com/wiki/Enshroud)、
 [ersharifst 7.3 Lv100 MNK ガイド](https://www.ersharifst.com/2024/09/14/nifdv/)。
+
+## 25. DRG [Engine] (竜騎士をエンジンに載せた)
+
+### 25.1 変更内容
+
+- `Custom/Engine/Jobs/DrgDefinition.cs`: 竜騎士のジョブ定義 (データのみ、`Build(gcd, level)`)。威力・仕様は xan_timeline_harness の
+  `DrgCombatState` / `DrgPotencyScorer` (l76 / l94 の分岐、Drakesbane 86、Geirskogul / Nastrond 90、Jump 54) に合わせた。
+  - 2 本のコンボ: True / Raiden Thrust → Vorpal Thrust (96 で Lance Barrage) → Heavens' Thrust (86、それ未満は Full Thrust) → Fang and Claw →
+    Drakesbane、→ Disembowel (96 で Spiral Blow) → Chaotic Spring (86、それ未満は Chaos Thrust) → Wheeling Thrust → Drakesbane。置き換わる技は
+    スキル名を変えずに ActionId と威力だけ替えた (§17 と同じ)。Raiden Thrust (76) と Draconian Fury (82) は Draconian Fire を要るので別スキル。
+    範囲コンボ Doom Spike / Draconian Fury → Sonic Thrust → Coerthan Torment (10y 直線、全対象に同じ威力)。
+  - ゲームが拒否する段 (コンボ外の Heavens' Thrust / Fang and Claw / Chaotic Spring / Wheeling Thrust / Coerthan Torment) は `RequiresCombo`。
+    Drakesbane は Fang and Claw と Wheeling Thrust のどちらからも繋がるので、平ゲージ `FourthStep` (4 段目で 1、他の WS で 0。モジュールは
+    コンボ状態から作る) を条件にした (定義の条件に「コンボが A または B」の種類がないため。VPR の `Step` も同じ)。
+  - Power Surge 30 秒 ×1.10 (upkeep)、Lance Charge 20 秒 ×1.10、Battle Litany 20 秒 = クリ率 +10% をスコアラーの期待値モデルで
+    全技 ×1.0522、`PartyValue` 1,514 (ハーネスのパーティ 1,450 威力/秒 × 20 秒 × 0.0522)、Life of the Dragon 20 秒 ×1.15 (70 未満は
+    Blood of the Dragon ×1.10)、Chaotic Spring は DoT (24 秒、45 / 3 秒。86 未満は 40) で「新たに覆う秒数」だけを押した時点で計上
+    (ハーネスと同じ)。
+  - Life Surge = 次の WS が確定クリティカル: スコアラーの比 1.3913 (= 1.60 / (1 + 0.25 × 0.60)) を Heavens' Thrust / Drakesbane / Coerthan
+    Torment の条件付き威力にし、全 WS が Life Surge を消す。ガイドの「対象はヘヴンスラストか雲蒸竜変 (3 体以上は Coerthan Torment) だけ」を
+    Life Surge の 3 変種 (`LifeSurge` = コンボが Vorpal、`LifeSurgeDrakesbane` = FourthStep、`LifeSurgeAoe` = コンボが Sonic Thrust、
+    3 体以上) の条件で表した (アビリティの `RequiresCombo` はコンボを継続させてしまうので `ComboNeutral` を重ねる)。リタニー中の比
+    (1.4016) との差は 0.7% で無視した。2 チャージは 88 から。
+  - High Jump 30 秒 (74 未満は Jump、68 から Dive Ready 15 秒) → Mirage Dive、Geirskogul 60 秒 → LotD + Nastrond Ready、Stardiver 30 秒
+    (ロック 1.5 秒、LotD 中のみ) → Starcross Ready (100、LotD 中のみ)、Dragonfire Dive 120 秒 (92 から Dragon's Flight) → Rise of the
+    Dragon、Wyrmwind Thrust 10 秒 (Focus 2 消費。Focus は Raiden Thrust / Draconian Fury で +1、90 から)、Drakesbane / Coerthan Torment
+    (82) の後に Draconian Fire 30 秒。
+  - `FillerPotency`: コンボ 2 本の平均威力 (Lv100 で 313。自動計測は Draconian Fire を要る Raiden Thrust で止まり 234 になっていた)。
+- `Custom/Engine/Jobs/DrgEngineModule.cs`: 「DRG [Engine]」(WIP、グループ Engine、xan DRG [Custom] の Strategy)。登録レベル 30
+  (True Thrust → Vorpal → Full Thrust と Disembowel の Power Surge、Lance Charge、Jump が揃う。50 で Chaos Thrust、64 で Drakesbane)。
+  - 状態: DragoonGauge (Firstminds' Focus、LotD タイマー → LifeOfTheDragon ステータス)、SID (Power Surge / Lance Charge / Battle Litany /
+    Life Surge / Nastrond Ready / Dive Ready / Draconian Fire / Dragon's Flight / Starcross Ready、対象の Chaotic Spring または Chaos Thrust)、
+    リキャスト (Life Surge / Lance Charge / Litany / Jump または High Jump / Geirskogul / Dragonfire Dive / Stardiver / Wyrmwind)、コンボ。
+  - トラック: Buffs (Battle Litany の Delay / Force)、LC (Lance Charge)、Dive (NoMove = Dragonfire Dive と Stardiver を禁止、NoLock = High
+    Jump も)、HJMD (AfterBuffs = Lance Charge が使える間は High Jump を禁止、Power Surge なしで Mirage Dive を禁止; HoldMD = Mirage Dive は
+    Lance Charge 中か Dive Ready が切れる前だけ; Delay / Force)、Talon (モジュールが Piercing Talon を押す: 射程外 (3 超 20 以内) で
+    Automatic、Enhanced があるとき)、HoldGCD (Delay = 全 GCD 禁止)、Filler (ForceTT = 優先度 pointless の対象にはコンボ 1 段目だけ)、
+    Iainuki / Zeninage (xan と同じ条件でモジュールが押す)、MechanicHints、Targeting、AOE。薬のトラックは xan DRG にないので薬は使わない。
+  - 2 本のコンボの交互: Power Surge が 10 秒以上残り、かつ DoT が 3 GCD 以上残っているときは Disembowel を Forbid (xan の「Power Surge <
+    10 で Disembowel」と同じ。ガイドは「64 から 2 本を交互に」)。これがないと探索は DoT の新規秒数と Power Surge の残り価値で毎回
+    Disembowel 側を選び、Heavens' Thrust 側を使わなかった (4 GCD の地平線では「残り 17 秒のバフを掛け直す損」が見えない)。
+  - カウントダウン開幕: True Thrust が着弾遅延 0.76 秒でプルに乗るように押す、射程外なら 0.7 秒前に Winged Glide (xan と同じ)。
+  - 位置取り: Chaotic Spring / Wheeling Thrust は背面、Fang and Claw は側面。True North は外れそうなときに最低優先度で (xan DRG に
+    True North のトラックはない)。対象数はコンボと同じ 10y 直線。
+  - ライブのフレーム予算 0.5 ms (他ジョブは 0.03〜0.08) と MinNodes 5000 / SliceNodes 400: 8 秒ごとの再計画がフレーム予算を使い切ると探索が
+    次のフレームに回り、ライブが決定論から離れた (300 秒単体: フレーム 0.05 ms で 95,537、0.5 ms で 96,542 = 決定論)。SliceNodes 40 (MNK) だと
+    探索が多くのフレームにまたがって根が古くなり 95,703 だった。
+- 重み: MNK の Lv100 セットから CMA-ES (`tune-xan --def drg --job drg-engine --args "timeline-matrix --scenario-limit 8 --party-buffs 7.8"
+  --gens 14 --pop 12`、params は MNK の 9 個 + `CooldownValue.LanceChargeCD:0:2000,CooldownValue.LifeSurgeCD:0:400`)。620,595 → 634,072
+  (LanceChargeCD の価値 700 が付き、Lance Charge が窓の頭に来る)。結果は `tools/blm_engine_eval/tuned/weights-DRG-v1.json` と
+  `DrgDefinition.DefaultWeightsJson`。調整後に入れた DoT 条件 (上の Disembowel の Forbid) で決定論は 630,497 → 633,940 (バフなし) /
+  634,072 → 632,547 (バフあり)。
+- tools: xan_timeline_harness に `drg-engine` (ENGINE_WEIGHTS / ENGINE_FRAME_MS の上書きも)、blm_engine_eval に `--def drg`。
+
+### 25.2 ジョブ別ルール (Lv100 未満、`SyncedOgcd` / `SyncedGcd`)
+
+出典: The Balance DRG Leveling Guide (1-17 / 18-25 / 26-49 / 50-55 / 56-57 / 58-63 / 64-100: 「Power Surge を切らさない」「26 から Life Surge
+は Full Thrust、64 から Drakesbane にも、範囲は Sonic Thrust / Coerthan Torment」「64 から 2 本を交互に」「アビリティとバフはリキャストごと」)、
+ersharifst 7.3 Lv100 (ランスチャージ → リタニー → ゲイルスケグルを同じ窓に、ライフサージはヘヴンスラストと雲蒸竜変だけ、スターダイバーは
+単独の枠、天竜点睛は 2 スタックで竜眼雷電の前に)、xan DRG.cs のウィーブ規則。
+
+- oGCD: Lance Charge は Power Surge が付いてからリキャストごと (18 未満は Power Surge がないので即)。Battle Litany と Geirskogul は Lance
+  Charge 中 (Lance Charge を使わない設定、または 20 秒以上先なら制限なし)。Wyrmwind Thrust は Focus 2 で LotD 中、または次の GCD が
+  Raiden Thrust / Draconian Fury (Draconian Fire があってコンボが空) のとき。High Jump / Mirage Dive はトラックの条件で。Life Surge は
+  定義の条件 (Heavens' Thrust / Drakesbane / Coerthan Torment の直前) で Lance Charge 中、またはチャージが満タンになる 1 GCD 前。
+  Dragonfire Dive は Lance Charge 中 (同上)。Nastrond、Stardiver、Starcross、Rise of the Dragon は準備完了で即。
+- GCD: 3 体以上は Doom Spike / Draconian Fury → Sonic Thrust → Coerthan Torment (62 未満は Power Surge が切れる前に Disembowel のコンボ)。
+  単体は始めたコンボを仕上げ (5 → 4 → 3 → 2 段目)、2 段目は Power Surge が 10 秒未満か DoT が 3 GCD 未満なら Disembowel、それ以外は
+  Vorpal Thrust。1 段目は Draconian Fire があれば Raiden Thrust。Piercing Talon はモジュール。
+- [DERIVED]: Litany / Geirskogul / Dragonfire Dive を Lance Charge 中に揃える (ガイドは「リキャストごと」、ersharifst は同じ窓)、Life Surge の
+  「チャージが満タンになる前」、DoT 3 GCD の閾値、Lance Charge 20 秒の逃げ。
+
+### 25.3 検証
+
+- Release ビルド 0 エラー (BossModReborn、xan_timeline_harness、blm_engine_eval、engine_tests 17/17、rpr_engine_eval、engine_bench、
+  engine_tuner、blm / mnk / nin / sam / rpr / drg_regression。vpr_regression は変更前から upstream の xan VPR を参照していてビルドが通らない)。
+- 他 7 ジョブの Lv100 決定論 (9 戦闘、ENGINE_FRAME_MS=1000、BudgetMs 100): バフなし・`--party-buffs 7.8` とも出力行が変更前 (81f2fb4fd の
+  ワークツリー) と完全一致 (exec_ms を除く。RPR 666,657 / 689,735、NIN 650,308 / 652,226、MNK 578,459 / 589,056、SAM 672,188 / 673,349、
+  BLM 560,467 / 560,364、GNB 566,864 / 578,686、PLD 553,005 / 560,806)。Core / Adapter は変更していない。
+- Lv100 (決定論 = 9 戦闘 ENGINE_FRAME_MS=1000 + BudgetMs 100、ライブ = 組み込み (0.8 ms、フレーム 0.5 ms) を 2 回、(b) = `--party-buffs 7.8`、
+  300 秒 = `event-timeline --duration 300`。xan DRG はパーティバフの有無で同じ出力):
+
+| DRG Lv100 | 決定論 | 決定論 (b) | ライブ | ライブ (b) | 300 秒 | Execute 平均 / p99 µs / 1 ms 超 |
+|---|---:|---:|---:|---:|---:|---:|
+| 旧 xan DRG [Custom] | 630,336 (rdps 658,077) | 630,336 | 630,336 | 630,336 | 98,872 (rdps 103,403) | 35.1 / 72 / 15 |
+| 調整前 (MNK の重み) | 619,826 | 620,595 | | | 96,684 | |
+| DRG [Engine] | **633,940** (rdps 662,173) | **632,547** (rdps 660,784) | 634,249 / 634,249 | 631,855 / 631,855 | 96,542 (rdps 101,070) (ライブも 96,542) | 51.2 / 587 / 56 |
+
+  - 受け入れ基準 (9 戦闘 `--party-buffs 7.8` で旧版以上) は決定論で満たす (+0.4%、バフなし +0.6%)。ライブも 2 回とも同じ値で旧版以上 (バフなし +0.6%、バフあり +0.2%)。300 秒単体は
+    −2.4% (旧版未満)。rdps (party_litany 込み) も同じ向き。
+  - 9 戦闘のカウンター (決定論 / (b) / 旧): no_surge (Power Surge なしの WS) 8 / 4 / 5、dot_gap 109.6 / 94.6 / 76.7 秒、procs_lost 6 / 6 / 7、
+    ls_lost 1 / 0 / 0、Geirskogul 34、Stardiver 34、GCD 696 / oGCD 503 (旧 489)。短い 8 戦闘はすべて [Engine] が上 (例 60 秒 21,622 /
+    旧 21,429、27.5 秒 10,953 / 10,307)、長い z1363 は下 (約 −1%)。
+  - 300 秒単体のトレース (決定論) の開幕: True Thrust → [Geirskogul] → [Litany] → Spiral Blow → [Lance Charge] → [High Jump] → Chaotic Spring →
+    [Stardiver] → Wheeling Thrust → [Dragonfire Dive] → [Life Surge] → Drakesbane → [Mirage Dive] → [Nastrond] → Raiden Thrust → [Rise of the
+    Dragon] → [Starcross] → Lance Barrage → [Life Surge] → Heavens' Thrust → Fang and Claw → Drakesbane。ersharifst の画像 (True Thrust →
+    Lance Barrage → Heavens' Thrust → [薬] → [Lance Charge] → [Litany] → [High Jump] → [Geirskogul] → Fang and Claw → [Mirage Dive] → [Life Surge]
+    → Drakesbane → [Dragonfire Dive] → [Rise of the Dragon] → Raiden Thrust → [Nastrond] → [Stardiver] → [Starcross] → [Life Surge] → Spiral Blow
+    → Chaotic Spring → ...) とは構造が違う: エンジンは Disembowel 側のコンボから入り (DoT を先に)、Geirskogul / Litany を最初のウィーブ、
+    Lance Charge を 2 つ目のウィーブに置く (Lance Charge の遅れ 2.5 秒)。Life Surge は Drakesbane と Heavens' Thrust の直前、Stardiver は
+    単独の枠、Wyrmwind は Focus 2 で LotD 中 (25.65 秒) で、本文の規則は再現している。開幕は固定していない。
+- シンクレベル (9 戦闘 `--level L`、既定トラック。ルールは探索をしないので決定論 = ライブ。旧 = xan DRG [Custom]):
+
+| DRG | ルール | 旧 | 旧比 | 失敗 ルール / 旧 | no_surge / dot_gap s / procs_lost / ls_lost (ルール ／ 旧) |
+|---|---:|---:|---:|---|---|
+| Lv90 | 515,153 | 512,626 | 0.5% | 0 / 0 | 5 / 95.2 / 3 / 0 ／ 5 / 76.7 / 3 / 0 |
+| Lv80 | 451,086 | 448,296 | 0.6% | 0 / 0 | 5 / 95.2 / 3 / 0 ／ 5 / 76.7 / 3 / 0 |
+| Lv70 | 383,068 | 380,059 | 0.8% | 0 / 0 | 5 / 95.2 / 0 / 0 ／ 5 / 76.7 / 0 / 0 |
+| Lv60 | 296,242 | 289,262 | 2.4% | 0 / 0 | 3 / 33.5 / 0 / 0 ／ 37 / 246.4 / 0 / 0 |
+| Lv50 | 265,490 | 263,463 | 0.8% | 0 / 0 | 3 / 18.5 / 0 / 3 ／ 3 / 43.6 / 0 / 3 |
+
+  - no_surge はダウンタイム明けに Power Surge が切れたままコンボを仕上げる分 (旧版と同数)。dot_gap の差 (90〜70) は DoT 3 GCD の閾値で
+    Disembowel 側が 1 GCD 遅れる分。Lv60 (Drakesbane なし、4 段コンボ) は旧版が Power Surge を 37 回落とすのに対しルールは 3 回。
+- 全レベル × 全トラックのスモーク (登録レベル 30〜100 の全レベル × 全トラックを k 番目の選択肢に揃えた組、奇数 k はカウントダウン 12 秒、
+  偶数 k は追加の敵 3 体、`--scenario-limit 2`): 213 回 (k = 1〜3) で例外 0。ハーネスの規則チェックの失敗は全 213 回 (合計 1,278) で、すべて「目標復帰後 3.5 秒以内に GCD がない」: 2 択のトラック HoldGCD が k ≥ 1 で必ず Delay (全 GCD 禁止) になる組で、同じ設定の xan DRG も同じ 3 件 / 戦闘を出す (わざと不自然な設定)。
+- drg_regression は自前のルールシミュレーター (DrgSimulator) で、モジュールを駆動する口がないのでエンジンは測れない。
+
+### 25.4 入れていないもの
+
+- 薬 (xan DRG にトラックがない)、Elusive Jump + Enhanced Piercing Talon の組 (ersharifst)、2 体のときの DoT 配り (xan の 2 体規則)、
+  HP ロック対象のときの Heavens' Thrust 優先 (ersharifst の「3 GCD 以内に倒せるなら順番を無視」)。
+- 開幕の固定 (カウントダウンの True Thrust / Winged Glide だけ)。ゲーム内での確認。
+
+出典: [The Balance DRG Leveling Guide](https://www.thebalanceffxiv.com/jobs/melee/dragoon/leveling-guide/)、
+[ersharifst 7.3 Lv100 DRG ガイド](https://www.ersharifst.com/2025/03/21/fdgssgt/)、xan DRG.cs (Custom/Rotation/Standard/xan/Melee/DRG.cs)。
+
+## 26. VPR [Engine] (ヴァイパーをエンジンに載せた)
+
+### 26.1 変更内容
+
+- `Custom/Engine/Jobs/VprDefinition.cs`: ヴァイパーのジョブ定義 (データのみ、`Build(gcd, level)`)。威力・仕様は xan_timeline_harness の
+  `VprCombatState` / `VprPotencyScorer` (Melee Mastery 74 / 84、Rattling Coil 82 (2) / 88 (3)、Offering 90、双牙の毒 75 / 80、Death Rattle 55、
+  Last Lash 60、Uncoiled の双牙 92、Ouroboros 96、Legacy 100、減衰 0.25) に合わせた。
+  - 基本コンボ: Steel / Reaving Fangs (もう一方の Honed で +100、使った Honed を消してもう一方を付与。10 から) → Hunter's Sting (Hunter's
+    Instinct 40 秒 ×1.10) / Swiftskin's Sting (Swiftscaled 40 秒、WS のリキャスト ×0.85) → Flanksting / Flanksbane / Hindsting / Hindsbane
+    (方向指定込み 400、持っている毒 (Flankstung / Flanksbane / Hindstung / Hindsbane) が合えば +100、次の毒を付与、Death Rattle、Offering +10)。
+    範囲は Steel / Reaving Maw (Honed +20) → Hunter's / Swiftskin's Bite → Jagged / Bloodied Maw (Grim の毒 +40、Last Lash)。
+  - コンボの段は平ゲージ `Step` (1 Fangs、2 Hunter's Sting、3 Swiftskin's Sting、4 Maw、5 / 6 Bite。他の WS で 0、モジュールはクライアントの
+    コンボ状態から作る): 2 段目は Steel / Reaving のどちらからも繋がり、仕上げはコンボ外ではゲームが拒否するので、段を条件にした
+    (`ComboFrom` は葉のコンボ価値のために残した)。4 種の毒 (同時に 1 つ) は平ゲージ `Venom` (1〜4)、Grim の毒は `GrimVenom`。
+  - 蛇尾術 (Death Rattle / Last Lash / 4 つの Legacy = 1 スキル `Legacy`、モジュールがゲージで押し分け) は平ゲージ `Tail`、双牙の窓 (coil の後
+    / den の後 / Uncoiled Fury の後、どちらの側で開いたか) は `TwinWindow` (1〜5) と `TwinfangReady` / `TwinbloodReady`。どの WS も
+    これらを落とす (ハーネスは失われた追撃として数える)。
+  - 双牙は窓ごとに組で定義: Hunter's Coil の後は Twinfang (Hunter's Venom +50、Swiftskin's Venom を付与) → Twinblood、Swiftskin's Coil の後は
+    Twinblood → Twinfang (den も同様。モジュールは同じ 2 アクションを押す)。ウィーブ窓は定義順に探索される (後ろの番号 → 前の番号の順は
+    探索されない) ので、1 組の定義では Swiftskin's Coil の後も Twinfang が先になり、付与された Hunter's Venom が 35 回失効していた。
+  - Vicewinder (40 秒 2 チャージ、Rattling Coil +1) は `HunterCoilOk` / `SwiftCoilOk` を両方付与し、Hunter's / Swiftskin's Coil (3.0 秒、
+    方向指定込み 680、自分のバフを 40 秒、双牙の窓、Offering +5) がそれぞれ自分の分を消す。Vicepit → den も同じ。鎖の途中では基本コンボ・
+    Reawaken・Uncoiled Fury を禁止 (ガイドは鎖を必ず仕上げる)。
+  - Uncoiled Fury (3.5 秒、射程 20、Coil 1、92 から Poised + Uncoiled Twinfang → Twinblood)。Serpent's Ire 120 秒 (Coil +1、90 から Ready to
+    Reawaken 30 秒)。Reawaken (2.2 秒、Offering 50 または Ready = 2 スキル `Reawaken` / `ReawakenReady`、Anguine を 5 (96 未満 4) に) →
+    Generation 1〜4 (2.0 秒、連続威力 680、Anguine で段を縛る、100 で Legacy) → Ouroboros (96、3.0 秒、Reawakened を終える)。Reawakened 中は
+    基本コンボ・鎖・Uncoiled Fury を禁止 (xan は射程外で Uncoiled Fury を挟むが入れていない)。
+  - 長いリキャストは基本 GCD に比例 (coil 3.0 × gcd / 2.5 など)。Swiftscaled はステータスの `gcdRecastMultiplier` 0.85 で、モジュールは
+    ヘイストなしの GCD を渡す (SAM と同じ)。`FillerPotency`: 基本コンボの平均 (Lv100 で 460 = (300 + 300 + 500 + Death Rattle 280) / 3。
+    自動計測は Step ゲージを要る仕上げを回せず 296 になっていた)。
+- `Custom/Engine/Jobs/VprEngineModule.cs`: 「VPR [Engine]」(WIP、グループ Engine、xan VPR [Custom] の Strategy)。登録レベル 30
+  (4 つの仕上げと毒が揃う。65 で Vicewinder、90 で Reawaken)。
+  - 状態: ViperGauge (Offering、Rattling Coil、Anguine、DreadCombo → Ok ステータス、SerpentCombo → Tail / TwinWindow、下位 2 ビットの残り
+    回数と毒から双牙の Ready)、SID (Hunter's Instinct / Swiftscaled / Honed / 4 つの毒 → Venom / Grim → GrimVenom / Hunter's・Swiftskin's・
+    Fellhunter's・Fellskin's Venom / Poised / Ready to Reawaken / Reawakened)、リキャスト (Vicewinder、Serpent's Ire)、コンボ → Step。
+  - トラック: Buffs (Reawaken の Delay / Force)、SerpentsIre (Off / Force)、Potion (OpenerAndEven = Ready to Reawaken 中、または Serpent's Ire
+    直後の Reawaken 中; EvenOnly は 60 秒以降)、UncoiledFuryRange (Auto = 射程外 (3 超 20 以内) で Uncoiled Fury を Force)、Snap (モジュールが
+    射程外で Writhing Snap: Coil がある (Auto) ときは Uncoiled Fury に任せる、Reawaken 中は押さない)、Slither (Opener = カウントダウンの
+    0.45 秒前に射程外なら; OpenerAndBurstRecovery = 戦闘中も Ready to Reawaken / Reawakened で射程外なら)、OpenerBurst (Patch75ZeroSecond =
+    カウントダウンの最初の GCD が Vicewinder。それ以降の並びはエンジン)、TrueNorth、MechanicHints、Targeting、AOE。
+  - Reawaken は Hunter's Instinct / Swiftscaled がシーケンス (2.2 + 4 × 2.0 (+ 3.0) 秒 × GCD / 2.5 × ヘイスト) より短いと Forbid (xan と同じ)。
+    2 段目は毒の側 (Flank 系なら Hunter's、Hind 系なら Swiftskin's、毒がなければ残りの短いバフ) を Forbid で選ぶ (xan の
+    SelectSingleSecondComboGCD。探索は Swiftscaled に価値を持たないので、2 本のバフを落とさないため)。
+  - カウントダウン開幕: Steel Fangs (Patch75ZeroSecond は Vicewinder) を 1.16 秒前に、射程外なら Slither。位置取り: Flanksting / Flanksbane /
+    Hunter's Coil は側面、Hindsting / Hindsbane / Swiftskin's Coil は背面、True North は追撃より後ろの優先度。対象数は自分中心 5y。
+- 重み: NIN の Lv100 セットから CMA-ES (`tune-xan --def vpr --job vpr-engine --args "timeline-matrix --scenario-limit 8 --party-buffs 7.8"
+  --gens 14 --pop 12`、params は NIN の 9 個 + `CooldownValue.SerpentsIreCD:0:2000,StatusValue.Swiftscaled:0:60`)。698,114 → 707,192
+  (Swiftscaled の秒価値 39 が付く)。2 回目 (v1 から同じ設定) は 710,291 → 710,944 (+0.09%) で採用していない。結果は `tools/blm_engine_eval/tuned/weights-VPR-v1.json` と `VprDefinition.DefaultWeightsJson`
+  (BudgetMs 0.8、MinNodes 2000 / SliceNodes 40: 9 戦闘の最大探索 1,553 ノード。ライブは決定論と一致)。
+- tools: xan_timeline_harness に `vpr-engine`、blm_engine_eval に `--def vpr`。
+
+### 26.2 ジョブ別ルール (Lv100 未満、`SyncedOgcd` / `SyncedGcd`)
+
+出典: The Balance VPR Leveling Guide (全レベル: Steel と Reaving を交互に、Hunter's Instinct と Swiftscaled を常時維持、Vicewinder は
+リキャストごと (2 分窓の直前を除く)、Rattling Coil はコンボの間でバフを落とさずに; 70-73 / 74-81: 偶数分の窓は Vicewinder 2 組、82 から
+Coil を窓まで温存; 90-91: 偶数分は Serpent's Ire → フィラー 2 → Reawaken 2 組 → Uncoiled Fury、窓の間に Reawaken 1 回; 3 体以上は範囲
+コンボ)、ersharifst 7.5 (偶数分は Offering 50 を貯めて蛇の霊気 → 祖霊降ろし 2 セット、飛蛇の魂 2 以下で壱の蛇、蛇尾術と双牙は光ったら即、
+猛襲・疾速を切らさない)、xan VPR.cs。
+
+- oGCD: 蛇尾術 (Legacy / Death Rattle / Last Lash)、双牙 (窓ごとの組の順: Uncoiled → Thresh → Bite) を最優先。Serpent's Ire は Coil が上限
+  未満のときリキャストごと (90 からは Offering 50 以上、Reawaken 中、または直後の Reawaken が済んでいるとき)。
+- GCD: Reawaken 中は Generation 1〜4 → Ouroboros。鎖 (coil / den) は必ず仕上げ、残りの短いバフの側から。Reawaken は Ready で即、または
+  Offering 100、Serpent's Ire 直後 30 秒、または Offering 50 以上で「今使っても Serpent's Ire までに仕上げ (3 GCD に 10) で 50 に戻る」
+  とき (Hunter's Instinct / Swiftscaled がシーケンス分残っているときだけ)。Uncoiled Fury は Coil が上限で次の Coil (Vicewinder のチャージ、
+  2 GCD 以内の Serpent's Ire) が来るとき、またはレイドバフ中で Reawaken できないとき (バフが 3 GCD + 0.5 秒以上残るときだけ)。Vicewinder /
+  Vicepit (3 体以上) はチャージがあればリキャストごと、Serpent's Ire が 10 秒以内で Offering 50 以上なら 1 チャージを窓に残す、コンボが
+  3 GCD 以内に切れるときは先に仕上げる。範囲は Maw → Bite (残りの短いバフ) → Grim の毒の側の Maw、単体は Fangs (Honed の側) → Sting (毒の
+  側、なければ残りの短いバフ) → 毒の側の仕上げ。Writhing Snap はモジュール。
+- [DERIVED]: Serpent's Ire までの Offering の見込み (3 GCD に 10)、Uncoiled Fury のレイドバフ中の条件とバフ 3 GCD、Vicewinder の 10 秒
+  (xan HoldViceBeforeSerpentsIre)、コンボ 3 GCD。
+
+### 26.3 検証
+
+- Release ビルド 0 エラー、engine_tests 17/17 (§25.3 と同じ組)。他 7 ジョブの Lv100 決定論の出力行は変更前と完全一致 (§25.3)。
+- Lv100 (決定論 = 9 戦闘 ENGINE_FRAME_MS=1000 + BudgetMs 100、ライブ = 組み込み (0.8 ms) を 2 回、(b) = `--party-buffs 7.8`、300 秒 =
+  `event-timeline --duration 300`):
+
+| VPR Lv100 | 決定論 | 決定論 (b) | ライブ | ライブ (b) | 300 秒 | Execute 平均 / p99 µs / 1 ms 超 |
+|---|---:|---:|---:|---:|---:|---:|
+| 旧 xan VPR [Custom] | 700,312 | 698,736 | 700,312 | 698,736 | 113,655 | 49.2 / 109 / 6 |
+| 調整前 (NIN の重み、双牙 1 組) | 702,223 | 698,115 | | | 112,718 | |
+| 調整後 (双牙 1 組) | 702,223 | 707,192 | 702,223 | 707,192 | 113,548 | 38.8〜40.0 / 137〜143 / 14〜16 |
+| VPR [Engine] (双牙 2 組) | **710,169** | **710,291** | 710,169 / 710,169 | 710,291 / 710,291 | 114,038 (ライブも 114,038) | 39.5〜40.8 / 138〜141 / 11〜12 |
+
+  - 受け入れ基準 (9 戦闘 `--party-buffs 7.8` で旧版以上) を満たす (+1.7%、バフなし +1.4%)。300 秒単体も旧版以上 (+0.3%)。
+    ライブは MinNodes / SliceNodes で決定論と一致する。
+  - 9 戦闘のカウンター (決定論 / (b) / 旧): procs_lost 4 / 4 / 3、追撃失効 1 / 1 / 2、no_instinct 6 / 4 / 21、Reawaken 47 / 47 / 46、Generation 171 / 171 / 175、Uncoiled Fury 62 / 62 / 55 (旧 (b) 61)、coil 114 / 114 / 107、GCD 797 / oGCD 680 (旧 799 / 656)。
+  - 300 秒単体のトレース (決定論) の開幕: Vicewinder → [Serpent's Ire] → Swiftskin's Coil → [Twinblood] → [Twinfang] → Hunter's Coil → [Twinfang]
+    → [Twinblood] → Vicewinder → Hunter's Coil → ... → Swiftskin's Coil → ... → Reawaken (15.3 秒) → Generation 1〜4 (+ Legacy) → Ouroboros →
+    Uncoiled Fury × 3 (+ 双牙)。ersharifst の画像 (コンボ 1 段目 → 蛇の霊気 → 飛蛇の牙 → 猛襲蛇牙 → [薬] → 疾速蛇牙 → 祖霊降ろし → ...) に対し
+    エンジンは 2 つ目の Vicewinder の鎖を先に入れてから Reawaken する (レイドバフ窓 7.8〜27.8 秒の中)。薬込みの 3 セット (飛蛇の牙で挟む)
+    は 1 分あたりの Offering では成立せず、エンジンは偶数分に Ready の 1 回 + Offering の 1 回 (ersharifst の「2 セット」) を使う。
+    xan の 300 秒 (Vicewinder → Ire → Hunter's Coil → 双牙 → Swiftskin's Coil → 双牙 → Reawaken (8.5 秒)) とも Reawaken の位置が違う。
+- シンクレベル (9 戦闘 `--level L`、既定トラック。ルールは探索をしないので決定論 = ライブ。旧 = xan VPR [Custom]):
+
+| VPR | ルール | 旧 | 旧比 | 失敗 ルール / 旧 | Offering 溢れ / Coil 溢れ / procs_lost / 追撃失効 / no_instinct / Reawaken / UF / coil (ルール ／ 旧) |
+|---|---:|---:|---:|---|---|
+| Lv90 | 566,058 | 573,609 | -1.3% | 0 / 0 | 0 / 0 / 0 / 0 / 2 / 45 / 62 / 105 ／ 0 / 1 / 3 / 0 / 3 / 48 / 56 / 108 |
+| Lv80 | 462,870 | 462,870 | 0.0% | 0 / 0 | 0 / 0 / 0 / 0 / 2 / 0 / 0 / 112 ／ 同じ |
+| Lv70 | 410,618 | 410,618 | 0.0% | 0 / 0 | 0 / 0 / 0 / 0 / 2 / 0 / 0 / 112 ／ 同じ |
+| Lv60 | 394,168 | 394,168 | 0.0% | 0 / 0 | 0 / 0 / 0 / 0 / 2 / 0 / 0 / 0 ／ 同じ |
+| Lv50 | 311,260 | 311,260 | 0.0% | 0 / 0 | 0 / 0 / 0 / 0 / 2 / 0 / 0 / 0 ／ 同じ |
+
+  - 80 以下はルールと旧版の出力が同じ (Vicewinder の鎖と毒のコンボだけで、選択の余地がない)。Lv90 は Reawaken が 3 回少なく Uncoiled Fury
+    が 6 回多い (旧版は Ready to Reawaken の失効 3 と Coil 溢れ 1、ルールは 0)。Serpent's Ire までの Offering の見込み (上の [DERIVED]) を
+    xan の予測に近づけても回数は変わらなかった (Reawaken 中のバフ条件と Serpent's Ire 直後の優先のほうが効く)。
+- 全レベル × 全トラックのスモーク (登録レベル 30〜100、§25.3 と同じ組): 213 回 (k = 1〜3) で例外 0、規則チェックの失敗 0。
+- vpr_regression は upstream の `BossMod.Autorotation.xan.VPR` の private フィールドをリフレクションで読む (Custom の xan VPR とも違う) ので、
+  エンジンは駆動できない (変更前からビルドも通らない)。
+
+### 26.4 入れていないもの
+
+- Reawaken 中の射程外 Uncoiled Fury (xan)、鎖の途中の Uncoiled Fury、薬込みの 3 セット (ersharifst)、Patch75ZeroSecond のカウントダウン後の
+  固定並び (Vicewinder → Swiftskin's Coil → Hunter's Coil を優先 25 で押す xan の処理。エンジンの探索に任せた)。
+- Hunter's / Swiftskin's Venom などの 30 秒失効の価値付け (探索は追撃の威力でしか見ない)。ゲーム内での確認。
+
+出典: [The Balance VPR Leveling Guide](https://www.thebalanceffxiv.com/jobs/melee/viper/leveling-guide/)、
+[ersharifst 7.5 Lv100 VPR ガイド](https://www.ersharifst.com/2024/10/12/hdfbgdf/)、xan VPR.cs (Custom/Rotation/Standard/xan/Melee/VPR.cs)。
