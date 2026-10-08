@@ -96,6 +96,15 @@ public sealed class SamEngineModule(RotationModuleManager manager, Actor player)
                 if (s.Charges[meikyo] < 2 && s.CdReadyIn[meikyo] > Job.BaseGcd)
                     Forbid(ref s, "MeikyoShisui");
                 break;
+            case XanSAM.MeikyoStrategy.Auto when Job.HasSkill("TendoSetsugekka"):
+                // the even-minute Meikyo Shisui on the raid buffs (ersharifst 7.4: Meikyo -> Gekko -> Kasha -> Kaeshi -> Tendo Setsugekka ->
+                // ... -> Tendo Kaeshi inside them): one that would come up 5 to 24 s before the buffs waits for them, so the Tendo pair
+                // (3 GCDs after it) lands inside instead of just before. Pressed on recast (55 s) it drifts 5 s a minute. Not in the opener
+                // (its Meikyo goes at once, before the pull in the game)
+                var (raidBuffLeft, raidBuffIn) = RaidBuffTimings();
+                if (raidBuffLeft <= 0 && raidBuffIn is > 5 and < 24 && CombatTime > RaidBuffFirst)
+                    Forbid(ref s, "MeikyoShisui");
+                break;
         }
     }
 

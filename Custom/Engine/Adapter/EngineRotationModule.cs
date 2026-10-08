@@ -399,7 +399,7 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         if (isMoving)
             tl.AddNoCast(0, 0.5f);
 
-        // raid buffs: active / upcoming party buffs, else the 2-minute cycle from combat start
+        // raid buffs: active / upcoming party buffs, else the 2-minute cycle from combat start (RaidBuffTimings reads the same windows)
         Bossmods.RaidCooldowns.DamageBuffWindows(Player, null, _buffScratch);
         var windows = _buffScratch;
         foreach (var w in windows)
@@ -423,6 +423,32 @@ public abstract class EngineRotationModule(RotationModuleManager manager, Actor 
         }
         tl.Version = _timelineVersion;
         return tl;
+    }
+
+    // the raid buffs the timeline sees, as (seconds left on the current one, seconds until the next one): the party's windows, else the
+    // assumed cycle from combat start (EstimateRaidBuffTimings reads the party's cooldowns only, which the harness has only with party buffs)
+    protected (float Left, float In) RaidBuffTimings()
+    {
+        Bossmods.RaidCooldowns.DamageBuffWindows(Player, null, _buffScratch);
+        if (_buffScratch.Count > 0)
+        {
+            float left = 0, next = float.MaxValue;
+            foreach (var w in _buffScratch)
+            {
+                if (w.StartsIn <= 0)
+                    left = MathF.Max(left, w.StartsIn + w.Duration);
+                else
+                    next = MathF.Min(next, w.StartsIn);
+            }
+            return (left, next);
+        }
+        if (!AssumeRaidBuffCycle || Manager.CombatStart == default)
+            return (0, 0);
+        var cycle = (float)(World.CurrentTime - Manager.CombatStart).TotalSeconds - RaidBuffFirst;
+        if (cycle < 0)
+            return (0, -cycle);
+        cycle %= RaidBuffInterval;
+        return cycle < RaidBuffDuration ? (RaidBuffDuration - cycle, 0) : (0, RaidBuffInterval - cycle);
     }
 
     // helpers for ReadJobState

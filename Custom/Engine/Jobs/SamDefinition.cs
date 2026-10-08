@@ -121,8 +121,10 @@ public static class SamDefinition
         if (meikyo)
         {
             var shisui = b.Ogcd("MeikyoShisui", 0, MeikyoCD, AidMeikyo).ForbidStatus(Meikyo).ApplyStatus(Meikyo, 20, 3);
+            // not while a Tendo is still unused: it does not stack, and a second Meikyo Shisui before the Tendo Setsugekka only refreshes it
+            // (ersharifst 7.4: both openers press the second Meikyo Shisui after the Tendo Setsugekka)
             if (level >= 100)
-                shisui.ApplyStatus(Tendo, 30);
+                shisui.ForbidStatus(Tendo).ApplyStatus(Tendo, 30);
         }
         if (level >= 68)
         {
